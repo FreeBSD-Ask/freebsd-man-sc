@@ -31,7 +31,7 @@ SERVICE(8)
 
 [`-j`](#j) jail
 
-在命名的监狱下执行给定的操作。 jail 参数可以是监狱 ID 或监狱名称。
+在命名的 jail 下执行给定的操作。 jail 参数可以是 jail  ID 或 jail 名称。
 
 [`-l`](#l)
 

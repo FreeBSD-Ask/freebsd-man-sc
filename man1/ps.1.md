@@ -80,7 +80,7 @@ process status
 
 [`-J`](#J)
 
-显示有关与指定监狱 ID 匹配的进程的信息。 这可能是监狱的 `jid` 或 `name` 。 使用 `-J` **0** 仅显示主机进程。默认情况下，此标志暗示 `-x` 。
+显示有关与指定 jail  ID 匹配的进程的信息。 这可能是 jail 的 `jid` 或 `name` 。 使用 `-J` **0** 仅显示主机进程。默认情况下，此标志暗示 `-x` 。
 
 [`-L`](#L)
 
@@ -488,7 +488,7 @@ Vforked child 发出 ptrace(PT\_TRACEME)
 
 [`J`](#J_2)
 
-标记处于 jail(2) 中的进程。监狱的主机名可以在 /proc/⟨pid⟩/status 中找到。
+标记处于 jail(2) 中的进程。 jail 的主机名可以在 /proc/⟨pid⟩/status 中找到。
 
 [`L`](#L_3)
 

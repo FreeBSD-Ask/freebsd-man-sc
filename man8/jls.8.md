@@ -21,9 +21,9 @@ JLS(8)
 [描述](#__u63CF___u8FF0_)
 =======================
 
-`jls` 实用程序列出所有活动的监狱，或指定的监狱。 每个 jail 由一行表示，其中包含列出 parameters 的空格分隔值，包括伪参数 all ，它将显示所有可用的 jail 参数。 可以通过 “`sysctl` `-d` security.jail.param” 检索可用参数列表。 有关一些核心参数的描述，请参见 jail(8) 。
+`jls` 实用程序列出所有活动的 jail ，或指定的 jail 。 每个 jail 由一行表示，其中包含列出 parameters 的空格分隔值，包括伪参数 all ，它将显示所有可用的 jail 参数。 可以通过 “`sysctl` `-d` security.jail.param” 检索可用参数列表。 有关一些核心参数的描述，请参见 jail(8) 。
 
-If no parameters 如果没有给定参数或任何选项 `-hns` ，将打印以下四列：监狱标识符 (jid)、IP 地址 (ip4.addr)、主机名 (host.hostname) 和路径 (path)。
+If no parameters 如果没有给定参数或任何选项 `-hns` ，将打印以下四列： jail 标识符 (jid)、IP 地址 (ip4.addr)、主机名 (host.hostname) 和路径 (path)。
 
 可以使用以下选项：
 
@@ -33,7 +33,7 @@ If no parameters 如果没有给定参数或任何选项 `-hns` ，将打印以�
 
 [`-d`](#d)
 
-列出 dying 的监狱和活跃的监狱。.
+列出 dying 的 jail 和活跃的 jail 。.
 
 [`-h`](#h)
 
@@ -41,7 +41,7 @@ If no parameters 如果没有给定参数或任何选项 `-hns` ，将打印以�
 
 [`-N`](#N)
 
-在标准显示模式下，打印每个监狱的名称而不是其数字 ID。 如果监狱没有名称，则打印数字 ID。
+在标准显示模式下，打印每个 jail 的名称而不是其数字 ID。 如果 jail 没有名称，则打印数字 ID。
 
 [`-n`](#n)
 
@@ -57,11 +57,11 @@ If no parameters 如果没有给定参数或任何选项 `-hns` ，将打印以�
 
 [`-v`](#v)
 
-使用每个监狱的多行摘要扩展标准显示，包含以下参数：监狱标识符 (jid)、主机名 (host.hostname)、路径 (path)、监狱名称 (name)、监狱状态 (dying)、cpuset ID (cpuset)、IP 地址（ip4.addr 和 ip6.addr）。
+使用每个 jail 的多行摘要扩展标准显示，包含以下参数： jail 标识符 (jid)、主机名 (host.hostname)、路径 (path)、 jail 名称 (name)、 jail 状态 (dying)、cpuset ID (cpuset)、IP 地址（ip4.addr 和 ip6.addr）。
 
 [`-j`](#j) jail
 
-要列出的监狱的 jail 或名称。 如果没有此选项，将列出所有活动的监狱。
+要列出的 jail 的 jail 或名称。 如果没有此选项，将列出所有活动的 jail 。
 
 [参见](#__u53C2___u89C1_)
 =======================

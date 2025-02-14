@@ -66,7 +66,7 @@ FREEBSD-UPDATE(8)
 
 [`--currently-running`](#-currently-running) release
 
-不检测当前运行的版本；相反，假设系统正在运行指定的 release 。 这在升级监狱时最有可能有用。
+不检测当前运行的版本；相反，假设系统正在运行指定的 release 。 这在升级 jail 时最有可能有用。
 
 [命令](#__u547D___u4EE4_)
 =======================

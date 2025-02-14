@@ -123,7 +123,7 @@ killall -SIGCONT firefox
 
 killall -s firefox 
 
-将 `SIGKILL` 发送到在监狱 ID 282 内运行的 csh 进程：
+将 `SIGKILL` 发送到在 jail  ID 282 内运行的 csh 进程：
 
 killall -9 -j282 csh 
 

@@ -36,7 +36,7 @@ sysrc(8) 命令提供了一个脚本接口来修改系统配置文件。
 2.  确定系统是否在无盘引导，如果是，则运行 /etc/rc.initdiskless 脚本。
 3.  来源 /etc/rc.subr 以加载各种 rc.subr(8) 函数以使用。
 4.  加载配置文件。
-5.  确定是否在监狱中启动，并将 “`nojail`” （不允许监狱）或 “`nojailvnet`” （仅允许启用 vnet 的监狱）添加到要在 rcorder(8) 中跳过的关键字列表中。
+5.  确定是否在 jail 中启动，并将 “`nojail`” （不允许 jail ）或 “`nojailvnet`” （仅允许启用 vnet 的 jail ）添加到要在 rcorder(8) 中跳过的关键字列表中。
 6.  如果文件 ${firstboot\_sentinel} 不存在，请在 rcorder(8) 中将 “`firstboot`” 添加到要跳过的关键字列表中。
 7.  调用 rcorder(8) 对 /etc/rc.d/ 中没有 “`nostart`” 关键字的文件进行排序（参考 rcorder(8) 的 `-s` 标志）。
 8.  使用 `run_rc_script`() (来自 rc.subr(8)) 依次调用每个脚本，将 $1 设置为 “`start`”, 并在子 shell 中获取脚本。 当作为 $early\_late\_divider 值的脚本运行时停止处理。
