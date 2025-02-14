@@ -39,7 +39,7 @@ JAIL(8)
 
 [`-r`](#r)
 
-删除由 jid 或 name 指定的 jail 。 所有被监禁的进程都被杀死，并且作为这个 jail 的孩子的所有 jail 也被删除。
+删除由 jid 或 name 指定的 jail 。 所有被 jail 的进程都被杀死，并且作为这个 jail 的孩子的所有 jail 也被删除。
 
 [`-rc`](#rc)
 
@@ -105,11 +105,11 @@ JAIL(8)
 
 [`-u`](#u) username
 
-主机环境中的用户名，应该运行被监禁的命令。 这已弃用，等效于 exec.jail\_user 和 exec.system\_jail\_user 参数。
+主机环境中的用户名，应该运行被 jail 的命令。 这已弃用，等效于 exec.jail\_user 和 exec.system\_jail\_user 参数。
 
 [`-U`](#U) username
 
-来自被监禁的环境的用户名，被监禁的命令应该作为该用户运行。 这已弃用，等效于 exec.jail\_user 参数。
+来自被 jail 的环境的用户名，被 jail 的命令应该作为该用户运行。 这已弃用，等效于 exec.jail\_user 参数。
 
 [`-v`](#v)
 
@@ -145,7 +145,7 @@ path
 
 ip4.addr
 
-分配给 jail 的 IPv4 地址列表。 如果设置了此项， jail 将被限制为仅使用这些地址。 任何使用其他地址的尝试都会失败，并且尝试使用通配符地址会默默地使用被监禁的地址。 对于 IPv4，当未绑定套接字上的源地址选择找不到更好的匹配时，给定的第一个地址将用作源地址。 如果没有一个jails 分配给自己的IP 地址不超过这个单一的重叠IP 地址，则只能使用相同的IP 地址启动多个jails。
+分配给 jail 的 IPv4 地址列表。 如果设置了此项， jail 将被限制为仅使用这些地址。 任何使用其他地址的尝试都会失败，并且尝试使用通配符地址会默默地使用被 jail 的地址。 对于 IPv4，当未绑定套接字上的源地址选择找不到更好的匹配时，给定的第一个地址将用作源地址。 如果没有一个jails 分配给自己的IP 地址不超过这个单一的重叠IP 地址，则只能使用相同的IP 地址启动多个jails。
 
 ip4.saddrsel
 
@@ -251,7 +251,7 @@ allow.quotas
 
 allow.read\_msgbuf
 
-被监禁的用户可能会读取内核消息缓冲区。 如果 security.bsd.unprivileged\_read\_msgbuf MIB 条目为零，这将被限制为 root 用户。
+被 jail 的用户可能会读取内核消息缓冲区。 如果 security.bsd.unprivileged\_read\_msgbuf MIB 条目为零，这将被限制为 root 用户。
 
 allow.socket\_af
 
@@ -475,7 +475,7 @@ D=/here/is/the/jail cd /usr/src mkdir -p $D make world DESTDIR=$D make distribut
 [设置主机环境](#__u8BBE___u7F6E___u4E3B___u673A___u73AF___u5883_)
 -----------------------------------------------------------
 
-首先，将真实系统的环境设置为 “jail-friendly” 。 为了保持一致性，我们将父框称为 “host environment” ，将被监禁的虚拟机称为 “jail environment” 。 由于 jail 是使用 IP 别名实现的，因此要做的第一件事就是禁用主机系统上的 IP 服务，该服务侦听服务的所有本地 IP 地址。 如果主机环境中存在绑定所有可用 IP 地址而不是特定 IP 地址的网络服务，则如果 jail 未绑定端口，它可能会为发送到 jail  IP 地址的请求提供服务。 这意味着将 inetd(8) 更改为仅侦听适当的 IP 地址，依此类推。 将以下内容添加到主机环境中的 /etc/rc.conf 中：
+首先，将真实系统的环境设置为 “jail-friendly” 。 为了保持一致性，我们将父框称为 “host environment” ，将被 jail 的虚拟机称为 “jail environment” 。 由于 jail 是使用 IP 别名实现的，因此要做的第一件事就是禁用主机系统上的 IP 服务，该服务侦听服务的所有本地 IP 地址。 如果主机环境中存在绑定所有可用 IP 地址而不是特定 IP 地址的网络服务，则如果 jail 未绑定端口，它可能会为发送到 jail  IP 地址的请求提供服务。 这意味着将 inetd(8) 更改为仅侦听适当的 IP 地址，依此类推。 将以下内容添加到主机环境中的 /etc/rc.conf 中：
 
 sendmail\_enable="NO" inetd\_flags="-wW -a 192.0.2.23" rpcbind\_enable="NO" 
 
@@ -528,7 +528,7 @@ testjail { path = /tmp/jail/testjail; mount.devfs; host.hostname = testhostname;
 
 jail -c testjail 
 
-可能会产生一些警告；但是，它应该都能正常工作。 您应该能够使用 ps(1) 看到 inetd(8), syslogd(8) 和其他在 jail 中运行的进程，并且 ‘`J`’ 标志出现在被监禁的进程旁边。 要查看 jails 的活动列表，请使用 jls(8) 。 如果在 jail 环境中启用了 sshd(8) ，您应该能够 ssh(1) 到 jail 环境的主机名或 IP 地址，并使用您之前创建的帐户登录。
+可能会产生一些警告；但是，它应该都能正常工作。 您应该能够使用 ps(1) 看到 inetd(8), syslogd(8) 和其他在 jail 中运行的进程，并且 ‘`J`’ 标志出现在被 jail 的进程旁边。 要查看 jails 的活动列表，请使用 jls(8) 。 如果在 jail 环境中启用了 sshd(8) ，您应该能够 ssh(1) 到 jail 环境的主机名或 IP 地址，并使用您之前创建的帐户登录。
 
 可以在引导时启动 jail 。 有关详细信息，请参阅 rc.conf(5) 中的 “jail\_\*” 变量。
 
@@ -576,9 +576,9 @@ pgrep -lfj 3 pkill -j 3
 [分级 jail ](#__u5206___u7EA7___u76D1___u72F1_)
 -----------------------------------------
 
-通过设置 jail 的 children.max 参数，jail 中的进程可以创建自己的jail。 这些子 jail 保存在一个层次结构中， jail 只能查看和/或修改他们创建的 jail （或这些 jail 的孩子）。 每个 jail 都有一个只读的 parent 参数，包含创建它的 jail 的 jid ; jid 为 0 表示 jail 是当前 jail 的子 jail （如果当前进程没有被监禁，则它是顶级 jail ）。
+通过设置 jail 的 children.max 参数，jail 中的进程可以创建自己的jail。 这些子 jail 保存在一个层次结构中， jail 只能查看和/或修改他们创建的 jail （或这些 jail 的孩子）。 每个 jail 都有一个只读的 parent 参数，包含创建它的 jail 的 jid ; jid 为 0 表示 jail 是当前 jail 的子 jail （如果当前进程没有被 jail ，则它是顶级 jail ）。
 
-被监禁的进程不允许授予比它们自己更大的权限，例如，如果使用 allow.nomount 创建 jail ，则无法创建设置了 allow.mount 的 jail 。 同样，在儿童 jail 中也可能无法绕过 ip4.addr 和 securelevel 等限制。
+被 jail 的进程不允许授予比它们自己更大的权限，例如，如果使用 allow.nomount 创建 jail ，则无法创建设置了 allow.mount 的 jail 。 同样，在儿童 jail 中也可能无法绕过 ip4.addr 和 securelevel 等限制。
 
 如果设置了自己的 children.max 参数，则子 jail 可以反过来创建自己的子 jail （请记住，默认情况下它为零）。 这些 jail 对其父级和所有祖先都是可见的，并且可以由其修改。
 
@@ -615,7 +615,7 @@ James Gritton 添加了可扩展的 jail 参数、分层 jail 和配置文件。
 [笔记](#__u7B14___u8BB0_)
 =======================
 
-管理 jail 中可见的目录时应格外小心。 例如，如果被监禁的进程将其当前工作目录设置为移出 jail 的 chroot 的目录，则该进程可能会访问 jail 外的文件空间。 建议始终将目录从 jail 中复制而不是移动。
+管理 jail 中可见的目录时应格外小心。 例如，如果被 jail 的进程将其当前工作目录设置为移出 jail 的 chroot 的目录，则该进程可能会访问 jail 外的文件空间。 建议始终将目录从 jail 中复制而不是移动。
 
 此外， jail 外的非特权用户可以通过多种方式与 jail 内的特权用户合作，从而在主机环境中获得提升的特权。 通过确保主机环境中的非特权用户无法访问jail root，可以减轻大多数攻击。 无论如何，作为一般规则，不应授予对 jail 具有特权访问权限的不受信任的用户访问主机环境。
 
