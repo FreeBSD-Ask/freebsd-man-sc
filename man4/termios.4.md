@@ -328,7 +328,7 @@ Fn open 后的初始输入控制值由实现定义。
 `#include <sys/ttydefaults.h>`
 
 | 索引名 | 特殊字符 | 默认值 |
-| --- | --- | --- |
+| ------ | -------- | ------ |
 | `VEOF` | EOF | ^D |
 | `VEOL` | EOL | _POSIX_VDISABLE |
 | `VEOL2` | EOL2 | _POSIX_VDISABLE |

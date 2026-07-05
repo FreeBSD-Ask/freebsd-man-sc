@@ -52,28 +52,26 @@ kldload nlsysevent
 
 该模块为每个系统名称创建一个多播组。模块加载时预注册以下组：
 
-| |
-| --- |
-| `ACPI` |
-| `AEON` |
-| `CAM` |
-| `CARP` |
-| `coretemp` |
-| `DEVFS` |
-| `device` |
-| `ETHERNET` |
-| `GEOM` |
-| `HYPERV_NIC_VF` |
-| `IFNET` |
-| `INFINIBAND` |
-| `KERNEL` |
-| `nvme` |
-| `PMU` |
-| `RCTL` |
-| `USB` |
-| `VFS` |
-| `VT` |
-| `ZFS` |
+- `ACPI`
+- `AEON`
+- `CAM`
+- `CARP`
+- `coretemp`
+- `DEVFS`
+- `device`
+- `ETHERNET`
+- `GEOM`
+- `HYPERV_NIC_VF`
+- `IFNET`
+- `INFINIBAND`
+- `KERNEL`
+- `nvme`
+- `PMU`
+- `RCTL`
+- `USB`
+- `VFS`
+- `VT`
+- `ZFS`
 
 当内核事件中出现新的系统名称时，会动态创建附加组，最多可达 64 个组。
 

@@ -29,7 +29,7 @@ if_enc_load="YES"
 可通过以下 [sysctl(8)](../man8/sysctl.8.md) 变量独立控制 [tcpdump(1)](../man1/tcpdump.1.md) 能看到的内容以及通过 [pfil(9)](../man9/pfil.9.md) 框架传递给防火墙的内容：
 
 | 名称 | 默认值 | 建议值 |
-| --- | --- | --- |
+| ---- | ------ | ------ |
 | net.enc.out.ipsec_bpf_mask | 0x00000003 | 0x00000001 |
 | net.enc.out.ipsec_filter_mask | 0x00000001 | 0x00000001 |
 | net.enc.in.ipsec_bpf_mask | 0x00000001 | 0x00000002 |
