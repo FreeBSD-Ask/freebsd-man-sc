@@ -66,7 +66,7 @@ kern.random.initial_seeding.disable_bypass_warnings: 0
 
 **`kern.random.initial_seeding.disable_bypass_warnings`** 默认值为 0（关闭）。设置为非零值时，禁用 `random` 设备绕过时在 dmesg 中输出的警告。
 
-以下只读 [sysctl(8)](../man8/sysctl.8.md) 变量允许以编程方式诊断引导过程中是否发生了 `random` 设备绕过。若设置为非零值，表示特定功能单元绕过了强 `random` 设备输出，且要么不产生输出（(read_random)），要么以最少的非加密强度熵为自身播种（(arc4random)）。
+以下只读 [sysctl(8)](../man8/sysctl.8.md) 变量允许以编程方式诊断引导过程中是否发生了 `random` 设备绕过。若设置为非零值，表示特定功能单元绕过了强 `random` 设备输出，且要么不产生输出（read_random），要么以最少的非加密强度熵为自身播种（arc4random）。
 
 - `kern.random.initial_seeding.read_random_bypassed_before_seeding`
 - `kern.random.initial_seeding.arc4random_bypassed_before_seeding`

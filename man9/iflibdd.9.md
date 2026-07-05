@@ -219,7 +219,7 @@ ifdi_i2c_req(if_ctx_t ctx, struct ifi2creq *req)
 
 **`ifdi_media_change`** 当用户使用 [ifconfig(8)](../man8/ifconfig.8.md) 的 media/mediaopt 选项更改速度/双工时调用此函数。
 
-**`ifdi_promisc_set`** 根据 flags 值启用或禁用混杂设置。`flags` 包含接口的 [ifnet(9)](ifnet.9.md) 标志。
+**`ifdi_promisc_set`** 根据 `flags` 值启用或禁用混杂模式。`flags` 包含接口的 [ifnet(9)](ifnet.9.md) 标志。
 
 **`ifdi_get_counter`** 根据计数器类型返回计数器 cnt 的值。
 

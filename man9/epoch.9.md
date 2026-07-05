@@ -81,7 +81,7 @@ in_epoch_verbose(epoch_t epoch, int dump_onfail)
 
 epoch 通过将回收和修改推迟到宽限期之后，保证数据的活跃性和不可变性。epoch 没有任何锁顺序问题。进入和离开一个 epoch 区段永远不会阻塞。
 
-epoch 通过 `epoch_alloc` 分配。`name` 参数在配置了 `EPOCH_TRACE` 内核选项时用于调试便利。默认情况下，epoch 在区段内不允许抢占。默认情况下，跨 `epoch_wait_preempt` 不能持有互斥锁。指定的 `flags` 由以下值按位 OR 形成：
+epoch 通过 `epoch_alloc` 分配。`name` 参数在配置了 `EPOCH_TRACE` 内核选项时用于调试便利。默认情况下，epoch 在区段内不允许抢占，且跨 `epoch_wait_preempt` 不能持有互斥锁。指定的 `flags` 由以下值按位 OR 形成：
 
 **`EPOCH_LOCKED`** 允许跨 `epoch_wait_preempt` 持有互斥锁（需要 `EPOCH_PREEMPT`）。这样做时必须小心，避免出现可能死锁的情况。
 

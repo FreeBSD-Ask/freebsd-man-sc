@@ -66,7 +66,7 @@ crypto_use_output_vmpage(struct cryptop *crp, vm_page_t *pages,
 
 内核中的每个对称密码学操作由 `struct cryptop` 的实例描述，并与一个活动会话关联。
 
-请求可以动态分配，也可以使用调用者提供的存储。动态分配的请求应通过 `crypto_getreq` 或 `crypto_clonereq` 分配，并在请求完成后用 `crypto_freereq` 释放。使用调用者提供存储的请求，应在每次操作开始时通过 `crypto_initreq` 初始化，并在请求完成后用 `crypto_destroyreq` 销毁。
+请求可以动态分配，也可以使用调用者提供的存储。动态分配的请求应通过 `crypto_getreq` 或 `crypto_clonereq` 分配，并在请求完成后通过 `crypto_freereq` 释放。使用调用者提供存储的请求，应在每次操作开始时通过 `crypto_initreq` 初始化，并在请求完成后通过 `crypto_destroyreq` 销毁。
 
 对于 `crypto_clonereq`、`crypto_getreq` 和 `crypto_initreq`，`cses` 是对活动会话的引用。对于 `crypto_clonereq` 和 `crypto_getreq`，`how` 被传递给 [malloc(9)](malloc.9.md)，应设置为 `M_NOWAIT` 或 `M_WAITOK`。
 
