@@ -364,7 +364,7 @@ struct mfcctl2 {
 
 - 如果数据流的带宽满足某个预定义过滤器，内核会向安装了该过滤器的多播路由进程在多播路由套接字上传递一个上 call。
 - 带宽上 call 过滤器按 (S,G) 安装。每个 (S,G) 可以有多个过滤器。
-- 不支持所有可能的比较操作（即 < <= == != > >= ），仅支持 <= 和 >= 操作，因为这使得内核级实现更简单，而且实际上我们只需要这两个。此外，缺失的操作可以通过对这些 <= 和 >= 过滤器的辅助用户级过滤来模拟。例如，要模拟 !=，则需要安装过滤器 “bw <= 0xffffffff”，并在收到上 call 后检查 “measured_bw != expected_bw”。
+- 不支持所有可能的比较操作（即 < <= == != > >= ），仅支持 <= 和 >= 操作，因为这使得内核级实现更简单，而且实际上我们只需要这两个。此外，缺失的操作可以通过对这些 <= 和 >= 过滤器的辅助用户级过滤来模拟。例如，要模拟 !=，则需要安装过滤器“bw <= 0xffffffff”，并在收到上 call 后检查 “measured_bw != expected_bw”。
 - 带宽上 call 机制通过为 `MRT_MFC_BW_UPCALL` 标志调用 Fn setsockopt MRT_API_CONFIG 来启用。
 - 带宽上 call 过滤器分别通过新的 Fn setsockopt MRT_ADD_BW_UPCALL 和 Fn setsockopt MRT_DEL_BW_UPCALL 来添加/删除（当然需要带相应的 `struct bw_upcall` 参数）。
 

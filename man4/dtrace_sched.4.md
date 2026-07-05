@@ -55,7 +55,7 @@ sched:::off-cpu
 
 ## 兼容性
 
-此提供者与 Solaris 中的 `sched` 提供者不兼容。特别是，探测参数类型为原生 FreeBSD 类型，且 Fn sched:::cpucaps-sleep 、Fn sched:::cpucaps-wakeup 、Fn sched:::schedctl-nopreempt 、Fn sched:::schedctl-preempt 和 Fn sched:::schedctl-yield 探测在 FreeBSD 中不可用。
+此提供者与 Solaris 中的 `sched` 提供者不兼容。特别是，探测参数类型为原生 FreeBSD 类型，且 Fn sched:::cpucaps-sleep、Fn sched:::cpucaps-wakeup 、Fn sched:::schedctl-nopreempt 、Fn sched:::schedctl-preempt 和 Fn sched:::schedctl-yield 探测在 FreeBSD 中不可用。
 
 Fn sched:::lend-pri 和 Fn sched:::load-change 探测是 FreeBSD 特有的。
 
