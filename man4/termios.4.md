@@ -327,26 +327,26 @@ Fn open 后的初始输入控制值由实现定义。
 
 `#include <sys/ttydefaults.h>`
 
-| *索引名 特殊字符 默认值* |
-| --- |
-| `VEOF` |
-| `VEOL` |
-| `VEOL2` |
-| `VERASE` |
-| `VWERASE` |
-| `VKILL` |
-| `VREPRINT` |
-| `VINTR` |
-| `VQUIT` |
-| `VSUSP` |
-| `VDSUSP` |
-| `VSTART` |
-| `VSTOP` |
-| `VLNEXT` |
-| `VDISCARD` |
-| `VMIN` |
-| `VTIME` |
-| `VSTATUS` |
+| 索引名 | 特殊字符 | 默认值 |
+| --- | --- | --- |
+| `VEOF` | EOF | ^D |
+| `VEOL` | EOL | _POSIX_VDISABLE |
+| `VEOL2` | EOL2 | _POSIX_VDISABLE |
+| `VERASE` | ERASE | ^? `e177` |
+| `VWERASE` | WERASE | ^W |
+| `VKILL` | KILL | ^U |
+| `VREPRINT` | REPRINT | ^R |
+| `VINTR` | INTR | ^C |
+| `VQUIT` | QUIT | ^ee `e34` |
+| `VSUSP` | SUSP | ^Z |
+| `VDSUSP` | DSUSP | ^Y |
+| `VSTART` | START | ^Q |
+| `VSTOP` | STOP | ^S |
+| `VLNEXT` | LNEXT | ^V |
+| `VDISCARD` | DISCARD | ^O |
+| `VMIN` | --- | 1 |
+| `VTIME` | --- | 0 |
+| `VSTATUS` | STATUS | ^T |
 
 如果可更改的特殊控制字符之一（参见 Sx 特殊字符）的值为 `{_POSIX_VDISABLE}`，则该功能被禁用；即没有输入数据被识别为禁用的特殊字符。如果未设置 `ICANON`，`{_POSIX_VDISABLE}` 的值对 `c_cc` 数组的 `VMIN` 和 `VTIME` 条目没有特殊含义。
 
