@@ -131,7 +131,7 @@ amr%d: device_add_child failed
 amr%d: bus_generic_attach returned %d
 ```
 
-创建逻辑驱动器实例失败；一个或多个逻辑驱动器的附加可能已中止。
+创建逻辑驱动器实例失败；一个或多个逻辑驱动器可能未能附加。
 
 ```text
 amr%d: flushing cache...
