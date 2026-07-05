@@ -10,16 +10,16 @@
 
 `LongRun 支持是 Transmeta Crusoe 芯片的一系列节能模式，作用范围类似于 Intel 的 SpeedStep。以下 sysctl(8) MIB 控制不同的 CPU 模式：`
 
-| **名称 类型 可修改 描述** |
-| --- |
-| hw.crusoe.longrun |
-|  |
-|  |
-|  |
-|  |
-| hw.crusoe.frequency |
-| hw.crusoe.voltage |
-| hw.crusoe.percentage |
+| 名称 | 类型 | 可修改 | 描述 |
+| --- | --- | --- | --- |
+| hw.crusoe.longrun | integer | yes | LongRun mode： |
+| | | | 0：最低频率模式 |
+| | | | 1：节能模式 |
+| | | | 2：性能模式 |
+| | | | 3：最高频率模式 |
+| hw.crusoe.frequency | integer | no | 当前频率（MHz）。 |
+| hw.crusoe.voltage | integer | no | 当前电压（mV）。 |
+| hw.crusoe.percentage | integer | no | 处理性能（%）。 |
 
 ## 实例
 
