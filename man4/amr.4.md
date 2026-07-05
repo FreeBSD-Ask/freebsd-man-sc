@@ -92,13 +92,13 @@ amr%d: I/O window not available
 
 PCI BIOS 未分配控制器正常运行所需的资源。驱动无法附加到此控制器。
 
-```
+```text
 amr%d: busmaster bit not set, enabling
 ```
 
 PCI BIOS 未启用总线主控 DMA，而这是控制器正常运行所必需的。驱动已启用此位，初始化将继续。
 
-```
+```text
 amr%d: can't allocate register window
 amr%d: can't allocate interrupt
 amr%d: can't set up interrupt
