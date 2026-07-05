@@ -74,7 +74,7 @@ ifconfig wlan create wlandev upgt0 inet 192.168.0.20 e
     netmask 0xffffff00
 ```
 
-加入网络名为 “`my_net`” 的特定 BSS 网络：
+加入网络名为“`my_net`”的特定 BSS 网络：
 
 ```sh
 ifconfig wlan create wlandev upgt0 ssid my_net up
