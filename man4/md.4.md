@@ -24,7 +24,7 @@ geom_md_load="YES"
 
 **`malloc`** 使用 [malloc(9)](../man9/malloc.9.md) 分配后端存储。仅使用一个 malloc 桶，这意味着所有使用 `malloc` 后端的 `md` 设备必须共享 malloc 每桶配额。此配额的确切大小会变化，特别是会随系统中的 RAM 量而变化。可以使用 [vmstat(8)](../man8/vmstat.8.md) 确定确切值。
 
-**`preload`** 由 [loader(8)](../man8/loader.8.md) 加载的类型为‘md_image’的模块用作后端存储。为向后兼容，类型 ‘mfs_root’ 也被识别。参见 loader.conf(5) 中模块加载指令的描述，注意模块名称将是映像文件的绝对路径或 `module_path` 中文件的名称。如果内核使用选项 `MD_ROOT` 创建，则找到的第一个预加载映像将成为根文件系统。
+**`preload`** 由 [loader(8)](../man8/loader.8.md) 加载的类型为‘md_image’的模块用作后端存储。为向后兼容，类型‘mfs_root’也被识别。参见 loader.conf(5) 中模块加载指令的描述，注意模块名称将是映像文件的绝对路径或 `module_path` 中文件的名称。如果内核使用选项 `MD_ROOT` 创建，则找到的第一个预加载映像将成为根文件系统。
 
 **`vnode`** 使用常规文件作为后端存储。这允许挂载 ISO 映像，而无需通过实际物理介质这一繁琐过程。
 

@@ -64,7 +64,7 @@ gpioiic_load="YES"
 
 其中：
 
-**`compatible`** 应设置为“i2c-gpio”。为向后兼容，也接受已弃用的字符串 “gpioiic”。
+**`compatible`** 应设置为“i2c-gpio”。为向后兼容，也接受已弃用的字符串“gpioiic”。
 
 **`scl-gpios`** `sda-gpios` 这些属性指示应将哪些 GPIO 引脚用于 GPIO IIC 位操作总线上的时钟和数据。两个引脚不必属于同一个 gpio 控制器。
 

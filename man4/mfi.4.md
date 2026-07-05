@@ -23,7 +23,7 @@ mfi_load="YES"
 
 此驱动用于 LSI 的下一代 PCI Express SAS RAID 控制器。通过 **`/dev/mfid?`** 设备节点可访问此驱动的 RAID 阵列（逻辑磁盘）。每个控制器还通过 **`/dev/mfi?`** 设备节点提供简单的管理接口。
 
-`mfi` 名称来源于短语“MegaRAID Firmware Interface”，它与旧的 “MegaRAID” 接口有本质不同，因此需要新的驱动。旧的 SCSI 和 SATA MegaRAID 卡由 amr(4) 支持，不适用于此驱动。
+`mfi` 名称来源于短语“MegaRAID Firmware Interface”，它与旧的“MegaRAID”接口有本质不同，因此需要新的驱动。旧的 SCSI 和 SATA MegaRAID 卡由 amr(4) 支持，不适用于此驱动。
 
 提供了两个 sysctl 用于调整 `mfi` 驱动在请求删除已挂载卷时的行为。默认情况下，驱动会拒绝任何删除已挂载卷的请求。如果将 sysctl `dev.mfi.%d.delete_busy_volumes` 设置为 1，则驱动允许删除已挂载的卷。
 

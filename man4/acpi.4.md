@@ -98,7 +98,7 @@
 
 **`hw.acpi.verbose`** 开启关于 ACPI 正在做什么的详细调试信息。
 
-**`hw.pci.link.%s.%d.irq`** 覆盖此 link 和索引要使用的中断。应谨慎使用此功能，且仅当某设备在启用 `acpi` 时不工作时使用。“%s”是 link 的名称（例如 LNKA）。“%d” 是当 link 支持多个 IRQ 时的资源索引。大多数 PCI link 只有一个 IRQ 资源，因此应使用下面的形式。
+**`hw.pci.link.%s.%d.irq`** 覆盖此 link 和索引要使用的中断。应谨慎使用此功能，且仅当某设备在启用 `acpi` 时不工作时使用。“%s”是 link 的名称（例如 LNKA）。“%d”是当 link 支持多个 IRQ 时的资源索引。大多数 PCI link 只有一个 IRQ 资源，因此应使用下面的形式。
 
 **`hw.pci.link.%s.irq`** 覆盖要使用的中断。应谨慎使用此功能，且仅当某设备在启用 `acpi` 时不工作时使用。“%s”是 link 的名称（例如 LNKA）。
 

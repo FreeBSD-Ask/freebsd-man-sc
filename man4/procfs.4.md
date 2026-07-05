@@ -50,7 +50,7 @@ proc		/proc	procfs	rw 0 0
 **resident** 常驻页数。
 **private-resident** 进程私有的常驻页数。
 **obj** 描述该内存区域的 `struct vm_object` 内核数据结构的虚拟地址。
-**access** 由“r”、“w”和“x”三个字符组成的字符串，分别表示读、写和执行权限。缺少某项权限以 “-” 表示。
+**access** 由“r”、“w”和“x”三个字符组成的字符串，分别表示读、写和执行权限。缺少某项权限以“-”表示。
 **ref_count** 对该区域的引用数。
 **shadow_count** 该区域作为其影子的 VM 对象数量。
 **flags** 对象的标志，参见以下位置中名为 **OBJ_*** 的标志：

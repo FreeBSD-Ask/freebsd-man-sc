@@ -65,7 +65,7 @@
 
 **`dev.qat_ocf.0.enable`** 启用/禁用 QAT 加密框架连接。默认启用。
 
-**`dev.qat.X.cfg_services`** 覆盖启用的设备服务，可为以下之一：symmetric、asymmetric、data compression。可能取值：“sym”、“asym”、“dc”、“sym;dc”、“asym;dc”、“sym;asym”。默认配置的服务对于偶数设备为“sym;asym”，对于奇数设备为 “dc”。
+**`dev.qat.X.cfg_services`** 覆盖启用的设备服务，可为以下之一：symmetric、asymmetric、data compression。可能取值：“sym”、“asym”、“dc”、“sym;dc”、“asym;dc”、“sym;asym”。默认配置的服务对于偶数设备为“sym;asym”，对于奇数设备为“dc”。
 
 **`dev.qat.X.cfg_mode`** 覆盖内核空间和用户空间实例的设备模式配置。可能取值：“ks”、“us”、“ks;us”。默认值为“ks;us”。
 
@@ -85,7 +85,7 @@
 
 **`dev.qat.X.dev_cfg`** 设备特定配置摘要。
 
-**`dev.qat.X.heartbeat`** QAT 设备心跳状态。值‘1’表示设备运行正常。值‘0’ 表示设备无响应。设备需要重启。
+**`dev.qat.X.heartbeat`** QAT 设备心跳状态。值‘1’表示设备运行正常。值‘0’表示设备无响应。设备需要重启。
 
 **`dev.qat.X.heartbeat_failed`** 收到的 QAT 心跳失败次数。
 

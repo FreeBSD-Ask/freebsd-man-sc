@@ -149,7 +149,7 @@ Alt-F6   ttyv5      Alt-F12  ttyvb      Shift-Alt-F6   ttyvf
 
 **`SC_NO_TERM_SC`**
 
-**`SC_NO_TERM_SCTEKEN`** 这些选项分别移除“dumb”、“sc”和“scteken” 终端模拟器。
+**`SC_NO_TERM_SCTEKEN`** 这些选项分别移除“dumb”、“sc”和“scteken”终端模拟器。
 
 ### 驱动标志
 

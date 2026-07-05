@@ -185,8 +185,8 @@ Tx 队列特定分配失败：
 
 `gve` 具有不同的数据路径模式，称为队列格式：
 
-- GQI_QPL：“QPL”代表“Queue Page List”，指硬件期望固定 bounce buffer 且无法访问任意内存。GQI 是较旧的描述符格式。“GQI” 中的 G 指较旧的硬件代，“QI” 代表 “Queue In-order”，指 NIC 发送 Tx 和 Rx 完成的顺序与驱动投递相应描述符的顺序相同。
-- DQO_RDA：DQO 是为充分利用下一代 VM 形状所需的描述符格式。“RDA”代表“Raw DMA Addressing”，指硬件可处理 DMA 的数据包且不期望将其复制进出固定 bounce buffer。“DQO” 中的 D 指较新的硬件代，“QO” 代表 “Queue Out-of-order”，指 NIC 可能以与驱动投递相应描述符不同的顺序发送 Tx 和 Rx 完成。
+- GQI_QPL：“QPL”代表“Queue Page List”，指硬件期望固定 bounce buffer 且无法访问任意内存。GQI 是较旧的描述符格式。“GQI”中的 G 指较旧的硬件代，“QI”代表“Queue In-order”，指 NIC 发送 Tx 和 Rx 完成的顺序与驱动投递相应描述符的顺序相同。
+- DQO_RDA：DQO 是为充分利用下一代 VM 形状所需的描述符格式。“RDA”代表“Raw DMA Addressing”，指硬件可处理 DMA 的数据包且不期望将其复制进出固定 bounce buffer。“DQO”中的 D 指较新的硬件代，“QO”代表“Queue Out-of-order”，指 NIC 可能以与驱动投递相应描述符不同的顺序发送 Tx 和 Rx 完成。
 - DQO_QPL：“QPL”模式下的下一代描述符格式。
 
 ## 支持

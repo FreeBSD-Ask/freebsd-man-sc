@@ -24,7 +24,7 @@
 
 i8254 定时器将被调整为 Elan 所采用的略不寻常的频率 1189161 Hz（32768 *45* 25 / 31）。
 
-名为“`ELAN`”的 timecounter 使用通用定时器 2 实现，但除非 HZ 配置为 150 或更高，否则它将不可用。该 timecounter 远优于 “`i8254`”timecounter，应始终使用。
+名为“`ELAN`”的 timecounter 使用通用定时器 2 实现，但除非 HZ 配置为 150 或更高，否则它将不可用。该 timecounter 远优于“`i8254`”timecounter，应始终使用。
 
 `machdep.elan_gpio_config` [sysctl(8)](../man8/sysctl.8.md) 变量允许配置 CPU 的 GPIO 引脚。该字符串长度必须恰好为 32 个字符。`-` 表示该 GPIO 不可用。`l`（小写字母 L）配置一个 [led(4)](led.4.md) 设备（低电平有效）。`L` 配置一个 [led(4)](led.4.md) 设备（高电平有效）。`.` 表示不对该 GPIO 进行配置。这些 [led(4)](led.4.md) 设备将被命名为 **`/dev/led/gpio%d`**。关于 `P`、`e` 和 `E` 的含义，参见下文 `options CPU_ELAN_PPS` 部分。
 
