@@ -34,12 +34,12 @@ ahc_pci_load="YES"
 aic7xxx 产品线的性能和功能集各不相同。下表提供了 `ahc` 驱动支持的不同芯片的比较。请注意，wide 和 twin 通道功能虽然始终由特定芯片支持，但在特定的主板或卡设计中可能被禁用。
 
 | *Chip* | MIPS | Bus | MaxSync | MaxWidth | SCBs | Features |
-| --- | --- | --- | --- | --- | --- | --- |
+| ------ | ---- | --- | ------- | -------- | ---- | -------- |
 | aic7770 | 10 | VL | 10MHz | 16Bit | 4 | 1 |
-| aic7850 | 10 | PCI/32 | 10MHz | 8Bit | 3 |  |
-| aic7860 | 10 | PCI/32 | 20MHz | 8Bit | 3 |  |
-| aic7870 | 10 | PCI/32 | 10MHz | 16Bit | 16 |  |
-| aic7880 | 10 | PCI/32 | 20MHz | 16Bit | 16 |  |
+| aic7850 | 10 | PCI/32 | 10MHz | 8Bit | 3 | |
+| aic7860 | 10 | PCI/32 | 20MHz | 8Bit | 3 | |
+| aic7870 | 10 | PCI/32 | 10MHz | 16Bit | 16 | |
+| aic7880 | 10 | PCI/32 | 20MHz | 16Bit | 16 | |
 | aic7890 | 20 | PCI/32 | 40MHz | 16Bit | 16 | 3 4 5 6 7 8 |
 | aic7891 | 20 | PCI/64 | 40MHz | 16Bit | 16 | 3 4 5 6 7 8 |
 | aic7892 | 20 | PCI/64 | 80MHz | 16Bit | 16 | 3 4 5 6 7 8 |

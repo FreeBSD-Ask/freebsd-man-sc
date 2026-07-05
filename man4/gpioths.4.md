@@ -27,7 +27,7 @@ gpioths_load="YES"
 `gpioths` 驱动支持以下设备：
 
 | DHT11 | DHT12 |
-| --- | --- |
+| ----- | ----- |
 | DHT21 | DHT22 |
 | AM3201 | AM3202 |
 

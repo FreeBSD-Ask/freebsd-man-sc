@@ -28,7 +28,7 @@
 `rtwn_usb` 驱动支持基于特定 Realtek RTL 8188/8192/8812 和 8821 芯片组的 USB 无线网络适配器，包括：
 
 | *Card* | *Chip* | *Bus* |
-| --- | --- | --- |
+| ------ | ------ | ----- |
 | Alfa AWUS036NHR v2 | RTL8188RU | USB 2.0 |
 | ASUS USB-AC56 | RTL8812AU | USB 3.0 |
 | ASUS USB-N10 NANO | RTL8188CUS | USB 2.0 |

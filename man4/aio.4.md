@@ -61,11 +61,11 @@
 存储在 `aio_sigevent.sigev_value` 中的值
 
 | **Member** | **Value** |
-| --- | --- |
+| ---------- | --------- |
 | `ident` | 异步 I/O 控制缓冲区指针 |
 | `filter` | `EVFILT_AIO` |
 | `flags` | `EV_EOF` |
-| `udata` |  |
+| `udata` | |
 
 对于 `SIGEV_SIGNO` 和 `SIGEV_THREAD_ID` 通知，排队信号的信息将在 `si_code` 字段中包含 `SI_ASYNCIO`，在 `si_value` 字段中包含存储在 `sigevent.sigev_value` 中的值。
 

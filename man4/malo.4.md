@@ -32,7 +32,7 @@ if_malo_load="YES"
 以下网卡属于 `malo` 驱动支持的网卡：
 
 | 网卡 | 芯片 | 总线 | 标准 |
-| --- | --- | --- | --- |
+| ---- | ---- | ---- | ---- |
 | Netgear WG311v3 | 88W8335 | PCI | b/g |
 | Tenda TWL542P | 88W8335 | PCI | b/g |
 | U-Khan UW-2054i | 88W8335 | PCI | b/g |

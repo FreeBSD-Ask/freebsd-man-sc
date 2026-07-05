@@ -112,7 +112,7 @@
 提供了若干选项以兼容先前的控制台设备 sc(4)。这些选项将在未来的 FreeBSD 版本中移除。
 
 | **vt 选项名** | **sc 选项名** |
-| --- | --- |
+| ------------- | ------------- |
 | `TERMINAL_KERN_ATTR` | `SC_KERNEL_CONS_ATTR` |
 | `TERMINAL_NORM_ATTR` | `SC_NORM_ATTR` |
 | `VT_TWOBUTTON_MOUSE` | `SC_TWOBUTTON_MOUSE` |
@@ -190,12 +190,12 @@
 控制台响铃已响铃的通知。
 
 | `VT` | BELL | RING | |
-| --- | --- | --- | --- |
+| ---- | ---- | ---- | - |
 
 **变量** **含义**
 
 | `duration_ms` | 请求响铃的时长（毫秒）。 |
-| --- | --- |
+| ------------- | ------------------------ |
 | `enabled` | true 或 false，指示响铃时是否在管理上启用。 |
 | `hushed` | true 或 false，指示响铃时是否被用户静音。 |
 | `hz` | 请求的音调（Hz）。 |

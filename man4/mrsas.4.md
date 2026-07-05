@@ -31,7 +31,7 @@
 `mrsas` 驱动支持以下 Broadcom/LSI SATA/SAS RAID 控制器：
 
 | 控制器 | 芯片 | 速率 |
-| --- | --- | --- |
+| ------ | ---- | ---- |
 | Broadcom SAS3916 | Aero | 12Gb/s |
 | Broadcom SAS3908 | Aero | 12Gb/s |
 | LSI MegaRAID SAS 9380 | Invader/Fury | 12Gb/s |
@@ -45,10 +45,10 @@
 | LSI MegaRAID SAS 9267 | Thunderbolt | 6Gb/s |
 | LSI MegaRAID SAS 9266 | Thunderbolt | 6Gb/s |
 | LSI MegaRAID SAS 9265 | Thunderbolt | 6Gb/s |
-| LSI SAS 3108 |  | 12Gb/s |
-| LSI SAS 3008 |  | 12Gb/s |
-| LSI SAS 2308 |  | 6Gb/s |
-| LSI SAS 2208 |  | 6Gb/s |
+| LSI SAS 3108 | | 12Gb/s |
+| LSI SAS 3008 | | 12Gb/s |
+| LSI SAS 2308 | | 6Gb/s |
+| LSI SAS 2208 | | 6Gb/s |
 | DELL PERC H830 | Invader/Fury | 12Gb/s |
 | DELL PERC H810 | Thunderbolt | 6Gb/s |
 | DELL PERC H730/P | Invader/Fury | 12Gb/s |

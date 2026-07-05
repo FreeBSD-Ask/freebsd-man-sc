@@ -34,7 +34,7 @@ if_bwi_load="YES"
 `bwi` 驱动支持基于 Broadcom BCM43xx 的无线设备，包括：
 
 | 卡片 | 芯片 | 总线 | 标准 |
-| --- | --- | --- | --- |
+| ---- | ---- | ---- | ---- |
 | Apple Airport Extreme | BCM4306 | PCI | b/g |
 | Apple Airport Extreme | BCM4318 | PCI | b/g |
 | ASUS WL-100g | BCM4306 | CardBus | b/g |

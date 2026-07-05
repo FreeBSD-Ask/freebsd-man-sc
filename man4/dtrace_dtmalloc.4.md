@@ -17,7 +17,7 @@
 `dtmalloc``::``function``:malloc` 探测在成功分配时触发。其探测参数为：
 
 | **探测参数** | **定义** |
-| --- | --- |
+| ------------ | -------- |
 | `args[0]` | Ft struct malloc_type *mtp |
 | `args[1]` | Ft struct malloc_type_internal *mtip |
 | `args[2]` | Ft struct malloc_type_stats *mtsp |
@@ -27,7 +27,7 @@
 `dtmalloc``::``function``:free` 探测在释放操作时触发。其探测参数为：
 
 | **free 探测参数** | **定义** |
-| --- | --- |
+| ----------------- | -------- |
 | `args[0]` | Ft struct malloc_type *mtp |
 | `args[1]` | Ft struct malloc_type_internal *mtip |
 | `args[2]` | Ft struct malloc_type_stats *mtsp |

@@ -40,7 +40,7 @@ if_bwn_load="YES"
 `bwn` 驱动支持基于 Broadcom BCM43xx 的无线设备，包括：
 
 | *卡* | *芯片* | *总线* | *标准* |
-| --- | --- | --- | --- |
+| ---- | ------ | ------ | ------ |
 | Apple Airport Extreme | BCM4318 | PCI | b/g |
 | ASUS WL-138g | BCM4318 | PCI | b/g |
 | Buffalo WLI-CB-G54S | BCM4318 | CardBus | b/g |

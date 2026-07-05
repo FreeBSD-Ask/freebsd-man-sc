@@ -49,7 +49,7 @@ safe_load="YES"
 支持 DES、Triple-DES、AES、MD5 和 SHA-1 对称加密操作、RNG、公钥操作和完整 IPsec 数据包处理。
 
 | SafeNet 1141 | 原始芯片组。 |
-| --- | --- |
+| ------------ | ------------ |
 | SafeNet 1741 | 1141 的更快版本。 |
 
 ## 参见

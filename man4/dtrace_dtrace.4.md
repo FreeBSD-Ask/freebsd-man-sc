@@ -35,7 +35,7 @@
 `arg4` 为错误类型 `DTRACEFLT_BADADDR , DTRACEFLT_BADALIGN , DTRACEFLT_KPRIV` 或 `DTRACEFLT_UPRIV`
 
 | **参数** | **定义** |
-| --- | --- |
+| -------- | -------- |
 | `arg1` | 已启用的探测标识符（EPID） |
 | `arg2` | 导致错误的动作语句索引 |
 | `arg3` | 动作中的 DIF 偏移（如果可用，否则为 -1） |

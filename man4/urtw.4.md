@@ -36,7 +36,7 @@ if_urtw_load="YES"
 `urtw` 驱动支持基于 Realtek RTL8187B/L 的无线网络设备，包括：
 
 | *Card* | *Radio* | *Bus* |
-| --- | --- | --- |
+| ------ | ------- | ----- |
 | Belkin F5D7050E | RTL8225 | USB |
 | Linksys WUSB54GCv2 | RTL8225 | USB |
 | Netgear WG111v2 | RTL8225 | USB |

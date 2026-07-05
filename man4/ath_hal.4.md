@@ -23,7 +23,7 @@ HAL 为基于 Atheros AR5210、AR5211、AR5212、AR5213、AR2413、AR2417、AR24
 以下卡片属于 `ath_hal` 模块所支持的设备：
 
 | 卡片 | 芯片 | 总线 | 标准 |
-| --- | --- | --- | --- |
+| ---- | ---- | ---- | ---- |
 | Aztech WL830PC | AR5212 | CardBus | b/g |
 | D-Link DWL-A650 | AR5210 | CardBus | a |
 | D-Link DWL-AB650 | AR5211 | CardBus | a/b |

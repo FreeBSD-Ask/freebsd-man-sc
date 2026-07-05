@@ -40,8 +40,8 @@ snd_hdspe_load="YES"
 
 **声卡 Ta** **单倍速率 Ta** **双倍速率 Ta** **四倍速率**
 
-|  | Play \| Rec | Play \| Rec | Play \| Rec |
-| --- | --- | --- | --- |
+| | Play \| Rec | Play \| Rec | Play \| Rec |
+| - | ----------- | ----------- | ----------- |
 | HDSPe AIO | 20 \| 18 | 16 \| 14 | 14 \| 12 |
 | HDSPe RayDAT | 36 \| 36 | 20 \| 20 | 12 \| 12 |
 

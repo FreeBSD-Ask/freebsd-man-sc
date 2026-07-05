@@ -47,7 +47,7 @@ RT3900E 芯片组是 Ralink 的单芯片 802.11n 适配器。MAC/基带处理器
 `ral` 驱动程序支持基于 Ralink Technology 芯片组的 PCI/PCIe/CardBus 无线适配器，包括：
 
 | *Card* | *MAC/BBP* | *Bus* |
-| --- | --- | --- |
+| ------ | --------- | ----- |
 | A-Link WL54H | RT2560 | PCI |
 | A-Link WL54PC | RT2560 | CardBus |
 | AirLink101 AWLC5025 | RT2661 | CardBus |

@@ -52,7 +52,7 @@ if_ure_load="YES"
 `ure` 驱动支持以下 USB 以太网控制器：
 
 | Model: | Speed (Mbps): |
-| --- | --- |
+| ------ | ------------- |
 | Realtek RTL8156/RTL8156B/RTL8156BG | 10, 100, 1000, and 2500 |
 | Realtek RTL8153/RTL8153B | 10, 100, and 1000 |
 | Realtek RTL8152 | 10 and 100 |

@@ -125,7 +125,7 @@ crypto_use_output_vmpage(struct cryptop *crp, vm_page_t *pages,
 认证摘要、哈希或标签
 
 | **区域** | **缓冲区** | **描述** |
-| --- | --- | --- |
+| -------- | ---------- | -------- |
 | AAD | 输入 | |
 | IV | 输入 | |
 | 有效载荷 | 输入 | |
@@ -133,7 +133,7 @@ crypto_use_output_vmpage(struct cryptop *crp, vm_page_t *pages,
 | 摘要 | 输入/输出 | |
 
 | **区域** | **起始** | **长度** |
-| --- | --- | --- |
+| -------- | -------- | -------- |
 | AAD | `crp_aad_start` | `crp_aad_length` |
 | IV | `crp_iv_start` | `csp_ivlen` |
 | 有效载荷 | `crp_payload_start` | `crp_payload_length` |

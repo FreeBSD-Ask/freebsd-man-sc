@@ -63,7 +63,7 @@ struct smbcmd {
 *BlockRead* 首先将 `cmd` 中的字节发送到设备，然后读取设备将提供的数据字节计数，再读取那么多字节。计数返回到 `rcount` 中。数据返回到 `rbuf` 指向的缓冲区中。
 
 | *Ioctl* | *Description* |
-| --- | --- |
+| ------- | ------------- |
 | `SMB_QUICK_WRITE` | |
 | `SMB_QUICK_READ` | |
 | `SMB_SENDB` | |

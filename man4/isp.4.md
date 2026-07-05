@@ -41,7 +41,7 @@ ispfw_load="YES"
 `isp` 驱动支持以下光纤通道适配器：
 
 | Model: | Speed: | Bus: |
-| --- | --- | --- |
+| ------ | ------ | ---- |
 | Qlogic QLE2874 (2814) | 64Gb | PCIe |
 | Qlogic QLE2870/QLE2872 (2812) | 64Gb | PCIe |
 | Qlogic QLE2774 (2814) | 32Gb | PCIe |

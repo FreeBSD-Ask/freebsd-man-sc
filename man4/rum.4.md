@@ -43,7 +43,7 @@ RT2601USB 芯片组由两块集成芯片组成：一块 RT2671 MAC/BBP 和一块
 `rum` 驱动支持基于 Ralink RT2501USB 和 RT2601USB 芯片组的 USB 2.0 无线适配器，包括：
 
 | *Card* | *Bus* |
-| --- | --- |
+| ------ | ----- |
 | 3Com Aolynk WUB320g | USB |
 | Abocom WUG2700 Ta | USB |
 | Airlink101 AWLL5025 | USB |
