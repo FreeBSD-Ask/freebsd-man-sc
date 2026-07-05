@@ -141,25 +141,25 @@ amr%d: flushing cache...
 
 ### 运行时诊断
 
-```
+```text
 amr%d: I/O beyond end of unit (%u,%d > %u)
 ```
 
 分区错误或磁盘损坏导致 I/O 请求超出逻辑驱动器末尾。如果启用了 FlexRAID Virtual Sizing 并对虚拟驱动器中超出实际可用容量的部分尝试 I/O 操作，也可能发生此情况。
 
-```
+```text
 amr%d: polled command timeout
 ```
 
 初始化命令超时。初始化过程可能因此失败。
 
-```sh
+```text
 amr%d: bad slot %d completed
 ```
 
 控制器报告完成了驱动未发出的命令。可能导致数据损坏，表明系统或控制器存在硬件或固件问题。
 
-```sh
+```text
 amr%d: I/O error - %x
 ```
 
