@@ -1,140 +1,93 @@
-  BOOT0CFG(8)  
+# boot0cfg.8
 
-BOOT0CFG(8)
+`boot0cfg` — 引导管理器安装/配置工具
 
-FreeBSD System Manager's Manual
+## 名称
 
-BOOT0CFG(8)
+`boot0cfg`
 
-[名称](#__u540D___u79F0_)
-=======================
+## 概要
 
-`boot0cfg` —
+`boot0cfg [-Bv] [-b boot0] [-d drive] [-e bell character] [-f file] [-i volume-id] [-m mask] [-o options] [-s slice] [-t ticks] disk`
 
-引导管理器安装/配置实用程序
+## 描述
 
-[概要](#__u6982___u8981_)
-=======================
+FreeBSD 的 ‘boot0’ 引导管理器允许操作者选择从哪个磁盘和 slice 启动 i386 机器（PC）。
 
-`boot0cfg` \[`-Bv`\] \[`-b` boot0\] \[`-d` drive\] \[`-e` bell character\] \[`-f` file\] \[`-i` volume-id\] \[`-m` mask\] \[`-o` options\] \[`-s` slice\] \[`-t` ticks\] disk
+注意，这里所说的 “slices” 在非 BSD 的 PC 相关文档中通常被称为 “partitions”（分区）。通常，只有不可移动磁盘才会被切片（slice）。
 
-[描述](#__u63CF___u8FF0_)
-=======================
+`boot0cfg` 工具可选择在指定的 `disk` 上安装 ‘boot0’ 引导管理器，并允许配置各种操作参数。
 
-FreeBSD ‘boot0’ 引导管理器允许操作员选择从哪个磁盘和切片中引导 i386 机器 (PC)。
+在 PC 上，引导管理器通常占据磁盘的 0 扇区，即主引导记录（Master Boot Record，MBR）。MBR 同时包含代码（PC BIOS 将控制权传递给它）和数据（一个内嵌的已定义 slice 表）。
 
-请注意，这里所说的 “slices” 在与 PC 相关的非 BSD 文档中通常称为 “partitions” 。 通常，仅对不可移动磁盘进行切片。
+可用选项如下：
 
-`boot0cfg` 实用程序可选择在指定 disk 上安装 ‘boot0’ 引导管理器；并允许配置各种操作参数。
+**`-B`** 安装 ‘boot0’ 引导管理器。此选项会替换 MBR 代码，但不影响内嵌的 slice 表。
 
-在 PC 上，引导管理器通常占用磁盘的第 0 扇区，这称为主引导记录 (MBR)。 MBR 包含代码（PC BIOS 将控制传递给它）和数据（定义切片的嵌入式表）。
+**`-b`** `boot0` 指定使用哪个 ‘boot0’ 镜像。默认为 **/boot/boot0**，使用显卡作为输出设备；也可以使用 **/boot/boot0sio** 输出到 COM1 端口。（注意，除非调制解调器信号 DSR 和 CTS 处于活动状态，否则不会有任何内容输出到 COM1 端口。）
 
-选项包括：
+**`-d`** `drive` 指定 PC BIOS 在引用包含指定 `disk` 的驱动器时所使用的驱动器号。通常，第一个硬盘为 0x80，第二个硬盘为 0x81，以此类推；但此处接受 0 到 0xff 之间的任何整数。
 
-[`-B`](#B)
+**`-e`** `bell character` 设置在输入错误时打印的字符。
 
-安装 ‘boot0’ 引导管理器。 此选项会导致 MBR 代码被替换，而不影响嵌入的切片表。
+**`-f`** `file` 指定将现有 MBR 的备份副本写入 `file`。如果该文件不存在则创建，已存在则替换。
 
-[`-b`](#b) boot0
+**`-i`** `volume-id` 指定一个卷 ID（格式为 XXXX-XXXX），保存到 MBR 的 0x1b8 位置。此信息有时被 NT、XP 和 Vista 用于识别磁盘驱动器。此选项仅与 512 字节引导块的 2.00 版本兼容。
 
-指定要使用的 ‘boot0’ 映像。 默认是 /boot/boot0 ，它将使用显卡作为输出，或者 /boot/boot0sio 可以用于输出到COM1 端口。 （请注意，除非调制解调器信号 DSR 和 CTS 处于活动状态，否则不会向 COM1 端口输出任何内容。）
+**`-m`** `mask` 指定要启用/禁用的 slice，其中 `mask` 是 0（不启用任何 slice）到 0xf（启用全部四个 slice）之间的整数。每个掩码位设置为 1 时启用对应的 slice。掩码的最低有效位对应 slice 1，最高有效位对应 slice 4。
 
-[`-d`](#d) drive
+**`-o`** `options` 可以指定一个由以下选项组成的逗号分隔字符串（必要时可在前面加 “no”）：
 
-指定 PC BIOS 在引用包含指定 disk 的驱动器时使用的驱动器号。 通常，第一个硬盘驱动器为 0x80，第二个硬盘驱动器为 0x81，依此类推；但是，这里可以接受 0 到 0xff 之间的任何整数。
+- `packet`：进行磁盘 I/O 时使用磁盘包（BIOS INT 0x13 扩展）接口，而非传统（CHS）接口。这允许在 1023 柱面之上启动，但需要特定的 BIOS 支持。默认为 ‘packet’。
+- `setdrv`：强制使用通过 `-d` 选项定义的驱动器号引用包含该磁盘的驱动器。默认为 ‘nosetdrv’。
+- `update`：允许引导管理器更新 MBR。（MBR 可被更新以将 slice 标记为 ‘active’，以及保存 slice 选择信息。）此为默认行为；‘noupdate’ 选项会使 MBR 被视为只读。
 
-[`-e`](#e) bell character
+**`-s`** `slice` 将默认启动选择设置为 `slice`。值 1 到 4 对应各 slice；值为 5 表示从第二个磁盘启动的选项。可以使用特殊字符串 “PXE” 或值 6 通过 PXE 启动。
 
-设置输入错误时要打印的字符。
+**`-t`** `ticks` 将超时值设置为 `ticks`。（每秒大约 18.2 个 tick。）
 
-[`-f`](#f) file
+**`-v`** 详细模式：显示已定义的 slice 等信息。
 
-指定应将预先存在的 MBR 的备份副本写入 file 。 如果该文件不存在，则创建该文件，如果存在则替换该文件。
+## 文件
 
-[`-i`](#i) volume-id
+**/boot/boot0** 默认的 ‘boot0’ 镜像
 
-指定要保存在 MBR 中位置 0x1b8 的卷 ID（格式为 XXXX-XXXX）。 NT、XP 和 Vista 有时使用此信息来识别磁盘驱动器。 该选项仅与 512 字节引导块的 2.00 版兼容。
+**/boot/boot0sio** 用于串行控制台的镜像（COM1,9600,8,N,1,MODEM）
 
-[`-m`](#m) mask
+## 退出状态
 
-指定要启用/禁用的切片，其中 mask 是介于 0（未启用切片）和 0xf（所有四个切片都已启用）之间的整数。 如果设置为 1，则每个掩码位启用相应的切片。 掩码的最低有效位对应于切片 1，掩码的最高有效位对应于切片 4。
+`boot0cfg` 工具成功时退出状态为 0，发生错误时大于 0。
 
-[`-o`](#o) options
+## 实例
 
-可以指定以下任何选项的逗号分隔字符串（必要时在前面加上 “no” ）：
+在下次启动时启动 slice 2：
 
-packet
+```sh
+boot0cfg -s 2 ada0
+```
 
-在执行磁盘 I/O 时，使用磁盘数据包（BIOS INT 0x13 扩展）接口，而不是传统 (CHS) 接口。 这允许在柱面 1023 以上引导，但需要特定的 BIOS 支持。 默认值为 ‘packet’ 。
+在菜单中仅启用 slice 1 和 3：
 
-setdrv
+```sh
+boot0cfg -m 0x5 ada0
+```
 
-强制使用可通过 -d 选项定义的驱动器号来引用包含磁盘的驱动器。 默认值为 ‘nosetdrv’ 。
+要恢复为非交互式启动，可使用 [gpart(8)](gpart.8.md) 安装默认的 MBR：
 
-update
+```sh
+gpart bootcode -b /boot/mbr ada0
+```
 
-允许引导管理器更新 MBR。 （可以更新 MBR 以将切片标记为 ‘active’, 并保存切片选择信息。） 这是默认设置； ‘noupdate’ 选项导致 MBR 被视为只读。
+## 参见
 
-[`-s`](#s) slice
+[geom(4)](../man4/geom.4.md), [boot(8)](boot.8.md), [gpart(8)](gpart.8.md)
 
-将默认引导选择设置为 slice 。 1 到 4 之间的值表示切片；值 5 表示从第二个磁盘引导的选项。 特殊字符串 “PXE” 或值 6 可用于通过 PXE 引导。
+## 作者
 
-[`-t`](#t) ticks
+Robert Nordier <rnordier@FreeBSD.org>
 
-将超时值设置为 ticks 。 （每秒大约有 18.2 个滴答声。）
+## 缺陷
 
-[`-v`](#v)
+使用 ‘packet’ 选项可能导致 ‘boot0’ 失败，具体取决于 BIOS 支持的性质。
 
-详细：显示有关定义的切片等的信息。
-
-[文件](#__u6587___u4EF6_)
-=======================
-
-/boot/boot0
-
-默认的 ‘boot0’ 映像
-
-/boot/boot0sio
-
-串行控制台图像 (COM1,9600,8,N,1,MODEM)
-
-[退出状态](#__u9000___u51FA___u72B6___u6001_)
-=========================================
-
-The `boot0cfg` utility exits 0 on success, and >0 if an error occurs.
-
-[实例](#__u5B9E___u4F8B_)
-=======================
-
-在下次启动时启动分片 2：
-
-`boot0cfg -s 2 ada0`
-
-要在菜单中仅启用切片 1 和 3：
-
-`boot0cfg -m 0x5 ada0`
-
-要返回非交互式引导，请使用 gpart(8) 安装默认 MBR：
-
-`gpart bootcode -b /boot/mbr ada0`
-
-[参见](#__u53C2___u89C1_)
-=======================
-
-geom(4), boot(8), gpart(8)
-
-[作者](#__u4F5C___u8005_)
-=======================
-
-Robert Nordier <[rnordier@FreeBSD.org](mailto:rnordier@FreeBSD.org)\>
-
-[缺陷](#__u7F3A___u9677_)
-=======================
-
-使用 ‘packet’ 选项可能会导致 ‘boot0’ 失败，这取决于 BIOS 支持的性质。
-
-使用带有错误 -d 操作数的 ‘setdrv’ 选项可能会导致 boot0 代码将 MBR 写入错误的磁盘，从而破坏其先前的内容。 当心。
-
-October 1, 2013
-
-FreeBSD 13.1-RELEASE
+使用 ‘setdrv’ 选项时若 `-d` 操作数不正确，可能导致 boot0 代码将 MBR 写入错误的磁盘，从而破坏其原有内容。请小心使用。

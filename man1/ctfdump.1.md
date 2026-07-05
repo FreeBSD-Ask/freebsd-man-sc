@@ -1,82 +1,49 @@
-  CTFDUMP(1)  
+# ctfdump.1
 
-CTFDUMP(1)
+`ctfdump` — 转储 ELF 文件中的 SUNW_ctf 节
 
-FreeBSD General Commands Manual
+## 名称
 
-CTFDUMP(1)
+`ctfdump`
 
-[名称](#__u540D___u79F0_)
-=======================
+## 概要
 
-`ctfdump` —
+`ctfdump [-dfhlsSt] -u ufile file`
 
-转储 ELF 文件的 SUNW\_ctf 部分
+## 描述
 
-[概要](#__u6982___u8981_)
-=======================
+`ctfdump` 实用程序转储 ELF 二进制文件中存在的 CTF（Compact C Type Format，紧凑 C 类型格式）数据节（SUNW_ctf）的内容。该节此前由 ctfconvert(1) 或 ctfmerge(1) 创建。
 
-`ctfdump` \[`-dfhlsSt`\] `-u` file file
+以下选项可用：
 
-[描述](#__u63CF___u8FF0_)
-=======================
+**`-d`** 显示数据对象节。
 
-`ctfdump` 实用程序转储 ELF 二进制文件中存在的 CTF 数据段 (SUNW\_ctf) 的内容。 此部分之前是使用 ctfconvert(1) 或 ctfmerge(1) 创建的。
+**`-f`** 显示函数节。
 
-可以使用以下选项：
+**`-h`** 显示头部。
 
-[`-d`](#d)
+**`-l`** 显示标签节。
 
-显示数据对象部分。
+**`-s`** 显示字符串表。
 
-[`-f`](#f)
+**`-S`** 显示统计信息。
 
-显示函数部分。
+**`-t`** 显示类型节。
 
-[`-h`](#h)
+**`-u`** `ufile` 将未压缩的 CTF 数据写入名为 `ufile` 的原始 CTF 文件。
 
-显示标题。
+## 退出状态
 
-[`-l`](#l)
+`ctfdump` 实用程序成功时退出值为 0，发生错误时大于 0。
 
-显示标签部分。
+## 参见
 
-[`-s`](#s)
+ctfconvert(1), ctfmerge(1), ctf(5)
 
-显示字符串表。
+## 历史
 
-[`-S`](#S)
+`ctfdump` 实用程序首次出现于 FreeBSD 7.0。
 
-显示统计信息。
+## 作者
 
-[`-t`](#t)
-
-显示类型部分。
-
-[`-u`](#u) ufile
-
-将未压缩的 CTF 数据写入名为 ufile 的原始 CTF 文件。
-
-[退出状态](#__u9000___u51FA___u72B6___u6001_)
-=========================================
-
-The `ctfdump` utility exits 0 on success, and >0 if an error occurs.
-
-[参见](#__u53C2___u89C1_)
-=======================
-
-ctfconvert(1), ctfmerge(1)
-
-[历史](#__u5386___u53F2_)
-=======================
-
-`ctfdump` 实用程序首次出现在 FreeBSD 7.0 中。
-
-[作者](#__u4F5C___u8005_)
-=======================
-
-CTF 实用程序来自 OpenSolaris。
-
-July 7, 2010
-
-FreeBSD 13.1-RELEASE
+CTF 工具集源自 OpenSolaris。

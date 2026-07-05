@@ -1,121 +1,93 @@
-  GPTBOOT(8)  
+# gptboot.8
 
-GPTBOOT(8)
+`gptboot` — 用于基于 BIOS 的计算机上从 UFS 启动的 GPT 引导代码
 
-FreeBSD System Manager's Manual
+## 名称
 
-GPTBOOT(8)
+`gptboot`
 
-[名称](#__u540D___u79F0_)
-=======================
+## 描述
 
-`gptboot` —
+`gptboot` 用于在基于 BIOS 的计算机上从 GPT 分区的磁盘上的 UFS 分区引导系统。`gptboot` 通过 [gpart(8)](gpart.8.md) 安装到一个 `freebsd-boot` 分区中。对于 UEFI，则改用 gptboot.efi(8)。虽然两者在概念上相似，但细节有所不同。
 
-基于 BIOS 的计算机上 UFS 的 GPT 引导代码
+启动时，`gptboot` 首先读取 GPT，并确定从哪个驱动器和分区引导，具体如下文“引导”一节所述。如果未找到符合条件的分区，或者用户在三秒内按下任意键，`gptboot` 会从自动引导切换到交互模式。交互模式允许手动选择磁盘、分区、文件名和引导选项标志，详见 [boot(8)](boot.8.md)。
 
-[描述](#__u63CF___u8FF0_)
-=======================
+## 实现说明
 
-`gptboot` 在基于 BIOS 的计算机上用于从 GPT 分区磁盘上的 UFS 分区引导。 `gptboot` 使用 gpart(8) 安装在 `freebsd-boot` 分区中。
+GPT 标准允许可变数量的分区，但 `gptboot` 只能从包含 128 个或更少分区的分区表引导。
 
-当它启动时， `gptboot` 首先读取 GPT 并确定从哪个驱动器和分区启动，如下面的 [BOOTING](#BOOTING) 中所述。 如果它没有找到符合条件的分区，或者如果用户在三秒内按下了一个键， `gptboot` 就会从自动引导切换到交互模式。 交互模式允许手动选择磁盘、分区、文件名和引导选项标志，如 boot(8) 中所述。
+## 分区属性
 
-[实施说明](#__u5B9E___u65BD___u8BF4___u660E_)
-=========================================
+`gptboot` 检查并管理 GPT UFS 分区的多个属性。
 
-GPT 标准允许可变数量的分区，但 `gptboot` 仅从具有 128 个或更少分区的表引导。
+**`bootme`** 尝试从该分区引导。如果多个分区设置了 `bootme` 属性，`gptboot` 会依次尝试从每个分区引导，直到成功。
 
-[分区属性](#__u5206___u533A___u5C5E___u6027_)
-=========================================
+**`bootonce`** 仅尝试从该分区引导一次。使用 [gpart(8)](gpart.8.md) 设置此属性时会自动同时设置 `bootme` 属性。多个分区可以同时设置 `bootonce` 和 `bootme` 属性。
 
-`gptboot` 检查和管理 GPT UFS 分区的几个属性。
+**`bootfailed`** `bootfailed` 属性标记那些设置了 `bootonce` 属性但引导失败的分区。此属性由系统管理。详见下文“引导”和“引导后操作”一节。
 
-[`bootme`](#bootme)
+## 用法
 
-尝试从此分区启动。 如果多个分区设置了 `bootme` 属性， `gptboot` 将尝试引导每个分区，直到成功。
+对于正常使用，用户无需设置或管理任何分区属性。`gptboot` 会从找到的第一个 UFS 分区引导。
 
-[`bootonce`](#bootonce)
+`bootonce` 属性可用于在已经正常工作的计算机上测试升级后的操作系统。现有系统分区保持不变，而要测试的新版本操作系统安装在另一个分区上。在该新的测试分区上设置 `bootonce` 属性。下一次引导将尝试从测试分区进行。成功或失败将显示在系统日志文件中。测试分区成功引导后，用户脚本可以检查日志并更改 `bootme` 属性，使测试分区成为新的系统分区。由于 `bootonce` 属性在尝试引导后会被清除，因此引导失败不会导致系统持续尝试从一个永远无法成功的分区引导。相反，系统会从较旧的、已知可正常工作且未被修改的操作系统引导。如果任何分区上设置了 `bootme` 属性，则会先尝试从这些分区引导。如果未找到带有 `bootme` 属性的分区，则会尝试从找到的第一个 UFS 分区引导。
 
-仅尝试从该分区引导一次。 使用 gpart(8) 设置此属性也会自动设置 `bootme` 属性。 多个分区可能设置了 `bootonce` 和 `bootme` 属性。
+## 引导
 
-[`bootfailed`](#bootfailed)
+`gptboot` 首先读取分区表。所有仅设置了 `bootonce` 属性（表示引导失败）的 `freebsd-ufs` 分区会被设置为 `bootfailed`。然后 `gptboot` 会扫描所有 `freebsd-ufs` 分区。引导行为取决于这些分区上设置的 `bootme` 和 `bootonce` 属性的组合。
 
-[`bootfailed`](#bootfailed_2) 属性标记了设置了 `bootonce` 属性但无法引导的分区。 该属性由系统管理。 有关详细信息，请参阅下面的 [BOOTING](#BOOTING) 和 [POST-BOOT ACTIONS](#POST_BOOT_ACTIONS) 。
+**`bootonce +`** `bootme` 最高优先级：依次尝试从具有这两个属性的每个 `freebsd-ufs` 分区引导。在每个分区上，会移除 `bootme` 属性并尝试引导。
 
-[用法](#__u7528___u6CD5_)
-=======================
+**`bootme`** 中等优先级：依次尝试从具有 `bootme` 属性的每个 `freebsd-ufs` 分区引导。
 
-对于正常使用，用户不必设置或管理任何分区属性。 `gptboot` 将从找到的第一个 UFS 分区启动。
+如果任何分区上都未找到 `bootonce` 或 `bootme` 属性，则尝试从磁盘上第一个 `freebsd-ufs` 分区引导。
 
-`bootonce` 属性可用于在已经运行的计算机上测试升级的操作系统。 现有系统分区保持不变，待测试操作系统的新版本安装在另一个分区上。 `bootonce` 属性是在新的测试分区上设置的。 尝试从测试分区进行下一次引导。 成功或失败将显示在系统日志文件中。 成功启动测试分区后，用户脚本可以检查日志并更改 `bootme` 属性，以便测试分区成为新的系统分区。 因为 `bootonce` 属性在尝试引导后被清除，所以失败的引导不会让系统尝试从永远不会成功的分区引导。 相反，系统将从旧的、已知工作的、尚未修改的操作系统引导。 如果在任何分区上设置了 `bootme` 属性，将首先尝试从它们进行引导。 如果没有找到具有 `bootme` 属性的分区，则将从找到的第一个 UFS 分区尝试引导。
+## 引导后操作
 
-[开机](#__u5F00___u673A_)
-=======================
+启动脚本 `/etc/rc.d/gptboot` 会检查所有 GPT 磁盘上 `freebsd-ufs` 分区的属性。带有 `bootfailed` 属性的分区会生成一条“boot from X failed”的系统日志消息。仅带有 `bootonce` 属性（表示该分区已成功引导）的分区会生成一条“boot from X succeeded”的系统日志消息。所有分区上的 `bootfailed` 属性会被清除。成功引导的分区上的 `bootonce` 属性会被清除。通常这种情况只会有一个。
 
-`gptboot` 首先读取分区表。 所有只设置了 `bootonce` 属性（表示引导失败）的 `freebsd-ufs` 分区都设置为 `bootfailed` 。 然后 `gptboot` 扫描所有的 `freebsd-ufs` 分区。 引导行为取决于在这些分区上设置的 `bootme` 和 `bootonce` 属性的组合。
+## 文件
 
-[`bootonce +`](#bootonce_+) `bootme`
+**`/boot/gptboot`** 引导代码二进制文件
 
-最高优先级：尝试从具有这两个属性的每个 `freebsd-ufs` 分区进行引导。 在每个分区上，都会删除 `bootme` 属性并尝试引导。
+**`/boot.config`** 引导块参数（可选）
 
-[`bootme`](#bootme_2)
+## 实例
 
-中优先级：尝试从具有 `bootme` 属性的每个 `freebsd-ufs` 分区进行引导。
+`gptboot` 安装在 `freebsd-boot` 分区中，通常是磁盘上的第一个分区。“保护性 MBR”（参见 [gpart(8)](gpart.8.md)）通常与 `gptboot` 配合使用。
 
-如果在任何分区上都找不到 `bootonce` 和 `bootme` 属性，则尝试从磁盘上的第一个 `freebsd-ufs` 分区进行引导。
+在 `ada0` 驱动器上安装 `gptboot`：
 
-[启动后操作](#__u542F___u52A8___u540E___u64CD___u4F5C_)
-==================================================
+```sh
+gpart bootcode -b /boot/pmbr -p /boot/gptboot -i 1 ada0
+```
 
-启动脚本 /etc/rc.d/gptboot 检查所有 GPT 磁盘上的 `freebsd-ufs` 分区的属性。 具有 `bootfailed` 属性的分区会生成 “boot from X failed” 系统日志消息。 仅具有 `bootonce` 属性的分区（指示成功引导的分区）会生成 “boot from X succeeded” 系统日志消息。 从所有分区中清除 `bootfailed` 的属性。 `bootonce` 属性会从成功引导的分区中清除。 通常只有其中之一。
+也可以不带 PMBR 安装 `gptboot`：
 
-[文件](#__u6587___u4EF6_)
-=======================
+```sh
+gpart bootcode -p /boot/gptboot -i 1 ada0
+```
 
-/boot/gptboot
+为分区 2 设置 `bootme` 属性：
 
-引导码二进制
-
-/boot.config
-
-引导块的参数（可选） (optional)
-
-[实例](#__u5B9E___u4F8B_)
-=======================
-
-`gptboot` 安装在 `freebsd-boot` 分区中，通常是磁盘上的第一个分区。 “protective MBR” (参见 gpart(8)) 通常与 `gptboot` 一起安装。
-
-在 ada0 驱动器上安装 `gptboot` :
-
-gpart bootcode -b /boot/pmbr -p /boot/gptboot -i 1 ada0 
-
-`gptboot` 也可以在没有 PMBR 的情况下安装：
-
-gpart bootcode -p /boot/gptboot -i 1 ada0 
-
-设置分区 2 的 `bootme` 属性：
-
-gpart set -a bootme -i 2 ada0 
+```sh
+gpart set -a bootme -i 2 ada0
+```
 
 为分区 2 设置 `bootonce` 属性，同时自动设置 `bootme` 属性：
 
-gpart set -a bootonce -i 2 ada0 
+```sh
+gpart set -a bootonce -i 2 ada0
+```
 
-[参见](#__u53C2___u89C1_)
-=======================
+## 参见
 
-boot.config(5), rc.conf(5), boot(8), gpart(8)
+[boot.config(5)](../man5/boot.config.5.md), [rc.conf(5)](../man5/rc.conf.5.md), [boot(8)](boot.8.md), [gpart(8)](gpart.8.md)
 
-[历史](#__u5386___u53F2_)
-=======================
+## 历史
 
-`gptboot` 出现在 FreeBSD 7.1 中。
+`gptboot` 出现于 FreeBSD 7.1。
 
-[作者](#__u4F5C___u8005_)
-=======================
+## 作者
 
-本手册页由 Warren Block ⟨wblock@FreeBSD.org⟩ 编写。
-
-April 30, 2019
-
-FreeBSD 13.1-RELEASE
+本手册页由 Warren Block <wblock@FreeBSD.org> 编写。

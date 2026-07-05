@@ -1,75 +1,59 @@
-  NICE(1)  
+# nice.1
 
-NICE(1)
+`nice` — 以调整后的调度优先级执行实用程序
 
-FreeBSD General Commands Manual
+## 名称
 
-NICE(1)
+`nice`
 
-[名称](#__u540D___u79F0_)
-=======================
+## 概要
 
-`nice` —
+`nice [-n increment] utility [argument ...]`
 
-以更改的调度优先级执行实用程序
+## 描述
 
-[概要](#__u6982___u8981_)
-=======================
+`nice` 实用程序以调整后的调度优先级运行 `utility`，将其“nice”值增加指定的 `increment`，或默认值 10。进程的 nice 值越低，其调度优先级越高。
 
-`nice` \[`-n` increment\] utility \[argument ...\]
+超级用户可以指定负的增量，以更高的调度优先级运行实用程序。
 
-[描述](#__u63CF___u8FF0_)
-=======================
+某些 shell 可能提供与本实用程序相似或相同的内建 `nice` 命令。请参阅 [builtin(1)](builtin.1.md) 手册页。
 
-`nice` 实用程序以更改的调度优先级运行 utility ，方法是将其 “nice” 值增加指定的 increment 或默认值 10。 一个进程的 nice 值越低，它的调度优先级就越高。
+## 环境变量
 
-超级用户可以指定负增量以运行具有更高调度优先级的实用程序。
+如果名称中不含 `/` 字符，`PATH` 环境变量用于定位所请求的 `utility`。
 
-某些 shell 可能会提供与此实用程序类似或相同的内置 `nice` 命令。 请参阅 builtin(1) 手册页。
+## 退出状态
 
-[环境](#__u73AF___u5883_)
-=======================
+如果调用了 `utility`，`nice` 的退出状态就是 `utility` 的退出状态。
 
-如果名称不包含 ‘`/`’ 字符，则 `PATH` 环境变量用于定位请求的 utility 。
+退出状态 126 表示找到了 `utility`，但无法执行。退出状态 127 表示找不到 `utility`。
 
-[退出状态](#__u9000___u51FA___u72B6___u6001_)
-=========================================
+## 实例
 
-如果调用了 utility ， `nice` 的退出状态就是 utility 的退出状态。
+假设 shell 的优先级为 0，以优先级 5 执行实用程序 ‘date’：
 
-退出状态 126 表示找到 utility ，但无法执行。 退出状态 127 表示找不到 utility 。
+```sh
+nice -n 5 date
+```
 
-[实例](#__u5B9E___u4F8B_)
-=======================
+假设 shell 的优先级为 0 且你是超级用户，以优先级 -19 执行实用程序 ‘date’：
 
-假设 shell 的优先级为 0，以优先级 5 执行实用程序 ‘date’ :
+```sh
+nice -n 16 nice -n -35 date
+```
 
-`nice -n 5 date`
+## 兼容性
 
-假设 shell 的优先级为 0 并且您是超级用户，以优先级 -19 执行实用程序 ‘date’ :
+传统的 `-increment` 选项已弃用，但仍受支持。
 
-`nice -n 16 nice -n -35 date`
+## 参见
 
-[兼容性](#__u517C___u5BB9___u6027_)
-================================
+[builtin(1)](builtin.1.md), csh(1), idprio(1), rtprio(1), getpriority(2), setpriority(2), [renice(8)](../man8/renice.8.md)
 
-传统的 `-`increment 选项已被弃用，但仍受支持。
+## 标准
 
-[参见](#__u53C2___u89C1_)
-=======================
+`nice` 实用程序遵循 IEEE Std 1003.1-2001 ("POSIX.1") 规范。
 
-builtin(1), csh(1), idprio(1), rtprio(1), getpriority(2), setpriority(2), renice(8)
+## 历史
 
-[标准](#__u6807___u51C6_)
-=======================
-
-`nice` 实用程序符合 IEEE Std 1003.1-2001 (“POSIX.1”) 。
-
-[历史](#__u5386___u53F2_)
-=======================
-
-Version 4 AT&T UNIX 中出现了 `nice` 实用程序。
-
-February 24, 2011
-
-FreeBSD 13.1-RELEASE
+`nice` 实用程序出现于 Version 4 AT&T UNIX。

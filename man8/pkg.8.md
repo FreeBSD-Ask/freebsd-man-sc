@@ -1,362 +1,204 @@
-  PKG(8)  
+# pkg.8
 
-PKG(8)
+`pkg` — 用于操作软件包的工具
 
-FreeBSD System Manager's Manual
+## 名称
 
-PKG(8)
+`pkg`
 
-[名称](#__u540D___u79F0_)
-=======================
+## 概要
 
-`pkg`, `pkg-static` —
+`pkg [-d] command ...` `pkg [-d] add [-fy] [-r reponame] pkg.pkg` `pkg -N` `pkg [-46d] bootstrap [-fy] [-r reponame]`
 
-操作包
+## 描述
 
-[概要](#__u6982___u8981_)
-=======================
+`pkg` 是软件包管理工具。它用于管理从 [ports(7)](../man7/ports.7.md) 安装的本地软件包，以及从远程仓库安装/升级软件包。
 
-`pkg` \[`-v`\] \[`-d`\] \[`-l`\] \[`-N`\] \[`-j` ⟨jail name or id⟩ | `-c` ⟨chroot path⟩ | `-r` ⟨root directory⟩\] \[`-C` ⟨configuration file⟩\] \[`-R` ⟨repository configuration directory⟩\] \[`-4` | `-6`\] ⟨command⟩ ⟨flags⟩
+为避免向后兼容性问题，实际的 [pkg(8)](pkg.8.md) 工具并未安装在基本系统中。首次调用时，`pkg` 将从远程仓库引导安装真正的 [pkg(8)](pkg.8.md)。
 
-`pkg` \[`--version`\] \[`--debug`\] \[`--list`\] \[`-N`\] \[`--jail` ⟨jail name or id⟩ | `--chroot` ⟨chroot path⟩ | `--rootdir` ⟨root directory⟩\] \[`--config` ⟨configuration file⟩\] \[`--repo-conf-dir` ⟨repository configuration directory⟩\] \[`-4` | `-6`\] ⟨command⟩ ⟨flags⟩
+**`pkg`** `command ...` 如果尚未安装 [pkg(8)](pkg.8.md)，将获取它、验证其签名、安装，然后将原始命令转发给它。如果已安装，则将所请求的命令转发给真正的 [pkg(8)](pkg.8.md)。
 
-[描述](#__u63CF___u8FF0_)
-=======================
+**`pkg`** `add` [`-fy`] [`-r` `reponame`] `pkg.pkg` 从本地软件包安装 [pkg(8)](pkg.8.md)，而非从远程获取。如果启用了签名检查，则必须存在正确的签名文件且签名有效，软件包才会被安装。如果指定了 `-f` 标志，则无论是否已安装 [pkg(8)](pkg.8.md)，都将安装。如果指定了 `-y` 标志，引导安装 [pkg(8)](pkg.8.md) 时将不询问确认。如果指定了 `reponame`，则使用该仓库的签名配置。
 
-`pkg` 提供了一个操作包的接口：注册、添加、删除和升级包。 `pkg-static` 是 `pkg` 的静态链接变体，通常仅用于 `pkg` 的初始安装。 功能上存在一些差异。有关详细信息，请参阅 pkg.conf(5) 。
+**`pkg`** `-N` 不进行引导安装，仅确定是否实际安装了 [pkg(8)](pkg.8.md)。如果已安装，返回 0 和已安装的软件包数量，否则返回 1。
 
-[选项](#__u9009___u9879_)
-=======================
+**`pkg`** [`-46`] `bootstrap` [`-fy`] [`-r` `reponame`] 尝试引导安装，并在安装完成后不向 [pkg(8)](pkg.8.md) 转发任何内容。使用 `-4` 和 `-6` 时，`pkg` 将分别强制使用 IPv4 或 IPv6 来获取 [pkg(8)](pkg.8.md) 及其签名（按需）。如果指定了 `-f` 标志，则无论是否已安装 [pkg(8)](pkg.8.md)，都将获取并安装。如果指定了 `-y` 标志，引导安装 [pkg(8)](pkg.8.md) 时将不询问确认。如果指定了 `reponame`，则使用该仓库的配置。
+
+## 选项
 
 `pkg` 支持以下选项：
 
-[`-v`](#v), `--version`
+**`-d,`** `--debug` 显示调试信息。可以多次指定以提高详细程度。指定两次时，将启用 fetch(3) 调试输出。
 
-显示当前版本的 `pkg` 。
+## 配置
 
-[`-d`](#d), `--debug`
+配置因位于仓库配置文件还是全局配置文件而异。FreeBSD 的默认仓库配置存储在 **/etc/pkg/FreeBSD.conf** 中，其他仓库配置文件将在 `REPOS_DIR` 中搜索，如果未设置则为 **/usr/local/etc/pkg/repos**。
 
-显示调试信息。
+对于引导安装，`pkg` 将处理它找到的所有仓库，并默认使用最后启用的仓库。
 
-[`-l`](#l), `--list`
+仓库配置以以下格式存储：
 
-列出所有可用的命令名称，然后退出而不执行任何其他操作。 `-v` 选项优先于 `-l` 但 `-l` 将覆盖任何其他命令行参数。
+```sh
+FreeBSD: {
+  url: "pkg+http://pkg.FreeBSD.org/${ABI}/latest",
+  mirror_type: "srv",
+  signature_type: "none",
+  fingerprints: "/usr/share/keys/pkg",
+  enabled: yes
+}
+```
 
-[`-o`](#o) ⟨option=value⟩, `--option` ⟨option=value⟩
+**url** 参见环境变量中的 `PACKAGESITE`
+**mirror_type** 参见环境变量中的 `MIRROR_TYPE`
+**signature_type** 参见环境变量中的 `SIGNATURE_TYPE`
+**fingerprints** 参见环境变量中的 `FINGERPRINTS`
+**enabled** 定义是否应使用此仓库。有效值为 `yes`、`true`、`1`、`no`、`false`、`0`。
 
-从命令行设置 `pkg` 的配置选项。 从环境中设置的选项被重新定义。 允许多次指定此选项。
+全局配置可以以下格式存储在 **/usr/local/etc/pkg.conf** 中：
 
-[`-N`](#N)
+```sh
+PACKAGESITE: "pkg+http://pkg.FreeBSD.org/${ABI}/latest",
+MIRROR_TYPE: "srv",
+SIGNATURE_TYPE: "none",
+FINGERPRINTS: "/usr/share/keys/pkg",
+ASSUME_ALWAYS_YES: "yes"
+REPOS_DIR: ["/etc/pkg", "/usr/local/etc/pkg/repos"]
+```
 
-激活状态检查模式。 防止 `pkg` 自动创建或初始化 /var/db/pkg/local.sqlite 中的 SQLite 数据库（如果它不存在）。
+每个变量参见环境变量。
 
-如果当前没有安装任何包，则防止 `pkg` 执行任何操作，因为使用 `pkg` 正确初始化的系统将始终至少注册 `pkg` 包本身。
+## 环境变量
 
-如果在没有任何其他参数的情况下使用， `pkg` `-N` 将运行健全性测试，如果成功则打印出一条短消息，显示当前安装了多少包。 退出状态应该是系统是否配置为使用 `pkg` 作为其包管理系统的可靠指示。
+可以设置以下环境变量来覆盖所使用的 `pkg.conf` 文件中的设置。
 
-示例用法：
+**`MIRROR_TYPE`** 定义应使用哪种镜像类型。有效值为 `SRV`、`HTTP`、`NONE`。
 
- if pkg -N >/dev/null 2>&1; then # pkgng-specifics else # pkg\_install-specifics fi 
+**`ABI`** 定义要安装的软件包的 ABI。默认 ABI 由 **/bin/sh** 确定。
 
-`-N`-
-标志最初是在-
-.Fx 8.4-
-的 /usr/sbin/pkg 引导程序中发布的，但在 FreeBSD 9.1 中没有。 仅仅调用 `pkg` `-N` 可能是不够的，因为可能会调用引导程序，或者从 `pkg` 返回错误。 以下脚本是检测 `pkg` 是否已安装和激活的最安全方法：
+**`ASSUME_ALWAYS_YES`** 如果设置，引导安装 [pkg(8)](pkg.8.md) 时将不询问确认。
 
- if TMPDIR=/dev/null ASSUME\_ALWAYS\_YES=yes \\ PACKAGESITE=file:///nonexistent \\ pkg info -x 'pkg(-devel)?$' >/dev/null 2>&1; then # pkgng-specifics else # pkg\_install-specifics fi 
+**`SIGNATURE_TYPE`** 如果设置为 `FINGERPRINTS`，则在引导安装 [pkg(8)](pkg.8.md) 时将要求签名并根据已知证书指纹进行验证。
 
-[`-j`](#j) ⟨jail name or id⟩, `--jail` ⟨jail name or id⟩
+**`FINGERPRINTS`** 如果 **SIGNATURE_TYPE** 设置为 `FINGERPRINTS`，此值应设置为已知指纹所在的目录路径。
 
-`pkg` 将在给定的 ⟨jail name or id⟩, 中执行，其中 _name_ 匹配 “`jls` name” ， _id_ 匹配 “`jls` jid” 。 参见 jail(8) 和 jls(8) 。
+**`PACKAGESITE`** 获取 [pkg(8)](pkg.8.md) 和其他软件包的 URL。
 
-[`-c`](#c) ⟨chroot path⟩, `--chroot` ⟨chroot path⟩
+**`REPOS_DIR`** 以逗号分隔的目录列表，将在其中搜索仓库配置文件。
 
-`pkg` 将在 ⟨chroot path⟩ 环境中 chroot。
+## 文件
 
-[`-r`](#r) ⟨root directory⟩, `--rootdir` ⟨root directory⟩
+配置按所列顺序从以下文件中读取。此路径可以通过设置 `REPOS_DIR` 更改。最后启用的仓库用于引导安装 [pkg(8)](pkg.8.md)。
 
-`pkg` 将安装指定的 ⟨root directory⟩ 中的所有包。
+**/usr/local/etc/pkg.conf**
 
-[`-C`](#C) ⟨configuration file⟩, `--config` ⟨configuration file⟩
+**/etc/pkg/FreeBSD.conf**
 
-`pkg` 将使用指定的文件作为配置文件。
+**/usr/local/etc/pkg/repos/\*.conf**
 
-[`-R`](#R) ⟨repo conf dir⟩, `--repo-conf-dir` ⟨repo conf dir⟩
+## 实例
 
-`pkg` 将在目录中搜索每个存储库的配置文件。 这会覆盖主配置文件中指定的任何 `REPOS_DIR` 值。
+此处列出了一些示例。可用命令的完整列表在引导安装后可通过 [pkg(8)](pkg.8.md) 获得。
 
-[`-4`](#4)
+搜索软件包：
 
-`pkg` 将使用 IPv4 来获取存储库和包。
+```sh
+$ pkg search perl
+```
 
-[`-6`](#6)
+安装软件包：
 
-`pkg` 将使用 IPv6 来获取存储库和包。
-
-[命令](#__u547D___u4EE4_)
-=======================
-
-`pkg` 支持以下命令（或其明确的缩写）：
-
-[`help`](#help) command
-
-显示指定命令的使用信息。
-
-[`add`](#add)
-
-从本地源或远程源安装包。
-
-从远程源安装时，您需要指定获取包时使用的协议。
-
-目前支持的协议有 FTP、HTTP 和 HTTPS。
-
-[`annotate`](#annotate)
-
-添加、修改或删除包上的标记值样式注释。
-
-[`alias`](#alias)
-
-列出命令行别名。
-
-[`audit`](#audit)
-
-针对已知漏洞审核已安装的软件包。
-
-[`autoremove`](#autoremove)
-
-删除作为依赖项自动安装且不再需要的软件包。
-
-[`backup`](#backup)
-
-将本地包数据库转储到命令行上指定的文件。
-
-[`bootstrap`](#bootstrap)
-
-这是为了与 pkg(7) 引导程序兼容。如果已经安装了 `pkg` ，则什么也不做。
-
-如果使用 `-f` 标志调用，将尝试从远程存储库重新安装 `pkg` 。
-
-[`check`](#check)
-
-健全性检查已安装的软件包。
-
-[`clean`](#clean)
-
-清理获取的远程包的本地缓存。
-
-[`convert`](#convert)
-
-与旧的 pkg\_add(1) 格式相互转换。
-
-[`create`](#create)
-
-创建一个包。
-
-[`delete`](#delete)
-
-从数据库和系统中删除一个包。
-
-[`fetch`](#fetch)
-
-从远程存储库中获取包。
-
-[`info`](#info)
-
-显示有关已安装包和包文件的信息。
-
-[`install`](#install)
-
-从远程包存储库安装包。如果在多个远程存储库中找到一个包，则从第一个存储库开始安装。依次尝试从每个包存储库下载包，直到成功获取包。
-
-[`lock`](#lock)
-
-防止修改或删除包。
-
-[`plugins`](#plugins)
-
-列出可用的插件。
-
-[`query`](#query)
-
-查询已安装包和包文件的信息。
-
-[`register`](#register)
-
-在数据库中注册一个包。
-
-[`repo`](#repo)
-
-创建本地包存储库以供远程使用。
-
-[`rquery`](#rquery)
-
-查询远程存储库的信息。
-
-[`search`](#search)
-
-在远程包存储库中搜索给定的模式。
-
-[`set`](#set)
-
-修改已安装数据库中的信息。
-
-[`shell`](#shell)
-
-打开本地或远程数据库的 SQLite shell。使用此命令时应格外小心。
-
-[`shlib`](#shlib)
-
-显示哪些包链接到特定的共享库。
-
-[`stats`](#stats)
-
-显示包数据库统计信息。
-
-[`unlock`](#unlock)
-
-解锁包，允许修改或删除它们。
-
-[`update`](#update)
-
-更新 pkg.conf(5) 中列出的可用远程存储库。
-
-[`updating`](#updating)
-
-显示已安装包的更新条目。
-
-[`upgrade`](#upgrade)
-
-将软件包升级到较新的版本。
-
-[`version`](#version)
-
-总结已安装的软件包版本。
-
-[`which`](#which)
-
-在数据库中查询安装了特定文件的包。
-
-[环境](#__u73AF___u5883_)
-=======================
-
-pkg.conf(5) 中的所有配置选项都可以作为环境变量传递。
-
-额外的环境变量是：
-
-INSTALL\_AS\_USER
-
-允许以普通用户身份进行所有操作，而不是在适当的时候检查 root 凭据。-
-预计用户将确保 `pkg`-
-操作的每个文件和目录都是用户可读的 (或在适当的情况下可写) 。
-
-[文件](#__u6587___u4EF6_)
-=======================
-
-请参阅 pkg.conf(5) 。
-
-[实例](#__u5B9E___u4F8B_)
-=======================
-
-搜索包：
-
-`$ pkg search perl`
-
-安装一个包：
-
-`安装必须指定唯一的来源或版本，否则它将尝试安装所有匹配项。`
-
-`% pkg install perl-5.14`
+```sh
+% pkg install perl
+```
 
 列出已安装的软件包：
 
-`$ pkg info`
+```sh
+$ pkg info
+```
 
-从远程存储库升级：
+从远程仓库升级：
 
-`% pkg upgrade`
+```sh
+% pkg upgrade
+```
 
-更改已安装包的来源：
+列出非自动安装的软件包：
 
-`% pkg set -o lang/perl5.12:lang/perl5.14`
+```sh
+$ pkg query -e '%a = 0' %o
+```
 
-`% pkg install -Rf lang/perl5.14`
+列出自动安装的软件包：
 
-列出非自动包：
+```sh
+$ pkg query -e '%a = 1' %o
+```
 
-`$ pkg query -e '%a = 0' %o`
+删除已安装的软件包：
 
-列出自动包：
+```sh
+% pkg delete perl
+```
 
-`$ pkg query -e '%a = 1' %o`
+移除不需要的依赖项：
 
-删除已安装的包：
+```sh
+% pkg autoremove
+```
 
-`% pkg delete perl-5.14`
+将软件包从自动改为非自动，这将防止 pkg-autoremove(8) 将其移除：
 
-删除不需要的依赖项：
+```sh
+% pkg set -A 0 perl
+```
 
-`% pkg autoremove`
+将软件包从非自动改为自动，这将使 pkg-autoremove(8) 在没有其他软件包依赖它时允许将其移除：
 
-将包从自动更改为非自动，这将阻止 `autoremove` 删除它：
+```sh
+% pkg set -A 1 perl
+```
 
-`% pkg set -A 0 perl-5.14`
+从已安装的软件包创建软件包文件：
 
-将包从非自动更改为自动，这将使 `autoremove` 允许在没有任何依赖项时将其删除：
+```sh
+% pkg create -o /usr/ports/packages/All perl
+```
 
-`% pkg set -A 1 perl-5.14`
+确定哪个软件包安装了某个文件：
 
-从已安装的包创建包文件：
+```sh
+$ pkg which /usr/local/bin/perl
+```
 
-`% pkg create -o /usr/ports/packages/All perl-5.14`
+审计已安装软件包的安全公告：
 
-确定哪个软件包安装了文件：
+```sh
+$ pkg audit
+```
 
-`$ pkg which /usr/local/bin/perl`
+检查已安装软件包的校验和不匹配：
 
-审核已安装的软件包以获取安全建议：
+```sh
+# pkg check -s -a
+```
 
-`$ pkg audit`
+检查缺失的依赖项：
 
-检查已安装的软件包是否存在校验和不匹配：
+```sh
+# pkg check -d -a
+```
 
-`# pkg check -s -a`
+为不同的 FreeBSD 版本获取软件包及其所有依赖项：
 
-检查缺少的依赖项：
+```sh
+# pkg -o ABI=FreeBSD:15:amd64 -o IGNORE_OSVERSION=yes fetch -o destdir -d perl
+```
 
-`# pkg check -d -a`
+## 参见
 
-显示一个包的 pkg-message：
+[ports(7)](../man7/ports.7.md), [pkg(8)](pkg.8.md)
 
-`# pkg info -D perl-5.14`
+## 历史
 
-[参见](#__u53C2___u89C1_)
-=======================
-
-pkg\_create(3), pkg\_printf(3), pkg\_repos(3), pkg-keywords(5), pkg-lua-script(5), pkg-repository(5), pkg-script(5), pkg-triggers(5), pkg.conf(5), pkg-add(8), pkg-alias(8), pkg-annotate(8), pkg-audit(8), pkg-autoremove(8), pkg-backup(8), pkg-check(8), pkg-clean(8), pkg-config(8), pkg-create(8), pkg-delete(8), pkg-fetch(8), pkg-info(8), pkg-install(8), pkg-lock(8), pkg-query(8), pkg-register(8), pkg-repo(8), pkg-rquery(8), pkg-search(8), pkg-set(8), pkg-shell(8), pkg-shlib(8), pkg-ssh(8), pkg-stats(8), pkg-triggers(8), pkg-update(8), pkg-updating(8), pkg-upgrade(8), pkg-version(8), pkg-which(8)
-
-要为一台或多台服务器构建您自己的软件包集，请参阅 poudriere(8) (**ports/**ports-mgmt/poudriere) 。
-
-[FreeBSD pkg mirror](https://pkg.freebsd.org)
-
-您最近的基于 MaxMind GeoLite geo-DNS 的 pkg 镜像。
-
-[历史](#__u5386___u53F2_)
-=======================
-
-`pkg` 命令最早出现在 FreeBSD 9.1 中。
-
-[作者和贡献者](#__u4F5C___u8005___u548C___u8D21___u732E___u8005_)
-===========================================================
-
-Baptiste Daroussin ⟨bapt@FreeBSD.org⟩, Julien Laffaye ⟨jlaffaye@FreeBSD.org⟩, Philippe Pepiot ⟨phil@philpep.org⟩, Will Andrews ⟨will@FreeBSD.org⟩, Marin Atanasov Nikolov ⟨dnaeon@gmail.com⟩, Yuri Pankov ⟨yuri.pankov@gmail.com⟩, Alberto Villa ⟨avilla@FreeBSD.org⟩, Brad Davis ⟨brd@FreeBSD.org⟩, Matthew Seaman ⟨matthew@FreeBSD.org⟩, Bryan Drewery ⟨bryan@shatow.net⟩, Eitan Adler ⟨eadler@FreeBSD.org⟩, Romain Tarti\`ere ⟨romain@FreeBSD.org⟩, Vsevolod Stakhov ⟨vsevolod@FreeBSD.org⟩, Alexandre Perrin ⟨alex@kaworu.ch⟩
-
-[作者](#__u4F5C___u8005_)
-=======================
-
-请参阅 _https://github.com/freebsd/pkg/issues_ 上的问题跟踪器。
-
-请将问题和问题直接发送到 pkg@FreeBSD.org 邮件列表。
-
-June 29, 2020
-
-FreeBSD 13.1-RELEASE
+`pkg` 命令首次出现在 FreeBSD 9.1 中。它在 FreeBSD 10.0 中成为默认的软件包工具，替代了 pkg_install 工具套件 pkg_add(1)、pkg_info(1) 和 pkg_create(1)。

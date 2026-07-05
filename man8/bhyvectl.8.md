@@ -1,100 +1,67 @@
-  BHYVECTL(8)  
+# bhyvectl.8
 
-BHYVECTL(8)
+`bhyvectl` — bhyve 实例的控制工具
 
-FreeBSD System Manager's Manual
+## 名称
 
-BHYVECTL(8)
+`bhyvectl`
 
-[名称](#__u540D___u79F0_)
-=======================
+## 概要
 
-`bhyvectl` —
+`bhyvectl --vm=<vmname> [--create] [--destroy] [--get-stats] [--inject-nmi] [--force-reset] [--force-poweroff] [--checkpoint=<file>] [--suspend=<file>]`
 
-bhyve 实例的控制实用程序
+## 描述
 
-[概要](#__u6982___u8981_)
-=======================
-
-`bhyvectl` `--vm=`<vmname> \[`--create`\] \[`--destroy`\] \[`--get-stats`\] \[`--inject-nmi`\] \[`--force-reset`\] \[`--force-poweroff`\] \[`--checkpoint=`<filename>\] \[`--suspend=`<filename>\]
-
-[描述](#__u63CF___u8FF0_)
-=======================
-
-`bhyvectl` 命令是活动 bhyve(8) 虚拟机实例的控制实用程序。
-
-_注意_: 大多数 `bhyvectl` 标志用于查询和设置活动实例的状态。 这些命令用于开发目的，此处未记录。 通过执行不带任何参数的 `bhyvectl` 可以获得完整的列表。
+`bhyvectl` 命令是一个用于控制活动 [bhyve(8)](bhyve.8.md) 虚拟机实例的工具。
 
 面向用户的选项如下：
 
-[`--vm=`](#-vm=)<vmname>
+**`--vm=`** `<vmname>` 对虚拟机 `<vmname>` 进行操作。
 
-在虚拟机 <vmname> 上操作。
+**`--create`** 创建指定的虚拟机。
 
-[`--create`](#-create)
+**`--destroy`** 销毁指定的虚拟机。
 
-创建指定的虚拟机。
+**`--get-stats`** 获取指定虚拟机的统计信息。
 
-[`--destroy`](#-destroy)
+**`--inject-nmi`** 向虚拟机注入一个不可屏蔽中断（NMI）。
 
-销毁指定的虚拟机。
+**`--force-reset`** 强制虚拟机复位。
 
-[`--get-stats`](#-get-stats)
+**`--force-poweroff`** 强制虚拟机关机。
 
-检索指定 VM 的统计信息。
+**`--checkpoint=`** `<file>` 保存虚拟机的快照。客户机内存内容保存在 `<file>` 指定的文件中。客户机设备及 vCPU 状态保存在 `<file>.kern` 文件中。
 
-[`--inject-nmi`](#-inject-nmi)
+**`--suspend=`** `<file>` 类似于 `--checkpoint`，保存虚拟机的快照。虚拟机在快照保存完成后将终止运行。
 
-将不可屏蔽中断 (NMI) 注入 VM。
+*注：* 大多数 `bhyvectl` 标志用于查询和设置活动实例的状态。这些命令仅用于开发目的，此处不予说明。完整列表可通过执行不带任何参数的 `bhyvectl` 命令获取。
 
-[`--force-reset`](#-force-reset)
+## 退出状态
 
-强制 VM 重置。
+`bhyvectl` 工具成功时退出状态为 0，发生错误时大于 0。
 
-[`--force-poweroff`](#-force-poweroff)
+## 实例
 
-强制关闭虚拟机。
+销毁名为 fbsd10 的虚拟机：
 
-[`--checkpoint=`](#-checkpoint=)<filename>
+```sh
+bhyvectl --vm=fbsd10 --destroy
+```
 
-保存虚拟机的快照。 来宾内存内容保存在 <filename> 中给出的文件中。 来宾设备和 vCPU 状态保存在文件 <filename>.kern 中。
+运行中的虚拟机将在 **/dev/vmm/** 目录中可见。
 
-[`--suspend=`](#-suspend=)<filename>
+## 兼容性
 
-保存类似于 `--checkpoint` 的虚拟机快照。 保存快照后，虚拟机将终止。
+快照文件格式尚未稳定，未来可能发生变化。不保证在未来修改后仍向后兼容当前的快照文件格式。
 
-[退出状态](#__u9000___u51FA___u72B6___u6001_)
-=========================================
+## 参见
 
-The `bhyvectl` utility exits 0 on success, and >0 if an error occurs.
+[bhyve(8)](bhyve.8.md), [bhyveload(8)](bhyveload.8.md)
 
-[实例](#__u5B9E___u4F8B_)
-=======================
-
-销毁名为 fbsd10 的 VM：
-
-`bhyvectl --vm=fbsd10 --destroy`
-
-[兼容性](#__u517C___u5BB9___u6027_)
-================================
-
-快照文件格式尚不稳定，可能会发生变化。 将来进行更改时，不能保证对当前快照文件格式的向后兼容性支持。
-
-[参见](#__u53C2___u89C1_)
-=======================
-
-bhyve(8), bhyveload(8)
-
-[历史](#__u5386___u53F2_)
-=======================
+## 历史
 
 `bhyvectl` 命令首次出现在 FreeBSD 10.1 中。
 
-[作者](#__u4F5C___u8005_)
-=======================
+## 作者
 
-`bhyvectl` 实用程序由 Peter Grehan 和 Neel Natu 编写。
-
-May 4, 2020
-
-FreeBSD 13.1-RELEASE
+`bhyvectl` 工具由 Peter Grehan 和 Neel Natu 编写。

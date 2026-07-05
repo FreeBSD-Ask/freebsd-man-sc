@@ -1,75 +1,95 @@
-  KENV(1)  
+# kenv.1
 
-KENV(1)
+`kenv` — 列出或修改内核环境
 
-FreeBSD General Commands Manual
+## 名称
 
-KENV(1)
+`kenv`
 
-[名称](#__u540D___u79F0_)
-=======================
+## 概要
 
-`kenv` —
+`kenv [-l | -s] [-hNq]`
 
-转储或修改内核环境
+`kenv [-qv] variable[=value]`
 
-[概要](#__u6982___u8981_)
-=======================
+`kenv [-q] -u variable`
 
-`kenv` \[`-hNq`\] `kenv` \[`-qv`\] variable\[=value\] `kenv` \[`-q`\] `-u` variable
+## 描述
 
-[描述](#__u63CF___u8FF0_)
-=======================
+如果不带参数调用，`kenv` 实用程序将列出内核环境中的所有变量。
 
-如果在没有参数的情况下调用 `kenv` 实用程序，它将转储内核环境。 如果指定了 `-h` 选项，它会将报告限制为内核探测提示。 如果指定了可选 variable 名， `kenv` 将只报告该值。 如果指定了 `-N` 选项， `kenv` 将只显示变量名而不显示它们的值。 如果指定了 `-u` 选项， `kenv` 将删除给定的环境变量。 如果环境变量后面跟着一个可选 value, `kenv` 会将环境变量设置为这个值。
+如果指定了 `-l` 选项，则改为列出由 [loader(8)](../man8/loader.8.md) 提供的静态环境。类似地，`-s` 选项将列出由内核配置定义的静态环境。`-l` 和 `-s` 选项都依赖于内核被配置为保留早期内核环境。默认内核配置不保留这些环境。
 
-如果设置了 `-q` 选项，则由于无法执行请求的操作而通常打印的警告将被禁止。
+如果指定了 `-h` 选项，将把报告限制为内核探测提示。如果指定了可选的 `variable` 名称，`kenv` 将仅报告该值。如果指定了 `-N` 选项，`kenv` 将仅显示变量名而不显示其值。如果指定了 `-u` 选项，`kenv` 将删除给定的环境变量。如果环境变量后跟一个可选的 `value`，`kenv` 会将环境变量设置为该值。
 
-如果设置了 `-v` 选项，除了使用变量名执行 `kenv` 时的值之外，还将为环境变量打印变量名。
+如果设置了 `-q` 选项，将抑制因无法执行请求的操作而通常打印的警告信息。
 
-变量可以使用 /boot/loader.conf 文件添加到内核环境中，也可以使用语句静态编译到内核中
+如果设置了 `-v` 选项，当 `kenv` 带变量名执行时，除了值之外还会打印环境变量的变量名。
 
-``` `env` filename```
+可以使用 **/boot/loader.conf** 文件将变量添加到内核环境，也可以使用内核配置文件中的以下语句静态编译到内核中：
 
-在内核配置文件中。该文件可以包含以下形式的行
+```sh
+env filename
+```
 
-`name = value # this is a comment`
+该文件可以包含如下形式的行：
 
-其中 ‘name’ 和 ‘=’ 周围的空格以及 ‘#’ 字符之后的所有内容都将被忽略。 除了 ‘=’ 之外，几乎所有可打印字符都可以作为名称的一部分。 仅当值包含空格时，引号是可选的并且是必需的。
+```sh
+name = "value" # 这是一个注释
+```
 
-[实例](#__u5B9E___u4F8B_)
-=======================
+其中 `name` 和 `=` 周围的空白字符以及 `#` 字符之后的所有内容都会被忽略。除 `=` 外的几乎所有可打印字符都可作为名称的一部分。引号是可选的，仅当值包含空白字符时才需要。
 
-显示 uart 设备的内核探测提示变量名称和过滤器
+## 实例
 
-$ kenv -h -N | grep uart hint.uart.0.at hint.uart.0.flags hint.uart.0.irq hint.uart.0.port hint.uart.1.at hint.uart.1.irq hint.uart.1.port 
+显示内核探测提示变量名并过滤 uart 设备：
+
+```sh
+$ kenv -h -N | grep uart
+hint.uart.0.at
+hint.uart.0.flags
+hint.uart.0.irq
+hint.uart.0.port
+hint.uart.1.at
+hint.uart.1.irq
+hint.uart.1.port
+```
 
 显示特定变量的值：
 
-$ kenv hint.uart.1.at isa 
+```sh
+$ kenv hint.uart.1.at
+isa
+```
 
-与上面相同，但在报告中添加变量的名称：
+与上面相同，但在报告中添加变量名：
 
-$ kenv -v hint.uart.1.at hint.uart.1.at="isa" 
+```sh
+$ kenv -v hint.uart.1.at
+hint.uart.1.at="isa"
+```
 
-尝试删除变量并抑制警告（如果有）：
+尝试删除变量并抑制任何警告：
 
-$ kenv -q -u hint.uart.1.at 
+```sh
+$ kenv -q -u hint.uart.1.at
+```
 
-设置 `verbose_loading` 变量的值
+设置 `verbose_loading` 变量的值：
 
-$ kenv verbose\_loading="YES" verbose\_loading="YES" 
+```sh
+$ kenv verbose_loading="YES"
+verbose_loading="YES"
+```
 
-[参见](#__u53C2___u89C1_)
-=======================
+## 参见
 
-kenv(2), config(5), loader.conf(5), loader(8)
+kenv(2), config(5), loader.conf(5), [loader(8)](../man8/loader.8.md)
 
-[历史](#__u5386___u53F2_)
-=======================
+## 历史
 
-`kenv` 实用程序出现在 FreeBSD 4.1.1 中。
+`kenv` 实用程序首次出现于 FreeBSD 4.1.1。
 
-October 5, 2020
+## 安全注意事项
 
-FreeBSD 13.1-RELEASE
+请注意，除非 `security.bsd.unprivileged_kenv_read` sysctl 设置为 0，否则允许非特权用户读取内核环境。这包括列出内核环境以及从环境中获取特定 `variable`。

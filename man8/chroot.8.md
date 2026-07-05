@@ -1,78 +1,57 @@
-  CHROOT(8)  
+# chroot.8
 
-CHROOT(8)
+`chroot` — 更改根目录
 
-FreeBSD System Manager's Manual
+## 名称
 
-CHROOT(8)
+`chroot`
 
-[名称](#__u540D___u79F0_)
-=======================
+## 概要
 
-`chroot` —
+`chroot [-G group[,group ...]] [-g group] [-u user] [-n] newroot [command [arg ...]]`
 
-更改根目录
+## 描述
 
-[概要](#__u6982___u8981_)
-=======================
+`chroot` 工具将其当前目录和根目录更改为指定的目录 `newroot`，然后使用提供的参数执行 `command`（如果提供了的话），或执行用户登录 shell 的交互式副本。
 
-`chroot` \[`-G` group\[`,`group ...\]\] \[`-g` group\] \[`-u` user\] newroot \[command \[arg ...\]\]
+可用选项如下：
 
-[描述](#__u63CF___u8FF0_)
-=======================
+**`-G`** `group`[`,``group ...`] 以指定的组作为附加组运行命令。
 
-`chroot` 实用程序将其当前目录和根目录更改为提供的目录 newroot ，然后使用提供的参数（如果提供）或用户登录 shell 的交互式副本执行 exec command 。
+**`-g`** `group` 以指定的 `group` 作为实际、有效和保存的组运行命令。
 
-选项如下：
+**`-u`** `user` 以指定的 `user` 作为实际、有效和保存的用户运行命令。
 
-[`-G`](#G) group\[`,`group ...\]
+**`-n`** 在执行 chroot 之前使用 `PROC_NO_NEW_PRIVS_CTL` procctl(2) 命令，有效地为调用进程及其子进程禁用 SUID/SGID 位。如果将 `security.bsd.unprivileged_chroot` sysctl 设置为 1，则可以在没有超级用户权限的情况下执行 chroot。
 
-以指定组的权限运行命令。
+## 环境变量
 
-[`-g`](#g) group
+`chroot` 会引用以下环境变量：
 
-以指定 group 的权限运行命令。
+**`SHELL`** 如果已设置，则将 `SHELL` 指定的字符串解释为要执行的 shell 名称。如果未设置 `SHELL` 变量，则使用 **/bin/sh**。
 
-[`-u`](#u) user
+## 实例
 
-以 user 身份运行命令。
+**示例 1：** 进入新的根目录
 
-[环境](#__u73AF___u5883_)
-=======================
+以下命令在 chroot 到标准根目录后打开 [csh(1)](../man1/csh.1.md) shell。
 
-`chroot` 引用了以下环境变量：
+```sh
+# chroot / /bin/csh
+```
 
-[`SHELL`](#SHELL)
+**示例 2：** 在更改的根目录中执行命令
 
-如果设置，则由 `SHELL` 指定的字符串被解释为要执行的 shell 的名称。 如果未设置变量 `SHELL` ，则使用 /bin/sh 。
+以下命令使用 `chroot` 更改根目录，然后运行 [ls(1)](../man1/ls.1.md) 列出 **/sbin** 的内容。
 
-[实例](#__u5B9E___u4F8B_)
-=======================
+```sh
+# chroot /tmp/testroot ls /sbin
+```
 
-**示例 1：进入新的根目录**
+## 参见
 
-以下命令在 chroot 到标准根目录后打开 csh(1) shell 。
+chdir(2), chroot(2), setgid(2), setgroups(2), setuid(2), getgrnam(3), [environ(7)](../man7/environ.7.md), [jail(8)](jail.8.md)
 
-    #
-    
+## 历史
 
-**示例 2：使用更改的根目录执行命令**
-
-以下命令使用 `chroot` 更改根目录，然后运行 ls(1) 以列出 /sbin 的内容。
-
-    #
-    
-
-[参见](#__u53C2___u89C1_)
-=======================
-
-chdir(2), chroot(2), setgid(2), setgroups(2), setuid(2), getgrnam(3), environ(7), jail(8)
-
-[历史](#__u5386___u53F2_)
-=======================
-
-`chroot` 实用程序首先出现在 AT&T System III UNIX 和 4.3BSD-Reno 中。
-
-June 27, 2020
-
-FreeBSD 13.1-RELEASE
+`chroot` 工具首次出现于 AT&T System III UNIX 和 4.3BSD。

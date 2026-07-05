@@ -1,70 +1,43 @@
-  BTSOCKSTAT(1)  
+# btsockstat.1
 
-BTSOCKSTAT(1)
+`btsockstat` — 显示 Bluetooth 套接字信息
 
-FreeBSD General Commands Manual
+## 名称
 
-BTSOCKSTAT(1)
+`btsockstat`
 
-[名称](#__u540D___u79F0_)
-=======================
+## 概要
 
-`btsockstat` —
+`btsockstat [-nrh] [-M core] [-p protocol]`
 
-显示蓝牙套接字信息
+## 描述
 
-[概要](#__u6982___u8981_)
-=======================
-
-`btsockstat` \[`-nrh`\] \[`-M` core\] \[`-p` protocol\]
-
-[描述](#__u63CF___u8FF0_)
-=======================
-
-`btsockstat` 实用程序象征性地显示各种蓝牙套接字相关数据结构的内容。 输出格式很少，具体取决于所提供信息的选项。 `btsockstat` 实用程序会将结果打印到标准输出，并将错误消息打印到标准错误。
+`btsockstat` 实用程序以符号形式显示各种与 Bluetooth 套接字相关的数据结构内容。根据所呈现信息对应选项的不同，输出格式有若干种。`btsockstat` 实用程序将结果输出到标准输出，错误信息输出到标准错误。
 
 选项如下：
 
-[`-h`](#h)
+**`-h`** 显示用法信息并退出。
 
-显示使用信息并退出。
+**`-M`** `core` 从指定的 core 文件而非默认的 **/dev/kmem** 中提取与名称列表关联的值。
 
-[`-M`](#M) core
+**`-n`** 以数字形式显示 Bluetooth 地址。默认情况下，`btsockstat` 会尝试解析 Bluetooth 地址并以符号形式显示。
 
-从指定的核心而不是默认的 /dev/kmem 中提取与名称列表关联的值。
+**`-p`** `protocol` 显示指定协议的活动套接字（协议控制块）列表。支持的协议有：`hci_raw`、`l2cap_raw`、`l2cap`、`rfcomm` 和 `rfcomm_s`。
 
-[`-n`](#n)
+**`-r`** 显示指定协议的活动路由条目（如果有）。
 
-将蓝牙地址显示为数字。 通常， `btsockstat` 会尝试解析蓝牙地址，并象征性地显示它们。
+## 退出状态
 
-[`-p`](#p) protocol
+`btsockstat` 实用程序成功时退出值为 0，发生错误时退出值大于 0。
 
-显示每个指定协议的活动套接字（协议控制块）列表。 支持的协议有： `hci_raw 、 l2cap_raw 、 l2cap、 rfcomm` 和 `rfcomm_s` 。
+## 参见
 
-[`-r`](#r)
+[ng_btsocket(4)](../man4/ng_btsocket.4.md)
 
-显示指定协议的活动路由条目（如果有）列表。
+## 作者
 
-[退出状态](#__u9000___u51FA___u72B6___u6001_)
-=========================================
+Maksim Yevmenkin <m_evmenkin@yahoo.com>
 
-The `btsockstat` utility exits 0 on success, and >0 if an error occurs.
+## 缺陷
 
-[参见](#__u53C2___u89C1_)
-=======================
-
-ng\_btsocket(4)
-
-[作者](#__u4F5C___u8005_)
-=======================
-
-Maksim Yevmenkin <[m\_evmenkin@yahoo.com](mailto:m_evmenkin@yahoo.com)\>
-
-[缺陷](#__u7F3A___u9677_)
-=======================
-
-最有可能的。如果发现请报告。
-
-October 12, 2003
-
-FreeBSD 13.1-RELEASE
+很可能存在缺陷。如发现请报告。

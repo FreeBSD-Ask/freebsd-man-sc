@@ -1,84 +1,49 @@
-  IBV\_UD\_PINGPONG(1)  
+# ibv_ud_pingpong.1
 
-IBV\_UD\_PINGPONG(1)
+`ibv_ud_pingpong` — 简单的 InfiniBand UD 传输测试
 
-USER COMMANDS
+## 名称
 
-IBV\_UD\_PINGPONG(1)
+`ibv_ud_pingpong`
 
-[名称](#__u540D___u79F0_)
-=======================
+## 概要
 
-ibv\_ud\_pingpong - 简单的 InfiniBand UD 传输测试
+`ibv_ud_pingpong [-p port] [-d device] [-i ib port] [-s size] [-r rx depth] [-n iters] [-l sl] [-e] [-g gid index] HOSTNAME`
 
-[概要](#__u6982___u8981_)
-=======================
+`ibv_ud_pingpong [-p port] [-d device] [-i ib port] [-s size] [-r rx depth] [-n iters] [-l sl] [-e] [-g gid index]`
 
-**ibv\_ud\_pingpong** \[-p port\] \[-d device\] \[-i ib port\] \[-s size\] \[-r rx depth\] \[-n iters\] \[-l sl\] \[-e\] \[-g gid index\] **HOSTNAME**
+## 描述
 
-**ibv\_ud\_pingpong** \[-p port\] \[-d device\] \[-i ib port\] \[-s size\] \[-r rx depth\] \[-n iters\] \[-l sl\] \[-e\] \[-g gid index\]
+通过不可靠数据报（UD）传输在 InfiniBand 上运行简单的 ping-pong 测试。
 
-[描述](#__u63CF___u8FF0_)
-=======================
+## 选项
 
-通过不可靠数据报 (UD) 传输在 InfiniBand 上运行简单的 ping-pong 测试。
+**`-p`**, `--port`=`PORT` 使用 TCP 端口 `PORT` 进行初始同步（默认 18515）
 
-[选项](#__u9009___u9879_)
-=======================
+**`-d`**, `--ib-dev`=`DEVICE` 使用 IB 设备 `DEVICE`（默认为找到的第一个设备）
 
-**\-p**, **\--port**\=_PORT_
+**`-i`**, `--ib-port`=`PORT` 使用 IB 端口 `PORT`（默认端口 1）
 
-使用 TCP 端口 _PORT_ 进行初始同步（默认 18515）
+**`-s`**, `--size`=`SIZE` 大小为 `SIZE` 的 ping-pong 消息（默认 2048）
 
-**\-d**, **\--ib-dev**\=_DEVICE_
+**`-r`**, `--rx-depth`=`DEPTH` 每次投递 `DEPTH` 个接收请求（默认 500）
 
-使用 IB 设备 _DEVICE_ （默认找到第一个设备）
+**`-n`**, `--iters`=`ITERS` 执行 `ITERS` 次消息交换（默认 1000）
 
-**\-i**, **\--ib-port**\=_PORT_
+**`-l`**, `--sl`=`SL` 以服务级别 `SL` 发送消息（默认 0）
 
-使用 IB 端口 _PORT_ （默认端口 1）
+**`-e`**, `--events` 等待工作完成事件时休眠（默认为轮询完成）
 
-**\-s**, **\--size**\=_SIZE_
+**`-g`**, `--gid-idx`=`GIDINDEX` 本地端口 GID 索引 `GIDINDEX`
 
-messages of 大小为 _SIZE_ ping-pong 的消息（默认 2048）
+## 参见
 
-**\-r**, **\--rx-depth**\=_DEPTH_
+ibv_rc_pingpong(1), ibv_uc_pingpong(1), ibv_srq_pingpong(1), ibv_xsrq_pingpong(1)
 
-post _DEPTH_ 一次接收（默认 500）
+## 作者
 
-**\-n**, **\--iters**\=_ITERS_
+Roland Dreier <rolandd@cisco.com>
 
-执行 _ITERS_ 消息交换（默认 1000）
+## 缺陷
 
-**\-l**, **\--sl**\=_SL_
-
-发送具有服务级别 _SL_ 的消息（默认 0）
-
-**\-e**, **\--events**
-
-在等待工作完成事件时休眠（默认是轮询完成）
-
-**\-g**, **\--gid-idx**\=_GIDINDEX_
-
-本地端口 _GIDINDEX_
-
-[参见](#__u53C2___u89C1_)
-=======================
-
-**ibv\_rc\_pingpong**(1), **ibv\_uc\_pingpong**(1), **ibv\_srq\_pingpong**(1), **ibv\_xsrq\_pingpong**(1)
-
-[作者](#__u4F5C___u8005_)
-=======================
-
-Roland Dreier
-
-<_rolandd@cisco.com_\>
-
-[缺陷](#__u7F3A___u9677_)
-=======================
-
-客户端和服务器实例之间的网络同步很弱，并不能防止在两个实例上使用不兼容的选项。用于检索工作完成的方法并不严格正确，竞争条件可能会导致某些系统出现故障。
-
-August 30, 2005
-
-libibverbs
+客户端和服务器实例之间的网络同步较弱，无法防止两个实例使用不兼容的选项。检索工作完成的方法并不严格正确，竞争条件可能在某些系统上导致失败。

@@ -1,48 +1,27 @@
-  IBV\_ASYNCWATCH(1)  
+# ibv_asyncwatch.1
 
-IBV\_ASYNCWATCH(1)
+`ibv_asyncwatch` — 显示异步事件
 
-USER COMMANDS
+## 名称
 
-IBV\_ASYNCWATCH(1)
+`ibv_asyncwatch`
 
-[名称](#__u540D___u79F0_)
-=======================
+## 概要
 
-ibv\_asyncwatch - 显示异步事件
+`ibv_asyncwatch [-d device] [-h]`
 
-[概要](#__u6982___u8981_)
-=======================
+## 描述
 
-**ibv\_asyncwatch** \[-d device\] \[-h\]
+显示转发到用户空间的 RDMA 设备异步事件。
 
-[描述](#__u63CF___u8FF0_)
-=======================
+## 选项
 
-显示转发到 RDMA 设备的用户空间的异步事件。
+**`-d`**, `--ib-dev`=`DEVICE` 使用 IB 设备 `DEVICE`（默认为找到的第一个设备）
 
-[选项](#__u9009___u9879_)
-=======================
+**`-h`**, `--help`=`DEVICE` 打印帮助文本并退出。
 
-**\-d**, **\--ib-dev**\=_DEVICE_
+## 作者
 
-使用 IB 设备 _DEVICE_ (默认找到第一个设备)
+Roland Dreier <rolandd@cisco.com>
 
-**\-h**, **\--help**\=_DEVICE_
-
-打印帮助文本并退出。
-
-[作者](#__u4F5C___u8005_)
-=======================
-
-Roland Dreier
-
-<_rolandd@cisco.com_\>
-
-Eran Ben Elisha
-
-<_eranbe@mellanox.com_\>
-
-August 30, 2005
-
-libibverbs
+Eran Ben Elisha <eranbe@mellanox.com>

@@ -1,43 +1,27 @@
-  PERROR(1)  
+# perror.1
 
-PERROR(1)
+`perror` — 将错误号以字符串形式打印
 
-FreeBSD General Commands Manual
+## 名称
 
-PERROR(1)
+`perror`
 
-[名称](#__u540D___u79F0_)
-=======================
+## 概要
 
-`perror` —
+`perror number`
 
-将错误号打印为字符串
+## 描述
 
-[概要](#__u6982___u8981_)
-=======================
+`perror` 程序接收一个原始的 errno 值，并将其以字符串形式打印出来。
 
-`perror` number
-
-[描述](#__u63CF___u8FF0_)
-=======================
-
-`perror` 程序采用原始 errno 值并将其打印为字符串。
-
-[参见](#__u53C2___u89C1_)
-=======================
+## 参见
 
 perror(3)
 
-[历史](#__u5386___u53F2_)
-=======================
+## 历史
 
-`perror` 程序最早出现在 FreeBSD 8.0 中。
+`perror` 程序首次出现于 FreeBSD 8.0。
 
-[作者](#__u4F5C___u8005_)
-=======================
+## 作者
 
 George V. Neville-Neil
-
-May 12, 2009
-
-FreeBSD 13.1-RELEASE

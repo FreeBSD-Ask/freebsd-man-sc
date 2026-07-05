@@ -1,110 +1,91 @@
-  SPLIT(1)  
+# split.1
 
-SPLIT(1)
+`split` — 将文件分割成多片
 
-FreeBSD General Commands Manual
+## 名称
 
-SPLIT(1)
+`split`
 
-[名称](#__u540D___u79F0_)
-=======================
+## 概要
 
-`split` —
+`split [-cd] [-l line_count] [-a suffix_length] [file [prefix]]`
 
-将一个文件分成几块
+`split [-cd] -b byte_count[K|k|M|m|G|g] [-a suffix_length] [file [prefix]]`
 
-[概要](#__u6982___u8981_)
-=======================
+`split [-cd] -n chunk_count [-a suffix_length] [file [prefix]]`
 
-`split` `-d` \[`-l` line\_count\] \[`-a` suffix\_length\] \[file \[prefix\]\] `split` `-d` `-b` byte\_count\[`K` | `k` | `M`|`m` | `G` | `g`\] \[`-a` suffix\_length\] \[file \[prefix\]\] `split` `-d` `-n` chunk\_count \[`-a` suffix\_length\] \[file \[prefix\]\] `split` `-d` `-p` pattern \[`-a` suffix\_length\] \[file \[prefix\]\]
+`split [-cd] -p pattern [-a suffix_length] [file [prefix]]`
 
-[描述](#__u63CF___u8FF0_)
-=======================
+## 描述
 
-`split` 实用程序读取给定 file 并将其分解为每个 1000 行的文件（如果未指定选项），保持 file 不变。 如果 file 是单个破折号 (‘`-`’)-
-或不存在，则从标准输入 `split` 读取。
+`split` 工具读取指定的 `file` 并将其拆分为每个 1000 行的文件（若未指定选项），原 `file` 保持不变。如果 `file` 是单个短划线（“`-`”）或未提供，`split` 从标准输入读取。
 
 选项如下：
 
-[`-a`](#a) suffix\_length
+**`-a`** `suffix_length` 使用 `suffix_length` 个字母组成文件名后缀。
 
-使用 suffix\_length 字母组成文件名的后缀。
+**`-b`** `byte_count`[`K`|`k`|`M`|`m`|`G`|`g`] 创建长度为 `byte_count` 字节的拆分文件。如果数字后追加 `k` 或 `K`，文件按 `byte_count` 千字节拆分。如果追加 `m` 或 `M`，文件按 `byte_count` 兆字节拆分。如果追加 `g` 或 `G`，文件按 `byte_count` 吉字节拆分。
 
-[`-b`](#b) byte\_count\[`K`|`k`|`M`|`m`|`G`|`g`\]
+**`-c`** 继续创建文件，不覆盖已有的输出文件。
 
-创建长度为 byte\_count 个字节的拆分文件。 如果将 `k` 或 `K` 附加到数字，则文件将拆分为 byte\_count 千字节块。 如果将 `m` 或 `M`-
-附加到数字，则文件将拆分为 byte\_count 兆字节块。 如果将 `g` 或 `G`-
-附加到数字，则文件将拆分为 byte\_count 千兆字节块。
+**`-d`** 使用数字后缀替代字母后缀。
 
-[`-d`](#d)
+**`-l`** `line_count` 创建长度为 `line_count` 行的拆分文件。
 
-使用数字后缀而不是字母后缀。
+**`-n`** `chunk_count` 将文件拆分为 `chunk_count` 个较小的文件。前 n-1 个文件的大小为（`file` 的大小 / `chunk_count`），最后一个文件包含剩余的字节。
 
-[`-l`](#l) line\_count
+**`-p`** `pattern` 每当输入行匹配 `pattern` 时拆分文件，`pattern` 被解释为扩展正则表达式。匹配的行将作为下一个输出文件的第一行。此选项与 `-b` 和 `-l` 选项不兼容。
 
-创建拆分文件 line\_count 行的长度。
+如果指定了额外参数，第一个参数作为待拆分输入文件的名称。如果指定了第二个额外参数，它作为文件拆分后所得文件名的前缀。此时，每个拆分后的文件以前缀加按词典序排列的后缀命名，后缀使用 `suffix_length` 个字符，范围从“`a`”到“`z`”。如果未指定 `-a`，初始后缀使用两个字母。如果输出无法容纳在所得文件数中且未指定 `-d` 标志，则后缀长度会按需自动扩展，使所有输出文件继续按词典序排序。
 
-[`-n`](#n) chunk\_count
+如果未指定 `prefix` 参数，文件拆分为以前缀“`x`”命名并带上述后缀的按词典序排列的文件。
 
-将文件拆分为 chunk\_count 个文件的大小为 file 大小 / chunk\_count ) ，最后一个文件将包含剩余字节。
+默认情况下，`split` 会覆盖任何已有的输出文件。如果指定了 `-c` 标志，`split` 将改为创建尚未存在的名称的文件。
 
-[`-p`](#p) pattern
+## 环境变量
 
-每当输入行匹配 pattern 时，文件就会被拆分，模式被解释为扩展的正则表达式。 匹配的行将是下一个输出文件的第一行。 此选项与 `-b` 和 `-l` 选项不兼容。
+`LANG`、`LC_ALL`、`LC_CTYPE` 和 `LC_COLLATE` 环境变量按 [environ(7)](../man7/environ.7.md) 中所述影响 `split` 的执行。
 
-如果指定了其他参数，则第一个参数用作要拆分的输入文件的名称。 如果指定了第二个附加参数，它将用作文件被拆分成的文件名的前缀。 在这种情况下，文件被拆分成的每个文件都由前缀命名，后跟使用 suffix\_length 范围 “`a`\-`z`” 中的字符的词法排序后缀。 如果未指定 `-a` ，则使用两个字母作为后缀。
+## 退出状态
 
-如果未指定 prefix 参数，则文件将按词法排序文件以前缀 “`x`” 命名，后缀如上。
+`split` 工具成功时退出值为 0，发生错误时大于 0。
 
-[环境](#__u73AF___u5883_)
-=======================
+## 实例
 
-`LANG`, `LC_ALL`, `LC_CTYPE` 和 `LC_COLLATE` 环境变量会影响 `split` 的执行，如 environ(7) 中所述。
+将输入拆分为所需数量的文件，使每个文件最多包含 2 行：
 
-[退出状态](#__u9000___u51FA___u72B6___u6001_)
-=========================================
+```sh
+$ echo -e "first line\nsecond line\nthird line\nforth line" | split -l2
+```
 
-The `split` utility exits 0 on success, and >0 if an error occurs.
+使用数字前缀作为文件名，将输入按 10 字节分块。这会生成两个 10 字节的文件（x00 和 x01）以及包含剩余 2 字节的第三个文件（x02）：
 
-[实例](#__u5B9E___u4F8B_)
-=======================
+```sh
+$ echo -e "This is 22 bytes long" | split -d -b10
+```
 
-根据需要将输入拆分为多个文件，以便每个文件最多包含 2 行：
+将输入拆分为 6 个文件：
 
-$ echo -e "first line\\nsecond line\\nthird line\\nforth line" | split -l2 
+```sh
+$ echo -e "This is 22 bytes long" | split -n 6
+```
 
-使用文件名的数字前缀将输入拆分为 10 个字节的块。 这将生成两个 10 字节的文件（x00 和 x01）和第三个文件（x02），剩余 2 个字节：
+每当行匹配“`t`”后跟“`a`”或“`u`”的正则表达式时创建新文件，从而创建两个文件：
 
-$ echo -e "This is 22 bytes long" | split -d -b10 
+```sh
+$ echo -e "stack\nstock\nstuck\nanother line" | split -p 't[au]'
+```
 
-拆分输入生成 6 个文件：
+## 参见
 
-echo -e "This is 22 bytes long" | split -n 6 
+csplit(1), re_format(7)
 
-每次一行匹配正则表达式 “t” 后跟 “a” 或 “u” 时，拆分输入创建一个新文件，从而创建两个文件：
+## 标准
 
-$ echo -e "stack\\nstock\\nstuck\\nanother line" | split -p 't\[au\]' 
+`split` 工具遵循 IEEE Std 1003.1-2001（“POSIX.1”）规范。
 
-[参见](#__u53C2___u89C1_)
-=======================
+## 历史
 
-csplit(1), re\_format(7)
+`split` 命令首次出现在 Version 3 AT&T UNIX 中。
 
-[标准](#__u6807___u51C6_)
-=======================
-
-`split` 实用程序符合 IEEE Std 1003.1-2001 (“POSIX.1”) 。
-
-[历史](#__u5386___u53F2_)
-=======================
-
-A `split` 命令出现在 Version 3 AT&T UNIX 中。
-
-[缺陷](#__u7F3A___u9677_)
-=======================
-
-匹配模式的最大行长度为 65536。
-
-May 9, 2013
-
-FreeBSD 13.1-RELEASE
+在 FreeBSD 14 之前，模式和行匹配仅对短于 65,536 字节的行生效。

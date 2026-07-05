@@ -1,67 +1,41 @@
-  AUTOUNMOUNTD(8)  
+# autounmountd.8
 
-AUTOUNMOUNTD(8)
+`autounmountd` — 卸载自动挂载文件系统的守护进程
 
-FreeBSD System Manager's Manual
+## 名称
 
-AUTOUNMOUNTD(8)
+`autounmountd`
 
-[名称](#__u540D___u79F0_)
-=======================
+## 概要
 
-`autounmountd` —
+`autounmountd [-d] [-r time] [-t time] [-v]`
 
-卸载自动挂载文件系统的守护进程
+## 描述
 
-[概要](#__u6982___u8981_)
-=======================
+`autounmountd` 守护进程负责卸载由 automountd(8) 挂载的文件系统。启动时，`autounmountd` 会获取设置了 `automounted` 挂载选项的文件系统列表。每当有文件系统被挂载或卸载时，该列表都会更新。经过指定时间后，`autounmountd` 会尝试卸载文件系统，如有必要会在一段时间后重试。
 
-`autounmountd` \[`-d`\] \[`-r` time\] \[`-t` time\] \[`-v`\]
+可用选项如下：
 
-[描述](#__u63CF___u8FF0_)
-=======================
+**`-d`** 调试模式：增加详细输出且不转入后台运行。
 
-`autounmountd` 守护进程负责卸载由 automountd(8) 挂载的文件系统。 启动时， `autounmountd` 检索具有 `automounted` 挂载选项集的文件系统列表。 每次挂载或卸载文件系统时都会更新该列表。 经过指定的时间后， `autounmountd` 会尝试卸载文件系统，如有必要，会在一段时间后重试。
+**`-r`** 上一次卸载尝试失败（可能因文件系统繁忙）后，再次尝试卸载过期文件系统前等待的秒数。默认值为 600，即十分钟。
 
-这些选项可用：
+**`-t`** 尝试卸载文件系统前等待的秒数。默认值为 600，即十分钟。
 
-[`-d`](#d)
+**`-v`** 增加详细输出。
 
-调试模式：增加详细程度并且不守护进程。
+## 退出状态
 
-[`-r`](#r)
+`autounmountd` 工具成功时返回 0，发生错误时返回值大于 0。
 
-在上一次尝试失败后尝试卸载过期文件系统之前等待的秒数，可能是由于文件系统正忙。 默认值为 600 或十分钟。
+## 参见
 
-[`-t`](#t)
+auto_master(5), autofs(5), automount(8), automountd(8)
 
-尝试卸载文件系统之前等待的秒数。 默认值为 600 或十分钟。
+## 历史
 
-[`-v`](#v)
+`autounmountd` 守护进程首次出现在 FreeBSD 10.1 中。
 
-增加详细程度。
+## 作者
 
-[退出状态](#__u9000___u51FA___u72B6___u6001_)
-=========================================
-
-The `autounmountd` utility exits 0 on success, and >0 if an error occurs.
-
-[参见](#__u53C2___u89C1_)
-=======================
-
-auto\_master(5), autofs(5), automount(8), automountd(8)
-
-[历史](#__u5386___u53F2_)
-=======================
-
-`autounmountd` 守护进程出现在 FreeBSD 10.1 中。
-
-[作者](#__u4F5C___u8005_)
-=======================
-
-`autounmountd` 由 Edward Tomasz Napierala <[trasz@FreeBSD.org](mailto:trasz@FreeBSD.org)\>-
-在 FreeBSD 基金会的赞助下开发。
-
-December 13, 2014
-
-FreeBSD 13.1-RELEASE
+`autounmountd` 由 Edward Tomasz Napierala <trasz@FreeBSD.org> 在 FreeBSD 基金会赞助下开发。

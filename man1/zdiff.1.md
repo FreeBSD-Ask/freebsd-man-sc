@@ -1,84 +1,62 @@
-  ZDIFF(1)  
+# zdiff.1
 
-ZDIFF(1)
+`zcmp` — 比较压缩文件
 
-FreeBSD General Commands Manual
+## 名称
 
-ZDIFF(1)
+`zcmp`, `zdiff`
 
-[名称](#__u540D___u79F0_)
-=======================
+## 概要
 
-`zcmp`, `zdiff` —
+`zcmp [options] file [file2]`
 
-比较压缩文件
+`zdiff [options] file [file2]`
 
-[概要](#__u6982___u8981_)
-=======================
+## 描述
 
-`zcmp` \[options\] file \[file2\] `zdiff` \[options\] file \[file2\]
+`zcmp` 和 `zdiff` 是过滤器，分别调用 [cmp(1)](cmp.1.md) 或 [diff(1)](diff.1.md) 来比较压缩文件。指定的任何 `options` 都会传递给 [cmp(1)](cmp.1.md) 或 [diff(1)](diff.1.md)。
 
-[描述](#__u63CF___u8FF0_)
-=======================
+如果只指定了 `file1`，则将其与同名但去除扩展名的文件进行比较。当同时指定了 `file1` 和 `file2` 时，任一文件都可以是压缩文件。
 
-`zcmp` 和 `zdiff` 是分别调用 cmp(1) 或 diff(1)-
-来比较压缩文件的过滤器。 指定的任何 options 都将传递给 cmp(1) 或 diff(1) 。
+[gzip(1)](gzip.1.md) 处理的扩展名：
 
-如果仅指定了 file1 ，则将其与同名但已删除扩展名的文件进行比较。 当同时指定 file1 或 file2 时，可以压缩任一文件。
+- z, Z,
+- gz,
+- taz,
+- tgz.
 
-gzip(1) 处理的扩展：
+bzip2(1) 处理的扩展名：
 
-*   z, Z,
-*   gz,
-*   taz,
-*   tgz.
+- bz,
+- bz2,
+- tbz,
+- tbz2.
 
-bzip2(1) 处理的扩展：
+[xz(1)](xz.1.md) 处理的扩展名：
 
-*   bz,
-*   bz2,
-*   tbz,
-*   tbz2.
+- lzma,
+- xz,
+- tlz,
+- txz.
 
-xz(1) 处理的扩展：
+## 环境变量
 
-*   lzma,
-*   xz,
-*   tlz,
-*   txz.
+**`TMPDIR`** 用于放置临时文件的目录。如果未设置，则使用 **/tmp**。
 
-[环境](#__u73AF___u5883_)
-=======================
+## 文件
 
-[`TMPDIR`](#TMPDIR)
+**`/tmp/zcmp.XXXXXXXXXX`** `zcmp` 使用的临时文件。
 
-放置临时文件的目录。 如果未设置，则使用 /tmp 。
+**`/tmp/zdiff.XXXXXXXXXX`** `zdiff` 使用的临时文件。
 
-[文件](#__u6587___u4EF6_)
-=======================
+## 参见
 
-/tmp/zcmp.XXXXXXXXXX
+bzip2(1), [cmp(1)](cmp.1.md), [diff(1)](diff.1.md), [gzip(1)](gzip.1.md), [xz(1)](xz.1.md)
 
-`zcmp` 的临时文件。
+## 注意事项
 
-/tmp/zdiff.XXXXXXXXXX
+`zcmp` 和 `zdiff` 完全依赖文件扩展名来判断一个文件是否为压缩文件。因此，以下内容不能作为参数：
 
-`zdiff` 的临时文件。
-
-[参见](#__u53C2___u89C1_)
-=======================
-
-bzip2(1), cmp(1), diff(1), gzip(1), xz(1)
-
-[注意事项](#__u6CE8___u610F___u4E8B___u9879_)
-=========================================
-
-`zcmp` 和 `zdiff` 仅依靠文件扩展名来确定什么是或不是压缩文件。 因此，不支持以下内容作为参数：
-
-*   目录
-*   设备特殊文件
-*   表示标准输入的文件名 (“-”)
-
-May 23, 2011
-
-FreeBSD 13.1-RELEASE
+- 目录
+- 设备特殊文件
+- 表示标准输入的文件名（"-"）

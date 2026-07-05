@@ -1,70 +1,45 @@
-  KLDUNLOAD(8)  
+# kldunload.8
 
-KLDUNLOAD(8)
+`kldunload` — 从内核中卸载文件
 
-FreeBSD System Manager's Manual
+## 名称
 
-KLDUNLOAD(8)
+`kldunload`
 
-[名称](#__u540D___u79F0_)
-=======================
+## 概要
 
-`kldunload` —
+`kldunload [-fv] -i id ...`
 
-从内核卸载文件
+`kldunload [-fv] [-n] name ...`
 
-[概要](#__u6982___u8981_)
-=======================
+## 描述
 
-`kldunload` \[`-fv`\] `-i` id ... `kldunload` \[`-fv`\] \[`-n`\] name ...
+`kldunload` 工具用于卸载先前由 [kldload(8)](kldload.8.md) 加载的文件。
 
-[描述](#__u63CF___u8FF0_)
-=======================
+可用选项如下：
 
-`kldunload` 实用程序卸载以前用 kldload(8) 加载的文件。
+**`-f`** 强制卸载。此选项会忽略模块对 `MOD_QUIESCE` 返回的错误，意味着即使模块当前正在使用中也应被卸载。用户只能自行应对由此带来的后果。
 
-可以使用以下选项：
+**`-v`** 显示更详细的信息。
 
-[`-f`](#f)
+**`-i`** `id` 卸载具有此 ID 的文件。
 
-强制卸载。 这会忽略从模块返回到 `MOD_QUIESCE` 的错误，并暗示即使模块当前正在使用，也应该卸载该模块。 让用户尽其所能应对。
+**`-n`** `name` 卸载具有此名称的文件。
 
-[`-v`](#v)
+**`name`** 卸载具有此名称的文件。
 
-更冗长。
+## 退出状态
 
-[`-i`](#i) id
+`kldunload` 工具成功时退出值为 0，发生错误时大于 0。
 
-卸载具有此 ID 的文件。
+## 参见
 
-[`-n`](#n) name
+kldunload(2), [kldload(8)](kldload.8.md), [kldstat(8)](kldstat.8.md)
 
-卸载具有此名称的文件。
+## 历史
 
-name
+`kldunload` 工具首次出现于 FreeBSD 3.0，替代了 `lkm` 接口。
 
-卸载具有此名称的文件。
+## 作者
 
-[退出状态](#__u9000___u51FA___u72B6___u6001_)
-=========================================
-
-The `kldunload` utility exits 0 on success, and >0 if an error occurs.
-
-[参见](#__u53C2___u89C1_)
-=======================
-
-kldunload(2), kldload(8), kldstat(8)
-
-[历史](#__u5386___u53F2_)
-=======================
-
-`kldunload` 实用程序首次出现在 FreeBSD 3.0 中，取代了 `lkm` 界面。
-
-[作者](#__u4F5C___u8005_)
-=======================
-
-Doug Rabson <[dfr@FreeBSD.org](mailto:dfr@FreeBSD.org)\>
-
-February 27, 2006
-
-FreeBSD 13.1-RELEASE
+Doug Rabson <dfr@FreeBSD.org>

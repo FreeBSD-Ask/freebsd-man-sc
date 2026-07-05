@@ -1,228 +1,210 @@
-  ROUTE(8)  
+# route.8
 
-ROUTE(8)
+`route` — 手动操作路由表
 
-FreeBSD System Manager's Manual
+## 名称
 
-ROUTE(8)
+`route`
 
-[名称](#__u540D___u79F0_)
-=======================
+## 概要
 
-`route` —
+`route [-j jail] [-dnqtv] command [[modifiers] args]`
 
-手动操作路由表
+## 描述
 
-[概要](#__u6982___u8981_)
-=======================
+`route` 工具用于手动操作网络路由表。通常不需要使用它，因为系统路由表管理守护进程（如 [routed(8)](routed.8.md)）会负责此项任务。
 
-`route` \[`-dnqtv`\] command \[\[modifiers\] args\]
+`route` 工具支持数量有限的一般选项，但拥有丰富的命令语言，使用户能够指定可通过 [route(4)](../man4/route.4.md) 中讨论的编程接口传递的任意请求。
 
-[描述](#__u63CF___u8FF0_)
-=======================
+可用选项如下：
 
-`route` 实用程序用于手动操作网络路由表。 通常不需要它，因为系统路由表管理守护进程，例如 routed(8), 应该倾向于这个任务。
+**`-4`** 指定 `inet` 地址族作为子命令的地址族提示。
 
-`route` 实用程序支持有限数量的通用选项，但支持丰富的命令语言，使用户能够指定任何可以通过 route(4) 中讨论的编程接口传递的任意请求。
+**`-6`** 指定 `inet6` 地址族作为子命令的地址族提示。
 
-可以使用以下选项：
+**`-d`** 仅在调试模式下运行，即不实际修改路由表。
 
-[`-4`](#4)
+**`-n`** 在报告操作时，跳过以符号方式打印主机和网络名称的尝试。（在符号名称和数值之间转换的过程可能相当耗时，并且可能需要网络正常运作；因此忘记这一点可能更为实际，特别是在尝试修复网络操作时。）
 
-指定 `inet` 地址族作为子命令的族提示。
+**`-t`** 仅在测试模式下运行。使用 **/dev/null** 代替套接字。
 
-[`-6`](#6)
+**`-v`** （详细模式）打印附加细节。
 
-指定 `inet6` 地址族作为子命令的族提示。
+**`-q`** 抑制 `add`、`change`、`delete` 和 `flush` 命令的所有输出。
 
-[`-d`](#d)
+**`-j`** `jail` 在 jail 中运行。
 
-在仅调试模式下运行，即不实际修改路由表。
+`route` 工具提供以下命令：
 
-[`-n`](#n)
+**`add`** 添加路由。
+**`flush`** 删除所有路由。
+**`delete`** 删除特定路由。
+**`del`** `delete` 命令的另一个名称。
+**`change`** 更改路由的某些方面（如网关）。
+**`get`** 查找并显示到某个目的地的路由。
+**`monitor`** 持续报告路由信息库的任何更改、路由查找未命中或可疑的网络分区。
+**`show`** `get` 命令的另一个名称。
 
-在报告操作时绕过以符号方式打印主机和网络名称的尝试。 （符号名称和数字等价物之间的转换过程可能非常耗时，并且可能需要网络的正确操作；因此忘记这一点可能是有利的，尤其是在尝试修复网络操作时）。
+monitor 命令的语法：
 
-[`-t`](#t)
+```
+route [-n] monitor [-fib number]
+```
 
-在仅测试模式下运行。 使用 /dev/null 代替套接字。
+flush 命令的语法：
 
-[`-v`](#v)
+```
+route [-n] flush [family] [-fib number]
+```
 
-（详细）打印更多详细信息。
+如果指定 `flush` 命令，`route` 将“清空”路由表中所有网关条目。当通过 `-inet6` 或 `-inet` 修饰符指定地址族时，仅删除具有该族地址的目的地的路由。此外，`-4` 或 `-6` 可分别用作 `-inet` 和 `-inet6` 修饰符的别名。指定 `-fib` 选项时，操作将应用于指定的 FIB（路由表）。
 
-[`-q`](#q)
+add 命令的语法：
 
-禁止 `add`, `change`, `delete` 和 `flush` 命令的所有输出。
+```
+route [-n] add [-net | -host] destination gateway [netmask] [-fib number]
+```
 
-`route` 实用程序提供以下命令：
+其他命令的语法：
 
-[`add`](#add)
+```
+route [-n] command [-net | -host] destination [gateway [netmask]] [-fib number]
+```
 
-添加路线。
+其中 `destination` 是目的主机或网络，`gateway` 是数据包应通过其路由的下一跳中介。通过解释作为 `destination` 参数指定的 Internet 地址，可以区分到特定主机的路由和到网络的路由。可选修饰符 `-net` 和 `-host` 分别强制将目的地解释为网络或主机。否则，如果 `destination` 的“本地地址部分”为 `INADDR_ANY`（`0.0.0.0`），或者 `destination` 是网络的符号名称，则假定该路由是到网络的；否则，假定为到主机的路由。此外，`destination` 还可以用 `net`/`bits` 格式指定。
 
-[`flush`](#flush)
+例如，`128.32` 被解释为 `-host` `128.0.0.32`；`128.32.130` 被解释为 `-host` `128.32.0.130`；`-net` `128.32` 被解释为 `128.32.0.0`；`-net` `128.32.130` 被解释为 `128.32.130.0`；`192.168.64/20` 被解释为 `-net` `192.168.64` `-netmask` `255.255.240.0`。
 
-删除所有路线。
+`default` 作为 `destination` 是默认路由的同义词。对于 `IPv4`，它是 `-net` `-inet` `0.0.0.0`；对于 `IPv6`，它是 `-net` `-inet6` `::`。
 
-[`delete`](#delete)
+如果目的地可通过不需要中介系统作为网关的接口直接到达，则应指定 `-interface` 修饰符；给定的网关是此主机在公共网络上的地址，指示用于传输的接口。或者，如果接口是点对点的，则可以给出接口名称本身，在这种情况下，即使本地或远程地址发生变化，路由仍然有效。
 
-删除特定路线。
+可选的 `-netmask` 修饰符旨在实现带 netmask 选项的 OSI ESIS 重定向效果，或手动添加与隐含网络接口掩码不同的子网路由（否则将使用 OSPF 或 ISIS 路由协议进行传递）。需要指定一个额外的后续地址参数（解释为网络掩码）。通过确保此选项跟在 `destination` 参数之后，可以覆盖 AF_INET 情况下生成的隐式网络掩码。
 
-[`del`](#del)
+对于 `AF_INET6`，可使用 `-prefixlen` 限定符代替 `-mask` 限定符，因为 IPv6 不允许非连续掩码。例如，`-prefixlen` `32` 指定使用网络掩码 `ffff:ffff:0000:0000:0000:0000:0000:0000`。默认 prefixlen 为 64。但是，如果为 `destination` 指定了 `default`，则假定 prefixlen 为 0。注意，该限定符仅适用于 `AF_INET6` 地址族。
 
-[`delete`](#delete_2) 命令的另一个名称。
+对于 `ECMP` 路由，可使用 `-weight` 修饰符影响下一跳选择。例如，一个具有两个下一跳“`-gateway` `3fff::1` `-weight` `100`”和“`-gateway` `3fff::2` `-weight` `200`”的目的地，会使下一跳 3fff::2 被选中的概率是 3fff::1 的两倍。
 
-[`change`](#change)
+`-metric` 选项设置与路由下一跳关联的数值成本。始终优先选择最低 metric，仅在较低 metric 路由不可用时才使用较高 metric 值的路由。这允许路由建立主下一跳和备份下一跳，而无需删除主下一跳。未指定时 `-metric` 的默认值为 1。当到同一目的地的多个路由具有相同 metric 时，`-weight` 选项确定 ECMP 选择哪个下一跳。
 
-更改路由的各个方面（例如其网关）。
+例如，一个具有两个下一跳“`-gateway` `3fff::1` `-metric` `1`”和“`-gateway` `3fff::2` `-metric` `2`”的目的地，将导致选择下一跳 3fff::1。
 
-[`get`](#get)
+路由具有关联的标志，这些标志影响协议在向路由匹配的目的地发送数据时的操作。可通过指示以下相应修饰符来设置（或有时清除）这些标志：
 
-查找并显示目的地的路线。
+```
+-xresolve  RTF_XRESOLVE   - 使用时发出消息（用于外部查找）
+-iface    ~RTF_GATEWAY    - 目的地可直接到达
+-static    RTF_STATIC     - 手动添加的路由
+-nostatic ~RTF_STATIC     - 假装路由由内核或守护进程添加
+-reject    RTF_REJECT     - 匹配时发出 ICMP 不可达
+-blackhole RTF_BLACKHOLE  - 静默丢弃数据包（在更新期间）
+-proto1    RTF_PROTO1     - 设置协议特定的路由标志 #1
+-proto2    RTF_PROTO2     - 设置协议特定的路由标志 #2
+```
 
-[`monitor`](#monitor)
+可选修饰符 `-rtt`、`-rttvar`、`-sendpipe`、`-recvpipe`、`-mtu`、`-hopcount`、`-expire` 和 `-ssthresh` 为传输层协议（如 TCP 或 TP4）在路由条目中维护的量提供初始值。可以通过在每个要锁定的修饰符前加上 `-lock` 元修饰符来单独锁定，也可以使用 `-lockrest` 元修饰符指定锁定所有后续度量值。
 
-持续报告对路由信息库的任何更改、路由查找未命中或可疑的网络分区。
+注意，`-expire` 接受路由的过期时间，以自 Epoch 以来的秒数表示（参见 time(3)）。当数字的第一个字符为“+”或“-”时，解释为相对于当前时间的值。
 
-[`show`](#show)
+可选修饰符 `-fib` `number` 指定命令将应用于非默认 FIB。`number` 必须小于 `net.fibs` [sysctl(8)](sysctl.8.md) MIB。未指定此修饰符或指定负数时，将使用 `net.my_fibnum` [sysctl(8)](sysctl.8.md) MIB 中显示的默认 FIB。
 
-[`get`](#get_2) 命令的另一个名称。
+`number` 允许通过逗号分隔列表和/或范围指定多个 FIB。“`-fib` `2,4,6`”表示 FIB 编号 2、4 和 6。“`-fib` `1,3-5,6`”表示 1、3、4、5 和 6。
 
-monitor 命令的语法如下：
+在 `change` 或 `add` 命令中，当目的地和网关不足以指定路由时（如 ISO 情况下，多个接口可能具有相同地址），可使用 `-ifp` 或 `-ifa` 修饰符来确定接口或接口地址。
 
-`route` \[`-n`\] `monitor` \[`-fib` number\]
+为 `destination` 或 `gateway` 指定的所有符号名称首先使用 gethostbyname(3) 作为主机名查找。如果此查找失败，则使用 getnetbyname(3) 将名称解释为网络名。
 
-flush 命令的语法如下：
+`route` 工具使用路由套接字和新的消息类型 `RTM_ADD`、`RTM_DELETE`、`RTM_GET` 和 `RTM_CHANGE`。因此，仅超级用户可修改路由表。
 
-`route` \[`-n`\] `flush` \[family\] \[`-fib` number\]
+FreeBSD 提供对可扩展多路径路由的支持。默认激活，但可通过将 `net.route.multipath` [sysctl(8)](sysctl.8.md) MIB 设置为 0 来关闭。
 
-如果指定了 `flush` 命令， `route` 将“刷新”所有网关条目的路由表。 当地址族可以由 `-osi`, `-xns`, `-inet6` 或 `-inet` 修饰符中的任何一个指定时，只有目的地地址在所描绘的族中的路由才会被删除。 此外， `-4` 或 `-6` 可用作 `-inet` 和 `-inet6` 修饰符的别名。 当指定 `-fib` 选项时，该操作将应用于指定的 FIB (routing table) 。
+有多种可用的路由查找算法。可通过设置 IPv4 的 `net.route.algo.inet.algo` 和 IPv6 的 `net.route.algo.inet6.algo` [sysctl(8)](sysctl.8.md) MIB 来配置。
 
-add 命令的语法如下：
+可通过访问以下 [sysctl(8)](sysctl.8.md) MIB 获取可用算法列表：IPv4 的 `net.route.algo.inet.algo_list` 和 IPv6 的 `net.route.algo.inet6.algo_list`。
 
-`route` \[`-n`\] `add` \[`-net` | `-host`\] destination gateway \[netmask\] \[`-fib` number\]
+可用算法如下：
 
-其他命令具有以下语法：
+**radix** 基本系统 radix 后端。
 
-`route` \[`-n`\] command \[`-net` | `-host`\] destination \[gateway \[netmask\]\] \[`-fib` number\]
+**bsearch** 在特殊 IP 数组中的无锁二分搜索，专为少于 16 条路由的小型 FIB 量身定制。此算法仅适用于 IPv4。
 
-其中 destination 是目标主机或网络， gateway 是路由数据包的下一跳中介。 通过解释指定为 destination 参数的 Internet 地址，可以将到特定主机的路由与到网络的路由区分开来。 可选修饰符 `-net` 和 `-host` 分别强制将目标解释为网络或主机。 否则，如果 destination 具有 INADDR\_ANY (`0.0.0.0`) 的 “local address part” ，或者如果 destination 是网络的符号名称，则假定路由到网络；否则，假定它是到主机的路由。 或者，也可以以 net/bits 格式指定 destination 。
+**radix_lockless** 无锁不可变 radix，在每次 rtable 更改时重新创建，专为少于 1000 条路由的小型 FIB 量身定制。
 
-例如， `128.32` 被解释为 `-host` `128.0.0.32`; `128.32.130` 被解释为 `-host` `128.32.0.130`; `-net` `128.32` 被解释为 `128.32.0.0;` `-net` `128.32.130` 被解释为 `128.32.130.0;` and `192.168.64/20` 被解释为 `-net` `192.168.64` `-netmask` `255.255.240.0` 。
+**dpdk_lpm** 基于 DPDK DIR24-8 的查找，无锁数据结构，针对大型 FIB 优化。DIR24-8 依赖一个大型平面查找表（IPv4 为 64 MB），通过查找键的较高有效部分直接索引。要使用 dpdk_lpm 算法，必须通过 loader.conf(5) 加载以下一个或两个内核模块：
 
-default destination 是默认路由的同义词。对于 `IPv4` ，它是 `-net` `-inet` `0.0.0.0`, 对于 `IPv6` ,它是 `-net` `-inet6` `::` 。
+- `dpdk_lpm4.ko` DPDK 的 IPv4 实现。
+- `dpdk_lpm6.ko` DPDK 的 IPv6 实现。
 
-如果可以通过不需要中间系统充当网关的接口直接到达目的地，则应指定 `-interface` 修饰符；给定的网关是该主机在公共网络上的地址，表示要用于传输的接口。或者，如果接口是点对点的，则可以给出接口本身的名称，在这种情况下，即使本地或远程地址发生变化，路由仍然有效。
+**dxr** 仅适用于 IPv4，无锁压缩查找结构（对于大型 BGP FIB，每个 IPv4 前缀低于 2.5 字节），可轻松适应现代 CPU 缓存层次结构，查找吞吐量随 CPU 核心数线性扩展。可在运行时作为内核模块加载，或通过 loader.conf(5) 加载：
 
-可选修饰符 `-xns`, `-osi` 和 `-link` 指定所有后续地址都在 XNS 或 OSI 地址族中，或者指定为链接级地址，并且名称必须是数字规范而不是符号名称。
+- `fib_dxr.ko`
 
-可选的 `-netmask` 修饰符旨在使用 netmask 选项实现 OSI ESIS 重定向的效果，或手动添加具有不同于隐含网络接口的网络掩码的子网路由（否则将使用 OSPF 或 ISIS 路由协议进行通信）。 一个指定一个附加的后续地址参数（被解释为网络掩码）。 通过确保此选项遵循目标参数，可以覆盖在 AF\_INET 案例中生成的隐式网络掩码。
+算法根据系统路由表的大小自动选择。可以更改，但并非每种算法在每种 FIB 大小下都表现最佳。
 
-对于 `AF_INET6`, 可用 `-prefixlen` 限定符代替 `-mask` 限定符，因为 IPv6 中不允许使用非连续掩码。 例如， `-prefixlen` `32` 指定将使用网络掩码 `ffff:ffff:0000:0000:0000:0000:0000:0000` 。 默认前缀长度为 64。 但是，如果为 destination 指定了 `default` ，则假定为 0。 请注意，限定符仅适用于 `AF_INET6` 地址族。
+## 退出状态
 
-当发送到与路由匹配的目的地时，路由具有影响协议操作的相关标志。 可以通过指示以下相应的修饰符来设置（或有时清除）这些标志：
+`route` 工具成功时退出代码为 0，发生错误时大于 0。
 
-\-xresolve RTF\_XRESOLVE - 在使用时发出消息（用于外部查找） -iface ~RTF\_GATEWAY - 目的地可直接到达 -static RTF\_STATIC - 手动添加路由 -nostatic ~RTF\_STATIC - 内核或守护进程添加的假装路由 -reject RTF\_REJECT - 匹配时发出无法访问的 ICMP -blackhole RTF\_BLACKHOLE - 静默丢弃 pkts（在更新期间） -proto1 RTF\_PROTO1 - 设置协议特定的路由标志 #1 -proto2 RTF\_PROTO2 - 设置协议特定的路由标志 #2 
+## 实例
 
-可选修饰符 `-rtt`, `-rttvar`, `-sendpipe`, `-recvpipe`, `-mtu`, `-hopcount`, `-expire` 和 `-ssthresh` 为传输层协议（如 TCP 或 TP4）在路由条目中维护的数量提供初始值。 这些可以通过在每个要被 `-lock` 元修饰符锁定的修饰符之前单独锁定，或者可以指定所有随后的度量都可以由 `-lockrest` 元修饰符锁定。
+向网络路由表添加默认路由。这会将路由表中不可用的目的地的所有数据包发送到默认网关 192.168.1.1：
 
-请注意， `-expire` 接受路由的过期时间作为自 Epoch 以来的秒数（请参阅 (see time(3)) ）。 当数字的第一个字符是 “+” 或 “-” 时，它被解释为相对于当前时间的值。
+```sh
+route add -net 0.0.0.0/0 192.168.1.1
+```
 
-可选修饰符 `-fib` number 数字指定该命令将应用于非默认 FIB。 该 number 必须小于 net.fibs sysctl(8) MIB。 当未指定此修饰符或指定负数时，将使用 net.my\_fibnum sysctl(8) MIB 中显示的默认 FIB。
+添加默认路由的更简短写法：
 
-该 number 允许通过逗号分隔的列表和/或范围规范进行多个 FIB。 “`-fib` `2,4,6`” 表示 FIB 编号 2、4 和 6。 “`-fib` `1,3-5,6`” 表示 1、3、4、5 和 6。
+```sh
+route add default 192.168.1.1
+```
 
-在目标和网关不足以指定路由的 `change` 或 `add` 命令中（如在 ISO 情况下，多个接口可能具有相同的地址）， `-ifp` 或 `-ifa` 修饰符可用于确定接口或接口地址。
+通过 172.16.1.1 网关向 172.16.10.0/24 网络添加静态路由：
 
-为 destination 或 gateway 指定的所有符号名称首先使用 gethostbyname(3) 作为主机名查找。 如果此查找失败，则使用 getnetbyname(3) 将名称解释为网络的名称。
-
-`route` 实用程序使用路由套接字和新的消息类型 `RTM_ADD`, `RTM_DELETE`, `RTM_GET` 和 `RTM_CHANGE` 。 因此，只有超级用户可以修改路由表。
-
-[退出状态](#__u9000___u51FA___u72B6___u6001_)
-=========================================
-
-The `route` utility exits 0 on success, and >0 if an error occurs.
-
-[实例](#__u5B9E___u4F8B_)
-=======================
-
-将默认路由添加到网络路由表。 这会将路由表中不可用的目的地的所有数据包发送到默认网关 192.168.1.1：
-
-`route add -net 0.0.0.0/0 192.168.1.1`
-
-添加默认路由的较短版本也可以写成：
-
-`route add default 192.168.1.1`
-
-通过 172.16.1.1 网关添加到 172.16.10.0/24 网络的静态路由：
-
-`route add -net 172.16.10.0/24 172.16.1.1`
+```sh
+route add -net 172.16.10.0/24 172.16.1.1
+```
 
 更改路由表中已建立的静态路由的网关：
 
-`route change -net 172.16.10.0/24 172.16.1.2`
+```sh
+route change -net 172.16.10.0/24 172.16.1.2
+```
 
-显示目标网络的路由：
+显示到目的地网络的路由：
 
-`route show 172.16.10.0`
+```sh
+route show 172.16.10.0
+```
 
 从路由表中删除静态路由：
 
-`route delete -net 172.16.10.0/24 172.16.1.2`
+```sh
+route delete -net 172.16.10.0/24 172.16.1.2
+```
 
 从路由表中删除所有路由：
 
-`route flush`
+```sh
+route flush
+```
 
-[诊断](#__u8BCA___u65AD_)
-=======================
+可使用 [netstat(1)](../man1/netstat.1.md) 列出路由表。
 
-add \[host | network \] %s: gateway %s flags %x
+## 诊断
 
-正在将指定的路线添加到表中。 打印的值来自 ioctl(2) 调用中提供的路由表条目。 如果使用的网关地址不是网关的主地址（ gethostbyname(3) 返回的第一个地址），则网关地址以数字和符号形式打印。
+- `add [host | network ] %s: gateway %s flags %x` 指定的路由正在被添加到表中。打印的值来自 ioctl(2) 调用中提供的路由表条目。如果使用的网关地址不是该网关的主地址（gethostbyname(3) 返回的第一个地址），则网关地址会以数字和符号两种形式打印。
+- `delete [ host | network ] %s: gateway %s flags %x` 同上，但用于删除条目时。
+- `%s %s done` 指定 `flush` 命令时，每个被删除的路由表条目以此形式的消息指示。
+- `Network is unreachable` 添加路由的尝试失败，因为列出的网关不在直接连接的网络上。必须提供下一跳网关。
+- `not in table` 尝试对表中不存在的条目执行删除操作。
+- `routing table overflow` 尝试执行添加操作，但系统资源不足，无法分配内存来创建新条目。
+- `gateway uses the same route` `change` 操作导致路由的网关使用与被更改路由相同的路由。下一跳网关应通过不同的路由可达。
 
-delete \[ host | network \] %s: gateway %s flags %x
+## 参见
 
-如上所述，但在删除条目时。
+[netstat(1)](../man1/netstat.1.md), [netintro(4)](../man4/netintro.4.md), [route(4)](../man4/route.4.md), loader.conf(5), arp(8), [routed(8)](routed.8.md)
 
-%s %s done
+## 历史
 
-当指定了 `flush` 命令时，每个被删除的路由表条目都用这种形式的消息来指示。
-
-Network is unreachable
-
-尝试添加路由失败，因为列出的网关不在直接连接的网络上。 必须给出下一跳网关。
-
-not in table
-
-尝试对表中不存在的条目执行删除操作。
-
-routing table overflow
-
-尝试了添加操作，但系统资源不足，无法分配内存来创建新条目。
-
-gateway uses the same route
-
-[`change`](#change_2) 操作导致路由的网关使用与被更改的路由相同的路由。 下一跳网关应该可以通过不同的路由到达。
-
-[参见](#__u53C2___u89C1_)
-=======================
-
-netintro(4), route(4), arp(8), routed(8)
-
-[历史](#__u5386___u53F2_)
-=======================
-
-`route` 实用程序出现在 4.2BSD 中。
-
-[缺陷](#__u7F3A___u9677_)
-=======================
-
-第一段可能稍微夸大了 routed(8) 的能力。
-
-目前，设置了 `RTF_BLACKHOLE` 标志的路由需要使用 `-iface` 选项将网关设置为 lo(4) 驱动程序的实例，才能使该标志生效；除非启用了 IP 快速转发，在这种情况下，标志的含义将始终得到尊重。
-
-January 9, 2019
-
-FreeBSD 13.1-RELEASE
+`route` 工具出现于 4.2BSD。

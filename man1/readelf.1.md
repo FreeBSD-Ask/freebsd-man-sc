@@ -1,221 +1,96 @@
-  READELF(1)  
+# readelf.1
 
-READELF(1)
+`readelf` — 显示 ELF 对象的相关信息
 
-FreeBSD General Commands Manual
+## 名称
 
-READELF(1)
+`readelf`
 
-[名称](#__u540D___u79F0_)
-=======================
+## 概要
 
-`readelf` —
+`readelf [-a | --all] [-c | --archive-index] [-d | --dynamic] [-e | --headers] [-g | --section-groups] [-h | --file-header] [-l | --program-headers] [-n | --notes] [-p section | --string-dump=section] [-r | --relocs] [-t | --section-details] [-u | --unwind] [-v | --version] [-w[afilmoprsFLR] | --debug-dump[=long-option-name,...]] [-x section | --hex-dump=section] [-z | --decompress] [-A | --arch-specific] [-D | --use-dynamic] [-H | --help] [-I | --histogram] [-N | --full-section-name] [-S | --sections | --section-headers] [-V | --version-info] [-W | --wide] file ...`
 
-显示有关 ELF 对象的信息
+## 描述
 
-[概要](#__u6982___u8981_)
-=======================
+`readelf` 实用程序显示 ELF 对象和 [ar(1)](ar.1.md) 归档的相关信息。
 
-`readelf` \[`-a` | `--all`\] \[`-c` | `--archive-index`\] \[`-d` | `--dynamic`\] \[`-e` | `--headers`\] \[`-g` | `--section-groups`\] \[`-h` | `--file-header`\] \[`-l` | `--program-headers`\] \[`-n` | `--notes`\] \[`-p` section | `--string-dump`\=section\] \[`-r` | `--relocs`\] \[`-t` | `--section-details`\] \[`-v` | `--version`\] \[`-w`\[afilmoprsFLR\] | `--debug-dump`\[=long-option-name,...\]\] \[`-x` section | `--hex-dump`\=section\] \[`-z` | `--decompress`\] \[`-A` | `--arch-specific`\] \[`-D` | `--use-dynamic`\] \[`-H` | `--help`\] \[`-I` | `--histogram`\] \[`-N` | `--full-section-name`\] \[`-S` | `--sections` | `--section-headers`\] \[`-V` | `--version-info`\] \[`-W` | `--wide`\] file...
+`readelf` 实用程序识别以下选项：
 
-[描述](#__u63CF___u8FF0_)
-=======================
+**`-a |`** `--all` 启用以下标志：`-d`、`-h`、`-I`、`-l`、`-n`、`-r`、`-s`、`-u`、`-A`、`-S` 和 `-V`。
 
-`readelf` 实用程序显示有关 ELF 对象和 ar(1) 档案的信息。
+**`-c |`** `--archive-index` 打印归档的归档符号表。
 
-`readelf` 实用程序可识别以下选项：
+**`-d |`** `--dynamic` 打印 ELF 对象中 `SHT_DYNAMIC` 节的内容。
 
-[`-a`](#a) | [`--all`](#-all)
+**`-e |`** `--headers` 打印 ELF 对象中的所有程序头、文件头和节头。
 
-打开以下标志： `-d`, `-h`, `-I`, `-l`, `-r`, `-s`, `-A`, `-S` 和 `-V` 。
+**`-g |`** `--section-groups` 打印 ELF 对象中节组的内容。
 
-[`-c`](#c) | [`--archive-index`](#-archive-index)
+**`-h |`** `--file-header` 打印 ELF 对象的文件头。
 
-打印档案的档案符号表。
+**`-l |`** `--program-headers` 打印对象的程序头表内容。
 
-[`-d`](#d) | [`--dynamic`](#-dynamic)
+**`-n |`** `--notes` 打印 ELF 对象中存在的 `PT_NOTE` 段或 `SHT_NOTE` 节的内容。
 
-打印 ELF 对象中 `SHT_DYNAMIC` 部分的内容。
+**`-p`** `section |` `--string-dump`=`section` 以可打印字符串形式打印指定节的内容。参数 `section` 应为节名或数字节索引。
 
-[`-e`](#e) | [`--headers`](#-headers)
+**`-r |`** `--relocs` 打印重定位信息。
 
-打印 ELF 对象中的所有程序、文件和节标题。
+**`-s |`** `--syms |` `--symbols` 打印符号表。
 
-[`-g`](#g) | [`--section-groups`](#-section-groups)
+**`-t |`** `--section-details` 打印关于节的附加信息，例如节头中的标志字段。隐含 `-S`。
 
-打印 ELF 对象中节组的内容。
+**`-u |`** `--unwind` 尚未实现（选项被接受但被忽略）。
 
-[`-h`](#h) | [`--file-header`](#-file-header)
+**`-v |`** `--version` 打印 `readelf` 的版本标识并退出。
 
-打印 ELF 对象的文件头。
+**`-w`** `[afilmoprsFLR]` `--debug-dump`[=`long-option-name`,...] 显示 DWARF 信息。`-w` 选项与下表中的短选项一起使用；`--debug-dump` 选项与对应长选项名的逗号分隔列表一起使用：
 
-[`-l`](#l) | [`--program-headers`](#-program-headers)
+| 短选项 | 长选项 | 描述 |
+| --- | --- | --- |
+| a | abbrev | 显示缩写信息。 |
+| f | frames | 显示帧信息，显示帧指令。 |
+| i | info | 显示调试信息条目。 |
+| l | rawline | 以原始形式显示行信息。 |
+| m | macro | 显示宏信息。 |
+| o | loc | 显示位置列表信息。 |
+| p | pubnames | 显示全局名称。 |
+| r | aranges\|ranges | 显示地址范围信息。 |
+| s | str | 显示调试字符串表。 |
+| F | frames-interp | 显示帧信息，显示寄存器规则。 |
+| L | decodedline | 以解码形式显示行信息。 |
+| R | Ranges | 显示范围列表。 |
 
-打印对象的程序头表的内容。
+如果未指定子选项，默认显示与 `a`、`f`、`i`、`l`、`o`、`p`、`r`、`s` 和 `R` 短选项对应的信息。
 
-[`-n`](#n) | [`--notes`](#-notes)
+**`-x`** `section |` `--hex-dump`=`section` 以十六进制形式显示指定节的内容。参数 `section` 应为节名或数字节索引。
 
-打印 ELF 对象中存在的 `PT_NOTE` 段或 `SHT_NOTE` 部分的内容。
+**`-z |`** `--decompress` 在显示前解压缩由 `-x` 或 `-p` 指定的节的内容。如果指定节未压缩，则按原样显示。
 
-[`-p`](#p) section | [`--string-dump`](#-string-dump)\=section
+**`-A |`** `--arch-specific` 该选项被接受但目前未实现。
 
-将指定部分的内容打印为可打印字符串。 参数 section 应该是节的名称或数字节索引。
+**`-D |`** `--use-dynamic` 打印由“`.dynamic`”节中 `DT_SYMTAB` 条目指定的符号表。
 
-[`-r`](#r) | [`--relocs`](#-relocs)
+**`-H |`** `--help` 打印帮助信息。
 
-打印重定位信息。
+**`-I |`** `--histogram` 为 `SHT_HASH` 和 `SHT_GNU_HASH` 类型的节打印桶列表长度信息。
 
-[`-s`](#s) | [`--syms`](#-syms) | [`--symbols`](#-symbols)
+**`-N |`** `--full-section-name` 该选项被接受但目前未实现。
 
-打印符号表。
+**`-S |`** `--sections |` `--section-headers` 打印每个 ELF 对象的节头信息。
 
-[`-t`](#t) | [`--section-details`](#-section-details)
+**`-V |`** `--version-info` 打印符号版本信息。
 
-打印有关节的附加信息，例如节标题中的标志字段。暗示 `-S` 。
+**`-W |`** `--wide` 每个结构使用一行长行打印 ELF 结构信息。如果未指定此选项，`readelf` 将在 64 位 ELF 对象的头中以两行分别列出信息。
 
-[`-v`](#v) | [`--version`](#-version)
+## 退出状态
 
-打印 `readelf` 的版本标识符并退出。
+`readelf` 实用程序成功时退出码为 0，发生错误时大于 0。
 
-[`-w`](#w)\[afilmoprsFLR\] | `--debug-dump`\[=long-option-name,...\]
+## 参见
 
-显示 DWARF 信息。 `-w` 选项与下表中的短选项一起使用； `--debug-dump` 选项与相应长选项名称的逗号分隔列表一起使用：
+nm(1), [addr2line(1)](addr2line.1.md), elfcopy(1),
 
-_短选项_
+## 作者
 
-_长选项_
-
-_说明_
-
-a
-
-abbrev
-
-显示缩写信息。
-
-f
-
-frames
-
-显示帧信息，显示帧指令。
-
-i
-
-info
-
-显示调试信息条目。
-
-l
-
-rawline
-
-以原始形式显示行信息。
-
-m
-
-macro
-
-显示宏信息。
-
-o
-
-loc
-
-显示位置列表信息。
-
-p
-
-pubnames
-
-显示全局名称。
-
-r
-
-aranges|ranges
-
-显示地址范围信息。
-
-s
-
-str
-
-显示调试字符串表。
-
-F
-
-frames-interp
-
-显示帧信息，显示寄存器规则。
-
-L
-
-decodedline
-
-以解码的形式显示线路信息。
-
-R
-
-Ranges
-
-显示范围列表。
-
-如果未指定子选项，则默认显示与 a, f, i, l, o, p, r, s 和 R 短选项对应的信息。
-
-[`-x`](#x) section | [`--hex-dump`](#-hex-dump)\=section
-
-以十六进制显示指定节的内容。 参数 section 应该是节的名称或数字节索引。
-
-[`-z`](#z) | [`--decompress`](#-decompress)
-
-在显示之前解压缩由 `-x` 或 `-p` 指定的部分的内容。 如果指定部分未压缩，则按原样显示。
-
-[`-A`](#A) | [`--arch-specific`](#-arch-specific)
-
-此选项已被接受，但当前未实现。
-
-[`-D`](#D) | [`--use-dynamic`](#-use-dynamic)
-
-打印由 “`.dynamic`” 部分中的 `DT_SYMTAB` 条目指定的符号表。
-
-[`-H`](#H) | [`--help`](#-help)
-
-打印帮助信息。
-
-[`-I`](#I) | [`--histogram`](#-histogram)
-
-打印 `SHT_HASH` 和 `SHT_GNU_HASH` 类型部分的桶列表长度信息。
-
-[`-N`](#N) | [`--full-section-name`](#-full-section-name)
-
-此选项已被接受，但当前未实现。
-
-[`-S`](#S) | [`--sections`](#-sections) | [`--section-headers`](#-section-headers)
-
-在每个 ELF 对象的节标题中打印信息。
-
-[`-V`](#V) | [`--version-info`](#-version-info)
-
-打印符号版本信息。
-
-[`-W`](#W) | [`--wide`](#-wide)
-
-每个结构使用一长行打印有关 ELF 结构的信息。 如果未指定此选项， `readelf` 将在两行单独的 64 位 ELF 对象的标头中列出信息。
-
-[退出状态](#__u9000___u51FA___u72B6___u6001_)
-=========================================
-
-The `readelf` utility exits 0 on success, and >0 if an error occurs.
-
-[参见](#__u53C2___u89C1_)
-=======================
-
-nm(1), addr2line(1), elfcopy(1),
-
-[作者](#__u4F5C___u8005_)
-=======================
-
-`readelf` 实用程序由 Kai Wang <[kaiwang27@users.sourceforge.net](mailto:kaiwang27@users.sourceforge.net)\> 编写。
-
-October 31, 2020
-
-FreeBSD 13.1-RELEASE
+`readelf` 实用程序由 Kai Wang <kaiwang27@users.sourceforge.net> 编写。

@@ -1,1008 +1,554 @@
-  FTP(1)  
+# ftp.1
 
-FTP(1)
+`ftp` — Internet 文件传输程序
 
-FreeBSD General Commands Manual
+## 名称
 
-FTP(1)
+`ftp`
 
-[名称](#__u540D___u79F0_)
-=======================
+## 概要
 
-`ftp` —
+`ftp [-46AadefginpRtVv] [-N netrc] [-o output] [-P port] [-q quittime] [-r retry] [-s srcaddr] [-T direction,maximum[,increment]] [[user@]host [port]] [[user@]host:path[/]] [file:///path] [ftp://[user[:password]@]host[:port]/path[/][;type=X]] [http://[user[:password]@]host[:port]/path] [...]`
 
-Internet 文件传输程序
+`ftp -u URL file [...]`
 
-[概要](#__u6982___u8981_)
-=======================
+## 描述
 
-`ftp` \[`-46AadefginpRtVv`\] \[`-N` netrc\] \[`-o` output\] \[`-P` port\] \[`-q` quittime\] \[`-r` retry\] \[`-s` srcaddr\] \[`-T` dir,max \[,inc\]\] \[\[user`@`\]host \[port\]\] \[\[user`@`\]host`:`\[path\]\[`/`\]\] \[`file:///`path\] \[`ftp://`\[user\[`:`password\]`@`\]host\[`:`port\]`/`path\[`/`\]\[`;type=`X\]\] \[`http://`\[user\[`:`password\]`@`\]host\[`:`port\]`/`path\] \[...\] `ftp` `-u` URL file \[...\]
+`ftp` 是 Internet 标准文件传输协议的用户界面。该程序允许用户在远程网络站点之间传输文件。
 
-[描述](#__u63CF___u8FF0_)
-=======================
+最后五种参数格式将通过 FTP 或 HTTP 协议获取文件，或通过直接复制将其存入当前目录。这非常适合脚本使用。更多信息请参见下文"自动获取文件"章节。
 
-`ftp` 是 Internet 标准文件传输协议的用户界面。 该程序允许用户将文件传输到远程网络站点或从远程网络站点传输文件。
+选项可在命令行或命令解释器中指定。
 
-最后五个参数将使用 FTP 或 HTTP 协议或通过直接复制来获取文件到当前目录。 这是脚本的理想选择。 有关详细信息，请参阅下面的 [AUTO-FETCHING 文件](#AUTO_FETCHING___u6587___u4EF6_) 。
+**`-4`** 强制 `ftp` 仅使用 IPv4 地址。
 
-选项可以在命令行中指定，也可以在命令解释器中指定。
+**`-6`** 强制 `ftp` 仅使用 IPv6 地址。
 
-[`-4`](#4)
+**`-A`** 强制使用主动模式 ftp。默认情况下，`ftp` 会尝试使用被动模式 ftp，若服务器不支持被动模式则回退到主动模式。此选项使 `ftp` 始终使用主动连接。仅当连接到无法正确实现被动模式的旧服务器时才有用。
 
-强制 `ftp` 仅使用 IPv4 地址。
+**`-a`** 使 `ftp` 跳过正常登录过程，改用匿名登录。
 
-[`-6`](#6)
+**`-d`** 启用调试。
 
-强制 `ftp` 仅使用 IPv6 地址。
+**`-e`** 禁用命令行编辑。适用于 Emacs ange-ftp 模式。
 
-[`-A`](#A)
+**`-f`** 强制对通过 FTP 或 HTTP 代理进行的传输重新加载缓存。
 
-强制激活模式 ftp。 默认情况下， `ftp`-
-将尝试使用被动模式 ftp 并在服务器不支持被动时回退到主动模式。 此选项使 `ftp` 始终使用活动连接。 它仅对连接到未正确实施被动模式的非常旧的服务器有用。
+**`-g`** 禁用文件名通配。
 
-[`-a`](#a)
+**`-i`** 在多文件传输期间关闭交互式提示。
 
-使 `ftp` 绕过正常的登录过程，而使用匿名登录。
+**`-N`** `netrc` 使用 `netrc` 替代 `~/.netrc`。更多信息请参见下文"THE .netrc FILE"章节。
 
-[`-d`](#d)
+**`-n`** 限制 `ftp` 在非自动获取传输的初始连接时尝试"自动登录"。如果启用了自动登录，`ftp` 会检查用户主目录中的 `.netrc` 文件（见下文），查找描述远程机器账户的条目。如果不存在此类条目，`ftp` 会提示输入远程机器登录名（默认为本地机器上的用户身份），如有必要还会提示输入密码和登录账户。要为自动获取传输覆盖自动登录，请按需指定用户名（可选密码）。
 
-启用调试。
+**`-o`** `output` 自动获取文件时，将内容保存到 `output`。`output` 按下文"文件命名约定"章节解析。如果 `output` 不是 ‘-’ 或不以 ‘|’ 开头，则只有第一个指定的文件会被检索到 `output` 中；所有其他文件将以远程名称的基本名（basename）保存。
 
-[`-e`](#e)
+**`-P`** `port` 将端口号设置为 `port`。
 
-禁用命令行编辑。这对于 Emacs ange-ftp 模式很有用。
+**`-p`** 启用被动模式操作，适用于连接过滤防火墙之后的环境。此选项已被弃用，因为 `ftp` 现在默认尝试使用被动模式，若服务器不支持被动连接则回退到主动模式。
 
-[`-f`](#f)
+**`-q`** `quittime` 如果连接停滞超过 `quittime` 秒则退出。
 
-强制为通过 FTP 或 HTTP 代理的传输重新加载缓存。
+**`-`** 重启所有非代理的自动获取。
 
-[`-g`](#g)
+**`-r`** `wait` 如果连接尝试失败则重试，暂停 `wait` 秒。
 
-禁用文件名通配。
+**`-s`** `srcaddr` 将 `srcaddr` 用作所有连接的本地 IP 地址。
 
-[`-i`](#i)
+**`-t`** 启用数据包跟踪。
 
-在多个文件传输期间关闭交互式提示。
+**`-T`** `direction`,`maximum`[,`increment`] 将 `direction` 方向的最大传输速率设置为 `maximum` 字节/秒，如指定则将增量设置为 `increment` 字节/秒。更多信息请参见 `rate`。
 
-[`-N`](#N) netrc
+**`-u`** `URL file` [...] 将命令行上的文件上传到 `URL`，其中 `URL` 是自动获取所支持的某种 ftp URL 类型（单文件上传可指定目标文件名），`file` 是一个或多个要上传的本地文件。
 
-使用 netrc 而不是 ~/.netrc 。 有关更多信息，请参阅 [.netrc](#.netrc) 文件。
+**`-V`** 禁用 `verbose` 和 `progress`，覆盖输出到终端时默认启用的设置。
 
-[`-n`](#n)
+**`-v`** 启用 `verbose` 和 `progress`。当输出到终端时（且对于 `progress`，`ftp` 是前台进程），这是默认行为。强制 `ftp` 显示来自远程服务器的所有响应，并报告数据传输统计信息。
 
-限制 `ftp` 在初始连接时尝试 “auto-login” 以进行非自动获取传输。 如果启用了自动登录， `ftp` 将检查用户主目录中的 .netrc （见下文）文件中是否存在描述远程计算机上帐户的条目。 如果不存在条目， `ftp` 将提示输入远程机器的登录名（默认是本地机器上的用户身份），并且如果需要，提示输入密码和登录帐户。 要覆盖自动获取传输的自动登录，请根据需要指定用户名（以及可选的密码）。
+可以在命令行上指定 `ftp` 要通信的客户端主机。如果这样做，`ftp` 会立即尝试建立到该主机 FTP 服务器的连接；否则，`ftp` 将进入其命令解释器并等待用户指令。当 `ftp` 等待用户命令时，会向用户提供 `ftp` 提示符。`ftp` 识别以下命令：
 
-[`-o`](#o) output
+```sh
+nmap $1.$2.$3 [$1,$2].[$2,file]
+```
 
-自动获取文件时，将内容保存在 output 中。 根据下面的文 [文件命名约定](#__u6587___u4EF6___u547D___u540D___u7EA6___u5B9A_) 解析 output 。 如果 output 不是 ‘-’ 或不以 ‘|’ 开头，那么只有指定的第一个文件将被检索到 output; 所有其他文件将被检索到其远程名称的基本名称中。
+```sh
+nmap $1 sed s/ *$// $1
+```
 
-[`-P`](#P) port
+**`a`** 对当前文件回答"yes"，并对当前命令的剩余所有文件自动回答"yes"。
 
-将端口号设置为 port 。
+**`n`** 回答"no"，不传输该文件。
 
-[`-p`](#p)
+**`p`** 对当前文件回答"yes"，并关闭提示模式（等同于执行"prompt off"）。
 
-启用被动模式操作以在连接过滤防火墙后面使用。 此选项已被弃用，因为 `ftp` 现在默认尝试使用被动模式，如果服务器不支持被动连接，则回退到主动模式。
+**`q`** 终止当前操作。
 
-[`-q`](#q) quittime
+**`y`** 回答"yes"，并传输该文件。
 
-如果连接停止了 quittime 秒，则退出。
+**`?`** 显示帮助信息。
 
-[`-R`](#R)
+**`all`** 双向（传入和传出）。
 
-重新启动所有非代理自动提取。
+**`get`** 传入传输。
 
-[`-r`](#r) wait
+**`put`** 传出传输。
 
-如果连接失败，请重试连接尝试，暂停 wait 几秒钟。
+**`SIGUSR1`** 将 `maximum` 增加 `increment` 字节。
 
-[`-s`](#s) srcaddr
+**`SIGUSR2`** 将 `maximum` 减少 `increment` 字节。结果必须为正数。
 
-使用 srcaddr 作为所有连接的本地 IP 地址。
+**`anonpass`** 默认为 `$FTPANONPASS`。
 
-[`-t`](#t)
+**`ftp_proxy`** 默认为 `$ftp_proxy`。
 
-启用数据包跟踪。
+**`http_proxy`** 默认为 `$http_proxy`。
 
-[`-T`](#T) direction,maximum\[,increment\]
+**`no_proxy`** 默认为 `$no_proxy`。
 
-将 direction 的最大传输速率设置为 maximum 字节/秒，如果指定，则将增量设置为 increment 字节/秒。 有关更多信息，请参阅 `rate` 。
+**`pager`** 默认为 `$PAGER`。
 
-[`-u`](#u) URL file \[...\]
+**`prompt`** 默认为 `$FTPPROMPT`。
 
-在命令行上将文件上传到 URL ，其中 URL 是 auto-fetch 支持的一种 ftp URL 类型（对于单个文件上传具有可选的目标文件名），并且 file 是要上传的一个或多个本地文件。
+**`rprompt`** 默认为 `$FTPRPROMPT`。
 
-[`-V`](#V)
+**`!`** [`command` [`args`]] 在本地机器上调用交互式 shell。如果有参数，第一个参数被视为要直接执行的命令，其余参数作为该命令的参数。
 
-禁用 `verbose` 和 `progress` 当输出到终端时覆盖默认启用。
+**`$`** `macro-name` [`args`] 执行由 `macdef` 命令定义的宏 `macro-name`。参数以未通配的形式传递给宏。
 
-[`-v`](#v)
+**`account`** [`passwd`] 提供远程系统在成功登录后访问资源所需的补充密码。如果不带参数，用户将以非回显输入模式被提示输入账户密码。
 
-启用 `verbose` 和 `progress` 。 如果输出到终端，这是默认设置（在 `progress` 的情况下， `ftp` 是前台进程）。 强制 `ftp` 显示来自远程服务器的所有响应，并报告数据传输统计信息。
+**`append`** `local-file` [`remote-file`] 将本地文件追加到远程机器上的文件。如果未指定 `remote-file`，本地文件名在经过 `ntrans` 或 `nmap` 设置处理后用作远程文件名。文件传输使用当前的 `type`、`format`、`mode` 和 `structure` 设置。
 
-可以在命令行上指定 `ftp` 与之通信的客户端主机。 如果这样做了， `ftp` 将立即尝试与该主机上的 FTP 服务器建立连接；否则， `ftp` 将进入其命令解释器并等待用户的指令。 当 `ftp` 正在等待来自用户的命令时，会向用户提供提示 ‘`ftp>`’ 。 `ftp` 可以识别以下命令：
+**`ascii`** 将文件传输 `type` 设置为网络 ASCII。这是默认类型。
 
-[`!`](#!) \[command \[args\]\]
+**`bell`** 安排在每个文件传输命令完成后响铃。
 
-在本地机器上调用交互式 shell。 如果有参数，则第一个被视为直接执行的命令，其余参数作为其参数。
+**`binary`** 将文件传输 `type` 设置为支持二进制图像传输。
 
-[`$`](#$) macro-name \[args\]
+**`bye`** 终止与远程服务器的 FTP 会话并退出 `ftp`。文件结束符（EOF）也会终止会话并退出。
 
-执行使用 `macdef` 命令定义的 macro-name 。 参数被传递给未覆盖的宏。
+**`case`** 切换 `get`、`mget` 和 `mput` 命令期间远程计算机文件名的大小写映射。当 `case` 打开时（默认为关闭），远程计算机上全部字母为大写的文件名在写入本地目录时映射为小写。
 
-[`account`](#account) \[passwd\]
+**`cd`** `remote-directory` 将远程机器的工作目录更改为 `remote-directory`。
 
-成功完成登录后，提供远程系统访问资源所需的补充密码。 如果不包含参数，将在非回显输入模式下提示用户输入帐户密码。
+**`cdup`** 将远程机器工作目录更改为当前远程机器工作目录的父目录。
 
-[`append`](#append) local-file \[remote-file\]
+**`chmod`** `mode remote-file` 将远程系统上文件 `remote-file` 的权限模式更改为 `mode`。
 
-将本地文件附加到远程计算机上的文件。 如果未指定 remote-file ，则本地文件名在被任何 `ntrans` 或 `nmap` 设置更改后用于命名远程文件。 文件传输使用 `type 、` `format 、` `mode` 和 `structure` 的当前设置。
+**`close`** 终止与远程服务器的 FTP 会话，并返回命令解释器。所有已定义的宏都会被清除。
 
-[`ascii`](#ascii)
+**`cr`** 切换 ascii 类型文件检索期间的回车符剥离。ascii 类型文件传输时，记录由回车符/换行符序列表示。当 `cr` 打开时（默认），此序列中的回车符会被剥离，以符合 UNIX 单换行符记录分隔符的规范。非 UNIX 远程系统上的记录可能包含单个换行符；进行 ascii 类型传输时，只有当 `cr` 关闭时才能将这些换行符与记录分隔符区分开来。
 
-将文件传输 `type` 设置为网络 ASCII 。 这是默认类型。
+**`delete`** `remote-file` 删除远程机器上的文件 `remote-file`。
 
-[`bell`](#bell)
+**`dir`** [`remote-path` [`local-file`]] 打印远程机器上目录内容的列表。该列表包含服务器选择包含的任何依赖于系统的信息；例如，大多数 UNIX 系统会产生 `ls -l` 命令的输出。如果未指定 `remote-path`，则使用当前工作目录。如果启用了交互式提示，`ftp` 会提示用户确认最后一个参数确实是接收 `dir` 输出的目标本地文件。如果未指定本地文件，或 `local-file` 为 ‘`-`’，输出将发送到终端。
 
-安排在每个文件传输命令完成后响铃。
+**`disconnect`** `close` 的同义词。
 
-[`binary`](#binary)
+**`edit`** 切换命令行编辑以及上下文敏感的命令和文件补全。如果输入来自终端则自动启用，否则禁用。
 
-设置文件传输 `type` 以支持二进制图像传输。
+**`epsv epsv4 epsv6`** 分别在所有 IP、IPv4 和 IPv6 连接上切换扩展 `EPSV` 和 `EPRT` 命令的使用。首先尝试 `EPSV`/`EPRT`，然后尝试 `PASV`/`PORT`。默认启用。如果扩展命令失败，则在当前连接期间或再次执行 `epsv`、`epsv4` 或 `epsv6` 之前临时禁用此选项。
 
-[`bye`](#bye)
+**`exit`** `bye` 的同义词。
 
-终止与远程服务器的 FTP 会话并退出 `ftp` 。 文件结束也将终止会话并退出。
+**`features`** 显示远程服务器支持的功能（使用 `FEAT` 命令）。
 
-[`case`](#case)
+**`fget`** `localfile` 检索 `localfile` 中列出的文件，每行一个文件名。
 
-在 `get 、` `mget` 和 `mput` 命令期间切换远程计算机文件名大小写映射。 `case` 写开启时（默认关闭），远程计算机文件名全部大写，写入本地目录，字母映射为小写。
+**`form`** `format` 将文件传输 `form` 设置为 `format`。默认（且唯一支持的）格式为"non-print"。
 
-[`cd`](#cd) remote-directory
+**`ftp`** `host` [`port`] `open` 的同义词。
 
-将远程机器上的工作目录更改为 remote-directory 。
+**`ftp_debug`** [`ftp_debug-value`] 切换调试模式。如果指定了可选的 `ftp_debug-value`，则用于设置调试级别。启用调试时，`ftp` 会打印发送到远程机器的每条命令，前缀为字符串 `--`。
 
-[`cdup`](#cdup)
+**`gate`** [`host` [`port`]] 切换 gate-ftp 模式，用于通过 TIS FWTK 和 Gauntlet ftp 代理连接。如果未设置 gate-ftp 服务器（用户显式设置或从 `FTPSERVER` 环境变量获取），则不允许此操作。如果指定了 `host`，则启用 gate-ftp 模式，并将 gate-ftp 服务器设置为 `host`。如果还指定了 `port`，则将其用作连接 gate-ftp 服务器的端口。
 
-将远程机器工作目录更改为当前远程机器工作目录的父级。
+**`get`** `remote-file` [`local-file`] 检索 `remote-file` 并存储在本地机器上。如果未指定本地文件名，则使用与远程机器上相同的名称，但需经过当前 `case`、`ntrans` 和 `nmap` 设置的处理。传输文件时使用当前的 `type`、`form`、`mode` 和 `structure` 设置。
 
-[`chmod`](#chmod) mode remote-file
+**`glob`** 切换 `mdelete`、`mget`、`mput` 和 `mreget` 的文件名扩展。如果通过 `glob` 关闭了通配，文件名参数按字面意义使用而不进行扩展。`mput` 的通配按 csh(1) 的方式进行。对于 `mdelete`、`mget` 和 `mreget`，每个远程文件名在远程机器上单独扩展，列表不合并。目录名扩展的结果可能不同于普通文件名扩展：确切结果取决于外来的操作系统和 ftp 服务器，可通过执行 `mls remote-files -` 预览。注意：`mget`、`mput` 和 `mreget` 不用于传输整个目录子树。可以通过传输子树的 tar(1) 归档（在二进制模式下）来实现。
 
-将远程系统上的文件 remote-file 的权限模式更改为 mode 。
+**`hash`** [`size`] 切换每个传输数据块的哈希符号（‘#’）打印。数据块大小默认为 1024 字节。可通过以字节为单位指定 `size` 来更改。启用 `hash` 会禁用 `progress`。
 
-[`close`](#close)
+**`help`** [`command`] 打印关于 `command` 含义的信息性消息。如果不带参数，`ftp` 会打印已知命令列表。
 
-终止与远程服务器的 FTP 会话，并返回命令解释器。 任何定义的宏都会被删除。
+**`idle`** [`seconds`] 将远程服务器上的非活动计时器设置为 `seconds` 秒。如果省略 `seconds`，则打印当前非活动计时器。
 
-[`cr`](#cr)
+**`image`** `binary` 的同义词。
 
-在 ascii 类型文件检索期间切换回车剥离。 在 ascii 类型文件传输期间，记录由回车/换行序列表示。 当 `cr` 打开时（默认），从这个序列中去除回车符以符合 UNIX 单换行记录分隔符。 非 UNIX 远程系统上的记录可能包含单个换行符；当进行 ascii 类型的传输时，只有当 `cr` 关闭时，这些换行符才能与记录分隔符区分开来。
+**`lcd`** [`directory`] 更改本地机器上的工作目录。如果未指定 `directory`，则使用用户的主目录。
 
-[`delete`](#delete) remote-file
+**`less`** `file` `page` 的同义词。
 
-删除远程机器上的文件 remote-file 。
+**`lpage`** `local-file` 使用 `set pager` 选项指定的程序显示 `local-file`。
 
-[`dir`](#dir) \[remote-path \[local-file\]\]
+**`lpwd`** 打印本地机器上的工作目录。
 
-打印远程机器上目录内容的列表。 该列表包括服务器选择包含的任何系统相关信息；例如，大多数 UNIX 系统会从命令 ‘`ls -l`’ 产生输出。 如果未指定 remote-path ，则使用当前工作目录。 如果交互式提示打开， `ftp` 将提示用户验证最后一个参数是否确实是接收 `dir` 输出的目标本地文件。 如果未指定本地文件，或者 local-file 为 ‘`-`’ ，则将输出发送到终端。
+**`ls`** [`remote-path` [`local-file`]] `dir` 的同义词。
 
-[`disconnect`](#disconnect)
+**`macdef`** `macro-name` 定义宏。后续行存储为宏 `macro-name`；空行（文件中连续的换行符或终端的回车）终止宏输入模式。所有已定义宏的总数限制为 16 个，总字符数限制为 4096。宏名最多 8 个字符。宏仅适用于定义它的当前会话（如果在会话外定义，则适用于下一次 `open` 命令调用的会话），并保持定义直到执行 `close` 命令。要调用宏，使用 `$` 命令（见上文）。宏处理器将 ‘$’ 和 ‘e’ 解释为特殊字符。‘$’ 后跟一个或多个数字将被替换为宏调用命令行上的相应参数。‘$’ 后跟 ‘i’ 通知宏处理器正在执行的宏将循环。第一次遍历时"$i"被替换为宏调用命令行上的第一个参数，第二次遍历时替换为第二个参数，依此类推。‘e’ 后跟任何字符将被替换为该字符。使用 ‘e’ 可防止 ‘$’ 的特殊处理。
 
-[`close`](#close_2) 的同义词。
+**`mdelete`** [`remote-files`] 删除远程机器上的 `remote-files`。
 
-[`edit`](#edit)
+**`mdir`** `remote-files local-file` 类似于 `dir`，但可指定多个远程文件。如果启用了交互式提示，`ftp` 会提示用户确认最后一个参数确实是接收 `mdir` 输出的目标本地文件。
 
-切换命令行编辑以及上下文相关的命令和文件完成。 如果输入来自终端，则会自动启用，否则禁用。
+**`mget`** `remote-files` 在远程机器上扩展 `remote-files`，并为由此产生的每个文件名执行一次 `get`。有关文件名扩展的详细信息，请参见 `glob`。生成的文件名将根据 `case`、`ntrans` 和 `nmap` 设置进行处理。文件传输到本地工作目录，可通过 `lcd directory` 更改；可使用 `! mkdir directory` 创建新的本地目录。
 
-[`epsv epsv4 epsv6`](#epsv_epsv4_epsv6)
+**`mkdir`** `directory-name` 在远程机器上创建目录。
 
-分别在所有 IP、IPv4 和 IPv6 连接上切换扩展 `EPSV` 和 `EPRT` 命令的使用。 首先尝试 `EPSV /` `EPRT`, 然后再尝试 `PASV /` `PORT` 。 这是默认启用的。如果扩展命令失败，则此选项将在当前连接期间暂时禁用，或者直到 `epsv 、` `epsv4` 或 `epsv6` 再次执行。
+**`mls`** `remote-files local-file` 类似于 `ls`，但可指定多个远程文件，且必须指定 `local-file`。如果启用了交互式提示，`ftp` 会提示用户确认最后一个参数确实是接收 `mls` 输出的目标本地文件。
 
-[`exit`](#exit)
+**`mlsd`** [`remote-path`] 使用 `MLSD` 以机器可解析的形式显示 `remote-path`（如未指定则默认为当前目录）的内容。显示格式可通过 ‘remopts mlst ...’ 更改。
 
-[`bye`](#bye_2) 的同义词。
+**`mlst`** [`remote-path`] 使用 `MLST` 以机器可解析的形式显示 `remote-path`（如未指定则默认为当前目录）的详细信息。显示格式可通过 ‘remopts mlst ...’ 更改。
 
-[`features`](#features)
+**`mode`** `mode-name` 将文件传输 `mode` 设置为 `mode-name`。默认（且唯一支持的）模式为"stream"。
 
-显示远程服务器支持的功能（使用 `FEAT` 命令）。
+**`modtime`** `remote-file` 以 `RFC2822` 格式显示远程机器上文件的最后修改时间。
 
-[`fget`](#fget) localfile
+**`more`** `file` `page` 的同义词。
 
-检索 localfile 中列出的文件，每个文件名有一行。
+**`mput`** `local-files` 扩展作为参数给出的本地文件列表中的通配符，并为结果列表中的每个文件执行一次 `put`。有关文件名扩展的详细信息，请参见 `glob`。生成的文件名将根据 `ntrans` 和 `nmap` 设置进行处理。
 
-[`form`](#form) format
+**`mreget`** `remote-files` 类似于 `mget`，但执行 `reget` 而非 `get`。
 
-将文件传输 `form` 设置为 format 。 默认（也是唯一受支持的）格式是 “non-print” 。
+**`msend`** `local-files` `mput` 的同义词。
 
-[`ftp`](#ftp) host \[port\]
+**`newer`** `remote-file` [`local-file`] 仅当远程文件的修改时间比当前系统上的文件更新时才获取该文件。如果当前系统上不存在该文件，则认为远程文件更新。否则，此命令与 `get` 相同。
 
-[`open`](#open) 的同义词。
+**`nlist`** [`remote-path` [`local-file`]] `ls` 的同义词。
 
-[`ftp_debug`](#ftp_debug) \[ftp\_debug-value\]
+**`nmap`** [`inpattern outpattern`] 设置或取消文件名映射机制。如果不指定参数，则取消文件名映射机制。如果指定参数，则在 `mput` 命令和未指定远程目标文件名的 `put` 命令期间映射远程文件名。如果指定参数，则在 `mget` 命令和未指定本地目标文件名的 `get` 命令期间映射本地文件名。此命令在连接到具有不同文件命名约定或做法的非 UNIX 远程计算机时很有用。映射遵循 `inpattern` 和 `outpattern` 设置的模式。`inpattern` 是传入文件名的模板（可能已经根据 `ntrans` 和 `case` 设置处理过）。通过在 `inpattern` 中包含序列"$1"、"$2"、... "$9"来实现变量模板。使用 ‘e’ 可防止 ‘$’ 字符的这种特殊处理。所有其他字符按字面意义处理，用于确定 `nmap` [`inpattern`] 变量的值。例如，给定 `inpattern` $1.$2 和远程文件名"mydata.data"，$1 的值为"mydata"，$2 的值为"data"。`outpattern` 决定生成的映射文件名。序列"$1"、"$2"、... "$9"被 `inpattern` 模板产生的任何值替换。序列"$0"被原始文件名替换。此外，序列"[`seq1`, `seq2`]"在 `seq1` 不是空字符串时被替换为 `seq1`；否则被替换为 `seq2`。例如，该命令对于输入文件名"myfile.data"和"myfile.data.old"会生成输出文件名"myfile.data"，对于输入文件名"myfile"生成"myfile.file"，对于输入文件名".myfile"生成"myfile.myfile"。`outpattern` 中可包含空格，如示例所示：使用 ‘e’ 字符可防止 ‘$’、‘[’、‘]’ 和 ‘,’ 字符的特殊处理。
 
-切换调试模式。 如果指定了可选的 ftp\_debug-value ，则它用于设置调试级别。 当调试打开时， `ftp` 打印发送到远程机器的每个命令，前面是字符串 ‘`-->`’ 。
+**`ntrans`** [`inchars` [`outchars`]] 设置或取消文件名字符转换机制。如果不指定参数，则取消文件名字符转换机制。如果指定参数，则在 `mput` 命令和未指定远程目标文件名的 `put` 命令期间转换远程文件名中的字符。如果指定参数，则在 `mget` 命令和未指定本地目标文件名的 `get` 命令期间转换本地文件名中的字符。此命令在连接到具有不同文件命名约定或做法的非 UNIX 远程计算机时很有用。文件名中匹配 `inchars` 中字符的字符将被替换为 `outchars` 中的对应字符。如果字符在 `inchars` 中的位置超过 `outchars` 的长度，则从文件名中删除该字符。
 
-[`gate`](#gate) \[host \[port\]\]
+**`open`** `host` [`port`] 建立到指定 `host` FTP 服务器的连接。可提供可选端口号，此时 `ftp` 会尝试联系该端口上的 FTP 服务器。如果 `set auto-login` 选项打开（默认），`ftp` 还会尝试自动将用户登录到 FTP 服务器（见下文）。
 
-切换 gate-ftp 模式，该模式用于通过 TIS FWTK 和 Gauntlet ftp 代理进行连接。 如果尚未设置 gate-ftp 服务器（无论是由用户明确设置，还是来自 `FTPSERVER` 环境变量），则不允许这样做。 如果给定了 host ，则将启用 gate-ftp 模式，并将 gate-ftp 服务器设置为 host 。 如果还给出了 port ，则该端口将用作连接到 gate-ftp 服务器的端口。
+**`page`** `file` 检索 `file` 并使用 `set pager` 选项指定的程序显示。
 
-[`get`](#get) remote-file \[local-file\]
+**`passive`** [`auto`] 切换被动模式（不带参数时）。如果指定 `auto`，行为如同 `FTPMODE` 设置为 ‘auto’。如果打开被动模式（默认），`ftp` 会对所有数据连接发送 `PASV` 命令而非 `PORT` 命令。`PASV` 命令请求远程服务器为数据连接打开一个端口并返回该端口的地址。远程服务器在该端口监听，客户端连接到它。使用更传统的 `PORT` 命令时，客户端在某个端口监听并将该地址发送给远程服务器，由远程服务器回连。当通过控制流量方向的网关路由器或主机使用 `ftp` 时，被动模式很有用。（注意，虽然 `RFC1123` 要求 FTP 服务器支持 `PASV` 命令，但有些服务器不支持。）
 
-检索 remote-file 并将其存储在本地计算机上。 如果未指定本地文件名，则使用与远程计算机上相同的名称，但会受到当前 `case 、` `ntrans` 和 `nmap` 设置的更改。 传输文件时使用 `type 、` `form 、` `mode` 和 `structure` 的当前设置。
+**`pdir`** [`remote-path`] 执行 `dir` [`remote-path`]，并使用 `set pager` 选项指定的程序显示结果。
 
-[`glob`](#glob)
+**`pls`** [`remote-path`] 执行 `ls` [`remote-path`]，并使用 `set pager` 选项指定的程序显示结果。
 
-切换 `mdelete 、` `mget 、` `mput` 和 `mreget` 的文件名扩展。 如果使用 `glob` 关闭了 globbing，则文件名参数按字面意思获取，而不是扩展。 `mput` 的通配符在 csh(1) 中完成。 对于 `mdelete 、` `mget` 和 `mreget`, 每个远程文件名在远程计算机上单独展开，并且列表不会合并。 目录名的扩展可能和普通文件名的扩展不同：具体结果取决于国外操作系统和ftp服务器，可以通过 ‘`mls remote-files -`’ 来预览 注意： `mget 、` `mput` 和 `mreget` 并不意味着传输文件的整个目录子树。 这可以通过传输子树的 tar(1) 存档（以二进制模式）来完成。
+**`pmlsd`** [`remote-path`] 执行 `mlsd` [`remote-path`]，并使用 `set pager` 选项指定的程序显示结果。
 
-[`hash`](#hash) \[size\]
+**`preserve`** 切换是否保留检索文件的修改时间。
 
-为每个传输的数据块切换哈希符号 (‘#’) 打印。 数据块的大小默认为 1024 字节。 这可以通过以字节为单位指定 size 来更改。 启用 `hash` 会禁用 `progress` 。
+**`progress`** 切换传输进度条的显示。对于 `local-file` 为 ‘`-`’ 或以 ‘|’ 开头的命令的传输，进度条将被禁用。更多信息请参见下文"文件命名约定"章节。启用 `progress` 会禁用 `hash`。
 
-[`help`](#help) \[command\]
+**`prompt`** 切换交互式提示。交互式提示在多文件传输期间出现，允许用户选择性检索或存储文件。如果关闭提示（默认为打开），任何 `mget` 或 `mput` 都会传输所有文件，任何 `mdelete` 都会删除所有文件。启用提示时，提示符下可使用以下命令：任何其他响应都会对当前文件回答 ‘yes’。
 
-打印有关 command 含义的信息性消息。如果没有给出参数， `ftp`-
-会打印一个已知命令的列表。
+**`proxy`** `ftp-command` 在辅助控制连接上执行 ftp 命令。此命令允许同时连接两个远程 FTP 服务器以在两台服务器之间传输文件。第一个 `proxy` 命令应该是 `open`，以建立辅助控制连接。输入命令"proxy ?"可查看辅助连接上可执行的其他 FTP 命令。以下命令在前面加上 `proxy` 时行为不同：`open` 在自动登录过程中不会定义新宏，`close` 不会清除已存在的宏定义，`get` 和 `mget` 将文件从主控制连接上的主机传输到辅助控制连接上的主机，`put`、`mput` 和 `append` 将文件从辅助控制连接上的主机传输到主控制连接上的主机。第三方文件传输取决于辅助控制连接上的服务器是否支持 FTP 协议 `PASV` 命令。
 
-[`idle`](#idle) \[seconds\]
+**`put`** `local-file` [`remote-file`] 将本地文件存储到远程机器上。如果未指定 `remote-file`，本地文件名在经过 `ntrans` 或 `nmap` 设置处理后用作远程文件名。文件传输使用当前的 `type`、`format`、`mode` 和 `structure` 设置。
 
-将远程服务器上的不活动计时器设置为 seconds 秒。 如果省略 seconds ，则打印当前的不活动计时器。
+**`pwd`** 打印远程机器上当前工作目录的名称。
 
-[`image`](#image)
+**`quit`** `bye` 的同义词。
 
-[`binary`](#binary_2) 的同义词。
+**`quote`** `arg1 arg2 ...` 指定的参数原样发送到远程 FTP 服务器。
 
-[`lcd`](#lcd) \[directory\]
+**`rate`** `direction` [`maximum` [`increment`]] 将最大传输速率限制为 `maximum` 字节/秒。如果 `maximum` 为 0，则禁用限制。`direction` 可以是以下之一：`maximum` 可在每次收到给定信号时按 `increment` 字节（默认：1024）即时修改：如果未提供 `maximum`，则显示当前限制速率。注意：`rate` 尚未在 ascii 模式传输中实现。
 
-更改本地计算机上的工作目录。 如果未指定 directory ，则使用用户的主目录。
+**`rcvbuf`** `size` 将套接字接收缓冲区大小设置为 `size`。
 
-[`less`](#less) file
+**`recv`** `remote-file` [`local-file`] `get` 的同义词。
 
-[`page`](#page) 的同义词。
+**`reget`** `remote-file` [`local-file`] `reget` 类似于 `get`，但如果 `local-file` 已存在且小于 `remote-file`，则假定 `local-file` 是 `remote-file` 的部分传输副本，并从明显的失败点继续传输。此命令在通过容易断开连接的网络传输非常大的文件时很有用。
 
-[`lpage`](#lpage) local-file
+**`remopts`** `command` [`command-options`] 为 `command` 在远程 FTP 服务器上设置选项为 `command-options`（其缺失按命令特定方式处理）。已知支持选项的远程 FTP 命令包括：‘MLST’（用于 `MLSD` 和 `MLST`）。
 
-使用 `set pager` 选项指定的程序显示 local-file 。
+**`rename`** [`from` [`to`]] 将远程机器上的文件 `from` 重命名为 `to`。
 
-[`lpwd`](#lpwd)
+**`reset`** 清除回复队列。此命令重新同步与远程 FTP 服务器的命令/回复序列。在远程服务器违反 FTP 协议后，可能需要重新同步。
 
-打印本地机器上的工作目录。
+**`restart`** `marker` 在指示的 `marker` 处重启紧随其后的 `get` 或 `put`。在 UNIX 系统上，marker 通常是文件中的字节偏移量。
 
-[`ls`](#ls) \[remote-path \[local-file\]\]
+**`rhelp`** [`command-name`] 请求远程 FTP 服务器的帮助。如果指定了 `command-name`，也会将其提供给服务器。
 
-[`dir`](#dir_2) 的同义词。
+**`rmdir`** `directory-name` 删除远程机器上的目录。
 
-[`macdef`](#macdef) macro-name
+**`rstatus`** [`remote-file`] 不带参数时显示远程机器的状态。如果指定了 `remote-file`，则显示远程机器上 `remote-file` 的状态。
 
-定义一个宏。 后续行存储为 macro-name; 空行（文件中的连续换行符或终端回车）终止宏输入模式。 在所有定义的宏中有 16 个宏和 4096 个字符的限制。 宏名称最多可包含 8 个字符。 宏仅适用于它们在其中定义的当前会话（或者如果在会话之外定义，则适用于使用下一个打 `open` 命令调用的会话），并且在执行 `close` 命令之前一直保持定义。 要调用宏，请使用 `$` 命令（见上文）。
+**`runique`** 切换在本地系统上以唯一文件名存储文件。如果 `get` 或 `mget` 命令的目标本地文件名已存在同名文件，则在名称后追加".1"。如果结果名称与另一个现有文件匹配，则在原始名称后追加".2"。如果此过程继续到".99"，将打印错误消息且不进行传输。会报告生成的唯一文件名。注意，`runique` 不会影响从 shell 命令生成的本地文件（见下文）。默认值为关闭。
 
-宏处理器将 ‘$’ 和 ‘\\’ 解释为特殊字符。 ‘$’ 后跟一个数字（或多个数字）被宏调用命令行上的相应参数替换。 ‘$’ 后跟 ‘i’ 向宏处理器发出信号，表明正在执行的宏将被循环。 在第一次传递中， “$i” 被宏调用命令行上的第一个参数替换，在第二次传递中，它被第二个参数替换，依此类推。 后跟任何字符的 ‘\\’ 将被该字符替换。 使用 ‘\\’ 防止对 ‘$’ 进行特殊处理。
+**`send`** `local-file` [`remote-file`] `put` 的同义词。
 
-[`mdelete`](#mdelete) \[remote-files\]
+**`sendport`** 切换 `PORT` 命令的使用。默认情况下，`ftp` 在为每次数据传输建立连接时会尝试使用 `PORT` 命令。使用 `PORT` 命令可防止在执行多文件传输时的延迟。如果 `PORT` 命令失败，`ftp` 会使用默认数据端口。禁用 `PORT` 命令时，不会为每次数据传输尝试使用 `PORT` 命令。这对于某些忽略 `PORT` 命令但错误地表示已接受它们的 FTP 实现很有用。
 
-删除远程机器上的 remote-files 。
+**`set`** [`option` `value`] 将 `option` 设置为 `value`。如果不提供 `option` 和 `value`，则显示所有选项及其值。当前支持的选项有：
 
-[`mdir`](#mdir) remote-files local-file
+**`site`** `arg1 arg2 ...` 指定的参数作为 `SITE` 命令原样发送到远程 FTP 服务器。
 
-与 `dir` 类似，但可以指定多个远程文件。 如果交互式提示打开， `ftp` 将提示用户验证最后一个参数是否确实是接收 `mdir` 输出的目标本地文件。
+**`size`** `remote-file` 返回远程机器上 `remote-file` 的大小。
 
-[`mget`](#mget) remote-files
+**`sndbuf`** `size` 将套接字发送缓冲区大小设置为 `size`。
 
-展开远程机器上的 remote-files ，并对由此产生的每个文件名执行一次 `get` 。 有关文件名扩展的详细信息，请参见 `glob` 。 然后将根据 `case 、` `ntrans` 和 `nmap` 设置处理生成的文件名。 文件转移到本地工作目录，可以用 ‘`lcd directory`’; 可以使用 ‘`! mkdir directory`’ 创建新的本地目录。
+**`status`** 显示 `ftp` 的当前状态。
 
-[`mkdir`](#mkdir) directory-name
+**`struct`** `struct-name` 将文件传输 `structure` 设置为 `struct-name`。默认（且唯一支持的）结构为"file"。
 
-在远程机器上创建一个目录。
+**`sunique`** 切换在远程机器上以唯一文件名存储文件。远程 FTP 服务器必须支持 FTP 协议 `STOU` 命令才能成功完成。远程服务器会报告唯一名称。默认值为关闭。
 
-[`mls`](#mls) remote-files local-file
+**`system`** 显示远程机器上运行的操作系统类型。
 
-和 `ls` 一样，除了可以指定多个远程文件，而且必须指定 local-file 。 如果交互式提示打开， `ftp` 将提示用户验证最后一个参数是否确实是接收 `mls` 输出的目标本地文件。
+**`tenex`** 将文件传输类型设置为与 TENEX 机器通信所需的类型。
 
-[`mlsd`](#mlsd) \[remote-path\]
+**`throttle`** `rate` 的同义词。
 
-使用 `MLSD` 以机器可解析的形式显示 remote-path 的内容（如果没有给出，则默认为当前目录）。 显示的格式可以用 ‘remopts mlst ...’ 来改变。
+**`trace`** 切换数据包跟踪。
 
-[`mlst`](#mlst) \[remote-path\]
+**`type`** [`type-name`] 将文件传输 `type` 设置为 `type-name`。如果未指定类型，则打印当前类型。默认类型为网络 ASCII。
 
-使用 `MLST` 以机器可解析的形式显示 remote-path 的详细信息（如果未给出，则默认为当前目录）。 显示的格式可以用 ‘remopts mlst ...’ 来改变。
+**`umask`** [`newmask`] 将远程服务器上的默认 umask 设置为 `newmask`。如果省略 `newmask`，则打印当前 umask。
 
-[`mode`](#mode) mode-name
+**`unset`** `option` 取消设置 `option`。更多信息请参见 `set`。
 
-将文件传输 `mode` 设置为 mode-name 。 默认（也是唯一受支持的）模式是 “stream” 。
+**`usage`** `command` 打印 `command` 的用法消息。
 
-[`modtime`](#modtime) remote-file
+**`user`** `user-name` [`password` [`account`]] 向远程 FTP 服务器标识自己。如果未指定 `password` 而服务器需要它，`ftp` 会提示用户输入（在禁用本地回显之后）。如果未指定 `account` 字段而 FTP 服务器需要它，用户将被提示输入。如果指定了 `account` 字段，则在登录序列完成后，如果远程服务器登录时不需要它，将向远程服务器中继一条 account 命令。除非以禁用"自动登录"的方式调用 `ftp`，否则此过程会在初始连接 FTP 服务器时自动完成。
 
-以 `RFC2822` 格式显示文件在远程机器上的最后修改时间。
+**`verbose`** 切换详细模式。在详细模式下，FTP 服务器的所有响应都会显示给用户。此外，如果启用了 verbose，当文件传输完成时，会报告有关传输效率的统计信息。默认启用 verbose。
 
-[`more`](#more) file
+**`xferbuf`** `size` 将套接字发送和接收缓冲区大小设置为 `size`。
 
-[`page`](#page_2) 的同义词。
+**`?`** [`command`] `help` 的同义词。
 
-[`mput`](#mput) local-files
+包含嵌入空格的命令参数可以用引号 ‘"’ 括起来。
 
-在作为参数给出的本地文件列表中展开通配符，并对结果列表中的每个文件执行 `put` 。 有关文件名扩展的详细信息，请参见 `glob` 。 然后将根据 `ntrans` 和 `nmap` 设置处理生成的文件名。
+切换设置的命令可以接受显式的 `on` 或 `off` 参数以强制相应设置。
 
-[`mreget`](#mreget) remote-files
+以字节计数为参数的命令（例如 `hash`、`rate` 和 `xferbuf`）支持参数上的可选后缀以更改参数的解释。支持的后缀有：
 
-根据 `mget`, 但执行 `reget` 而不是 `get` 。
+**`b`** 不进行修改。（可选）
 
-[`msend`](#msend) local-files
+**`k`** Kilo；将参数乘以 1024。
 
-[`mput`](#mput_2) 的同义词。
+**`m`** Mega；将参数乘以 1048576。
 
-[`newer`](#newer) remote-file \[local-file\]
+**`g`** Giga；将参数乘以 1073741824。
 
-仅当远程文件的修改时间比当前系统上的文件更新时才获取该文件。 如果当前系统上不存在该文件，则认为远程文件 `newer` 。 否则，此命令与 get 相同。
+如果 `ftp` 在传输进行中收到 `SIGINFO`（参见 stty(1) 的"status"参数）或 `SIGQUIT` 信号，当前传输速率统计信息将以与标准完成消息相同的格式写入标准错误输出。
 
-[`nlist`](#nlist) \[remote-path \[local-file\]\]
+## 自动获取文件
 
-[`ls`](#ls_2) 的同义词。
-
-[`nmap`](#nmap) \[inpattern outpattern\]
-
-设置或取消设置文件名映射机制。 如果未指定参数，则未设置文件名映射机制。 如果指定了参数，则在 `mput` 命令期间映射远程文件名，并在没有指定远程目标文件名的情况下发出 `put` 命令。 如果指定了参数，则在 `mget` 命令期间映射本地文件名，并在没有指定本地目标文件名的情况下发出 `get` 命令。 当连接到具有不同文件命名约定或实践的非 UNIX 远程计算机时，此命令很有用。 映射遵循由 inpattern 和 outpattern 设置的模式。 \[Inpattern\] 是传入文件名的模板（可能已经根据 `ntrans` 和 `case` 设置进行了处理）。 变量模板是通过在 inpattern 中包含序列 “$1 、” “$2 、” ... “$9” 来完成的。 使用 ‘\\’ 来防止对 ‘$’ 字符进行这种特殊处理。 所有其他字符都按字面意思处理，并用于确定 `nmap` \[inpattern\] 变量值。 例如， inpattern $1.$2 和远程文件名 "mydata.data", $1 将具有值 "mydata"，而 $2 将具有值 "data"。 outpattern 确定生成的映射文件名。 序列 “$1 、” “$2 、” ... “$9” 被替换为来自 inpattern 模板的任何值。 序列 “$0” 被原始文件名替换。 此外，如果 \[seq1\] 不是空字符串，则序列 “\[seq1, seq2\]” 被替换为 seq1 ；否则被 seq2 替换。 例如，命令
-
-nmap $1.$2.$3 \[$1,$2\].\[$2,file\] 
-
-将为输入文件名 "myfile.data" 和 "myfile.data.old" 生成输出文件名 "myfile.data" ，为输入文件名 "myfile" 生成输出文件名 "myfile.file" ，为输入文件名生成 ".myfile" 生成输出文件名 "myfile.myfile" 。 空格可能包含在 outpattern 中，如示例中所示：
-
-`nmap $1 sed s/ *$// > $1`
-
-使用 ‘\\’ 字符可防止对 ‘$ 、’ ‘\[ 、’ ‘\]’ 和 ‘,’ 字符进行特殊处理。
-
-[`ntrans`](#ntrans) \[inchars \[outchars\]\]
-
-设置或取消设置文件名字符翻译机制。 如果未指定参数，则未设置文件名字符转换机制。 如果指定了参数，则远程文件名中的字符在 `mput` 命令和未指定远程目标文件名的情况下发出的 `put` 命令期间进行转换。 如果指定了参数，本地文件名中的字符将在 `mget` 命令和 `get` 命令期间进行转换，而无需指定本地目标文件名。 当连接到具有不同文件命名约定或实践的非 UNIX 远程计算机时，此命令很有用。 与 inchars 中的字符匹配的文件名中的字符将替换为 outchars 中的相应字符。 如果字符在 inchars 中的位置长于 outchars 的长度，则从文件名中删除该字符。
-
-[`open`](#open_2) host \[port\]
-
-建立与指定 host FTP 服务器的连接。 可以提供可选的端口号，在这种情况下， `ftp` 将尝试联系该端口的 FTP 服务器。 如果 `set auto-login` 选项打开（默认）， `ftp` 还将尝试自动将用户登录到 FTP 服务器（见下文）。
-
-[`page`](#page_3) file
-
-使用 `set pager` 选项指定的程序检索 `file` 并显示。
-
-[`passive`](#passive) \[`auto`\]
-
-切换被动模式（如果没有给出参数）。 如果给出了 `auto` ，就好像 `FTPMODE` 设置为 ‘auto’ 一样。 如果被动模式打开（默认）， `ftp` 将为所有数据连接发送 `PASV` 命令而不是 `PORT` 命令。 `PASV` 命令请求远程服务器为数据连接打开一个端口并返回该端口的地址。 远程服务器侦听该端口，客户端连接到它。 当使用更传统的 `PORT` 命令时，客户端侦听端口并将该地址发送到远程服务器，远程服务器连接回它。 当通过网关路由器或控制流量方向的主机使用 `ftp` 时，被动模式很有用。 （请注意，尽管 `RFC1123` 要求 FTP 服务器支持 `PASV` 命令，但有些不支持。）
-
-[`pdir`](#pdir) \[remote-path\]
-
-执行 `dir` \[remote-path\], 并使用 `set pager` 选项指定的程序显示结果。
-
-[`pls`](#pls) \[remote-path\]
-
-执行 `ls` \[remote-path\], 并使用 `set pager` 选项指定的程序显示结果。
-
-[`pmlsd`](#pmlsd) \[remote-path\]
-
-执行 `mlsd` \[remote-path\], 并使用 `set pager` 选项指定的程序显示结果。
-
-[`preserve`](#preserve)
-
-切换对检索到的文件的修改时间的保留。
-
-[`progress`](#progress)
-
-切换传输进度条的显示。 对于 local-file 为 ‘`-`’ 或以 ‘|’ 开头的命令的传输，进度条将被禁用。 有关详细信息，请参阅 [文件命名约定](#__u6587___u4EF6___u547D___u540D___u7EA6___u5B9A_) 。启用 `progress` 会禁用 `hash` 。
-
-[`prompt`](#prompt)
-
-切换交互式提示。 在多个文件传输期间发生交互式提示，以允许用户有选择地检索或存储文件。 如果提示关闭（默认开启），任何 `mget` 或 `mput` 都会传输所有文件，任何 `mdelete` 都会删除所有文件。
-
-提示打开时，提示符下可以使用以下命令：
-
-[`a`](#a_2)
-
-对当前文件回答 ‘yes’ ，并自动对当前命令的任何剩余文件回答 ‘yes’ 。
-
-[`n`](#n_2)
-
-回答 ‘no’ ，不要传输文件。
-
-[`p`](#p_2)
-
-对当前文件回答 ‘yes’ ，并关闭提示模式（因为已给出 “prompt off” ）。
-
-[`q`](#q_2)
-
-终止当前操作。
-
-[`y`](#y)
-
-回答 ‘yes’ ，然后传输文件。
-
-[`?`](#?)
-
-显示帮助消息。
-
-任何其他响应都会对当前文件回答 ‘yes’ 。
-
-[`proxy`](#proxy) ftp-command
-
-代理 ftp 命令 在辅助控制连接上执行 ftp 命令。 此命令允许同时连接到两个远程 FTP 服务器，以便在两个服务器之间传输文件。 第一个 `proxy` 命令应该是 `open` 的，以建立辅助控制连接。 输入命令 "proxy ?" 查看辅助连接上可执行的其他 FTP 命令。 以下命令以 `proxy` 开头时的行为不同： `open` 不会在自动登录过程中定义新的宏， `close` 不会删除现有的宏定义， `get` 和 `mget` 将文件从主控制连接上的主机传输到辅助控制连接上的主机控制连接，以及从辅助控制连接上的主机到主控制连接上的主机的 `put 、` `mput` 和 `append` 传输文件。 第三方文件传输取决于辅助控制连接上的服务器对 FTP 协议 `PASV` 命令的支持。
-
-[`put`](#put) local-file \[remote-file\]
-
-在远程机器上存储本地文件。 如果未指定 remote-file ，则在根据任何 `ntrans` 或 `nmap` 设置处理后使用本地文件名来命名远程文件。 文件传输使用 `type 、` `format 、` `mode` 和 `structure` 的当前设置。
-
-[`pwd`](#pwd)
-
-打印远程机器上当前工作目录的名称。
-
-[`quit`](#quit)
-
-[`bye`](#bye_3) 的同义词。
-
-[`quote`](#quote) arg1 arg2 ...
-
-指定的参数被逐字发送到远程 FTP 服务器。
-
-[`rate`](#rate) direction \[maximum \[increment\]\]
-
-将最大传输速率限制为 maximum 字节/秒。 如果 maximum 值为 0，则禁用油门。
-
-direction 可以是以下之一：
-
-[`all`](#all)
-
-两个方向。
-
-[`get`](#get_2)
-
-传入转账。
-
-[`put`](#put_2)
-
-传出转账。
-
-每次接收到给定信号时， maximum 可以通过 increment 字节（默认值：1024）动态修改：
-
-[`SIGUSR1`](#SIGUSR1)
-
-按 increment 字节递增 maximum 。
-
-[`SIGUSR2`](#SIGUSR2)
-
-按 increment 节递减 maximum 。 结果必须是正数。
-
-如果未提供 maximum ，则显示当前油门速率。
-
-注意：尚未为 ascii 模式传输实现 `rate` 。
-
-[`rcvbuf`](#rcvbuf) size
-
-将套接字接收缓冲区的大小设置为 size 。
-
-[`recv`](#recv) remote-file \[local-file\]
-
-[`get`](#get_3) 的同义词。
-
-[`reget`](#reget) remote-file \[local-file\]
-
-[`reget`](#reget_2) 的行为类似于 `get`, 除了如果 local-file 存在并且小于 remote-file, 则假定 local-file 是 remote-file 的部分传输副本，并且从明显的故障点继续传输。 当通过容易断开连接的网络传输非常大的文件时，此命令很有用。
-
-[`remopts`](#remopts) command \[command-options\]
-
-将远程 FTP 服务器上的 command 选项设置为 command-options （其缺失将根据特定命令进行处理）。 已知支持选项的远程 FTP 命令包括： ‘MLST’ （用于 `MLSD` 和 `MLST` )。
-
-[`rename`](#rename) \[from \[to\]\]
-
-将 from 从远程机器上重命名为文件 to 。
-
-[`reset`](#reset)
-
-清除回复队列。 此命令将命令/回复序列与远程 FTP 服务器重新同步。 在远程服务器违反 FTP 协议后，可能需要重新同步。
-
-[`restart`](#restart) marker
-
-在指示的 marker 处重新启动紧随其后的 `get` 或 `put` 。 在 UNIX 系统上，标记通常是文件中的字节偏移量。
-
-[`rhelp`](#rhelp) \[command-name\]
-
-向远程 FTP 服务器请求帮助。 如果指定了 command-name ，它也会提供给服务器。
-
-[`rmdir`](#rmdir) directory-name
-
-删除远程机器上的目录。
-
-[`rstatus`](#rstatus) \[remote-file\]
-
-不带参数，显示远程机器的状态。 如果指定了 remote-file ，则显示远程机器上 remote-file 的状态。
-
-[`runique`](#runique)
-
-切换在本地系统上使用唯一文件名存储文件。 如果已存在名称等于 `get` 或 `mget` 命令的目标本地文件名的文件，则在名称后附加 ".1" 。 如果生成的名称与另一个现有文件匹配，则会将 ".2" 附加到原始名称。 如果此过程持续到 ".99", 则会打印一条错误消息，并且不会进行传输。 将报告生成的唯一文件名。 请注意， `runique` 不会影响从 shell 命令生成的本地文件（见下文）。 默认值为关闭。
-
-[`send`](#send) local-file \[remote-file\]
-
-[`put`](#put_3) 的同义词。
-
-[`sendport`](#sendport)
-
-切换 `PORT` 命令的使用。 默认情况下， `ftp` 将在为每次数据传输建立连接时尝试使用 `PORT` 命令。 使用 `PORT` 命令可以防止在执行多个文件传输时出现延迟。 如果 `PORT` 命令失败， `ftp` 将使用默认数据端口。 当禁止使用 `PORT` 命令时，不会尝试对每次数据传输使用 `PORT` 命令。 这对于某些忽略 FTP 命令但错误地表明它们已被接受的 `PORT` 实现很有用。
-
-[`set`](#set) \[option value\]
-
-将 option 设置为 value 。如果未给出 option 和 value ，则显示所有选项及其值。当前支持的选项有：
-
-[`anonpass`](#anonpass)
-
-默认为 `$FTPANONPASS`
-
-[`ftp_proxy`](#ftp_proxy)
-
-默认为 `$ftp_proxy`
-
-[`http_proxy`](#http_proxy)
-
-默认为 `$http_proxy`
-
-[`no_proxy`](#no_proxy)
-
-默认为 `$no_proxy`
-
-[`pager`](#pager)
-
-默认为 `$PAGER`
-
-[`prompt`](#prompt_2)
-
-默认为 `$FTPPROMPT`
-
-[`rprompt`](#rprompt)
-
-默认为 `$FTPRPROMPT`
-
-[`site`](#site) arg1 arg2 ...
-
-指定的参数作为 `SITE` 命令逐字发送到远程 FTP 服务器。
-
-[`size`](#size) remote-file
-
-返回远程机器上 remote-file 的大小。
-
-[`sndbuf`](#sndbuf) size
-
-将套接字发送缓冲区的大小设置为 size 。
-
-[`status`](#status)
-
-显示 `ftp` 的当前状态。
-
-[`struct`](#struct) struct-name
-
-将文件传输 structure 设置为 struct-name 。 默认（也是唯一受支持的）结构是 “file” 。
-
-[`sunique`](#sunique)
-
-切换以唯一文件名在远程计算机上存储文件。 远程 FTP 服务器必须支持 FTP 协议 `STOU` 命令才能成功完成。 远程服务器将报告唯一名称。默认值为关闭
-
-[`system`](#system)
-
-显示远程机器上运行的操作系统类型。
-
-[`tenex`](#tenex)
-
-将文件传输类型设置为与 TENEX 机器通信所需的类型。
-
-[`throttle`](#throttle)
-
-[`rate`](#rate_2) 的同义词。
-
-[`trace`](#trace)
-
-切换数据包跟踪。
-
-[`type`](#type) \[type-name\]
-
-将文件传输 `type` 设置为 type-name 。 如果未指定类型，则打印当前类型。 默认类型是网络 ASCII 。
-
-[`umask`](#umask) \[newmask\]
-
-将远程服务器上的默认 umask 设置为 newmask 。 如果省略 newmask ，则打印当前的 umask。
-
-[`unset`](#unset) option
-
-取消设置 option 。有关详细信息，请参阅 `set` 。
-
-[`usage`](#usage) command
-
-打印 command 的使用信息。
-
-[`user`](#user) user-name \[password \[account\]\]
-
-向远程 FTP 服务器表明自己的身份。 如果没有指定 password 并且服务器需要它， `ftp` 将提示用户输入它（在禁用本地回显之后）。 如果未指定 account 字段，而 FTP 服务器需要它，则会提示用户输入。 如果指定了 account 字段，则在远程服务器不需要登录时，将在登录序列完成后将帐户命令中继到远程服务器。 除非在禁用 “auto-login” 的情况下调用 `ftp` ，否则此过程会在初始连接到 FTP 服务器时自动完成。
-
-[`verbose`](#verbose)
-
-切换详细模式。 在详细模式下，来自 FTP 服务器的所有响应都会显示给用户。 此外，如果打开详细信息，当文件传输完成时，会报告有关传输效率的统计信息。 默认情况下，详细是打开的。
-
-[`xferbuf`](#xferbuf) size
-
-将套接字发送和接收缓冲区的大小设置为 size 。
-
-[`?`](#?_2) \[command\]
-
-[`help`](#help_2) 的同义词。
-
-嵌入空格的命令参数可以用引号 ‘"’ 标记。
-
-切换设置的命令可以采用明确的 `on` 或 `off` 参数来适当地强制设置。
-
-将字节数作为参数的命令（例如， `hash 、` `rate` 和 `xferbuf`) 支持参数上的可选后缀，这会改变参数的解释。 支持的后缀是：
-
-[`b`](#b)
-
-导致没有修改。（选修的）
-
-[`k`](#k)
-
-Kilo; 将参数乘以 1024
-
-[`m`](#m)
-
-Mega; 将参数乘以 1048576
-
-[`g`](#g_2)
-
-Giga; 将参数乘以 1073741824
-
-如果 `ftp` 在传输过程中收到 `SIGINFO` （参见 stty(1) 的 “status” 参数）或 `SIGQUIT` 信号，则当前传输速率统计信息将被写入标准错误输出，格式与标准完成相同信息。
-
-[AUTO-FETCHING FILES](#AUTO_FETCHING_FILES)
-===========================================
-
-除了标准命令外，此版本的 `ftp` 还支持自动获取功能。 要启用自动获取，只需在命令行上传递主机名/文件列表。
+除标准命令外，此版本的 `ftp` 支持自动获取功能。要启用自动获取，只需在命令行上传递主机名/文件列表。
 
 以下格式是自动获取元素的有效语法：
 
-\[user`@`\]host`:`\[path\]\[`/`\]
+- `host`[`:`[`port`]] 之后的 ‘`/`’ 被解释为 `path` 之前的分隔符，而非 `path` 本身的一部分。
+- `path` 被解释为由 ‘`/`’ 分隔的名称组件列表。对于除最后一个组件外的所有组件，`ftp` 执行等效于 `cd` 命令的操作。对于最后一个路径组件，`ftp` 执行等效于 `get` 命令的操作。
+- 由 `path` 中的 ‘`//`’ 或 `path` 开头多余的 ‘`/`’ 产生的空名称组件，会导致执行不带目录名的等效 `cd` 命令。这不太可能有用。
+- 路径组件中的任何 ‘`%``XX`’ 代码（按 `RFC3986`）都会被解码，`XX` 表示十六进制的字符代码。此解码发生在 `path` 被拆分为组件之后，但在每个组件用于等效 `cd` 或 `get` 命令之前。常用的代码有 ‘`%2F`’（表示 ‘`/`’）和 ‘`%7E`’（表示 ‘`~`’）。
 
-“Classic” FTP 格式。
+**ftp://host/dir1/dir2/file** “cd dir1”、“cd dir2”、“get file”。
 
-如果 path 包含一个 glob 字符并且启用了 glob，（请参阅 `glob`), 则执行相当于 ‘`mget path`’ 的操作。
+**ftp://host/%2Fdir1/dir2/file** “cd /dir1”、“cd dir2”、“get file”。
 
-如果 path-
-的目录组件不包含通配符，则在当前目录中以 `path` 的名称 basename（请参阅 basename(1)) 本地存储。 否则，使用完整的远程名称作为本地名称，相对于本地根目录。
+**ftp://host/dir1%2Fdir2/file** “cd dir1/dir2”、“get file”。
 
-[`ftp://`](#ftp://)\[user\[`:`password\]`@`\]host\[`:`port\]`/`path\[`/`\]\[`;type=`X\]
+**ftp://host/%2Fdir1%2Fdir2/file** “cd /dir1/dir2”、“get file”。
 
-如果未定义设置 `set ftp_proxy` ，则使用 FTP 协议检索 FTP URL。 否则，通过 `set ftp_proxy` 中定义的代理使用 HTTP 传输 URL。如果未定义 `set ftp_proxy` 并且给出了 user ，则以 user 身份登录。 在这种情况下，如果提供了 password ，请使用密码，否则提示用户输入密码。
+**ftp://host/dir1%2Fdir2%2Ffile** “get dir1/dir2/file”。
 
-如果提供了 ‘;type=A’ 或 ‘;type=I’ 的后缀，则传输类型将分别以 ascii 或二进制进行。 默认传输类型是二进制。
+**ftp://host/%2Fdir1%2Fdir2%2Ffile** “get /dir1/dir2/file”。
 
-为了符合 `RFC3986`, `ftp` 将 “ftp://” 自动获取 URL 的 path 部分解释如下：
+- 路径相对于指定用户或 ‘anonymous’ 用户的默认登录目录解释。如果需要 `/` 目录，使用前导路径"%2F"。如果需要用户主目录（且远程服务器支持此语法），使用前导路径"%7Euser/"。例如，要以用户 ‘myname’、密码 ‘mypass’ 从 ‘localhost’ 检索 `/etc/motd`，使用 “ftp://myname:mypass@localhost/%2fetc/motd”
+- 通过仔细选择在何处使用 ‘/’ 以及何处使用 ‘%2F’（或 ‘%2f’），可以控制确切的 `cd` 和 `get` 命令。例如，以下 URL 对应于所指示命令的等效操作：
+- 你必须对等效 `cd` 命令中使用的每个中间目录具有适当的访问权限。
 
-*   host\[`:`port\] 之后的 ‘`/`’ 被解释为 path 之前的分隔符，而不是 path 本身的一部分。
-*   该 path 被解释为以 ‘`/` 分隔的名称组件列表。 对于除最后一个这样的组件之外的所有组件， `ftp` 执行相当于 `cd` 命令。 对于最后一个路径组件， `ftp` 执行与 `get` 命令等效的操作。’
-*   由 path 中的 ‘`//`’ 或 path 开头的额外 ‘`/`’ 产生的空名称组件将导致相当于没有目录名称的 `cd` 命令。这不太可能有用。
-*   路径组件中的任何 ‘`%`XX’ 代码（根据 `RFC3986`) 都将被解码，其中 XX 表示十六进制的字符代码。 此解码发生在 path 被拆分为组件之后，但在每个组件用于相当于 `cd` 或 `get` 命令之前。 一些常用的代码是 ‘`%2F`’ (代表 ‘`/`’) 和 ‘`%7E`’ (代表 ‘`~`’ )。
+**`about:ftp`** 关于 `ftp` 的信息。
 
-上述解释具有以下后果：
+**`about:version`** `ftp` 的版本。在报告问题时提供此信息很有用。
 
-*   该路径相对于指定用户或 ‘anonymous’ 用户的默认登录目录进行解释。 如果需要 / 目录，请使用 “%2F” 的前导路径。 如果需要用户的主目录（并且远程服务器支持该语法），请使用 “%7Euser/” 的前导路径。 例如，要以用户 ‘myname’ 和密码 ‘mypass’ 的身份从 ‘localhost’ 检索 /etc/motd ，请使用 “ftp://myname:mypass@localhost/%2fetc/motd”
-*   精确的 `cd` 和 `get` 命令可以通过仔细选择在何处使用 ‘/’ 以及在何处使用 ‘%2F’ (或 ‘%2f’ ）来控制。 例如，以下 URL 对应于指示命令的等效项：
-    
-    ftp://host/dir1/dir2/file
-    
-    “cd dir1”, “cd dir2”, “get file”.
-    
-    ftp://host/%2Fdir1/dir2/file
-    
-    “cd /dir1”, “cd dir2”, “get file”.
-    
-    ftp://host/dir1%2Fdir2/file
-    
-    “cd dir1/dir2”, “get file”.
-    
-    ftp://host/%2Fdir1%2Fdir2/file
-    
-    “cd /dir1/dir2”, “get file”.
-    
-    ftp://host/dir1%2Fdir2%2Ffile
-    
-    “get dir1/dir2/file”.
-    
-    ftp://host/%2Fdir1%2Fdir2%2Ffile
-    
-    “get /dir1/dir2/file”.
-    
-*   您必须对与 `cd` 命令等效的每个中间目录具有适当的访问权限。
+[`user`[`@`]]`host`[`:`[`path`[`/`]]] “经典”FTP 格式。如果 `path` 包含通配字符且启用了通配（参见 `glob`），则执行等效于 `mget path` 的操作。如果 `path` 的目录组件不包含通配字符，则按 [basename(1)](basename.1.md) 的基本名存储在当前目录中。否则，使用完整的远程名称作为本地名称，相对于本地根目录。
 
-[`http://`](#http://)\[user\[`:`password\]`@`\]host\[`:`port\]`/`path
+**`ftp://`** [`user`[`:`[`password`]]`@`]`host`[`:`[`port`]]`/``path`[`/`][`;type=`[`X`]] FTP URL，如果未定义 `set ftp_proxy`，则使用 FTP 协议检索。否则，通过 `set ftp_proxy` 中定义的代理使用 HTTP 传输 URL。如果未定义 `set ftp_proxy` 且指定了 `user`，则以 `user` 身份登录。此时，如果提供了 `password` 则使用之，否则提示用户输入。如果提供了 ‘;type=A’ 或 ‘;type=I’ 后缀，则传输类型分别为 ascii 或二进制。默认传输类型为二进制。为了符合 `RFC3986`，`ftp` 按以下方式解释 “ftp://” 自动获取 URL 的 `path` 部分：上述解释有以下后果：
 
-使用 HTTP 协议检索的 HTTP URL。 如果定义了 `set http_proxy` ，它将用作 HTTP 代理服务器的 URL。 如果需要 HTTP 授权来检索 path, 并且 ‘user’ (以及可选的 ‘password’) 在 URL 中，则使用它们进行首次身份验证。
+**`http://`** [`user`[`:`[`password`]]`@`]`host`[`:`[`port`]]`/``path` HTTP URL，使用 HTTP 协议检索。如果定义了 `set http_proxy`，则将其用作 HTTP 代理服务器的 URL。如果检索 `path` 需要 HTTP 授权，且 URL 中包含 ‘user’（可选 ‘password’），则将其用于第一次认证尝试。
 
-[`file:///`](#file:///)path
+**`file:///`** `path` 本地 URL，从本地主机的 `/``path` 复制。
 
-本地 URL，从本地主机上的 /path 复制。
+**`about:`** `topic` 显示关于 `topic` 的信息；此自动获取元素不会检索任何文件。支持的值包括：
 
-[`about:`](#about:)topic
+除非上文另有说明，且未指定 `-o` `output`，否则文件以 `path` 的 [basename(1)](basename.1.md) 存储在当前目录中。注意，如果收到 HTTP 重定向，将使用服务器提供的新目标 URL 重试获取，并对应新的 `path`。建议使用显式的 `-o` `output`，以避免写入意外的文件名。
 
-显示有关 topic 的信息；没有为此自动获取的元素检索文件。 支持的值包括：
-
-[`about:ftp`](#about:ftp)
-
-有关 `ftp` 的信息。
-
-[`about:version`](#about:version)
-
-`ftp` 的版本。 在报告问题时提供。
-
-除非上面另有说明，并且没有给出 `-o` output ，否则该文件将作为 path 的 basename(1) 存储在当前目录中。 请注意，如果收到 HTTP 重定向，则使用服务器提供的新目标 URL 和相应的新 path 重试获取。 建议使用显式 `-o` output ，以避免写入意外的文件名。
-
-如果经典格式或 FTP URL 格式有尾随 ‘/’ 或空 path 组件，则 `ftp` 将连接到站点并 `cd` 到作为路径给出的目录，并让用户处于交互模式以准备进一步输入。 如果正在使用 `set ftp_proxy` ，这将不起作用。
+如果经典格式或 FTP URL 格式以 ‘/’ 结尾或 `path` 组件为空，则 `ftp` 会连接到该站点并 `cd` 到作为路径给出的目录，然后让用户留在交互模式以等待进一步输入。如果正在使用 `set ftp_proxy`，则此功能无效。
 
 直接 HTTP 传输使用 HTTP 1.1。代理 FTP 和 HTTP 传输使用 HTTP 1.0。
 
-如果给出 `-R` ，所有不通过 FTP 或 HTTP 代理的自动获取将重新启动。 对于 FTP, 这是通过使用 `reget` 而不是 `get` 来实现的。 对于 HTTP, 这是通过使用 ‘Range: bytes=’ HTTP/1.1 指令来实现的。
+如果指定 `-`，所有不通过 FTP 或 HTTP 代理的自动获取都将重启。对于 FTP，这通过使用 `reget` 代替 `get` 来实现。对于 HTTP，这通过使用 ‘Range: bytes=’ HTTP/1.1 指令实现。
 
-如果需要 WWW 或代理 WWW 身份验证，系统将提示您输入用户名和密码以进行身份验证。
+如果需要 WWW 或代理 WWW 认证，将提示你输入用户名和密码进行认证。
 
-在 URL 中指定 IPv6 数字地址时，您需要将地址括在方括号中。 例如： “ftp://\[::1\]:21/” 。 这是因为冒号用于 IPv6 数字地址以及作为端口号的分隔符。
+在 URL 中指定 IPv6 数字地址时，需要用方括号括起地址。例如：“ftp://[::1]:21/”。这是因为冒号既用于 IPv6 数字地址，也用作端口号的分隔符。
 
-[正在中止文件传输](#__u6B63___u5728___u4E2D___u6B62___u6587___u4EF6___u4F20___u8F93_)
-=============================================================================
+## 中止文件传输
 
-要中止文件传输，请使用终端中断键（通常为 Ctrl-C）。 发送转账将立即停止。 通过向远程服务器发送 FTP 协议 `ABOR` 命令并丢弃接收到的任何进一步数据，将停止接收传输。 完成此操作的速度取决于远程服务器对 `ABOR` 处理的支持。 如果远程服务器不支持 `ABOR` 命令，则在远程服务器完成发送请求的文件之前不会出现提示。
+要中止文件传输，使用终端中断键（通常是 Ctrl-C）。发送传输会立即停止。接收传输会通过向远程服务器发送 FTP 协议 `ABOR` 命令并丢弃后续接收的任何数据来停止。完成此操作的速度取决于远程服务器对 `ABOR` 处理的支持。如果远程服务器不支持 `ABOR` 命令，则在远程服务器完成发送所请求文件之前不会出现提示符。
 
-如果在 `ftp` 等待远程服务器对 ABOR 处理的回复时使用终端中断键序列，则连接将被关闭。 这与传统行为（在此阶段忽略终端中断）不同，但被认为更有用。
+如果在 `ftp` 等待远程服务器对 ABOR 处理的回复时使用终端中断键序列，则连接将被关闭。这不同于传统行为（在此阶段忽略终端中断），但被认为更有用。
 
-[文件命名约定](#__u6587___u4EF6___u547D___u540D___u7EA6___u5B9A_)
-===========================================================
+## 文件命名约定
 
-根据以下规则处理指定为 `ftp` 命令的参数的文件。
+作为 `ftp` 命令参数指定的文件按以下规则处理。
 
-1.  如果指定了文件名 ‘`-`’ ，则使用 stdin （用于读取）或 stdout （用于写入）。
-2.  如果文件名的第一个字符是 ‘|’, 则参数的其余部分被解释为 shell 命令。 然后 `ftp` 使用带有参数的 popen(3) 分叉一个 shell，并从标准输出 (stdin) 读取（写入）。 如果 shell 命令包含空格，则参数必须加引号；例如 ““`| ls -lt`”” 。 这种机制的一个特别有用的例子是： “`dir "" |more`” 。
-3.  如果上述检查失败，如果启用了 “globbing” ，则本地文件名将根据 csh(1) 中使用的规则进行扩展；请参阅 `glob` 命令。 如果 `ftp` 命令需要一个本地文件（例如 `put` ），则只使用 "globbing" 操作生成的第一个文件名。
-4.  对于未指定本地文件名的 `mget` 命令和 `get` 命令，本地文件名是远程文件名，可以通过 `case 、` `ntrans` 或 `nmap` 设置进行更改。 如果 `runique` 打开，则生成的文件名可能会被更改。
-5.  对于具有未指定远程文件名的 `mput` 命令和 `put` 命令，远程文件名是本地文件名，可以通过 `ntrans` 或 `nmap` 设置进行更改。 如果打开了 `sunique` ，远程服务器可能会更改生成的文件名。
+- 如果指定文件名 ‘`-`’，则使用 `stdin`（用于读取）或 `stdout`（用于写入）。
+- 如果文件名的第一个字符是 ‘|’，参数的其余部分被解释为 shell 命令。`ftp` 然后使用所提供参数通过 popen(3) 派生 shell，并从 stdout（写入时从 stdin）读取（写入）。如果 shell 命令包含空格，参数必须用引号括起；例如 “"" `| ls\ -lt`”。此机制的一个特别有用的示例是：“`dir "" |more`”。
+- 如果上述检查都失败，且启用了 "globbing"，本地文件名按 csh(1) 中使用的规则扩展；参见 `glob` 命令。如果 `ftp` 命令期望单个本地文件（例如 `put`），仅使用 "globbing" 操作生成的第一个文件名。
+- 对于未指定本地文件名的 `mget` 命令和 `get` 命令，本地文件名就是远程文件名，可能被 `case`、`ntrans` 或 `nmap` 设置更改。如果 `runique` 打开，结果文件名可能再被更改。
+- 对于未指定远程文件名的 `mput` 命令和 `put` 命令，远程文件名就是本地文件名，可能被 `ntrans` 或 `nmap` 设置更改。如果 `sunique` 打开，结果文件名可能再被远程服务器更改。
 
-[文件传输参数](#__u6587___u4EF6___u4F20___u8F93___u53C2___u6570_)
-===========================================================
+## 文件传输参数
 
-FTP 规范指定了许多可能影响文件传输的参数。 `type` 可以是 “ascii 、” “image” （二进制）、 “ebcdic” 和 “local byte size” 之一（主要用于 PDP-10's 和 PDP-20's )。 `ftp` 支持 ascii 和 image 类型的文件传输，以及用于 `tenex` 模式传输的本地字节大小 8。
+FTP 规范指定了许多可能影响文件传输的参数。`type` 可以是 "ascii"、"image"（二进制）、"ebcdic" 和 "local byte size"（主要用于 PDP-10 和 PDP-20）。`ftp` 支持 ascii 和 image 类型的文件传输，以及用于 `tenex` 模式传输的本地字节大小 8。
 
-`ftp` 仅支持其余文件传输参数的默认值： `mode 、` `form` 和 `struct` 。
+`ftp` 仅支持其余文件传输参数的默认值：`mode`、`form` 和 `struct`。
 
-[.netrc 文件](#.netrc___u6587___u4EF6_)
-=====================================
+## THE .netrc FILE
 
-.netrc 文件包含自动登录过程使用的登录和初始化信息。 它驻留在用户的主目录中，除非被 `-N` netrc 选项覆盖，或在 `NETRC` 环境变量中指定。 识别以下标记；它们可以用空格、制表符或换行符分隔：
+`.netrc` 文件包含自动登录过程使用的登录和初始化信息。它位于用户主目录中，除非通过 `-N` `netrc` 选项覆盖，或在 `NETRC` 环境变量中指定。识别以下标记；它们可以用空格、制表符或换行符分隔：
 
-[`machine`](#machine) name
+```sh
+default login anonymous password user@site
+```
 
-识别远程机器 name 。 自动登录进程在 .netrc 文件中搜索与 `ftp` 命令行上指定的远程机器匹配的 `machine` 令牌或作为 `open` 命令参数。 一旦匹配成功，后续的 .netrc 令牌就会被处理，当到达文件末尾或遇到另一 `machine` 或 `default` 令牌时停止。
+```sh
+default
+macdef init
+epsv4 off
+```
 
-[`default`](#default)
+**`machine`** `name` 标识远程机器 `name`。自动登录过程在 `.netrc` 文件中搜索与 `ftp` 命令行或 `open` 命令参数指定的远程机器匹配的 `machine` 标记。一旦匹配，后续的 `.netrc` 标记将被处理，直到到达文件末尾或遇到另一个 `machine` 或 `default` 标记时停止。
 
-除了 `default` 匹配任何名称外，这与 `machine` name 相同。 `default` 令牌只能有一个，而且必须是所有 `machine` 令牌。 这通常用作：
+**`default`** 这与 `machine` `name` 相同，区别在于 `default` 匹配任何名称。只能有一个 `default` 标记，且必须位于所有 `machine` 标记之后。通常用法为：从而为用户在 `.netrc` 中未指定的机器提供自动匿名 FTP 登录。可通过使用 `-n` 标志禁用自动登录来覆盖此行为。
 
-`default login anonymous password user@site`
+**`login`** `name` 标识远程机器上的用户。如果存在此标记，自动登录过程将使用指定的 `name` 发起登录。
 
-从而使用户可以自动匿名 FTP 登录到 .netrc 中未指定的机器。这可以通过使用 `-n` 标志来禁用自动登录来覆盖。
+**`password`** `string` 提供密码。如果存在此标记，当远程服务器需要密码作为登录过程的一部分时，自动登录过程会提供指定的字符串。注意，如果 `.netrc` 文件中除 `anonymous` 外的任何用户存在此标记，且 `.netrc` 可被用户以外的任何人读取，`ftp` 将中止自动登录过程。
 
-[`login`](#login) name
+**`account`** `string` 提供额外的账户密码。如果存在此标记，当远程服务器需要额外账户密码时，自动登录过程会提供指定的字符串，否则自动登录过程会发起 `ACCT` 命令。
 
-识别远程机器上的用户。 如果存在此令牌，则自动登录过程将使用指定的 name 启动登录。
+**`macdef`** `name` 定义宏。此标记的功能类似于 `ftp` 的 `macdef` 命令。以指定名称定义宏；其内容从 `.netrc` 的下一行开始，直到遇到空行（连续的换行符）。与 `.netrc` 文件中的其他标记一样，`macdef` 仅适用于其前面的 `machine` 定义。一个 `macdef` 条目不能被多个 `machine` 定义使用；相反，它必须定义在每个要使用它的 `machine` 之后。如果定义了名为 `init` 的宏，它将作为自动登录过程的最后一步自动执行。例如，后跟一个空行。
 
-[`password`](#password) string
+## 命令行编辑
 
-提供密码。 如果存在此令牌，并且远程服务器在登录过程中需要密码，则自动登录过程将提供指定的字符串。 请注意，如果 .netrc 文件中存在除 anonymous 以外的任何用户的此令牌，则如果该用户以外的任何人都可以读取 .netrc ，则 `ftp` 将中止自动登录过程。
+`ftp` 通过 editline(3) 库支持交互式命令行编辑。通过 `edit` 命令启用，如果输入来自 tty 则默认启用。可通过方向键召回和编辑前面的行，也可使用其他 GNU Emacs 风格的编辑键。
 
-[`account`](#account_2) string
+editline(3) 库通过 `.editrc` 文件配置——更多信息请参见 editrc(5)。
 
-提供额外的帐户密码。 如果此令牌存在，如果远程服务器需要额外的帐户密码，自动登录进程将提供指定的字符串，否则自动登录进程将启动 `ACCT` 命令。
+`ftp` 还提供了一个额外的键绑定，用于上下文敏感的命令和文件名补全（包括远程文件补全）。要使用此功能，将一个键绑定到 editline(3) 命令 `ftp-complete`。默认绑定到 TAB 键。
 
-[`macdef`](#macdef_2) name
+## 命令行提示符
 
-定义一个宏。此令牌的功能类似于 `ftp` `macdef` 命令功能。 使用指定名称定义宏；它的内容从下一个 .netrc 行开始，一直持续到遇到空行（连续的换行符）。 与 .netrc 文件中的其他标记一样， `macdef` 仅适用于它之前的 `machine` 定义。 一个 `macdef` 条目不能被多个 `machine` 定义使用；相反，它必须在它打算使用的每台 `machine` 之后定义。 如果定义了名为 `init` 的宏，它会作为自动登录过程的最后一步自动执行。例如，
+默认情况下，`ftp` 向用户显示命令行提示符"ftp"。可通过 `set prompt` 命令更改。
 
-default macdef init epsv4 off 
+可通过 `set rprompt` 命令在屏幕右侧（命令输入之后）显示提示符。
 
-后跟一个空行。
+以下格式序列被替换为相应信息：
 
-[命令行编辑](#__u547D___u4EE4___u884C___u7F16___u8F91_)
-==================================================
+**`%/`** 当前远程工作目录。
 
-`ftp` 通过 editline(3) 库支持交互式命令行编辑。 它通过 `edit` 命令启用，如果输入来自 tty，则默认启用。 可以使用箭头键调用和编辑以前的行，也可以使用其他 GNU Emacs 样式的编辑键。
+**%c[[`0`]]`n`]]`%.`[[`0`]]`n`]]** 当前远程工作目录的末尾组件，或如果给出数字 *n* 则为末尾 *n* 个组件。如果 *n* 以 ‘0’ 开头，则跳过的组件数量以 “ `/` `` `number` `` `trailing` ” 格式（对于 ‘%c’）或 “`...``trailing`” 格式（对于 ‘%.’）位于末尾组件之前。
 
-editline(3) 库配置了一个 .editrc 文件 - 请参阅 editrc(5) 了解更多信息。
+**`%M`** 远程主机名。
 
-`ftp` 可以使用额外的键绑定来提供上下文相关的命令和文件名完成（包括远程文件完成）。 要使用它，请将一个键绑定到 editline(3) 命令 `ftp-complete` 。 默认情况下，它绑定到 TAB 键。
+**`%m`** 远程主机名，截取到第一个 ‘.’ 之前。
 
-[命令行提示](#__u547D___u4EE4___u884C___u63D0___u793A_)
-==================================================
+**`%n`** 远程用户名。
 
-默认情况下， `ftp` 向用户显示命令行提示符 “ftp> ” 。 这可以使用 `set prompt` 命令进行更改。
+**`%%`** 单个 ‘%’。
 
-使用 `set rprompt` 命令可以在屏幕右侧（输入命令后）显示提示。
-
-以下格式序列由给定信息替换：
-
-[`%/`](#_/)
-
-当前的远程工作目录。
-
-%c\[\[`0`\]n\],`%.`\[\[`0`\]n\]
-
-当前远程工作目录的尾随组件，如果给出数字 _n_ ，则为 _n_ 尾随组件。 如果 _n_ 以 ‘0’ 开头，则跳过的组件数在尾随组件之前，格式为 “`/``<`number`>`trailing” (用于 ‘%c’) 或 “`...`trailing” (用于 ‘%.’) 。
-
-[`%M`](#_M)
-
-远程主机名。
-
-[`%m`](#_m)
-
-远程主机名，直到第一个 ‘.’ 。
-
-[`%n`](#_n)
-
-远程用户名。
-
-[`%%`](#__)
-
-一个 ‘%’ 。
-
-[环境](#__u73AF___u5883_)
-=======================
+## 环境变量
 
 `ftp` 使用以下环境变量。
 
-[`FTPANONPASS`](#FTPANONPASS)
+**`active`** 仅主动模式 FTP。
 
-在匿名 FTP 传输中发送的密码。默认为 “``` `whoami`@```” 。
+**`auto`** 自动确定被动或主动模式（默认）。
 
-[`FTPMODE`](#FTPMODE)
+**`gate`** gate-ftp 模式。
 
-覆盖默认操作模式。 支持值是：
+**`passive`** 仅被动模式 FTP。
 
-[`active`](#active)
+**`FTPANONPASS`** 匿名 FTP 传输中发送的密码。默认为 “``whoami`@`”。
 
-仅主动模式 FTP
+**`FTPMODE`** 覆盖默认操作模式。支持的值有：
 
-[`auto`](#auto)
+**`FTPPROMPT`** 使用的命令行提示符。默认为 “ftp”。更多信息请参见下文"命令行提示符"章节。
 
-自动确定被动或主动（这是默认设置）
+**`FTPRPROMPT`** 使用的命令行右侧提示符。默认为 “”。更多信息请参见下文"命令行提示符"章节。
 
-[`gate`](#gate_2)
+**`FTPSERVER`** 启用 `gate` 时用作 gate-ftp 服务器的主机。
 
-gate-ftp 模式
+**`FTPSERVERPORT`** 启用 `gate` 时连接 gate-ftp 服务器使用的端口。默认为 getservbyname 查询 “ftpgate/tcp” 返回的端口。
 
-[`passive`](#passive_2)
+**`FTPUSERAGENT`** HTTP User-Agent 头发送的值。
 
-仅被动模式 FTP
+**`HOME`** `.netrc` 文件的默认位置（如果存在）。
 
-[`FTPPROMPT`](#FTPPROMPT)
+**`NETRC`** `.netrc` 文件的备用位置。
 
-要使用的命令行提示符。 默认为 “ftp> ” 。 有关详细信息，请参阅 [命令行提示](#__u547D___u4EE4___u884C___u63D0___u793A_) 。
+**`PAGER`** 各种命令用于显示文件。如果为空或未设置，默认为 more(1)。
 
-[`FTPRPROMPT`](#FTPRPROMPT)
+**`SHELL`** 默认 shell。
 
-要使用的命令行右侧提示。 默认为 “” 。 有关详细信息，请参阅 [命令行提示](#__u547D___u4EE4___u884C___u63D0___u793A_) 。
+**`ftp_proxy`** 发出 FTP URL 请求时使用的 FTP 代理 URL（如果未定义，使用标准 FTP 协议）。有关代理使用的更多说明，请参见 `http_proxy`。
 
-[`FTPSERVER`](#FTPSERVER)
+**`http_proxy`** 发出 HTTP URL 请求时使用的 HTTP 代理 URL。如果需要代理认证且此 URL 中包含用户名和密码，它们将自动用于第一次代理认证尝试。如果用户名或密码中需要"不安全"的 URL 字符（例如 ‘@’ 或 ‘/’），请使用 `RFC3986` 的 ‘`%``XX`’ 编码。注意，在 `ftp_proxy` 和 `http_proxy` 中使用用户名和密码可能与使用它的其他程序（如 lynx(1)）不兼容。*注意：*这不用于交互式会话，仅用于命令行获取。
 
-启用 `gate` 时用作 gate-ftp 服务器的主机。
+**`no_proxy`** 以空格或逗号分隔的主机（或域）列表，对这些主机不使用代理。每个条目可带有可选的尾部 ":port"，将匹配限制为到该端口的连接。
 
-[`FTPSERVERPORT`](#FTPSERVERPORT)
+## 扩展被动模式与防火墙
 
-启用 `gate` 时连接到 gate-ftp 服务器时使用的端口。 默认是 “ftpgate/tcp” 的 `getservbyname`() 查找返回的端口。
+某些防火墙配置不允许 `ftp` 使用扩展被动模式。如果发现即使是简单的 `ls` 在打印如下消息后也似乎挂起：
 
-[`FTPUSERAGENT`](#FTPUSERAGENT)
+```sh
+229 Entering Extended Passive Mode (|||58551|)
+```
 
-为 HTTP User-Agent 标头发送的值。
+则需要使用 `epsv4 off` 禁用扩展被动模式。有关如何自动执行此操作的示例，请参见上文"THE .netrc FILE"章节。
 
-[`HOME`](#HOME)
+## 参见
 
-对于 .netrc 文件的默认位置（如果存在）。
+getservbyname(3), editrc(5), services(5)
 
-[`NETRC`](#NETRC)
+## 标准
 
-.netrc 文件的备用位置。
+`ftp` 尝试符合以下标准：
 
-[`PAGER`](#PAGER)
+**`RFC0959`** *File Transfer Protocol*
 
-由各种命令用来显示文件。如果为空或未设置，则默认为 more(1) 。
+**`RFC1123`** *Requirements for Internet Hosts - Application and Support*
 
-[`SHELL`](#SHELL)
+**`RFC1635`** *How to Use Anonymous FTP*
 
-对于默认 shell。
+**`RFC2389`** *Feature negotiation mechanism for the File Transfer Protocol*
 
-[`ftp_proxy`](#ftp_proxy_2)
+**`RFC2428`** *FTP Extensions for IPv6 and NATs*
 
-发出 FTP URL 请求时使用的 FTP 代理的 URL（如果未定义，则使用标准 FTP 协议）。
+**`RFC2616`** *Hypertext Transfer Protocol -- HTTP/1.1*
 
-有关代理使用的更多说明，请参阅 `http_proxy` 。
+**`RFC2822`** *Internet Message Format*
 
-[`http_proxy`](#http_proxy_2)
+**`RFC3659`** *Extensions to FTP*
 
-发出 HTTP URL 请求时使用的 HTTP 代理的 URL。 如果需要代理身份验证并且此 URL 中有用户名和密码，它们将在首次尝试对代理进行身份验证时自动使用。
+**`RFC3986`** *Uniform Resource Identifier (URI)*
 
-如果用户名或密码中需要 “unsafe” 的 URL 字符（例如 ‘@’ 或 ‘/’), 请使用 `RFC3986` ‘`%`XX’ 编码对它们进行编码。
+## 历史
 
-请注意，在 `ftp_proxy` 和 `http_proxy` 中使用用户名和密码可能与使用它的其他程序（例如 lynx(1)) 不兼容。
+`ftp` 命令首次出现于 4.2BSD。
 
-_注意_: 注意：这不用于交互式会话，仅用于命令行获取。
+命令行编辑、上下文敏感的命令和文件补全、动态进度条、自动获取文件和 URL、修改时间保留、传输速率限制、可配置命令行提示符以及对标准 BSD `ftp` 的其他增强等功能，由 Luke Mewburn <lukem@NetBSD.org> 在 NetBSD 1.3 及后续版本中实现。
 
-[`no_proxy`](#no_proxy_2)
+IPv6 支持由 WIDE/KAME 项目添加（但可能不在此程序的所有非 NetBSD 版本中存在，取决于操作系统是否以类似 KAME 的方式支持 IPv6）。
 
-不使用代理的主机（或域）的空格或逗号分隔列表。 每个条目可能有一个可选的尾随 ":port", 它将匹配限制为与该端口的连接。
-
-[扩展被动模式和防火墙](#__u6269___u5C55___u88AB___u52A8___u6A21___u5F0F___u548C___u9632___u706B___u5899_)
-===============================================================================================
-
-某些防火墙配置不允许 `ftp` 使用扩展被动模式。 如果您发现即使是简单的 `ls` 在打印如下消息后也出现挂起：
-
-`229 Entering Extended Passive Mode (|||58551|)`
-
-那么您将需要在关闭 `epsv4` 的情况下禁用扩展被动模式。 有关如何自动执行此操作的示例，请参见上面的 [.netrc](#.netrc) 文件部分。
-
-[参见](#__u53C2___u89C1_)
-=======================
-
-getservbyname(3), editrc(5), services(5), ftpd(8)
-
-[标准](#__u6807___u51C6_)
-=======================
-
-`ftp` 尝试遵守：
-
-[`RFC0959`](#RFC0959)
-
-_文件传输协议_
-
-[`RFC1123`](#RFC1123)
-
-_主机要求 - 应用程序和支持_
-
-[`RFC1635`](#RFC1635)
-
-_如何使用匿名 FTP_
-
-[`RFC2389`](#RFC2389)
-
-_文件传输协议的特性协商机制_
-
-[`RFC2428`](#RFC2428)
-
-_IPv6 和 NAT 的 FTP 扩展_
-
-[`RFC2616`](#RFC2616)
-
-_超文本传输协议——HTTP/1.1_
-
-[`RFC2822`](#RFC2822)
-
-_互联网消息格式_
-
-[`RFC3659`](#RFC3659)
-
-_FTP 扩展_
-
-[`RFC3986`](#RFC3986)
-
-_统一资源标识符 (URI)_
-
-[历史](#__u5386___u53F2_)
-=======================
-
-`ftp` 命令出现在 4.2BSD 中。
-
-各种功能，例如命令行编辑、上下文相关的命令和文件完成、动态进度条、文件和 URL 的自动获取、修改时间保存、传输速率限制、可配置的命令行提示符，以及标准 BSD `ftp` 的其他增强功能都在 NetBSD 1.3 及更高版本由 Luke Mewburn ⟨lukem@NetBSD.org⟩ 。
-
-WIDE/KAME 项目添加了 IPv6 支持（但可能不会出现在该程序的所有非 NetBSD 版本中，这取决于操作系统是否以与 KAME 类似的方式支持 IPv6）。
-
-[缺陷](#__u7F3A___u9677_)
-=======================
+## 缺陷
 
 许多命令的正确执行取决于远程服务器的正确行为。
 
-4.2BSD ascii 模式传输代码中的回车处理错误已得到纠正。 此更正可能导致二进制文件与使用 ascii 类型的 4.2BSD 服务器之间的错误传输。 使用二进制图像类型可以避免此问题。
+4.2BSD ascii 模式传输代码中对回车符处理的错误已被修正。此修正可能导致使用 ascii 类型与 4.2BSD 服务器之间进行二进制文件传输时出现错误。通过使用二进制 image 类型可避免此问题。
 
-`ftp` 假定所有 IPv4 映射地址（格式为 `::ffff:10.1.1.1` 的 IPv6 地址）表示可以由 `AF_INET` 套接字处理的 IPv4 目标。 但是，在某些 IPv6 网络配置中，此假设不成立。 在这样的环境中，IPv4 映射地址必须直接传递给 `AF_INET6` 套接字。 例如，如果您的站点使用 SIIT 转换器进行 IPv6 到 IPv4 的转换，则 `ftp` 无法支持您的配置。
-
-May 10, 2008
-
-FreeBSD 13.1-RELEASE
+`ftp` 假定所有 IPv4 映射地址（形如 `::ffff:10.1.1.1` 的 IPv6 地址）都指示可由 `AF_INET` 套接字处理的 IPv4 目标。然而，在某些 IPv6 网络配置中，此假设不成立。在这种环境中，必须将 IPv4 映射地址直接传递给 `AF_INET6` 套接字。例如，如果你的站点使用 SIIT 转换器进行 IPv6 到 IPv4 的转换，`ftp` 将无法支持你的配置。

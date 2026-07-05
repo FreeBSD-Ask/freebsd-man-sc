@@ -1,122 +1,132 @@
-  TIMEOUT(1)  
+# timeout.1
 
-TIMEOUT(1)
+`timeout` — 在时间限制内运行命令
 
-FreeBSD General Commands Manual
+## 名称
 
-TIMEOUT(1)
+`timeout`
 
-[名称](#__u540D___u79F0_)
-=======================
+## 概要
 
-`timeout` —
+`timeout [-f | --foreground] [-k time | --kill-after time] [-p | --preserve-status] [-s signal | --signal signal] [-v | --verbose] duration command [arg ...]`
 
-运行有时间限制的命令
+## 描述
 
-[概要](#__u6982___u8981_)
-=======================
+`timeout` 使用其 `arg` 参数列表启动 `command`。如果 `command` 在 `duration` 之后仍在运行，则通过发送 `signal` 将其杀死；如果未指定 `-s` 选项，则发送 `SIGTERM`。特殊的 `duration` 值零表示无限制。因此，当 `duration` 为 0 时永远不会发送信号。
 
-`timeout` \[`--signal` sig | `-s` sig\] \[`--preserve-status`\] \[`--kill-after` time | `-k` time\] \[`--foreground`\] duration command \[args ...\]
+`command` 继承的信号处置与 `timeout` 继承的处置相同，但超时后将发送的信号除外，该信号会被重置为采取默认动作，从而终止进程。
 
-[描述](#__u63CF___u8FF0_)
-=======================
-
-`timeout` 用它的 args 启动 command 。如果该 command 在 duration 时间后仍在运行，则将其杀死。默认情况下，发送 `SIGTERM` 。特殊 duration 时间为零，表示没有限制。因此，如果 duration 时间为 0，则永远不会发送信号。
+如果 `timeout` 收到 `SIGALRM` 信号，它的行为就如同时间限制已到，并向 `command` 发送指定信号。对于发送给 `timeout` 的任何其他信号，它会将其传播给 `command`，但 `SIGKILL` 和 `SIGSTOP` 除外。如果你想阻止 `command` 超时，可向 `timeout` 发送 `SIGKILL`。
 
 选项如下：
 
-[`--preserve-status`](#-preserve-status)
+**`-f`**, `--foreground` 仅对 `command` 自身超时，不将信号传播给其后代进程。详见“实现说明”一节。
 
-以与 command 相同的状态退出，即使它超时并被杀死。
+**`-k`** `time`, `--kill-after` `time` 如果在第一次发送信号后 `time` 时间过去 `command` 仍在运行，则发送 `SIGKILL` 信号。
 
-[`--foreground`](#-foreground)
+**`-p`**, `--preserve-status` 始终以与 `command` 相同的状态退出，即使已超时。
 
-不要将超时传播给 command 的孩子。
+**`-s`** `signal`, `--signal` `signal` 指定超时时发送的信号。默认发送 `SIGTERM`。
 
-[`-s`](#s) sig, `--signal` sig
+**`-v`**, `--verbose` 向 stderr(4) 显示有关超时、待发送信号以及 `command` 退出的信息。
 
-指定超时时发送的信号。 默认情况下，发送 `SIGTERM` 。
+### 持续时间格式
 
-[`-k`](#k) time, `--kill-after` time
+`duration` 和 `time` 为非负整数或实数（十进制），可选后缀指定单位。未显式指定单位的值按秒解释。
 
-如果在发送第一个信号后的一段 time 后 command 仍在运行，则发送 `SIGKILL` 信号。
+支持的单位后缀有：
 
-[持续时间格式](#__u6301___u7EED___u65F6___u95F4___u683C___u5F0F_)
-===========================================================
+**`s`** 秒
 
-duration 时间和 time 是非负整数或实数（十进制），带有可选的单位指定后缀。 没有明确单位的值被解释为秒。
+**`m`** 分
 
-支持的单位符号有：
+**`h`** 小时
 
-[`s`](#s_2)
+**`d`** 天
 
-秒
+## 实现说明
 
-[`m`](#m)
+如果未指定 `--foreground` 选项，`timeout` 将作为 `command` 及其后代进程的回收者（reaper）运行（另见 procctl(2)），并等待所有后代进程终止。如果存在后台运行的后代进程，此行为可能带来意外结果，因为它们会忽略 `SIGINT` 和 `SIGQUIT` 信号。例如，以下发送 `SIGTERM` 信号的命令将在 2 秒内完成：
 
-分钟
+```sh
+$ timeout -s TERM 2 sh -c 'sleep 4 & sleep 5'
+```
 
-[`h`](#h)
+然而，以下发送 `SIGINT` 信号的命令将在 4 秒内完成：
 
-小时
+```sh
+$ timeout -s INT 2 sh -c 'sleep 4 & sleep 5'
+```
 
-[`d`](#d)
+## 退出状态
 
-天
+如果时间限制已到且未指定 `--preserve-status` 选项，退出状态为 124。否则，`timeout` 以与 `command` 相同的退出状态退出。例如，如果 `command` 被信号终止，`timeout` 自身也会以相同信号终止。
 
-[退出状态](#__u9000___u51FA___u72B6___u6001_)
-=========================================
+如果发生错误，返回以下退出值：
 
-如果未达到超时，则返回 command 的退出状态。
+**125** 发生了下文所述两种情况以外的错误。例如，指定了无效的持续时间或信号。
 
-如果达到超时并设置了 `--preserve-status` ，则返回 command 的退出状态。 如果 `--preserve-status` 未设置，则返回退出状态 124。
+**126** 找到了 `command` 但无法执行。
 
-如果 command 收到信号后退出，返回的退出状态为信号号加 128。
+**127** 找不到 `command`。
 
-如果 command 引用了一个不存在的程序，则返回的退出状态为 127。
+## 实例
 
-如果 command 是其他无效程序，则返回的退出状态为 126。
+以 4 秒为时间限制运行 sleep(1)。由于命令在 2 秒内完成，退出状态为 0：
 
-如果将无效参数传递给 `-s` 或 `-k`, 则返回的退出状态为 125。
+```sh
+$ timeout 4 sleep 2
+$ echo $?
+0
+```
 
-[实例](#__u5B9E___u4F8B_)
-=======================
+运行 sleep(1) 4 秒，并在 2 秒后终止进程。由于未使用 `--preserve-status`，退出状态为 124：
 
-以 4 秒的时间限制运行 sleep(1) 。 由于命令在 2 秒内完成，因此退出状态为 0：
+```sh
+$ timeout 2 sleep 4
+$ echo $?
+124
+```
 
-$ timeout 4 sleep 2 $ echo $? 0 
+与上例相同，但保留状态。对大多数 shell 而言，退出状态为 128 + 信号编号（`SIGTERM` 为 15）：
 
-运行 sleep(1) 4 秒并在 2 秒后终止进程。 因为没有使用 `--preserve-status` ，所以返回 124：
+```sh
+$ timeout --preserve-status 2 sleep 4
+$ echo $?
+143
+```
 
-$ timeout 2 sleep 4 $ echo $? 124 
+与上例相同，但发送 `SIGALRM`（信号编号 14）而非 `SIGTERM`：
 
-与上述相同，但保留状态。 退出状态为 128 + 信号编号（ SIGTERM 为 15）
+```sh
+$ timeout --preserve-status -s SIGALRM 2 sleep 4
+$ echo $?
+142
+```
 
-$ timeout --preserve-status 2 sleep 4 $ echo $? 143 
+尝试使用 fetch(1) 获取 FreeBSD Handbook 的 PDF 版本。1 分钟后发送 `SIGTERM` 信号，如果进程拒绝停止，则在 5 秒后发送 `SIGKILL` 信号：
 
-与上述相同，但发送 SIGALRM （信号编号 14）而不是 SIGTERM
+```sh
+$ timeout -k 5s 1m fetch \
+> https://download.freebsd.org/ftp/doc/en/books/handbook/book.pdf
+```
 
-$ timeout --preserve-status -s SIGALRM 2 sleep 4 $ echo $? 142 
+## 参见
 
-尝试 fetch(1) FreeBSD 手册的单页版本。 如果进程拒绝停止，则在 1 分钟后发送 SIGTERM 信号，并在 5 秒后发送 SIGKILL 信号：
+[kill(1)](kill.1.md), nohup(1), signal(3), daemon(8)
 
-timeout -k 5s 1m fetch \\ https://www.freebsd.org/doc/en\_US.ISO8859-1/books/handbook/book.html 
+## 标准
 
-[参见](#__u53C2___u89C1_)
-=======================
+`timeout` 实用程序预期符合 -p1003.1-2024 规范。
 
-kill(1), signal(3)
+`-v` 选项及长选项名是该规范的扩展。
 
-[历史](#__u5386___u53F2_)
-=======================
+## 历史
 
-`timeout` 命令最早出现在 FreeBSD 10.3 中。
+`timeout` 命令首次出现于 FreeBSD 10.3。
 
-[作者](#__u4F5C___u8005_)
-=======================
+最初的 FreeBSD 实现与 Padraig Brady 所写 GNU Coreutils 8.21 中的 GNU `timeout` 兼容。`timeout` 实用程序首次出现于 GNU Coreutils 7.0。
 
-Baptiste Daroussin <[bapt@FreeBSD.org](mailto:bapt@FreeBSD.org)\> 和 Vsevolod Stakhov <[vsevolod@FreeBSD.org](mailto:vsevolod@FreeBSD.org)\>
+## 作者
 
-July 7, 2020
-
-FreeBSD 13.1-RELEASE
+Baptiste Daroussin <bapt@FreeBSD.org>、Vsevolod Stakhov <vsevolod@FreeBSD.org> 以及 Aaron LI <aly@aaronly.me>

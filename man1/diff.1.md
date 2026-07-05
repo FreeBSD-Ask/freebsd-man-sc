@@ -1,319 +1,240 @@
-  DIFF(1)  
+# diff.1
 
-DIFF(1)
+`diff` — 文件和目录差异比较器
 
-FreeBSD General Commands Manual
+## 名称
 
-DIFF(1)
+`diff`
 
-[名称](#__u540D___u79F0_)
-=======================
+## 概要
 
-`diff` —
+`diff [-aBbdipTtw] [-c | -e | -f | -n | -q | -u | -y] [-A algo | --algorithm algo] [--brief] [--color=when] [--changed-group-format GFMT] [--ed] [--expand-tabs] [--forward-ed] [--ignore-all-space] [--ignore-case] [--ignore-space-change] [--initial-tab] [--minimal] [--no-dereference] [--no-ignore-file-name-case] [--normal] [--rcs] [--show-c-function] [--starting-file] [--speed-large-files] [--strip-trailing-cr] [--tabsize number] [--text] [--unified] [-I pattern | --ignore-matching-lines pattern] [-F pattern | --show-function-line pattern] [-L label | --label label] file1 file2`
 
-差异文件和目录比较器
+`diff [-aBbdilpTtw] [-A algo | --algorithm algo] [-I pattern | --ignore-matching-lines pattern] [-F pattern | --show-function-line pattern] [-L label | --label label] [--brief] [--color=when] [--changed-group-format GFMT] [--ed] [--expand-tabs] [--forward-ed] [--ignore-all-space] [--ignore-case] [--ignore-space-change] [--initial-tab] [--minimal] [--no-dereference] [--no-ignore-file-name-case] [--normal] [--paginate] [--rcs] [--show-c-function] [--speed-large-files] [--starting-file] [--strip-trailing-cr] [--tabsize number] [--text] -C number | --context number file1 file2`
 
-[概要](#__u6982___u8981_)
-=======================
+`diff [-aBbdiltw] [-A algo | --algorithm algo] [-I pattern | --ignore-matching-lines pattern] [--brief] [--color=when] [--changed-group-format GFMT] [--ed] [--expand-tabs] [--forward-ed] [--ignore-all-space] [--ignore-case] [--ignore-space-change] [--initial-tab] [--minimal] [--no-dereference] [--no-ignore-file-name-case] [--normal] [--paginate] [--rcs] [--show-c-function] [--speed-large-files] [--starting-file] [--strip-trailing-cr] [--tabsize number] [--text] -D string | --ifdef string file1 file2`
 
-`diff` \[`-aBbdipTtw`\] \[`-c` | `-e` | `-f` | `-n` | `-q` | `-u` | `-y`\] \[`--brief`\] \[`--changed-group-format` GFMT\] \[`--ed`\] \[`--expand-tabs`\] \[`--forward-ed`\] \[`--ignore-all-space`\] \[`--ignore-case`\] \[`--ignore-space-change`\] \[`--initial-tab`\] \[`--minimal`\] \[`--no-ignore-file-name-case`\] \[`--normal`\] \[`--rcs`\] \[`--show-c-function`\] \[`--starting-file`\] \[`--speed-large-files`\] \[`--strip-trailing-cr`\] \[`--tabsize` number\] \[`--text`\] \[`--unified`\] \[`-I` pattern | `--ignore-matching-lines` pattern\] \[`-L` label | `--label` label\] file1 file2 `diff` \[`-aBbdilpTtw`\] \[`-I` pattern | `--ignore-matching-lines` pattern\] \[`-L` label | `--label` label\] \[`--brief`\] \[`--changed-group-format` GFMT\] \[`--ed`\] \[`--expand-tabs`\] \[`--forward-ed`\] \[`--ignore-all-space`\] \[`--ignore-case`\] \[`--ignore-space-change`\] \[`--initial-tab`\] \[`--minimal`\] \[`--no-ignore-file-name-case`\] \[`--normal`\] \[`--paginate`\] \[`--rcs`\] \[`--show-c-function`\] \[`--speed-large-files`\] \[`--starting-file`\] \[`--strip-trailing-cr`\] \[`--tabsize` number\] \[`--text`\] `-C` number | \-context number file1 file2 `diff` \[`-aBbdiltw`\] \[`-I` pattern | `--ignore-matching-lines` pattern\] \[`--brief`\] \[`--changed-group-format` GFMT\] \[`--ed`\] \[`--expand-tabs`\] \[`--forward-ed`\] \[`--ignore-all-space`\] \[`--ignore-case`\] \[`--ignore-space-change`\] \[`--initial-tab`\] \[`--minimal`\] \[`--no-ignore-file-name-case`\] \[`--normal`\] \[`--paginate`\] \[`--rcs`\] \[`--show-c-function`\] \[`--speed-large-files`\] \[`--starting-file`\] \[`--strip-trailing-cr`\] \[`--tabsize` number\] \[`--text`\] `-D` string | `--ifdef` string file1 file2 `diff` \[`-aBbdilpTtw`\] \[`-I` pattern | `--ignore-matching-lines` pattern\] \[`-L` label | `--label` label\] \[`--brief`\] \[`--changed-group-format` GFMT\] \[`--ed`\] \[`--expand-tabs`\] \[`--forward-ed`\] \[`--ignore-all-space`\] \[`--ignore-case`\] \[`--ignore-space-change`\] \[`--initial-tab`\] \[`--minimal`\] \[`--no-ignore-file-name-case`\] \[`--normal`\] \[`--paginate`\] \[`--rcs`\] \[`--show-c-function`\] \[`--speed-large-files`\] \[`--starting-file`\] \[`--strip-trailing-cr`\] \[`--tabsize` number\] \[`--text`\] `-U` number | `--unified` number file1 file2 `diff` \[`-aBbdilNPprsTtw`\] \[`-c` | `-e` | `-f` | `-n` | `-q` | `-u`\] \[`--brief`\] \[`--changed-group-format` GFMT\] \[`--context`\] \[`--ed`\] \[`--expand-tabs`\] \[`--forward-ed`\] \[`--ignore-all-space`\] \[`--ignore-case`\] \[`--ignore-space-change`\] \[`--initial-tab`\] \[`--minimal`\] \[`--new-file`\] \[`--no-ignore-file-name-case`\] \[`--normal`\] \[`--paginate`\] \[`--rcs`\] \[`--recursive`\] \[`--report-identical-files`\] \[`--show-c-function`\] \[`--speed-large-files`\] \[`--strip-trailing-cr`\] \[`--tabsize` number\] \[`--text`\] \[`--unidirectional-new-file`\] \[`--unified`\] \[`-I` pattern | `--ignore-matching-lines` pattern\] \[`-L` label | `--label` label\] \[`-S` name | `--starting-file` name\] \[`-X` file | `--exclude-from` file\] \[`-x` pattern | `--exclude` pattern\] dir1 dir2 `diff` \[`-aBbditwW`\] \[`--expand-tabs`\] \[`--ignore-all-blanks`\] \[`--ignore-blank-lines`\] \[`--ignore-case`\] \[`--minimal`\] \[`--no-ignore-file-name-case`\] \[`--strip-trailing-cr`\] \[`--suppress-common-lines`\] \[`--tabsize` number\] \[`--text`\] \[`--width`\] `-y` | `--side-by-side` file1 file2
+`diff [-aBbdilpTtw] [-A algo | --algorithm algo] [-I pattern | --ignore-matching-lines pattern] [-F pattern | --show-function-line pattern] [-L label | --label label] [--brief] [--color=when] [--changed-group-format GFMT] [--ed] [--expand-tabs] [--forward-ed] [--ignore-all-space] [--ignore-case] [--ignore-space-change] [--initial-tab] [--minimal] [--no-dereference] [--no-ignore-file-name-case] [--normal] [--paginate] [--rcs] [--show-c-function] [--speed-large-files] [--starting-file] [--strip-trailing-cr] [--tabsize number] [--text] -U number | --unified number file1 file2`
 
-[描述](#__u63CF___u8FF0_)
-=======================
+`diff [-aBbdilNPprsTtw] [-c | -e | -f | -n | -q | -u] [-A algo | --algorithm algo] [--brief] [--color=when] [--changed-group-format GFMT] [--context] [--ed] [--expand-tabs] [--forward-ed] [--ignore-all-space] [--ignore-case] [--ignore-space-change] [--initial-tab] [--minimal] [--new-file] [--no-dereference] [--no-ignore-file-name-case] [--normal] [--paginate] [--rcs] [--recursive] [--report-identical-files] [--show-c-function] [--speed-large-files] [--starting-file] [--strip-trailing-cr] [--tabsize number] [--text] [--unidirectional-new-file] [--unified] [-I pattern | --ignore-matching-lines pattern] [-F pattern | --show-function-line pattern] [-L label | --label label] [-S name | --starting-file name] [-X file | --exclude-from file] [-x pattern | --exclude pattern] dir1 dir2`
 
-`diff` 实用程序比较 file1 和 file2 的内容，并将将一个文件转换为另一个文件所需的更改列表写入标准输出。 如果文件相同，则不会产生输出。
+`diff [-aBbditwW] [--color=when] [--expand-tabs] [--ignore-all-space] [--ignore-blank-lines] [--ignore-case] [--minimal] [--no-dereference] [--no-ignore-file-name-case] [--strip-trailing-cr] [--suppress-common-lines] [--tabsize number] [--text] [--width] -y | --side-by-side file1 file2`
+
+`diff [--help] [--version]`
+
+## 描述
+
+`diff` 实用程序比较 `file1` 和 `file2` 的内容，并将将一个文件转换为另一个文件所需的更改列表写入标准输出。如果文件相同，则不产生输出。
 
 输出选项（互斥）：
 
-[`-C`](#C) number `--context` number
+**`-C`** `number` **`--context`** `number` 类似于 `-c`，但生成包含 `number` 行上下文的 diff。
 
-与 `-c` 类似，但会产生带有上下文 number 行的差异。
+**`-c`** 生成包含 3 行上下文的 diff。使用 `-c` 时，输出格式略有修改：输出以涉及文件的标识及其创建日期开始，然后每个更改由一行十五个 `*` 分隔。从 `file1` 中删除的行以“`-`”标记；添加到 `file2` 的行以“`+`”标记。在两个文件之间更改的行在两个文件中都以“`!`”标记。彼此相距 3 行以内的更改在输出中分组在一起。
 
-[`-c`](#c)
+**`-D`** `string` **`--ifdef`** `string` 在标准输出上创建 `file1` 和 `file2` 的合并版本，其中包含 C 预处理器控制，使得在未定义 `string` 时编译结果等同于编译 `file1`，而定义 `string` 将产生 `file2`。
 
-产生具有 3 行上下文的差异。 使用 `-c` 会稍微修改输出格式：输出以识别所涉及的文件及其创建日期开始，然后每个更改由带有 15 个 `*` 的行分隔。 从 file1 中删除的行标有 ‘- ’; 添加到 file2 的那些标记为 ‘+ ’ 。 从一个文件更改到另一个文件的行在两个文件中都标有 ‘! ’ 。 彼此相距 3 行以内的更改在输出时被组合在一起。
+**`-e`** **`--ed`** 生成适合作为编辑器实用程序 ed(1) 输入的形式，随后可用 ed(1) 将 file1 转换为 file2。使用 `-e` 比较目录时，输出中会添加额外的命令，使结果成为一个 [sh(1)](sh.1.md) 脚本，用于将两个目录中共同的文本文件从其在 `dir1` 中的状态转换到其在 `dir2` 中的状态。请注意，使用 `-e` 比较目录时，生成的文件可能不再被解释为 ed(1) 脚本。会添加输出以指示每组 ed(1) 命令应用于哪个文件。可以手动提取这些块来生成 ed(1) 脚本，也可以用 patch(1) 应用。
 
-[`-D`](#D) string `--ifdef` string
+**`-f`** **`--forward-ed`** 输出与 `-e` 标志相同，但顺序相反。ed(1) 无法处理它。
 
-在标准输出上创建 file1 和 file2 的合并版本，其中包含 C 预处理器控件，以便在不定义 string 的情况下编译结果等同于编译 file1, 而定义 string 将产生 file2 。
+**`--help`** 此选项向 stdout 打印摘要并以状态 0 退出。
 
-[`-e`](#e) `--ed`
+**`-n`** 生成类似于 `-e` 的脚本，但顺序相反，并在每个插入或删除命令上附带更改行数的计数。这是 rcsdiff 使用的形式。
 
-以适合作为编辑器实用程序 ed(1) 输入的形式生成输出，然后可以使用该格式将 file1 转换为 file2。
+**`-q`** **`--brief`** 仅在文件不同时打印一行。不输出更改列表。
 
-使用 `-e` 比较目录时，会在输出中添加额外的命令，因此结果是一个 sh(1) 脚本，用于将两个目录共有的文本文件从它们在 dir1 中的状态转换为它们在 dir2 中的状态。
+**`-U`** `number` **`--unified`** `number` 类似于 `-u`，但生成包含 `number` 行上下文的 diff。
 
-[`-f`](#f) `--forward-ed`
+**`-u`** 生成包含 3 行上下文的*统一* diff。统一 diff 类似于 `-c` 选项生成的上下文 diff。然而，与 `-c` 不同的是，所有要更改的行（添加和/或删除）都出现在单个部分中。
 
-与 `-e` 标志的输出相同，但顺序相反。 它不能被 ed(1) 消化。
+**`--version`** 此选项向 stdout 打印版本字符串并以状态 0 退出。
 
-[`-n`](#n)
+**`-y`** **`--side-by-side`** 以两列输出，中间带有标记。标记可以是以下之一：
 
-生成一个类似于 `-e` 的脚本，但顺序相反，并且在每个插入或删除命令上都有更改的行数。 这是 rcsdiff 使用的形式。
+**（空格）** 对应行相同。
 
-[`-q`](#q) `--brief`
+**`'|'`** 对应行不同。
 
-当文件不同时，只需打印一行。 不输出更改列表。
+**`'<'`** 文件不同，且只有第一个文件包含该行。
 
-[`-U`](#U) number `--unified` number
-
-与 `-u` 类似，但会产生带有上下文 number 行的差异。
-
-[`-u`](#u)
-
-生成具有 3 行上下文的 _unified_ 差异。 统一差异类似于 `-c` 选项产生的上下文差异。 然而，与 `-c` 不同的是，所有要更改（添加和/或删除）的行都存在于单个部分中。
-
-[`-y`](#y) `--side-by-side`
-
-在两列中输出，它们之间有一个标记。 标记可以是以下之一：
-
-space
-
-对应的行是相同的。
-
-'|'
-
-对应的线路不同。
-
-'<'
-
-文件不同，只有第一个文件包含该行。
-
-'>'
-
-文件不同，只有第二个文件包含该行。
+**`'>'`** 文件不同，且只有第二个文件包含该行。
 
 比较选项：
 
-[`-a`](#a) `--text`
+**`-A`** `algo`, **`--algorithm`** `algo` 配置比较文件时使用的算法。`diff` 支持 3 种算法：
 
-将所有文件视为 ASCII 文本。 如果文件包含二进制字符，通常 `diff` 将简单地打印 “Binary files ... differ” 。 使用此选项会强制 `diff` 产生差异。
+**`myers`** Myers diff 算法找到一个输入转换为另一个的最短编辑。它通常在 O(N+D²) 时间内运行，需要 O(N) 空间，其中 N 是输入长度之和，D 是它们之间差异的长度，理论最坏情况为 O(N·D)。如果遇到最坏情况输入，`diff` 使用的实现会回退到一种次优但更快的算法。
 
-[`-B`](#B) `--ignore-blank-lines`
+**`patience`** Myers 算法的 Patience 变体尝试通过逻辑分组行来创建更美观的 diff 输出。
 
-导致只包含空行的块被忽略
+**`stone`** Stone 算法（通常称为 Hunt-McIlroy 或 Hunt-Szymanski）查找比较文件之间的最长公共子序列。当存在长公共子序列时，Stone 会遇到最坏情况性能。在大文件中，这可能导致显著的性能影响。保留 Stone 算法是为了兼容性。
 
-[`-b`](#b) `--ignore-space-change`
+`diff` 实用程序默认使用 Myers 算法，但如果输入或输出选项不被 Myers 实现支持，则回退到 Stone 算法。
 
-导致尾随空格（空格和制表符）被忽略，其他空格字符串比较相等。
+**`-a`** **`--text`** 将所有文件视为 ASCII 文本。通常，如果文件包含二进制字符，`diff` 会直接打印“Binary files ... differ”。使用此选项强制 `diff` 生成 diff。
 
-[`-d`](#d) `--minimal`
+**`-B`** **`--ignore-blank-lines`** 使仅包含空行的块被忽略。
 
-非常努力地产生尽可能小的差异。 在处理具有许多更改的大型文件时，这可能会消耗大量的处理能力和内存。
+**`-b`** **`--ignore-space-change`** 使尾随空白（空格和制表符）被忽略，其他空白字符串比较相等。
 
-[`-I`](#I) pattern `--ignore-matching-lines` pattern
+**`--color=`**[`when`] 为添加着绿色，删除着红色，或使用 `DIFFCOLORS` 环境变量中的值。`when` 的可能值为“`never`”、“`always`”和“`auto`”。如果输出是 tty 且 `COLORTERM` 环境变量设置为非空字符串，`auto` 将使用颜色。
 
-忽略行与扩展正则表达式 pattern 匹配的更改、插入和删除。 可以指定多个 `-I` 模式。 更改中的所有行都必须匹配某些模式才能忽略更改。 有关正则表达式模式的更多信息，请参阅 re\_format(7) 。
+**`-d`** **`--minimal`** 尽力生成尽可能小的 diff。在处理具有许多更改的大文件时，这可能会消耗大量处理能力和内存。
 
-[`-i`](#i) `--ignore-case`
+**`-F`** `pattern`, **`--show-function-line`** `pattern` 类似于 `-p`，但显示与提供的模式匹配的最后一行。
 
-忽略字母的大小写。 例如， “A” 将等于 “a” 。
+**`-I`** `pattern` **`--ignore-matching-lines`** `pattern` 忽略其行匹配扩展正则表达式 `pattern` 的更改、插入和删除。可以指定多个 `-I` 模式。更改中的所有行都必须匹配某个模式，该更改才会被忽略。有关正则表达式模式的更多信息，请参见 re_format(7)。
 
-[`-l`](#l) `--paginate`
+**`-i`** **`--ignore-case`** 忽略字母大小写。例如，“A”与“a”比较相等。
 
-通过 pr(1) 传递输出以对其进行分页。
+**`-l`** **`--paginate`** 将输出通过 pr(1) 进行分页。
 
-[`-L`](#L) label `--label` label
+**`-L`** `label` **`--label`** `label` 在上下文或统一 diff 头中打印 `label` 而不是第一个（如果此选项指定两次，则还有第二个）文件名和时间。
 
-打印 label 而不是上下文或统一差异标头中的第一个（和第二个，如果此选项被指定两次）文件名和时间。
+**`-p`** **`--show-c-function`** 对于统一和上下文 diff，在每次更改时显示上下文之前最后一行中以字母、下划线或美元符号开头的前 40 个字符。对于遵循标准布局约定的 C 和 Objective-C 源代码，这将显示更改所适用的函数原型。
 
-[`-p`](#p) `--show-c-function`
+**`-T`** **`--initial-tab`** 对于正常、上下文或统一输出格式，在行的其余部分之前打印制表符而不是空格。这使得行中制表符的对齐一致。
 
-使用统一和上下文差异，每次更改时显示上下文前最后一行的前 40 个字符，以字母、下划线或美元符号开头。 对于遵循标准布局约定的 C 源代码，这将显示更改适用的函数的原型。
+**`-t`** **`--expand-tabs`** 在输出行中展开制表符。正常或 `-c` 输出会在每行前面添加字符，这可能会打乱原始源行的缩进，使输出列表难以解释。此选项将保留原始源的缩进。
 
-[`-T`](#T) `--initial-tab`
+**`-w`** **`--ignore-all-space`** 类似于 `-b` **`--ignore-space-change`**，但使空白（空格和制表符）被完全忽略。例如，“if ( a == b )”与“if(a==b)”比较相等。
 
-对于正常、上下文或统一的输出格式，在该行的其余部分之前打印一个制表符而不是一个空格。 这使得行中的制表符对齐一致。
+**`-W`** `number` **`--width`** `number` 使用并排格式时最多输出 `number` 列。默认值为 130。请注意，除非指定了 `-t`，`diff` 始终将第二列对齐到制表位，因此小于 `--tabsize` 值约五倍的 `--width` 值可能产生意外结果。
 
-[`-t`](#t) `--expand-tabs`
+**`--changed-group-format`** `GFMT` 以提供的格式格式化输入组。该格式是带有特殊关键字的字符串：
 
-将展开输出行中的选项卡。 正常或 `-c` 输出将字符添加到每行的前面，这可能会破坏原始源代码行的缩进并使输出列表难以解释。 此选项将保留原始源的缩进。
+**`%<`** 来自 FILE1 的行
 
-[`-w`](#w) `--ignore-all-blanks`
+**`%<`** 来自 FILE2 的行
 
-类似于 `-b` `--ignore-space-change` 但会导致空格（空格和制表符）被完全忽略。 例如， “if ( a == b )” 将比较等于 “if(a==b)” 。
+**`--ignore-file-name-case`** 比较文件名时忽略大小写。
 
-[`-W`](#W) number `--width` number
+**`--no-dereference`** 不跟随符号链接。
 
-使用并排格式时最多输出 number 列。 默认值为 130。
+**`--no-ignore-file-name-case`** 比较文件名时不忽略大小写（默认）。
 
-[`--changed-group-format`](#-changed-group-format) GFMT
+**`--normal`** 默认 diff 输出。
 
-在提供的格式输入组
+**`--speed-large-files`** 用于与 GNU diff 兼容的存根选项。
 
-格式是带有特殊关键字的字符串：
+**`--strip-trailing-cr`** 在输入文件上剥离回车符。
 
-%<
+**`--suppress-common-lines`** 使用并排格式时不输出公共行。
 
-FILE1 中的行
-
-%<
-
-来自 FILE2 的行
-
-[`--ignore-file-name-case`](#-ignore-file-name-case)
-
-比较文件名时忽略大小写
-
-[`--no-ignore-file-name-case`](#-no-ignore-file-name-case)
-
-不要忽略大小写比较文件名（默认）
-
-[`--normal`](#-normal)
-
-默认差异输出
-
-[`--speed-large-files`](#-speed-large-files)
-
-与 GNU diff 兼容的存根选项
-
-[`--strip-trailing-cr`](#-strip-trailing-cr)
-
-删除输入文件上的回车
-
-[`--suppress-common-lines`](#-suppress-common-lines)
-
-使用并排格式时不输出公共行
-
-[`--tabsize`](#-tabsize) number
-
-代表制表符的空格数（默认 8）
+**`--tabsize`** `number` 表示制表符的空格数（默认 8）。
 
 目录比较选项：
 
-[`-N`](#N) `--new-file`
+**`-N`** **`--new-file`** 如果一个文件仅在一个目录中找到，则视为在另一个目录中也找到但大小为零。
 
-如果一个文件只在一个目录中找到，就好像它也在另一个目录中找到但大小为零一样。
+**`-P`** **`--unidirectional-new-file`** 如果一个文件仅在 `dir2` 中找到，则视为在 `dir1` 中也找到但大小为零。
 
-[`-P`](#P) `--unidirectional-new-file`
+**`-r`** **`--recursive`** 使 `diff` 递归地应用于遇到的公共子目录。
 
-如果一个文件只在 dir2 中找到，就好像它也在 dir1 中找到但大小为零一样。
+**`-S`** `name` **`--starting-file`** `name` 从文件 `name` 开始重新启动目录 `diff`。
 
-[`-r`](#r) `--recursive`
+**`-s`** **`--report-identical-files`** 使 `diff` 报告相同的文件，否则不会提及它们。
 
-导致将 `diff` 递归应用到遇到的公共子目录。
+**`-X`** `file` **`--exclude-from`** `file` 从比较中排除其 basename 匹配 `file` 中行的文件和子目录。可以指定多个 `-X` 选项。
 
-[`-S`](#S) name `--starting-file` name
+**`-x`** `pattern` **`--exclude`** `pattern` 从比较中排除其 basename 匹配 `pattern` 的文件和子目录。模式通过 fnmatch(3) 使用 shell 风格的通配匹配。可以指定多个 `-x` 选项。
 
-在中间重新启动一个目录 `diff` ，以文件 name 开头。
+如果两个参数都是目录，`diff` 按名称对目录内容进行排序，然后对不同的文本文件运行常规文件 `diff` 算法，生成更改列表。不同的二进制文件、公共子目录以及仅出现在一个目录中的文件会照此描述。在目录模式下，仅比较常规文件和目录。如果遇到非常规文件（如设备特殊文件或 FIFO），则打印诊断消息。
 
-[`-s`](#s) `--report-identical-files`
+如果 `file1` 和 `file2` 中只有一个是目录，`diff` 应用于非目录文件和目录文件中包含的文件，该文件的文件名与非目录文件的最后一个组件相同。
 
-导致 `diff` 报告相同的文件，否则未提及。
+如果 `file1` 或 `file2` 为“`-`”，则在其位置使用标准输入。
 
-[`-X`](#X) file `--exclude-from` file
+### 输出风格
 
-从比较中排除其基本名称与 file 中的行匹配的文件和子目录。 可以指定多个 `-X` 选项。
+默认输出（不使用 `-e`、`-c` 或 `-n` **`--rcs`** 选项）包含以下形式的行，其中 `XX`、`YY`、`ZZ`、`QQ` 是按文件顺序的行号。
 
-[`-x`](#x) pattern `--exclude` pattern
+**`XX`**`a``YY` 在 `file1` 的第 `XX` 行（末尾）追加 `file2` 第 `YY` 行的内容使它们相等。
 
-从比较中排除基本名称与 pattern 匹配的文件和子目录。 通过 fnmatch(3) 使用 shell 样式的通配符匹配模式。 可以指定多个 `-x` 选项。
+**`XX`**`a``YY,ZZ` 同上，但追加 `file2` 中从 `YY` 到 `ZZ` 的行范围到 file1 的第 `XX` 行。
 
-如果两个参数都是目录，则 `diff` 按名称对目录的内容进行排序，然后对不同的文本文件运行常规文件 `diff` 算法，生成更改列表。 不同的二进制文件、公共子目录和只出现在一个目录中的文件都被这样描述。 在目录模式下，仅比较常规文件和目录。 如果遇到非常规文件，例如设备特殊文件或 FIFO，则会打印诊断消息。
+**`XX`**`d``YY` 在第 `XX` 行删除该行。`YY` 值指示该更改会使 `file1` 与 `file2` 在哪一行对齐。
 
-如果 file1 和 file2 中只有一个是目录，则 `diff` 应用于非目录文件以及目录文件中包含的文件名与非目录文件的最后一个组件相同的文件。
+**`XX,YY`**`d``ZZ` 删除 `file1` 中从 `XX` 到 `YY` 的行范围。
 
-如果 file1 或 file2 是 ‘-’, 则使用标准输入代替它。
+**`XX`**`c``YY` 将 `file1` 中的第 `XX` 行更改为 `file2` 中的第 `YY` 行。
 
-[输出风格](#__u8F93___u51FA___u98CE___u683C_)
------------------------------------------
+**`XX,YY`**`c``ZZ` 用第 `ZZ` 行替换指定的行范围。
 
-默认（不带 `-e` `-、` `-c` 或 `-n` `--rcs` 选项）输出包含这些形式的行，其中 XX, YY, ZZ, QQ 分别是文件顺序的行号。
+**`XX,YY`**`c``ZZ,QQ` 用 `file2` 中的 `ZZ`、`QQ` 范围替换 `file1` 中的 `XX`、`YY` 范围。
 
-[`XX`](#XX)`a``YY`
+这些行类似于将 `file1` 转换为 `file2` 的 ed(1) 子命令。动作字母之前的行号属于 `file1`；之后的行号属于 `file2`。因此，通过将 `a` 与 `d` 交换并以相反顺序读取行，也可以确定如何将 `file2` 转换为 `file1`。如同在 ed(1) 中，相同的对（num1 = num2）缩写为单个数字。
 
-在 file1 的第 XX 行（末尾）处，附加 file2 的第 YY 行的内容以使它们相等。
+## 环境变量
 
-[`XX`](#XX_2)`a``YY,ZZ`
+**`DIFFCOLORS`** 此变量的值形式为 `add`:`rm`，其中 `add` 是用于添加的 ASCII 转义序列，`rm` 是用于删除的 ASCII 转义序列。如果未设置，`diff` 使用绿色表示添加，红色表示删除。
 
-同上，但将 file2 的 YY 到 ZZ 的行范围附加到文件 1 的 XX 行。
+## 文件
 
-[`XX`](#XX_3)`d``YY`
+**/tmp/diff.XXXXXXXX** 比较设备或标准输入时使用的临时文件。请注意，临时文件在创建后立即被取消链接，因此它不会出现在目录列表中。
 
-在第 XX 行删除该行。 值 YY 告诉哪一行更改将使 file1 与 file2 保持一致。
+## 退出状态
 
-[`XX,YY`](#XX,YY)`d``ZZ`
+`diff` 实用程序以以下值之一退出：
 
-删除 file1 中的 XX 到 YY 行范围。
+**0** 未发现差异。
 
-[`XX`](#XX_4)`c``YY`
+**1** 发现差异。
 
-将 file1 中的 XX 行更改为 file2 中的 YY 行。
+**>1** 发生错误。
 
-[`XX,YY`](#XX,YY_2)`c``ZZ`
+`--help` 和 `--version` 选项以状态 0 退出。
 
-用 ZZ 行替换指定行的范围。
+## 实例
 
-[`XX,YY`](#XX,YY_3)`c``ZZ,QQ`
+递归比较 `old_dir` 和 `new_dir`，生成统一 diff，并将仅在一个目录中找到的文件视为新文件：
 
-将 file1 中的 XX,YY 范围替换为 file2 中的 ZZ,QQ 范围。
+```sh
+$ diff -ruN /path/to/old_dir /path/to/new_dir
+```
 
-这些行类似于将 file1 转换为 file2 的 ed(1) 子命令。 动作字母前的行号与 file1 相关；后面的属于 file2 。 因此，通过将 `a` 替换为 `d` 并以相反的顺序读取该行，还可以确定如何将 file2 转换为 file1 。 与 ed(1) 中一样，相同的对（其中 num1 = num2）被缩写为单个数字。
+与上例相同，但排除匹配表达式“*.h”和“*.c”的文件：
 
-[文件](#__u6587___u4EF6_)
-=======================
+```sh
+$ diff -ruN -x '*.h' -x '*.c' /path/to/old_dir /path/to/new_dir
+```
 
-/tmp/diff.XXXXXXXX
+显示一行指示文件是否不同：
 
-比较设备或标准输入时使用的临时文件。 请注意，临时文件在创建后立即取消链接，因此它不会显示在目录列表中。
+```sh
+$ diff -q /boot/loader.conf /boot/defaults/loader.conf
+Files /boot/loader.conf and /boot/defaults/loader.conf differ
+```
 
-[退出状态](#__u9000___u51FA___u72B6___u6001_)
-=========================================
+假设有一个名为 `example.txt` 的文件，内容如下：
 
-`diff` 实用程序以下列值之一退出：
+```sh
+FreeBSD is an operating system
+Linux is a kernel
+OpenBSD is an operating system
+```
 
-0
+将标准输入与 `example.txt` 比较，从比较中排除包含“Linux”或“Open”的行：
 
-没有发现差异。
+```sh
+$ echo "FreeBSD is an operating system" | diff -q -I 'Linux|Open' example.txt -
+```
 
-1
+## 参见
 
-发现了差异。
+[cmp(1)](cmp.1.md), [comm(1)](comm.1.md), [diff3(1)](diff3.1.md), ed(1), patch(1), pr(1), [sdiff(1)](sdiff.1.md)
 
-\>1
+> James W. Hunt, M. Douglas McIlroy, "An Algorithm for Differential File Comparison", *Computing Science Technical Report*, 1976 年 6 月。
 
-发生错误。
+## 标准
 
-[实例](#__u5B9E___u4F8B_)
-=======================
+`diff` 实用程序符合 IEEE Std 1003.1-2008 ("POSIX.1") 规范。
 
-比较 old\_dir 和 new\_dir 递归生成统一差异并将仅在这些目录之一中找到的文件视为新文件：
+标志 [`-AaDdIiLlNnPpqSsTtwXxy`] 是对该规范的扩展。
 
-$ diff -ruN /path/to/old\_dir /path/to/new\_dir 
+## 历史
 
-同上，但不包括匹配表达式 “\*.h” 和 “\*.c” 的文件：
+`diff` 命令出现于 Version 6 AT&T UNIX。FreeBSD 中使用的 `diff` 实现直到 FreeBSD 11.4 都是 GNU diff。这在 FreeBSD 12.0 中被 Todd Miller 编写的 BSD 许可实现所取代。在此过程中失去了一些 GNU 特性。
 
-$ diff -ruN -x '\*.h' -x '\*.c' /path/to/old\_dir /path/to/new\_dir 
-
-显示单行指示文件是否不同：
-
-$ diff -q /boot/loader.conf /boot/defaults/loader.conf 文件 /boot/loader.conf 和 /boot/defaults/loader.conf 不同 
-
-假设一个名为 example.txt 的文件具有以下内容：
-
-FreeBSD 是一个操作系统 Linux是一个内核 OpenBSD 是一个操作系统 
-
-将 stdin 与 example.txt 进行比较，从比较中排除包含 “Linux” 或 “Open” 的行：
-
-$ echo "FreeBSD is an operating system" | diff -q -I 'Linux|Open' example.txt - 
-
-[参见](#__u53C2___u89C1_)
-=======================
-
-cmp(1), comm(1), diff3(1), ed(1), patch(1), pr(1), sdiff(1) James W. Hunt and M. Douglas McIlroy, An Algorithm for Differential File Comparison, _Computing Science Technical Report_, Bell Laboratories 41, June 1976.
-
-[标准](#__u6807___u51C6_)
-=======================
-
-`diff` 实用程序符合 IEEE Std 1003.1-2008 (“POSIX.1”) 规范。
-
-标志 \[`-aDdIiLlNnPpqSsTtwXxy`\] 是对该规范的扩展。
-
-[历史](#__u5386___u53F2_)
-=======================
-
-`diff` 命令出现在 Version 6 AT&T UNIX 中。
-
-June 19, 2020
-
-FreeBSD 13.1-RELEASE
+libdiff 从 Game of Trees 版本控制系统导入，默认算法在 FreeBSD 15 中更改为 Myers。

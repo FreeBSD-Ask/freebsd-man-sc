@@ -1,115 +1,224 @@
-  MD5(1)  
+# md5.1
 
-MD5(1)
+`md5` — 计算文件的消息摘要指纹（校验和）
 
-FreeBSD General Commands Manual
+## 名称
 
-MD5(1)
+`md5`, `sha512`, `rmd160`, `md5sum`, `sha512sum`, `rmd160sum`, `shasum`
 
-[名称](#__u540D___u79F0_)
-=======================
+## 概要
 
-`md5`, `sha1`, `sha224`, `sha256`, `sha384`, `sha512`, `sha512t256`, `rmd160`, `skein256`, `skein512`, `skein1024` —
+`shasum [-pqrtx] [-c string] [-s string] [file]`
 
-计算文件的消息摘要指纹（校验和）
+`md5sum [-bctwz] [--binary] [--check] [--help] [--ignore-missing] [--quiet] [--status] [--strict] [--tag] [--text] [--version] [--warn] [--zero] [file]`
 
-[概要](#__u6982___u8981_)
-=======================
+（所有其他哈希工具具有相同的选项和用法。）
 
-`md5` \[`-pqrtx`\] \[`-c` string\] \[`-s` string\] \[file ...\]
+`shasum [-0bchqstUvw] [--01] [-a alg | --algorithm alg] [--binary] [--check] [--help] [--ignore-missing] [--quiet] [--status] [--strict] [--tag] [--text] [--UNIVERSAL] [--version] [--warn] [file]`
 
-(All other hashes have the same options and usage.)
+## 描述
 
-[描述](#__u63CF___u8FF0_)
-=======================
+`md5`、`rmd160` 和 `skein1024` 实用程序接受任意长度的消息作为输入，产生输入的 “指纹” 或 “消息摘要” 作为输出。
 
-The `md5`, `sha1`, `sha224`, `sha256`, `sha384`, `sha512`, `sha512t256`, `rmd160`, `skein256`, `skein512` 和 `skein1024` 实用程序将任意长度的消息作为输入，并生成输入的 “fingerprint” 或 “message digest” 作为输出。 推测产生具有相同消息摘要的两个消息或产生具有给定的预定目标消息摘要的任何消息在计算上是不可行的。 SHA-224 , SHA-256 , SHA-384 , SHA-512, RIPEMD-160, 和 SKEIN 算法适用于数字签名应用程序，其中必须以安全方式 “compressed” 大文件，然后才能使用私有加密公钥密码系统（如 RSA）下的（秘密）密钥。
+`md5sum`、`sha512t224sum` 和 `skein1024sum` 实用程序执行相同操作，但命令行选项和输出格式与类似命名的 GNU 实用程序匹配。
 
-MD5 和 SHA-1 算法已被证明容易受到实际冲突攻击，不应依赖它们产生唯一的输出，也不应将它们用作加密签名方案的一部分。 截至 2017 年 3 月 2 日，没有公开已知的方法来 _reverse_ 任一算法，即找到产生特定输出的输入。
+`shasum` 实用程序执行相同操作，但命令行选项和输出格式与随 Perl 发布的类似命名实用程序匹配。
 
-SHA-512t256 是 SHA-512 的一个版本，仅截断为 256 位。 在 64 位硬件上，此算法比 SHA-256 快大约 50%，但安全级别相同。-
-哈希值不可互换。
+在所有情况下，命令行上列出的每个文件单独处理。如果命令行上未列出文件，或文件名给出为 `-`，则从标准输入获取输入。
 
-建议所有新应用程序使用 SHA-512 或 SKEIN-512 而不是其他哈希函数之一。
+实用程序的不同模式有不同的输出格式，但在所有情况下，包含不可打印字符的文件名按 vis(3) 中所述使用 `VIS_CSTYLE | VIS_OCTAL` 样式编码。
 
-以下选项可以任意组合使用，并且必须位于命令行中命名的任何文件之前。-
-处理选项后，将打印命令行中列出的每个文件的十六进制校验和。
+推测在计算上不可行产生两个具有相同消息摘要的消息，或产生具有给定预定目标消息摘要的任何消息。SHA-224、SHA-256、SHA-384、SHA-512、RIPEMD-160 和 SKEIN 算法用于数字签名应用，其中大文件必须在使用公钥密码系统（如 RSA）下的私钥（密钥）加密之前以安全方式 “压缩”。
 
-[`-c`](#c) string
+MD5 和 SHA-1 算法已被证明易受实际碰撞攻击，不应依赖其产生唯一输出，*也不应将其用作加密签名方案的一部分。*
 
-将文件的摘要与此字符串进行比较。 （请注意，如果指定了多个文件，则此选项还没有用。）
+SHA-512t256 是 SHA-512 截断为仅 256 位的版本。在 64 位硬件上，此算法比 SHA-256 快约 50%，但安全级别相同。哈希不可互换。
 
-[`-s`](#s) string
+SHA-512t224 与 SHA-512t256 相同，但摘要截断为 224 位。
 
-打印给定 string 的校验和。
+建议所有新应用使用 SHA-512 或 SKEIN-512 而非其他哈希函数之一。
 
-[`-p`](#p)
+### BSD 选项
 
-将标准输入回显到标准输出并将校验和附加到标准输出。
+以下选项在 BSD 模式下可用，即程序以不以 “sum” 结尾的名称调用时：
 
-[`-q`](#q)
+**`-c`** `string`, `--check=string` 将文件的摘要与此字符串比较。如果与 `-q` 或 `--quiet` 选项组合，除设置退出状态外，还打印计算的摘要。（注意，如果指定多个文件，此选项尚不可用。）
 
-安静模式 — 只打印校验和。覆盖 `-r` 选项。
+**`-p`**, `--passthrough` 将标准输入回显到标准输出，并将校验和附加到标准输出。在此模式下，命令行上指定的任何文件被静默忽略。
 
-[`-r`](#r)
+**`-q`**, `--quiet` 安静模式——仅打印校验和。覆盖 `-r` 或 `--reverse` 选项。
 
-反转输出的格式。-
-这有助于视觉差异。与 `-ptx` 选项结合使用时不执行任何操作。
+**`-r`**, `--reverse` 反转输出格式。这有助于视觉差异比较。与 `-ptx` 选项组合时无效果。
 
-[`-t`](#t)
+**`-s`** `string`, `--string=string` 打印给定 `string` 的校验和。在此模式下，命令行上指定的任何文件被静默忽略。
 
-运行内置计时赛。
+**`-t`**, `--time-trial` 运行内置计时测试。对于 `-sum` 版本，这是为兼容 coreutils 而设的空操作。
 
-[`-x`](#x)
+**`-x`**, `--self-test` 运行内置测试脚本。
 
-运行内置测试脚本。
+### GNU 选项
 
-[退出状态](#__u9000___u51FA___u72B6___u6001_)
-=========================================
+以下选项在 GNU 模式下可用，即程序以以 “sum” 结尾的名称调用时：
 
-The `md5`, `sha1`, `sha224`, `sha256`, `sha512`, `sha512t256`, `rmd160`, `skein256`, `skein512`, 和 `skein1024` 实用程序在成功时退出 0，如果至少一个输入文件无法读取，则退出 1，如果至少一个文件无法读取，则退出 2具有与 `-c` 选项相同的哈希值。
+**`-b`**, `--binary` 以二进制模式读取文件。
 
-[实例](#__u5B9E___u4F8B_)
-=======================
+**`-c`**, `--check` 作为参数传递的文件必须包含由相同摘要算法以经典 BSD 格式或 GNU coreutils 格式生成的摘要行。对于摘要文件中每个格式良好的行，写入一行包含文件名后跟冒号 “:” 以及 OK 或 FAILED。如果适用，最后打印失败比较的次数和因格式不良而跳过的行数。可使用 `--quiet` 选项静默输出，除非摘要中有不匹配的条目。
+
+**`--help`** 打印用法消息并退出。
+
+**`--ignore-missing`** 验证校验和时，忽略给出了校验和但在磁盘上未找到的文件。
+
+**`--quiet`** 验证校验和时，除非验证失败，否则不打印任何内容。
+
+**`--status`** 验证校验和时，完全不打印任何内容。退出码将反映验证是否成功。
+
+**`--strict`** 验证校验和时，如果输入格式错误则失败。
+
+**`--tag`** 产生 BSD 风格输出。
+
+**`-t`**, `--text` 以文本模式读取文件。这是默认值。注意，此实现不区分二进制和文本模式。
+
+**`--version`** 打印版本信息并退出。
+
+**`-w`**, `--warn` 验证校验和时，警告格式错误的输入。
+
+**`-z`**, `--zero` 以 NUL 而非换行符终止输出行。
+
+### PERL 选项
+
+以下选项在 Perl 模式下可用，即程序以名称 “shasum” 调用时：
+
+**`-0`**, `--01` 以位模式读取文件：ASCII ‘0’ 和 ‘1’ 字符分别对应 0 和 1 位，所有其他字符被忽略。参见 “缺陷”。
+
+**`-a`** `alg`, `--algorithm` `alg` 使用指定算法：“1” 表示 SHA-1（默认），“xxx” 表示 `xxx` 位 SHA-2（例如 “256” 表示 SHA-256），或 “xxxyyy” 表示截断为 `yyy` 位的 `xxx` 位 SHA-2（例如 “512224” 表示 SHA-512/224）。
+
+**`-b`**, `--binary` 以二进制模式读取文件。
+
+**`-c`**, `--check` 作为参数传递的文件必须包含由相同摘要算法以经典 BSD 格式或 GNU coreutils 格式生成的摘要行。对于摘要文件中每个格式良好的行，写入一行包含文件名后跟冒号 “:” 以及 OK 或 FAILED。如果适用，最后打印失败比较的次数和因格式不良而跳过的行数。可使用 `--quiet` 选项静默输出，除非摘要中有不匹配的条目。
+
+**`--help`** 打印用法消息并退出。
+
+**`--ignore-missing`** 验证校验和时，忽略给出了校验和但在磁盘上未找到的文件。
+
+**`--quiet`** 验证校验和时，除非验证失败，否则不打印任何内容。
+
+**`--status`** 验证校验和时，完全不打印任何内容。退出码将反映验证是否成功。
+
+**`--strict`** 验证校验和时，如果输入格式错误则失败。
+
+**`--tag`** 产生 BSD 风格输出。
+
+**`-t`**, `--text` 以文本模式读取文件。这是默认值。注意，此实现不区分二进制和文本模式。
+
+**`-U`**, `--UNIVERSAL` 以通用模式读取文件：任何 CR-LF 对，以及任何后不跟 LF 的 CR，在计算摘要前转换为 LF。
+
+**`--version`** 打印版本信息并退出。
+
+**`-w`**, `--warn` 验证校验和时，警告格式错误的输入。
+
+## 退出状态
+
+`md5`、`sha512t224`、`rmd160` 和 `skein1024` 实用程序成功时退出 0，如果至少一个输入文件无法读取则退出 1，如果至少一个文件的哈希与 `-c` 选项不同则退出 2。
+
+`md5sum`、`sha512t224sum`、`rmd160` 和 `shasum` 实用程序成功时退出 0，如果至少一个输入文件无法读取或验证校验和时不具有预期校验和则退出 1。
+
+## 实例
 
 计算字符串 “Hello” 的 MD5 校验和。
 
-$ md5 -s Hello MD5 ("Hello") = 8b1a9953c4611296a827abf8c47804d7 
+```sh
+$ md5 -s Hello
+MD5 ("Hello") = 8b1a9953c4611296a827abf8c47804d7
+```
 
-与上面相同，但请注意输入字符串中没有换行符：
+同上，但注意输入字符串中缺少换行符：
 
-$ echo -n Hello | md5 8b1a9953c4611296a827abf8c47804d7 
+```sh
+$ echo -n Hello | md5
+8b1a9953c4611296a827abf8c47804d7
+```
 
-计算多个文件的校验和反转输出：
+计算多个文件的校验和并反转输出：
 
-$ md5 -r /boot/loader.conf /etc/rc.conf ada5f60f23af88ff95b8091d6d67bef6 /boot/loader.conf d80bf36c332dc0fdc479366ec3fa44cd /etc/rc.conf 
+```sh
+$ md5 -r /boot/loader.conf /etc/rc.conf
+ada5f60f23af88ff95b8091d6d67bef6 /boot/loader.conf
+d80bf36c332dc0fdc479366ec3fa44cd /etc/rc.conf
+```
 
-将 /boot/loader.conf 的摘要写入一个名为 digest 的文件中。然后再次计算校验和，并根据从 digest 文件中提取的校验和字符串对其进行验证：
+这与 GNU 模式的输出几乎但不完全相同：
 
-$ md5 /boot/loader.conf > digest && md5 -c $(cut -f2 -d= digest) /boot/loader.conf MD5 (/boot/loader.conf) = ada5f60f23af88ff95b8091d6d67bef6 
+```sh
+$ md5sum /boot/loader.conf /etc/rc.conf
+ada5f60f23af88ff95b8091d6d67bef6  /boot/loader.conf
+d80bf36c332dc0fdc479366ec3fa44cd  /etc/rc.conf
+```
 
-与上面相同，但将摘要与无效字符串 (“randomstring”) 进行比较，这会导致失败。
+注意哈希和文件名之间有两个空格。如果请求二进制模式，它们改为由空格和星号分隔：
 
-$ md5 -c randomstring /boot/loader.conf MD5 (/boot/loader.conf) = ada5f60f23af88ff95b8091d6d67bef6 \[ Failed \] 
+```sh
+$ md5sum -b /boot/loader.conf /etc/rc.conf
+ada5f60f23af88ff95b8091d6d67bef6 */boot/loader.conf
+d80bf36c332dc0fdc479366ec3fa44cd */etc/rc.conf
+```
 
-[参见](#__u53C2___u89C1_)
-=======================
+将 **/boot/loader.conf** 的摘要写入名为 `digest` 的文件。然后再次计算校验和，并与从 `digest` 文件提取的校验和字符串验证：
 
-cksum(1), md5(3), ripemd(3), sha(3), sha256(3), sha384(3), sha512(3), skein(3) R. Rivest, The MD5 Message-Digest Algorithm, RFC1321. J. Burrows, The Secure Hash Standard, FIPS PUB 180-2. D. Eastlake and P. Jones, US Secure Hash Algorithm 1, RFC 3174.
+```sh
+$ md5 /boot/loader.conf > digest && md5 -c $(cut -f2 -d= digest) /boot/loader.conf
+MD5 (/boot/loader.conf) = ada5f60f23af88ff95b8091d6d67bef6
+```
 
-RIPEMD-160 is part of the ISO draft standard “ISO/IEC DIS 10118-3” on dedicated hash functions.
+同上，但将摘要与无效字符串（“randomstring”）比较，结果为失败。
 
-Secure Hash Standard (SHS): http://csrc.nist.gov/cryptval/shs.html.
+```sh
+$ md5 -c randomstring /boot/loader.conf
+MD5 (/boot/loader.conf) = ada5f60f23af88ff95b8091d6d67bef6 [ Failed ]
+```
 
-The RIPEMD-160 page: http://www.esat.kuleuven.ac.be/~bosselae/ripemd160.html.
+在 GNU 模式下，`-c` 选项不与作为参数传递的哈希字符串比较。相反，它期望一个摘要文件，如上例中为 **/boot/loader.conf** 创建的名为 `digest` 的文件。
 
-[致谢](#__u81F4___u8C22_)
-=======================
+```sh
+$ md5sum -c digest
+/boot/loader.conf: OK
+```
 
-该程序被放置在公共领域，供 RSA Data Security 免费使用。
+摘要文件可包含任意数量的行，格式为 BSD 或 GNU 模式生成的格式。如果哈希值与文件不匹配，打印 “FAILED” 而非 “OK”。
 
-Oliver Eikemeier <[eik@FreeBSD.org](mailto:eik@FreeBSD.org)\> 添加了对 SHA-1 和 RIPEMD-160 的支持。
+## 参见
 
-June 19, 2020
+[cksum(1)](cksum.1.md), md5(3), ripemd(3), sha(3), sha256(3), sha384(3), sha512(3), skein(3), vis(3)
 
-FreeBSD 13.1-RELEASE
+> R. Rivest, "The MD5 Message-Digest Algorithm", RFC1321.
+
+> J. Burrows, "The Secure Hash Standard", FIPS PUB 180-2.
+
+> D. Eastlake and P. Jones, "US Secure Hash Algorithm 1", RFC 3174.
+
+RIPEMD-160 是关于专用哈希函数的 ISO 草案标准 "ISO/IEC DIS 10118-3" 的一部分。
+
+Secure Hash Standard (SHS): <https://www.nist.gov/publications/secure-hash-standard-shs>
+
+The RIPEMD-160 page: <https://homes.esat.kuleuven.be/~bosselae/ripemd160.html>
+
+## 注意事项
+
+用于包含不可打印字符的文件名的编码与 GNU coreutils 使用的不兼容。GNU coreutils 使用的编码不可逆，因为某些不可打印字符被编码而其他被简单省略。另一方面，此实用程序使用的编码完全可逆。
+
+如果需要与 GNU coreutils 互操作，建议确保所有文件名仅包含可打印字符。
+
+## 缺陷
+
+在位模式下，原始 `shasum` 脚本能够处理任意长度的输入。此实现不能，如果输入长度不是 8 位的倍数将发出错误。
+
+## 致谢
+
+此实用程序最初源自 RSA Data Security 放入公共域供免费通用使用的程序。
+
+Oliver Eikemeier <eik@FreeBSD.org> 添加了对 SHA-1 和 RIPEMD-160 的支持。
+
+Colin Percival <cperciva@FreeBSD.org> 和 Allan Jude <allanjude@FreeBSD.org> 添加了对 SHA-2 的支持。
+
+Allan Jude <allanjude@FreeBSD.org> 添加了对 SKEIN 的支持。
+
+Warner Losh <imp@FreeBSD.org> 添加了与 GNU coreutils 的兼容性，并由 Dag-Erling Smørgrav <des@FreeBSD.org> 大幅扩展，后者还添加了 Perl 兼容性。

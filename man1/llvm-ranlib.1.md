@@ -1,43 +1,29 @@
-  LLVM-RANLIB(1)  
+# llvm-ranlib.1
 
-LLVM-RANLIB(1)
+`llvm-ranlib` — 生成归档索引
 
-LLVM
+## 名称
 
-LLVM-RANLIB(1)
+`llvm-ranlib`
 
-[名称](#__u540D___u79F0_)
-=======================
+## 概要
 
-llvm-ranlib - 生成存档索引
+`llvm-ranlib [options] archive...`
 
-[概要](#__u6982___u8981_)
-=======================
+## 描述
 
-**llvm-ranlib** \[_options_\]
+`llvm-ranlib` 是 `llvm-ar` 工具的别名，用于为一个或多个归档文件生成索引。它可以用作 GNU 的 `ranlib` 工具的替代品。
 
-[描述](#__u63CF___u8FF0_)
-=======================
+运行 `llvm-ranlib` 等同于运行 `llvm-ar s`。
 
-**llvm-ranlib** 是为档案生成索引的 llvm-ar 工具的别名。它可以用作 GNU 的 **ranlib** 工具的替代品。
+## 参见
 
-运行 **llvm-ranlib** 相当于运行 **llvm-ar s**。
+llvm-ar(1)
 
-[参见](#__u53C2___u89C1_)
-=======================
+## 作者
 
-**llvm-ar(1)**
+由 LLVM Team（<https://llvm.org/>）维护。
 
-[作者](#__u4F5C___u8005_)
-=======================
+## 版权
 
-由 LLVM 团队维护 (https://llvm.org/).
-
-[版权](#__u7248___u6743_)
-=======================
-
-2003-2020, LLVM 项目
-
-2020-06-26
-
-10
+2003-2023, LLVM Project

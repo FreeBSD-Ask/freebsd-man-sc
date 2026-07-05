@@ -1,103 +1,71 @@
-  TRUSS(1)  
+# truss.1
 
-TRUSS(1)
+`truss` — 跟踪系统调用
 
-FreeBSD General Commands Manual
+## 名称
 
-TRUSS(1)
+`truss`
 
-[NAME](#NAME)
-=============
+## 概要
 
-`truss` —
+`truss [-facedDHS] [-o file] [-s strsize] -p pid`
 
-跟踪系统调用
+`truss [-facedDHS] [-o file] [-s strsize] command [args]`
 
-[概要](#__u6982___u8981_)
-=======================
+## 描述
 
-`truss` \[`-facedDHS`\] \[`-o` file\] \[`-s` strsize\] `-p` pid `truss` \[`-facedDHS`\] \[`-o` file\] \[`-s` strsize\] command \[args\]
-
-[描述](#__u63CF___u8FF0_)
-=======================
-
-`truss` 实用程序跟踪指定进程或程序调用的系统调用。输出到指定的输出文件，默认为标准错误。 它通过停止并重新启动通过 ptrace(2) 监视的进程来实现这一点。
+`truss` 实用程序跟踪指定进程或程序所调用的系统调用。输出到指定输出文件，默认为标准错误。它通过 ptrace(2) 停止并重启被监视的进程来实现此功能。
 
 选项如下：
 
-[`-f`](#f)
+**`-f`** 跟踪由 fork(2)、vfork(2) 等创建的原始被跟踪进程的后代。为区分进程间的事件，每次事件的输出中包含进程的进程 ID（PID）。
 
-跟踪由 fork(2) 、 vfork(2) 等创建的原始跟踪进程的后代。 为了区分进程之间的事件，进程的进程 (PID) 包含在每个事件的输出中。
+**`-a`** 显示每次 execve(2) 系统调用中传递的参数字符串。
 
-[`-a`](#a)
+**`-c`** 不显示单个系统调用或信号。而是在退出前打印摘要，包含每个系统调用的：使用的总系统时间、调用次数以及调用返回错误的次数。
 
-显示在每个 execve(2) 系统调用中传递的参数字符串。
+**`-e`** 显示每次 execve(2) 系统调用中传递的环境字符串。
 
-[`-c`](#c)
+**`-d`** 在输出中包含时间戳，显示自跟踪开始以来流逝的时间。
 
-不显示单个系统调用或信号。 相反，在退出之前，打印包含每个系统调用的摘要： 使用的总系统时间、调用调用的次数以及调用返回错误的次数。
+**`-D`** 在输出中包含时间戳，显示自上次记录事件以来流逝的时间。
 
-[`-e`](#e)
+**`-H`** 在每次事件的输出中包含线程 ID。
 
-显示在每个 execve(2) 系统调用中传递的环境字符串。
+**`-S`** 不显示进程接收到的信号信息。（通常，`truss` 同时显示信号和系统调用事件。）
 
-[`-d`](#d)
+**`-o`** `file` 将输出打印到指定的 `file` 而非标准错误。
 
-在输出中包含时间戳，显示自跟踪开始以来经过的时间。
+**`-s`** `strsize` 显示字符串时最多使用 `strsize` 个字符。如果缓冲区更大，字符串末尾将显示 "..."。默认 `strsize` 为 32。
 
-[`-D`](#D)
+**`-p`** `pid` 跟踪由 `pid` 指定的进程，而非新命令。
 
-在输出中包含时间戳，显示自上次记录事件以来经过的时间。
+**`command`** [`args`] 执行 `command` 并跟踪其系统调用。（`-p` 和 `command` 选项互斥。）
 
-[`-H`](#H)
+## 实例
 
-在每个事件的输出中包含线程 ID。
+跟踪用于回显 "hello" 的系统调用：
 
-[`-S`](#S)
+```sh
+$ truss /bin/echo hello
+```
 
-不显示有关进程接收到的信号的信息。 （通常， `truss` 会显示信号以及系统调用事件。）
+与上例相同，但将输出写入文件：
 
-[`-o`](#o) file
+```sh
+$ truss -o /tmp/truss.out /bin/echo hello
+```
 
-将输出打印到指定 file 而不是标准错误。
+跟踪一个已在运行的进程：
 
-[`-s`](#s) strsize
+```sh
+$ truss -p 34
+```
 
-最多使用 strsize 个字符显示字符串。 如果缓冲区较大， “`...`” 将显示在字符串的末尾。 默认 strsize 为 32。
+## 参见
 
-[`-p`](#p) pid
+[dtrace(1)](dtrace.1.md), [kdump(1)](kdump.1.md), [ktrace(1)](ktrace.1.md), ptrace(2), utrace(2), sysdecode(3)
 
-遵循 pid 指定的进程而不是新命令。
+## 历史
 
-command \[args\]
-
-执行 command 并跟踪它的系统调用。 （ `-p` 和 command 选项是互斥的。）
-
-[实例](#__u5B9E___u4F8B_)
-=======================
-
-遵循用于回显 "hello" 的系统调用：
-
-`$ truss /bin/echo hello`
-
-做同样的事情，但是把输出放到一个文件中：
-
-`$ truss -o /tmp/truss.out /bin/echo hello`
-
-遵循已经运行的进程：
-
-`$ truss -p 34`
-
-[参见](#__u53C2___u89C1_)
-=======================
-
-dtrace(1), kdump(1), ktrace(1), ptrace(2), utrace(2)
-
-[历史](#__u5386___u53F2_)
-=======================
-
-`truss` 命令由 Sean Eric Fagan 为 FreeBSD 编写。 它是根据 System V Release 4 和 SunOS 可用的类似命令建模的。
-
-July 24, 2017
-
-FreeBSD 13.1-RELEASE
+`truss` 命令由 Sean Eric Fagan 为 FreeBSD 编写。它仿照 System V Release 4 和 SunOS 上可用的类似命令。

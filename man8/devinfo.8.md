@@ -1,56 +1,41 @@
-  DEVINFO(8)  
+# devinfo.8
 
-DEVINFO(8)
+`devinfo` — 打印系统设备配置信息
 
-FreeBSD System Manager's Manual
+## 名称
 
-DEVINFO(8)
+`devinfo`
 
-[名称](#__u540D___u79F0_)
-=======================
+## 概要
 
-`devinfo` —
+`devinfo [-rv]`
 
-打印有关系统设备配置的信息
+`devinfo -p dev [-v]`
 
-[概要](#__u6982___u8981_)
-=======================
+`devinfo -u [-v]`
 
-`devinfo` \[`-rv`\] `devinfo` `-u` `devinfo` `-p` dev \[`-v`\]
+## 描述
 
-[描述](#__u63CF___u8FF0_)
-=======================
+不带任何参数时，`devinfo` 工具会显示系统中可用设备的层次结构，从“nexus”设备开始。
 
-`devinfo` 实用程序不带任何参数，显示系统中可用设备的层次结构，从 “nexus” 设备开始。
+接受以下选项：
 
-接受以下选项。
+**`-p`** `dev` 显示 `dev` 回溯到设备树根的路径。`dev` 可以是设备名称、ACPI 句柄的绝对路径（必须以 **\\** 开头）或 PCI 选择器（**pci**`domain`:`bus`:`slot`:`function` 或 **pci**`bus`:`slot`:`function`）。如果指定了 `-v`，每个设备单独占一行输出，包括设备名称和额外的详细信息；否则输出以空格分隔的设备名称列表。
 
-[`-r`](#r)
+**`-r`** 使硬件资源信息（如 IRQ、I/O 端口、I/O 内存地址）也列在已预留这些资源的每个设备下。
 
-导致硬件资源信息（例如 IRQ、I/O 端口、I/O 内存地址）也被列在每个已保留这些资源的设备下。
+**`-u`** 显示与 `-r` 相同的信息，但按资源类型而非设备排序，便于按使用情况查看系统资源集合和可用资源。例如，它会将所有 IRQ 使用者列在一起。
 
-[`-u`](#u)
+**`-v`** 显示驱动程序树中的所有设备，而不仅仅是已附加或忙碌的设备。不带此标志时，只报告已附加的设备。此标志还显示每个设备的详细信息。
 
-显示与 `-r` 相同的信息，但按资源类型而非设备排序，允许按使用情况和可用资源查看系统资源集。 即，它将所有 IRQ 消费者一起列出。
+## 参见
 
-[`-v`](#v)
+[systat(1)](../man1/systat.1.md), devinfo(3), [devctl(8)](devctl.8.md), [iostat(8)](iostat.8.md), pciconf(8), [vmstat(8)](vmstat.8.md), [devclass(9)](../man9/devclass.9.md), [device(9)](../man9/device.9.md)
 
-显示驱动程序树中的所有设备，而不仅仅是那些已连接或忙碌的设备。 如果没有此标志，则仅报告那些已连接的设备。 此标志还显示有关每个设备的详细信息。
+## 历史
 
-[`-p`](#p) dev
+`devinfo` 工具出现于 FreeBSD 5.0。
 
-将 dev 的路径显示回设备树的根目录。
+## 作者
 
-[参见](#__u53C2___u89C1_)
-=======================
-
-systat(1), devinfo(3), iostat(8), pciconf(8), pnpinfo(8), vmstat(8), devclass(9), device(9)
-
-[作者](#__u4F5C___u8005_)
-=======================
-
-Mike Smith <[msmith@FreeBSD.org](mailto:msmith@FreeBSD.org)\>
-
-December 21, 2017
-
-FreeBSD 13.1-RELEASE
+Mike Smith <msmith@FreeBSD.org>

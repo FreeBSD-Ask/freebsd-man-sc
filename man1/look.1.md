@@ -1,94 +1,78 @@
-  LOOK(1)  
+# look.1
 
-LOOK(1)
+`look` — 显示以指定字符串开头的行
 
-FreeBSD General Commands Manual
+## 名称
 
-LOOK(1)
+`look`
 
-[名称](#__u540D___u79F0_)
-=======================
+## 概要
 
-`look` —
+`look [-df] [-t termchar] string [file]`
 
-显示以给定字符串开头的行
+## 描述
 
-[概要](#__u6982___u8981_)
-=======================
+`look` 实用程序显示 `file` 中所有以 `string` 作为前缀的行。由于 `look` 执行二分搜索，`file` 中的行必须已排序。
 
-`look` \[`-df`\] \[`-t` termchar\] string \[file ...\]
+如果未指定 `file`，则使用文件 **`/usr/share/dict/words`**，仅比较字母数字字符，且忽略字母字符的大小写。
 
-[描述](#__u63CF___u8FF0_)
-=======================
+可用选项如下：
 
-`look` 实用程序显示 file 中包含 string 作为前缀的任何行。 由于 `look` 执行二进制搜索，因此必须对文件 file 中的行进行排序。
+**`-d`, `--alphanum`** 字典字符集和顺序，即仅比较字母数字字符。
 
-如果未指定 file ，则使用文件 /usr/share/dict/words ，仅比较字母数字字符，忽略字母字符的大小写。
+**`-f`, `--ignore-case`** 忽略字母字符的大小写。
 
-可以使用以下选项：
+**`-t`, `--terminate`** `termchar` 指定字符串终止字符，即仅比较 `string` 中直到并包括首次出现 `termchar` 之前的字符。
 
-[`-d`](#d), `--alphanum`
+## 环境变量
 
-字典字符集和顺序，即只比较字母数字字符。
+`LANG`、`LC_ALL` 和 `LC_CTYPE` 环境变量会影响 `look` 实用程序的执行。其影响在 [environ(7)](../man7/environ.7.md) 中描述。
 
-[`-f`](#f), `--ignore-case`
+## 文件
 
-忽略字母字符的大小写。
+**`/usr/share/dict/words`** 字典
 
-[`-t`](#t), `--terminate` termchar
+## 退出状态
 
-指定一个字符串终止字符，即只比较 string 中直到并包括第一次出现 termchar 的字符。
+`look` 实用程序找到并显示一行或多行时退出值为 0，未找到行时为 1，发生错误时大于 1。
 
-[环境](#__u73AF___u5883_)
-=======================
+## 实例
 
-`LANG 、 LC_ALL` 和 `LC_CTYPE` 环境变量会影响 `look` 实用程序的执行。 在 environ(7) 中描述了它们的效果。
+在文件 **`/usr/share/dict/words`** 中查找以 `xylen` 开头的行：
 
-[文件](#__u6587___u4EF6_)
-=======================
+```sh
+$ look xylen
+xylene
+xylenol
+xylenyl
+```
 
-/usr/share/dict/words
+与上例相同，但不考虑 `string` 中第一个 `e` 之后的任何字符。注意，由于搜索的是默认文件 **`/usr/share/dict/words`**，`-f` 隐式启用：
 
-词典
+```sh
+$ look -t e xylen
+Xyleborus
+xylem
+xylene
+xylenol
+xylenyl
+xyletic
+```
 
-[退出状态](#__u9000___u51FA___u72B6___u6001_)
-=========================================
+## 兼容性
 
-如果找到并显示一行或多行， `look` 实用程序退出 0，如果未找到任何行，则退出 1，如果发生错误，则退出 >1。
+原始手册页指出，当指定 `-d` 选项时，制表符和空白字符参与比较。这是不正确的，当前手册页与历史实现一致。
 
-[实例](#__u5B9E___u4F8B_)
-=======================
+`-a` 和 `--alternative` 标志为兼容性而被忽略。
 
-在文件 /usr/share/dict/words 中查找以 ‘`xylene`’ 开头的行：
+## 参见
 
-$ look xylen xylene xylenol xylenyl 
+[grep(1)](grep.1.md), [sort(1)](sort.1.md)
 
-与上面相同，但不考虑 string 中第一个 ‘`e`’ 之外的任何字符。 请注意， `-f` 是隐含的，因为我们正在搜索默认文件 /usr/share/dict/words:
+## 历史
 
-$ look -t e xylen Xyleborus xylem xylene xylenol xylenyl xyletic 
+`look` 实用程序首次出现于 Version 7 AT&T UNIX。
 
-[兼容性](#__u517C___u5BB9___u6027_)
-================================
+## 缺陷
 
-原始手册页指出，当指定 `-d` 选项时，制表符和空白字符参与比较。 这是不正确的，当前的手册页与历史实现相匹配。
-
-出于兼容性考虑，忽略 `-a` 和 `--alternative` 标志。
-
-[参见](#__u53C2___u89C1_)
-=======================
-
-grep(1), sort(1)
-
-[历史](#__u5386___u53F2_)
-=======================
-
-在 Version 7 AT&T UNIX 中出现了 `look` 实用程序。
-
-[缺陷](#__u7F3A___u9677_)
-=======================
-
-行不根据当前语言环境的整理顺序进行比较。 输入文件必须在 `LC_COLLATE` 设置为 ‘`C`’ 的情况下进行排序。
-
-December 29, 2020
-
-FreeBSD 13.1-RELEASE
+行不会按照当前 locale 的排序顺序进行比较。输入文件必须以 `LC_COLLATE` 设置为 `C` 进行排序。

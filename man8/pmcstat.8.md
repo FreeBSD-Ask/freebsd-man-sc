@@ -1,351 +1,230 @@
-  PMCSTAT(8)  
+# pmcstat.8
 
-PMCSTAT(8)
+`pmcstat` — 使用性能监控硬件进行性能测量
 
-FreeBSD System Manager's Manual
+## 名称
 
-PMCSTAT(8)
+`pmcstat`
 
-[名称](#__u540D___u79F0_)
-=======================
+## 概要
 
-`pmcstat` —
+`pmcstat [-A] [-C] [-D pathname] [-E] [-F pathname] [-G pathname] [-I] [-L] [-M mapfilename] [-N] [-O logfilename] [-P event-spec] [-R logfilename] [-S event-spec] [-T] [-U] [-W] [-a pathname] [-c cpu-spec] [-d] [-e] [-f pluginopt] [-g] [-i lwp] [-l secs] [-m pathname] [-n rate] [-o outputfile] [-p event-spec] [-q] [-r fsroot] [-s event-spec] [-t process-spec] [-u event-spec] [-v] [-w secs] [-z graphdepth] [command [args]]`
 
-使用性能监控硬件进行性能测量
+## 描述
 
-[概要](#__u6982___u8981_)
-=======================
+`pmcstat` 工具使用 [hwpmc(4)](../man4/hwpmc.4.md) 提供的功能来测量系统性能。
 
-`pmcstat` \[`-A`\] \[`-C`\] \[`-D` pathname\] \[`-E`\] \[`-F` pathname\] \[`-G` pathname\] \[`-I`\] \[`-L`\] \[`-M` mapfilename\] \[`-N`\] \[`-O` logfilename\] \[`-P` event-spec\] \[`-R` logfilename\] \[`-S` event-spec\] \[`-T`\] \[`-U`\] \[`-W`\] \[`-a` pathname\] \[`-c` cpu-spec\] \[`-d`\] \[`-e`\] \[`-f` pluginopt\] \[`-g`\] \[`-i` lwp\] \[`-k` kerneldir\] \[`-l` secs\] \[`-m` pathname\] \[`-n` rate\] \[`-o` outputfile\] \[`-p` event-spec\] \[`-q`\] \[`-r` fsroot\] \[`-s` event-spec\] \[`-t` process-spec\] \[`-u` event-spec\] \[`-v`\] \[`-w` secs\] \[`-z` graphdepth\] \[command \[args\]\]
+`pmcstat` 工具既可以测量系统整体所看到的硬件事件，也可以测量指定进程集合在系统 CPU 上执行时所看到的事件。如果针对特定的进程集合进行测量（例如指定了 `-t` `process-spec` 选项，或使用 `command` 指定了命令行），则测量将持续到 `command` 退出，或所有由 `-t` `process-spec` 选项指定的目标进程退出，或 `pmcstat` 工具被用户中断。如果未针对特定的进程集合进行测量，`pmcstat` 将进行系统范围的测量，直到被用户中断。
 
-[描述](#__u63CF___u8FF0_)
-=======================
+给定的一次 `pmcstat` 调用可以混合分配系统模式和进程模式的 PMC，包括计数和采样两种类型。所有计数 PMC 的值会以人类可读的形式定期打印。`pmcstat` 的人类可读文本输出格式并不稳定，将来可能发生变化。采样 PMC 的输出可以配置为发送到日志文件以供后续离线分析，或者以更高的开销配置为即时以文本形式打印。
 
-`pmcstat` 实用程序使用 hwpmc(4) 提供的工具测量系统性能。
+要测量的硬件事件通过事件说明符字符串 `event-spec` 指定给 `pmcstat`。这些事件说明符的语法与机器相关，详见 pmc(3)。
 
-`pmcstat` 实用程序可以测量整个系统看到的硬件事件，以及在系统 CPU 上执行指定的一组进程时看到的硬件事件。 如果以特定进程集为目标（例如，如果指定了 `-t` process-spec 选项，或者如果使用 command 指定了命令行），则测量会一直进行，直到 command 退出，或者直到由 `-t` process-spec 选项退出，或直到 `pmcstat` 实用程序被用户中断。 如果一组特定的进程不是测量的目标，那么 `pmcstat` 将执行系统范围的测量，直到被用户中断。
+进程模式 PMC 可以配置为由目标进程的当前和未来子进程继承。
 
-对 `pmcstat` 的给定调用可以混合分配系统模式和进程模式 PMC，包括计数和采样风格。 `pmcstat` 定期以人类可读的形式打印所有计数 PMC 的值。 采样 PMC 的输出可以配置为进入日志文件以进行后续离线分析，或者以更大的开销为代价，可以配置为以文本形式即时打印。
+## 选项
 
-使用事件说明符字符串 event-spec 将要测量的硬件事件指定给 `pmcstat` 。 这些事件说明符的语法取决于机器，并记录在 pmc(3) 中。
+可用选项如下：
 
-进程模式 PMC 可以配置为可由目标进程的当前和未来子进程继承。
+**`-A`** 跳过符号查找，改为显示地址。
 
-[选项](#__u9009___u9879_)
-=======================
+**`-C`** 在为命令行上后续指定的计数模式 PMC 显示累积计数或增量计数之间切换。默认为显示增量计数。
 
-可以使用以下选项：
+**`-D`** `pathname` 在由 `pathname` 命名的目录中创建包含各程序采样的文件。默认在当前目录中创建这些文件。
 
-[`-A`](#A)
+**`-E`** 在为命令行上后续指定的进程模式 PMC 跟踪的进程退出时，切换显示每个进程的计数。此选项与 `-d` 选项结合使用时，对于映射复杂进程管道的性能特征很有用。默认不启用每进程跟踪。
 
-跳过符号查找并改为显示地址
+**`-F`** `pathname` 将调用树（Kcachegrind）信息打印到文件 `pathname`。如果参数 `pathname` 为“`-`”，此信息将发送到由 `-o` 选项指定的输出文件。
 
-[`-C`](#C)
+**`-G`** `pathname` 将调用链信息打印到文件 `pathname`。如果参数 `pathname` 为“`-`”，此信息将发送到由 `-o` 选项指定的输出文件。
 
-在显示命令行上指定的后续计数模式 PMC 的累积或增量计数之间切换。 默认是显示增量计数。
+**`-I`** 显示指令指针在符号中的偏移量。
 
-[`-D`](#D) pathname
+**`-L`** 列出所有事件名称。
 
-在 pathname 命名的目录中创建包含每个程序示例的文件。 默认是在当前目录中创建这些文件。
+**`-M`** `mapfilename` 将事件日志中遇到的可执行对象与 gprof(1) 配置文件所使用的缩写路径名之间的映射写入文件 `mapfilename`。如果未指定此选项，则不写入映射信息。参数 `mapfilename` 可以为“`-`”，此时此映射信息将发送到由 `-o` 选项配置的输出文件。
 
-[`-E`](#E)
+**`-N`** 为后续的采样 PMC 切换是否捕获调用链信息。默认情况下，采样 PMC 会捕获调用链信息。
 
-在命令行上指定的后续进程模式 PMC 的跟踪进程退出时切换显示每个进程的计数。 当与 `-d` 选项结合使用时，此选项对于映射复杂流程管道的性能特征非常有用。 默认是不启用每进程跟踪。
+**`-O`** `logfilename` 将日志输出发送到文件 `logfilename`。如果 `logfilename` 的形式为 `hostname`:`port`，其中 `hostname` 不以 `.` 或 `/` 开头，则 `pmcstat` 将打开到主机 `hostname` 的 `port` 端口的网络套接字。如果未指定 `-O` 选项但请求了某个日志记录选项，`pmcstat` 会将日志事件的文本形式打印到配置的输出文件。
 
-[`-F`](#F) pathname
+**`-P`** `event-spec` 分配一个进程模式采样 PMC，测量 `event-spec` 中指定的硬件事件。
 
-将调用树 (Kcachegrind) 信息打印到文件 pathname 。 如果参数 pathname 是 “`-`” ，则此信息将发送到 `-o` 选项指定的输出文件。
+**`-R`** `logfilename` 使用文件 `logfilename` 中的采样数据进行离线分析。每条解码记录打印为单行，包含以下字段：记录类型（例如“callchain”、“initlog”）、类型特定数据，以及一个尾部的 20 位原始 TSC 值，记录事件发生时的 CPU 周期。“initlog”记录还会打印“`tsc_freq=<hz>`”，即内核在启动时测量的 TSC 时钟频率（以 Hz 为单位）。要将 TSC 增量转换为纳秒：
 
-[`-G`](#G) pathname
+```sh
+elapsed_ns = (tsc_end - tsc_start) * 1e9 / tsc_freq
+```
 
-将调用链信息打印到文件 pathname 。 如果参数 pathname 是 “`-`” ，则此信息将发送到 `-o` 选项指定的输出文件。
+基于 TSC 的时间戳和“`tsc_freq`”仅在 x86 架构（amd64 和 i386）上有意义。在所有其他架构（包括 arm64 和 powerpc）上，“`tsc_freq`”字段将为零。
 
-[`-I`](#I)
+**`-S`** `event-spec` 分配一个系统模式采样 PMC，测量 `event-spec` 中指定的硬件事件。
 
-显示指令指针在符号中的偏移量。
+**`-T`** 对采样 PMC 使用类似 [top(1)](../man1/top.1.md) 的模式。可以使用以下热键：
 
-[`-L`](#L)
+**`A`** 切换符号解析
+**`Ctrl + a`** 切换到累积模式
+**`Ctrl + d`** 切换到增量模式
+**`f`** 将阈值以下的“f”开销表示为点（仅调用树）
+**`I`** 切换显示符号内的偏移量
+**`m`** 合并 PMC
+**`n`** 切换视图
+**`p`** 显示下一个 PMC
+**`q`** 退出
+**`Space`** 暂停
 
-列出所有事件名称。
+**`-U`** 切换在内核模式下是否捕获用户空间调用跟踪。默认情况下，采样 PMC 在用户空间模式下捕获用户空间调用链信息，在内核模式下捕获内核调用链信息。
 
-[`-M`](#M) mapfilename
+**`-W`** 切换是否在跟踪进程的线程每次被调度到 CPU 上时记录其看到的增量计数。这是一个实验性功能，旨在帮助分析系统中进程的动态行为。启用时可能产生大量开销。默认情况下此功能被禁用。
 
-将事件日志中遇到的可执行对象与用于 gprof(1) 配置文件的缩写路径名之间的映射写入文件 mapfilename 。 如果未指定此选项，则不写入映射信息。 参数 mapfilename 可以是 “`-`” ，在这种情况下，此映射信息将发送到 `-o` 选项配置的输出文件。
+**`-a`** `pathname` 对每个调用图中的每个地址执行符号和 file:line 查找，并将输出保存到 `pathname`。与仅解析图中第一个符号的 `-m` 不同，此选项解析调用图中的每个节点，如果没有查找信息则打印地址。此选项需要 `-R` 选项来读取先前用 `-O` 选项收集和保存的采样。
 
-[`-N`](#N)
+**`-c`** `cpu-spec` 将命令行上后续指定的系统模式 PMC 的 CPU 设置为 `cpu-spec`。参数 `cpu-spec` 是以逗号分隔的 CPU 编号列表，或字面值‘*’表示所有可用 CPU。默认在所有可用 CPU 上分配系统模式 PMC。
 
-切换为后续采样 PMC 捕获调用链信息。 默认是对 PMC 进行采样以捕获调用链信息。
+**`-d`** 在进程模式 PMC 测量目标进程的当前和未来子进程的事件，或仅测量目标进程的事件之间切换。默认为仅测量目标进程的事件。（它必须在命令行中先于 `-p`、`-s`、`-P` 或 `-S` 传递。）
 
-[`-O`](#O) logfilename
+**`-e`** 指定 gprof 配置文件将使用宽历史计数器。这些文件以兼容 gprof(1) 的格式生成。但是，无法完全解析 BSD 风格 gmon 头的其他工具可能无法正确解析这些文件。
 
-将日志输出发送到文件 logfilename 。 如果 logfilename 的格式为 hostname:port, 其中 hostname 不以 ‘`.`’ 开头 或 ‘`/`’, 然后 `pmcstat` 将打开一个网络套接字以在端口 port 上托管 hostname 。
+**`-f`** `pluginopt` 将选项字符串传递给活动插件。
+threshold=<float> 不显示低于指定值的开销（Top）。
+skiplink=0|1 将开销低于阈值的节点替换为点（Top）。
 
-如果未指定 `-O` 选项并且请求了其中一个日志记录选项，则 `pmcstat` 会将已记录事件的文本形式打印到配置的输出文件中。
+**`-g`** 以兼容 gprof(1) 的格式生成配置文件。为遇到的每个可执行对象生成单独的配置文件。配置文件放在以其 PMC 事件名称命名的子目录中。
 
-[`-P`](#P) event-spec
+**`-i`** `lwp` 按线程 ID `lwp` 进行过滤，可从 [ps(1)](../man1/ps.1.md) `-o` `lwp` 获取。
 
-分配一个过程模式采样 PMC 测量 event-spec 中指定的硬件事件。
+**`-l`** `secs` 设置系统范围性能测量的持续时间为 `secs` 秒。参数 `secs` 可以为小数值。
 
-[`-R`](#R) logfilename
+**`-m`** `pathname` 打印采样的 PC 及其所在函数的名称、起始和结束地址。`pathname` 参数是必需的，指示信息存储的位置。如果参数 `pathname` 为“`-`”，此信息将发送到由 `-o` 选项指定的输出文件。此选项需要 `-R` 选项来读取先前用 `-O` 选项收集和保存的采样。
 
-使用文件 logfilename 中的采样数据执行离线分析。
+**`-n`** `rate` 为命令行上后续指定的采样模式 PMC 设置默认采样率。默认情况下，PMC 配置为每 65536 个事件采样一次 CPU 的指令指针。
 
-[`-S`](#S) event-spec
+**`-o`** `outputfile` 将计数器读数和日志数据的文本表示发送到文件 `outputfile`。默认情况下，收集实时数据时输出发送到 `stderr`，处理预先存在的日志文件时输出发送到 `stdout`。
 
-分配系统模式采样 PMC 测量 event-spec 中指定的硬件事件。
+**`-p`** `event-spec` 分配一个进程模式计数 PMC，测量 `event-spec` 中指定的硬件事件。
 
-[`-T`](#T)
+**`-q`** 降低详细程度。
 
-使用类似 top(1) 的模式对 PMC 进行采样。可以使用以下热键：
+**`-r`** `fsroot` 将可执行文件所在的文件系统层次结构的顶层设置为参数 `fsroot`。默认为 **/**。
 
-[`A`](#A_2)
+**`-s`** `event-spec` 分配一个系统模式计数 PMC，测量 `event-spec` 中指定的硬件事件。
 
-切换符号分辨率
+**`-t`** `process-spec` 将进程模式 PMC 附加到由参数 `process-spec` 命名的进程。参数 `process-spec` 可以是表示特定进程 ID 的非负整数，或用于根据命令名称选择进程的正则表达式。
 
-[`Ctrl+a`](#Ctrl_+_a)
+**`-u`** `event-spec` 提供事件的简短描述。
 
-切换到累积模式
+**`-v`** 提高详细程度。
 
-[`Ctrl+d`](#Ctrl_+_d)
+**`-w`** `secs` 每 `secs` 秒打印所有计数模式 PMC 或 top 模式采样模式 PMC 的值。参数 `secs` 可以为小数值。默认间隔为 5 秒。
 
-切换到增量模式
+**`-z`** `graphdepth` 打印系统范围调用图时，将调用图限制为由参数 `graphdepth` 指定的深度。
 
-[`f`](#f)
+如果指定了 `command`，则使用 execvp(3) 执行它。
 
-将阈值下的 “f” 成本表示为一个点（仅限调用树）
+## 实例
 
-[`I`](#I_2)
+要在 AMD Athlon CPU 上执行系统范围统计采样，每 32768 条指令退役采样一次，并将数据采样到文件 `sample.stat`，使用：
 
-切换显示符号的偏移量
+```sh
+pmcstat -O sample.stat -n 32768 -S k7-retired-instructions
+```
 
-[`m`](#m)
+要执行 `firefox` 并测量它及其子进程每 12 秒在 AMD Athlon 上遭受的数据缓存未命中次数，使用：
 
-合并 PMC
+```sh
+pmcstat -d -w 12 -p k7-dc-misses firefox
+```
 
-[`n`](#n)
+要测量所有名为“emacs”的进程的指令退役数，使用：
 
-更改视图
+```sh
+pmcstat -t '^emacs$' -p instructions
+```
 
-[`p`](#p)
+要在 10 秒内测量名为“emacs”的进程的指令退役数，使用：
 
-显示下一个 PMC
+```sh
+pmcstat -t '^emacs$' -p instructions sleep 10
+```
 
-[`q`](#q)
+要在 Intel Pentium Pro/Pentium III SMP 系统的 CPU 0 和 2 上计数指令 TLB 未命中，使用：
 
-退出
+```sh
+pmcstat -c 0,2 -s p6-itlb-miss
+```
 
-[`Space`](#Space)
+要基于所看到的指令缓存未命中，收集特定进程（pid 为 1234）的配置文件信息，使用：
 
-暂停
+```sh
+pmcstat -P ic-misses -t 1234 -O /tmp/sample.out
+```
 
-[`-U`](#U)
+要基于处理器指令退役，在所有已配置的处理器上执行系统范围采样，使用：
 
-在内核模式下切换捕获用户空间调用跟踪。 默认情况下，采样 PMC 在用户空间模式下捕获用户空间调用链信息，在内核模式下捕获内核调用链信息。
+```sh
+pmcstat -S instructions -O /tmp/sample.out
+```
 
-[`-W`](#W)
+如果不希望捕获调用图，使用：
 
-切换记录被跟踪进程的线程每次在 CPU 上调度时看到的增量计数。 这是一项实验性功能，旨在帮助分析系统中进程的动态行为。 如果启用，它可能会产生大量开销。 默认情况下禁用此功能。
+```sh
+pmcstat -N -S instructions -O /tmp/sample.out
+```
 
-[`-a`](#a) pathname
+要将生成的事件日志发送到远程机器，使用：
 
-对每个调用图中的每个地址执行符号和文件：行查找并将输出保存到 pathname 。 与 `-m` 仅解析图中的第一个符号不同，这会解析调用图中的每个节点，或者如果没有可用的查找信息则打印出地址。 此选项需要 `-R` 选项才能读入先前使用 `-O` 选项收集和保存的样本。
+```sh
+pmcstat -S instructions -O remotehost:port
+```
 
-[`-c`](#c) cpu-spec
+在远程机器上，可以使用 [nc(1)](../man1/nc.1.md) 收集采样日志：
 
-将命令行中指定的后续系统模式 PMC 的 cpu 设置为 cpu-spec 。参数 cpu-spec 是一个逗号分隔的 CPU 编号列表，或文字 ‘\*’ 表示所有可用的 CPU。 默认是在所有可用 CPU 上分配系统模式 PMC。
+```sh
+nc -l remotehost port > /tmp/sample.out
+```
 
-[`-d`](#d)
+要从采样文件生成兼容 gprof(1) 的配置文件，使用：
 
-在进程模式 PMC 之间切换，该 PMC 测量目标进程当前和未来子进程的事件，或者仅测量目标进程的事件。 默认是单独测量目标进程的事件。 （它必须在 `-p`, `-s`, `-P` 或 `-S` 之前在命令行中传递）。
+```sh
+pmcstat -R /tmp/sample.out -g
+```
 
-[`-e`](#e)
+要将带调用图的系统范围配置文件打印到文件 `foo.graph`，使用：
 
-指定 gprof 配置文件将使用宽历史计数器。 这些文件以与 gprof(1) 兼容的格式生成。 但是，其他无法完全解析 BSD 样式的 gmon 标头的工具可能无法正确解析这些文件。
+```sh
+pmcstat -R /tmp/sample.out -G foo.graph
+```
 
-[`-f`](#f_2) pluginopt
+## 诊断
 
-将选项字符串传递给活动插件。-
-threshold=<float> 不显示低于指定值的成本（顶部）。-
-skiplink=0|1 用一个点（顶部）替换成本低于阈值的节点。
+如果指定了 `-v` 选项，`pmcstat` 可能会发出以下诊断消息：
 
-[`-g`](#g)
+- #callchain/dubious-frames 返回地址具有“不可能”值的调用链记录数。
+- #exec handling errors 日志文件中命名了无法分析的可执行文件的 execve(2) 事件数。
+- #exec/elf 命名 ELF 可执行文件的 execve(2) 事件数。
+- #exec/unknown 命名无法识别格式的可执行文件的 execve(2) 事件数。
+- #samples/total 日志文件中的采样总数。
+- #samples/unclaimed 无法与已知可执行对象（即可执行文件、共享库、内核或运行时加载器）关联的采样数。
+- #samples/unknown-object 与无法识别的对象格式的可执行文件关联的采样数。
 
-以与 gprof(1) 兼容的格式生成配置文件。 为遇到的每个可执行对象生成一个单独的配置文件。 配置文件放置在以其 PMC 事件名称命名的子目录中。
+`pmcstat` 工具成功时退出值为 0，发生错误时大于 0。
 
-[`-i`](#i) lwp
+## 兼容性
 
-过滤线程 ID lwp, 可以从 ps(1) `-o` `lwp` 获得。
+由于 `gmon.out` 文件格式的限制，由 `-g` 选项生成的兼容 gprof(1) 的配置文件不包含有关跨可执行边界调用的信息。生成的 `gmon.out` 文件也仅对本地可执行文件有意义。
 
-[`-k`](#k) kerneldir
+## 参见
 
-将内核目录的路径名设置为参数 kerneldir 。 此目录指定 `pmcstat` 应在何处查找内核及其模块。 默认是使用从 kern.bootfile 获得的运行内核的路径。 如果在 kerneldir 中找不到模块，也会在 /boot/modules 中搜索模块。
+gprof(1), [nc(1)](../man1/nc.1.md), execvp(3), pmc(3), pmclog(3), [hwpmc(4)](../man4/hwpmc.4.md), [pmccontrol(8)](pmccontrol.8.md), [sysctl(8)](sysctl.8.md)
 
-[`-l`](#l) secs
+## 历史
 
-将系统范围的性能测量持续时间设置为 secs 秒。 参数 secs 可以是小数值。
+`pmcstat` 工具首次出现在 FreeBSD 6.0 中。
 
-[`-m`](#m_2) pathname
+## 作者
 
-打印采样 PC 的名称、函数的起始地址和结束地址。 pathname 参数是必需的，它指示信息将存储在哪里。 如果 pathname 是 “`-`” ，则此信息将发送到 `-o` 选项指定的输出文件。 此选项需要 `-R` 选项才能读入先前使用 `-O` 选项收集和保存的样本。
+Joseph Koshy <jkoshy@FreeBSD.org>
 
-[`-n`](#n_2) rate
+## 缺陷
 
-为命令行指定的后续采样模式 PMC 设置默认采样率。 默认配置 PMC 以每 65536 个事件对 CPU 的指令指针进行采样。
-
-[`-o`](#o) outputfile
-
-将记录数据的计数器读数和文本表示发送到文件 outputfile 。 默认设置是在收集实时数据时将输出发送到 stderr ，在处理预先存在的日志文件时将输出发送到 stdout 。
-
-[`-p`](#p_2) event-spec
-
-分配一个过程模式计数 PMC 测量在 event-spec 中指定的硬件事件。
-
-[`-q`](#q_2)
-
-减少冗长。
-
-[`-r`](#r) fsroot
-
-将可执行文件所在的文件系统层次结构的顶部设置为参数 fsroot 。默认为 / 。
-
-[`-s`](#s) event-spec
-
-分配一个系统模式计数 PMC 测量在 event-spec 中指定的硬件事件。
-
-[`-t`](#t) process-spec
-
-将进程模式 PMC 附加到由参数 process-spec 命名的进程。 参数 process-spec 可以是表示特定进程 id 的非负整数，也可以是用于根据命令名称选择进程的正则表达式。
-
-[`-u`](#u) event-spec
-
-提供事件的简短描述。
-
-[`-v`](#v)
-
-增加详细程度。
-
-[`-w`](#w) secs
-
-每隔 secs 秒打印所有计数模式 PMC 或顶部模式的采样模式 PMC 的值。 参数 secs 可以是小数值。 默认间隔为 5 秒。
-
-[`-z`](#z) graphdepth
-
-打印系统范围的调用图时，将调用图限制为参数 graphdepth 指定的深度。
-
-如果指定了 command ，则使用 execvp(3) 执行。
-
-[实例](#__u5B9E___u4F8B_)
-=======================
-
-要在 AMD Athlon CPU 上执行系统范围的统计采样，每执行 32768 条指令后进行一次采样，并将数据采样到文件 sample.stat ，请使用：
-
-`pmcstat -O sample.stat -n 32768 -S k7-retired-instructions`
-
-要在 AMD Athlon 上每 12 秒执行一次 `firefox` 并测量其及其子代遭受的数据缓存未命中次数，请使用：
-
-`pmcstat -d -w 12 -p k7-dc-misses firefox`
-
-要测量所有名为 “emacs” 的进程退出的指令，请使用：
-
-`pmcstat -t '^emacs$' -p instructions`
-
-要测量名为 “emacs” 的进程停用 10 秒的指令，请使用：
-
-`pmcstat -t '^emacs$' -p instructions sleep 10`
-
-要计算 Intel Pentium Pro/Pentium III SMP 系统上 CPU 0 和 2 上的指令 tlb-misses，请使用：
-
-`pmcstat -c 0,2 -s p6-itlb-miss`
-
-要根据 pid 1234 看到的指令缓存未命中来收集特定进程的分析信息，请使用：
-
-`pmcstat -P ic-misses -t 1234 -O /tmp/sample.out`
-
-要根据已停用的处理器指令对所有已配置的处理器执行系统范围的采样，请使用：
-
-`pmcstat -S instructions -O /tmp/sample.out`
-
-如果不需要调用图捕获，请使用：
-
-`pmcstat -N -S instructions -O /tmp/sample.out`
-
-要将生成的事件日志发送到远程机器，请使用：
-
-`pmcstat -S instructions -O remotehost:port`
-
-在远程机器上，可以使用 nc(1) 收集示例日志：
-
-`nc -l remotehost port > /tmp/sample.out`
-
-要从示例文件生成 gprof(1) 兼容配置文件，请使用：
-
-`pmcstat -R /tmp/sample.out -g`
-
-要使用调用图将系统范围的配置文件打印到文件 foo.graph ，请使用：
-
-`pmcstat -R /tmp/sample.out -G foo.graph`
-
-[诊断](#__u8BCA___u65AD_)
-=======================
-
-如果指定了选项 `-v` ， `pmcstat` 可能会发出以下诊断消息：
-
-#callchain/dubious-frames
-
-返回地址具有 “impossible” 值的调用链记录数。
-
-#exec handling errors
-
-日志文件中命名为无法分析的可执行文件的 exec(2) 事件数。
-
-#exec/elf
-
-命名为 ELF 可执行文件的 exec(2) 事件数。
-
-#exec/unknown
-
-使用无法识别的格式命名可执行文件的 exec(2) 事件数。
-
-#samples/total
-
-日志文件中的样本总数。
-
-#samples/unclaimed
-
-无法与已知可执行对象（即可执行文件、共享库、内核或运行时加载程序）相关联的样本数。
-
-#samples/unknown-object
-
-与具有无法识别的对象格式的可执行文件关联的样本数。
-
--
-The `pmcstat` utility exits 0 on success, and >0 if an error occurs.
-
-[兼容性](#__u517C___u5BB9___u6027_)
-================================
-
-由于 gmon.out 文件格式的限制，由 `-g` 选项生成的 gprof(1) 兼容配置文件不包含有关跨越可执行边界的调用的信息。 生成的 gmon.out 文件也只对本机可执行文件有意义。
-
-[参见](#__u53C2___u89C1_)
-=======================
-
-gprof(1), nc(1), execvp(3), pmc(3), pmclog(3), hwpmc(4), pmccontrol(8), sysctl(8)
-
-[历史](#__u5386___u53F2_)
-=======================
-
-`pmcstat` 实用程序首先出现在 FreeBSD 6.0 中。它目前正在开发中。 currently under development.
-
-[作者](#__u4F5C___u8005_)
-=======================
-
-Joseph Koshy <[jkoshy@FreeBSD.org](mailto:jkoshy@FreeBSD.org)\>
-
-[缺陷](#__u7F3A___u9677_)
-=======================
-
-`pmcstat` 实用程序还不能分析由非本地架构生成的 hwpmc(4) 日志。
-
-August 17, 2020
-
-FreeBSD 13.1-RELEASE
+`pmcstat` 工具尚不能分析由非本地架构生成的 [hwpmc(4)](../man4/hwpmc.4.md) 日志。

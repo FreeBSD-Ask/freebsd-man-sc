@@ -1,802 +1,544 @@
-  GPART(8)  
+# gpart.8
 
-GPART(8)
+`gpart` — 磁盘分区 GEOM 类的控制工具
 
-FreeBSD System Manager's Manual
+## 名称
 
-GPART(8)
+`gpart`
 
-[名称](#__u540D___u79F0_)
-=======================
+## 概要
 
-`gpart` —
+`gpart add -t type [-a alignment] [-b start] [-s size] [-i index] [-l label] [-f flags] geom`
 
-磁盘分区 GEOM 类的控制实用程序
+`gpart backup geom`
 
-[概要](#__u6982___u8981_)
-=======================
+`gpart bootcode [-N] [-b bootcode] [-p partcode -i index] [-f flags] geom`
 
-`gpart` `add` `-t` type \[`-a` alignment\] \[`-b` start\] \[`-s` size\] \[`-i` index\] \[`-l` label\] \[`-f` flags\] geom `gpart` `backup` geom `gpart` `bootcode` \[`-N`\] \[`-b` bootcode\] \[`-p` partcode `-i` index\] \[`-f` flags\] geom `gpart` `commit` geom `gpart` `create` `-s` scheme \[`-n` entries\] \[`-f` flags\] provider `gpart` `delete` `-i` index \[`-f` flags\] geom `gpart` `destroy` \[`-F`\] \[`-f` flags\] geom `gpart` `modify` `-i` index \[`-l` label\] \[`-t` type\] \[`-f` flags\] geom `gpart` `recover` \[`-f` flags\] geom `gpart` `resize` `-i` index \[`-a` alignment\] \[`-s` size\] \[`-f` flags\] geom `gpart` `restore` \[`-lF`\] \[`-f` flags\] provider \[...\] `gpart` `set` `-a` attrib `-i` index \[`-f` flags\] geom `gpart` `show` \[`-l` | `-r`\] \[`-p`\] \[geom ...\] `gpart` `undo` geom `gpart` `unset` `-a` attrib `-i` index \[`-f` flags\] geom `gpart` `list` `gpart` `status` `gpart` `load` `gpart` `unload`
+`gpart commit geom`
 
-[描述](#__u63CF___u8FF0_)
-=======================
+`gpart create -s scheme [-n entries] [-f flags] provider`
 
-`gpart` 实用程序用于对 GEOM 提供程序进行分区，通常是磁盘。 第一个参数是要采取的行动：
+`gpart delete -i index [-f flags] geom`
 
-[`add`](#add)
+`gpart destroy [-F] [-f flags] geom`
 
-在 geom 给出的分区方案中添加一个新分区。 必须使用 `-t` type 指定分区类型。 如果未指定相应选项，将自动计算分区的位置、大小和其他属性。
+`gpart modify -i index [-l label] [-t type] [-f flags] geom`
 
-`add` 命令接受以下选项：
+`gpart recover [-f flags] geom`
 
-[`-a`](#a) alignment
+`gpart resize -i index [-a alignment] [-s size] [-f flags] geom`
 
-如果指定，则 `gpart` 实用程序会尝试将 start 偏移量和分区 size 对齐为 alignment 值的倍数。
+`gpart restore [-lF] [-f flags] provider [...]`
 
-[`-b`](#b) start
+`gpart set -a attrib -i index [-f flags] geom`
 
-分区开始的逻辑块地址。 允许使用 SI 单位后缀。
+`gpart [--libxo] show [-l | -r] [-p] [geom ...]`
 
-[`-f`](#f) flags
+`gpart undo geom`
 
-额外的操作标志。 有关其使用的讨论，请参见下面标题为 [操作标志](#__u64CD___u4F5C___u6807___u5FD7_) 的部分。
+`gpart unset -a attrib -i index [-f flags] geom`
 
-[`-i`](#i) index
+`gpart list`
 
-分区表中要放置新分区的索引。 索引确定用于表示分区的设备专用文件的名称。
+`gpart status`
 
-[`-l`](#l) label
+`gpart load`
 
-贴在分区上的标签。 此选项仅在用于支持分区标签的分区方案时有效。
+`gpart unload`
 
-[`-s`](#s) size
+## 描述
 
-创建一个大小为 size 的分区。 允许使用 SI 单位后缀。
+`gpart` 工具用于对 GEOM provider（通常是磁盘）进行分区。第一个参数是要执行的操作：
 
-[`-t`](#t) type
+**`add`** 向由 `geom` 指定的分区方案中添加新分区。分区类型必须通过 `-t` `type` 指定。如果未指定相应选项，分区的位置、大小和其他属性将自动计算。`add` 命令接受以下选项：
 
-创建类型 type 的分区。 分区类型将在下面标题为 [分区类型](#__u5206___u533A___u7C7B___u578B_) 的部分中讨论。
+**`-a`** `alignment` 如果指定，则 `gpart` 工具会尝试将 `start` 偏移量和分区 `size` 对齐为 `alignment` 值的倍数。
 
-[`backup`](#backup)
+**`-b`** `start` 分区起始的逻辑块地址。允许使用单字符后缀（k、m、g 等）来指定二进制字节大小。
 
-以 `restore` 操作使用的特殊格式将分区表转储到标准输出。
+**`-f`** `flags` 额外的操作标志。关于其用法，参见下文“操作标志”一节的讨论。
 
-[`bootcode`](#bootcode)
+**`-i`** `index` 新分区在分区表中放置位置的索引。该索引决定了用于表示该分区的设备特殊文件的名称。
 
-将引导代码嵌入到 geom 上的分区方案的元数据中（使用 `-b` bootcode) 或将引导代码写入分区（使用 `-p` partcode 和 `-i` index )。
+**`-l`** `label` 附加到分区上的标签。此选项仅在使用支持分区标签的分区方案时有效。
 
-`bootcode` 命令接受以下选项：
+**`-s`** `size` 创建大小为 `size` 的分区。允许使用单字符后缀（k、m、g 等）来指定二进制字节大小。
 
-[`-N`](#N)
+**`-t`** `type` 创建类型为 `type` 的分区。分区类型在下文“分区类型”一节中讨论。
 
-不要为 MBR 保留卷序列号。 MBR 引导代码默认包含卷序列号， `gpart` 会在安装新的引导代码时尝试保留它。 此选项允许跳过保存以帮助某些不支持卷序列号的 boot0(8)-
-版本。
+**`backup`** 将分区表以 `restore` 操作所使用的特殊格式转储到标准输出。
 
-[`-b`](#b_2) bootcode
+**`bootcode`** 将引导代码嵌入到 `geom` 的分区方案元数据中（使用 `-b` `bootcode`），或将引导代码写入分区（使用 `-p` `partcode` 和 `-i` `index`）。`bootcode` 命令接受以下选项：
 
-将文件 bootcode 中的引导代码嵌入到 geom 的分区方案的元数据中。 并非所有分区方案都嵌入了引导代码，因此 `-b` bootcode 选项本质上是特定于方案的（请参阅下面标题为 [BOOTSTRAPPING](#BOOTSTRAPPING) 的部分）。 bootcode 文件必须符合分区方案对文件内容和大小的要求。
+**`-N`** 不保留 MBR 的卷序列号。默认情况下 MBR 引导代码包含卷序列号，`gpart` 在安装新引导代码时会尝试保留它。此选项跳过保留，以兼容某些不支持卷序列号的 [boot0cfg(8)](boot0cfg.8.md) 版本。
 
-[`-f`](#f_2) flags
+**`-b`** `bootcode` 将来自文件 `bootcode` 的引导代码嵌入到 `geom` 的分区方案元数据中。并非所有分区方案都有嵌入式引导代码，因此 `-b` `bootcode` 选项本质上是特定于方案的（参见下文“引导”一节）。`bootcode` 文件必须符合分区方案对文件内容和大小方面的要求。
 
-额外的操作标志。 有关其使用的讨论，请参见下面标题为 [操作标志](#__u64CD___u4F5C___u6807___u5FD7_) 的部分。
+**`-f`** `flags` 额外的操作标志。关于其用法，参见下文“操作标志”一节的讨论。
 
-[`-i`](#i_2) index
+**`-i`** `index` 为 `-p` `partcode` 指定目标分区。
 
-为 `-p` partcode 指定目标分区。
+**`-p`** `partcode` 将来自文件 `partcode` 的引导代码写入由 `-i` `index` 指定的 `geom` 分区。该文件的大小必须小于分区的大小。
 
-[`-p`](#p) partcode
+**`commit`** 提交 geom `geom` 的所有挂起更改。默认情况下所有操作都会被提交，不会产生挂起更改。可以通过 `-f` `flags` 选项修改操作，使其不被提交而是成为挂起状态。挂起的更改会反映在 geom 和 `gpart` 工具中，但实际并未写入磁盘。`commit` 操作会将所有挂起更改写入磁盘。
 
-将文件 partcode 中的引导代码写入 `-i` index 指定的 geom 分区。 文件的大小必须小于分区的大小。
+**`create`** 在由 `provider` 指定的 provider 上创建新的分区方案。必须通过 `-s` `scheme` 选项指定要使用的方案。`create` 命令接受以下选项：
 
-[`commit`](#commit)
+**`-f`** `flags` 额外的操作标志。关于其用法，参见下文“操作标志”一节的讨论。
 
-提交 geom geom 的任何未决更改。 默认情况下，所有操作都已提交，不会导致挂起的更改。 可以使用 `-f` flags 选项修改操作，以便它们不会被提交，而是处于挂起状态。 挂起的更改由 geom 和 `gpart` 实用程序反映，但它们实际上并未写入磁盘。 `commit` 操作会将所有挂起的更改写入磁盘。
+**`-n`** `entries` 分区表中条目的数量。每个分区方案都有最小和最大条目数限制。此选项允许创建条目数在限制范围内的分区表。某些方案的最大值等于最小值，而某些方案的最大值足够大，可视为无限制。默认情况下，分区表以最小条目数创建。
 
-[`create`](#create)
+**`-s`** `scheme` 指定要使用的分区方案。内核必须先支持特定方案，才能使用该方案对磁盘进行分区。
 
-在 provider 给定的提供者上创建一个新的分区方案。 必须使用 `-s` scheme 选项指定要使用的方案。
+**`delete`** 从 geom `geom` 中删除分区，并通过 `-i` `index` 选项进一步标识。该分区不能正被内核活跃使用。`delete` 命令接受以下选项：
 
-`create` 命令接受以下选项：
+**`-f`** `flags` 额外的操作标志。关于其用法，参见下文“操作标志”一节的讨论。
 
-[`-f`](#f_3) flags
+**`-i`** `index` 指定要删除的分区的索引。
 
-额外的操作标志。 有关其使用的讨论，请参见下面标题为 [操作标志](#__u64CD___u4F5C___u6807___u5FD7_) 的部分。
+**`destroy`** 销毁由 geom `geom` 实现的分区方案。`destroy` 命令接受以下选项：
 
-[`-n`](#n) entries
+**`-F`** 即使分区表非空也强制销毁。
 
-分区表中的条目数。 每个分区方案都有最小和最大条目数。 此选项允许使用限制内的条目数创建表。 一些方案的最大值等于最小值，而一些方案的最大值大到可以认为是无限的。 默认情况下，分区表是使用最少条目数创建的。
+**`-f`** `flags` 额外的操作标志。关于其用法，参见下文“操作标志”一节的讨论。
 
-[`-s`](#s_2) scheme
+**`modify`** 修改 geom `geom` 中的分区，并通过 `-i` `index` 选项进一步标识。只能修改分区的类型和/或标签。并非所有分区方案都支持标签，在这种情况下尝试更改分区标签是无效的。`modify` 命令接受以下选项：
 
-指定要使用的分区方案。 内核必须支持特定的方案，然后才能使用该方案对磁盘进行分区。
+**`-f`** `flags` 额外的操作标志。关于其用法，参见下文“操作标志”一节的讨论。
 
-[`delete`](#delete)
+**`-i`** `index` 指定要修改的分区的索引。
 
-从 geom geom 中删除一个分区，并通过 `-i` index 选项进一步标识。 该分区不能被内核主动使用。
+**`-l`** `label` 将分区标签更改为 `label`。
 
-`delete` 命令接受以下选项：
+**`-t`** `type` 将分区类型更改为 `type`。
 
-[`-f`](#f_4) flags
+**`recover`** 恢复 geom `geom` 上损坏分区的方案元数据。更多信息参见下文“恢复”一节。`recover` 命令接受以下选项：
 
-额外的操作标志。 有关其使用的讨论，请参见下面标题为 [操作标志](#__u64CD___u4F5C___u6807___u5FD7_) 的部分。
+**`-f`** `flags` 额外的操作标志。关于其用法，参见下文“操作标志”一节的讨论。
 
-[`-i`](#i_3) index
+**`resize`** 调整 geom `geom` 中分区的大小，并通过 `-i` `index` 选项进一步标识。如果未指定新大小，则自动计算为 `geom` 上可用的最大值。`resize` 命令接受以下选项：
 
-指定要删除的分区的索引。
+**`-a`** `alignment` 如果指定，则 `gpart` 工具会尝试将分区 `size` 对齐为 `alignment` 值的倍数。
 
-[`destroy`](#destroy)
+**`-f`** `flags` 额外的操作标志。关于其用法，参见下文“操作标志”一节的讨论。
 
-销毁由 geom geom 实现的分区方案。
+**`-i`** `index` 指定要调整大小的分区的索引。
 
-`destroy` 命令接受以下选项：
+**`-s`** `size` 指定分区的新大小，以逻辑块为单位；如果提供单字符后缀（k、m、g 等），则以二进制字节大小为单位。
 
-[`-F`](#F)
+**`restore`** 从先前由 `backup` 操作创建并从标准输入读取的备份中恢复分区表。仅恢复分区表。此操作不影响分区内容。恢复分区表并在需要时写入引导代码后，必须从备份恢复用户数据。`restore` 命令接受以下选项：
 
-强制销毁分区表，即使它不为空。
+**`-F`** 在执行恢复之前销毁给定 `provider` 上的分区表。
 
-[`-f`](#f_5) flags
+**`-f`** `flags` 额外的操作标志。关于其用法，参见下文“操作标志”一节的讨论。
 
-额外的操作标志。 有关其使用的讨论，请参见下面标题为 [操作标志](#__u64CD___u4F5C___u6807___u5FD7_) 的部分。
+**`-l`** 为支持分区标签的分区方案恢复分区标签。
 
-[`modify`](#modify)
+**`set`** 在分区条目上设置指定属性。可用属性列表参见下文“属性”一节。`set` 命令接受以下选项：
 
-从 geom geom 修改一个分区，并通过 `-i` index 选项进一步标识。 只能修改分区的类型和/或标签。 并非所有分区方案都支持标签，在这种情况下尝试更改分区标签是无效的。
+**`-a`** `attrib` 指定要设置的属性。
 
-`modify` 命令接受以下选项：
+**`-f`** `flags` 额外的操作标志。关于其用法，参见下文“操作标志”一节的讨论。
 
-[`-f`](#f_6) flags
+**`-i`** `index` 指定要设置属性的分区的索引。
 
-额外的操作标志。 有关其使用的讨论，请参见下面标题为 [操作标志](#__u64CD___u4F5C___u6807___u5FD7_) 的部分。
+**`show`** 显示指定 geom 的当前分区信息，如果未指定则显示所有 geom 的信息。默认输出包括每个分区的逻辑起始块、以块为单位的分区大小、分区索引号、分区类型以及人类可读的分区大小。块大小和位置基于设备的 Sectorsize，如 `gpart list` 所示。`show` 命令接受以下选项：
 
-[`-i`](#i_4) index
+**`-l`** 对于支持分区标签的分区方案，打印标签而非分区类型。
 
-指定要修改的分区的索引。
+**`-p`** 显示 provider 名称而非分区索引。
 
-[`-l`](#l_2) label
+**`-r`** 显示原始分区类型而非符号名称。
 
-将分区标签更改为 label 。
+**`undo`** 还原 geom `geom` 的所有挂起更改。此操作与 `commit` 操作相反，可用于撤销尚未提交的所有更改。
 
-[`-t`](#t_2) type
+**`unset`** 清除分区条目上的指定属性。可用属性列表参见下文“属性”一节。`unset` 命令接受以下选项：
 
-将分区类型更改为 type 。
+**`-a`** `attrib` 指定要清除的属性。
 
-[`recover`](#recover)
+**`-f`** `flags` 额外的操作标志。关于其用法，参见下文“操作标志”一节的讨论。
 
-在 geom geom 上恢复损坏的分区方案元数据。 有关其他信息，请参阅下面标题为 [恢复](#__u6062___u590D_) 的部分。
+**`-i`** `index` 指定要清除属性的分区的索引。
 
-`recover` 命令接受以下选项：
+**`list`** 参见 geom(8)。
 
-[`-f`](#f_7) flags
+**`status`** 参见 geom(8)。
 
-额外的操作标志。 有关其使用的讨论，请参见下面标题为 [操作标志](#__u64CD___u4F5C___u6807___u5FD7_) 的部分。
+**`load`** 参见 geom(8)。
 
-[`resize`](#resize)
+**`unload`** 参见 geom(8)。
 
-从 geom geom 调整分区大小，并通过 `-i` index 选项进一步标识。 如果未指定新大小，则会自动计算为 geom 可用的最大值。
+**`--libxo`** 通过 libxo(3) 以多种人类和机器可读格式生成输出。有关命令行参数的详细信息，参见 xo_options(7)。
 
-`resize` 命令接受以下选项：
+## 分区方案
 
-[`-a`](#a_2) alignment
+`gpart` 工具支持多种分区方案：
 
-如果指定，则 `gpart` 实用程序尝试将分区 size 对齐为 alignment 值的倍数。
+**`APM`** Apple Partition Map，用于 PowerPC(R) Macintosh(R) 计算机。需要 `GEOM_PART_APM` 内核选项。
 
-[`-f`](#f_8) flags
+**`BSD`** 传统 BSD disklabel(8)，通常用于细分 MBR 分区。（此方案也可作为唯一的分区方法使用，无需 MBR。其他操作系统的分区编辑工具通常无法理解裸 disklabel 分区布局，因此有时被称为“dangerously dedicated”。）需要 `GEOM_PART_BSD` 内核选项。
 
-额外的操作标志。 有关其使用的讨论，请参见下面标题为 [操作标志](#__u64CD___u4F5C___u6807___u5FD7_) 的部分。
+**`BSD64`** 用于 Dx 的 64 位 BSD disklabel 实现，用于细分 MBR 或 GPT 分区。需要 `GEOM_PART_BSD64` 内核选项。
 
-[`-i`](#i_5) index
+**`LDM`** Logical Disk Manager 是 Microsoft Windows NT 的卷管理器实现。需要 `GEOM_PART_LDM` 内核选项。
 
-指定要调整大小的分区的索引。
+**`GPT`** GUID Partition Table，用于基于 Intel 的 Macintosh 计算机，并正逐步在大多数 PC 和其他系统上取代 MBR。需要 `GEOM_PART_GPT` 内核选项。
 
-[`-s`](#s_3) size
+**`MBR`** Master Boot Record，用于 PC 和可移动介质。需要 `GEOM_PART_MBR` 内核选项。`GEOM_PART_EBR` 选项添加对 Extended Boot Record（EBR）的支持，用于定义逻辑分区。`GEOM_PART_EBR_COMPAT` 选项为 EBR 方案中的分区名称启用向后兼容性，同时阻止对此类分区执行任何操作。
 
-指定分区的新大小，以逻辑块为单位。 允许使用 SI 单位后缀。
+有关设备和分区标签化的更多信息，参见 glabel(8)。
 
-[`restore`](#restore)
+## 分区类型
 
-从先前由 `backup` 操作创建的备份恢复分区表并从标准输入读取。 仅恢复分区表。 此操作不会影响分区的内容。 恢复分区表并根据需要编写引导代码后，必须从备份中恢复用户数据。
+分区在磁盘上由特定的字符串或魔术值标识。`gpart` 工具为常见分区类型使用符号名称，因此用户无需知道这些值或相关分区方案的其他细节。`gpart` 工具还允许用户为没有符号名称的分区类型指定特定于方案的分区类型。FreeBSD 当前理解并使用的符号名称如下：
 
-`restore` 命令接受以下选项：
+**`apple-boot`** 在某些 Apple 系统上专用于存储引导加载程序的系统分区。特定于方案的类型为：MBR 使用 `!171`，APM 使用 `!Apple_Bootstrap`，GPT 使用 `!426f6f74-0000-11aa-aa11-00306543ecac`。
 
-[`-F`](#F_2)
+**`bios-boot`** 专用于引导加载程序第二阶段的系统分区。通常由 GRUB 2 加载器用于 GPT 分区方案。特定于方案的类型为 `!21686148-6449-6e6f-744e-656564454649`。
 
-在进行还原之前销毁给定 provider 程序上的分区表。
+**`efi`** 用于使用可扩展固件接口（EFI）的计算机的系统分区。特定于方案的类型为：MBR 使用 `!239`，GPT 使用 `!c12a7328-f81f-11d2-ba4b-00a0c93ec93b`。
 
-[`-f`](#f_9) flags
+**`freebsd`** 用 BSD disklabel 细分为多个文件系统的 FreeBSD 分区。这是一种传统的分区类型，不应用于 APM 或 GPT 方案。特定于方案的类型为：MBR 使用 `!165`，APM 使用 `!FreeBSD`，GPT 使用 `!516e7cb4-6ecf-11d6-8ff8-00022d09712b`。
 
-额外的操作标志。 有关其使用的讨论，请参见下面标题为 [操作标志](#__u64CD___u4F5C___u6807___u5FD7_) 的部分。
+**`freebsd-boot`** 专用于引导代码的 FreeBSD 分区。特定于方案的类型为 GPT 使用 `!83bd6b9d-7f41-11dc-be0b-001560b84f0f`。
 
-[`-l`](#l_3)
+**`freebsd-swap`** 专用于交换空间的 FreeBSD 分区。特定于方案的类型为：APM 使用 `!FreeBSD-swap`，GPT 使用 `!516e7cb5-6ecf-11d6-8ff8-00022d09712b`。
 
-为支持它们的分区方案恢复分区标签。
+**`freebsd-ufs`** 包含 UFS 或 UFS2 文件系统的 FreeBSD 分区。特定于方案的类型为：APM 使用 `!FreeBSD-UFS`，GPT 使用 `!516e7cb6-6ecf-11d6-8ff8-00022d09712b`。
 
-[`set`](#set)
+**`freebsd-zfs`** 包含 ZFS 卷的 FreeBSD 分区。特定于方案的类型为：APM 使用 `!FreeBSD-ZFS`，GPT 使用 `!516e7cba-6ecf-11d6-8ff8-00022d09712b`。
 
-在分区条目上设置命名属性。 有关可用属性的列表，请参阅下面标题为 [ATTRIBUTES](#ATTRIBUTES) 的部分。
+其他可用于 `gpart` 工具的符号名称：
 
-`set` 命令接受以下选项：
+**`apple-apfs`** 用于 Apple 文件系统 APFS 的 Apple macOS 分区。
 
-[`-a`](#a_3) attrib
+**`apple-core-storage`** 由称为 Core Storage 的逻辑卷管理器使用的 Apple Mac OS X 分区。特定于方案的类型为 GPT 使用 `!53746f72-6167-11aa-aa11-00306543ecac`。
 
-指定要设置的属性。
+**`apple-hfs`** 包含 HFS 或 HFS+ 文件系统的 Apple Mac OS X 分区。特定于方案的类型为：MBR 使用 `!175`，APM 使用 `!Apple_HFS`，GPT 使用 `!48465300-0000-11aa-aa11-00306543ecac`。
 
-[`-f`](#f_10) flags
+**`apple-label`** 专用于描述磁盘设备的分区元数据的 Apple Mac OS X 分区。特定于方案的类型为 GPT 使用 `!4c616265-6c00-11aa-aa11-00306543ecac`。
 
-额外的操作标志。 有关其使用的讨论，请参见下面标题为 [操作标志](#__u64CD___u4F5C___u6807___u5FD7_) 的部分。
+**`apple-raid`** 用于软件 RAID 配置的 Apple Mac OS X 分区。特定于方案的类型为 GPT 使用 `!52414944-0000-11aa-aa11-00306543ecac`。
 
-[`-i`](#i_6) index
+**`apple-raid-offline`** 用于软件 RAID 配置的 Apple Mac OS X 分区。特定于方案的类型为 GPT 使用 `!52414944-5f4f-11aa-aa11-00306543ecac`。
 
-指定将在其上设置属性的分区的索引。
+**`apple-tv-recovery`** Apple TV 使用的 Apple Mac OS X 分区。特定于方案的类型为 GPT 使用 `!5265636f-7665-11aa-aa11-00306543ecac`。
 
-[`show`](#show)
+**`apple-ufs`** 包含 UFS 文件系统的 Apple Mac OS X 分区。特定于方案的类型为：MBR 使用 `!168`，APM 使用 `!Apple_UNIX_SVR2`，GPT 使用 `!55465300-0000-11aa-aa11-00306543ecac`。
 
-显示指定几何图形的当前分区信息，如果没有指定几何图形，则显示所有几何图形。 默认输出包括每个分区的逻辑起始块、分区大小（以块为单位）、分区索引号、分区类型和人类可读的分区大小。 块大小和位置基于设备的扇区大小，如 `gpart list` 所示。
+**`apple-zfs`** 包含 ZFS 卷的 Apple Mac OS X 分区。特定于方案的类型为 GPT 使用 `!6a898cc3-1dd2-11b2-99a6-080020736631`。相同的 GUID 也用于 **illumos/Solaris /usr 分区。** 参见下文“注意事项”一节。
 
-`show` 命令接受以下选项：
+**`dragonfly-label32`** 用 BSD disklabel 细分为多个文件系统的 Dx 分区。特定于方案的类型为 GPT 使用 `!9d087404-1ca5-11dc-8817-01301bb8a9f5`。
 
-[`-l`](#l_4)
+**`dragonfly-label64`** 用 disklabel64 细分为多个文件系统的 Dx 分区。特定于方案的类型为 GPT 使用 `!3d48ce54-1d16-11dc-8696-01301bb8a9f5`。
 
-对于支持分区标签的分区方案，打印它们而不是分区类型。
+**`dragonfly-legacy`** Dx 中使用的传统分区类型。特定于方案的类型为 GPT 使用 `!bd215ab2-1d16-11dc-8696-01301bb8a9f5`。
 
-[`-p`](#p_2)
+**`dragonfly-ccd`** 用于 Concatenated Disk 驱动程序的 Dx 分区。特定于方案的类型为 GPT 使用 `!dbd5211b-1ca5-11dc-8817-01301bb8a9f5`。
 
-显示提供程序名称而不是分区索引。
+**`dragonfly-hammer`** 包含 Hammer 文件系统的 Dx 分区。特定于方案的类型为 GPT 使用 `!61dc63ac-6e38-11dc-8513-01301bb8a9f5`。
 
-[`-r`](#r)
+**`dragonfly-hammer2`** 包含 Hammer2 文件系统的 Dx 分区。特定于方案的类型为 GPT 使用 `!5cbb9ad1-862d-11dc-a94d-01301bb8a9f5`。
 
-显示原始分区类型而不是符号名称。
+**`dragonfly-swap`** 专用于交换空间的 Dx 分区。特定于方案的类型为 GPT 使用 `!9d58fdbd-1ca5-11dc-8817-01301bb8a9f5`。
 
-[`undo`](#undo)
+**`dragonfly-ufs`** 包含 UFS1 文件系统的 Dx 分区。特定于方案的类型为 GPT 使用 `!9d94ce7c-1ca5-11dc-8817-01301bb8a9f5`。
 
-恢复 geom geom 的任何未决更改。 此操作与 `commit` 操作相反，可用于撤消任何尚未提交的更改。
+**`dragonfly-vinum`** 用于逻辑卷管理器的 Dx 分区。特定于方案的类型为 GPT 使用 `!9dd4478f-1ca5-11dc-8817-01301bb8a9f5`。
 
-[`unset`](#unset)
+**`ebr`** 用 EBR 细分为多个文件系统的分区。特定于方案的类型为 MBR 使用 `!5`。
 
-清除分区条目上的命名属性。 有关可用属性的列表，请参阅下面标题为 [ATTRIBUTES](#ATTRIBUTES) 的部分。
+**`fat16`** 包含 FAT16 文件系统的分区。特定于方案的类型为 MBR 使用 `!6`。
 
-`unset` 命令接受以下选项：
+**`fat32`** 包含 FAT32 文件系统的分区。特定于方案的类型为 MBR 使用 `!11`。
 
-[`-a`](#a_4) attrib
+**`fat32lba`** 包含 FAT32 (LBA) 文件系统的分区。特定于方案的类型为 MBR 使用 `!12`。
 
-指定要清除的属性。
+**`hifive-fsbl`** 包含 HiFive 第一阶段引导加载程序的原始分区。特定于方案的类型为 GPT 使用 `!5b193300-fc78-40cd-8002-e86c45580b47`。
 
-[`-f`](#f_11) flags
+**`hifive-bbl`** 包含 HiFive 第二阶段引导加载程序的原始分区。特定于方案的类型为 GPT 使用 `!2e54b353-1271-4842-806f-e436d6af6985`。
 
-额外的操作标志。 有关其使用的讨论，请参见下面标题为 [操作标志](#__u64CD___u4F5C___u6807___u5FD7_) 的部分。
+**`linux-data`** 包含某种带数据文件系统的 Linux 分区。特定于方案的类型为：MBR 使用 `!131`，GPT 使用 `!0fc63daf-8483-4772-8e79-3d69d8477de4`。
 
-[`-i`](#i_7) index
+**`linux-lvm`** 专用于逻辑卷管理器的 Linux 分区。特定于方案的类型为：MBR 使用 `!142`，GPT 使用 `!e6d6d379-f507-44c2-a23c-238f2a3df928`。
 
-指定要清除其属性的分区的索引。
+**`linux-raid`** 用于软件 RAID 配置的 Linux 分区。特定于方案的类型为：MBR 使用 `!253`，GPT 使用 `!a19d880f-05fc-4d3b-a006-743f0f84911e`。
 
-[`list`](#list)
+**`linux-swap`** 专用于交换空间的 Linux 分区。特定于方案的类型为：MBR 使用 `!130`，GPT 使用 `!0657fd6d-a4ab-43c4-84e5-0933c84b4f4f`。
 
-参见 geom(8) 。
+**`mbr`** 由 Master Boot Record（MBR）进行再分区的分区。此类型在 GPT 中称为 `!024dee41-33e7-11d3-9d69-0008c781f39f`。
 
-[`status`](#status)
+**`ms-basic-data`** Microsoft 操作系统的基本数据分区（BDP）。在 GPT 中，此类型等同于 MBR 中的 `fat16`、`fat32` 和 `ntfs` 分区类型。此类型用于 GPT exFAT 分区。特定于方案的类型为 GPT 使用 `!ebd0a0a2-b9e5-4433-87c0-68b6b72699c7`。
 
-参见 geom(8) 。
+**`ms-ldm-data`** 包含 Logical Disk Manager（LDM）卷的分区。特定于方案的类型为：MBR 使用 `!66`，GPT 使用 `!af9b60a0-1431-4f62-bc68-3311714a69ad`。
 
-[`load`](#load)
+**`ms-ldm-metadata`** 包含 Logical Disk Manager（LDM）数据库的分区。特定于方案的类型为 GPT 使用 `!5808c8aa-7e8f-42e0-85d2-e1e90434cfb3`。
 
-参见 geom(8) 。
+**`netbsd-ccd`** 用于 Concatenated Disk 驱动程序的 NetBSD 分区。特定于方案的类型为 GPT 使用 `!2db519c4-b10f-11dc-b99b-0019d1879648`。
 
-[`unload`](#unload)
+**`netbsd-cgd`** 加密的 NetBSD 分区。特定于方案的类型为 GPT 使用 `!2db519ec-b10f-11dc-b99b-0019d1879648`。
 
-参见 geom(8) 。
+**`netbsd-ffs`** 包含 UFS 文件系统的 NetBSD 分区。特定于方案的类型为 GPT 使用 `!49f48d5a-b10e-11dc-b99b-0019d1879648`。
 
-[分区方案](#__u5206___u533A___u65B9___u6848_)
-=========================================
+**`netbsd-lfs`** 包含 LFS 文件系统的 NetBSD 分区。特定于方案的类型为 GPT 使用 `!49f48d82-b10e-11dc-b99b-0019d1879648`。
 
-`gpart` 实用程序支持几种分区方案：
+**`netbsd-raid`** 用于软件 RAID 配置的 NetBSD 分区。特定于方案的类型为 GPT 使用 `!49f48daa-b10e-11dc-b99b-0019d1879648`。
 
-[`APM`](#APM)
+**`netbsd-swap`** 专用于交换空间的 NetBSD 分区。特定于方案的类型为 GPT 使用 `!49f48d32-b10e-11dc-b99b-0019d1879648`。
 
-分区图，供 PowerPC(R) Macintosh(R) 计算机使用。 需要 `GEOM_PART_APM` 内核选项。
+**`ntfs`** 包含 NTFS 或 exFAT 文件系统的分区。特定于方案的类型为 MBR 使用 `!7`。
 
-[`BSD`](#BSD)
+**`prep-boot`** 在某些 PowerPC 系统（尤其是 IBM 制造的系统）上专用于存储引导加载程序的系统分区。特定于方案的类型为：MBR 使用 `!65`，GPT 使用 `!9e1a2d38-c612-4316-aa26-8b49521e5a8b`。
 
-传统的 BSD 磁盘标签，通常用于细分 MBR 分区。 (（此方案也可以用作唯一的分区方法，无需 MBR。 来自其他操作系统的分区编辑工具通常不了解裸磁盘标签分区布局，因此有时称为 “dangerously dedicated” 。）) 需要 `GEOM_PART_BSD` 内核选项。
+**`solaris-boot`** 专用于引导加载程序的 illumos/Solaris 分区。特定于方案的类型为 GPT 使用 `!6a82cb45-1dd2-11b2-99a6-080020736631`。
 
-[`BSD64`](#BSD64)
+**`solaris-root`** 专用于根文件系统的 illumos/Solaris 分区。特定于方案的类型为 GPT 使用 `!6a85cf4d-1dd2-11b2-99a6-080020736631`。
 
-在 DragonFlyBSD 中用于细分 MBR 或 GPT 分区的 BSD 磁盘标签的 64 位实现。 需要 `GEOM_PART_BSD64` 内核选项。
+**`solaris-swap`** 专用于交换空间的 illumos/Solaris 分区。特定于方案的类型为 GPT 使用 `!6a87c46f-1dd2-11b2-99a6-080020736631`。
 
-[`LDM`](#LDM)
+**`solaris-backup`** 专用于备份的 illumos/Solaris 分区。特定于方案的类型为 GPT 使用 `!6a8b642b-1dd2-11b2-99a6-080020736631`。
 
-逻辑磁盘管理器是 Microsoft Windows NT 卷管理器的实现。 需要 `GEOM_PART_LDM` 内核选项。
+**`solaris-var`** 专用于 /var 文件系统的 illumos/Solaris 分区。特定于方案的类型为 GPT 使用 `!6a8ef2e9-1dd2-11b2-99a6-080020736631`。
 
-[`GPT`](#GPT)
+**`solaris-home`** 专用于 /home 文件系统的 illumos/Solaris 分区。特定于方案的类型为 GPT 使用 `!6a90ba39-1dd2-11b2-99a6-080020736631`。
 
-GUID 分区表用于基于 Intel 的 Macintosh 计算机，并逐渐取代大多数 PC 和其他系统上的 MBR。 需要 `GEOM_PART_GPT` 内核选项。
+**`solaris-altsec`** 专用于备用扇区的 illumos/Solaris 分区。特定于方案的类型为 GPT 使用 `!6a9283a5-1dd2-11b2-99a6-080020736631`。
 
-[`MBR`](#MBR)
+**`solaris-reserved`** 专用于保留空间的 illumos/Solaris 分区。特定于方案的类型为 GPT 使用 `!6a945a3b-1dd2-11b2-99a6-080020736631`。
 
-主引导记录用于 PC 和可移动媒体。 需要 `GEOM_PART_MBR` 内核选项。 `GEOM_PART_EBR` 选项增加了对用于定义逻辑分区的扩展引导记录 (EBR) 的支持。 `GEOM_PART_EBR_COMPAT` 选项启用 EBR 方案中分区名称的向后兼容性。 它还可以防止对此类分区执行任何类型的操作。
+**`u-boot-env`** 专用于 U-Boot 存储其环境的原始分区。特定于方案的类型为 GPT 使用 `!3de21764-95bd-54bd-a5c3-4abe786f38a8`。
 
-[`VTOC8`](#VTOC8)
+**`vmware-vmfs`** 包含 VMware File System（VMFS）的分区。特定于方案的类型为：MBR 使用 `!251`，GPT 使用 `!aa31e02a-400f-11db-9590-000c2911d1b8`。
 
-Sun 的 SMI 卷目录，供 SPARC64 和 UltraSPARC 计算机使用。 需要 `GEOM_PART_VTOC8` 内核选项。
+**`vmware-vmkdiag`** 包含 VMware 诊断文件系统的分区。特定于方案的类型为：MBR 使用 `!252`，GPT 使用 `!9d275380-40ad-11db-bf97-000c2911d1b8`。
 
-[分区类型](#__u5206___u533A___u7C7B___u578B_)
-=========================================
+**`vmware-reserved`** VMware 保留分区。特定于方案的类型为 GPT 使用 `!9198effc-31c0-11db-8f-78-000c2911d1b8`。
 
-分区类型在磁盘上由特定的字符串或魔术值标识。 `gpart` 实用程序对常见的分区类型使用符号名称，因此用户不需要知道这些值或相关分区方案的其他详细信息。 `gpart` 实用程序还允许用户为没有符号名称的分区类型指定特定于方案的分区类型。 FreeBSD 目前理解和使用的符号名称是：
+**`vmware-vsanhdr`** 由 VMware VSAN 占用的分区。特定于方案的类型为 GPT 使用 `!381cfccc-7288-11e0-92ee-000c2911d0b2`。
 
-[`apple-boot`](#apple-boot)
+**`xbootldr`** 扩展引导加载程序分区（XBOOTLDR），是 EFI 系统分区的辅助分区，用于存储额外的固件或引导加载程序菜单项。特定于方案的类型为 GPT 使用 `!bc13c2ff-59e6-4262-a352-b275fd6f7172`。
 
-在某些 Apple 系统上专门用于存储引导加载程序的系统分区。 特定于方案的类型是 MBR 的 “`!171`” ，APM 的 “`!Apple_Bootstrap`” 和 GPT 的 “`!426f6f74-0000-11aa-aa11-00306543ecac`” 。
-
-[`bios-boot`](#bios-boot)
-
-专用于引导加载程序第二阶段的系统分区。 通常它被 GRUB 2 加载器用于 GPT 分区方案。 特定于方案的类型是 “`!21686148-6449-6E6F-744E-656564454649`”.
-
-[`efi`](#efi)
-
-使用可扩展固件接口 (EFI) 的计算机的系统分区。 特定于方案的类型是 MBR 的 “`!239`” 和 GPT 的 “`!c12a7328-f81f-11d2-ba4b-00a0c93ec93b`” 。
-
-[`freebsd`](#freebsd)
-
-FreeBSD 分区细分为带有 BSD 磁盘标签的文件系统。 这是传统分区类型，不应用于 APM 或 GPT 方案。 特定于方案的类型是 MBR 的 “`!165`” ，APM 的 “`!FreeBSD`” 和 GPT 的 “`!516e7cb4-6ecf-11d6-8ff8-00022d09712b`” 。
-
-[`freebsd-boot`](#freebsd-boot)
-
-专用于引导代码的 FreeBSD 分区。 对于 GPT，特定于方案的类型是 “`!83bd6b9d-7f41-11dc-be0b-001560b84f0f`” 。
-
-[`freebsd-swap`](#freebsd-swap)
-
-专用于交换空间的 FreeBSD 分区。 特定于方案的类型是 APM 的 “`!FreeBSD-swap`” 、GPT 的 “`!516e7cb5-6ecf-11d6-8ff8-00022d09712b`” 和 VTOC8 的标记 0x0901。
-
-[`freebsd-ufs`](#freebsd-ufs)
-
-包含 UFS 或 UFS2 文件系统的 FreeBSD 分区。 特定于方案的类型是 APM 的 “`!FreeBSD-UFS`” 、GPT 的 “`!516e7cb6-6ecf-11d6-8ff8-00022d09712b`” 和 VTOC8 的标记 0x0902。
-
-[`freebsd-vinum`](#freebsd-vinum)
-
-一个包含 Vinum 卷的 FreeBSD 分区。 特定于方案的类型是 APM 的 “`!FreeBSD-Vinum`” 、GPT 的 “`!516e7cb8-6ecf-11d6-8ff8-00022d09712b`” 和 VTOC8 的标记 0x0903。
-
-[`freebsd-zfs`](#freebsd-zfs)
-
-一个包含 ZFS 卷的 FreeBSD 分区。 特定于方案的类型是 APM 的 “`!FreeBSD-ZFS`” 、GPT 的 “`!516e7cba-6ecf-11d6-8ff8-00022d09712b`” 和 VTOC8 的 0x0904。
-
-可以与 `gpart` 实用程序一起使用的其他符号名称是：
-
-[`apple-apfs`](#apple-apfs)
-
-用于 Apple 文件系统 APFS 的 Apple macOS 分区。
-
-[`apple-core-storage`](#apple-core-storage)
-
-逻辑卷管理器（称为核心存储）使用的 Apple Mac OS X 分区。 对于 GPT，特定于方案的类型是 “`!53746f72-6167-11aa-aa11-00306543ecac`” 。
-
-[`apple-hfs`](#apple-hfs)
-
-包含 HFS 或 HFS+ 文件系统的 Apple Mac OS X 分区。 特定于方案的类型是 MBR 的 “`!175`” ，APM 的 “`!Apple_HFS`” 和 GPT 的 “`!48465300-0000-11aa-aa11-00306543ecac`” 。
-
-[`apple-label`](#apple-label)
-
-用于软件 RAID 配置的 Apple Mac OS X 分区。 对于 GPT，特定于方案的类型是 “`!4c616265-6c00-11aa-aa11-00306543ecac`” 。
-
-[`apple-raid`](#apple-raid)
-
-用于软件 RAID 配置的 Apple Mac OS X 分区。 对于 GPT，特定于方案的类型是 “`!52414944-0000-11aa-aa11-00306543ecac`” 。
-
-[`apple-raid-offline`](#apple-raid-offline)
-
-Apple TV 使用的 Apple Mac OS X 分区。 对于 GPT，特定于方案的类型是 “`!52414944-5f4f-11aa-aa11-00306543ecac`” 。
-
-[`apple-tv-recovery`](#apple-tv-recovery)
-
-包含 UFS 文件系统的 Apple Mac OS X 分区。 特定于方案的类型是 MBR 的 “`!5265636f-7665-11aa-aa11-00306543ecac`” 。
-
-[`apple-ufs`](#apple-ufs)
-
-包含 UFS 文件系统的 Apple Mac OS X 分区。 特定于方案的类型是 MBR 的 “`!168`” 、APM 的 “`!Apple_UNIX_SVR2`” 和 GPT 的 “`!55465300-0000-11aa-aa11-00306543ecac`” 。
-
-[`apple-zfs`](#apple-zfs)
-
-包含 ZFS 卷的 Apple Mac OS X 分区。 对于 GPT，特定于方案的类型是 “`!6a898cc3-1dd2-11b2-99a6-080020736631`” 。 **illumos/Solaris /usr partition** 分区也使用相同的 GUID。 请参阅下面的 [CAVEATS](#CAVEATS) 部分。
-
-[`dragonfly-label32`](#dragonfly-label32)
-
-DragonFlyBSD 分区被细分为带有 BSD 磁盘标签的文件系统。 对于 GPT，特定于方案的类型是 “`!9d087404-1ca5-11dc-8817-01301bb8a9f5`” 。
-
-[`dragonfly-label64`](#dragonfly-label64)
-
-一个 DragonFlyBSD 分区细分为具有 disklabel64 的文件系统。 对于 GPT，特定于方案的类型是 “`!3d48ce54-1d16-11dc-8696-01301bb8a9f5`” 。
-
-[`dragonfly-legacy`](#dragonfly-legacy)
-
-DragonFlyBSD 中使用的传统分区类型。 对于 GPT，特定于方案的类型是 “`!bd215ab2-1d16-11dc-8696-01301bb8a9f5`” 。
-
-[`dragonfly-ccd`](#dragonfly-ccd)
-
-与 Concatenated Disk 驱动程序一起使用的 DragonFlyBSD 分区。 对于 GPT，特定于方案的类型是 “`!dbd5211b-1ca5-11dc-8817-01301bb8a9f5`” 。
-
-[`dragonfly-hammer`](#dragonfly-hammer)
-
-一个包含 Hammer 文件系统的 DragonFlyBSD 分区。 对于 GPT，特定于方案的类型是 “`!61dc63ac-6e38-11dc-8513-01301bb8a9f5`” 。
-
-[`dragonfly-hammer2`](#dragonfly-hammer2)
-
-一个包含 Hammer2 文件系统的 DragonFlyBSD 分区。 对于 GPT，特定于方案的类型是 “`!5cbb9ad1-862d-11dc-a94d-01301bb8a9f5`” 。
-
-[`dragonfly-swap`](#dragonfly-swap)
-
-专用于交换空间的 DragonFlyBSD 分区。 对于 GPT，特定于方案的类型是 “`!9d58fdbd-1ca5-11dc-8817-01301bb8a9f5`” 。
-
-[`dragonfly-ufs`](#dragonfly-ufs)
-
-一个包含 UFS1 文件系统的 DragonFlyBSD 分区。 对于 GPT，特定于方案的类型是 “`!9d94ce7c-1ca5-11dc-8817-01301bb8a9f5`” 。
-
-[`dragonfly-vinum`](#dragonfly-vinum)
-
-与逻辑卷管理器一起使用的 DragonFlyBSD 分区。 对于 GPT，特定于方案的类型是 “`!9dd4478f-1ca5-11dc-8817-01301bb8a9f5`” 。
-
-[`ebr`](#ebr)
-
-使用 EBR 细分为文件系统的分区。 对于 MBR，特定于方案的类型是 “`!5`” 。
-
-[`fat16`](#fat16)
-
-包含 FAT16 文件系统的分区。 对于 MBR，特定于方案的类型是 “`!6`” 。
-
-[`fat32`](#fat32)
-
-包含 FAT32 文件系统的分区。 对于 MBR，特定于方案的类型是 “`!11`” 。
-
-[`fat32lba`](#fat32lba)
-
-包含 FAT32 (LBA) 文件系统的分区。 对于 MBR，特定于方案的类型是 “`!12`” 。
-
-[`linux-data`](#linux-data)
-
-一个 Linux 分区，其中包含一些带有数据的文件系统。 特定于方案的类型是 MBR 的 “`!131`” 和 GPT 的 “`!0fc63daf-8483-4772-8e79-3d69d8477de4`” 。
-
-[`linux-lvm`](#linux-lvm)
-
-专用于逻辑卷管理器的 Linux 分区。 特定于方案的类型是 MBR 的 “`!142`” 和 GPT 的 “`!e6d6d379-f507-44c2-a23c-238f2a3df928`” 。
-
-[`linux-raid`](#linux-raid)
-
-用于软件 RAID 配置的 Linux 分区。 特定于方案的类型是 MBR 的 “`!253`” 和 GPT 的 “`!a19d880f-05fc-4d3b-a006-743f0f84911e`” 。
-
-[`linux-swap`](#linux-swap)
-
-专用于交换空间的 Linux 分区。 特定于方案的类型是 MBR 的 “`!130`” 和 GPT 的 “`!0657fd6d-a4ab-43c4-84e5-0933c84b4f4f`” 。
-
-[`mbr`](#mbr)
-
-由主引导记录 (MBR) 进行子分区的分区。 这种类型被 GPT 称为 “`!024dee41-33e7-11d3-9d69-0008c781f39f`” 。
-
-[`ms-basic-data`](#ms-basic-data)
-
-Microsoft 操作系统的基本数据分区 (BDP)。 在 GPT 中，此类型相当于 MBR 中的分区类型 `fat16`, `fat32` 和 `ntfs` 。 此类型用于 GPT exFAT 分区。 对于 GPT，特定于方案的类型是 “`!ebd0a0a2-b9e5-4433-87c0-68b6b72699c7`” 。
-
-[`ms-ldm-data`](#ms-ldm-data)
-
-包含逻辑磁盘管理器 (LDM) 卷的分区。 特定于方案的类型对于 MBR 是 “`!66`” ，对于 GPT 是 “`!af9b60a0-1431-4f62-bc68-3311714a69ad`” 。
-
-[`ms-ldm-metadata`](#ms-ldm-metadata)
-
-包含逻辑磁盘管理器 (LDM) 数据库的分区。 对于 GPT，特定于方案的类型是 “`!5808c8aa-7e8f-42e0-85d2-e1e90434cfb3`” 。
-
-[`netbsd-ccd`](#netbsd-ccd)
-
-与 Concatenated Disk 驱动程序一起使用的 NetBSD 分区。 对于 GPT，特定于方案的类型是 “`!2db519c4-b10f-11dc-b99b-0019d1879648`” 。
-
-[`netbsd-cgd`](#netbsd-cgd)
-
-一个加密的 NetBSD 分区。 对于 GPT，特定于方案的类型是 “`!2db519ec-b10f-11dc-b99b-0019d1879648`” 。
-
-[`netbsd-ffs`](#netbsd-ffs)
-
-包含 UFS 文件系统的 NetBSD 分区。 对于 GPT，特定于方案的类型是 “`!49f48d5a-b10e-11dc-b99b-0019d1879648`” 。
-
-[`netbsd-lfs`](#netbsd-lfs)
-
-包含 LFS 文件系统的 NetBSD 分区。 对于 GPT，特定于方案的类型是 “`!49f48d82-b10e-11dc-b99b-0019d1879648`” 。
-
-[`netbsd-raid`](#netbsd-raid)
-
-用于软件 RAID 配置的 NetBSD 分区。 对于 GPT，特定于方案的类型是 “`!49f48daa-b10e-11dc-b99b-0019d1879648`” 。
-
-[`netbsd-swap`](#netbsd-swap)
-
-专用于交换空间的 NetBSD 分区。 对于 GPT，特定于方案的类型是 “`!49f48d32-b10e-11dc-b99b-0019d1879648`” 。
-
-[`ntfs`](#ntfs)
-
-包含 NTFS 或 exFAT 文件系统的分区。 对于 MBR，特定于方案的类型是 “`!7`” 。
-
-[`prep-boot`](#prep-boot)
-
-专用于在某些 PowerPC 系统上存储引导加载程序的系统分区，特别是那些由 IBM 制造的系统。 特定于方案的类型是 MBR 的 “`!65`” 和 GPT 的 “`!9e1a2d38-c612-4316-aa26-8b49521e5a8b`” 。
-
-[`solaris-boot`](#solaris-boot)
-
-专用于引导加载程序的 illumos/Solaris 分区。 对于 GPT，特定于方案的类型是 “`!6a82cb45-1dd2-11b2-99a6-080020736631`” 。
-
-[`solaris-root`](#solaris-root)
-
-专用于根文件系统的 illumos/Solaris 分区。 对于 GPT，特定于方案的类型是 “`!6a85cf4d-1dd2-11b2-99a6-080020736631`” 。
-
-[`solaris-swap`](#solaris-swap)
-
-专用于交换的 illumos/Solaris 分区。 对于 GPT，特定于方案的类型是 “`!6a87c46f-1dd2-11b2-99a6-080020736631`” 。
-
-[`solaris-backup`](#solaris-backup)
-
-专门用于备份的 illumos/Solaris 分区。 对于 GPT，特定于方案的类型是 “`!6a8b642b-1dd2-11b2-99a6-080020736631`” 。
-
-[`solaris-var`](#solaris-var)
-
-专用于 /var 文件系统的 illumos/Solaris 分区。 对于 GPT，特定于方案的类型是 “`!6a8ef2e9-1dd2-11b2-99a6-080020736631`” 。
-
-[`solaris-home`](#solaris-home)
-
-专用于 /home 文件系统的 illumos/Solaris 分区。 对于 GPT，特定于方案的类型是 “`!6a90ba39-1dd2-11b2-99a6-080020736631`” 。
-
-[`solaris-altsec`](#solaris-altsec)
-
-专用于备用扇区的 illumos/Solaris 分区。 对于 GPT，特定于方案的类型是 “`!6a9283a5-1dd2-11b2-99a6-080020736631`” 。
-
-[`solaris-reserved`](#solaris-reserved)
-
-专用于保留空间的 illumos/Solaris 分区。 对于 GPT，特定于方案的类型是 “`!6a945a3b-1dd2-11b2-99a6-080020736631`” 。
-
-[`vmware-vmfs`](#vmware-vmfs)
-
-包含 VMware 文件系统 (VMFS) 的分区。 特定于方案的类型是 MBR 的 “`!251`” 和 GPT 的 “`!aa31e02a-400f-11db-9590-000c2911d1b8`” 。
-
-[`vmware-vmkdiag`](#vmware-vmkdiag)
-
-包含 VMware 诊断文件系统的分区。 特定于方案的类型是 MBR 的 “`!252`” 和 GPT 的 “`!9d275380-40ad-11db-bf97-000c2911d1b8`” 。
-
-[`vmware-reserved`](#vmware-reserved)
-
-VMware 保留分区。 对于 GPT，特定于方案的类型是 “`!9198effc-31c0-11db-8f-78-000c2911d1b8`” 。
-
-[`vmware-vsanhdr`](#vmware-vsanhdr)
-
-VMware VSAN 声明的分区。 对于 GPT，特定于方案的类型是 “`!381cfccc-7288-11e0-92ee-000c2911d0b2`” 。
-
-[属性](#__u5C5E___u6027_)
-=======================
+## 属性
 
 EBR 的特定于方案的属性：
 
-[`active`](#active)
+**`active`**
 
 GPT 的特定于方案的属性：
 
-[`bootme`](#bootme)
+**`bootme`** 设置后，`gptboot` 第一阶段引导加载程序会尝试从该分区引导系统。多个分区可以标记 `bootme` 属性。详见 [gptboot(8)](gptboot.8.md)。
 
-设置后， `gptboot` 阶段 1 引导加载程序将尝试从该分区引导系统。 可以使用 `bootme` 属性标记多个分区。 有关详细信息，请参阅 gptboot(8) 。
+**`bootonce`** 设置此属性会自动设置 `bootme` 属性。设置后，`gptboot` 第一阶段引导加载程序会尝试仅从该分区引导一次。多个分区可以标记 `bootonce` 和 `bootme` 属性对。详见 [gptboot(8)](gptboot.8.md)。
 
-[`bootonce`](#bootonce)
+**`bootfailed`** 此属性不应由手动管理。它由 `gptboot` 第一阶段引导加载程序和 `/etc/rc.d/gptboot` 启动脚本管理。详见 [gptboot(8)](gptboot.8.md)。
 
-设置此属性会自动设置 `bootme` 属性。 设置后， `gptboot` 阶段 1 引导加载程序将仅尝试从该分区引导系统一次。 可以使用 `bootonce` 和 `bootme` 属性对标记多个分区。 有关详细信息，请参阅 gptboot(8) 。
-
-[`bootfailed`](#bootfailed)
-
-不应手动管理此属性。 它由 `gptboot` 阶段 1 引导加载程序和 /etc/rc.d/gptboot 启动脚本管理。 有关详细信息，请参阅 gptboot(8) 。
-
-[`lenovofix`](#lenovofix)
-
-设置此属性会用一个新的 MBR 覆盖 Protective MBR，其中 0xee 分区是第二个，而不是第一个记录。 这解决了包括 X220、T420 和 T520 在内的一些 Lenovo 型号的 BIOS 兼容性问题，允许它们从 GPT 分区磁盘引导而无需使用 EFI。
+**`lenovofix`** 设置此属性会用一个新的保护性 MBR 覆盖原有的保护性 MBR，其中 0xee 分区是第二条记录而非第一条记录。这解决了某些 Lenovo 型号（包括 X220、T420 和 T520）的 BIOS 兼容性问题，使其能够在不使用 EFI 的情况下从 GPT 分区的磁盘引导。
 
 MBR 的特定于方案的属性：
 
-[`active`](#active_2)
+**`active`**
 
-[自举](#__u81EA___u4E3E_)
-=======================
+## 引导
 
-FreeBSD FreeBSD 支持多种分区方案，每个方案使用不同的引导代码。 引导代码位于每个分区方案的特定磁盘区域中，并且对于不同的方案其大小可能不同。
+FreeBSD 支持多种分区方案，每种方案使用不同的引导代码。引导代码位于每种分区方案的特定磁盘区域，并且不同方案的大小可能不同。
 
-引导代码可以分为两种类型。 第一种类型嵌入在分区方案的元数据中，而第二种类型位于特定分区上。 嵌入引导代码只能使用带有 `-b` bootcode 选项的 `gpart bootcode` 命令来完成。 GEOM PART 类知道如何安全地将引导代码嵌入到特定的分区方案元数据中而不会造成任何损坏。
+引导代码可分为两种类型。第一种类型嵌入在分区方案的元数据中，第二种类型位于特定分区上。嵌入引导代码只能通过 `gpart bootcode` 命令配合 `-b` `bootcode` 选项来完成。GEOM PART 类知道如何安全地将引导代码嵌入到特定分区方案的元数据中而不会造成任何损坏。
 
-主引导记录 (MBR) 使用 512 字节的引导代码映像，嵌入到分区表的元数据区域中。 此引导代码有两种变体： /boot/mbr 和 /boot/boot0 。 /boot/mbr-
-在分区表中搜索具有 `active` 属性（请参阅 [属性](#__u5C5E___u6027_) 部分）的分区。 /boot/boot0 映像包含一个引导管理器，该管理器具有一些额外的交互功能，用于从用户选择的分区进行多重引导。
+Master Boot Record（MBR）使用 512 字节的引导代码映像，嵌入到分区表的元数据区域。此引导代码有两种变体：`/boot/mbr` 和 `/boot/boot0`。`/boot/mbr` 在分区表中查找具有 `active` 属性（参见“属性”一节）的分区，然后运行下一引导阶段。`/boot/boot0` 映像包含一个引导管理器，具有一些额外的交互功能，用于从用户选择的分区进行多重引导。
 
-BSD 磁盘标签通常在类型为 `freebsd` 的 MBR 分区（片）内创建（请参阅 [分区类型](#__u5206___u533A___u7C7B___u578B_) 部分）。 它使用 8 KB 大小的引导代码映像 /boot/boot, 嵌入到分区表的元数据区域。
+BSD disklabel 通常创建在类型为 `freebsd`（参见“分区类型”一节）的 MBR 分区（slice）内。它使用 8 KiB 大小的引导代码映像 `/boot/boot`，嵌入到分区表的元数据区域。
 
-两种类型的引导代码都用于从 GUID 分区表引导。 首先，保护性 MBR 嵌入到 /boot/pmbr 映像的第一个磁盘扇区中。 它在 GPT 中搜索一个 `freebsd-boot` 分区（参见 [分区类型](#__u5206___u533A___u7C7B___u578B_) 部分）并从中运行下一个引导阶段。 `freebsd-boot` 分区应该小于 545 KB。 它可以位于磁盘上其他 FreeBSD 分区之前或之后。 有两种引导代码变体可写入此分区： /boot/gptboot 和 /boot/gptzfsboot 。
+两种类型的引导代码都用于从 GUID Partition Table 引导。首先，从 `/boot/pmbr` 映像将保护性 MBR 嵌入到第一个磁盘扇区。它会在 GPT 中查找 `freebsd-boot` 分区（参见“分区类型”一节）并从中运行下一引导阶段。`freebsd-boot` 分区应小于 545 KiB。它可以位于磁盘上其他 FreeBSD 分区之前或之后。写入此分区的引导代码有两种变体：`/boot/gptboot` 和 `/boot/gptzfsboot`。
 
-/boot/gptboot 用于从 UFS 分区引导。 `gptboot` 搜索 GPT 中的 `freebsd-ufs` 分区，并根据 `bootonce` 和 `bootme` 属性选择一个进行引导。 如果两个属性都没有找到， /boot/gptboot 从第一个 `freebsd-ufs` 分区引导。 /boot/loader (第三个引导阶段) 从符合这些条件的第一个分区加载。 有关详细信息，请参阅 gptboot(8) 。
+`/boot/gptboot` 用于从 UFS 分区引导。`gptboot` 在 GPT 中的 `freebsd-ufs` 分区中搜索，并根据 `bootonce` 和 `bootme` 属性选择一个进行引导。如果未找到任何属性，`/boot/gptboot` 会从第一个 `freebsd-ufs` 分区引导。`/boot/loader`（第三引导阶段）从第一个符合这些条件的分区加载。详见 [gptboot(8)](gptboot.8.md)。
 
-/boot/gptzfsboot 用于从 ZFS 引导。 它在 GPT 中搜索 `freebsd-zfs` 分区，尝试检测 ZFS 池。 检测到所有池后， /boot/loader 将从找到的第一个设置为可引导的池启动。
+`/boot/gptzfsboot` 用于从 ZFS 引导。它在 GPT 中查找 `freebsd-zfs` 分区，尝试检测 ZFS 存储池。检测到所有存储池后，从第一个被发现设置为可引导的存储池启动 `/boot/loader`。
 
-VTOC8 方案不支持嵌入引导代码。 相反，应该使用带有 `-p` bootcode 选项的 `gpart bootcode` 命令将 8 KB 引导代码映像 /boot/boot1 写入所有足够大的 VTOC8 分区。 为此，可以省略 `-i` index 选项。
+APM 方案也不支持嵌入引导代码。相反，应使用 `gpart bootcode` 命令将 800 KiB 的引导代码映像 `/boot/boot1.hfs` 写入到 `apple-boot` 类型的分区中，该分区大小也应为 800 KiB。
 
-APM 方案也不支持嵌入引导代码。 相反，应该使用 `gpart bootcode` 命令将 800 KB 引导代码映像 /boot/boot1.hfs 写入 `apple-boot` 类型的分区，该分区的大小也应为 800 KB。
+## 操作标志
 
-[操作标志](#__u64CD___u4F5C___u6807___u5FD7_)
-=========================================
+除 `commit` 和 `undo` 操作外，其他操作都接受可选的 `-f` `flags` 选项。此选项用于指定特定于操作的标志。默认情况下，`gpart` 工具定义了 `C` 标志，使操作立即提交。用户可以指定“`-f` `x`”使操作结果成为挂起更改，之后可与其他挂起更改一起，通过 `commit` 操作作为单个复合更改提交，或通过 `undo` 操作还原。
 
-`commit` 和 `undo` 操作以外的操作采用可选的 `-f` flags 选项。 此选项用于指定特定于操作的操作标志。 默认情况下， `gpart` 实用程序定义了 ‘`C`’ 标志，以便立即提交操作。 用户可以指定 “`-f` `x`” 以使操作导致挂起的更改，稍后可以与其他挂起的更改一起作为单个复合更改与提交操作一起 `commit` 或通过 `undo` 操作恢复。
+## 恢复
 
-[正在恢复](#__u6B63___u5728___u6062___u590D_)
-=========================================
+GEOM PART 类仅支持 GPT 分区表的恢复。GPT 的主元数据存储在设备的开头。为冗余起见，元数据的辅助（备份）副本存储在设备的末尾。由于有两份副本，某些元数据损坏对 GPT 的工作并不致命。当内核检测到损坏的元数据时，会将该表标记为损坏并报告问题。`destroy` 和 `recover` 是允许在损坏表上执行仅有的操作。
 
-GEOM PART 类仅支持恢复 GPT 的分区表。 GPT 主要元数据存储在设备的开头。 为了冗余，元数据的辅助 (backup) 副本存储在设备的末端。 由于有两个副本，元数据的某些损坏对 GPT 的工作来说并不是致命的。 当内核检测到损坏的元数据时，它会将这个表标记为损坏并报告问题。 `destroy` 和 `recover` 是对损坏表唯一允许的操作。
+如果一个 GPT 头看起来已损坏，但另一份副本仍然完好，内核将记录以下信息：
 
-如果一个 GPT 标头似乎已损坏，但另一个副本保持不变，内核将记录以下内容：
-
-GEOM：提供者：主 GPT 表已损坏或无效。 GEOM：提供者：使用辅助节点——强烈建议恢复。 
+```sh
+GEOM: provider: the primary GPT table is corrupt or invalid.
+GEOM: provider: using the secondary instead -- recovery strongly advised.
+```
 
 或
 
-GEOM：提供者：辅助 GPT 表已损坏或无效。 GEOM：提供者：仅使用主节点——建议恢复。 
+```sh
+GEOM: provider: the secondary GPT table is corrupt or invalid.
+GEOM: provider: using the primary only -- recovery suggested.
+```
 
-`gpart` 命令（如 `show`, `status` 和 `list` ）也会报告损坏的表。
+此外，`gpart` 的 `show`、`status` 和 `list` 等命令也会报告损坏的表。
 
-如果设备的大小发生了变化（例如，卷扩展），则辅助 GPT 标头将不再位于最后一个扇区中。 这不是元数据损坏，但它很危险，因为主 GPT 的任何损坏都会导致分区表丢失。 内核通过以下消息报告此问题：
+如果设备大小已更改（例如卷扩展），辅助 GPT 头将不再位于最后一个扇区。这不是元数据损坏，但很危险，因为主 GPT 的任何损坏都会导致分区表丢失。内核会通过以下消息报告此问题：
 
-GEOM：提供者：辅助 GPT 标头不在最后一个 LBA 中。 
+```sh
+GEOM: provider: the secondary GPT header is not in the last LBA.
+```
 
-这种情况可以使用 `recover` 命令恢复。 此命令使用已知的有效元数据重建损坏的元数据，并将辅助 GPT 重新定位到设备的末尾。
+这种情况可以通过 `recover` 命令恢复。此命令使用已知的有效元数据重建损坏的元数据，并将辅助 GPT 重新定位到设备末尾。
 
-_NOTE_: GEOM PART 类可以检测到通过不同 GEOM 提供程序可见的相同分区表，其中一些将被标记为损坏。 选择恢复提供商时要小心。 如果选择不正确，您可能会破坏另一个 GEOM 类的元数据，例如 GEOM MIRROR 或 GEOM LABEL。
+*注意：* GEOM PART 类可以检测到通过不同 GEOM provider 可见的同一分区表，其中一些会被标记为损坏。在选择用于恢复的 provider 时要小心。如果选择错误，可能会破坏其他 GEOM 类（例如 GEOM MIRROR 或 GEOM LABEL）的元数据。
 
-[SYSCTL 变量](#SYSCTL___u53D8___u91CF_)
-=====================================
+## SYSCTL 变量
 
-以下 sysctl(8) 变量可用于控制 `PART` GEOM 类的行为。 默认值显示在每个变量旁边。
+以下 [sysctl(8)](sysctl.8.md) 变量可用于控制 `PART` GEOM 类的行为。每个变量的默认值显示在其旁边。
 
-kern.geom.part.allow\_nesting: 0
+**`kern.geom.part.allow_nesting`** : 0 默认情况下，某些方案（目前是 BSD 和 BSD64）不允许进一步的嵌套分区。此变量覆盖此限制并允许任意嵌套（在偏移量 0 处创建的分区除外）。某些方案有自己独立的检查，详见下文。
 
-默认情况下，一些方案（目前是 BSD、BSD64 和 VTOC8）不允许进一步的嵌套分区。 此变量会覆盖此限制并允许任意嵌套（在偏移量 0 创建的分区内除外）。 有些方案有自己的单独检查，见下文。
+**`kern.geom.part.auto_resize`** : 1 此变量控制 `PART` GEOM 类的自动调整大小行为。当此变量启用并检测到 provider 的新大小时，会调整方案元数据的大小，但所有更改不会保存到磁盘，直到运行 `gpart commit` 确认更改。此行为也会通过诊断消息报告：**GEOM_PART: (provider) was automatically resized.** **Use `gpart commit (provider)` to save changes or `gpart undo (provider)`** **to revert them.**
 
-kern.geom.part.auto\_resize: 1
+**`kern.geom.part.check_integrity`** : 1 此变量控制元数据完整性检查的行为。启用完整性检查时，`PART` GEOM 类会验证从磁盘元数据获取的所有通用分区参数。如果检测到某些不一致，分区表将被拒绝并附带诊断消息：**GEOM_PART: Integrity check failed (provider, scheme).**
 
-此变量控制 `PART` GEOM 类的自动调整大小行为。 当启用此变量并检测到提供程序的新大小时，架构元数据会调整大小，但所有更改都不会保存到磁盘，直到运行 `gpart commit` 以确认更改。 诊断消息也会报告此行为： **GEOM\_PART: (provider) was automatically resized.** **Use \`gpart commit (provider)\` to save changes or \`gpart undo (provider)\`** **to revert them.**
+**`kern.geom.part.gpt.allow_nesting`** : 0 默认情况下，GPT 方案仅允许在最外层嵌套级别。此变量允许移除此限制。
 
-kern.geom.part.check\_integrity: 1
+**`kern.geom.part.ldm.debug`** : 0 Logical Disk Manager（LDM）模块的调试级别。可设置为 0 到 2（含）之间的数字。设置为 0 时打印最少的调试信息，设置为 2 时打印最多的调试信息。
 
-此变量控制元数据完整性检查的行为。 启用完整性检查后， `PART` GEOM 类会验证从磁盘元数据获取的所有通用分区参数。 如果检测到一些不一致，分区表将被拒绝并显示诊断消息： **GEOM\_PART: Integrity check failed (provider, scheme)**.
+**`kern.geom.part.ldm.show_mirrors`** : 0 此变量控制 Logical Disk Manager（LDM）模块如何处理镜像卷。默认情况下，镜像卷显示为类型为 `ms-ldm-data` 的分区（参见“分区类型”一节）。如果此变量设置为 1，镜像卷的每个组件将作为独立分区呈现。*注意：* 这可能破坏镜像卷并导致数据损坏。
 
-kern.geom.part.gpt.allow\_nesting: 0
+**`kern.geom.part.mbr.enforce_chs`** : 0 指定 Master Boot Record（MBR）模块如何进行对齐。如果此变量设置为非零值，模块将自动重新计算用户指定的偏移量和大小以与 CHS 几何对齐。否则，这些值将保持不变。
 
-默认情况下，仅允许在最外层嵌套级别使用 GPT 方案。 此变量允许删除此限制。
+**`kern.geom.part.separator`** : 指定一个可选的分隔符，该分隔符将插入到 GEOM 名称和分区名称之间。此变量是 [loader(8)](loader.8.md) 可调参数。请注意，设置此变量可能会破坏假定特定命名方案的软件。
 
-kern.geom.part.ldm.debug: 0
+## 退出状态
 
-逻辑磁盘管理器 (LDM) 模块的调试级别。 这可以设置为介于 0 和 2 之间的数字。 如果设置为 0，则打印最小调试信息，如果设置为 2，则打印最大调试信息量。
+成功时退出状态为 0，命令失败时为 1。
 
-kern.geom.part.ldm.show\_mirrors: 0
+## 实例
 
-此变量控制逻辑磁盘管理器 (LDM) 模块如何处理镜像卷。 默认情况下，镜像卷显示为类型为 `ms-ldm-data` 的分区（请参阅 [分区类型](#__u5206___u533A___u7C7B___u578B_) 部分）。 如果将此变量设置为 1，则镜像卷的每个组件都将作为独立分区存在。 _NOTE_: 这可能会破坏镜像卷并导致数据损坏。
+以下示例假设磁盘的逻辑块大小为 512 字节，无论其物理块大小如何。
 
-kern.geom.part.mbr.enforce\_chs: 0
+### GPT
 
-指定主引导记录 (MBR) 模块如何进行对齐。 如果此变量设置为非零值，模块将自动重新计算用户指定的偏移量和大小，以与 CHS 几何对齐。 否则这些值将保持不变。
+在此示例中，我们将使用 GPT 方案对 `ada0` 进行格式化，并创建引导、交换和根分区。首先，我们需要创建分区表：
 
-kern.geom.part.separator:
+```sh
+/sbin/gpart create -s GPT ada0
+```
 
-指定将在 GEOM 名称和分区名称之间插入的可选分隔符。 这个变量是一个 loader(8) 可调参数。 请注意，设置此变量可能会破坏采用特定命名方案的软件。
+接下来，我们安装带有第一阶段引导代码的保护性 MBR。保护性 MBR 列出一个跨整个磁盘的、可引导的单个分区，从而允许不支持 GPT 的 BIOS 从该磁盘引导，并防止不理解 GPT 方案的工具认为该磁盘未格式化。
 
-[退出状态](#__u9000___u51FA___u72B6___u6001_)
-=========================================
+```sh
+/sbin/gpart bootcode -b /boot/pmbr ada0
+```
 
-成功时退出状态为 0，如果命令失败则为 1。
+然后，我们创建一个专用的 `freebsd-boot` 分区来存放第二阶段引导加载程序，它将从 UFS 或 ZFS 文件系统加载 FreeBSD 内核和模块。此分区必须大于引导代码（UFS 使用 `/boot/gptboot`，ZFS 使用 `/boot/gptzfsboot`），但要小于 545 KiB，因为第一阶段加载程序在引导时会将整个分区加载到内存中，无论它实际包含多少数据。我们在偏移量 40 处创建一个 472 块（236 KiB）的引导分区，这是分区表大小（34 块或 17 KiB）向上取整到最近的 4 KiB 边界。
 
-[实例](#__u5B9E___u4F8B_)
-=======================
+```sh
+/sbin/gpart add -b 40 -s 472 -t freebsd-boot ada0
+/sbin/gpart bootcode -p /boot/gptboot -i 1 ada0
+```
 
-下面的示例假定磁盘的逻辑块大小为 512 字节，而不管其物理块大小。
+现在，我们在第一个可用偏移量（即 40 + 472 = 512 块，即 256 KiB）处创建一个 4 GiB 的交换分区。
 
-[GPT](#GPT_2)
--------------
+```sh
+/sbin/gpart add -s 4G -t freebsd-swap ada0
+```
 
-在本例中，我们将使用 GPT 方案格式化 ada0 并创建引导、交换和根分区。首先，我们需要创建分区表：
+将交换分区及所有后续分区对齐到 256 KiB 边界，可确保在从具有 512 字节块的普通旧磁盘、具有 4096 字节物理块的现代“高级格式”磁盘，到条带大小高达 256 KiB 的 RAID 卷等广泛介质上获得最佳性能。
 
-/sbin/gpart create -s GPT ada0 
+最后，我们为根文件系统创建并格式化一个 8 GiB 的 `freebsd-ufs` 分区，将设备的其余部分留给额外的文件系统：
 
-接下来，我们使用第一阶段引导代码安装保护 MBR。 保护性 MBR 列出了跨越整个磁盘的单个可引导分区，从而允许不支持 GPT 的 BIOS 从磁盘引导，并防止不了解 GPT 方案的工具认为磁盘未格式化。
+```sh
+/sbin/gpart add -s 8G -t freebsd-ufs ada0
+/sbin/newfs -Uj /dev/ada0p3
+```
 
-/sbin/gpart bootcode -b /boot/pmbr ada0 
+### MBR
 
-然后，我们创建一个专用的 `freebsd-boot` 分区来保存第二阶段引导加载程序，它将从 UFS 或 ZFS 文件系统加载 FreeBSD 内核和模块。 该分区必须大于引导代码 (UFS 的 /boot/gptboot 或 ZFS 的 /boot/gptzfsboot), 但小于 545 kB，因为第一阶段加载程序将在引导期间将整个分区加载到内存中，无论如何它实际包含的大量数据。 我们在偏移量 40 处创建一个 472 块 (236 kB) 的引导分区，这是分区表的大小（34 块或 17 kB）四舍五入到最近的 4 kB 边界。
+在此示例中，我们将使用 MBR 方案对 `ada0` 进行格式化，并创建一个使用传统 BSD disklabel 细分的单个分区。
 
-/sbin/gpart add -b 40 -s 472 -t freebsd-boot ada0 /sbin/gpart bootcode -p /boot/gptboot -i 1 ada0 
+首先，我们创建分区表以及一个大小为 64 GiB、对齐为 4 KiB 的单个分区，然后我们将该分区标记为活动（可引导）并安装第一阶段引导加载程序：
 
-我们现在在第一个可用偏移处创建一个 4 GB 的交换分区，即 40 + 472 = 512 个块 (256 kB)。
+```sh
+/sbin/gpart create -s MBR ada0
+/sbin/gpart add -t freebsd -s 64G -a 4k ada0
+/sbin/gpart set -a active -i 1 ada0
+/sbin/gpart bootcode -b /boot/boot0 ada0
+```
 
-/sbin/gpart add -s 4G -t freebsd-swap ada0 
+接下来，我们在该分区（disklabel 术语中的“slice”）中创建一个 disklabel，最多可容纳 20 个分区：
 
-在 256 kB 边界上对齐交换分区和所有后续分区可确保在各种介质上实现最佳性能，从具有 512 字节块的普通旧磁盘到具有 4096 字节物理块的现代 “advanced format” 磁盘，再到 RAID 卷条带大小高达 256 kB。
+```sh
+/sbin/gpart create -s BSD -n 20 ada0s1
+```
 
-最后，我们为根文件系统创建并格式化了一个 8 GB 的 `freebsd-ufs` 分区，将剩余部分留作其他文件系统：
+然后，我们创建一个 8 GiB 的根分区和一个 4 GiB 的交换分区：
 
-/sbin/gpart add -s 8G -t freebsd-ufs ada0 /sbin/newfs -Uj /dev/ada0p3 
+```sh
+/sbin/gpart add -t freebsd-ufs -s 8G ada0s1
+/sbin/gpart add -t freebsd-swap -s 4G ada0s1
+```
 
-[MBR](#MBR_2)
--------------
+最后，我们为 BSD label 安装相应的引导加载程序：
 
-在本例中，我们将使用 MBR 方案格式化 ada0 并创建一个单独的分区，我们使用传统的 BSD 磁盘标签对其进行细分。
+```sh
+/sbin/gpart bootcode -b /boot/boot ada0s1
+```
 
-首先，我们创建分区表和单个 64 GB 分区，然后将该分区标记为活动（可引导）并安装第一阶段引导加载程序：
+### 删除分区和销毁分区方案
 
-/sbin/gpart create -s MBR ada0 /sbin/gpart add -t freebsd -s 64G ada0 /sbin/gpart set -a active -i 1 ada0 /sbin/gpart bootcode -b /boot/boot0 ada0 
+如果尝试销毁分区表时显示 *Device busy* 错误，请记住必须先用 `delete` 操作删除所有分区。在此示例中，`da0` 有三个分区：
 
-接下来，我们在该分区中创建一个磁盘标签 (磁盘标签术语中的 “slice”) ，最多可容纳 20 个分区：
+```sh
+/sbin/gpart delete -i 3 da0
+/sbin/gpart delete -i 2 da0
+/sbin/gpart delete -i 1 da0
+/sbin/gpart destroy da0
+```
 
-/sbin/gpart create -s BSD -n 20 ada0s1 
+除了删除每个分区然后销毁分区方案外，还可以在 `destroy` 时使用 `-F` 选项在销毁分区方案之前删除所有分区。这等同于上一个示例：
 
-然后我们创建一个 8 GB 的根分区和一个 4 GB 的交换分区：
+```sh
+/sbin/gpart destroy -F da0
+```
 
-/sbin/gpart add -t freebsd-ufs -s 8G ada0s1 /sbin/gpart add -t freebsd-swap -s 4G ada0s1 
+### 备份和恢复
 
-最后，我们为 BSD 标签安装适当的引导加载程序：
+从 `da0` 创建分区表的备份：
 
-/sbin/gpart bootcode -b /boot/boot ada0s1 
+```sh
+/sbin/gpart backup da0 > da0.backup
+```
 
-[VTOC8](#VTOC8_2)
------------------
+从备份恢复分区表到 `da0`：
 
-在 da0 上创建一个 VTOC8 方案：
+```sh
+/sbin/gpart restore -l da0 < /mnt/da0.backup
+```
 
-/sbin/gpart create -s VTOC8 da0 
+将分区表从 `ada0` 克隆到 `ada1` 和 `ada2`：
 
-创建一个 512MB 大小的 `freebsd-ufs` 分区以包含一个 UFS 文件系统，系统可以从该文件系统引导。
+```sh
+/sbin/gpart backup ada0 | /sbin/gpart restore -F ada1 ada2
+```
 
-/sbin/gpart add -s 512M -t freebsd-ufs da0 
+## 诊断
 
-创建一个 15GB 大小的 `freebsd-ufs` 分区以包含 UFS 文件系统并在 4KB 边界上对齐：
+- gpart: arg0 '%s': Invalid argument 提供的 `geom` 参数不是 GEOM provider。并非 [devfs(4)](../man4/devfs.4.md) 中的每个设备都是 GEOM provider。例如，zfs(4) zvol 只有在其 **volmode** 设置正确时才会显示为 GEOM provider（详情参见 zfsprops(7)）。
 
-/sbin/gpart add -s 15G -t freebsd-ufs -a 4k da0 
+## 参见
 
-创建所有必需的分区后，将引导代码嵌入其中：
+[geom(4)](../man4/geom.4.md), xo_options(7), [boot0cfg(8)](boot0cfg.8.md), geom(8), glabel(8), [gptboot(8)](gptboot.8.md)
 
-/sbin/gpart bootcode -p /boot/boot1 da0 
+## 历史
 
-[删除分区和销毁分区方案](#__u5220___u9664___u5206___u533A___u548C___u9500___u6BC1___u5206___u533A___u65B9___u6848_)
---------------------------------------------------------------------------------------------------------
+`PART` 工具出现于 FreeBSD 7.0。
 
-如果在尝试销毁分区表时显示 _Device busy_ 错误，请记住必须先使用 `delete` 操作删除所有分区。 在此示例中， da0 具有三个分区：
+## 作者
 
-/sbin/gpart delete -i 3 da0 /sbin/gpart delete -i 2 da0 /sbin/gpart delete -i 1 da0 /sbin/gpart destroy da0 
+Marcel Moolenaar <marcel@FreeBSD.org>
 
-不是删除每个分区然后销毁分区方案，而是可以使用 `-F` 选项与 `destroy` 一起删除所有分区，然后再销毁分区方案。这等效于前面的示例：
+## 注意事项
 
-/sbin/gpart destroy -F da0 
-
-[备份还原](#__u5907___u4EFD___u8FD8___u539F_)
------------------------------------------
-
-从 da0 创建分区表的备份：
-
-/sbin/gpart backup da0 > da0.backup 
-
-将分区表从备份恢复到 da0:
-
-/sbin/gpart restore -l da0 < /mnt/da0.backup 
-
-将分区表从 ada0 克隆到 ada1 和 ada2:
-
-/sbin/gpart backup ada0 | /sbin/gpart restore -F ada1 ada2 
-
-[参见](#__u53C2___u89C1_)
-=======================
-
-geom(4), boot0cfg(8), geom(8), gptboot(8)
-
-[历史](#__u5386___u53F2_)
-=======================
-
-`gpart` 实用程序出现在 FreeBSD 7.0 中。
-
-[作者](#__u4F5C___u8005_)
-=======================
-
-Marcel Moolenaar <[marcel@FreeBSD.org](mailto:marcel@FreeBSD.org)\>
-
-[注意事项](#__u6CE8___u610F___u4E8B___u9879_)
-=========================================
-
-分区类型 _apple-zfs_ (6a898cc3-1dd2-11b2-99a6-080020736631) 也用于 ZFS 卷的 illumos/Solaris 平台。
-
-August 17, 2020
-
-FreeBSD 13.1-RELEASE
+分区类型 *apple-zfs*（6a898cc3-1dd2-11b2-99a6-080020736631）也用于 illumos/Solaris 平台上的 ZFS 卷。

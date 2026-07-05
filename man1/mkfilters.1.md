@@ -1,32 +1,23 @@
-  MKFILTERS(1)  
+# mkfilters.1
 
-MKFILTERS(1)
+`mkfilters` — 为 ipfilter 生成最小防火墙规则集
 
-FreeBSD General Commands Manual
+## 名称
 
-MKFILTERS(1)
+`mkfilters`
 
-[名称](#__u540D___u79F0_)
-=======================
+## 概要
 
-mkfilters - 为 ipfilter 生成最小的防火墙规则集
+`mkfilters`
 
-[概要](#__u6982___u8981_)
-=======================
+## 文件
 
-**mkfilters**
+**/usr/share/examples/ipfilter/mkfilters**
 
-[文件](#__u6587___u4EF6_)
-=======================
+## 描述
 
-/usr/share/examples/ipfilter/mkfilters
+`mkfilters` 是一个 perl 脚本，通过解析 `ifconfig` 的输出生成用于 `ipfilter` 的最小过滤规则集。
 
-[描述](#__u63CF___u8FF0_)
-=======================
-
-**mkfilters** 是一个 perl 脚本，它通过解析 **ifconfig** 的输出来生成与 **ipfilter** 一起使用的最小过滤器规则集。
-
-[参见](#__u53C2___u89C1_)
-=======================
+## 参见
 
 ipf(8), ipf(5), ipfilter(5), ifconfig(8)

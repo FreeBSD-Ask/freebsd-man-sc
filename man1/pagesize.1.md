@@ -1,38 +1,23 @@
-  PAGESIZE(1)  
+# pagesize.1
 
-PAGESIZE(1)
+`pagesize` — 打印系统页面大小
 
-FreeBSD General Commands Manual
-
-PAGESIZE(1)
-
-[名称](#__u540D___u79F0_)
-=======================
-
-`pagesize` —
-
-打印系统页面大小
-
-[概要](#__u6982___u8981_)
-=======================
+## 名称
 
 `pagesize`
 
-[描述](#__u63CF___u8FF0_)
-=======================
+## 概要
 
-`pagesize` 实用程序以字节为单位打印内存页的大小，由 getpagesize(3) 返回。该程序可用于构建可移植的 shell 脚本。
+`pagesize`
 
-[参见](#__u53C2___u89C1_)
-=======================
+## 描述
+
+`pagesize` 实用程序以字节为单位打印内存页面大小，该值由 getpagesize(3) 返回。此程序在构造可移植的 shell 脚本时很有用。
+
+## 参见
 
 getpagesize(3)
 
-[历史](#__u5386___u53F2_)
-=======================
+## 历史
 
-`pagesize` 命令出现在 4.2BSD-中。
-
-June 6, 1993
-
-FreeBSD 13.1-RELEASE
+`pagesize` 命令出现于 4.2BSD。

@@ -1,52 +1,33 @@
-  IDENT(1)  
+# ident.1
 
-IDENT(1)
+`ident` — 识别文件中的 RCS 关键字字符串
 
-FreeBSD General Commands Manual
+## 名称
 
-IDENT(1)
+`ident`
 
-[名称](#__u540D___u79F0_)
-=======================
+## 概要
 
-`ident` —
+`ident [-q] [-V] [file]`
 
-识别文件中的 RCS 关键字字符串
+## 描述
 
-[概要](#__u6982___u8981_)
-=======================
+`ident` 实用程序在 `files` 中搜索所有匹配模式 `$keyword: text$` 的实例。
 
-`ident` \[`-q`\] \[`-V`\] \[file ...\]
+如果未传递参数，则 `ident` 解析标准输入。
 
-[描述](#__u63CF___u8FF0_)
-=======================
+*keyword* 必须仅由 C 语言环境中的字母数字值组成，后跟 `:` 和一个空格。
 
-`ident` 实用程序在 files 中搜索模式 ‘$keyword: text$’ 的所有实例。
+支持的选项：
 
-如果没有传递参数，则 `ident` 解析标准输入。
+**`-q`**, `--quiet` 静默模式：如果未找到模式，则抑制警告。
 
-_keyword_ 只能由 C 语言环境中的字母数字值组成，后跟 ‘:’ 和一个空格。
+**`-V`**, `--version` 不执行任何操作，为兼容 GNU ident 而添加。
 
-支持这些选项：
+## 退出状态
 
-[`-q`](#q)
+`ident` 实用程序成功时退出值为 0，发生错误时大于 0。
 
-安静模式：如果没有找到模式，则禁止警告。
+## 作者
 
-[`-V`](#V)
-
-什么都不做，为了与 GNU ident 兼容而添加。
-
-[退出状态](#__u9000___u51FA___u72B6___u6001_)
-=========================================
-
-The `ident` utility exits 0 on success, and >0 if an error occurs.
-
-[作者](#__u4F5C___u8005_)
-=======================
-
-此版本的 `ident` 实用程序由 Baptiste Daroussin <[bapt@FreeBSD.org](mailto:bapt@FreeBSD.org)\> 编写。
-
-July 25, 2015
-
-FreeBSD 13.1-RELEASE
+此版本的 `ident` 实用程序由 Baptiste Daroussin <bapt@FreeBSD.org> 和 Dag-Erling Smørgrav <des@FreeBSD.org> 编写。

@@ -1,48 +1,31 @@
-  OW(4)  
+# ow.4
 
-OW(4)
+`ow` — Dallas Semiconductor 1-Wire 总线
 
-FreeBSD Kernel Interfaces Manual
+## 名称
 
-OW(4)
+`ow`
 
-[名称](#__u540D___u79F0_)
-=======================
-
-`ow` —
-
-Dallas Semiconductor 1-Wire bus
-
-[概要](#__u6982___u8981_)
-=======================
+## 概要
 
 `device ow`
 
-[描述](#__u63CF___u8FF0_)
-=======================
+## 描述
 
-`ow` 模块实现了 Dallas Semiconductor 1-Wire 总线。它与 owc(4) 驱动器相连，后者实现了 1-Wire 总线的低级别信号。
+`ow` 模块实现 Dallas Semiconductor 1-Wire 总线。它附加到 [owc(4)](owc.4.md) 驱动，后者实现 1-Wire 总线的低层信令。
 
-[参见](#__u53C2___u89C1_)
-=======================
+## 参见
 
-ow\_temp(4), owc(4), owll(9), own(9)
+[ow_temp(4)](ow_temp.4.md), [owc(4)](owc.4.md), [owll(9)](../man9/owll.9.md), [own(9)](../man9/own.9.md)
 
-[法律条款](#__u6CD5___u5F8B___u6761___u6B3E_)
-=========================================
+## 法律条款
 
 1-Wire 是 Maxim Integrated Products, Inc. 的注册商标。
 
-[历史](#__u5386___u53F2_)
-=======================
+## 历史
 
-`ow` 驱动程序首次出现在 FreeBSD 11.0 中。
+`ow` 驱动最早出现于 FreeBSD 11.0。
 
-[作者](#__u4F5C___u8005_)
-=======================
+## 作者
 
-`ow` 设备驱动程序和本手册页是由 Warner Losh 编写的。
-
-July 20, 2015
-
-FreeBSD 13.1-RELEASE
+`ow` 设备驱动及本手册页由 Warner Losh 编写。

@@ -1,284 +1,248 @@
-  NC(1)  
+# nc.1
 
-NC(1)
+`nc` — 任意 TCP 和 UDP 连接与监听
 
-FreeBSD General Commands Manual
+## 名称
 
-NC(1)
+`nc`
 
-[名称](#__u540D___u79F0_)
-=======================
+## 概要
 
-`nc` —
+`nc [-46DdEFhklMNnrStUuvz] [-e IPsec_policy] [-I length] [-i interval] [--lb] [--no-tcpopt] [--sctp] [--crlf] [-O length] [-P proxy_username] [-p source_port] [-s source] [-T toskeyword] [--tun tundev] [-V rtable] [-w timeout] [-X proxy_protocol] [-x proxy_address[:port]] [destination] [port]`
 
-任意 TCP 和 UDP 连接和监听
+## 描述
 
-[概要](#__u6982___u8981_)
-=======================
-
-`nc` \[`-46DdEFhklMNnrStUuvz`\] \[`-e` IPsec\_policy\] \[`-I` length\] \[`-i` interval\] \[`--no-tcpopt`\] \[`--sctp`\] \[`-O` length\] \[`-P` proxy\_username\] \[`-p` source\_port\] \[`-s` source\] \[`-T` toskeyword\] \[`-V` rtable\] \[`-w` timeout\] \[`-X` proxy\_protocol\] \[`-x` proxy\_address\[:port\]\] \[destination\] \[port\]
-
-[描述](#__u63CF___u8FF0_)
-=======================
-
-`nc` (或 `netcat`) 实用程序几乎用于任何涉及 TCP、UDP 或 UNIX\-domain 套接字的事情。 它可以打开 TCP 连接、发送 UDP 数据包、侦听任意 TCP 和 UDP 端口、进行端口扫描以及处理 IPv4 和 IPv6。 与 telnet(1) 不同 `nc` 可以很好地编写脚本，并将错误消息分离到标准错误中，而不是像 telnet(1) 那样将它们发送到标准输出。
+`nc`（或 `netcat`）实用程序可用于涉及 TCP、UDP 或 UNIX 域套接字的几乎任何操作。它可以打开 TCP 连接、发送 UDP 数据包、监听任意 TCP 和 UDP 端口、进行端口扫描，并处理 IPv4 和 IPv6。与 [telnet(1)](telnet.1.md) 不同，`nc` 便于编写脚本，并将错误消息分离到标准错误而非像 [telnet(1)](telnet.1.md) 那样将部分错误发送到标准输出。
 
 常见用途包括：
 
-*   简单的 TCP 代理
-*   基于 shell 脚本的 HTTP 客户端和服务器
-*   网络守护进程测试
-*   用于 ssh(1) 的 SOCKS 或 HTTP ProxyCommand
-*   还有很多很多
+- 简单的 TCP 代理
+- 基于 shell 脚本的 HTTP 客户端和服务器
+- 网络守护进程测试
+- [ssh(1)](ssh.1.md) 的 SOCKS 或 HTTP ProxyCommand
+- 以及更多
 
 选项如下：
 
-[`-4`](#4)
+**`-4`** 强制 `nc` 仅使用 IPv4 地址。
 
-强制 `nc` 仅使用 IPv4 地址。
+**`-6`** 强制 `nc` 仅使用 IPv6 地址。
 
-[`-6`](#6)
+**`--crlf`** 通过网络发送数据时将 LF 转换为 CRLF。
 
-强制 `nc` 仅使用 IPv6 地址。
+**`-D`** 在套接字上启用调试。
 
-[`-D`](#D)
+**`-d`** 不尝试从标准输入读取。
 
-在套接字上启用调试。
+**`-E`** 等同于 “`-e 'in ipsec esp/transport//require'` `-e 'out ipsec esp/transport//require'`” 的快捷方式，在两个方向上启用 IPsec ESP 传输模式。
 
-[`-d`](#d)
+**`-e`** 如果支持 IPsec，则可使用 [ipsec_set_policy(3)](../man3/ipsec_set_policy.3.md) 中描述的语法指定要使用的 IPsec 策略。此标志最多可指定两次，因为通常每个方向需要一个策略。
 
-不要尝试从标准输入读取。
+**`-F`** 使用 [sendmsg(2)](../man2/sendmsg.2.md) 将第一个已连接的套接字传递到标准输出并退出。这与 `-X` 结合使用时很有用，可让 `nc` 通过代理执行连接建立，然后将连接的其余部分留给另一个程序（例如 [ssh(1)](ssh.1.md) 使用 [ssh_config(5)](../man5/ssh_config.5.md) 的 `ProxyUseFdpass` 选项）。
 
-[`-E`](#E)
+**`-h`** 打印 `nc` 帮助。
 
-“`-e 'in ipsec esp/transport//require'` `-e 'out ipsec esp/transport//require'`” 的快捷方式，可在两个方向启用 IPsec ESP 传输模式。
+**`-I`** `length` 指定 TCP 接收缓冲区的大小。
 
-[`-e`](#e)
+**`-i`** `interval` 指定发送和接收文本行之间的延迟时间间隔。也导致到多个端口的连接之间的延迟。
 
-如果 IPsec 支持可用，则可以使用 ipsec\_set\_policy(3) 中描述的语法指定要使用的 IPsec 策略。 该标志最多可以指定两次，因为通常每个方向都需要一个策略。
+**`-k`** 强制 `nc` 在当前连接完成后继续监听另一个连接。不使用 `-l` 选项时使用此选项是错误的。与 `-u` 选项一起使用时，服务器套接字未连接，可接收来自多个主机的 UDP 数据报。
 
-[`-F`](#F)
+**`-l`** 用于指定 `nc` 应监听传入连接而非启动到远程主机的连接。将此选项与 `-p`、`-s` 或 `-z` 选项一起使用是错误的。此外，使用 `-w` 选项指定的任何超时都被忽略。
 
-使用 sendmsg(2) 将第一个连接的套接字传递到标准输出并退出。 这与 `-X` 一起使用非常有用，可以让 `nc` 使用代理执行连接设置，然后将其余连接留给另一个程序（例如，使用 ssh\_config(5) `ProxyUseFdpass` 选项的 ssh(1) )。
+**`--lb`** 使用 `-l` 时，将套接字置于负载均衡模式。在此模式下，多个套接字可绑定到相同的地址和端口，传入连接在它们之间分配。
 
-[`-h`](#h)
+**`-M`** 使用 [stats(3)](../man3/stats.3.md) 框架收集每连接 TCP 统计信息，并在连接关闭后以 JSON 格式打印到 [stderr(4)](../man4/stderr.4.md)。
 
-打印出 `nc` 帮助。
+**`-N`** 在输入上的 EOF 之后对网络套接字执行 [shutdown(2)](../man2/shutdown.2.md)。某些服务器需要此操作来完成其工作。
 
-[`-I`](#I) length
+**`-n`** 不对任何指定的地址、主机名或端口进行 DNS 或服务查找。
 
-指定 TCP 接收缓冲区的大小。
+**`--no-tcpopt`** 通过设置布尔值 TCP_NOOPT 套接字选项，禁用套接字上 TCP 选项的使用。
 
-[`-i`](#i) interval
+**`--sctp`** 使用 SCTP 而非默认的 TCP。
 
-指定发送和接收的文本行之间的延迟时间间隔。 还会导致连接到多个端口之间的延迟时间。
+**`-O`** `length` 指定 TCP 发送缓冲区的大小。
 
-[`-k`](#k)
+**`-P`** `proxy_username` 指定要向需要身份验证的代理服务器提供的用户名。如果未指定用户名，则不尝试身份验证。目前仅 HTTP CONNECT 代理支持代理身份验证。
 
-强制 `nc` 在其当前连接完成后继续侦听另一个连接。 在没有 `-l` 选项的情况下使用此选项是错误的。 与 `-u` 选项一起使用时，服务器套接字不连接，它可以接收来自多个主机的 UDP 数据报。
+**`-p`** `source_port` 指定 `nc` 应使用的源端口，受权限限制和可用性约束。将此选项与 `-l` 选项一起使用是错误的。
 
-[`-l`](#l)
+**`-r`** 指定源和/或目标端口应随机选择，而非在范围内按顺序或系统分配的顺序选择。
 
-用于指定 `nc` 应侦听传入连接而不是启动与远程主机的连接。 将此选项与 `-p`, `-s` 或 `-z` 选项结合使用是错误的。 此外，使用 `-w` 选项指定的任何超时都将被忽略。
+**`-S`** 启用 RFC 2385 TCP MD5 签名选项。
 
-[`-M`](#M)
+**`-s`** `source` 指定用于发送数据包的接口 IP。对于 UNIX 域数据报套接字，指定要创建和使用的本地临时套接字文件，以便接收数据报。将此选项与 `-l` 选项一起使用是错误的。
 
-使用 stats(3) 框架收集每个连接的 TCP 统计信息，并在连接关闭后以 JSON 格式将它们打印到 stderr(4) 。
+**`-T`** `toskeyword` 更改 IPv4 TOS 值。`toskeyword` 可以是 `critical`、`inetcontrol`、`lowdelay`、`netcontrol`、`throughput`、`reliability` 之一，或 DiffServ 代码点之一：`ef`、`af11 ... af43`、`cs0 ... cs7`；或以十六进制或十进制表示的数字。
 
-[`-N`](#N)
+**`-t`** 使 `nc` 对 RFC 854 DO 和 WILL 请求发送 RFC 854 DON'T 和 WON'T 响应。这使得使用 `nc` 编写 telnet 会话脚本成为可能。
 
-shutdown(2) 输入 EOF 后的网络套接字。 一些服务器需要这个来完成他们的工作。
+**`--tun`** `tundev` 使 `nc` 使用提供的 [tun(4)](../man4/tun.4.md) 进行输入和输出，而非默认的标准输入和标准输出。
 
-[`-n`](#n)
+**`-U`** 指定使用 UNIX 域套接字。
 
-不要对任何指定的地址、主机名或端口进行任何 DNS 或服务查找。
+**`-u`** 使用 UDP 而非默认的 TCP。对于 UNIX 域套接字，使用数据报套接字而非流套接字。如果使用 UNIX 域套接字，将在 **/tmp** 中创建临时接收套接字，除非给出了 `-s` 标志。
 
-[`--no-tcpopt`](#-no-tcpopt)
+**`-V`** `rtable` 设置要使用的路由表（“FIB”）。
 
-通过设置布尔 TCP\_NOOPT 套接字选项来禁用套接字上的 TCP 选项。
+**`-v`** 使 `nc` 提供更详细的输出。
 
-[`--sctp`](#-sctp)
+**`-w`** `timeout` 无法建立或空闲的连接在 `timeout` 秒后超时。`-w` 标志对 `-l` 选项无效，即无论是否有 `-w` 标志，`nc` 都将永远监听连接。默认为无超时。
 
-使用 SCTP 代替 TCP 的默认选项。
+**`-X`** `proxy_protocol` 请求 `nc` 在与代理服务器通信时使用指定的协议。支持的协议有 “4”（SOCKS v.4）、“5”（SOCKS v.5）和 “connect”（HTTPS 代理）。如果未指定协议，则使用 SOCKS 版本 5。
 
-[`-O`](#O) length
+**`-x`** `proxy_address`[:`port`] 请求 `nc` 使用位于 `proxy_address` 和 `port` 的代理连接到 `destination`。如果未指定 `port`，则使用代理协议的知名端口（SOCKS 为 1080，HTTPS 为 3128）。
 
-指定 TCP 发送缓冲区的大小。
+**`-z`** 指定 `nc` 应仅扫描监听守护进程，不向它们发送任何数据。将此选项与 `-l` 选项一起使用是错误的。
 
-[`-P`](#P) proxy\_username
+`destination` 可以是数字 IP 地址或符号主机名（除非给出了 `-n` 选项）。通常必须指定目标，除非给出了 `-l` 选项（此种情况下使用本地主机）。对于 UNIX 域套接字，必须指定目标，它是要连接到的套接字路径（如果给出了 `-l` 选项，则是要监听的套接字路径）。
 
-指定要呈现给需要身份验证的代理服务器的用户名。 如果未指定用户名，则不会尝试身份验证。 目前仅 HTTP CONNECT 代理支持代理身份验证。
+`port` 可以指定为数字端口号或服务名。端口可以以 nn-mm 形式的范围指定。通常必须指定目标端口，除非给出了 `-U` 选项。
 
-[`-p`](#p) source\_port
+## 客户端/服务器模型
 
-指定 `nc` 应使用的源端口，受权限限制和可用性限制。 将此选项与 `-l` 选项结合使用是错误的。
+使用 `nc` 构建非常基本的客户端/服务器模型非常简单。在一个控制台上，启动 `nc` 在特定端口上监听连接。例如：
 
-[`-r`](#r)
+```sh
+$ nc -l 1234
+```
 
-指定应随机选择源和/或目标端口，而不是在一个范围内或按系统分配它们的顺序顺序选择。
+`nc` 现在正在端口 1234 上监听连接。在第二个控制台（或第二台机器）上，连接到正在监听的机器和端口：
 
-[`-S`](#S)
+```sh
+$ nc 127.0.0.1 1234
+```
 
-启用 RFC 2385 TCP MD5 签名选项。
+现在两个端口之间应该有连接。在第二个控制台上输入的任何内容都将连接到第一个，反之亦然。连接建立后，`nc` 并不真正关心哪一侧用作 “服务器”，哪一侧用作 “客户端”。可使用 `EOF`（‘`^D`’）终止连接。
 
-[`-s`](#s) source
+## 数据传输
 
-指定用于发送数据包的接口的 IP。 对于 UNIX\-domain 域数据报套接字，指定要创建和使用的本地临时套接字文件，以便可以接收数据报。 将此选项与 `-l` 选项结合使用是错误的。
+上一节的示例可以扩展为构建基本的数据传输模型。输入连接一端的任何信息都将输出到另一端，输入和输出可以轻松捕获以模拟文件传输。
 
-[`-T`](#T) toskeyword
+首先使用 `nc` 在特定端口上监听，将输出捕获到文件：
 
-更改 IPv4 TOS 值。 toskeyword 可以是 critical, inetcontrol, lowdelay, netcontrol, throughput, reliability, 或 DiffServ 代码点之一: ef, af11 ... af43, cs0 ... cs7; 或十六进制或十进制的数字。
+```sh
+$ nc -l 1234 > filename.out
+```
 
-[`-t`](#t)
+使用第二台机器，连接到正在监听的 `nc` 进程，向其提供要传输的文件：
 
-导致 `nc` 向 RFC 854 DO 和 WILL 请求发送 RFC 854 DON'T 和 WON'T 响应。 这使得使用 `nc` 编写 telnet 会话脚本成为可能。
+```sh
+$ nc -N host.example.com 1234 < filename.in
+```
 
-[`-U`](#U)
+文件传输完成后，连接将自动关闭。
 
-指定使用 UNIX\-domain 套接字。
+## 与服务器通信
 
-[`-u`](#u)
+有时 “手动” 与服务器通信而非通过用户界面很有用。它可以帮助故障排除，当可能需要验证服务器在响应客户端发出的命令时发送了什么数据时。例如，要检索网站的主页：
 
-使用 UDP 而不是 TCP 的默认选项。 对于 UNIX\-domain 套接字，使用数据报套接字而不是流套接字。 如果使用 UNIX\-domain 套接字，则在 /tmp 中创建一个临时接收套接字，除非给出 `-s` 标志。
+```sh
+$ printf "GET / HTTP/1.0\r\n\r\n" | nc host.example.com 80
+```
 
-[`-V`](#V) rtable
+注意，这也会显示 Web 服务器发送的标头。如有必要，可使用 [sed(1)](sed.1.md) 等工具过滤它们。
 
-设置要使用的路由表 (“FIB”) 。
+当用户知道服务器所需的请求格式时，可以构建更复杂的示例。作为另一个示例，可使用以下方式向 SMTP 服务器提交电子邮件：
 
-[`-v`](#v)
+```sh
+$ nc localhost 25 << EOF
+HELO host.example.com
+MAIL FROM:<user@host.example.com>
+RCPT TO:<user2@host.example.com>
+DATA
+Body of email.
+.
+QUIT
+EOF
+```
 
-让 `nc` 给出更详细的输出。
+## 端口扫描
 
-[`-w`](#w) timeout
+了解目标机器上哪些端口开放并运行服务可能很有用。`-z` 标志可用于告诉 `nc` 报告开放端口，而非启动连接。例如：
 
-timeout 秒后无法建立或空闲超时的连接。 `-w` 标志对 `-l` 选项没有影响，即 `nc` 将永远监听连接，无论有无 `-w` 标志。默认为无超时。
+```sh
+$ nc -z host.example.com 20-30
+Connection to host.example.com 22 port [tcp/ssh] succeeded!
+Connection to host.example.com 25 port [tcp/smtp] succeeded!
+```
 
-[`-X`](#X) proxy\_protocol
+端口范围指定为将搜索限制在端口 20-30。
 
-请求 `nc` 在与代理服务器通信时应使用指定的协议。 支持的协议是 “4” (SOCKS v.4), “5” (SOCKS v.5) 和 “connect” (HTTPS 代理)。 如果未指定协议，则使用 SOCKS 版本 5。
+或者，了解正在运行哪些服务器软件及哪些版本可能很有用。此信息通常包含在问候横幅中。要检索这些信息，需要先建立连接，然后在检索到横幅后断开连接。这可以通过使用 `-w` 标志指定较小的超时来完成，或者可能通过向服务器发出 `QUIT` 命令：
 
-[`-x`](#x) proxy\_address\[:port\]
+```sh
+$ echo "QUIT" | nc host.example.com 20-30
+SSH-1.99-OpenSSH_3.6.1p2
+Protocol mismatch.
+220 host.example.com IMS SMTP Receiver Version 0.84 Ready
+```
 
-请求 `nc` 应使用 proxy\_address 和 port 处的代理连接到 destination 。 如果未指定 port ，则使用代理协议的知名端口（SOCKS 为 1080，HTTPS 为 3128）。
+## 实例
 
-[`-z`](#z)
+使用端口 31337 作为源端口，打开到 host.example.com 端口 42 的 TCP 连接，超时为 5 秒：
 
-指定 `nc` 应该只扫描监听守护进程，而不向它们发送任何数据。 将此选项与 `-l` 选项结合使用是错误的。
+```sh
+$ nc -p 31337 -w 5 host.example.com 42
+```
 
-destination 可以是数字 IP 地址或符号主机名（除非给出 `-n` 选项）。 通常，必须指定目的地，除非给出 `-l` 选项（在这种情况下使用本地主机）。 对于 UNIX\-domain 套接字，目标是必需的，并且是要连接到的套接字路径（或者如果给出 `-l` 选项则侦听）。
+打开到 host.example.com 端口 53 的 UDP 连接：
 
-port 可以是单个整数或端口范围。范围的格式为 nn-mm。 通常，必须指定目标端口，除非给出 `-U` 选项。
+```sh
+$ nc -u host.example.com 53
+```
 
-[客户端/服务器模型](#__u5BA2___u6237___u7AEF_/__u670D___u52A1___u5668___u6A21___u578B_)
-===============================================================================
+使用 10.1.2.3 作为连接本地端的 IP，打开到 host.example.com 端口 42 的 TCP 连接：
 
-使用 `nc` 构建一个非常基本的客户端/服务器模型非常简单。 在一个控制台上，启动 `nc` 在特定端口上侦听连接。 例如：
+```sh
+$ nc -s 10.1.2.3 host.example.com 42
+```
 
-`$ nc -l 1234`
+对传入和传出流量使用 IPsec ESP，打开到 host.example.com 端口 42 的 TCP 连接：
 
-`nc` 现在正在端口 1234 上侦听连接。 在第二个控制台 (或第二台机器) 上，连接到正在监听的机器和端口：
+```sh
+$ nc -E host.example.com 42
+```
 
-`$ nc 127.0.0.1 1234`
+仅对传出流量使用 IPsec ESP，打开到 host.example.com 端口 42 的 TCP 连接：
 
-现在应该在端口之间建立连接。 在第二个控制台输入的任何内容都将连接到第一个控制台，反之亦然。 建立连接后， `nc` 并不真正关心哪一侧被用作 ‘server’ 以及哪一侧被用作 ‘client’ 。 可以使用 `EOF` (‘^D’) 终止连接。
+```sh
+$ nc -e 'out ipsec esp/transport//require' host.example.com 42
+```
 
-[数据传输](#__u6570___u636E___u4F20___u8F93_)
-=========================================
+创建并监听 UNIX 域流套接字：
 
-可以扩展上一节中的示例以构建基本的数据传输模型。 输入到连接一端的任何信息都将输出到另一端，并且可以轻松捕获输入和输出以模拟文件传输。
+```sh
+$ nc -lU /var/tmp/dsocket
+```
 
-首先使用 `nc` 侦听特定端口，并将输出捕获到文件中：
+通过位于 10.2.3.4 端口 8080 的 HTTP 代理连接到 host.example.com 的端口 42。此示例也可由 [ssh(1)](ssh.1.md) 使用；更多信息参见 [ssh_config(5)](../man5/ssh_config.5.md) 中的 `ProxyCommand` 指令。
 
-`$ nc -l 1234 > filename.out`
+```sh
+$ nc -x10.2.3.4:8080 -Xconnect host.example.com 42
+```
 
-使用第二台机器，连接到正在监听的 `nc` 进程，将要传输的文件提供给它：
+同样的示例，这次如果代理需要，使用用户名 “ruser” 启用代理身份验证：
 
-`$ nc -N host.example.com 1234 < filename.in`
+```sh
+$ nc -x10.2.3.4:8080 -Xconnect -Pruser host.example.com 42
+```
 
-传输文件后，连接将自动关闭。
+## 退出状态
 
-[与服务器交谈](#__u4E0E___u670D___u52A1___u5668___u4EA4___u8C08_)
-===========================================================
+`nc` 实用程序成功时退出值为 0，发生错误时大于 0。
 
-有时 “by hand” 而不是通过用户界面与服务器交谈是有用的。 当可能需要验证服务器响应客户端发出的命令而发送的数据时，它可以帮助进行故障排除。 例如，要检索网站的主页：
+## 参见
 
-$ printf "GET / HTTP/1.0\\r\\n\\r\\n" | nc host.example.com 80 
+[cat(1)](cat.1.md), [setfib(1)](setfib.1.md), [ssh(1)](ssh.1.md), [tcp(4)](../man4/tcp.4.md)
 
-请注意，这还会显示 Web 服务器发送的标头。 如有必要，可以使用 sed(1) 等工具过滤它们。
+## 作者
 
-当用户知道服务器所需的请求格式时，可以构建更复杂的示例。 作为另一个示例，可以使用以下方式将电子邮件提交到 SMTP 服务器：
+原始实现由 *Hobbit* <hobbit@avian.org> 完成。
 
-$ nc localhost 25 << EOF HELO host.example.com MAIL FROM:<user@host.example.com> RCPT TO:<user2@host.example.com> DATA Body of email. . QUIT EOF 
+由 Eric Jackson <ericj@monkey.org> 重写并添加 IPv6 支持。
 
-[端口扫描](#__u7AEF___u53E3___u626B___u63CF_)
-=========================================
+## 注意事项
 
-了解目标机器上哪些端口已打开并正在运行服务可能很有用。 `-z` 标志可用于告诉 `nc` 报告打开的端口，而不是启动连接。 例如：
-
-$ nc -z host.example.com 20-30 Connection to host.example.com 22 port \[tcp/ssh\] succeeded! Connection to host.example.com 25 port \[tcp/smtp\] succeeded! 
-
-指定端口范围以将搜索限制为端口 20 - 30。
-
-或者，了解哪些服务器软件正在运行以及哪些版本可能会很有用。 此信息通常包含在问候横幅中。 为了检索这些，必须首先建立连接，然后在检索到横幅后断开连接。 这可以通过使用 `-w` 标志指定一个小的超时来完成，或者通过向服务器发出 “`QUIT`” 命令来完成：
-
-$ echo "QUIT" | nc host.example.com 20-30 SSH-1.99-OpenSSH\_3.6.1p2 Protocol mismatch. 220 host.example.com IMS SMTP Receiver Version 0.84 Ready 
-
-[实例](#__u5B9E___u4F8B_)
-=======================
-
-打开到 host.example.com 的 42 端口的 TCP 连接，使用端口 31337 作为源端口，超时 5 秒：
-
-`$ nc -p 31337 -w 5 host.example.com 42`
-
-打开与 host.example.com 的 53 端口的 UDP 连接：
-
-`$ nc -u host.example.com 53`
-
-使用 10.1.2.3 作为连接本地端的 IP，打开与 host.example.com 的端口 42 的 TCP 连接：
-
-`$ nc -s 10.1.2.3 host.example.com 42`
-
-使用 IPsec ESP 打开与 host.example.com 的端口 42 的 TCP 连接，用于传入和传出流量。
-
-`$ nc -E host.example.com 42`
-
-使用 IPsec ESP 打开与 host.example.com 端口 42 的 TCP 连接，仅用于传出流量。
-
-`$ nc -e 'out ipsec esp/transport//require' host.example.com 42`
-
-创建并侦听 UNIX\-domain 流套接字：
-
-`$ nc -lU /var/tmp/dsocket`
-
-通过位于 10.2.3.4 的 HTTP 代理，端口 8080 连接到 host.example.com 的端口 42。 这个例子也可以被 ssh(1) 使用；有关更多信息，请参阅 ssh\_config(5) 中的 `ProxyCommand` 指令。
-
-`$ nc -x10.2.3.4:8080 -Xconnect host.example.com 42`
-
-再次使用相同的示例，如果代理需要，这次使用用户名 “ruser” 启用代理身份验证：
-
-`$ nc -x10.2.3.4:8080 -Xconnect -Pruser host.example.com 42`
-
-[退出状态](#__u9000___u51FA___u72B6___u6001_)
-=========================================
-
-The `nc` utility exits 0 on success, and >0 if an error occurs.
-
-[参见](#__u53C2___u89C1_)
-=======================
-
-cat(1), setfib(1), ssh(1), tcp(4)
-
-[作者](#__u4F5C___u8005_)
-=======================
-
-原始实现由 \*Hobbit\* <[hobbit@avian.org](mailto:hobbit@avian.org)\> 。-
-由 Eric Jackson <[ericj@monkey.org](mailto:ericj@monkey.org)\> 重写，支持 IPv6。
-
-[注意事项](#__u6CE8___u610F___u4E8B___u9879_)
-=========================================
-
-无论目标机器的状态如何，使用 `-uz` 标志组合的 UDP 端口扫描将始终报告成功。 但是，结合目标机器或中间设备上的流量嗅探器， `-uz` 组合可能对通信诊断有用。 请注意，生成的 UDP 流量可能会受到硬件资源和/或配置设置的限制。
-
-July 10, 2020
-
-FreeBSD 13.1-RELEASE
+使用 `-uz` 标志组合的 UDP 端口扫描将始终报告成功，无论目标机器的状态如何。但是，结合目标机器或中间设备上的流量嗅探器，`-uz` 组合可用于通信诊断。注意，生成的 UDP 流量可能因硬件资源和/或配置设置而受限。

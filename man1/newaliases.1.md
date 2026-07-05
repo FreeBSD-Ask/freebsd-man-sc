@@ -1,47 +1,33 @@
-  NEWALIASES(1)  
+# newaliases.1
 
-NEWALIASES(1)
+`newaliases` — 重建 sendmail 别名文件的数据
 
-FreeBSD General Commands Manual
+## 名称
 
-NEWALIASES(1)
+`newaliases`
 
-[名称](#__u540D___u79F0_)
-=======================
+## 概要
 
-newaliases - 为邮件别名文件重建数据库
+`newaliases`
 
-[概要](#__u6982___u8981_)
-=======================
+## 描述
 
-**newaliases**
+`newaliases` 重建邮件别名文件 **/etc/mail/aliases** 的随机访问数据库。每次修改该文件后都必须运行此命令，更改才能生效。
 
-[描述](#__u63CF___u8FF0_)
-=======================
+`newaliases` 等同于 `sendmail -bi`。
 
-**Newaliases** 为邮件别名文件 /etc/mail/aliases。重建随机访问数据库。每次更改此文件时都必须运行它才能使更改生效。
+`newaliases` 实用程序成功时退出值为 0，发生错误时大于 0。
 
-**Newaliases** 与 \`\`sendmail -bi'' 相同。
+注意：**不要**使用 `makemap` 创建别名数据库，因为 `newaliases` 会在数据库中放入 `sendmail` 所需的特殊标记。
 
-The **newaliases** 实用程序在成功时退出 0 ，如果发生错误则 > 0。
+## 文件
 
-注意： **不要** 使用 **makemap** 创建别名数据库，因为 **newaliases** 会在数据库中放入 **sendmail 所需的特殊标记。**
+**/etc/mail/aliases** 邮件别名文件
 
-[文件](#__u6587___u4EF6_)
-=======================
-
-/etc/mail/aliases
-
-邮件别名文件
-
-[参见](#__u53C2___u89C1_)
-=======================
+## 参见
 
 aliases(5), sendmail(8)
 
-[历史](#__u5386___u53F2_)
-=======================
+## 历史
 
-The **newaliases** 命令出现在 4.0BSD 中。
-
-$Date: 2013-11-22 20:51:56 $
+`newaliases` 命令出现于 4.0BSD。

@@ -1,67 +1,55 @@
-  HOSTNAME(1)  
+# hostname.1
 
-HOSTNAME(1)
+`hostname` — 设置或打印当前主机系统的名称
 
-FreeBSD General Commands Manual
+## 名称
 
-HOSTNAME(1)
+`hostname`
 
-[名称](#__u540D___u79F0_)
-=======================
+## 概要
 
-`hostname` —
+`hostname [-f] [-s | -d] [name-of-host]`
 
-设置或打印当前主机系统的名称
+## 描述
 
-[概要](#__u6982___u8981_)
-=======================
-
-`hostname` \[`-f`\] \[`-s` | `-d`\] \[name-of-host\]
-
-[描述](#__u63CF___u8FF0_)
-=======================
-
-`hostname` 实用程序打印当前主机的名称。 超级用户可以通过提供参数来设置主机名；这通常在初始化脚本 /etc/rc.d/hostname 中完成，通常在启动时运行。 该脚本使用 /etc/rc.conf 中的 hostname 变量。
+`hostname` 实用程序打印当前主机的名称。超级用户可以通过提供参数来设置主机名；这通常在初始化脚本 **/etc/rc.d/hostname** 中完成，该脚本通常在启动时运行。此脚本使用 **/etc/rc.conf** 中的 `hostname` 变量。
 
 选项：
 
-[`-f`](#f)
+**`-f`** 在打印的名称中包含域名信息。这是默认行为。
 
-在打印的名称中包含域信息。这是默认行为。
+**`-s`** 从打印的名称中去掉任何域名信息。
 
-[`-s`](#s)
+**`-d`** 仅打印域名信息。
 
-从打印的名称中删除任何域信息。
+## 实例
 
-[`-d`](#d)
+设置机器的主机名并检查结果：
 
-只打印域信息。
+```sh
+$ hostname beastie.localdomain.org
+$ hostname
+beastie.localdomain.org
+```
 
-[实例](#__u5B9E___u4F8B_)
-=======================
+不显示域名信息：
 
-设置机器的主机名并查看结果：
+```sh
+$ hostname -s
+beastie
+```
 
-$ hostname beastie.localdomain.org $ hostname beastie.localdomain.org 
+仅显示域名信息：
 
-不显示域信息：
+```sh
+$ hostname -d
+localdomain.org
+```
 
-$ hostname -s beastie 
+## 参见
 
-仅显示域信息：
+gethostname(3), [rc.conf(5)](../man5/rc.conf.5.md)
 
-$ hostname -d localdomain.org 
+## 历史
 
-[参见](#__u53C2___u89C1_)
-=======================
-
-gethostname(3), rc.conf(5)
-
-[历史](#__u5386___u53F2_)
-=======================
-
-`hostname` 命令出现在 4.2BSD 中。
-
-October 5, 2020
-
-FreeBSD 13.1-RELEASE
+`hostname` 命令首次出现于 4.2BSD。

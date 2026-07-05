@@ -1,50 +1,33 @@
-  LOGNAME(1)  
+# logname.1
 
-LOGNAME(1)
+`logname` — 显示用户的登录名
 
-FreeBSD General Commands Manual
-
-LOGNAME(1)
-
-[名称](#__u540D___u79F0_)
-=======================
-
-`logname` —
-
-显示用户的登录名
-
-[概要](#__u6982___u8981_)
-=======================
+## 名称
 
 `logname`
 
-[描述](#__u63CF___u8FF0_)
-=======================
+## 概要
 
-`logname` 实用程序将用户的登录名写入标准输出，后跟换行符。
+`logname`
+
+## 描述
+
+`logname` 实用程序将用户的登录名写入标准输出，后跟一个换行符。
 
 `logname` 实用程序显式忽略 `LOGNAME` 和 `USER` 环境变量，因为环境不可信。
 
-[退出状态](#__u9000___u51FA___u72B6___u6001_)
-=========================================
+## 退出状态
 
-The `logname` utility exits 0 on success, and >0 if an error occurs.
+`logname` 实用程序成功时退出值为 0，发生错误时大于 0。
 
-[参见](#__u53C2___u89C1_)
-=======================
+## 参见
 
-who(1), whoami(1), getlogin(2)
+[who(1)](who.1.md), [whoami(1)](whoami.1.md), getlogin(2)
 
-[标准](#__u6807___u51C6_)
-=======================
+## 标准
 
-`logname` 实用程序应符合 IEEE Std 1003.2 (“POSIX.2”) 。
+`logname` 实用程序预期符合 IEEE Std 1003.2 ("POSIX.2")。
 
-[历史](#__u5386___u53F2_)
-=======================
+## 历史
 
-`logname` 命令出现在 4.4BSD 中。
-
-June 9, 1993
-
-FreeBSD 13.1-RELEASE
+`logname` 命令首次出现于 4.4BSD。

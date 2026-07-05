@@ -1,55 +1,35 @@
-  IBV\_DEVINFO(1)  
+# ibv_devinfo.1
 
-IBV\_DEVINFO(1)
+`ibv_devinfo` — 查询 RDMA 设备
 
-USER COMMANDS
+## 名称
 
-IBV\_DEVINFO(1)
+`ibv_devinfo`
 
-[名称](#__u540D___u79F0_)
-=======================
+## 概要
 
-ibv\_devinfo - 查询 RDMA 设备
+`ibv_devinfo [-d device] [-i port] [-l] [-v]`
 
-[概要](#__u6982___u8981_)
-=======================
+## 描述
 
-**ibv\_devinfo** \[-d device\] \[-i port\] \[-l\] \[-v\]
+打印可从用户空间使用的 RDMA 设备信息。
 
-[描述](#__u63CF___u8FF0_)
-=======================
+## 选项
 
-打印有关可从用户空间使用的 RDMA 设备的信息。
+**`-d`**, `--ib-dev`=`DEVICE` 使用 IB 设备 `DEVICE`（默认为找到的第一个设备）
 
-[选项](#__u9009___u9879_)
-=======================
+**`-i`**, `--ib-port`=`PORT` 查询端口 `PORT`（默认所有端口）
 
-**\-d**, **\--ib-dev**\=_DEVICE_
+**`-l`**, `--list` 仅列出 RDMA 设备的名称
 
-使用 IB 设备 _DEVICE_ (默认找到第一个设备)
+**`-v`**, `--verbose` 打印 RDMA 设备的所有可用信息
 
-**\-i**, **\--ib-port**\=_PORT_ 查询端口 _PORT_ (默认所有端口)
+## 参见
 
-**\-l**, **\--list** 仅列出 RDMA 设备的名称
+[ibv_devices(1)](ibv_devices.1.md)
 
-**\-v**, **\--verbose** 打印有关 RDMA 设备的所有可用信息
+## 作者
 
-[参见](#__u53C2___u89C1_)
-=======================
+Dotan Barak <dotanba@gmail.com>
 
-**ibv\_devices**(1)
-
-[作者](#__u4F5C___u8005_)
-=======================
-
-Dotan Barak
-
-<_dotanba@gmail.com_\>
-
-Roland Dreier
-
-<_rolandd@cisco.com_\>
-
-August 30, 2005
-
-libibverbs
+Roland Dreier <rolandd@cisco.com>

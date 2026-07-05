@@ -1,802 +1,513 @@
-  LD.LLD(1)  
+# ld.lld.1
 
-LD.LLD(1)
+`ld.lld` — 来自 LLVM 项目的 ELF 链接器
 
-FreeBSD General Commands Manual
+## 名称
 
-LD.LLD(1)
+`ld.lld`
 
-[名称](#__u540D___u79F0_)
-=======================
+## 概要
 
-`ld.lld` —
+`ld.lld [options] objfile ...`
 
-来自 LLVM 项目的 ELF 链接器
+## 描述
 
-[概要](#__u6982___u8981_)
-=======================
+链接器接收一个或多个目标文件、归档文件和库文件，并将它们合并为一个输出文件（可执行文件、共享库或另一个目标文件）。它对输入文件中的代码和数据进行重定位，并解析它们之间的符号引用。
 
-`ld.lld` \[options\] objfile ...
+`ld.lld` 是 GNU BFD 和 gold 链接器的直接替代品。它接受与 GNU 链接器相同的大多数命令行参数和链接器脚本。
 
-[描述](#__u63CF___u8FF0_)
-=======================
+`ld.lld` 目前支持 i386、x86-64、ARM、AArch64、LoongArch、PowerPC32、PowerPC64、MIPS32、MIPS64、RISC-V、AMDGPU、Hexagon 和 SPARC V9 目标平台。如果以 `lld-link` 调用，`ld.lld` 将充当 Microsoft link.exe 兼容的链接器；如果以 `ld.ld64` 调用，则充当 macOS 的 ld。无论 `ld.lld` 如何构建，所有这些目标平台始终受支持，因此你始终可以将 `ld.lld` 用作本地链接器或交叉链接器。
 
-链接器获取一个或多个对象、存档和库文件，并将它们组合成一个输出文件（可执行文件、共享库或另一个对象文件）。 它从输入文件中重新定位代码和数据并解析它们之间的符号引用。
+## 选项
 
-`ld.lld` 是 GNU BFD 和黄金链接器的直接替代品。 它接受大多数与 GNU 链接器相同的命令行参数和链接器脚本。
+许多选项同时具有单字母和长格式。使用长格式选项时，除了以字母 `o` 开头的选项外，可以在选项名前使用一个或两个短横线来指定。以 `o` 开头的长选项需要两个短横线，以避免与 `-o` `path` 选项混淆。
 
-`ld.lld` 目前支持 i386、x86-64、ARM、AArch64、PowerPC32、PowerPC64、MIPS32、MIPS64、RISC-V、AMDGPU、Hexagon 和 SPARC V9 目标。 如果作为 `lld-link` 调用， `ld.lld` 充当 Microsoft link.exe 兼容的链接器；如果作为 ld.ld64 调用，则充当 macOS 的 `ld.lld` 。 无论 `ld.lld` 是构建的，但始终支持所有这些目标，因此您始终可以将 `ld.lld` 用作本机链接器和交叉链接器。
+**`--allow-multiple-definition`** 如果符号被多次定义，不报错。将使用第一个定义。
 
-[选项](#__u9009___u9879_)
-=======================
+**`--allow-shlib-undefined`** 允许共享库中存在未解析的引用。链接共享库时默认启用此选项。
 
-许多选项都有单字母和长格式。 当使用以字母 `o` 开头的选项以外的长格式选项时，可以在选项名称前使用一或两个破折号来指定。 以 `o` 开头的长选项需要两个破折号以避免与 `-o` path 选项混淆。
+**`--apply-dynamic-relocs`** 对动态重定位应用链接时值。
 
-[`--allow-multiple-definition`](#-allow-multiple-definition)
+**`--as-needed`** 仅在使用时才为共享库设置 `DT_NEEDED`。
 
-如果一个符号被多次定义，不要出错。 将使用第一个定义。
+**`--auxiliary`** =`value` 将 `DT_AUXILIARY` 字段设置为指定名称。
 
-[`--allow-shlib-undefined`](#-allow-shlib-undefined)
+**`--Bdynamic`** , `--dy` 链接共享库。
 
-允许共享库中未解析的引用。 链接共享库时默认启用此选项。
+**`--Bstatic`** , `--static`, `--dn` 不链接共享库。
 
-[`--apply-dynamic-relocs`](#-apply-dynamic-relocs)
+**`-Bno-symbolic`** 对于 `-shared`，不将默认可见性的已定义符号在本地绑定（默认）。
 
-为动态重定位应用链接时间值。
+**`-Bsymbolic`** 对于 `-shared`，将默认可见性的已定义符号在本地绑定。同时设置 `DF_SYMBOLIC` 标志。
 
-[`--as-needed`](#-as-needed)
+**`-Bsymbolic-non-weak`** 对于 `-shared`，将默认可见性的已定义 STB_GLOBAL 符号在本地绑定。
 
-如果使用，仅为共享库设置 `DT_NEEDED` 。
+**`-Bsymbolic-functions`** 对于 `-shared`，将默认可见性的已定义函数符号在本地绑定。
 
-[`--auxiliary`](#-auxiliary)\=value
+**`-Bsymbolic-non-weak-functions`** 对于 `-shared`，将默认可见性的已定义 STB_GLOBAL 函数符号在本地绑定。
 
-将 `DT_AUXILIARY` 字段设置为指定的名称。
+**`--be8`** 使用 BE8 格式写入大端序 ELF 文件（仅限 AArch32）。
 
-[`--Bdynamic`](#-Bdynamic), `--dy`
+**`--branch-to-branch`** 启用分支间优化：目标为另一条分支指令的分支将被重写为指向后者的分支目标（仅限 AArch64 和 X86_64）。在 `-O2` 时默认启用。
 
-链接到共享库。
+**`--build-id`** =`value` 生成构建 ID 注记。`value` 可以是 `fast`、`md5`、`sha1`、`tree`、`uuid`、`0x``hex-string` 或 `none` 之一。`tree` 是 `sha1` 的别名。类型为 `fast`、`md5`、`sha1` 和 `tree` 的构建 ID 根据对象内容计算。`fast` 不保证密码学安全性。
 
-[`--Bstatic`](#-Bstatic), `--static`, `--dn`
+**`--build-id`** `--build-id`=`sha1` 的同义词。
 
-不要链接到共享库。
+**`--call-graph-profile-sort`** =`algorithm` `algorithm` 可以是：
 
-[`--Bsymbolic`](#-Bsymbolic)
+**`none`** 忽略调用图配置文件。
 
-在本地绑定定义的符号。
+**`hfsort`** 使用 hfsort。
 
-[`--Bsymbolic-functions`](#-Bsymbolic-functions)
+**`cdsort`** 使用 cdsort（默认）。
 
-在本地绑定定义的函数符号。
+**`--color-diagnostics`** =`value` 在诊断中使用颜色。`value` 可以是 `always`、`auto` 或 `never` 之一。`auto` 仅在输出到终端时启用颜色。
 
-[`--build-id`](#-build-id)\=value
+**`--color-diagnostics`** `--color-diagnostics`=`auto` 的别名。
 
-生成构建 ID 注释。 value 可以是 `fast`, `md5`, `sha1`, `tree`, `uuid`, `0x`hex-string 和 `none` 之一。 `tree` 是 `sha1` 的别名。 `fast`, `md5`, `sha1` 和 `tree` 类型的 Build-ID 是根据对象内容计算得出的。 `fast` 并不是为了加密安全。
+**`--compress-debug-sections`** =`value` 压缩 DWARF 调试节。如果压缩后的内容更大，则该节保持未压缩。`value` 可以是：
 
-[`--build-id`](#-build-id_2)
+**`none`** 不压缩。
 
-[`--build-id`](#-build-id_3)\=`fast` 的同义词。
+**`zlib`** 默认压缩级别为 1（最快），因为调试信息通常在该级别下压缩效果良好。
 
-[`--color-diagnostics`](#-color-diagnostics)\=value
+**`zstd`** 使用 zstd 的默认压缩级别。
 
-在诊断中使用颜色。 value 可以是 `always`, `auto` 和 `never` 之一。 当且仅当输出到终端时， `auto` 启用颜色。
+**`--compress-sections`** =`section-glob={none,zlib,zstd}[:level]` 压缩匹配通配符且不具有 SHF_ALLOC 标志的输出节。如果压缩后的内容更大，则匹配的节保持未压缩。压缩级别为 `level`（如果指定）或默认的注重速度的级别。这类似于通用化的 `--compress-debug-sections`。
 
-[`--color-diagnostics`](#-color-diagnostics_2)
+**`--cref`** 输出交叉引用表。如果指定了 `-Map`，则打印到映射文件中。
 
-[`--color-diagnostics`](#-color-diagnostics_3)\=`auto` 的别名。
+**`--debug-names`** 生成合并后的 `.debug_names` 节。
 
-[`--compress-debug-sections`](#-compress-debug-sections)\=value
+**`--default-script`** =`file`, `-dT` `file` 在未指定 `--script` 时，读取此默认链接器脚本。
 
-压缩 DWARF 调试部分。 value 可以是 `none` 和 `zlib` 。 默认压缩级别为 1（最快），因为调试信息通常在该级别压缩得很好，但如果您想进一步压缩，可以指定 `-O2` 将压缩级别设置为 6。
+**`--defsym`** =`symbol`=`expression` 定义符号别名。`expression` 可以是另一个符号或链接器脚本表达式。例如，`--defsym=foo=bar` 或 `--defsym=foo=bar+0x100`。
 
-[`--cref`](#-cref)
+**`--demangle`** 还原符号名（demangle）。
 
-输出交叉引用表。
+**`--disable-new-dtags`** 禁用新的动态标签。
 
-[`--define-common`](#-define-common), `-d`
+**`--discard-all`** , `-x` 删除所有局部符号。
 
-为常用符号分配空间。
+**`--discard-locals`** , `-X` 删除临时局部符号。
 
-[`--defsym`](#-defsym)\=symbol\=expression
+**`--discard-none`** 保留符号表中的所有符号。
 
-定义符号别名。 expression 可以是另一个符号或链接描述文件表达式。 例如， ‘`--defsym=foo=bar`’ or ‘`--defsym=foo=bar+0x100`’.
+**`--dynamic-linker`** =`value` 指定动态链接的可执行文件所使用的动态链接器。此信息记录在类型为 `PT_INTERP` 的 ELF 段中。
 
-[`--demangle`](#-demangle)
+**`--dynamic-list`** =`file` 类似于 `--export-dynamic-symbol-list`。创建共享对象时，隐含 `-Bsymbolic`，但不设置 DF_SYMBOLIC。
 
-去除符号名称。
+**`--EB`** 在 OUTPUT_FORMAT 命令中选择大端序格式。
 
-[`--disable-new-dtags`](#-disable-new-dtags)
+**`--EL`** 在 OUTPUT_FORMAT 命令中选择小端序格式。
 
-禁用新的动态标签。
+**`--eh-frame-hdr`** 请求创建 `.eh_frame_hdr` 节和 `PT_GNU_EH_FRAME` 段头。
 
-[`--discard-all`](#-discard-all), `-x`
+**`--emit-relocs`** , `-q` 在输出中生成重定位。
 
-删除所有本地符号。
+**`--enable-new-dtags`** 启用新的动态标签。
 
-[`--discard-locals`](#-discard-locals), `-X`
+**`--enable-non-contiguous-regions`** 将输入节溢出到后续匹配的输出节，以避免内存区域溢出。
 
-删除临时本地符号。
+**`--end-lib`** 结束一组应被视为在归档中一起处理的对象。
 
-[`--discard-none`](#-discard-none)
+**`--entry`** =`entry` 入口点符号的名称。
 
-将所有符号保留在符号表中。
+**`--error-limit`** =`value` 停止前最多发出的错误数。值为零表示无限制。
 
-[`--dynamic-linker`](#-dynamic-linker)\=value
+**`--error-unresolved-symbols`** 将未解析的符号报告为错误。
 
-指定用于动态链接的可执行文件的动态链接器。 这记录在 `PT_INTERP` 类型的 ELF 段中。
+**`--error-handing-script`** =`script_path` 在某些错误时调用脚本 `script_path`，以 `tag` 作为第一个参数，额外参数作为第二个参数。脚本成功时应返回 0。任何其他值被视为一般错误。`tag` 可以是 `missing-lib` 后跟缺失库的名称，或 `undefined-symbol` 后跟未定义符号的名称。
 
-[`--dynamic-list`](#-dynamic-list)\=file
+**`--execute-only`** 将可执行节标记为不可读。此选项目前仅在 AArch64 上受支持。
 
-从 file 中读取动态符号列表。 （可执行）将匹配的非本地定义符号放入动态符号表。 （共享对象）对匹配的非本地 STV\_DEFAULT 符号的引用不应绑定到共享对象中的定义。 暗示 `-Bsymbolic` 但不设置 DF\_SYMBOLIC
+**`--exclude-libs`** =`value` 将静态库从自动导出中排除。
 
-[`--eh-frame-hdr`](#-eh-frame-hdr)
+**`--export-dynamic`** , `-E` 将符号放入动态符号表。
 
-请求创建 `.eh_frame_hdr` 部分和 `PT_GNU_EH_FRAME` 段头。
+**`--export-dynamic-symbol`** =`glob` （可执行文件）将匹配的非局部已定义符号放入动态符号表。（共享对象）对匹配的非局部 STV_DEFAULT 符号的引用不应绑定到共享对象内的定义，即使由于 `-Bsymbolic`、`-Bsymbolic-functions` 或 `--dynamic-list` 本应如此。
 
-[`--emit-relocs`](#-emit-relocs), `-q`
+**`--export-dynamic-symbol-list`** =`file` 从 `file` 读取动态符号模式列表。对每个模式应用 `--export-dynamic-symbol`。
 
-在输出中生成重定位。
+**`--fatal-warnings`** 将警告视为错误。
 
-[`--enable-new-dtags`](#-enable-new-dtags)
+**`--filter`** =`value`, `-F` `value` 将 `DT_FILTER` 字段设置为指定值。
 
-启用新的动态标签。
+**`--fini`** =`symbol` 指定终结器函数。
 
-[`--end-lib`](#-end-lib)
+**`--force-group-allocation`** 仅对 -r 有意义。节组被丢弃。如果两个节组成员被放置到同一输出节，则合并它们的重定位。
 
-结束一组对象，这些对象应该被视为一起在一个档案中。
+**`--format`** =`input-format`, `-b` `input-format` 指定此选项之后输入的格式。`input-format` 可以是 `binary`、`elf` 或 `default` 之一。`default` 是 `elf` 的同义词。
 
-[`--entry`](#-entry)\=entry
+**`--gc-sections`** 启用未使用节的垃圾回收。
 
-入口点符号的名称。
+**`--gdb-index`** 生成 `.gdb_index` 节。
 
-[`--error-limit`](#-error-limit)\=value
+**`--hash-style`** =`value` 指定哈希风格。`value` 可以是 `sysv`、`gnu` 或 `both` 之一。`both` 是默认值。
 
-停止前发出的最大错误数。 零值表示没有限制。
+**`--help`** 打印帮助信息。
 
-[`--error-unresolved-symbols`](#-error-unresolved-symbols)
+**`--icf`** =`all` 启用相同代码折叠。
 
-将未解析的符号报告为错误。
+**`--icf`** =`safe` 启用安全的相同代码折叠。
 
-[`--execute-only`](#-execute-only)
+**`--icf`** =`none` 禁用相同代码折叠。
 
-将可执行部分标记为不可读。 此选项目前仅在 AArch64 上受支持。
+**`--ignore-data-address-equality`** 忽略数据的地址唯一性。C/C++ 要求每个数据具有唯一地址。此选项允许 lld 执行破坏此要求的不安全优化：创建只读数据的副本或合并两个或多个恰好具有相同值的只读数据。
 
-[`--exclude-libs`](#-exclude-libs)\=value
+**`--ignore-function-address-equality`** 忽略函数的地址唯一性。此选项允许对共享对象中具有非默认可见性的函数进行非 PIC 调用。该函数在可执行文件和共享对象中可能具有不同的地址。
 
-从自动导出中排除静态库。
+**`--image-base`** =`value` 将基址设置为 `value`。
 
-[`--export-dynamic`](#-export-dynamic), `-E`
+**`--init`** =`symbol` 指定初始化函数。
 
-将符号放入动态符号表中。
+**`--keep-unique`** =`symbol` 在 ICF 期间不折叠 `symbol`。
 
-[`--export-dynamic-symbol`](#-export-dynamic-symbol)\=glob
+**`-l`** `libName`, `--library`=`libName` 要使用的库的根名称。
 
-（可执行）将匹配的非本地定义符号放入动态符号表。 （共享对象）对匹配的非本地 STV\_DEFAULT 符号的引用不应绑定到共享对象中的定义，即使它们可能是由于 `-Bsymbolic` 、 `-Bsymbolic-functions` 或 `--dynamic-list`
+**`-L`** `dir`, `--library-path`=`dir` 将目录添加到库搜索路径。
 
-[`--fatal-warnings`](#-fatal-warnings)
+**`--lto-aa-pipeline`** =`value` 在 LTO 期间运行的 AA 管道。与 `--lto-newpm-passes` 配合使用。
 
-将警告视为错误。
+**`--lto-newpm-passes`** =`value` 在 LTO 期间运行的 pass。
 
-[`--filter`](#-filter)\=value, `-F` value
+**`--lto-O`** `opt-level` LTO 的优化级别。
 
-将 `DT_FILTER` 字段设置为指定值。
+**`--lto-partitions`** =`value` LTO 代码生成分区数。
 
-[`--fini`](#-fini)\=symbol
+**`-m`** `value` 设置目标模拟。
 
-指定终结器函数。
+**`--Map`** =`file`, `-M` `file` 将链接映射打印到 `file`。
 
-[`--format`](#-format)\=input-format, `-b` input-format
+**`--nmagic`** , `-n` 不对节进行页对齐，链接静态库。
 
-指定此选项后的输入格式。 input-format 可以是 `binary`, `elf` 和 `default` 之一。 `default` 是 `elf` 的同义词。
+**`--no-allow-shlib-undefined`** 不允许共享库中存在未解析的引用。链接可执行文件时默认启用此选项。
 
-[`--gc-sections`](#-gc-sections)
+**`--no-as-needed`** 始终为共享库设置 `DT_NEEDED`。
 
-启用未使用部分的垃圾收集。
+**`--no-color-diagnostics`** 在诊断中不使用颜色。
 
-[`--gdb-index`](#-gdb-index)
+**`--no-demangle`** 不还原符号名。
 
-生成 `.gdb_index` 部分。
+**`--no-dynamic-linker`** 抑制 `.interp` 节的输出。
 
-[`--hash-style`](#-hash-style)\=value
+**`--no-fortran-common`** 不在归档成员中搜索定义以覆盖 COMMON 符号。
 
-指定哈希样式。 value 可以是 `sysv 、` `gnu` 或 `both` 。 `both` 都是默认值。
+**`--no-gc-sections`** 禁用未使用节的垃圾回收。
 
-[`--help`](#-help)
+**`--no-gnu-unique`** 禁用 STB_GNU_UNIQUE 符号绑定。
 
-打印帮助信息。
+**`--no-merge-exidx-entries`** 禁用 .ARM.exidx 条目的合并。
 
-[`--icf`](#-icf)\=`all`
+**`--no-nmagic`** 对节进行页对齐。
 
-启用相同的代码折叠。
+**`--no-omagic`** 不将文本数据节设置为可写，对节进行页对齐。
 
-[`--icf`](#-icf_2)\=`safe`
+**`--no-relax`** 禁用目标特定的松弛优化。对于 x86-64，这会禁用 R_X86_64_GOTPCRELX 和 R_X86_64_REX_GOTPCRELX GOT 优化。
 
-启用安全的相同代码折叠。
+**`--no-rosegment`** 不将只读的非可执行节放入单独的段。
 
-[`--icf`](#-icf_3)\=`none`
+**`--undefined-version`** 不报告引用未定义符号的版本脚本。
 
-禁用相同的代码折叠。
+**`--no-undefined`** 即使链接器正在创建共享库，也报告未解析的符号。
 
-[`--ignore-data-address-equality`](#-ignore-data-address-equality)
+**`--no-warn-mismatch`** 不拒绝未知的节类型。
 
-忽略数据的地址相等性。 C/C++ 要求每个数据有一个唯一的地址。 此选项允许 lld 进行不安全的优化，从而打破要求：创建只读数据的副本或合并两个或多个恰好具有相同值的只读数据。
+**`--no-warn-symbol-ordering`** 不对符号排序文件或调用图配置文件的问题发出警告。
 
-[`--ignore-function-address-equality`](#-ignore-function-address-equality)
+**`--no-warnings`** , `-w` 抑制警告并取消 `--fatal-warnings`。
 
-忽略函数的地址相等。 此选项允许对共享对象中具有非默认可见性的函数进行非 PIC 调用。 该函数在可执行文件和共享对象中可能有不同的地址。
+**`--no-whole-archive`** 恢复加载归档成员的默认行为。
 
-[`--image-base`](#-image-base)\=value
+**`--no-pie`** , `--no-pic-executable` 不创建位置无关的可执行文件。
 
-将基地址设置为 value 。
+**`--noinhibit-exec`** 只要可执行输出文件仍然可用就保留它。
 
-[`--init`](#-init)\=symbol
+**`--nostdlib`** 仅搜索命令行上指定的目录。
 
-指定初始化函数。
+**`-o`** `path` 将输出可执行文件、库或目标写入 `path`。如果未指定，默认使用 `a.out`。
 
-[`--keep-unique`](#-keep-unique)\=symbol
+**`-O`** `value` 优化输出文件。`value` 可以是：
 
-在 ICF 期间不要折叠 symbol 。
+**`0`** 禁用字符串合并。
 
-[`-l`](#l) libName, `--library`\=libName
+**`1`** 启用字符串合并。
 
-要使用的库的根名称。
+**`2`** 启用字符串尾部合并和分支间优化。
 
-[`-L`](#L) dir, `--library-path`\=dir
+`-O1` 是默认值。
 
-将目录添加到库搜索路径。
+**`--oformat`** =`format` 指定输出目标文件的格式。唯一支持的 `format` 是 `binary`，它产生没有 ELF 头的输出。
 
-[`--lto-aa-pipeline`](#-lto-aa-pipeline)\=value
+**`--omagic`** , `-N` 将文本和数据节设置为可读和可写，不对节进行页对齐，链接静态库。
 
-在 LTO 期间运行的 AA 管道。与 `--lto-newpm-passes` 结合使用。
+**`--opt-remarks-filename`** `file` 以 YAML 格式将优化备注写入 `file`。
 
-[`--lto-newpm-passes`](#-lto-newpm-passes)\=value
+**`--opt-remarks-passes`** `pass-regex` 仅允许匹配 `pass-regex` 的 pass 通过，以过滤优化备注。
 
-在 LTO 期间通过运行。
+**`--opt-remarks-with-hotness`** 在优化备注文件中包含热度信息。
 
-[`--lto-O`](#-lto-O)opt-level
+**`--orphan-handling`** =`mode` 控制如何处理孤儿节。孤儿节是链接器脚本中未特别提及的节。`mode` 可以是：
 
-LTO 的优化级别。
+**`place`** 将孤儿节放入合适的输出节。
 
-[`--lto-partitions`](#-lto-partitions)\=value
+**`warn`** 像 `place` 一样放置孤儿节，并报告警告。
 
-LTO 代码生成分区的数量。
-
-[`-m`](#m) value
-
-设置目标仿真。
-
-[`--Map`](#-Map)\=file, `-M` file
-
-将链接映射打印到 file 。
-
-[`--nmagic`](#-nmagic), `-n`
-
-不要页面对齐部分，链接到静态库。
-
-[`--no-allow-shlib-undefined`](#-no-allow-shlib-undefined)
-
-不允许共享库中未解析的引用。 链接可执行文件时默认启用此选项。
-
-[`--no-as-needed`](#-no-as-needed)
-
-始终为共享库设置 `DT_NEEDED` 。
-
-[`--no-color-diagnostics`](#-no-color-diagnostics)
-
-不要在诊断中使用颜色。
-
-[`--no-define-common`](#-no-define-common)
-
-不要为常用符号分配空格。
-
-[`--no-demangle`](#-no-demangle)
-
-不要对符号名称进行拆解。
-
-[`--no-dynamic-linker`](#-no-dynamic-linker)
-
-禁止 `.interp` 部分的输出。
-
-[`--no-gc-sections`](#-no-gc-sections)
-
-禁用未使用部分的垃圾收集。
-
-[`--no-gnu-unique`](#-no-gnu-unique)
-
-禁用 STB\_GNU\_UNIQUE 符号绑定。
-
-[`--no-merge-exidx-entries`](#-no-merge-exidx-entries)
-
-禁用合并 .ARM.exidx 条目。
-
-[`--no-nmagic`](#-no-nmagic)
-
-页面对齐部分
-
-[`--no-omagic`](#-no-omagic)
-
-不要将文本数据部分设置为可写、页面对齐部分。
-
-[`--no-relax`](#-no-relax)
-
-禁用特定于目标的放松。 目前这是一个空操作。
-
-[`--no-rosegment`](#-no-rosegment)
-
-不要将只读不可执行的部分放在它们自己的段中。
-
-[`--no-undefined-version`](#-no-undefined-version)
-
-报告引用未定义符号的版本脚本。
-
-[`--no-undefined`](#-no-undefined)
-
-即使链接器正在创建共享库，也要报告未解析的符号。
-
-[`--no-warn-symbol-ordering`](#-no-warn-symbol-ordering)
-
-不要警告符号排序文件或调用图配置文件的问题。
-
-[`--no-whole-archive`](#-no-whole-archive)
-
-恢复加载存档成员的默认行为。
-
-[`--no-pie`](#-no-pie), `--no-pic-executable`
-
-不要创建与位置无关的可执行文件。
-
-[`--noinhibit-exec`](#-noinhibit-exec)
-
-只要可执行输出文件仍然可用，就保留它。
-
-[`--nostdlib`](#-nostdlib)
-
-仅搜索命令行上指定的目录。
-
-[`-o`](#o) path
-
-将输出的可执行文件、库或对象写入 path 。 如果未指定，则使用 `a.out` 作为默认值。
-
-[`-O`](#O)value
-
-优化输出文件大小。 value 可能是：
-
-[`0`](#0)
-
-禁用字符串合并。
-
-[`1`](#1)
-
-启用字符串合并。
-
-[`2`](#2)
-
-启用字符串尾部合并。 如果给出 `--compress-debug-sections` ，则以压缩级别 6 而非 1 压缩调试部分。
-
-`-O``1` 是默认值。
-
-[`--oformat`](#-oformat)\=format
-
-指定输出对象文件的格式。 唯一支持的 format 是 `binary` ，它产生没有 ELF 标头的输出。
-
-[`--omagic`](#-omagic), `-N`
-
-将文本和数据部分设置为可读可写，不要页面对齐部分，链接到静态库。
-
-[`--opt-remarks-filename`](#-opt-remarks-filename) file
-
-将 YAML 格式的优化备注写入 file 。
-
-[`--opt-remarks-passes`](#-opt-remarks-passes) pass-regex
-
-通过仅允许匹配 pass-regex 的通行证来过滤优化备注。
-
-[`--opt-remarks-with-hotness`](#-opt-remarks-with-hotness)
-
-在优化备注文件中包含热度信息。
-
-[`--orphan-handling`](#-orphan-handling)\=mode
-
-控制如何处理孤立部分。 孤立部分是链接描述文件中未特别提及的部分。 mode 可能是：
-
-[`place`](#place)
-
-将孤立部分放在合适的输出部分中。
-
-[`warn`](#warn)
-
-放置孤儿部分作为 `place` ，也报告一个警告。
-
-[`error`](#error)
-
-放置孤儿部分作为 `place` ，也报告错误。
+**`error`** 像 `place` 一样放置孤儿节，并报告错误。
 
 `place` 是默认值。
 
-[`--pack-dyn-relocs`](#-pack-dyn-relocs)\=format
+**`--pack-dyn-relocs`** =`format` 以给定格式打包动态重定位。`format` 可以是：
 
-以给定格式打包动态重定位。 format 可能是：
+**`none`** 不打包。动态重定位以 SHT_REL(A) 编码。
 
-[`none`](#none)
+**`android`** 以 SHT_ANDROID_REL(A) 打包动态重定位。
 
-不要打包。 动态重定位在 SHT\_REL(A) 中编码。
+**`relr`** 以 SHT_RELR 打包相对重定位，其余动态重定位以 SHT_REL(A) 打包。
 
-[`android`](#android)
+**`android+relr`** 以 SHT_RELR 打包相对重定位，其余动态重定位以 SHT_ANDROID_REL(A) 打包。
 
-在 SHT\_ANDROID\_REL(A) 中打包动态重定位。
+`none` 是默认值。如果指定了 `--use-android-relr-tags`，则使用 SHT_ANDROID_RELR 而非 SHT_RELR。
 
-[`relr`](#relr)
+**`--package-metadata`** 将百分号编码的字符串发送到 `.note.package` 节。例如，%25 解码为单个 %。
 
-在 SHT\_RELR 中打包相对重定位，在 SHT\_REL(A) 中打包其余动态重定位。
+**`--pic-veneer`** 始终生成位置无关的 thunk。
 
-[`android+relr`](#android+relr)
+**`--pie`** , `--pic-executable` 创建位置无关的可执行文件。
 
-在 SHT\_RELR 中打包相对重定位，在 SHT\_ANDROID\_REL(A) 中打包其余动态重定位。
+**`--power10-stubs`** =`mode` 是否在 R_PPC64_REL24_NOTOC 和 TOC/NOTOC 互操作的调用桩中使用 Power10 指令。`mode` 可以是：
 
-`none` 是默认值。 如果指定了 `--use-android-relr-tags` ，则使用 SHT\_ANDROID\_RELR 而不是 SHT\_RELR。
+**`yes`** （默认）使用。
 
-[`--pic-veneer`](#-pic-veneer)
+**`auto`** 目前与 yes 相同。
 
-始终生成与位置无关的 thunk。
+**`no`** 不使用。
 
-[`--pie`](#-pie), `--pic-executable`
+**`--print-gc-sections`** 列出已移除的未使用节。
 
-创建与位置无关的可执行文件。
+**`--print-icf-sections`** 列出已折叠的相同节。
 
-[`--print-gc-sections`](#-print-gc-sections)
+**`--print-map`** 将链接映射打印到标准输出。
 
-列出已删除的未使用部分。
+**`--print-archive-stats`** =`file` 将归档使用统计写入指定文件。打印每个归档的成员数和提取的成员数。
 
-[`--print-icf-sections`](#-print-icf-sections)
+**`--push-state`** 保存 `--as-needed`、`--static` 和 `--whole-archive` 的当前状态。
 
-列出相同的折叠部分。
+**`--pop-state`** 恢复由 `--push-state` 保存的状态。
 
-[`--print-map`](#-print-map)
+**`--randomize-section-padding`** =`seed` 使用给定种子在输入节之间和每个段的开头随机插入填充。填充被插入到名称匹配以下模式的输出节中：`.bss`、`.data`、`.data.rel.ro`、`.lbss`、`.ldata`、`.lrodata`、`.ltext`、`.rodata` 和 `.text*`。
 
-将链接映射打印到标准输出。
+**`--relax-gp`** 为 RISC-V 启用全局指针松弛优化。
 
-[`--print-archive-stats`](#-print-archive-stats)\=file
+**`--relocatable`** , `-r` 创建可重定位目标文件。
 
-将归档使用统计信息写入指定文件。 打印每个档案的成员数和获取的成员数。
+**`--remap-inputs`** =`from-glob=to-file` 匹配 `from-glob` 的输入文件映射到 `to-file`。使用 **/dev/null** 忽略输入文件。
 
-[`--push-state`](#-push-state)
+**`--remap-inputs-file`** =`file` 基于 `file` 中的模式重映射输入文件。重映射文件中的每行格式为 `from-glob=to-file` 或以 `#` 开头的注释。
 
-保存 `--as-needed` `-、` `--static` 和 `--whole-archive` 的当前状态。
+**`--reproduce`** =`path` 将 tar 文件写入 `path`，其中包含重现链接所需的所有输入文件、名为 response.txt 的文本文件（包含命令行选项）和名为 version.txt 的文本文件（包含 ld.lld --version 的输出）。解包后的归档可用于以相同的选项和输入文件重新运行链接器。
 
-[`--pop-state`](#-pop-state)
+**`--retain-symbols-file`** =`file` 仅保留文件中列出的符号。
 
-取消 `--push-state` 的效果。
+**`--rpath`** =`value`, `-R` `value` 向输出添加 `DT_RUNPATH`。
 
-[`--relocatable`](#-relocatable), `-r`
+**`--rsp-quoting`** =`value` 响应文件的引用风格。支持的值为 `windows` 和 `posix`。
 
-创建可重定位目标文件。
+**`--script`** =`file`, `-T` `file` 从 `file` 读取链接器脚本。如果给出了多个链接器脚本，它们将按在命令行上出现的顺序拼接处理。
 
-[`--reproduce`](#-reproduce)\=path
+**`--section-start`** =`section`=`address` 设置节的地址。
 
-将一个 tar 文件写入 path ，其中包含重现链接所需的所有输入文件、一个名为 response.txt 的文本文件（包含命令行选项）和一个名为 version.txt 的文本文件，其中包含 ld.lld --version 的输出。 解压后的存档可用于使用相同的选项和输入文件重新运行链接器。
+**`--shared`** , `--Bsharable` 构建共享对象。
 
-[`--retain-symbols-file`](#-retain-symbols-file)\=file
+**`--shuffle-sections`** =`seed` 在将匹配的节映射到输出节之前，使用给定种子对其进行随机排列。如果为 -1，则反转节顺序。如果为 0，则使用随机种子。
 
-仅保留文件中列出的符号。
+**`--soname`** =`value`, `-h` `value` 将 `DT_SONAME` 设置为 `value`。
 
-[`--rpath`](#-rpath)\=value, `-R` value
+**`--sort-common`** 此选项为 GNU 兼容性而被忽略。
 
-将 `DT_RUNPATH` 添加到输出。
+**`--sort-section`** =`value` 指定使用链接器脚本时的节排序规则。
 
-[`--rsp-quoting`](#-rsp-quoting)\=value
+**`--start-lib`** 开始一组应被视为在归档中一起处理的对象。
 
-响应文件的引用样式。 支持的值为 `windows` 和 `posix` 。
+**`--strip-all`** , `-s` 剥离所有符号。隐含 `--strip-debug`。
 
-[`--script`](#-script)\=file, `-T` file
+**`--strip-debug`** , `-S` 剥离调试信息。
 
-从 file 中读取链接描述文件。 如果给出了多个链接描述文件，它们的处理方式就好像它们是按照它们在命令行中出现的顺序连接起来的一样。
+**`--symbol-ordering-file`** =`file` 按 `file` 指定的顺序排列节。
 
-[`--section-start`](#-section-start)\=section\=address
+**`--sysroot`** =`value` 设置系统根目录。
 
-设置段地址。
+**`--target1-abs`** 将 `R_ARM_TARGET1` 解释为 `R_ARM_ABS32`。
 
-[`--shared`](#-shared), `--Bsharable`
+**`--target1-rel`** 将 `R_ARM_TARGET1` 解释为 `R_ARM_REL32`。
 
-构建共享对象。
+**`--target2`** =`type` 将 `R_ARM_TARGET2` 解释为 `type`，其中 `type` 为 `rel`、`abs` 或 `got-rel` 之一。
 
-[`--shuffle-sections`](#-shuffle-sections)\=seed
+**`--Tbss`** =`value` 同 `--section-start`，以 `.bss` 作为节名。
 
-使用给定的种子随机播放输入部分。 如果为 0，则使用随机种子。
+**`--Tdata`** =`value` 同 `--section-start`，以 `.data` 作为节名。
 
-[`--soname`](#-soname)\=value, `-h` value
+**`--Ttext`** =`value` 同 `--section-start`，以 `.text` 作为节名。
 
-将 `DT_SONAME` 设置为 value 。
+**`--thinlto-cache-dir`** =`value` ThinLTO 缓存目标文件目录的路径。
 
-[`--sort-common`](#-sort-common)
+**`--thinlto-cache-policy`** =`value` ThinLTO 缓存的修剪策略。
 
-为了 GNU 兼容性，忽略此选项。
+**`--thinlto-jobs`** =`value` ThinLTO 作业数。
 
-[`--sort-section`](#-sort-section)\=value
+**`--threads`** =`N` 线程数。`all`（默认）表示支持的所有并发线程。`1` 禁用多线程。
 
-使用链接描述文件时指定节排序规则。
+**`--fat-lto-objects`** 在 fat LTO 目标文件中使用包含 LLVM 位码的 .llvm.lto 节来执行 LTO。
 
-[`--start-lib`](#-start-lib)
+**`--no-fat-lto-objects`** 忽略可重定位目标文件中的 .llvm.lto 节（默认）。
 
-开始一组对象，这些对象应该被视为一起在一个档案中。
+**`--time-trace`** 记录时间追踪。
 
-[`--strip-all`](#-strip-all), `-s`
+**`--time-trace-file`** =`file` 将时间追踪输出写入 `file`。
 
-剥离所有符号。
+**`--time-trace-granularity`** =`value` 时间分析器追踪的最小时间粒度（以微秒为单位）。
 
-[`--strip-debug`](#-strip-debug), `-S`
+**`--trace`** 打印输入文件的名称。
 
-剥离调试信息。
+**`--trace-symbol`** =`symbol`, `-y` `symbol` 追踪对 `symbol` 的引用。
 
-[`--symbol-ordering-file`](#-symbol-ordering-file)\=file
+**`--undefined`** =`symbol`, `-u` `symbol` 如果 `symbol` 在符号解析后未定义，并且存在包含定义该符号的目标文件的静态库，则加载该成员以将目标文件包含在输出文件中。
 
-按 file 指定的顺序布置部分。
+**`--undefined-glob`** =`pattern` `--undefined` 的同义词，但接受通配符模式。在通配符模式中，`*` 匹配零个或多个字符，`?` 匹配任意单个字符，`[...]` 匹配括号内的字符。匹配给定模式的所有符号将如同作为 `--undefined` 的参数一样处理。
 
-[`--sysroot`](#-sysroot)\=value
+**`--unique`** 为每个孤儿输入节创建单独的输出节。
 
-设置系统根目录。
+**`--unresolved-symbols`** =`value` 确定如何处理未解析的符号。
 
-[`--target1-abs`](#-target1-abs)
+**`--use-android-relr-tags`** 使用 SHT_ANDROID_RELR / DT_ANDROID_RELR* 标签代替 SHT_RELR / DT_RELR*。
 
-将 `R_ARM_TARGET1` 解释为 `R_ARM_ABS32` 。
+**`-v`** , `-V` 显示版本号，如果指定了目标文件则继续链接。
 
-[`--target1-rel`](#-target1-rel)
+**`--version`** 显示版本号并退出。
 
-将 `R_ARM_TARGET1` 解释为 `R_ARM_REL32` 。
+**`--verbose`** 详细模式。
 
-[`--target2`](#-target2)\=type
+**`--version-script`** =`file` 从 `file` 读取版本脚本。
 
-将 `R_ARM_TARGET2` 解释为 type, 其中 type 是 `rel 、` `abs` 或 `got-rel` 之一。
+**`--warn-backrefs`** 对静态归档之间或指向静态归档的反向或循环依赖发出警告。这可用于确保链接器调用与传统 Unix 链接器保持兼容。
 
-[`--Tbss`](#-Tbss)\=value
+**`--warn-backrefs-exclude`** =`glob` 描述应针对 `--warn-backrefs` 忽略的归档（或 --start-lib 中的目标文件）的通配符。
 
-与 `--section-start` 相同，以 `.bss` 作为部分名称。
+**`--warn-common`** 对重复的公共符号发出警告。
 
-[`--Tdata`](#-Tdata)\=value
+**`--warn-ifunc-textrel`** 对 ifunc 符号与文本重定位一起使用发出警告。旧版 glibc 库（2.28 及更早版本）存在一个 bug，导致包含 ifunc 符号的段在重定位时被标记为不可执行。因此，虽然程序编译和链接成功，但当指令指针到达 ifunc 符号时会产生段错误。如果代码可能包含 ifunc 符号、可能进行文本重定位并与旧版 glibc 链接，请使用 --warn-ifunc-textrel 让 lld 发出警告。否则无需使用，因为默认值不发出警告。此标志于 2018 年末引入，在 ld 和 gold 链接器中没有对应项，将来可能被移除。
 
-与 `--section-start` 相同，以 `.data` 作为部分名称。
+**`--warn-unresolved-symbols`** 将未解析的符号报告为警告。
 
-[`--Ttext`](#-Ttext)\=value
+**`--whole-archive`** 强制加载静态库中的所有成员。
 
-与 `--section-start` 相同，以 `.text` 作为部分名称。
+**`--why-extract`** =`file` 将提取归档成员的原因打印到文件。
 
-[`--thinlto-cache-dir`](#-thinlto-cache-dir)\=value
+**`--why-live`** =`glob` 为匹配通配符的每个符号报告阻止垃圾回收的引用链。
 
-ThinLTO 缓存对象文件目录的路径。
+**`--wrap`** =`symbol` 将对 `symbol` 的引用重定向到 `__wrap_symbol`，将对 `__real_symbol` 的引用重定向到 `symbol`。
 
-[`--thinlto-cache-policy`](#-thinlto-cache-policy)\=value
+**`-z`** `option` 链接器选项扩展。`option` 可以是以下之一：
 
-ThinLTO 缓存的修剪策略。
+**`dead-reloc-in-nonalloc`** =`section_glob=value` 将引用已丢弃符号的匹配非 SHF_ALLOC 节中的重定位解析为 `value`。接受通配符，如果某节匹配多个选项，最后一个选项优先。建议按从最不具体到最具体的顺序匹配。
 
-[`--thinlto-jobs`](#-thinlto-jobs)\=value
+**`execstack`** 使主栈可执行。栈权限记录在 `PT_GNU_STACK` 段中。
 
-ThinLTO 作业的数量。
+**`bti-report`** =`[none|warning|error]` 指定如何报告缺失的 GNU_PROPERTY_AARCH64_FEATURE_1_BTI 属性。`none` 是默认值，链接器不报告缺失的属性，否则将以警告或错误报告。
 
-[`--threads`](#-threads)\=N
+**`cet-report`** =`[none|warning|error]` 指定如何报告缺失的 GNU_PROPERTY_X86_FEATURE_1_IBT 或 GNU_PROPERTY_X86_FEATURE_1_SHSTK 属性。`none` 是默认值，链接器不报告缺失的属性，否则将以警告或错误报告。
 
-线程数。 `all` （默认）表示支持的所有并发线程。 `1` 禁用多线程。
+**`dynamic-undefined-weak`** 当存在动态符号表时，如果未定义的弱符号从可重定位目标文件中被引用，且未被符号可见性或版本控制强制为局部，则使其成为动态的。指定 `nodynamic-undefined-weak` 时不使其成为动态的。构建共享对象或存在输入共享对象时，`dynamic-undefined-weak` 是默认值。
 
-[`--time-trace`](#-time-trace)
+**`pauth-report`** =`[none|warning|error]` 指定如何报告缺失的 GNU_PROPERTY_AARCH64_FEATURE_PAUTH 属性。`none` 是默认值，链接器不报告缺失的属性，否则将以警告或错误报告。
 
-记录时间轨迹。
+**`force-bti`** 强制在 PLT 中启用 AArch64 BTI 指令，如果输入 ELF 文件不具有 GNU_PROPERTY_AARCH64_FEATURE_1_BTI 属性则发出警告。
 
-[`--time-trace-file`](#-time-trace-file)\=file
+**`force-ibt`** 强制在 PLT 中启用 Intel 间接分支跟踪，如果输入 ELF 文件不具有 GNU_PROPERTY_X86_FEATURE_1_IBT 属性则发出警告。
 
-将时间跟踪输出写入 file 。
+**`global`** 在 `DYNAMIC` 节中设置 `DF_1_GLOBAL` 标志。不同的加载器可以自行决定如何处理此标志。
 
-[`--time-trace-granularity`](#-time-trace-granularity)\=value
+**`ifunc-noplt`** 不为 ifunc 符号发出 PLT 条目。而是发出引用解析器的文本重定位。这是实验性优化，仅适用于文本重定位没有通常缺点的独立环境。此选项必须与 `-z` `notext` 选项组合使用。
 
-时间分析器跟踪的最小时间粒度（以微秒为单位）。
+**`initfirst`** 设置 `DF_1_INITFIRST` 标志，指示该模块应首先被初始化。
 
-[`--trace`](#-trace)
+**`interpose`** 设置 `DF_1_INTERPOSE` 标志，向运行时链接器指示该对象是插入器。在符号解析期间，插入器在应用程序之后但在其他依赖项之前被搜索。
 
-打印输入文件的名称。
+**`lrodata-after-bss`** 将 .lrodata 放在 .bss 之后。
 
-[`--trace-symbol`](#-trace-symbol)\=symbol, `-y` symbol
+**`muldefs`** 如果符号被多次定义，不报错。将使用第一个定义。这是 `--allow-multiple-definition` 的同义词。
 
-跟踪对 symbol 的引用。
+**`nocombreloc`** 禁用多个重定位节的合并和排序。
 
-[`--undefined`](#-undefined)\=symbol, `-u` symbol
+**`nocopyreloc`** 禁用创建复制重定位。
 
-如果 symbol 解析后未定义符号，并且存在包含定义符号的目标文件的静态库，则加载成员以将目标文件包含在输出文件中。
+**`nodefaultlib`** 设置 `DF_1_NODEFLIB` 标志，指示应忽略默认库搜索路径。
 
-[`--undefined-glob`](#-undefined-glob)\=pattern
+**`nodelete`** 设置 `DF_1_NODELETE` 标志，指示该对象不能从进程中卸载。
 
-[`--undefined`](#-undefined_2) 的同义词，除了它采用 glob 模式。 在 glob 模式中， `*` 匹配零个或多个字符， ? 匹配任何单个字符，并且 `[...]` 匹配括号内的字符。 与给定模式匹配的所有符号都被视为作为 `--undefined` 的参数给出。
+**`nodlopen`** 设置 `DF_1_NOOPEN` 标志，指示该对象不能被 dlopen(3) 打开。
 
-[`--unique`](#-unique)
+**`nognustack`** 不发出 `PT_GNU_STACK` 段。
 
-为每个孤立输入部分创建一个单独的输出部分。
+**`norelro`** 不指示对象的某些部分在初始重定位处理后被映射为只读。该对象将省略 `PT_GNU_RELRO` 段。
 
-[`--unresolved-symbols`](#-unresolved-symbols)\=value
+**`nosectionheader`** 不生成节头表。
 
-确定如何处理未解析的符号。
+**`notext`** 允许对只读段进行重定位。在 `DYNAMIC` 节中设置 `DT_TEXTREL` 标志。
 
-[`--use-android-relr-tags`](#-use-android-relr-tags)
+**`now`** 设置 `DF_BIND_NOW` 标志，指示运行时加载器应在对象初始化时执行所有重定位处理。默认情况下，重定位可按需执行。
 
-使用 SHT\_ANDROID\_RELR / DT\_ANDROID\_RELR\* 标签代替 SHT\_RELR / DT\_RELR\*。
+**`origin`** 设置 `DF_ORIGIN` 标志，指示该对象需要 $ORIGIN 处理。
 
-[`-v`](#v)
+**`pac-plt`** 仅限 AArch64，在 PLT 中使用指针认证。
 
-如果指定了目标文件，则显示版本号并继续链接。
+**`pack-relative-relocs`** 类似于 `-pack-dyn-relocs=relr`，但如果存在 GLIBC_2.* 版本依赖，则合成 GLIBC_ABI_DT_RELR 版本依赖。glibc ld.so 拒绝加载没有 GLIBC_ABI_DT_RELR 版本依赖的动态链接对象。
 
-[`-V`](#V), `--version`
+**`rel`** 对动态重定位使用 REL 格式。
 
-显示版本号并退出。
+**`rela`** 对动态重定位使用 RELA 格式。
 
-[`--verbose`](#-verbose)
+**`retpolineplt`** 发出 retpoline 格式的 PLT 条目，作为 CVE-2017-5715 的缓解措施。
 
-详细模式。
+**`rodynamic`** 使 `.dynamic` 节为只读。不发出 `DT_DEBUG` 标签。
 
-[`--version-script`](#-version-script)\=file
+**`separate-loadable-segments`**
 
-从 file 中读取版本脚本。
+**`separate-code`**
 
-[`--warn-backrefs`](#-warn-backrefs)
+**`noseparate-code`** 指定两个相邻的 PT_LOAD 段是否允许在页面中重叠。`noseparate-code`（默认）允许重叠。`separate-code` 允许两个可执行段之间或两个非可执行段之间的重叠。`separate-loadable-segments` 不允许重叠。
 
-警告静态存档之间或之间的反向或循环依赖关系。 这可用于确保链接器调用与传统的类 Unix 链接器保持兼容。
+**`shstk`** 仅限 x86，使用影子栈。
 
-[`--warn-backrefs-exclude`](#-warn-backrefs-exclude)\=glob
+**`stack-size`** =`size` 将主线程的栈大小设置为 `size`。栈大小记录为 `PT_GNU_STACK` 程序段的大小。
 
-描述存档（或 --start-lib 中的目标文件）的 Glob，对于 `--warn-backrefs` 应该忽略它
+**`start-stop-gc`** 不让 __start_/__stop_ 引用保留关联的 C 标识符名节（默认）。
 
-[`--warn-common`](#-warn-common)
+**`nostart-stop-gc`** 让 __start_/__stop_ 引用保留关联的 C 标识符名节。
 
-警告重复的常用符号。
+**`text`** 不允许对只读段进行重定位。这是默认值。
 
-[`--warn-ifunc-textrel`](#-warn-ifunc-textrel)
+**`nobtcfi`** 创建 `PT_OPENBSD_NOBTCFI` 段。
 
-警告将 ifunc 符号与文本重定位结合使用。 旧版本的 glibc 库（2.28 和更早版本）有一个错误，该错误会导致包含 ifunc 符号的段在重定位时被标记为不可执行。 结果，尽管程序编译和链接成功，但当指令指针到达 ifunc 符号时，它给出了分段错误。 使用 -warn-ifunc-textrel 让 lld 发出警告，如果代码可能包含 ifunc 符号，可能会进行文本重定位并与较旧的 glibc 版本链接。 否则，没有必要使用它，因为默认值不会给出警告。 此标志已于 2018 年底引入，在 ld 和 gold 链接器中没有对应部分，将来可能会被删除。
+**`wxneeded`** 创建 `PT_OPENBSD_WXNEEDED` 段。
 
-[`--warn-unresolved-symbols`](#-warn-unresolved-symbols)
+## 环境变量
 
-将未解析的符号报告为警告。
+**`LLD_REPRODUCE`** 以指定文件名创建重现 tar 包。如果指定了 `--reproduce`，则 `--reproduce` 优先。
 
-[`--whole-archive`](#-whole-archive)
+**`LLD_VERSION`** ld.lld 创建一个名为 `.comment` 的节，其中包含 LLD 版本字符串。版本字符串可由此环境变量覆盖，这在消除由 LLD 版本号差异导致的二进制文件差异时很有用。
 
-强制加载静态库中的所有成员。
+## 实现说明
 
-[`--wrap`](#-wrap)\=symbol
+ld.lld 对归档文件（扩展名为 **.a** 的文件）的处理与 Unix 系统上使用的传统链接器不同。
 
-对符号使用包装函数。
+传统链接器在链接期间维护一组未定义符号。链接器按文件在命令行上出现的顺序处理每个文件，直到未定义符号集为空。目标文件在遇到时被链接到输出对象中，其未定义符号被添加到集合中。遇到归档文件时，传统链接器搜索其中包含的目标，并处理满足未解析集合中符号的那些目标。
 
-[`-z`](#z) option
+使用传统链接器时，处理相互依赖的归档可能比较麻烦。可能需要多次指定归档文件，或者使用特殊的命令行选项 `--start-group` 和 `--end-group` 让链接器在组中的文件上循环，直到没有新符号被添加到集合中。
 
-链接器选项扩展。
+ld.lld 在遍历命令行参数时记录在目标和归档中找到的所有符号。当 ld.lld 遇到可由先前处理的归档文件中包含的目标文件解析的未定义符号时，它会立即提取并将其链接到输出对象中。
 
-[`dead-reloc-in-nonalloc`](#dead-reloc-in-nonalloc)\=section\_glob=value
+对于某些归档输入，ld.lld 可能产生与传统链接器不同的结果。在实践中，大量第三方软件已使用 ld.lld 链接，没有出现重大问题。
 
-解析匹配的非 SHF\_ALLOC 部分中的重定位，将丢弃的符号引用到 value 接受 glob，如果部分匹配多个选项，则最后一个选项优先。 建议使用从最不具体到最具体匹配的顺序。
-
-[`execstack`](#execstack)
-
-使主堆栈可执行。 堆栈权限记录在 `PT_GNU_STACK` 段中。
-
-[`force-bti`](#force-bti)
-
-在 PLT 中强制启用 AArch64 BTI 指令，如果输入 ELF 文件没有 GNU\_PROPERTY\_AARCH64\_FEATURE\_1\_BTI 属性，则会发出警告。
-
-[`force-ibt`](#force-ibt)
-
-在 PLT 中强制启用英特尔间接分支跟踪，如果输入 ELF 文件没有 GNU\_PROPERTY\_X86\_FEATURE\_1\_IBT 属性，则会发出警告。
-
-[`global`](#global)
-
-在 `DYNAMIC` 部分设置 `DF_1_GLOBAL flag in the` 标志。 不同的加载器可以自行决定如何处理这个标志。
-
-[`ifunc-noplt`](#ifunc-noplt)
-
-不要为 ifunc 符号发出 PLT 条目。相反，发出引用解析器的文本重定位。 这是一个实验性优化，仅适用于文本重定位没有通常缺点的独立环境。 此选项必须与 `-z` `notext` 选项结合使用。
-
-[`initfirst`](#initfirst)
-
-设置 `DF_1_INITFIRST` 标志以指示应首先初始化模块。
-
-[`interpose`](#interpose)
-
-设置 `DF_1_INTERPOSE` 标志以向运行时链接器指示对象是插入器。 在符号解析期间，在应用程序之后但在其他依赖项之前搜索插入器。
-
-[`muldefs`](#muldefs)
-
-如果一个符号被多次定义，不要出错。 将使用第一个定义。 这是 `--allow-multiple-definition` 的同义词。
-
-[`nocombreloc`](#nocombreloc)
-
-禁用组合和排序多个重定位部分。
-
-[`nocopyreloc`](#nocopyreloc)
-
-禁用复制重定位的创建。
-
-[`nodefaultlib`](#nodefaultlib)
-
-设置 `DF_1_NODEFLIB` 标志以指示应忽略默认库搜索路径。
-
-[`nodelete`](#nodelete)
-
-设置 `DF_1_NODELETE` 标志以指示无法从进程中卸载对象。
-
-[`nodlopen`](#nodlopen)
-
-设置 `DF_1_NOOPEN` 标志以指示对象可能不会被 dlopen(3) 打开。
-
-[`nognustack`](#nognustack)
-
-不要发出 `PT_GNU_STACK` 段。
-
-[`norelro`](#norelro)
-
-不要指出对象的某些部分应该在初始重定位处理之后以只读方式映射。 该对象将省略 `PT_GNU_RELRO` 段。
-
-[`notext`](#notext)
-
-允许对只读段进行重定位。 在 `DYNAMIC` 部分中设置 `DT_TEXTREL` 标志。
-
-[`now`](#now)
-
-设置 `DF_BIND_NOW` 标志以指示运行时加载程序应执行所有重定位处理作为对象初始化的一部分。 默认情况下，可以按需执行重定位。
-
-[`origin`](#origin)
-
-设置 `DF_ORIGIN` 标志以指示对象需要 $ORIGIN 处理。
-
-[`pac-plt`](#pac-plt)
-
-仅限 AArch64，在 PLT 中使用指针认证。
-
-[`rel`](#rel)
-
-使用 REL 格式进行动态重定位。
-
-[`rela`](#rela)
-
-使用 RELA 格式进行动态重定位。
-
-[`retpolineplt`](#retpolineplt)
-
-发出 retpoline 格式的 PLT 条目作为 CVE-2017-5715 的缓解措施。
-
-[`rodynamic`](#rodynamic)
-
-将 `.dynamic` 部分设为只读。不会发出 `DT_DEBUG` 标记。
-
-[`separate-loadable-segments`](#separate-loadable-segments)
-
-[`separate-code`](#separate-code)
-
-[`noseparate-code`](#noseparate-code)
-
-指定是否允许两个相邻的 PT\_LOAD 段在页面中重叠。 `noseparate-code` （默认）允许重叠。 `separate-code` 允许两个可执行段或两个不可执行段之间的重叠。 `separate-loadable-segments` 不允许重叠。
-
-[`shstk`](#shstk)
-
-仅限 x86，使用影子堆栈。
-
-[`stack-size`](#stack-size)\=size
-
-将主线程的堆栈大小设置为 size 。 堆栈大小记录为大小的 size 。 `PT_GNU_STACK` 程序段。
-
-[`text`](#text)
-
-不允许对只读段进行重定位。 这是默认设置。
-
-[`wxneeded`](#wxneeded)
-
-创建一个 `PT_OPENBSD_WXNEEDED` 段。
-
-[实现说明](#__u5B9E___u73B0___u8BF4___u660E_)
-=========================================
-
-`ld.lld` 对归档文件（具有 .a 文件扩展名的文件）的处理与在类 Unix 系统上使用的传统链接器不同。
-
-传统的链接器在链接期间维护一组未定义的符号。 链接器按照文件在命令行中出现的顺序处理每个文件，直到未定义符号集变为空。 遇到对象文件时，它会链接到输出对象，并将其未定义的符号添加到集合中。 在遇到档案文件时，传统的链接器会搜索其中包含的对象，并处理那些满足未解析集中符号的对象
-
-使用传统链接器时，处理相互依赖的档案可能会很尴尬。 存档文件可能必须多次指定，或者可以使用特殊的命令行选项 `--start-group` 和 `--end-group` 让链接器循环遍历组中的文件，直到没有新符号添加到集合中.
-
-`ld.lld` 在遍历命令行参数时记录在对象和档案中发现的所有符号。 当 `ld.lld` 遇到可以由包含在先前处理的存档文件中的对象文件解析的未定义符号时，它会立即将其提取并链接到输出对象中。
-
-与传统链接器相比，使用某些存档输入 `ld.lld` 可能会产生不同的结果。 在实践中，大量第三方软件已与 `ld.lld` 链接，没有重大问题。
-
-The `--warn-backrefs` 选项可用于标识可能与传统的类 Unix 链接器行为不兼容的链接器调用。
-
-May 12, 2019
-
-FreeBSD 13.1-RELEASE
+`--warn-backrefs` 选项可用于识别可能与传统 Unix 链接器行为不兼容的链接器调用。

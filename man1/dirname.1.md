@@ -1,57 +1,45 @@
-  BASENAME(1)  
+# dirname.1
 
-BASENAME(1)
+`dirname` — 返回路径名中的文件名或目录部分
 
-FreeBSD General Commands Manual
+## 名称
 
-BASENAME(1)
+`basename`, `dirname`
 
-[名称](#__u540D___u79F0_)
-=======================
+## 概要
 
-`basename`, `dirname` —
+`basename string [suffix]`
 
-返回路径名的文件名或目录部分
+`basename [-a] [-s suffix] string [...]`
 
-[概要](#__u6982___u8981_)
-=======================
+`dirname string [...]`
 
-`basename` string \[suffix\] `basename` \[`-a`\] \[`-s` suffix\] string \[...\] `dirname` string \[...\]
+## 描述
 
-[描述](#__u63CF___u8FF0_)
-=======================
+`basename` 实用程序删除 `string` 中（在先去除尾部斜杠后）以最后一个斜杠 `/` 字符结尾的任何前缀，以及 `suffix`（如果给定）。如果 `suffix` 与 `string` 中剩余字符完全相同，则不去除 `suffix`。结果文件名写入标准输出。不存在的后缀被忽略。如果指定了 `-a`，则每个参数都被视为一个 `string`，如同 `basename` 仅以一个参数调用。如果指定了 `-s`，则将 `suffix` 作为其参数，所有其他参数被视为 `string`。
 
-`basename` 实用程序删除任何以 string 中存在的最后一个斜杠 ‘`/`’ 字符结尾的前缀（在第一次去除尾随斜杠之后）和 suffix 如果给定的话。 如果 suffix 与 string 中的其余字符相同，则不会去除后缀。 结果文件名被写入标准输出。 不存在的后缀将被忽略。 如果指定了 `-a` ，则每个参数都被视为一个 string ，就好像只使用一个参数调用了 `basename` 。 如果指定了 `-s` ，则将 suffix 作为其参数，并将所有其他参数视为 string 。
+`dirname` 实用程序删除从 `string` 中（在先去除尾部斜杠后）最后一个斜杠 `/` 字符开始到末尾的文件名部分，并将结果写入标准输出。
 
-`dirname` 实用程序删除文件名部分，从最后一个斜杠 ‘`/`’ 字符开始到 string 的末尾（在第一次去除尾部斜杠之后），并将结果写入标准输出。
+## 退出状态
 
-[退出状态](#__u9000___u51FA___u72B6___u6001_)
-=========================================
+`basename` 和 `dirname` 实用程序成功时退出 0，发生错误时退出 >0。
 
-The `basename` and `dirname` utilities exit 0 on success, and >0 if an error occurs.
+## 实例
 
-[实例](#__u5B9E___u4F8B_)
-=======================
+以下行将 shell 变量 `FOO` 设置为 **`/usr/bin`**。
 
-以下行将 shell 变量 `FOO` 设置为 /usr/bin 。
+```sh
+FOO=`dirname /usr/bin/trail`
+```
 
-```FOO=`dirname /usr/bin/trail` ```
+## 参见
 
-[参见](#__u53C2___u89C1_)
-=======================
+[csh(1)](csh.1.md), [sh(1)](sh.1.md), basename(3), dirname(3)
 
-csh(1), sh(1), basename(3), dirname(3)
+## 标准
 
-[标准](#__u6807___u51C6_)
-=======================
+`basename` 和 `dirname` 实用程序预期兼容 IEEE Std 1003.2 ("POSIX.2") 标准。
 
-`basename` 和 `dirname` 实用程序应与 IEEE Std 1003.2 (“POSIX.2”) 兼容。
+## 历史
 
-[历史](#__u5386___u53F2_)
-=======================
-
-`basename` 和 `dirname` 实用程序首先出现在 4.4BSD 中。
-
-May 26, 2020
-
-FreeBSD 13.1-RELEASE
+`basename` 实用程序首次出现于 Version 7 AT&T UNIX。`dirname` 实用程序首次出现于 AT&T System III UNIX。

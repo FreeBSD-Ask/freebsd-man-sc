@@ -1,134 +1,100 @@
-  RCORDER(8)  
+# rcorder.8
 
-RCORDER(8)
+`rcorder` — 打印相互依赖文件的依赖顺序
 
-FreeBSD System Manager's Manual
+## 名称
 
-RCORDER(8)
+`rcorder`
 
-[名称](#__u540D___u79F0_)
-=======================
+## 概要
 
-`rcorder` —
+`rcorder [-gp] [-k keep] [-s skip] file`
 
-打印相互依赖文件的依赖顺序
+## 描述
 
-[概要](#__u6982___u8981_)
-=======================
+`rcorder` 工具用于打印一组相互依赖文件的依赖顺序。通常用于为一组 shell 脚本查找执行序列，其中某些文件必须在其他文件之前执行。
 
-`rcorder` \[`-gp`\] \[`-k` keep\] \[`-s` skip\] file ...
+传递给 `rcorder` 的每个文件必须用特殊行（对 shell 而言看起来像注释）标注，这些行指示文件对序列中某些点（称为“条件”）的依赖关系，并指示每个文件可期望由该文件满足哪些“条件”。
 
-[描述](#__u63CF___u8FF0_)
-=======================
-
-`rcorder` 实用程序旨在打印出一组相互依赖的文件的依赖顺序。 通常，它用于查找一组 shell 脚本的执行顺序，其中某些文件必须在其他文件之前执行。
-
-传递给 `rcorder` 的每个文件都必须用特殊的行进行注释（看起来像 shell 的注释），这些行表明文件对序列中某些点的依赖关系，称为 “conditions” ，并且表明对于每个文件， “conditions” 可能会被该文件填充。
-
-在每个文件中，必须出现一个包含一系列 ‘`REQUIRE`’, ‘`PROVIDE`’, ‘`BEFORE`’ 和 ‘`KEYWORD`’ 行的块。 线条的格式是刚性的。 每行必须以一个 ‘`#`’ 开头，后跟一个空格，然后是 ‘`PROVIDE:`’, ‘`REQUIRE:`’, ‘`BEFORE:`’ 或 ‘`KEYWORD:`’ 。 不允许有偏差。 然后每个依赖行后跟一系列条件，由空格分隔。 可能会出现多个 ‘`PROVIDE`’, ‘`REQUIRE`’, ‘`BEFORE`’ 和 ‘`KEYWORD`’ 行，但所有这些行必须按顺序出现，没有任何中间行，因为一旦到达不遵循格式的行，解析就会停止。
+在每个文件中，必须出现一个包含一系列 `REQUIRE`、`PROVIDE`、`BEFORE` 和 `KEYWORD` 行的块。这些行的格式是严格的。每行必须以单个 `#` 开头，后跟一个空格，再后跟 `PROVIDE:`、`REQUIRE:`、`BEFORE:` 或 `KEYWORD:`。不允许有任何偏差。每个依赖行后跟一系列条件，以空白分隔。可以出现多个 `PROVIDE`、`REQUIRE`、`BEFORE` 和 `KEYWORD` 行，但所有此类行必须连续出现，因为一旦遇到不符合格式的行，解析就会停止。
 
 选项如下：
 
-[`-g`](#g)
+**`-g`** 生成完整依赖图的 GraphViz（.dot）格式，而非纯文本调用顺序列表。
 
-生成完整依赖图的 GraphViz (.dot)，而不是明文调用顺序列表。
+**`-k`** `keep` 将指定关键字添加到“保留列表”。如果给出了任何 `-k` 选项，则只列出包含匹配关键字的文件。此选项可多次指定。
 
-[`-k`](#k) keep
+**`-p`** 生成适合并行启动的顺序，将可同时执行的文件放在同一行。
 
-将指定的关键字添加到 “keep list” 中。 如果给出任何 `-k` 选项，则仅列出包含匹配关键字的那些文件。 可以多次指定此选项。
+**`-s`** `skip` 将指定关键字添加到“跳过列表”。如果给出了任何 `-s` 选项，则不列出包含匹配关键字的文件。此选项可多次指定。
 
-[`-p`](#p)
+以下是一个示例块：
 
-生成适合并行启动的排序，将可以同时执行的文件放在同一行。
+```sh
+# REQUIRE: networking syslog
+# REQUIRE: usr
+# PROVIDE: dns nscd
+```
 
-[`-s`](#s) skip
+此块声明其所在的文件依赖于 `networking`、`syslog` 和 `usr` 条件，并提供 `dns` 和 `nscd` 条件。
 
-将指定的关键字添加到 “skip list” 中。 如果给出任何 `-s` 选项，则不列出包含匹配关键字的文件。 可以多次指定此选项。
+一个文件可以包含零个 `PROVIDE` 行，此时它不提供任何条件；也可以包含零个 `REQUIRE` 行，此时它没有依赖关系。在传递给 `rcorder` 的参数集中，必须至少有一个没有依赖关系的文件，才能在依赖顺序中找到起始位置。
 
-下面是一个示例块：
+## 关键字
 
-\# REQUIRE: networking syslog # REQUIRE: usr # PROVIDE: dns nscd 
+使用的 *KEYWORD* 有以下几种：
 
-该块声明它出现的文件取决于 ‘`networking`’, ‘`syslog`’, 和 ‘`usr`’ 条件，并提供 ‘`dns`’ 和 ‘`nscd`’ 条件。
+**firstboot, nojail, nojailvnet, nostart** 由 [rc(8)](rc.8.md) 使用。
 
-一个文件可能包含零个 ‘`PROVIDE`’ 行，在这种情况下它不提供条件，并且可能包含零个 ‘`REQUIRE`’ 行，在这种情况下它没有依赖关系。 在传递给 `rcorder` 的一组参数中必须至少有一个没有依赖关系的文件，以便它在依赖关系排序中找到起始位置。
+**suspend, resume** 由 **/etc/rc.suspend** 和 **/etc/rc.resume** 使用（参见 acpiconf(8)）
 
-[关键词](#__u5173___u952E___u8BCD_)
-================================
+**shutdown** 由 [rc.shutdown(8)](rc.shutdown.8.md) 使用。
 
-有几个 _KEYWORDs_ 在使用：
+## 实例
 
-**firstboot**, **nojail**, **nojailvnet**, **nostart**
+打印基本系统和 [ports(7)](../man7/ports.7.md) 中服务的依赖顺序：
 
-由 rc(8) 使用。
+```sh
+$ rcorder /etc/rc.d/* /usr/local/etc/rc.d/*
+```
 
-**resume**
+计算基本系统中指定 **nostart** 关键字的服务数量，同时跳过带有 **firstboot** 和 **nojailvnet** 的服务：
 
-由 `/etc/rc.resume` 使用（参见 acpiconf(8))
+```sh
+$ rcorder -k nostart -s firstboot -s nojailvnet /etc/rc.d/*  | wc -l
+       3
+```
 
-**shutdown**
+## 诊断
 
-由 rc.shutdown(8) 使用。
+`rcorder` 工具在处理文件列表时遇到错误，可能会打印以下错误消息之一并以非零状态退出。
 
-[实例](#__u5B9E___u4F8B_)
-=======================
+- Requirement %s in file %s has no providers.（文件 %s 中的需求 %s 没有提供者。）没有文件的 `PROVIDE` 行与另一个文件中 `REQUIRE` 行中存在的条件对应。
 
-从基础系统和 ports(7) 打印服务的依赖顺序：
+- Circular dependency on provision %s in file %s.（文件 %s 中的提供 %s 存在循环依赖。）一组文件在处理所述条件时检测到循环依赖。此消息后跟循环可视化。
 
-$ rcorder /etc/rc.d/\* /usr/local/etc/rc.d/\* 
+- Circular dependency on file %s.（文件 %s 存在循环依赖。）一组文件在处理所述文件时检测到循环依赖。
 
-计算基本系统中指定 **shutdown** 关键字的服务数量，同时跳过带有 **firstboot** 和 **nojailvnet** 的服务：
+- %s was seen in circular dependencies for %d times.（%s 在循环依赖中被发现 %d 次。）每个作为循环依赖循环一部分的节点报告此类遭遇的总数。处理损坏的依赖时，从计数器最大的文件开始。
 
-$ rcorder -k nostart -s firstboot -s nojailvnet /etc/rc.d/\* | wc -l 3 
+## GraphViz 诊断
 
-[诊断](#__u8BCA___u65AD_)
-=======================
+直接依赖以实线绘制，`BEFORE` 依赖以虚线绘制。图的每个节点代表 `PROVIDE` 行中的一项。如果有多个文件提供同一项，则显示以 basename(3) 缩短的文件名列表。如果 `PROVIDE` 项与文件名不匹配，也会显示缩短的文件名。
 
-如果 `rcorder` 实用程序在处理文件列表时遇到错误，它可能会打印以下错误消息之一并以非零状态退出。
+检测到循环依赖的边和节点以粗体红色绘制。如果文件在 `REQUIRE` 或 `BEFORE` 中有一项无法被提供，则此缺失的提供者和需求也会以粗体红色绘制。
 
-Requirement %s in file %s has no providers.
+## 参见
 
-没有文件具有对应于另一个文件的 ‘`PROVIDE`’ 行中存在的条件的 ‘`REQUIRE`’ 行。
+acpiconf(8), [rc(8)](rc.8.md), [rc.shutdown(8)](rc.shutdown.8.md), [service(8)](service.8.md)
 
-Circular dependency on provision %s in file %s.
+## 历史
 
-一组文件具有在处理所述条件时检测到的循环依赖关系。 循环可视化遵循此消息。
+`rcorder` 工具出现于 NetBSD 1.5。`rcorder` 工具首次出现于 FreeBSD 5.0。
 
-Circular dependency on file %s.
+## 作者
 
-一组文件具有循环依赖关系，在处理所述文件时检测到该循环依赖关系。
+由 Perry E. Metzger <perry@piermont.com> 和 Matthew R. Green <mrg@eterna.com.au> 编写。
 
-%s was seen in circular dependencies for %d times.
+## 缺陷
 
-作为循环依赖循环一部分的每个节点都会报告此类遭遇的总数。 在与损坏的依赖项作斗争时，从具有最大计数器的文件开始。
-
-[使用 GraphVIZ 进行诊断](#__u4F7F___u7528__GraphVIZ___u8FDB___u884C___u8BCA___u65AD_)
-===============================================================================
-
-直接依赖用实线绘制， ‘`BEFORE`’ 依赖用虚线绘制。 图表的每个节点代表 ‘`PROVIDE`’ 行中的一个项目。 如果有多个文件提供一个项目，则会显示用 basename(3) 缩短的文件名列表。 如果 ‘`PROVIDE`’ 项目与文件名不匹配，也会显示缩短的文件名。
-
-检测到循环依赖关系的边缘和节点以粗体红色绘制。 如果文件在 ‘`REQUIRE`’ 或 ‘`BEFORE`’ 中有无法提供的项目，则此缺失的提供者和要求也将被绘制为红色粗体。
-
-[参见](#__u53C2___u89C1_)
-=======================
-
-acpiconf(8), rc(8), rc.shutdown(8), service(8)
-
-[历史](#__u5386___u53F2_)
-=======================
-
-`rcorder` 实用程序出现在 NetBSD 1.5 中。 `rcorder` 实用程序首次出现在 FreeBSD 5.0 中。
-
-[作者](#__u4F5C___u8005_)
-=======================
-
-由 Perry E. Metzger <[perry@piermont.com](mailto:perry@piermont.com)\> 和 Matthew R. Green <[mrg@eterna.com.au](mailto:mrg@eterna.com.au)\> 撰写。
-
-[缺陷](#__u7F3A___u9677_)
-=======================
-
-‘`REQUIRE`’ 关键字具有误导性：它没有描述在启动脚本之前必须运行哪些守护进程。 它描述了在依赖顺序中必须将哪些脚本放在它之前。 例如，如果您的脚本在 ‘`sshd`’ 上有一个 ‘`REQUIRE`’ ，这意味着该脚本必须按依赖顺序放置在 ‘`sshd`’ 脚本之后，而不一定需要启动或启用 `sshd` 。
-
-September 8, 2020
-
-FreeBSD 13.1-RELEASE
+`REQUIRE` 关键字有误导性：它不描述脚本启动前必须运行哪些守护进程。它描述的是哪些脚本必须在依赖顺序中位于其之前。例如，如果你的脚本对 `sshd` 有 `REQUIRE`，意味着该脚本必须在依赖顺序中位于 `sshd` 脚本之后，而不一定要求 `sshd` 已启动或启用。

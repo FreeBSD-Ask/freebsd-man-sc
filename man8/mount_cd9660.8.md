@@ -1,116 +1,79 @@
-  MOUNT\_CD9660(8)  
+# mount_cd9660.8
 
-MOUNT\_CD9660(8)
+`mount_cd9660` — 挂载 ISO-9660 文件系统
 
-FreeBSD System Manager's Manual
+## 名称
 
-MOUNT\_CD9660(8)
+`mount_cd9660`
 
-[名称](#__u540D___u79F0_)
-=======================
+## 概要
 
-`mount_cd9660` —
+`mount_cd9660 [-begjrv] [-C charset] [-G gid] [-m mask] [-M mask] [-o options] [-s startsector] [-U uid] special node`
 
-挂载 ISO-9660 文件系统
+## 描述
 
-[概要](#__u6982___u8981_)
-=======================
-
-`mount_cd9660` \[`-begjrv`\] \[`-C` charset\] \[`-o` options\] \[`-s` startsector\] special node
-
-[描述](#__u63CF___u8FF0_)
-=======================
-
-`mount_cd9660` 实用程序将驻留在设备上的ISO-9660文件系统附加到 node 指定位置的全局文件系统名称空间。 该命令通常由 mount(8) 在引导时执行。
+`mount_cd9660` 工具将驻留在设备 `special` 上的 ISO-9660 文件系统挂接到全局文件系统命名空间的 `node` 位置。此命令通常在启动时由 [mount(8)](mount.8.md) 执行。
 
 选项如下：
 
-[`-b`](#b)
+**`-b`** 放宽对补充卷描述符标志字段的检查，某些 Joliet 格式磁盘上该字段被设为错误值。
 
-放松检查 Supplementary Volume Descriptor Flags 字段，该字段在某些 Joliet 格式化磁盘上设置为错误值。
+**`-e`** 启用扩展属性的使用。
 
-[`-e`](#e)
+**`-g`** 不去除文件的版本号。（默认情况下，如果磁盘上存在具有不同版本号的文件，则只列出最后一个。）无论是否去除版本号，文件都可以在不明确指定版本号的情况下打开。
 
-启用扩展属性。
+**`-G`** `group` 将文件系统中文件所属组设为 `group`。在没有扩展属性或 Rockridge 扩展的卷上，默认 gid 为零。
 
-[`-g`](#g)
+**`-U`** `user` 将文件系统中文件的所有者设为 `user`。在没有扩展属性或 Rockridge 扩展的卷上，默认 uid 为零。
 
-不要去除文件上的版本号。 （默认情况下，如果磁盘上有不同版本号的文件，只会列出最后一个。） 在任何一种情况下，文件都可以在没有明确说明版本号的情况下打开。
+**`-m`** `mask` 指定文件系统中文件的最大权限。例如，`mask` 为 `544` 时，文件所有者只有读和执行权限，其他人只有读权限。有关八进制文件模式的更多信息，请参见 [chmod(1)](../man1/chmod.1.md)。默认 `mask` 为 7777。在没有扩展属性或 Rockridge 扩展的卷上，默认权限为 555。
 
-[`-j`](#j)
+**`-M`** `mask` 指定文件系统中目录的最大权限。详情见上一选项的说明。
 
-不要使用文件系统中包含的任何 Joliet 扩展。
+**`-j`** 不使用文件系统中包含的任何 Joliet 扩展。
 
-[`-o`](#o)
+**`-o`** 选项通过 `-o` 标志后跟以逗号分隔的选项字符串来指定。可能选项及其含义请参见 [mount(8)](mount.8.md) 手册页。以下为 cd9660 专用选项：
 
-选项使用 `-o` 标志指定，后跟以逗号分隔的选项字符串。 有关可能的选项及其含义，请参见 mount(8) 手册页。 以下 cd9660 特定选项可用：
+**`extatt`** 等同于 `-e`。
 
-[`extatt`](#extatt)
+**`gens`** 等同于 `-g`。
 
-与 `-e` 相同。
+**`nojoliet`** 等同于 `-j`。
 
-[`gens`](#gens)
+**`norrip`** 等同于 `-r`。
 
-与 `-g` 相同。
+**`brokenjoliet`** 等同于 `-b`。
 
-[`nojoliet`](#nojoliet)
+**`-r`** 不使用文件系统中包含的任何 Rockridge 扩展。
 
-与 `-j` 相同。
+**`-s`** `startsector` 从 `startsector` 处启动文件系统。通常，如果底层设备是 CD-ROM 驱动器，`mount_cd9660` 会尝试从包含数据的 CD-ROM 中找到最后一道轨道，并从那里启动文件系统。如果设备不是 CD-ROM，或无法检查目录表，文件系统将从扇区 0 启动。此选项可用于覆盖该行为。注意，`startsector` 以 CD-ROM 块为单位，每块 2048 字节。这与 cdcontrol(1) 的 `info` 命令所打印的值相同。通过在此处指定正确的 `startsector`，可以挂载多会话 CD 中的任意会话。
 
-[`norrip`](#norrip)
+**`-C`** `charset` 指定使用 Joliet 扩展时用于转换 Unicode 文件名的本地 `charset`。
 
-与 `-r` 相同。
+**`-v`** 详细显示关于起始扇区决策的信息。
 
-[`brokenjoliet`](#brokenjoliet)
+## 实例
 
-与 `-b` 相同。
+以下命令可用于挂载 Kodak Photo-CD：
 
-[`-r`](#r)
+```sh
+mount_cd9660 -o rw -v -s 0 /dev/cd0 /cdrom
+```
 
-不要使用文件系统中包含的任何 Rockridge 扩展。
+## 参见
 
-[`-s`](#s) startsector
+cdcontrol(1), mount(2), unmount(2), [cd9660(4)](../man4/cd9660.4.md), [fstab(5)](../man5/fstab.5.md), mdconfig(8), [mount(8)](mount.8.md)
 
-在 startsector 启动文件系统。 通常，如果底层设备是 CD-ROM 驱动器， `mount_cd9660` 将尝试找出包含数据的 CD-ROM 中的最后一个轨道，并在那里启动文件系统。 如果设备不是 CD-ROM，或者无法检查目录，则文件系统将在扇区 0 处启动。 此选项可用于覆盖该行为。 请注意， startsector 以 CD-ROM 块为单位，每个块有 2048 个字节。 这与例如 cdcontrol(1) 的 `info` 命令正在打印相同。 通过在此处指定正确的 startsector 扇区，可以安装多会话 CD 的任意会话。
+## 历史
 
-[`-C`](#C) charset
+`mount_cd9660` 工具首次出现于 4.4BSD。
 
-指定本地 charset 以在使用 Joliet 扩展时转换 Unicode 文件名。
+Unicode 转换例程由 Ryuichiro Imura <imura@ryu16.org> 于 2003 年添加。
 
-[`-v`](#v)
+## 缺陷
 
-详细说明所做出的起始扇区决策。
+目前不支持 POSIX 设备节点映射。
 
-[实例](#__u5B9E___u4F8B_)
-=======================
+如果使用 Rockridge 扩展，则不去除版本号。在这种情况下，访问没有 Rockridge 名称且不带版本号的文件时，会得到版本号最低的文件，而非版本号最高的文件。
 
-以下命令可用于安装 Kodak Photo-CD：
-
-`mount_cd9660 -o rw -v -s 0 /dev/cd0 /cdrom`
-
-[参见](#__u53C2___u89C1_)
-=======================
-
-cdcontrol(1), mount(2), unmount(2), cd9660(5), fstab(5), mdconfig(8), mount(8)
-
-[历史](#__u5386___u53F2_)
-=======================
-
-`mount_cd9660` 实用程序首次出现在 4.4BSD 中。
-
-Unicode 转换例程由 Ryuichiro Imura <[imura@ryu16.org](mailto:imura@ryu16.org)\> 在 2003 年添加。
-
-[缺陷](#__u7F3A___u9677_)
-=======================
-
-目前不支持POSIX设备节点映射。
-
-如果使用Rockridge扩展，则不会删除版本号。
-
-在这种情况下，访问没有Rockridge名称而没有版本号的文件将获得版本号最低的文件，而不是版本号最高的文件。
-
-没有 ECMA 支持。
-
-August 11, 2018
-
-FreeBSD 13.1-RELEASE
+不支持 ECMA。

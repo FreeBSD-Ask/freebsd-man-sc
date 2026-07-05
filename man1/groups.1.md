@@ -1,48 +1,34 @@
-  GROUPS(1)  
+# groups.1
 
-GROUPS(1)
+`groups` — 显示用户所属的组
 
-FreeBSD General Commands Manual
+## 名称
 
-GROUPS(1)
+`groups`
 
-[名称](#__u540D___u79F0_)
-=======================
+## 概要
 
-`groups` —
+`groups [user]`
 
-show group memberships
+## 描述
 
-[概要](#__u6982___u8981_)
-=======================
+`groups` 实用程序已被 [id(1)](id.1.md) 实用程序取代，等同于 “`id` `-Gn` [`user`]”。建议在正常交互使用时使用命令 “`id` `-p`”。
 
-`groups` \[user\]
+`groups` 实用程序显示你（或可选指定的 `user`）所属的组。
 
-[描述](#__u63CF___u8FF0_)
-=======================
+## 退出状态
 
-The `groups`-
-实用程序已被 id(1) 实用程序淘汰，相当于 “`id` `-Gn` \[user\]” 。 建议将命令 “`id` `-p`” 用于正常的交互使用。
+`groups` 实用程序成功时退出值为 0，发生错误时大于 0。
 
-`groups` 实用程序显示您（或可选指定的用户）所属的组。
-
-[退出状态](#__u9000___u51FA___u72B6___u6001_)
-=========================================
-
-The `groups` utility exits 0 on success, and >0 if an error occurs.
-
-[实例](#__u5B9E___u4F8B_)
-=======================
+## 实例
 
 显示 root 用户所属的组：
 
-$ groups root wheel operator 
+```sh
+$ groups root
+wheel operator
+```
 
-[参见](#__u53C2___u89C1_)
-=======================
+## 参见
 
-id(1)
-
-June 6, 1993
-
-FreeBSD 13.1-RELEASE
+[id(1)](id.1.md), [groups(7)](../man7/groups.7.md)

@@ -1,138 +1,107 @@
-  LOCATE(1)  
+# locate.1
 
-LOCATE(1)
+`locate` — 快速查找文件名
 
-FreeBSD General Commands Manual
+## 名称
 
-LOCATE(1)
+`locate`
 
-[名称](#__u540D___u79F0_)
-=======================
+## 概要
 
-`locate` —
+`locate [-0Scims] [-l limit] [-d database] pattern ...`
 
-快速查找文件名
+## 描述
 
-[概要](#__u6982___u8981_)
-=======================
+`locate` 程序在数据库中搜索所有与指定 `pattern` 匹配的路径名。数据库会定期重新计算（通常每周或每天一次），其中包含所有可公开访问的文件的路径名。
 
-`locate` \[`-0Scims`\] \[`-l` limit\] \[`-d` database\] pattern ...
+Shell globbing 和 quoting 字符（"`*`"、"`?`"、"`\`"、"`[`" 和 "`]`"）可在 `pattern` 中使用，但需要对 shell 进行转义。在任何字符前加反斜杠（"`\`"）可消除其可能具有的特殊含义。匹配的不同之处在于，无需显式匹配任何字符，包括斜杠（"`/`"）。
 
-[描述](#__u63CF___u8FF0_)
-=======================
+作为一种特殊情况，不包含 globbing 字符的模式（"`foo`"）会按照 "`*foo*`" 的方式进行匹配。
 
-`locate` 程序在数据库中搜索与指定 pattern 匹配的所有路径名。 该数据库会定期（通常是每周或每天）重新计算，并包含所有可公开访问的文件的路径名。
+历史上，locate 仅存储 32 到 127 之间的字符。当前的实现存储除换行符（`'\n'`）和 `NUL`（`'\0'`）之外的任何字符。8 位字符支持不会为纯 ASCII 文件名浪费额外空间。小于 32 或大于 127 的字符以 2 字节存储。
 
-Shell globbing 和引号字符 (“\*”, “?”, “\\”, “\[” 和 “\]”) 可以在 pattern 中使用，尽管它们必须从 shell 中转义。 在任何字符前加上反斜杠 (“\\”) 会消除它可能具有的任何特殊含义。 匹配的不同之处在于必须明确匹配任何字符，包括斜线 (“/”) 。
+可用选项如下：
 
-作为一种特殊情况，不包含通配符 (“foo”)-
-的模式被匹配，就好像它是 “\*foo\*” 一样。
+**`-0`** 以 ASCII `NUL` 字符（字符代码 0）分隔打印路径名，而非默认的 NL（换行符，字符代码 10）。
 
-从历史上看，仅定位 32 到 127 之间的存储字符。 当前实现存储除换行符 (‘\\n’) 和 `NUL` (‘\\0’) 之外的任何字符。 8 位字符支持不会为纯 ASCII 文件名浪费额外的空间。 小于 32 或大于 127 的字符存储在 2 个字节中。
+**`-S`** 打印有关数据库的一些统计信息并退出。
 
-可以使用以下选项：
+**`-c`** 抑制正常输出；改为打印匹配的文件名计数。
 
-[`-0`](#0)
+**`-d`** `database` 在 `database` 中搜索，而非使用默认的文件名数据库。允许指定多个 `-d` 选项。每个额外的 `-d` 选项将指定的数据库添加到要搜索的数据库列表中。`database` 选项可以是用冒号分隔的数据库列表。单个冒号表示引用默认数据库。
 
-打印由 ASCII `NUL` 字符（字符代码 0）而不是默认 NL（换行符，字符代码 10）分隔的路径名。
+```sh
+$ locate -d $HOME/lib/mydb: foo
+```
 
-[`-S`](#S)
+将首先在 **$HOME/lib/mydb** 中搜索字符串 "`foo`"，然后在 **/var/db/locate.database** 中搜索。
 
-打印一些关于数据库的统计信息并退出。
+```sh
+$ locate -d $HOME/lib/mydb::/cdrom/locate.database foo
+```
 
-[`-c`](#c)
+将首先在 **$HOME/lib/mydb** 中搜索字符串 "`foo`"，然后在 **/var/db/locate.database** 中搜索，最后在 **/cdrom/locate.database** 中搜索。
 
-抑制正常输出；而是打印匹配文件名的计数。
+```sh
+$ locate -d db1 -d db2 -d db3 pattern
+```
 
-[`-d`](#d) database
+等同于
 
-在 database 中搜索而不是在默认文件名数据库中搜索。 允许使用多个 `-d` 选项。 每个附加的 `-d` 选项都会将指定的数据库添加到要搜索的数据库列表中。
+```sh
+$ locate -d db1:db2:db3 pattern
+```
 
-选项 database 可以是一个以冒号分隔的数据库列表。 单个冒号是对默认数据库的引用。
+或
 
-$ locate -d $HOME/lib/mydb: foo 
+```sh
+$ locate -d db1:db2 -d db3 pattern
+```
 
-将首先在 $HOME/lib/mydb 中搜索字符串 “foo” ，然后在 /var/db/locate.database 中搜索。
+如果将 `-` 作为数据库名称给出，则改为读取标准输入。例如，你可以压缩数据库并使用：
 
-$ locate -d $HOME/lib/mydb::/cdrom/locate.database foo 
+```sh
+$ zcat database.gz | locate -d - pattern
+```
 
-将首先在 $HOME/lib/mydb 中搜索字符串 “foo” ，然后在 /var/db/locate.database 中，然后在 /cdrom/locate.database 中。
+这在 CPU 速度快、内存少且 I/O 慢的机器上可能有用。注意：标准输入只能使用*一个* pattern。
 
-`$ locate -d db1 -d db2 -d db3 pattern`
+**`-i`** 在模式和数据库中忽略大小写差异。
 
-与
+**`-l`** `number` 将输出限制为 `number` 个文件名并退出。
 
-`$ locate -d db1:db2:db3 pattern`
+**`-m`** 使用 [mmap(2)](../man2/mmap.2.md) 而非 [stdio(3)](../man3/stdio.3.md) 库。这是默认行为，在大多数情况下更快。
 
-相同，或
+**`-s`** 使用 [stdio(3)](../man3/stdio.3.md) 库而非 [mmap(2)](../man2/mmap.2.md)。
 
-`$ locate -d db1:db2 -d db3 pattern`
+## 环境变量
 
-如果 `-` 作为数据库名称给出，则将读取标准输入。 例如，您可以压缩数据库并使用：
+**`LOCATE_PATH`** locate 数据库的路径（若已设置且非空）；若指定了 `-d` 选项则忽略。
 
-$ zcat database.gz | locate -d - pattern 
+## 文件
 
-这在具有快速 CPU、少量 RAM 和慢 I/O 的机器上可能很有用。注意：标准输入只能使用 _one_ 模式。
+**/var/db/locate.database** locate 数据库
 
-[`-i`](#i)
+**/usr/libexec/locate.updatedb** 更新 locate 数据库的脚本
 
-忽略模式和数据库中的大小写区别。
+**/etc/periodic/weekly/310.locate** 启动数据库重建的脚本
 
-[`-l`](#l) number
+## 参见
 
-将输出限制为文件名的 number 并退出。
+[find(1)](find.1.md), [whereis(1)](whereis.1.md), [which(1)](which.1.md), [fnmatch(3)](../man3/fnmatch.3.md), [locate.updatedb(8)](../man8/locate.updatedb.8.md)
 
-[`-m`](#m)
+> Woods, James A., "Finding Files Fast", *;login*, 8:1, pp. pp. 8-10, 1983.
 
-使用 mmap(2) 代替 stdio(3) 库。 这是默认行为，在大多数情况下速度更快。
+## 历史
 
-[`-s`](#s)
+`locate` 命令首次出现于 4.4BSD。许多新特性在 FreeBSD 2.2 中加入。
 
-使用 stdio(3) 库而不是 mmap(2) 。
+## 缺陷
 
-[环境](#__u73AF___u5883_)
-=======================
+`locate` 程序可能无法列出某些存在的文件，或者可能列出已从系统中移除的文件。这是因为 locate 仅报告数据库中存在的文件，而数据库通常仅由 **/etc/periodic/weekly/310.locate** 脚本每周重新生成一次。使用 [find(1)](find.1.md) 来查找更具临时性的文件。
 
-LOCATE\_PATH
+`locate` 数据库通常由用户 "nobody" 构建，而 [locate.updatedb(8)](../man8/locate.updatedb.8.md) 实用程序会跳过对用户 "nobody"、组 "nobody" 或所有用户不可读的目录。例如，如果你的 HOME 目录不是对所有用户可读，则你的文件*一个也不会*出现在数据库中。
 
-如果设置且不为空，则定位数据库的路径，如果指定了 `-d` 选项则忽略。
+`locate` 数据库不独立于字节序。无法在不同字节序的机器之间共享数据库。当前的 `locate` 实现可以理解主机字节序或网络字节序的数据库，前提是两种架构使用相同的整数大小。因此，在 FreeBSD/i386 机器（小端序）上，你可以读取在 SunOS/sparc 机器（大端序，网络字节序）上构建的 locate 数据库。
 
-[文件](#__u6587___u4EF6_)
-=======================
-
-/var/db/locate.database
-
-定位数据库
-
-/usr/libexec/locate.updatedb
-
-更新定位数据库的脚本
-
-/etc/periodic/weekly/310.locate
-
-启动数据库重建的脚本
-
-[参见](#__u53C2___u89C1_)
-=======================
-
-find(1), whereis(1), which(1), fnmatch(3), locate.updatedb(8) Woods, James A., Finding Files Fast, _;login_, 8:1, pp. 8-10, 1983.
-
-[历史](#__u5386___u53F2_)
-=======================
-
-`locate` 命令最早出现在 4.4BSD 中。 FreeBSD 2.2 中添加了许多新功能。
-
-[缺陷](#__u7F3A___u9677_)
-=======================
-
-`locate` 程序可能无法列出某些存在的文件，或者可能列出已从系统中删除的文件。 这是因为 locate 只报告数据库中存在的文件，通常每周只由 /etc/periodic/weekly/310.locate 脚本重新生成一次。 使用 find(1) 来定位更临时的文件。
-
-`locate` 数据库通常由用户 “nobody” 构建， locate.updatedb(8) 实用程序会跳过对用户 “nobody” 、组 “nobody” 或 world 不可读的目录。 例如，如果您的 HOME 目录不是世界可读的，那么您的任何文件都 _不_ 在数据库中。
-
-`locate` 数据库不是字节顺序独立的。 不能在不同字节顺序的机器之间共享数据库。 如果两种架构都使用相同的整数大小，则当前的 `locate` 实现以主机字节顺序或网络字节顺序理解数据库。 因此，在 FreeBSD/i386 机器（小端）上，您可以读取建立在 SunOS/sparc 机器（大端，网络）上的定位数据库。
-
-`locate` 实用程序不能识别多字节字符。
-
-December 11, 2020
-
-FreeBSD 13.1-RELEASE
+`locate` 实用程序不识别多字节字符。

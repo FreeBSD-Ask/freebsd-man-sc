@@ -1,69 +1,39 @@
-  NTPTIME(8)  
+# ntptime.8
 
-NTPTIME(8)
+`ntptime` — 读取内核时间变量
 
-FreeBSD System Manager's Manual
+## 名称
 
-NTPTIME(8)
+`ntptime`
 
-[名称](#__u540D___u79F0_)
-=======================
+## 概要
 
-`ntptime` —
+`ntptime [-chr] [-e est_error] [-f frequency] [-m max_error] [-o offset] [-s status] [-t time_constant]`
 
-读取内核时间变量
+## 描述
 
-[概要](#__u6982___u8981_)
-=======================
+`ntptime` 工具仅在与“A Kernel Model for Precision Timekeeping”页面中描述的特殊内核配合使用时才有用（该页面作为 **/usr/share/doc/ntp** 中提供的 HTML 文档的一部分提供）。它使用 `gettime()` 和 adjtime(2) 系统调用（如果可用）读取并显示与时间相关的内核变量。使用 ntpdc(8) 程序的 `kerninfo` 命令可获得类似的显示。
 
-`ntptime` \[`-chr`\] \[`-e` est\_error\] \[`-f` frequency\] \[`-m` max\_error\] \[`-o` offset\] \[`-s` status\] \[`-t` time\_constant\]
+以下选项可用：
 
-[描述](#__u63CF___u8FF0_)
-=======================
+**`-c`** 显示 `ntptime` 本身的执行时间。
 
-`ntptime` 实用程序仅对 “用于精确计时的内核模型” 页面中描述的特殊内核有用（作为 /usr/share/doc/ntp 中提供的 HTML 文档的一部分提供）。 它使用 `gettime`() 和 adjtime(2) 系统调用（如果可用）读取和显示与时间相关的内核变量。 使用 ntpdc(8) 程序的 `kerninfo` 命令可以获得类似的显示。
+**`-e`** `est_error` 指定估计误差，以微秒为单位。
 
-可以使用以下选项：
+**`-f`** `frequency` 指定频率偏移，以百万分率为单位。
 
-[`-c`](#c)
+**`-h`** 显示帮助信息。
 
-显示 `ntptime` 本身的执行时间。
+**`-m`** `max_error` 指定最大可能误差，以微秒为单位。
 
-[`-e`](#e) est\_error
+**`-o`** `offset` 指定时钟偏移，以微秒为单位。
 
-指定估计误差，以微秒为单位。
+**`-r`** 以原始格式显示 Unix 和 NTP 时间。
 
-[`-f`](#f) frequency
+**`-s`** `status`
 
-指定频率偏移，以百万分之几为单位。
+**`-t`** `time_constant` 指定时间常数，为 0-4 范围内的整数。
 
-[`-h`](#h)
-
-显示帮助信息。
-
-[`-m`](#m) max\_error
-
-指定最大可能的错误，以微秒为单位。
-
-[`-o`](#o) offset
-
-指定时钟偏移，以微秒为单位。
-
-[`-r`](#r)
-
-以原始格式显示 Unix 和 NTP 时间。
-
-[`-s`](#s) status
-
-[`-t`](#t) time\_constant
-
-指定时间常数，0-4 范围内的整数。
-
-[参见](#__u53C2___u89C1_)
-=======================
+## 参见
 
 adjtime(2), ntpdc(8)
-
-April 27, 2015
-
-FreeBSD 13.1-RELEASE

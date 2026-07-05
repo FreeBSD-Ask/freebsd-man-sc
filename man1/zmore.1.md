@@ -1,58 +1,41 @@
-  ZMORE(1)  
+# zmore.1
 
-ZMORE(1)
+`zmore` — 查看压缩文件
 
-FreeBSD General Commands Manual
+## 名称
 
-ZMORE(1)
+`zmore`, `zless`
 
-[名称](#__u540D___u79F0_)
-=======================
+## 概要
 
-`zmore`, `zless` —
+`zmore [flags] [file]`
 
-查看压缩文件
+`zless [flags] [file]`
 
-[概要](#__u6982___u8981_)
-=======================
+## 描述
 
-`zmore` \[flags\] \[file ...\] `zless` \[flags\] \[file ...\]
+`zless` 是一个过滤器，允许查看使用 Lempel-Ziv 编码压缩的文件。此类文件通常具有 "Z" 或 "gz" 扩展名（同时支持 compress(1) 和 [gzip(1)](gzip.1.md) 格式）。指定的任何 `flags` 都会传递给用户首选的 `PAGER`（默认为 **/usr/bin/more**）。
 
-[描述](#__u63CF___u8FF0_)
-=======================
+`zless` 等同于 `zmore`，但使用 [less(1)](less.1.md) 作为分页器，而非 more(1)。
 
-`zmore` 是一个过滤器，允许查看使用 Lempel-Ziv 编码压缩的文件。 此类文件通常具有 “Z” 或 “gz” 扩展名（同时支持 compress(1) 和 gzip(1) 格式）。 指定的任何 flags 都将传递给用户首选的 `PAGER` （默认为 /usr/bin/more )。
+当指定多个文件时，`zmore` 会在每个文件结束时暂停，并向用户显示以下提示：
 
-`zless` 等价于 `zmore` ，但使用 less(1) 作为寻呼机而不是 more(1) 。
+```sh
+prev_file (END) - Next: next_file
+```
 
-当指定多个文件时， `zmore` 将在每个文件的末尾暂停并向用户显示以下提示：
+其中 **prev_file** 是刚刚显示的文件，**next_file** 是下一个要显示的文件。提示时识别以下按键：
 
-prev\_file (END) - Next: next\_file 
+**`e`** 或 `q` 退出 `zmore`。
 
-其中 **prev\_file** 是刚刚显示的文件， **next\_file** 是下一个要显示的文件。 提示符下会识别以下键：
+**`s`** 跳过下一个文件（如果下一个文件是最后一个，则退出）。
 
-[`e`](#e) 或 `q`
+如果未指定文件，`zmore` 将从标准输入读取。在此模式下，`zmore` 会假定使用 [gzip(1)](gzip.1.md) 风格的压缩，因为没有可据以判断的后缀。
 
-退出 `zmore` 。
+## 环境变量
 
-[`s`](#s)
+**`PAGER`** 用于显示文件的程序。如果未设置，则使用 **/usr/bin/more**（`zmore`）或 **/usr/bin/less**（`zless`）。
 
-跳过下一个文件（如果下一个文件是最后一个文件，则退出）。
+## 参见
 
-如果没有指定文件， `zmore` 将从标准输入读取。 在这种模式下， `zmore` 将假设 gzip(1) 风格的压缩，因为没有后缀可以做出决定。
-
-[环境](#__u73AF___u5883_)
-=======================
-
-[`PAGER`](#PAGER)
-
-用于显示文件的程序。 如果未设置，则使用 /usr/bin/more (`zmore`) 或 /usr/bin/less (`zless`) 。
-
-[参见](#__u53C2___u89C1_)
-=======================
-
-compress(1), less(1), more(1)
-
-October 22, 2014
-
-FreeBSD 13.1-RELEASE
+compress(1), [less(1)](less.1.md), more(1)

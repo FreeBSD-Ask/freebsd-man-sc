@@ -1,82 +1,71 @@
-  GROWFS(8)  
+# growfs.8
 
-GROWFS(8)
+`growfs` — 扩展已有的 UFS 文件系统
 
-FreeBSD System Manager's Manual
+## 名称
 
-GROWFS(8)
+`growfs`
 
-[名称](#__u540D___u79F0_)
-=======================
+## 概要
 
-`growfs` —
+`growfs [-Ny] [-s size] special | filesystem`
 
-扩展现有的 UFS 文件系统
+## 描述
 
-[概要](#__u6982___u8981_)
-=======================
+`growfs` 工具可用于扩展 UFS 文件系统。在运行 `growfs` 之前，必须先使用 [gpart(8)](gpart.8.md) 扩展包含该文件系统的分区或切片。`growfs` 工具会在指定的 special 文件上扩展文件系统的大小。可用选项如下：
 
-`growfs` \[`-Ny`\] \[`-s` size\] special | filesystem
+**`-N`** “测试模式”。打印新的文件系统参数，而不实际扩展文件系统。
 
-[描述](#__u63CF___u8FF0_)
-=======================
+**`-s`** `size` 确定扩展后文件系统的大小（以扇区为单位）。`Size` 为 512 字节扇区的数量，除非带有后缀 `b`、`k`、`m`、`g` 或 `t`，分别表示字节、千字节、兆字节、吉字节和太字节。该值默认为 `special` 中指定的原始分区的大小（换言之，`growfs` 会将文件系统扩展到整个分区的大小）。
 
-`growfs` 实用程序可以扩展 UFS 文件系统。 在运行 `growfs` 之前，必须使用 gpart(8) 扩展包含文件系统的分区或片。 如果你正在使用卷，你必须使用 gvinum(8) 来扩大它们。 `growfs` 实用程序在指定的特殊文件上扩展文件系统的大小。 可以使用以下选项：
+**`-y`** 使 `growfs` 对所有操作者问题都假定回答 yes。
 
-[`-N`](#N)
+## 退出状态
 
-“测试模式” 。 导致打印出新的文件系统参数而不实际扩大文件系统。
+成功时退出状态为 0，出错时为 >= 1。可通过用户操作恢复的错误以 2 表示。操作系统错误（通常不可恢复）以 3 或更大的值表示。
 
-[`-y`](#y)
+## 实例
 
-导致 `growfs` 假设所有操作员问题的答案是肯定的。
+将根文件系统扩展以填满可用空间：
 
-[`-s`](#s) size
+```sh
+growfs /
+```
 
-确定扇区放大后文件系统的 size 。 Size 是 512 字节扇区的数量，除非后缀为 `b`, `k`, `m`, `g` 或 `t` ，它们分别表示字节、千字节、兆字节、千兆字节和太字节。 该值默认为 special 中指定的原始分区的大小（换句话说， `growfs` 会将文件系统扩大到整个分区的大小）。
+刷新 LUN 大小，调整分区以使用所有可用容量，并相应地扩展文件系统：
 
-[实例](#__u5B9E___u4F8B_)
-=======================
+```sh
+camcontrol reprobe da0
+```
 
-扩展根文件系统以填满可用空间：
+```sh
+gpart recover da0
+```
 
-`growfs /`
+```sh
+gpart resize -i 1 da0
+```
 
-刷新 LUN 大小，调整分区大小以使用所有可用容量，并相应地扩展文件系统：
+```sh
+growfs /dev/da0p1
+```
 
-`camcontrol reprobe da0`
+## 参见
 
-`gpart recover da0`
+[growfs(7)](../man7/growfs.7.md), [camcontrol(8)](camcontrol.8.md), fsck(8), [gpart(8)](gpart.8.md), newfs(8), tunefs(8)
 
-`gpart resize -i 1 da0`
+## 历史
 
-`growfs /dev/da0p1`
+`growfs` 工具首次出现于 FreeBSD 4.4。调整已挂载文件系统大小的功能在 FreeBSD 10.0 中加入。
 
-[参见](#__u53C2___u89C1_)
-=======================
+## 作者
 
-camcontrol(8), fsck(8), gpart(8), newfs(8), tunefs(8)
+Christoph Herrmann <chm@FreeBSD.org> Thomas-Henning von Kamptz <tomsoft@FreeBSD.org> The GROWFS team <growfs@Tomsoft.COM> Edward Tomasz Napierala <trasz@FreeBSD.org>
 
-[历史](#__u5386___u53F2_)
-=======================
+## 注意事项
 
-`growfs` 实用程序首次出现在 FreeBSD 4.4 中。 FreeBSD 10.0 中增加了调整挂载文件系统大小的功能。
+当扩展以读写方式挂载的文件系统时，对该文件系统的任何写入操作都会暂时挂起，直到扩展完成。
 
-[作者](#__u4F5C___u8005_)
-=======================
+## 缺陷
 
-Christoph Herrmann <[chm@FreeBSD.org](mailto:chm@FreeBSD.org)\> Thomas-Henning von Kamptz <[tomsoft@FreeBSD.org](mailto:tomsoft@FreeBSD.org)\> The GROWFS team <[growfs@Tomsoft.COM](mailto:growfs@Tomsoft.COM)\> Edward Tomasz Napierala <[trasz@FreeBSD.org](mailto:trasz@FreeBSD.org)\>
-
-[注意事项](#__u6CE8___u610F___u4E8B___u9879_)
-=========================================
-
-当扩展以读写方式挂载的文件系统时，对该文件系统的任何写入都将被暂时挂起，直到扩展完成。
-
-[缺陷](#__u7F3A___u9677_)
-=======================
-
-通常 `growfs` 将柱面组摘要写入磁盘并稍后再次读取以进行更多更新。 使用 `-N` 时，此读取操作将提供意外数据。 因此，这部分无法真正模拟，在测试模式下将被跳过。
-
-December 13, 2017
-
-FreeBSD 13.1-RELEASE
+通常 `growfs` 会将柱面组摘要写入磁盘，稍后再读取以进行更多更新。使用 `-N` 时，此读取操作会提供意外数据。因此，这部分无法真正模拟，在测试模式下会被跳过。

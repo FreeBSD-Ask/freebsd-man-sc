@@ -1,117 +1,73 @@
-  ELFDUMP(1)  
+# elfdump.1
 
-ELFDUMP(1)
+`elfdump` — 显示 ELF 文件的相关信息
 
-FreeBSD General Commands Manual
+## 名称
 
-ELFDUMP(1)
+`elfdump`
 
-[名称](#__u540D___u79F0_)
-=======================
+## 概要
 
-`elfdump` —
+`elfdump -a | -E | -cdeGhinprs [-w file] file`
 
-显示有关 ELF 文件的信息
+## 描述
 
-[概要](#__u6982___u8981_)
-=======================
+`elfdump` 实用程序转储指定 ELF `file` 的各种信息。
 
-`elfdump` `-a` | `-E` | `-cdeGhinprs` \[`-w` file\] file
-
-[描述](#__u63CF___u8FF0_)
-=======================
-
-`elfdump` 实用程序转储有关指定 ELF 文件的各种信息。
-
--
 选项如下：
 
-[`-a`](#a)
+**`-a`** 转储所有信息。
 
-转储所有信息。
+**`-c`** 转储节区头。
 
-[`-c`](#c)
+**`-d`** 转储动态符号。
 
-转储节标题。
+**`-e`** 转储 ELF 头。
 
-[`-d`](#d)
+**`-E`** 若 `file` 是 ELF 文件则返回成功，否则返回失败。此选项与其他选项互斥。
 
-转储动态符号。
+**`-G`** 转储 GOT。
 
-[`-e`](#e)
+**`-h`** 转储哈希值。
 
-转储 ELF 标头。
+**`-i`** 转储动态解释器。
 
-[`-E`](#E)
+**`-n`** 转储 note 节区。
 
-如果 file 是 ELF 文件则返回成功，否则返回失败。 此选项与其他选项互斥。
+**`-p`** 转储程序头。
 
-[`-G`](#G)
+**`-r`** 转储重定位信息。
 
-转储 GOT。
+**`-s`** 转储符号表。
 
-[`-h`](#h)
+**`-w`** `file` 将输出写入到 `file` 而非标准输出。
 
-转储散列值。
+## 退出状态
 
-[`-i`](#i)
+`elfdump` 实用程序成功时退出值为 0，发生错误时大于 0。
 
-转储动态解释器。
-
-[`-n`](#n)
-
-转储笔记部分。
-
-[`-p`](#p)
-
-转储程序头。
-
-[`-r`](#r)
-
-转储重定位。
-
-[`-s`](#s)
-
-转储符号表。
-
-[`-w`](#w) file
-
-将输出写 file 而不是标准输出。
-
-[退出状态](#__u9000___u51FA___u72B6___u6001_)
-=========================================
-
-The `elfdump` utility exits 0 on success, and >0 if an error occurs.
-
-[实例](#__u5B9E___u4F8B_)
-=======================
+## 实例
 
 以下是 `elfdump` 命令的典型用法示例：
 
-`elfdump -a -w output /bin/ls`
+```sh
+elfdump -a -w output /bin/ls
+```
 
-[SEE ALSO](#SEE_ALSO)
-=====================
+## 参见
 
-objdump(1), readelf(1)
+objdump(1), [readelf(1)](readelf.1.md)
 
-AT&T Unix 系统实验室, System V 应用程序二进制接口, [http://www.sco.com/developers/gabi/](http://www.sco.com/developers/gabi/).
+> AT&T Unix Systems Labs, "System V Application Binary Interface", <http://www.sco.com/developers/gabi/>.
 
-[历史](#__u5386___u53F2_)
-=======================
+## 历史
 
-`elfdump` 实用程序首次出现在 FreeBSD 5.0 中。
+`elfdump` 实用程序首次出现于 FreeBSD 5.0。
 
-[作者](#__u4F5C___u8005_)
-=======================
+## 作者
 
-`elfdump` 实用程序 Jake Burkholder <[jake@FreeBSD.org](mailto:jake@FreeBSD.org)\> 编写。 本手册页由 David O'Brien <[obrien@FreeBSD.org](mailto:obrien@FreeBSD.org)\> 编写。
+`elfdump` 实用程序由 Jake Burkholder <jake@FreeBSD.org> 编写。本手册页由 David O'Brien <obrien@FreeBSD.org> 编写。
 
-[缺陷](#__u7F3A___u9677_)
-=======================
+## 缺陷
 
-没有完全实现 ELF gABI。
-
-November 5, 2018
-
-FreeBSD 13.1-RELEASE
+未完整实现 ELF gABI。

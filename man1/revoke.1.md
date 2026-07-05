@@ -1,43 +1,27 @@
-  REVOKE(1)  
+# revoke.1
 
-REVOKE(1)
+`revoke` — 撤销字符设备
 
-FreeBSD General Commands Manual
+## 名称
 
-REVOKE(1)
+`revoke` — 撤销字符设备
 
-[名称](#__u540D___u79F0_)
-=======================
+## 概要
 
-`revoke` —
+`revoke file`
 
-撤销一个字符设备
+## 描述
 
-[概要](#__u6982___u8981_)
-=======================
+`revoke` 程序使用 revoke(2) 撤销字符设备。当用于 TTY 时，read(2)、write(2) 和 ioctl(2) 等调用会立即中止，从而有效终止登录会话。
 
-`revoke` file ...
-
-[描述](#__u63CF___u8FF0_)
-=======================
-
-`revoke` 程序使用 revoke(2) 撤销字符设备。在TTY上使用时，像 read(2), write(2) 和 ioctl(2), 这样的调用将立即中止，从而有效地终止登录会话。
-
-[参见](#__u53C2___u89C1_)
-=======================
+## 参见
 
 revoke(2)
 
-[历史](#__u5386___u53F2_)
-=======================
+## 历史
 
-`revoke` 程序最早出现在 FreeBSD 8.0 中。
+`revoke` 程序首次出现于 FreeBSD 8.0。
 
-[作者](#__u4F5C___u8005_)
-=======================
+## 作者
 
-Ed Schouten <[ed@FreeBSD.org](mailto:ed@FreeBSD.org)\>
-
-June 15, 2009
-
-FreeBSD 13.1-RELEASE
+Ed Schouten <ed@FreeBSD.org>

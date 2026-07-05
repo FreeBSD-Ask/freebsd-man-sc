@@ -1,86 +1,96 @@
-  TCPDROP(8)  
+# tcpdrop.8
 
-TCPDROP(8)
+`tcpdrop` — 丢弃 TCP 连接
 
-FreeBSD System Manager's Manual
+## 名称
 
-TCPDROP(8)
+`tcpdrop`
 
-[名称](#__u540D___u79F0_)
-=======================
+## 概要
 
-`tcpdrop` —
+`tcpdrop local-address local-port foreign-address foreign-port`
+`tcpdrop [-l] -a`
+`tcpdrop [-l] -C cc-algo [-S stack] [-s state]`
+`tcpdrop [-l] [-C cc-algo] -S stack [-s state]`
+`tcpdrop [-l] [-C cc-algo] [-S stack] -s state`
 
-丢弃 TCP 连接
+## 描述
 
-[概要](#__u6982___u8981_)
-=======================
+`tcpdrop` 命令可用于从命令行丢弃 TCP 连接。
 
-`tcpdrop` local-address local-port foreign-address foreign-port `tcpdrop` \[`-l`\] `-a` `tcpdrop` \[`-l`\] `-S` stack `tcpdrop` \[`-l`\] `-s` state `tcpdrop` \[`-l`\] `-S` stack `-s` state
+如果指定 `-a`，则 `tcpdrop` 将尝试丢弃所有 TCP 连接。
 
-[描述](#__u63CF___u8FF0_)
-=======================
+如果指定 `-C` `cc-algo`，则 `tcpdrop` 将尝试丢弃所有使用 TCP 拥塞控制算法 `cc-algo` 的连接。
 
-`tcpdrop` 命令可用于从命令行删除 TCP 连接。
+如果指定 `-S` `stack`，则 `tcpdrop` 将尝试丢弃所有使用 TCP 协议栈 `stack` 的连接。
 
-如果指定了 `-a` 则 `tcpdrop` 将尝试丢弃所有 TCP 连接。
+如果指定 `-s` `state`，则 `tcpdrop` 将尝试丢弃所有处于 `state` 状态的 TCP 连接。`state` 为 `SYN_SENT`、`SYN_RCVD`、`ESTABLISHED`、`CLOSE_WAIT`、`FIN_WAIT_1`、`CLOSING`、`LAST_ACK`、`FIN_WAIT_2` 或 `TIME_WAIT` 之一。
 
-如果指定了 `-S` stack ，则 `tcpdrop` 将尝试使用 TCP 堆栈 stack 删除所有连接。
+如果同时指定了 `-C` `cc-algo`、`-S` `stack` 和 `-s` `state` 中的多个，`tcpdrop` 将尝试丢弃所有使用拥塞控制算法 `cc-algo`、处于 `state` 状态且（如果指定）使用 TCP 协议栈 `stack` 的 TCP 连接。由于处于 `TIME_WAIT` 状态的 TCP 连接不与任何 TCP 协议栈关联，将 `-s` `TIME_WAIT` 选项与 `-S` `stack` 选项组合使用会导致 `tcpdrop` 不丢弃任何 TCP 连接。
 
-如果指定了 `-s` state ，则 `tcpdrop` 将尝试丢弃所有处于 state 状态的 TCP 连接。 state 是 `SYN_SENT`, `SYN_RCVD`, `ESTABLISHED`, `CLOSE_WAIT`, `FIN_WAIT_1`, `CLOSING`, `LAST_ACK`, `FIN_WAIT_2`, `或` `TIME_WAIT` 。
+`-l` 标志可与 `-a`、`-C`、`-S` 或 `-s` 选项一起使用，用于列出逐个丢弃所有相应 TCP 连接的 tcpdrop 调用。
 
-如果指定了 `-S` stack 和 `-s` state , `tcpdrop` 将尝试丢弃所有处于 state 状态并使用 TCP 堆栈 stack 的 TCP 连接。 由于处于 `TIME_WAIT` 状态的 TCP 连接不绑定到任何 TCP 堆栈，使用选项 `-s` `TIME_WAIT` 与 `-S` stack 选项会导致 `tcpdrop` 不会丢弃任何 TCP 连接。
+如果未指定 `-a`、`-C`、`-S` 或 `-s` 中的任何一个选项，则仅丢弃给定本地地址 `local-address`、端口 `local-port` 与外部地址 `foreign-address`、端口 `foreign-port` 之间的连接。
 
-除了 `-a`, `-S`, 或 `-s` 选项之外，还可以给出 `-l` 标志，以列出 tcpdrop 调用以一次删除所有相应的 TCP 连接。
+地址和端口可通过名称或数值指定。同时支持 IPv4 和 IPv6 地址格式。
 
-如果没有指定 `-a`, `-S` 或 `-s` 选项，则只有给定的本地地址 local-address, 端口 local-port, 和外部地址 foreign-address, 端口 foreign-port 之间的连接将被丢弃。
+地址和端口可用句点或冒号分隔，而非用空格分隔。
 
-地址和端口可以通过名称或数值指定。 支持 IPv4 和 IPv6 地址格式。
+## 退出状态
 
-地址和端口可以用句点或冒号而不是空格分隔。
+`tcpdrop` 工具成功时退出状态为 0，出错时大于 0。
 
-[退出状态](#__u9000___u51FA___u72B6___u6001_)
-=========================================
+## 实例
 
-The `tcpdrop` utility exits 0 on success, and >0 if an error occurs.
+如果到 httpd(8) 的连接导致网络链路拥塞，可以丢弃负责的 TCP 会话：
 
-[实例](#__u5B9E___u4F8B_)
-=======================
+```sh
+# sockstat -c | grep httpd
+www      httpd      16525 3  tcp4 \
+	192.168.5.41:80      192.168.5.1:26747
+```
 
-如果与 httpd(8) 的连接导致网络链路拥塞，则可以丢弃负责的 TCP 会话：
+以下命令将丢弃该连接：
 
-\# sockstat -c | grep httpd www httpd 16525 3 tcp4 \\ 192.168.5.41:80 192.168.5.1:26747 
+```sh
+# tcpdrop 192.168.5.41 80 192.168.5.1 26747
+```
 
-以下命令将断开连接：
+以下命令将丢弃除到/来自端口 22（sshd(8) 使用的端口）外的所有连接：
 
-\# tcpdrop 192.168.5.41 80 192.168.5.1 26747 
+```sh
+# tcpdrop -l -a | grep -vw 22 | sh
+```
 
-以下命令将删除所有连接，但与端口 22（ sshd(8) 使用的端口）之间的连接除外：
+丢弃所有使用 new-reno 拥塞控制算法的 TCP 连接：
 
-\# tcpdrop -l -a | grep -vw 22 | sh 
+```sh
+# tcpdrop -C new-reno
+```
 
-以下命令将使用 TCP 堆栈 fastack 删除所有连接：
+以下命令将丢弃所有使用 TCP 协议栈 rack 的连接：
 
-\# tcpdrop -S fastack 
+```sh
+# tcpdrop -S rack
+```
 
-要丢弃所有处于 LAST\_ACK 状态的 TCP 连接，请使用：
+丢弃所有处于 LAST_ACK 状态的 TCP 连接：
 
-\# tcpdrop -s LAST\_ACK 
+```sh
+# tcpdrop -s LAST_ACK
+```
 
-要使用 TCP 堆栈 fastack 并处于 LAST\_ACK 状态删除所有 TCP 连接，请使用：
+丢弃所有使用 new-reno 拥塞控制算法、TCP 协议栈 rack 且处于 LAST_ACK 状态的 TCP 连接：
 
-\# tcpdrop -S fastack -s LAST\_ACK 
+```sh
+# tcpdrop -C new-reno -S rack -s LAST_ACK
+```
 
-[参见](#__u53C2___u89C1_)
-=======================
+## 参见
 
-netstat(1), sockstat(1), tcp(4), tcp\_functions(9)
+[netstat(1)](../man1/netstat.1.md), [sockstat(1)](../man1/sockstat.1.md), [tcp(4)](../man4/tcp.4.md), [tcp_functions(9)](../man9/tcp_functions.9.md)
 
-[作者](#__u4F5C___u8005_)
-=======================
+## 作者
 
-Markus Friedl <[markus@openbsd.org](mailto:markus@openbsd.org)\> Juli Mallett <[jmallett@FreeBSD.org](mailto:jmallett@FreeBSD.org)\>
-
-September 15, 2017
-
-FreeBSD 13.1-RELEASE
+Markus Friedl <markus@openbsd.org>
+Juli Mallett <jmallett@FreeBSD.org>
