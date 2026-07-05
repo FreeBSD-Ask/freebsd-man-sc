@@ -18,7 +18,7 @@ DECLARE_GEOM_CLASS(class, mod_name);
 
 ## 描述
 
-`DECLARE_GEOM_CLASS` 宏在 GEOM 中注册一个 GEOM 类。GEOM 类本身实现一种特定类型的转换。典型的例子包括：MBR 磁盘分区、BSD disklabel 和 RAID5 类。`DECLARE_GEOM_CLASS` 可用于编译内建的 GEOM 类和作为 [kld(4)](../man4/kld.4.md) 模块加载的 GEOM 类，它是类注册的唯一官方方式。
+`DECLARE_GEOM_CLASS` 宏在 GEOM 中注册 GEOM 类。GEOM 类本身实现一种特定类型的转换。典型的例子包括：MBR 磁盘分区、BSD disklabel 和 RAID5 类。`DECLARE_GEOM_CLASS` 可用于编译内建的 GEOM 类和作为 [kld(4)](../man4/kld.4.md) 模块加载的 GEOM 类，它是类注册的唯一官方方式。
 
 `DECLARE_GEOM_CLASS` 的参数如下：
 
@@ -28,15 +28,15 @@ DECLARE_GEOM_CLASS(class, mod_name);
 
 `g_class` 结构包含描述类的数据。它们是：
 
-- 在类激活时，所有现有的 provider 都会被提供以供 taste。
-- 当新 provider 创建时，它会被提供以供 taste。
-- 在对 provider 的最后一次写访问关闭后，它会被提供以供重新 taste（在第一次写打开事件时会发送“spoil”）。
+- 类激活时，所有现有的 provider 都提供给 taste。
+- 创建新 provider 时，将其提供给 taste。
+- 对 provider 的最后一次写访问关闭后，将其提供给重新 taste（在第一次写打开事件时会发送“spoil”）。
 
 **`const char *`** `name` 类名。
 
-**`g_taste_t *`** `taste` 指向用于处理 taste 事件的函数的指针。如果非 `NULL`，则在以下三种情况下被调用：
+**`g_taste_t *`** `taste` 指向用于处理 taste 事件的函数的指针。如果非 `NULL`，则在以下三种情况下调用：
 
-**`g_config_t *`** `config` 此字段不再使用，其功能已被 `ctlreq` 字段取代。
+**`g_config_t *`** `config` 此字段不再使用，其功能由 `ctlreq` 字段取代。
 
 **`g_ctl_req_t *`** `ctlreq` 指向用于处理来自用户空间应用程序事件的函数的指针。
 

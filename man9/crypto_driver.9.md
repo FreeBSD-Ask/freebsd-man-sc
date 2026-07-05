@@ -60,9 +60,9 @@ hmac_init_opad(struct auth_hash *axf, const char *key, int klen,
 
 ## 描述
 
-对称密码学驱动程序处理由消费者提交到与该驱动程序关联的会话的密码学请求。
+对称密码学驱动程序处理密码学请求，消费者将这些请求提交到与该驱动程序关联的会话。
 
-密码学驱动程序调用 `crypto_get_driverid` 向密码学框架注册。`dev` 是用于服务请求的设备。`CRYPTODEV` 方法定义在附加到 `dev` 的设备驱动程序的方法表中。`session_size` 指定由密码学框架分配的特定于驱动程序的每会话结构的大小。`flags` 是关于驱动程序属性的位掩码。必须指定 `CRYPTOCAP_F_SOFTWARE` 或 `CRYPTOCAP_F_HARDWARE` 中的恰好一个。`CRYPTOCAP_F_SOFTWARE` 应用于使用主机 CPU 处理请求的驱动程序。`CRYPTOCAP_F_HARDWARE` 应用于在独立的协处理器上处理请求的驱动程序。对于在 `CRYPTODEV_PROCESS` 中同步处理请求的驱动程序，应设置 `CRYPTOCAP_F_SYNC`。对于使用加速 CPU 指令的软件驱动程序，应设置 `CRYPTOCAP_F_ACCEL_SOFTWARE`。`crypto_get_driverid` 返回一个不透明的驱动程序标识。
+密码学驱动程序调用 `crypto_get_driverid` 向密码学框架注册。`dev` 是用于服务请求的设备。`CRYPTODEV` 方法定义在附加到 `dev` 的设备驱动程序的方法表中。`session_size` 指定由密码学框架分配的特定于驱动程序的每会话结构的大小。`flags` 是关于驱动程序属性的位掩码。必须指定 `CRYPTOCAP_F_SOFTWARE` 或 `CRYPTOCAP_F_HARDWARE` 二者之一。`CRYPTOCAP_F_SOFTWARE` 应用于使用主机 CPU 处理请求的驱动程序。`CRYPTOCAP_F_HARDWARE` 应用于在独立的协处理器上处理请求的驱动程序。对于在 `CRYPTODEV_PROCESS` 中同步处理请求的驱动程序，应设置 `CRYPTOCAP_F_SYNC`。对于使用加速 CPU 指令的软件驱动程序，应设置 `CRYPTOCAP_F_ACCEL_SOFTWARE`。`crypto_get_driverid` 返回一个不透明的驱动程序标识。
 
 `crypto_unregister_all` 从密码学框架中注销驱动程序。如果有任何待处理操作或打开的会话，此函数将休眠。`driverid` 是先前调用 `crypto_get_driverid` 返回的值。
 
@@ -80,13 +80,13 @@ hmac_init_opad(struct auth_hash *axf, const char *key, int klen,
 
 此方法不应休眠。
 
-`CRYPTODEV_FREESESSION` 在会话销毁时被调用，以释放任何特定于驱动程序的状态。在此方法返回后，每会话的特定于驱动程序的数据结构会被框架显式清零并释放。如果驱动程序不需要额外的拆除步骤，它可以保留此方法为未定义。
+会话销毁时调用 `CRYPTODEV_FREESESSION`，以释放任何特定于驱动程序的状态。在此方法返回后，框架会显式清零并释放每会话的特定于驱动程序的数据结构。如果驱动程序不需要额外的拆除步骤，它可以保留此方法为未定义。
 
 此方法不应休眠。
 
-`CRYPTODEV_PROCESS` 为提交到活动会话的每个请求调用。此方法可以同步完成请求，也可以调度为异步完成，但绝不能休眠。
+对提交到活动会话的每个请求调用 `CRYPTODEV_PROCESS`。此方法可以同步完成请求，也可以调度为异步完成，但绝不能休眠。
 
-如果此方法由于资源不足（例如命令队列已满）而无法完成请求，它可以通过返回 `ERESTART` 来延迟该请求。该请求将由框架排队，并在驱动程序通过 `crypto_unblock` 释放待处理请求后重试。提交到属于该驱动程序的会话的任何请求也将被排队，直到调用 `crypto_unblock` 为止。
+如果此方法由于资源不足（例如命令队列已满）而无法完成请求，它可以通过返回 `ERESTART` 来延迟该请求。框架会排队该请求，并在驱动程序通过 `crypto_unblock` 释放待处理请求后重试。提交到属于该驱动程序的会话的任何请求也会排队，直到调用 `crypto_unblock` 为止。
 
 如果驱动程序在处理请求时遇到错误，应通过 `crp` 的 `crp_etype` 字段报告，而不是直接返回错误。
 

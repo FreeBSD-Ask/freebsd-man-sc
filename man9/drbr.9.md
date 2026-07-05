@@ -40,7 +40,7 @@ drbr_inuse(struct ifnet *ifp, struct buf_ring *br)
 
 ## 描述
 
-`drbr_inuse` 系列函数为网络驱动提供使用 [buf_ring(9)](buf_ring.9.md) 进行数据包入队和出队的 API。它旨在替代用于数据包排队的 IFQ 接口。它允许使用单个原子操作将数据包入队，并且在驱动 tx 队列锁的保护下进行数据包出队时无需任何每包原子操作。如果启用了 `INVARIANTS`，`drbr_dequeue` 在被调用时会断言 tx 队列锁已被持有。
+`drbr_inuse` 系列函数为网络驱动提供使用 [buf_ring(9)](buf_ring.9.md) 进行数据包入队和出队的 API。它旨在替代用于数据包排队的 IFQ 接口。它允许使用单个原子操作将数据包入队，并且在驱动 tx 队列锁的保护下进行数据包出队时无需任何每包原子操作。如果启用了 `INVARIANTS`，调用 `drbr_dequeue` 时会断言 tx 队列锁已持有。
 
 `drbr_free` 函数释放所有入队的 mbuf，然后释放 buf_ring。
 
@@ -54,7 +54,7 @@ drbr_inuse(struct ifnet *ifp, struct buf_ring *br)
 
 `drbr_empty` 函数在没有入队 mbuf 时返回 `TRUE`，否则返回 `FALSE`。
 
-`drbr_inuse` 函数返回已入队的 mbuf 数量。请注意，这本质上存在竞态，因为无法保证在实际调用 `drbr_dequeue` 时不会有更多 mbuf。只要持有 tx 队列锁，数量不会更少。
+`drbr_inuse` 函数返回已入队的 mbuf 数量。请注意，这本质上存在竞态条件，因为无法保证在实际调用 `drbr_dequeue` 时不会有更多 mbuf。只要持有 tx 队列锁，已入队的 mbuf 数量不会更少。
 
 ## 返回值
 

@@ -23,11 +23,11 @@ BUF_UNLOCK(struct buf *bp)
 
 ## 描述
 
-`BUF_UNLOCK` 函数解锁先前由 `BUF_LOCK` 或 `BUF_TIMELOCK` 锁定的缓冲区。
+`BUF_UNLOCK` 函数解锁先前用 `BUF_LOCK` 或 `BUF_TIMELOCK` 锁定的缓冲区。
 
 其参数如下：
 
-**`bp`** 要解锁的缓冲区。该缓冲区必须已被锁定。
+**`bp`** 要解锁的缓冲区。该缓冲区必须处于锁定状态。
 
 ## 参见
 
