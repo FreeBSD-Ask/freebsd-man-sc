@@ -119,7 +119,7 @@ amr%d: can't obtain product data from controller
 
 驱动无法从控制器获取关键配置数据。初始化失败，驱动将不会附加到此控制器。
 
-```
+```sh
 amr%d: can't establish configuration hook
 amr%d: can't scan controller for drives
 ```
@@ -153,13 +153,13 @@ amr%d: polled command timeout
 
 初始化命令超时。初始化过程可能因此失败。
 
-```
+```sh
 amr%d: bad slot %d completed
 ```
 
 控制器报告完成了驱动未发出的命令。可能导致数据损坏，表明系统或控制器存在硬件或固件问题。
 
-```
+```sh
 amr%d: I/O error - %x
 ```
 

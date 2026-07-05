@@ -14,7 +14,7 @@
 
 ### 软队列设置与拆除函数
 
-### 必需函数
+#### 必需函数
 
 ```c
 int
@@ -29,7 +29,7 @@ int
 ifdi_queues_free(if_ctx_t ctx)
 ```
 
-### 可选函数
+#### 可选函数
 
 ```c
 int
@@ -41,7 +41,7 @@ ifdi_rxq_setup(if_ctx_t ctx, uint16_t qid)
 
 ### 设备设置与拆除函数
 
-### 必需函数
+#### 必需函数
 
 ```c
 int
@@ -54,7 +54,7 @@ int
 ifdi_detach(if_ctx_t ctx)
 ```
 
-### 可选函数
+#### 可选函数
 
 ```c
 void
@@ -72,7 +72,7 @@ ifdi_resume(if_ctx_t ctx)
 
 ### 设备配置函数
 
-### 必需函数
+#### 必需函数
 
 ```c
 void
@@ -103,7 +103,7 @@ void
 ifdi_update_admin_status(if_ctx_t ctx)
 ```
 
-### 可选函数
+#### 可选函数
 
 ```c
 void
@@ -112,7 +112,7 @@ ifdi_media_set(if_ctx_t ctx)
 
 ### 中断启用/禁用
 
-### 必需函数
+#### 必需函数
 
 ```c
 void
@@ -141,7 +141,7 @@ int
 ifdi_vf_add(if_ctx_t ctx, uint16_t vfnum, const nvlist_t *params)
 ```
 
-### 可选函数
+#### 可选函数
 
 ```c
 void
