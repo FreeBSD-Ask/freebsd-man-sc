@@ -173,7 +173,7 @@ ifdi_i2c_req(if_ctx_t ctx, struct ifi2creq *req)
 
 ## 函数
 
-上述命名函数为设备相关配置函数。这些例程由驱动程序向 iflib 注册，并从相应的 iflib 函数中调用来配置设备特定的功能和寄存器。
+上述命名函数为设备相关配置函数。驱动程序将这些例程注册到 iflib，相应的 iflib 函数会调用它们来配置设备特定的功能和寄存器。
 
 ### 设备相关函数
 
@@ -239,7 +239,7 @@ ifdi_i2c_req(if_ctx_t ctx, struct ifi2creq *req)
 
 **`io_uninit`** 拆除所有 VF 的上下文。
 
-**`ifdi_vflr_handle`** 处理通过 Function Level Reset (FLR) 自行重置的任何 VF。
+**`ifdi_vflr_handle`** 处理任何通过 Function Level Reset (FLR) 自行重置的 VF。
 
 **`ifdi_vf_add`** 在 VF vfnum 中设置 params 中的参数。
 

@@ -66,7 +66,7 @@ crypto_use_output_vmpage(struct cryptop *crp, vm_page_t *pages,
 
 内核中的每个对称密码学操作由 `struct cryptop` 的实例描述，并与一个活动会话关联。
 
-请求可以动态分配，也可以使用调用者提供的存储。动态分配的请求应由 `crypto_getreq` 或 `crypto_clonereq` 分配，并在请求完成后由 `crypto_freereq` 释放。使用调用者提供存储的请求应在每次操作开始时由 `crypto_initreq` 初始化，并在请求完成后由 `crypto_destroyreq` 销毁。
+请求可以动态分配，也可以使用调用者提供的存储。动态分配的请求应通过 `crypto_getreq` 或 `crypto_clonereq` 分配，并在请求完成后用 `crypto_freereq` 释放。使用调用者提供存储的请求，应在每次操作开始时通过 `crypto_initreq` 初始化，并在请求完成后用 `crypto_destroyreq` 销毁。
 
 对于 `crypto_clonereq`、`crypto_getreq` 和 `crypto_initreq`，`cses` 是对活动会话的引用。对于 `crypto_clonereq` 和 `crypto_getreq`，`how` 被传递给 [malloc(9)](malloc.9.md)，应设置为 `M_NOWAIT` 或 `M_WAITOK`。
 
@@ -110,7 +110,7 @@ crypto_use_output_vmpage(struct cryptop *crp, vm_page_t *pages,
 
 每个请求在数据缓冲区中描述一个或多个区域。每个区域由相对于数据缓冲区起始处的偏移量和长度描述。某些区域的长度对于属于一个会话的所有请求都是相同的。这些长度在关联会话的会话参数中设置。所有请求都必须定义一个有效载荷区域。其他区域仅在特定会话模式下才需要。
 
-对于使用独立输入和输出数据缓冲区的请求，AAD、IV 和有效载荷区域始终定义为输入缓冲区中的区域，并定义一个独立的有效载荷输出区域以在输出缓冲区中保存加密或解密的输出。摘要区域对于验证现有摘要的请求，描述输入数据缓冲区中的一个区域。对于计算摘要的请求，摘要区域描述输出数据缓冲区中的一个区域。注意，写入输出缓冲区的唯一数据是加密或解密结果和任何计算出的摘要。AAD 和 IV 区域不会从输入缓冲区复制到输出缓冲区，而仅用作输入。
+对于使用独立输入和输出数据缓冲区的请求，AAD、IV 和有效载荷区域始终定义为输入缓冲区中的区域，并定义一个独立的有效载荷输出区域，用于在输出缓冲区中保存加密或解密的输出。摘要区域对于验证现有摘要的请求，描述输入数据缓冲区中的一个区域。对于计算摘要的请求，摘要区域描述输出数据缓冲区中的一个区域。注意，写入输出缓冲区的唯一数据是加密或解密结果和任何计算出的摘要。AAD 和 IV 区域不会从输入缓冲区复制到输出缓冲区，而仅用作输入。
 
 定义了以下区域：
 
@@ -140,7 +140,7 @@ crypto_use_output_vmpage(struct cryptop *crp, vm_page_t *pages,
 | 有效载荷输出 | `crp_payload_output_start` | `crp_payload_length` |
 | 摘要 | `crp_digest_start` | `csp_auth_mlen` |
 
-允许请求仅操作数据缓冲区的一个子集。例如，来自 IPsec 的请求操作的网络数据包包含既不用作附加认证数据（AAD）也不用作用户数据的头部。
+允许请求仅操作数据缓冲区的一个子集。例如，来自 IPsec 的请求所操作的网络数据包包含既不用作附加认证数据（AAD）也不用作用户数据的头部。
 
 ### 请求操作
 
@@ -162,7 +162,7 @@ crypto_use_output_vmpage(struct cryptop *crp, vm_page_t *pages,
 
 **`CRYPTO_OP_COMPUTE_DIGEST`** 对数据缓冲区中的有效载荷区域计算摘要，并将结果存储到摘要区域。
 
-**`CRYPTO_OP_VERIFY_DIGEST`** 对数据缓冲区中的有效载荷区域计算摘要。将计算出的摘要与摘要区域中的现有摘要进行比较。如果摘要匹配，则成功完成请求。如果摘要不匹配，则以 `EBADMSG` 失败该请求。
+**`CRYPTO_OP_VERIFY_DIGEST`** 对数据缓冲区中的有效载荷区域计算摘要。将计算出的摘要与摘要区域中的现有摘要进行比较。如果摘要匹配，则成功完成请求。如果摘要不匹配，则请求以 `EBADMSG` 失败。
 
 AEAD 和"先加密后认证"请求支持以下操作：
 
@@ -194,15 +194,15 @@ AEAD 模式在独立的 AAD 缓冲区中提供 ESN（参见例如 RFC 4106，第
 
 `crypto_dispatch` 同步地将请求传递给驱动程序。驱动程序本身可以同步或异步处理请求，具体取决于驱动程序是由软件还是硬件实现。
 
-`crypto_dispatch_async` 异步地分发请求。如果驱动程序本身是同步的，请求会被排队到由工作线程池支持的任务队列。这可以通过允许来自单个生产者的请求并行处理来提高吞吐量。默认情况下，该池的大小为每个 CPU 提供一个线程。工作线程将请求出队并异步地传递给驱动程序。`crypto_dispatch_async` 额外接受一个 `flags` 参数。`CRYPTO_ASYNC_ORDERED` 标志指示请求的完成回调必须按请求分发的相同顺序调用。如果驱动程序是异步的，`crypto_dispatch_async` 的行为与 `crypto_dispatch` 相同。
+`crypto_dispatch_async` 异步地分发请求。如果驱动程序本身是同步的，请求会被排队到由工作线程池支持的任务队列。这可以通过允许来自单个生产者的请求并行处理来提高吞吐量。默认情况下，该池为每个 CPU 分配一个线程。工作线程将请求出队并异步地传递给驱动程序。`crypto_dispatch_async` 额外接受一个 `flags` 参数。`CRYPTO_ASYNC_ORDERED` 标志指示请求的完成回调必须按请求分发的相同顺序调用。如果驱动程序是异步的，`crypto_dispatch_async` 的行为与 `crypto_dispatch` 相同。
 
 `crypto_dispatch_batch` 允许调用者收集一批请求并同时提交给驱动程序。这允许硬件驱动程序优化请求处理调度和批量完成中断。批量提交通过在每个请求上调用驱动程序的 process 方法来实现，对除最后一个请求外的每个请求指定 `CRYPTO_HINT_MORE`。`crypto_dispatch_batch` 的 `flags` 参数目前被忽略。
 
-回调函数调度比请求调度更简单。回调可以由 `crypto_done` 同步调用，也可以排队到工作线程池。该工作线程池默认大小也为每个 CPU 提供一个工作线程。注意，由 `crypto_done` 同步调用的回调函数必须遵循与线程化中断处理程序相同的限制。
+回调函数调度比请求调度更简单。回调可以由 `crypto_done` 同步调用，也可以排队到工作线程池。该工作线程池默认也为每个 CPU 分配一个工作线程。注意，由 `crypto_done` 同步调用的回调函数必须遵循与线程化中断处理程序相同的限制。
 
 默认情况下，回调由工作线程异步调用。如果设置了 `CRYPTO_F_CBIMM`，回调始终由 `crypto_done` 同步调用。如果设置了 `CRYPTO_F_CBIFSYNC`，回调在请求由软件驱动程序处理时同步调用，在请求由硬件驱动程序处理时异步调用。
 
-如果请求以 `CRYPTO_ASYNC_ORDERED` 调度到任务队列，回调将始终异步调用，忽略 `CRYPTO_F_CBIMM` 和 `CRYPTO_F_CBIFSYNC`。此标志由 IPsec 使用，以确保解密后的网络数据包按大致接收时的顺序向上传递到网络栈。
+如果请求以 `CRYPTO_ASYNC_ORDERED` 调度到任务队列，回调将始终异步调用，忽略 `CRYPTO_F_CBIMM` 和 `CRYPTO_F_CBIFSYNC`。IPsec 使用此标志，以确保解密后的网络数据包按大致接收时的顺序向上传递到网络栈。
 
 ### 其他请求字段
 

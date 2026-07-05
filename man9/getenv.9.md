@@ -51,11 +51,11 @@ kern_unsetenv(const char *name)
 
 这些函数从内核环境中设置、取消设置、获取和解析变量。
 
-`kern_getenv` 函数获取内核环境变量 `name` 的当前值，并返回指向字符串值的指针。调用者不应修改返回值所指向的字符串。`kern_getenv` 函数可能分配临时存储，因此当 `kern_getenv` 返回的值不再需要时，必须调用 `freeenv` 函数释放任何分配的资源。
+`kern_getenv` 函数获取内核环境变量 `name` 的当前值，并返回指向字符串值的指针。调用者不应修改返回值指向的字符串。`kern_getenv` 函数可能分配临时存储空间，因此当 `kern_getenv` 返回的值不再需要时，必须调用 `freeenv` 函数释放任何分配的资源。
 
-`freeenv` 函数用于释放先前调用 `kern_getenv` 分配的资源。传递给 `freeenv` 的 `env` 参数是先前调用 `kern_getenv` 返回的指针。与 free(3) 一样，`env` 参数可以为 `NULL`，在这种情况下不发生任何操作。
+`freeenv` 函数用于释放先前调用 `kern_getenv` 分配的资源。`freeenv` 的 `env` 参数是先前调用 `kern_getenv` 返回的指针。与 free(3) 一样，`env` 参数可以为 `NULL`，此时不执行任何操作。
 
-`kern_setenv` 函数将内核环境变量 `name` 插入或重置为 `value`。如果变量 `name` 已存在，其值被替换。如果超出环境变量数量的内部限制，此函数可能失败。
+`kern_setenv` 函数将内核环境变量 `name` 插入或将其值重置为 `value`。如果变量 `name` 已存在，会替换其值。如果超出环境变量数量的内部限制，此函数可能失败。
 
 `kern_unsetenv` 函数删除内核环境变量 `name`。
 
