@@ -191,9 +191,9 @@ ifdi_i2c_req(if_ctx_t ctx, struct ifi2creq *req)
 
 ### 设备设置与拆除
 
-**`ifdi_attach_pre`** 必需函数，由驱动程序实现，用于执行在中断和队列分配、队列设置以及中断分配之前进行的任何附加逻辑。
+**`ifdi_attach_pre`** 必需函数，由驱动程序实现，用于执行中断和队列分配、队列设置以及中断分配之前的任何附加逻辑。
 
-**`ifdi_attach_post`** 必需函数，由驱动程序实现，用于执行在 ifdi_attach_pre 以及 iflib 的队列设置和 MSI/MSIX(X) 或传统中断分配之后发生的任何附加逻辑。
+**`ifdi_attach_post`** 必需函数，由驱动程序实现，用于执行 ifdi_attach_pre 以及 iflib 的队列设置和 MSI/MSIX(X) 或传统中断分配之后的任何附加逻辑。
 
 **`ifdi_detach`** 必需函数，释放驱动程序在 ifdi_attach_pre 和 ifdi_attach_post 中分配的所有资源。
 

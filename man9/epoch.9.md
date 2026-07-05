@@ -99,7 +99,7 @@ INVARIANTS 可通过 `in_epoch` 断言线程处于 epoch 中。`in_epoch(epoch)`
 
 epoch API 当前不支持在 epoch_preempt 区段中睡眠。调用者绝不应在同一个 epoch 的 epoch 区段中间调用 `epoch_wait`，否则会导致死锁。
 
-`epoch_drain_callbacks` 函数用于排空此前对同一 epoch 调用 `epoch_call` 触发的所有挂起回调。当存在由 epoch 回调引用的、未进行引用计数且很少被释放的共享内存结构时，此函数很有用。调用此函数的典型位置是在释放或失效 epoch 回调所使用的共享资源之前。此函数可以睡眠，且未针对性能进行优化。
+`epoch_drain_callbacks` 函数用于排空此前对同一 epoch 调用 `epoch_call` 触发的所有挂起回调。当存在 epoch 回调引用的、未进行引用计数且很少释放的共享内存结构时，此函数很有用。调用此函数的典型位置是在释放或失效 epoch 回调所使用的共享资源之前。此函数可以睡眠，且未针对性能优化。
 
 ## 返回值
 

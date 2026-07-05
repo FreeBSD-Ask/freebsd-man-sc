@@ -40,7 +40,7 @@ drbr_inuse(struct ifnet *ifp, struct buf_ring *br)
 
 ## 描述
 
-`drbr_inuse` 系列函数为网络驱动提供使用 [buf_ring(9)](buf_ring.9.md) 进行数据包入队和出队的 API。它旨在替代用于数据包排队的 IFQ 接口。它允许使用单个原子操作将数据包入队，并且在驱动 tx 队列锁的保护下进行数据包出队时无需任何每包原子操作。如果启用了 `INVARIANTS`，调用 `drbr_dequeue` 时会断言 tx 队列锁已持有。
+`drbr_inuse` 系列函数为网络驱动提供使用 [buf_ring(9)](buf_ring.9.md) 进行数据包入队和出队的 API。它旨在替代用于数据包排队的 IFQ 接口。它允许使用单个原子操作将数据包入队，并且在驱动 tx 队列锁的保护下进行数据包出队时无需任何每包原子操作。如果启用了 `INVARIANTS`，调用 `drbr_dequeue` 时会断言已持有 tx 队列锁。
 
 `drbr_free` 函数释放所有入队的 mbuf，然后释放 buf_ring。
 

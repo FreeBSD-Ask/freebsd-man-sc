@@ -50,7 +50,7 @@ kern.random.initial_seeding.disable_bypass_warnings: 0
 
 `kern.random.harvest.mask` 位掩码用于选择可用的熵源。值 0（零）表示对应的源不被视为熵源。若希望使用该源，将对应位设置为 1（一）即可。`kern.random.harvest.mask_bin` 和 `kern.random.harvest.mask_symbolic` sysctl 可用于以人类可读形式确认设置。后者中被禁用的条目以方括号列出。关于熵采集的更多信息，参见 [random_harvest(9)](../man9/random_harvest.9.md)。
 
-`kern.random.nist_healthtest_enabled` 可调参数可用于启用 NIST 特别出版物 800-90B 第 4 节中描述的熵源健康测试。启用后，所有熵源都将接受该文档中描述的重复计数测试和自适应比例测试。如果某项测试失败，该源会禁用，即来自该源的后续所有熵样本都会丢弃。该实现会执行启动测试，期间熵样本均丢弃。
+`kern.random.nist_healthtest_enabled` 可调参数可用于启用 NIST 特别出版物 800-90B 第 4 节中描述的熵源健康测试。启用后，所有熵源都将接受该文档中描述的重复计数测试和自适应比例测试。如果某项测试失败，框架会禁用该源，即丢弃来自该源的所有后续熵样本。该实现会执行启动测试，期间熵样本均丢弃。
 
 ## 文件
 
@@ -89,11 +89,11 @@ getrandom(2), arc4random(3), getentropy(3), random(3), [sysctl(8)](../man8/sysct
 
 ## 注意事项
 
-启用 `options RANDOM_LOADABLE` 时，在加载"算法模块"之前不会创建 **`/dev/random`** 设备。默认构建的唯一模块是 *random_fortuna*。可加载的 random 模块比编译进内核的等价模块效率更低。这是因为某些函数必须对加载和卸载事件加锁，并且必须是间接调用以允许移除。
+启用 `options RANDOM_LOADABLE` 时，在加载"算法模块"之前不会创建 **`/dev/random`** 设备。默认构建的唯一模块是 *random_fortuna*。可加载的 random 模块比编译进内核的等价模块效率更低。这是因为某些函数必须对加载和卸载事件加锁，并且必须通过间接调用来允许移除。
 
-启用 `options RANDOM_ENABLE_UMA` 时，**`/dev/random`** 设备将从 zone 分配器获取熵。这是一个速率极高的源，对性能影响显著。因此默认禁用。
+启用 `options RANDOM_ENABLE_UMA` 时，**`/dev/random`** 设备将从 zone 分配器获取熵。这是一个速率极高的源，对性能影响显著。因此默认禁用此源。
 
-启用 `options RANDOM_ENABLE_ETHER` 时，`random` 设备将从经过网络栈的 `mbuf` 结构中获取熵。此源代价极高且熵质量较差，因此默认禁用。
+启用 `options RANDOM_ENABLE_ETHER` 时，`random` 设备将从经过网络栈的 `mbuf` 结构中获取熵。此源代价极高且熵质量较差，因此默认禁用此源。
 
 ## 安全注意事项
 
