@@ -1,0 +1,2 @@
+# MODULE\_PNP\_INFO.9
+

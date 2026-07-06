@@ -1,0 +1,2 @@
+# DECLARE\_GEOM\_CLASS.9
+
