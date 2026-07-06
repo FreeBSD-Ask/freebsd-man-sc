@@ -1,0 +1,2 @@
+# strftime.3
+

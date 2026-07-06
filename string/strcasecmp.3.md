@@ -1,0 +1,2 @@
+# strcasecmp.3
+

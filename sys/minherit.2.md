@@ -1,0 +1,2 @@
+# minherit.2
+
