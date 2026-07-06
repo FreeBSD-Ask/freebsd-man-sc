@@ -193,7 +193,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 - **命令行前缀：** `#` 表示 root 权限，`$` 表示普通用户。不要使用 `sudo`。
 - **提示块：** tip/important/note/warning/caution 使用 `>` 缩进引用，关键词 **加粗**。
-- **代码块：** 无法判断的，再使用 ` /`/`/`sh ` 兜底，禁止使用 text 作为代码块标记，不窜改既有的 ` ```ini ` 标记。
+- **代码块：** 无法判断的，再使用 `/`/`/`sh ` 兜底，禁止使用 text 作为代码块标记，不窜改既有的 ` ```ini ` 标记。
 - **表格：** 一律居中。
 - **禁止 HTML：** 本项目不支持任何 HTML 语法。
 - **文件命名：** 使用 `命令.N.md` 格式，文件名中不得包含空格、中文字符或英文冒号 `:`，必须兼容 Windows 操作系统对文件名的要求。
@@ -289,6 +289,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ### 如何获取新版英文原文
 
 1. **克隆 FreeBSD 源码仓库**：
+
    ```sh
    git clone --filter=blob:none https://gitlab.freebsd.org/freebsd/freebsd-src.git
    cd freebsd-src
@@ -309,6 +310,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
    - MLINKS 别名（如 sha256.1 → md5.1）：使用主文件内容
 
 3. **拉取单个文件**（无需克隆整个仓库）：
+
    ```sh
    # GitLab raw
    curl -o en/man1/cat.1 https://gitlab.freebsd.org/freebsd/freebsd-src/-/raw/<commit>/bin/cat/cat.1
@@ -391,6 +393,7 @@ git diff --name-only <旧提交号> <新提交号> -- '*.1' '*.4' '*.5' '*.7' '*
 **执行时机**：所有翻译工作完成后，作为最终清理步骤执行。
 
 **工具**：
+
 - `AutoCorrect`（`.github/AutoCorrect.yml` 工作流）：自动修正常见中文笔误与格式问题
 - `md-padding`（`.github/md-padding.yml` 工作流）：自动在 CJK 与英文/数字间添加空格
 
@@ -407,6 +410,7 @@ git diff --name-only <旧提交号> <新提交号> -- '*.1' '*.4' '*.5' '*.7' '*
 **执行步骤**：
 
 1. **生成工具输出**：分别运行 AutoCorrect 和 md-padding，**仅生成差异报告，不直接应用修改**
+
    ```sh
    # AutoCorrect 检查（不修改文件）
    autocorrect --lint "**/*.md" "!en/**" "!en2/**" "!.github/**" "!script/**"
@@ -428,6 +432,7 @@ git diff --name-only <旧提交号> <新提交号> -- '*.1' '*.4' '*.5' '*.7' '*
 5. **总复核**：全部修改完成后，重新运行工具检查，确认无遗漏问题；对全书进行一次抽查，确认格式一致性
 
 **禁止事项**：
+
 - 禁止使用 `--fix` 或 `-i` 选项批量应用修改
 - 禁止使用脚本批量替换
 - 禁止跳过上下文审核直接接受工具建议
