@@ -49,4 +49,16 @@ aio_fsync(int op, struct aiocb *iocb);
 
 **[EAGAIN]** 由于系统资源限制，请求未入队。
 
-**[EINVAL]** `iocb->aio_sigevent.sigev_notify` 中的异步通知方法
+**[EINVAL]** `iocb->aio_sigevent.sigev_notify` 中的异步通知方法无效或不被支持。
+
+**[EOPNOTSUPP]** 文件描述符 `iocb->aio_fildes` 上的异步文件同步操作不安全，且已禁用不安全的异步 I/O 操作。
+
+**[EINVAL]** `op` 参数的值未设置为 `O_SYNC` 或 `O_DSYNC`。
+
+以下情况可在调用 `aio_fsync()` 时同步检测到，也可在此后任何时间异步检测到。如果在调用时检测到，`aio_fsync()` 返回 -1 并适当设置 `errno`；否则必须调用 `aio_return()`，它将返回 -1，并且必须调用 `aio_error()` 以确定本应在 `errno` 中返回的实际值。
+
+**[EBADF]** `iocb->aio_fildes` 参数不是有效的描述符。
+
+**[EINVAL]** 本实现不支持此文件的同步 I/O。
+
+如果请求成功入队但随后被取消或发生错误，`
