@@ -65,4 +65,12 @@ aio_fsync(int op, struct aiocb *iocb);
 
 ## 参见
 
-[aio_cancel(2)](aio_cancel.2.md), [aio_error(2)](aio_error.2.md), [aio_read(2)](aio_read.2.md), [aio_return(2)](aio_return.2.md), [aio_suspend(2)](aio_suspend.2.md), [aio_waitcomplete(2)](aio_waitcomplete.2.md), [aio_write(2)](aio_write.2.md), [fsync(2)](fsync.2.md), [sigevent(3)](../man3/sigevent.3.md), [siginfo(3)](../man3/siginfo.3.md), [aio(4
+[aio_cancel(2)](aio_cancel.2.md), [aio_error(2)](aio_error.2.md), [aio_read(2)](aio_read.2.md), [aio_return(2)](aio_return.2.md), [aio_suspend(2)](aio_suspend.2.md), [aio_waitcomplete(2)](aio_waitcomplete.2.md), [aio_write(2)](aio_write.2.md), [fsync(2)](fsync.2.md), [sigevent(3)](../man3/sigevent.3.md), [siginfo(3)](../man3/siginfo.3.md), [aio(4)](../man4/aio.4.md)
+
+## 标准
+
+`aio_fsync()` 系统调用预期符合 IEEE Std 1003.1 ("POSIX.1") 标准。
+
+## 历史
+
+`aio_fsync()` 系统调用首次出现于 FreeBSD 7.0。`O_DSYNC` 选项出现于 FreeBSD 13.0。
