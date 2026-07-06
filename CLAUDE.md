@@ -37,6 +37,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - **用法**：
   - `python script/man-to-markdown.py` — 全量转换 `en/` → `en2/`
   - `python script/man-to-markdown.py --sample` — 随机转换 6 个示例文件
+  - 也可通过 `python man_tools.py convert` / `python man_tools.py convert-sample` 调用（见下方综合工具节）
 - **功能**：
   - 自动遍历 `en/` 下所有 `man*` 子目录（man1-man9, man3lua）
   - 处理架构专属子目录（man4.aarch64/man4.arm/man4.i386/man4.powerpc），输出加架构后缀
@@ -47,6 +48,38 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
   - 幂等性：重复运行覆盖已有文件
   - UTF-8 编码（无 BOM）、LF 换行符
 - **输出**：`en2/manN/命令.N.md`（通用版本）、`en2/manN/命令.N.<arch>.md`（架构版本）
+
+### 综合工具 man_tools.py
+
+- **位置**：`man_tools.py`（项目根目录，单文件，仅依赖标准库 + 动态加载 `script/man-to-markdown.py`）
+- **用途**：整合 mdoc→Markdown 转换、en/SUMMARY 比较、翻译行数检查、问题检测等功能于一体
+- **子命令**：
+
+  | 子命令 | 功能 |
+  | ------ | ---- |
+  | `report` | 生成综合报告（统计 + 比较 + 行数 + 问题检测），输出到 `script/man_tools_output.txt` |
+  | `compare` | 比较 `en/` 与 `SUMMARY.md`，查漏补缺（大小写不敏感，识别 MLINKS 别名） |
+  | `linecount` | 比较中文翻译与英文原文（en2/）行数，可选 `--threshold N`（默认 20%） |
+  | `issues` | 检测所有问题：损坏的 en2/、占位符、缺失翻译、.TH 格式文件 |
+  | `fix-en2` | 重新转换损坏的 en2/ 文件（.TH 格式用简易转换器，mdoc 格式调用 `man-to-markdown.py`） |
+  | `convert` | 全量转换 `en/` → `en2/`（整合 `man-to-markdown.py` 的 `run_full`） |
+  | `convert-sample` | 转换示例文件（整合 `man-to-markdown.py --sample`） |
+  | `aliases` | 列出 SUMMARY.md 中的别名条目（多链接指向同一文件） |
+  | `stats` | 显示按章节的统计信息（en/、en2/、中文翻译、SUMMARY 链接数） |
+
+- **用法示例**：
+  - `python man_tools.py report` — 生成完整报告
+  - `python man_tools.py compare` — 检查 SUMMARY.md 与 en/ 目录一致性
+  - `python man_tools.py issues` — 检测占位符、损坏文件、缺失翻译
+  - `python man_tools.py fix-en2 --dry-run` — 预览将修复的 en2/ 文件
+  - `python man_tools.py convert` — 全量重新转换 en/ → en2/
+- **日志**：`script/man_tools.log`
+- **特性**：
+  - 动态加载 `script/man-to-markdown.py` 作为模块，复用其 mdoc 转换逻辑
+  - 对 .TH 格式（非 mdoc）文件提供简易转换器（`convert_th_to_markdown`）
+  - 大小写不敏感比较（en/ 使用大写文件名如 `BUF_UNLOCK.9`，SUMMARY.md 使用小写如 `buf_unlock.9.md`）
+  - 识别 MLINKS 别名（SUMMARY.md 中多个链接文本指向同一目标文件）
+  - 识别架构专属文件（en/man4/man4.<arch>/ 下的文件）
 
 ## CI/CD 工作流
 
