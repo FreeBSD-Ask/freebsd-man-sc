@@ -30,7 +30,7 @@ DEVICE_ATTACH(device_t dev)
 
 ## 参见
 
-[devfs(4)](../man4/devfs.4.md), [bus_attach_children(9)](bus_attach_children.9.md), [device(9)](device.9.md), [DEVICE_DETACH(9)](DEVICE_DETACH.9.md), [DEVICE_IDENTIFY(9)](device_identify.9.md), [DEVICE_PROBE(9)](DEVICE_PROBE.9.md), [DEVICE_SHUTDOWN(9)](device_shutdown.9.md)
+[devfs(4)](../man4/devfs.4.md), [bus_attach_children(9)](bus_attach_children.9.md), [device(9)](device.9.md), [DEVICE_DETACH(9)](device_detach.9.md), [DEVICE_IDENTIFY(9)](device_identify.9.md), [DEVICE_PROBE(9)](device_probe.9.md), [DEVICE_SHUTDOWN(9)](device_shutdown.9.md)
 
 ## 作者
 

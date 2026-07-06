@@ -151,7 +151,7 @@ struct bhnd_erom_io {
 
 ## 返回值
 
-`bhnd_erom_probe` 函数返回标准的 [DEVICE_PROBE(9)](DEVICE_PROBE.9.md) 结果。
+`bhnd_erom_probe` 函数返回标准的 [DEVICE_PROBE(9)](device_probe.9.md) 结果。
 
 等于或小于零的返回值表示成功。大于零的值表示错误，并将是适当的错误代码。对于小于或等于零的值，应使用返回最高值的 erom 类来解析 erom 表。如果解析器不支持设备，返回 `ENXIO`。
 

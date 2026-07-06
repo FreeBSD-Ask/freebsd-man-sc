@@ -25,7 +25,7 @@ bus_config_intr(device_t dev, int irq, enum intr_trigger trig,
 
 ## 描述
 
-`BUS_CONFIG_INTR` 方法允许总线或设备驱动程序向父总线提供中断极性和触发模式。这通常会一路向上传递到根总线（例如 nexus），由其执行实际编程硬件所需的操作。由于 `BUS_CONFIG_INTR` 方法接受中断号作为参数，因此假定（但并非必须）它在 [BUS_SETUP_INTR(9)](BUS_SETUP_INTR.9.md) 之前调用。
+`BUS_CONFIG_INTR` 方法允许总线或设备驱动程序向父总线提供中断极性和触发模式。这通常会一路向上传递到根总线（例如 nexus），由其执行实际编程硬件所需的操作。由于 `BUS_CONFIG_INTR` 方法接受中断号作为参数，因此假定（但并非必须）它在 [BUS_SETUP_INTR(9)](bus_setup_intr.9.md) 之前调用。
 
 `bus_config_intr` 函数是 `BUS_CONFIG_INTR` 的简单封装。
 
@@ -51,7 +51,7 @@ bus_config_intr(device_t dev, int irq, enum intr_trigger trig,
 
 ## 参见
 
-[BUS_SETUP_INTR(9)](BUS_SETUP_INTR.9.md), BUS_TEARDOWN_INTR(9), [device(9)](device.9.md), [driver(9)](driver.9.md)
+[BUS_SETUP_INTR(9)](bus_setup_intr.9.md), BUS_TEARDOWN_INTR(9), [device(9)](device.9.md), [driver(9)](driver.9.md)
 
 ## 历史
 

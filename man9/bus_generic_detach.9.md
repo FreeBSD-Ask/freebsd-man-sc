@@ -18,7 +18,7 @@ bus_generic_detach(device_t dev)
 
 ## 描述
 
-此函数提供 [DEVICE_DETACH(9)](DEVICE_DETACH.9.md) 方法的实现，可供大多数总线代码使用。它使用 bus_detach_children(9) 从所有子设备分离驱动程序，让它们有机会否决分离请求。如果 `bus_detach_children` 成功，`bus_generic_detach` 调用 [device_delete_children(9)](device_delete_children.9.md) 删除所有子设备。
+此函数提供 [DEVICE_DETACH(9)](device_detach.9.md) 方法的实现，可供大多数总线代码使用。它使用 bus_detach_children(9) 从所有子设备分离驱动程序，让它们有机会否决分离请求。如果 `bus_detach_children` 成功，`bus_generic_detach` 调用 [device_delete_children(9)](device_delete_children.9.md) 删除所有子设备。
 
 ## 返回值
 

@@ -42,7 +42,7 @@ bus_get_cpus(device_t dev, enum cpu_sets op, size_t setsize,
 
 ## 参见
 
-cpuset(2), [BUS_BIND_INTR(9)](BUS_BIND_INTR.9.md), [device(9)](device.9.md)
+cpuset(2), [BUS_BIND_INTR(9)](bus_bind_intr.9.md), [device(9)](device.9.md)
 
 ## 历史
 

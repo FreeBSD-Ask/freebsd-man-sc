@@ -58,7 +58,7 @@ struct intr_config_hook {
 
 ## 参见
 
-[DEVICE_ATTACH(9)](DEVICE_ATTACH.9.md)
+[DEVICE_ATTACH(9)](device_attach.9.md)
 
 ## 历史
 
