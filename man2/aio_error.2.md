@@ -39,4 +39,12 @@ aio_error(const struct aiocb *iocb);
 
 ## 标准
 
-`aio_error()` 系统调用预期符合 IEEE Std 1003.1 ("
+`aio_error()` 系统调用预期符合 IEEE Std 1003.1 ("POSIX.1") 标准。
+
+## 历史
+
+`aio_error()` 系统调用首次出现于 FreeBSD 3.0。
+
+## 作者
+
+本手册页由 Wes Peters <wes@softweyr.com> 编写。
