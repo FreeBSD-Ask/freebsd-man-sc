@@ -3,23 +3,27 @@
 """
 man_tools.py - FreeBSD man 手册中文翻译项目综合工具
 
-整合所有比较、检查、分析功能于一体。
+整合 mdoc→Markdown 转换、比较、检查、分析功能于一体。
 
 子命令:
-    report      生成综合比较报告（en/ vs SUMMARY.md + 翻译行数 + 问题检测）
-    compare     比较 en/ 与 SUMMARY.md，查漏补缺
-    linecount   比较中文翻译与英文原文行数
-    issues      检测所有问题（损坏的 en2/、占位符、缺失翻译）
-    fix-en2     重新转换损坏的 en2/ 文件（.TH 格式 → mdoc 格式）
-    aliases     列出 SUMMARY.md 中的别名条目
-    stats       显示按章节的统计信息
+    report          生成综合比较报告（en/ vs SUMMARY.md + 翻译行数 + 问题检测）
+    compare         比较 en/ 与 SUMMARY.md，查漏补缺
+    linecount       比较中文翻译与英文原文行数
+    issues          检测所有问题（损坏的 en2/、占位符、缺失翻译）
+    fix-en2         重新转换损坏的 en2/ 文件
+    convert         全量转换 en/ → en2/（整合 man-to-markdown.py）
+    convert-sample  转换 5 个示例文件（整合 man-to-markdown.py --sample）
+    aliases         列出 SUMMARY.md 中的别名条目
+    stats           显示按章节的统计信息
 
 用法:
     python man_tools.py report
     python man_tools.py compare
-    python man_tools.py linecount
+    python man_tools.py linecount [--threshold 20]
     python man_tools.py issues
     python man_tools.py fix-en2 [--dry-run]
+    python man_tools.py convert
+    python man_tools.py convert-sample
     python man_tools.py aliases
     python man_tools.py stats
 
@@ -29,6 +33,8 @@ man_tools.py - FreeBSD man 手册中文翻译项目综合工具
 from __future__ import annotations
 
 import argparse
+import importlib.util
+import logging
 import re
 import sys
 from pathlib import Path
@@ -43,13 +49,15 @@ EN_DIR = PROJECT_ROOT / "en"
 EN2_DIR = PROJECT_ROOT / "en2"
 SUMMARY_FILE = PROJECT_ROOT / "SUMMARY.md"
 OUTPUT_FILE = PROJECT_ROOT / "script" / "man_tools_output.txt"
+MAN_TO_MD_SCRIPT = PROJECT_ROOT / "script" / "man-to-markdown.py"
+LOG_FILE = PROJECT_ROOT / "script" / "man_tools.log"
 
 MAN_SECTIONS = [
     "man1", "man2", "man3", "man3lua",
     "man4", "man5", "man6", "man7", "man8", "man9",
 ]
 
-# mdoc 章节标题中文映射
+# mdoc 章节标题中文映射（用于 .TH 格式简易转换）
 SECTION_TITLES = {
     "NAME": "名称", "SYNOPSIS": "概要", "DESCRIPTION": "描述",
     "OPTIONS": "选项", "EXIT STATUS": "退出状态", "EXAMPLES": "实例",
@@ -62,6 +70,34 @@ SECTION_TITLES = {
 }
 
 OUTPUT_LINES: List[str] = []
+
+
+# ---------------------------------------------------------------------------
+# 加载 man-to-markdown.py 模块
+# ---------------------------------------------------------------------------
+
+_man_to_md_module = None
+
+
+def load_man_to_markdown():
+    """动态加载 script/man-to-markdown.py 作为模块。"""
+    global _man_to_md_module
+    if _man_to_md_module is not None:
+        return _man_to_md_module
+
+    if not MAN_TO_MD_SCRIPT.exists():
+        raise FileNotFoundError(f"找不到 man-to-markdown.py: {MAN_TO_MD_SCRIPT}")
+
+    spec = importlib.util.spec_from_file_location(
+        "man_to_markdown", MAN_TO_MD_SCRIPT
+    )
+    if spec is None or spec.loader is None:
+        raise ImportError(f"无法加载 man-to-markdown.py")
+
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    _man_to_md_module = module
+    return module
 
 
 # ---------------------------------------------------------------------------
@@ -91,14 +127,43 @@ def read_text(filepath: Path) -> str:
         return ""
 
 
+def is_th_format(filepath: Path) -> bool:
+    """检测 man 文件是否使用 .TH（man-db 格式）而非 .Dt（mdoc 格式）。"""
+    content = read_text(filepath)
+    return bool(re.search(r'^\.TH\s+', content, re.MULTILINE))
+
+
+def is_mdoc_format(filepath: Path) -> bool:
+    """检测是否为 mdoc 格式（包含 .Dt 或 .Dd）。"""
+    content = read_text(filepath)
+    return bool(re.search(r'^\.(Dt|Dd|Os)\s+', content, re.MULTILINE))
+
+
+def setup_logging() -> logging.Logger:
+    """配置日志记录器。"""
+    logger = logging.getLogger("man_tools")
+    logger.setLevel(logging.INFO)
+    for h in list(logger.handlers):
+        logger.removeHandler(h)
+    LOG_FILE.parent.mkdir(parents=True, exist_ok=True)
+    fh = logging.FileHandler(LOG_FILE, mode="w", encoding="utf-8")
+    fh.setLevel(logging.INFO)
+    formatter = logging.Formatter("%(asctime)s [%(levelname)s] %(message)s")
+    fh.setFormatter(formatter)
+    logger.addHandler(fh)
+    sh = logging.StreamHandler(sys.stderr)
+    sh.setLevel(logging.WARNING)
+    sh.setFormatter(formatter)
+    logger.addHandler(sh)
+    return logger
+
+
 # ---------------------------------------------------------------------------
 # 数据收集函数
 # ---------------------------------------------------------------------------
 
 def get_en_files() -> Dict[str, Dict[str, Path]]:
-    """获取 en/ 目录下所有 man 文件，按章节分组。
-    返回 {section: {filename: Path}}。
-    """
+    """获取 en/ 目录下所有 man 文件，按章节分组。"""
     result: Dict[str, Dict[str, Path]] = {}
     for section in MAN_SECTIONS:
         section_dir = EN_DIR / section
@@ -181,7 +246,6 @@ def get_summary_entries() -> Tuple[Dict[str, Set[str]], Dict[str, Set[str]]]:
             entries[section] = set()
             targets[section] = set()
 
-        # 链接文本（去除 markdown 转义的反斜杠）
         clean_text = text.replace("\\", "")
         entries[section].add(clean_text)
         targets[section].add(filename)
@@ -189,21 +253,103 @@ def get_summary_entries() -> Tuple[Dict[str, Set[str]], Dict[str, Set[str]]]:
     return entries, targets
 
 
-def is_th_format(filepath: Path) -> bool:
-    """检测 mdoc 文件是否使用 .TH（man-db 格式）而非 .Dt（mdoc 格式）。"""
-    content = read_text(filepath)
-    # 查找 .TH 行（man-db 格式）
-    if re.search(r'^\.TH\s+', content, re.MULTILINE):
-        return True
-    return False
+# ---------------------------------------------------------------------------
+# .TH 格式简易转换（用于 man-to-markdown.py 无法处理的非 mdoc 文件）
+# ---------------------------------------------------------------------------
 
+def convert_th_to_markdown(content: str, filename: str) -> str:
+    """将 .TH 格式的 man 页面转换为简易 Markdown。
 
-def is_mdoc_format(filepath: Path) -> bool:
-    """检测是否为 mdoc 格式（包含 .Dt 或 .Dd）。"""
-    content = read_text(filepath)
-    if re.search(r'^\.(Dt|Dd|Os)\s+', content, re.MULTILINE):
-        return True
-    return False
+    .TH 格式使用 .SH 而非 .Sh，.B/.I 而非 .Sy/.Em 等。
+    本函数做基本转换，生成可读的 Markdown。
+    """
+    lines = content.split("\n")
+    output: List[str] = []
+
+    # 提取标题
+    title_match = re.match(r'\.TH\s+"([^"]+)"\s+"(\d+)"', lines[0] if lines else "")
+    if title_match:
+        name = title_match.group(1).lower()
+        section_num = title_match.group(2)
+        output.append(f"# `{name}({section_num})`")
+        output.append("")
+
+    # 处理 .SH 章节标题
+    for line in lines[1:]:
+        stripped = line.strip()
+
+        # 跳过注释
+        if stripped.startswith('.\\"'):
+            continue
+
+        # .SH 章节标题
+        sh_match = re.match(r'^\.SH\s+"?([^"]+)"?', stripped)
+        if sh_match:
+            section_name = sh_match.group(1).strip()
+            cn_title = SECTION_TITLES.get(section_name.upper(), section_name)
+            output.append(f"## {cn_title}")
+            output.append("")
+            continue
+
+        # .B 加粗
+        b_match = re.match(r'^\.B\s+(.+)', stripped)
+        if b_match:
+            text = b_match.group(1).strip()
+            text = re.sub(r'\\f[BI]', '', text)
+            output.append(f"**{text}**")
+            continue
+
+        # .I 斜体
+        i_match = re.match(r'^\.I\s+(.+)', stripped)
+        if i_match:
+            text = i_match.group(1).strip()
+            output.append(f"*{text}*")
+            continue
+
+        # .TP 标签段落
+        if stripped == ".TP":
+            continue
+
+        # .PP 段落
+        if stripped in (".PP", ".P"):
+            output.append("")
+            continue
+
+        # .RS/.RE 缩进块
+        if stripped == ".RS":
+            continue
+        if stripped == ".RE":
+            output.append("")
+            continue
+
+        # .br 换行
+        if stripped == ".br":
+            output.append("")
+            continue
+
+        # 跳过空行和未处理的宏
+        if stripped.startswith(".") and not stripped.startswith(".."):
+            macro_match = re.match(r'^\.\w+\s+(.+)', stripped)
+            if macro_match:
+                text = macro_match.group(1).strip()
+                text = re.sub(r'\\f[BI]', '', text)
+                text = re.sub(r'\\f[R]', '', text)
+                text = text.replace(r'\-', '-')
+                text = text.replace(r'\\', '\\')
+                if text:
+                    output.append(text)
+            continue
+
+        # 普通文本行
+        if stripped:
+            text = stripped
+            text = re.sub(r'\\f[BI]', '', text)
+            text = re.sub(r'\\f[R]', '', text)
+            text = text.replace(r'\-', '-')
+            text = text.replace(r'\\', '\\')
+            output.append(text)
+
+    return "\n".join(output)
 
 
 # ---------------------------------------------------------------------------
@@ -254,17 +400,13 @@ def cmd_compare(args: argparse.Namespace) -> None:
     missing_total = 0
     for section in MAN_SECTIONS:
         en_set = set(en_files.get(section, {}).keys())
-        # 构建小写映射
         en_lower_map = {f.lower(): f for f in en_set}
         en_lower_set = set(en_lower_map.keys())
 
-        # SUMMARY.md 链接文本（去掉 .md 后缀，小写）
         entry_lower_set = set()
         for text in summary_entries.get(section, set()):
-            # 链接文本可能带 .N 后缀（如 addr2line.1）
             entry_lower_set.add(text.lower())
 
-        # SUMMARY.md 实际目标（去掉 .md 后缀，小写）
         target_lower_set = set()
         for fname in summary_targets.get(section, set()):
             if fname.endswith(".md"):
@@ -272,7 +414,6 @@ def cmd_compare(args: argparse.Namespace) -> None:
             else:
                 target_lower_set.add(fname.lower())
 
-        # en 中既不在链接文本也不在实际目标中的文件
         combined = entry_lower_set | target_lower_set
         missing_lower = en_lower_set - combined
         if missing_lower:
@@ -287,7 +428,7 @@ def cmd_compare(args: argparse.Namespace) -> None:
     else:
         log(f"\n  总计缺失: {missing_total} 个文件")
 
-    # 查缺：SUMMARY.md 引用但 en/ 中不存在的文件（基于实际引用目标）
+    # 查缺：SUMMARY.md 引用但 en/ 中不存在的文件
     log("\n【查缺：SUMMARY.md 引用但 en/ 中不存在的文件（基于实际引用目标）】")
     extra_total = 0
     for section in MAN_SECTIONS:
@@ -338,7 +479,7 @@ def cmd_linecount(args: argparse.Namespace) -> None:
     cn_files = get_cn_files()
     en2_files = get_en2_files()
 
-    threshold = args.threshold if hasattr(args, "threshold") else 20
+    threshold = args.threshold
 
     for section in MAN_SECTIONS:
         cn_section = cn_files.get(section, {})
@@ -365,7 +506,6 @@ def cmd_linecount(args: argparse.Namespace) -> None:
             diff = cn_lines - en_lines
             diff_pct = (diff / en_lines * 100) if en_lines > 0 else 0
 
-            # 检测占位符（1-2 行）
             if cn_lines <= 2 and en_lines > 10:
                 placeholder_files.append(filename)
             elif abs(diff_pct) > threshold:
@@ -423,7 +563,6 @@ def cmd_issues(args: argparse.Namespace) -> None:
             lines = count_lines(path)
             if lines <= 3:
                 broken_en2.append((section, filename))
-                # 检查 en/ 源文件格式
                 en_filename = filename.replace(".md", "")
                 en_path = EN_DIR / section / en_filename
                 if en_path.exists():
@@ -473,46 +612,6 @@ def cmd_issues(args: argparse.Namespace) -> None:
         log(f"    [{section}] {filename}")
 
 
-def cmd_aliases(args: argparse.Namespace) -> None:
-    """列出 SUMMARY.md 中的别名条目。"""
-    log("=" * 80)
-    log("SUMMARY.md 别名条目列表")
-    log("=" * 80)
-
-    summary_entries, summary_targets = get_summary_entries()
-
-    for section in MAN_SECTIONS:
-        entries = summary_entries.get(section, set())
-        targets = summary_targets.get(section, set())
-        if len(entries) == len(targets):
-            continue
-
-        log(f"\n--- {section} ---")
-        # 构建目标 → 链接文本列表的映射
-        content = SUMMARY_FILE.read_text(encoding="utf-8", errors="replace")
-        pattern = re.compile(r'\[([^\]]+)\]\(([^)]+)\)')
-        target_to_entries: Dict[str, List[str]] = {}
-
-        for match in pattern.finditer(content):
-            text = match.group(1).replace("\\", "")
-            path = match.group(2).lstrip("./")
-            parts = path.split("/")
-            if len(parts) < 2 or parts[0] != section:
-                continue
-            target = parts[1]
-            if target not in target_to_entries:
-                target_to_entries[target] = []
-            target_to_entries[target].append(text)
-
-        # 只显示有多个链接文本指向同一目标的条目
-        for target, texts in sorted(target_to_entries.items()):
-            if len(texts) > 1:
-                log(f"  {target}:")
-                for t in texts:
-                    marker = " ← 主条目" if t + ".md" == target else ""
-                    log(f"    - {t}{marker}")
-
-
 def cmd_fix_en2(args: argparse.Namespace) -> None:
     """重新转换损坏的 en2/ 文件。"""
     log("=" * 80)
@@ -522,7 +621,7 @@ def cmd_fix_en2(args: argparse.Namespace) -> None:
     en_files = get_en_files()
     en2_files = get_en2_files()
 
-    dry_run = args.dry_run if hasattr(args, "dry_run") else False
+    dry_run = args.dry_run
 
     fixed = 0
     failed = 0
@@ -541,132 +640,138 @@ def cmd_fix_en2(args: argparse.Namespace) -> None:
                 failed += 1
                 continue
 
-            if not is_th_format(en_path):
-                log(f"  [跳过] {section}/{filename} - 非 .TH 格式，需手动检查")
-                failed += 1
-                continue
+            if is_th_format(en_path):
+                # .TH 格式 - 使用简易转换器
+                if dry_run:
+                    log(f"  [DRY-RUN] 将转换（.TH 格式）{section}/{filename}")
+                    fixed += 1
+                    continue
 
-            if dry_run:
-                log(f"  [DRY-RUN] 将转换 {section}/{filename}")
-                fixed += 1
-                continue
+                content = read_text(en_path)
+                md_content = convert_th_to_markdown(content, en_filename)
 
-            # 读取 .TH 格式文件并转换为简易 Markdown
-            content = read_text(en_path)
-            md_content = convert_th_to_markdown(content, en_filename)
+                if md_content:
+                    en2_path.write_text(md_content, encoding="utf-8")
+                    new_lines = count_lines(en2_path)
+                    log(f"  [成功] {section}/{filename} - 转换为 {new_lines} 行（.TH 格式）")
+                    fixed += 1
+                else:
+                    log(f"  [失败] {section}/{filename} - 转换失败")
+                    failed += 1
+            elif is_mdoc_format(en_path):
+                # mdoc 格式 - 使用 man-to-markdown.py
+                if dry_run:
+                    log(f"  [DRY-RUN] 将转换（mdoc 格式）{section}/{filename}")
+                    fixed += 1
+                    continue
 
-            if md_content:
-                en2_path.write_text(md_content, encoding="utf-8")
-                new_lines = count_lines(en2_path)
-                log(f"  [成功] {section}/{filename} - 转换为 {new_lines} 行")
-                fixed += 1
+                try:
+                    md_module = load_man_to_markdown()
+                    files_list = md_module.discover_files()
+                    file_index = md_module.build_file_index(files_list)
+                    # 查找对应的 FileInfo
+                    for info in files_list:
+                        if info.output_path == en2_path:
+                            success, msg = md_module.convert_one(
+                                info, file_index, setup_logging()
+                            )
+                            if success:
+                                new_lines = count_lines(en2_path)
+                                log(f"  [成功] {section}/{filename} - 转换为 {new_lines} 行（mdoc 格式）")
+                                fixed += 1
+                            else:
+                                log(f"  [失败] {section}/{filename} - {msg}")
+                                failed += 1
+                            break
+                    else:
+                        log(f"  [失败] {section}/{filename} - 未在 discover_files() 中找到对应文件")
+                        failed += 1
+                except Exception as exc:
+                    log(f"  [失败] {section}/{filename} - {exc}")
+                    failed += 1
             else:
-                log(f"  [失败] {section}/{filename} - 转换失败")
+                log(f"  [跳过] {section}/{filename} - 非 .TH 非 mdoc 格式，需手动检查")
                 failed += 1
 
     log(f"\n总计: 成功 {fixed} 个, 失败/跳过 {failed} 个")
 
 
-def convert_th_to_markdown(content: str, filename: str) -> str:
-    """将 .TH 格式的 man 页面转换为简易 Markdown。
+def cmd_convert(args: argparse.Namespace) -> None:
+    """全量转换 en/ → en2/（整合 man-to-markdown.py）。"""
+    log("=" * 80)
+    log("全量转换 en/ → en2/（使用 man-to-markdown.py）")
+    log("=" * 80)
 
-    .TH 格式使用 .SH 而非 .Sh，.B/.I 而非 .Sy/.Em 等。
-    本函数做基本转换，生成可读的 Markdown。
-    """
-    lines = content.split("\n")
-    output: List[str] = []
+    try:
+        md_module = load_man_to_markdown()
+    except Exception as exc:
+        log(f"错误：无法加载 man-to-markdown.py: {exc}")
+        sys.exit(1)
 
-    # 提取标题
-    title_match = re.match(r'\.TH\s+"([^"]+)"\s+"(\d+)"', lines[0] if lines else "")
-    if title_match:
-        name = title_match.group(1).lower()
-        section_num = title_match.group(2)
-        output.append(f"# `{name}({section_num})`")
-        output.append("")
+    logger = setup_logging()
+    logger.info("通过 man_tools.py 启动全量转换")
 
-    # 处理 .SH 章节标题
-    current_section = ""
-    in_preformatted = False
+    result = md_module.run_full(logger)
+    log(f"转换完成，返回码: {result}")
+    log(f"详细日志: {LOG_FILE}")
 
-    for line in lines[1:]:
-        stripped = line.strip()
 
-        # 跳过注释
-        if stripped.startswith('.\\"'):
+def cmd_convert_sample(args: argparse.Namespace) -> None:
+    """转换示例文件（整合 man-to-markdown.py --sample）。"""
+    log("=" * 80)
+    log("转换示例文件（使用 man-to-markdown.py）")
+    log("=" * 80)
+
+    try:
+        md_module = load_man_to_markdown()
+    except Exception as exc:
+        log(f"错误：无法加载 man-to-markdown.py: {exc}")
+        sys.exit(1)
+
+    logger = setup_logging()
+    logger.info("通过 man_tools.py 启动示例转换")
+
+    result = md_module.run_sample(logger)
+    log(f"转换完成，返回码: {result}")
+    log(f"详细日志: {LOG_FILE}")
+
+
+def cmd_aliases(args: argparse.Namespace) -> None:
+    """列出 SUMMARY.md 中的别名条目。"""
+    log("=" * 80)
+    log("SUMMARY.md 别名条目列表")
+    log("=" * 80)
+
+    summary_entries, summary_targets = get_summary_entries()
+
+    for section in MAN_SECTIONS:
+        entries = summary_entries.get(section, set())
+        targets = summary_targets.get(section, set())
+        if len(entries) == len(targets):
             continue
 
-        # .SH 章节标题
-        sh_match = re.match(r'^\.SH\s+"?([^"]+)"?', stripped)
-        if sh_match:
-            section_name = sh_match.group(1).strip()
-            # 映射为中文标题
-            cn_title = SECTION_TITLES.get(section_name.upper(), section_name)
-            current_section = section_name.upper()
-            output.append(f"## {cn_title}")
-            output.append("")
-            continue
+        log(f"\n--- {section} ---")
+        content = SUMMARY_FILE.read_text(encoding="utf-8", errors="replace")
+        pattern = re.compile(r'\[([^\]]+)\]\(([^)]+)\)')
+        target_to_entries: Dict[str, List[str]] = {}
 
-        # .B 加粗
-        b_match = re.match(r'^\.B\s+(.+)', stripped)
-        if b_match:
-            text = b_match.group(1).strip()
-            # 去掉嵌套的 .B/.I
-            text = re.sub(r'\\f[BI]', '', text)
-            output.append(f"**{text}**")
-            continue
+        for match in pattern.finditer(content):
+            text = match.group(1).replace("\\", "")
+            path = match.group(2).lstrip("./")
+            parts = path.split("/")
+            if len(parts) < 2 or parts[0] != section:
+                continue
+            target = parts[1]
+            if target not in target_to_entries:
+                target_to_entries[target] = []
+            target_to_entries[target].append(text)
 
-        # .I 斜体
-        i_match = re.match(r'^\.I\s+(.+)', stripped)
-        if i_match:
-            text = i_match.group(1).strip()
-            output.append(f"*{text}*")
-            continue
-
-        # .TP 标签段落
-        if stripped == ".TP":
-            continue
-
-        # .PP 段落
-        if stripped in (".PP", ".P"):
-            output.append("")
-            continue
-
-        # .RS/.RE 缩进块
-        if stripped == ".RS":
-            continue
-        if stripped == ".RE":
-            output.append("")
-            continue
-
-        # .br 换行
-        if stripped == ".br":
-            output.append("")
-            continue
-
-        # 跳过空行和未处理的宏
-        if stripped.startswith(".") and not stripped.startswith(".."):
-            # 尝试提取宏后的文本
-            macro_match = re.match(r'^\.\w+\s+(.+)', stripped)
-            if macro_match:
-                text = macro_match.group(1).strip()
-                # 清理 troff 字体控制
-                text = re.sub(r'\\f[BI]', '', text)
-                text = re.sub(r'\\f[R]', '', text)
-                if text:
-                    output.append(text)
-            continue
-
-        # 普通文本行
-        if stripped:
-            # 清理 troff 转义
-            text = stripped
-            text = re.sub(r'\\f[BI]', '', text)
-            text = re.sub(r'\\f[R]', '', text)
-            text = text.replace(r'\-', '-')
-            text = text.replace(r'\\', '\\')
-            output.append(text)
-
-    return "\n".join(output)
+        for target, texts in sorted(target_to_entries.items()):
+            if len(texts) > 1:
+                log(f"  {target}:")
+                for t in texts:
+                    marker = " ← 主条目" if t + ".md" == target else ""
+                    log(f"    - {t}{marker}")
 
 
 def cmd_report(args: argparse.Namespace) -> None:
@@ -707,6 +812,7 @@ def cmd_report(args: argparse.Namespace) -> None:
     log("=" * 80)
 
     # 写入文件
+    OUTPUT_FILE.parent.mkdir(parents=True, exist_ok=True)
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
         f.write("\n".join(OUTPUT_LINES))
     log(f"\n完整输出已写入: {OUTPUT_FILE}")
@@ -745,6 +851,14 @@ def main() -> None:
     p_fix = subparsers.add_parser("fix-en2", help="重新转换损坏的 en2/ 文件")
     p_fix.add_argument("--dry-run", action="store_true", help="仅显示将执行的操作，不实际修改")
     p_fix.set_defaults(func=cmd_fix_en2)
+
+    # convert
+    p_convert = subparsers.add_parser("convert", help="全量转换 en/ → en2/（整合 man-to-markdown.py）")
+    p_convert.set_defaults(func=cmd_convert)
+
+    # convert-sample
+    p_sample = subparsers.add_parser("convert-sample", help="转换示例文件（整合 man-to-markdown.py --sample）")
+    p_sample.set_defaults(func=cmd_convert_sample)
 
     # aliases
     p_aliases = subparsers.add_parser("aliases", help="列出 SUMMARY.md 中的别名")
