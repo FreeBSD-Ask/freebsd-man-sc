@@ -1,0 +1,2 @@
+# cap\_rights\_get.3
+

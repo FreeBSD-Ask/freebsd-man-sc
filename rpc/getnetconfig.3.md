@@ -1,0 +1,2 @@
+# getnetconfig.3
+

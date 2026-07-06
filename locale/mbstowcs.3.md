@@ -1,0 +1,2 @@
+# mbstowcs.3
+

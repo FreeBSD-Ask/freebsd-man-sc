@@ -1,0 +1,2 @@
+# getnetent.3
+

@@ -1,0 +1,2 @@
+# getpagesize.3
+
