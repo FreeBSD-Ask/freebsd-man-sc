@@ -51,7 +51,7 @@ VOP_RMDIR(struct vnode *dvp, struct vnode *vp,
 
 ## 参见
 
-[vnode(9)](vnode.9.md), [VOP_LOOKUP(9)](VOP_LOOKUP.9.md)
+[vnode(9)](vnode.9.md), [VOP_LOOKUP(9)](vop_lookup.9.md)
 
 ## 作者
 

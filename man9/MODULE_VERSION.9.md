@@ -17,7 +17,7 @@ MODULE_VERSION(name, int version)
 
 ## 描述
 
-`MODULE_VERSION` 宏设置名为 `name` 的模块的版本。其他内核模块随后可以依赖此模块（参见 [MODULE_DEPEND(9)](MODULE_DEPEND.9.md)）。
+`MODULE_VERSION` 宏设置名为 `name` 的模块的版本。其他内核模块随后可以依赖此模块（参见 [MODULE_DEPEND(9)](module_depend.9.md)）。
 
 ## 实例
 
@@ -27,7 +27,7 @@ MODULE_VERSION(foo, 1);
 
 ## 参见
 
-[DECLARE_MODULE(9)](DECLARE_MODULE.9.md), [module(9)](module.9.md), [MODULE_DEPEND(9)](MODULE_DEPEND.9.md)
+[DECLARE_MODULE(9)](declare_module.9.md), [module(9)](module.9.md), [MODULE_DEPEND(9)](module_depend.9.md)
 
 ## 作者
 

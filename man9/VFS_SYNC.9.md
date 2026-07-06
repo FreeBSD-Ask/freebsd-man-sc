@@ -33,11 +33,11 @@ VFS_SYNC(struct mount *mp, int waitfor)
 
 **`waitfor`** 函数是否应等待 I/O 完成。可能取值为：
 
-`VFS_SYNC` 宏调用文件系统的 `vfs_sync` 方法，该方法通常会为文件系统中的所有 vnode 调用 [VOP_FSYNC(9)](VOP_FSYNC.9.md)。
+`VFS_SYNC` 宏调用文件系统的 `vfs_sync` 方法，该方法通常会为文件系统中的所有 vnode 调用 [VOP_FSYNC(9)](vop_fsync.9.md)。
 
 ## 参见
 
-[fsync(2)](../man2/fsync.2.md), [sync(2)](../man2/sync.2.md), [VFS(9)](VFS.9.md), [vnode(9)](vnode.9.md), [VOP_FSYNC(9)](VOP_FSYNC.9.md)
+[fsync(2)](../man2/fsync.2.md), [sync(2)](../man2/sync.2.md), [VFS(9)](vfs.9.md), [vnode(9)](vnode.9.md), [VOP_FSYNC(9)](vop_fsync.9.md)
 
 ## 作者
 

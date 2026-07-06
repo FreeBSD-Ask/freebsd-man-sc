@@ -150,7 +150,7 @@
 
 MAC 地址是 [ethers(5)](../man5/ethers.5.md) 格式的 ASCII 字符串。
 
-`ngd` 设备可用于通过 [ng_device(4)](../man4/ng_device.4.md) 节点将客户机连接到 [netgraph(4)](../man4/netgraph.4.md)。这可用于在 [VNET(9)](../man9/VNET.9.md) jail 中运行 bhyve，并通过 devfs(8) 暴露 ng_device，使其能够访问无法直接到达的主机 netgraph。
+`ngd` 设备可用于通过 [ng_device(4)](../man4/ng_device.4.md) 节点将客户机连接到 [netgraph(4)](../man4/netgraph.4.md)。这可用于在 [VNET(9)](../man9/vnet.9.md) jail 中运行 bhyve，并通过 devfs(8) 暴露 ng_device，使其能够访问无法直接到达的主机 netgraph。
 
 对于 `virtio-net` 设备，可指定 `mtu` 参数以告知客户机允许的最大 MTU（以字节为单位）。
 

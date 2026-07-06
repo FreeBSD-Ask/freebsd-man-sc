@@ -277,7 +277,7 @@ tcp:::siftr
 
 ## 参见
 
-[dtrace(1)](../man1/dtrace.1.md), [dtrace_ip(4)](dtrace_ip.4.md), [dtrace_mib(4)](dtrace_mib.4.md), [dtrace_sctp(4)](dtrace_sctp.4.md), [dtrace_udp(4)](dtrace_udp.4.md), [dtrace_udplite(4)](dtrace_udplite.4.md), [siftr(4)](siftr.4.md), [tcp(4)](tcp.4.md), [SDT(9)](../man9/SDT.9.md)
+[dtrace(1)](../man1/dtrace.1.md), [dtrace_ip(4)](dtrace_ip.4.md), [dtrace_mib(4)](dtrace_mib.4.md), [dtrace_sctp(4)](dtrace_sctp.4.md), [dtrace_udp(4)](dtrace_udp.4.md), [dtrace_udplite(4)](dtrace_udplite.4.md), [siftr(4)](siftr.4.md), [tcp(4)](tcp.4.md), [SDT(9)](../man9/sdt.9.md)
 
 ## 历史
 

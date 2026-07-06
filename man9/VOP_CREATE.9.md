@@ -46,7 +46,7 @@ VOP_SYMLINK(struct vnode *dvp, struct vnode **vpp,
 
 **`target`** 符号链接目标的路径名。
 
-当创建对象时，这些入口点在 [VOP_LOOKUP(9)](VOP_LOOKUP.9.md) 之后被调用。
+当创建对象时，这些入口点在 [VOP_LOOKUP(9)](vop_lookup.9.md) 之后被调用。
 
 ## 锁定
 
@@ -64,7 +64,7 @@ VOP_SYMLINK(struct vnode *dvp, struct vnode **vpp,
 
 ## 参见
 
-[vnode(9)](vnode.9.md), [VOP_LOOKUP(9)](VOP_LOOKUP.9.md)
+[vnode(9)](vnode.9.md), [VOP_LOOKUP(9)](vop_lookup.9.md)
 
 ## 历史
 

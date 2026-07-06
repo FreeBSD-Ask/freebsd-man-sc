@@ -325,7 +325,7 @@ ip->ip_len = htons(len);
 
 ## 参见
 
-getsockopt(2), recv(2), send(2), byteorder(3), [CMSG_DATA(3)](../man3/CMSG_DATA.3.md), sourcefilter(3), [dtrace_mib(4)](dtrace_mib.4.md), [icmp(4)](icmp.4.md), [igmp(4)](igmp.4.md), [inet(4)](inet.4.md), [intro(4)](intro.4.md), [multicast(4)](multicast.4.md)
+getsockopt(2), recv(2), send(2), byteorder(3), [CMSG_DATA(3)](../man3/cmsg_data.3.md), sourcefilter(3), [dtrace_mib(4)](dtrace_mib.4.md), [icmp(4)](icmp.4.md), [igmp(4)](igmp.4.md), [inet(4)](inet.4.md), [intro(4)](intro.4.md), [multicast(4)](multicast.4.md)
 
 > D. Thaler, B. Fenner, B. Quinn, "Socket Interface Extensions for Multicast Source Filters", RFC 3678, Jan 2004.
 

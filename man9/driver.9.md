@@ -41,11 +41,11 @@ DRIVER_MODULE(foo, bogo, foo_driver, NULL, NULL);
 
 内核中的每个驱动由一个 `driver_t` 结构描述。该结构包含设备名称、指向方法列表的指针、驱动所实现的设备类型指示，以及驱动需要与设备实例关联的私有数据大小。每个驱动会实现一组或多组方法（称为接口）。示例驱动实现了标准的 "driver" 接口和虚构的 "bogo" 接口。
 
-当驱动向系统注册时（通过 `DRIVER_MODULE` 宏，参见 [DRIVER_MODULE(9)](DRIVER_MODULE.9.md)），它会被添加到其父总线类型的 devclass 所包含的驱动列表中。例如，所有 PCI 驱动会包含在名为 "pci" 的 devclass 中，所有 ISA 驱动会包含在名为 "isa" 的 devclass 中。驱动不存放在父总线的设备对象中是为了处理给定总线类型的多个实例。`DRIVER_MODULE` 宏还会创建以驱动名称命名的 devclass，并可通过指定最后两个参数为额外的模块事件处理器和参数，可选地调用驱动中的额外初始化代码。
+当驱动向系统注册时（通过 `DRIVER_MODULE` 宏，参见 [DRIVER_MODULE(9)](driver_module.9.md)），它会被添加到其父总线类型的 devclass 所包含的驱动列表中。例如，所有 PCI 驱动会包含在名为 "pci" 的 devclass 中，所有 ISA 驱动会包含在名为 "isa" 的 devclass 中。驱动不存放在父总线的设备对象中是为了处理给定总线类型的多个实例。`DRIVER_MODULE` 宏还会创建以驱动名称命名的 devclass，并可通过指定最后两个参数为额外的模块事件处理器和参数，可选地调用驱动中的额外初始化代码。
 
 ## 参见
 
-[devclass(9)](devclass.9.md), [device(9)](device.9.md), [DEVICE_ATTACH(9)](device_attach.9.md), [DEVICE_DETACH(9)](device_detach.9.md), [DEVICE_IDENTIFY(9)](DEVICE_IDENTIFY.9.md), [DEVICE_PROBE(9)](device_probe.9.md), [DEVICE_SHUTDOWN(9)](DEVICE_SHUTDOWN.9.md), [DRIVER_MODULE(9)](DRIVER_MODULE.9.md)
+[devclass(9)](devclass.9.md), [device(9)](device.9.md), [DEVICE_ATTACH(9)](device_attach.9.md), [DEVICE_DETACH(9)](device_detach.9.md), [DEVICE_IDENTIFY(9)](device_identify.9.md), [DEVICE_PROBE(9)](device_probe.9.md), [DEVICE_SHUTDOWN(9)](device_shutdown.9.md), [DRIVER_MODULE(9)](driver_module.9.md)
 
 ## 历史
 

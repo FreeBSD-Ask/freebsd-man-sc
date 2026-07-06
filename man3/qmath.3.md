@@ -24,39 +24,39 @@
 
 ### 创建/初始化 Q 数的函数
 
-[Q_INI(3)](Q_INI.3.md)
+[Q_INI(3)](q_ini.3.md)
 
 ### 对两个 Q 数进行运算的数值函数
 
-[Q_QADDQ(3)](Q_QADDQ.3.md), Q_QDIVQ(3), Q_QMULQ(3), Q_QSUBQ(3), Q_NORMPREC(3), Q_QMAXQ(3), Q_QMINQ(3), Q_QCLONEQ(3), Q_QCPYVALQ(3)
+[Q_QADDQ(3)](q_qaddq.3.md), Q_QDIVQ(3), Q_QMULQ(3), Q_QSUBQ(3), Q_NORMPREC(3), Q_QMAXQ(3), Q_QMINQ(3), Q_QCLONEQ(3), Q_QCPYVALQ(3)
 
 ### 将整数应用于 Q 数的数值函数
 
-[Q_QADDI(3)](Q_QADDI.3.md), Q_QDIVI(3), Q_QMULI(3), Q_QSUBI(3), Q_QFRACI(3), Q_QCPYVALI(3)
+[Q_QADDI(3)](q_qaddi.3.md), Q_QDIVI(3), Q_QMULI(3), Q_QSUBI(3), Q_QFRACI(3), Q_QCPYVALI(3)
 
 ### 对单个 Q 数进行运算的数值函数
 
-[Q_QABS(3)](Q_QABS.3.md), Q_Q2D(3), Q_Q2F(3)
+[Q_QABS(3)](q_qabs.3.md), Q_Q2D(3), Q_Q2F(3)
 
 ### 比较与逻辑函数
 
-[Q_SIGNED(3)](Q_SIGNED.3.md), Q_LTZ(3), Q_PRECEQ(3), Q_QLTQ(3), Q_QLEQ(3), Q_QGTQ(3), Q_QGEQ(3), Q_QEQ(3), Q_QNEQ(3), Q_OFLOW(3), Q_RELPREC(3)
+[Q_SIGNED(3)](q_signed.3.md), Q_LTZ(3), Q_PRECEQ(3), Q_QLTQ(3), Q_QLEQ(3), Q_QGTQ(3), Q_QGEQ(3), Q_QEQ(3), Q_QNEQ(3), Q_OFLOW(3), Q_RELPREC(3)
 
 ### 操作控制/符号数据位的函数
 
-[Q_SIGNSHFT(3)](Q_SIGNSHFT.3.md), Q_SSIGN(3), Q_CRAWMASK(3), Q_SRAWMASK(3), Q_GCRAW(3), Q_GCVAL(3), Q_SCVAL(3)
+[Q_SIGNSHFT(3)](q_signshft.3.md), Q_SSIGN(3), Q_CRAWMASK(3), Q_SRAWMASK(3), Q_GCRAW(3), Q_GCVAL(3), Q_SCVAL(3)
 
 ### 操作组合整数/小数数据位的函数
 
-[Q_IFRAWMASK(3)](Q_IFRAWMASK.3.md), Q_IFVALIMASK(3), Q_IFVALFMASK(3), Q_GIFRAW(3), Q_GIFABSVAL(3), Q_GIFVAL(3), Q_SIFVAL(3), Q_SIFVALS(3)
+[Q_IFRAWMASK(3)](q_ifrawmask.3.md), Q_IFVALIMASK(3), Q_IFVALFMASK(3), Q_GIFRAW(3), Q_GIFABSVAL(3), Q_GIFVAL(3), Q_SIFVAL(3), Q_SIFVALS(3)
 
 ### 操作整数数据位的函数
 
-[Q_IRAWMASK(3)](Q_IRAWMASK.3.md), Q_GIRAW(3), Q_GIABSVAL(3), Q_GIVAL(3), Q_SIVAL(3)
+[Q_IRAWMASK(3)](q_irawmask.3.md), Q_GIRAW(3), Q_GIABSVAL(3), Q_GIVAL(3), Q_SIVAL(3)
 
 ### 操作小数数据位的函数
 
-[Q_FRAWMASK(3)](Q_FRAWMASK.3.md), Q_GFRAW(3), Q_GFABSVAL(3), Q_GFVAL(3), Q_SFVAL(3)
+[Q_FRAWMASK(3)](q_frawmask.3.md), Q_GFRAW(3), Q_GFABSVAL(3), Q_GFVAL(3), Q_SFVAL(3)
 
 ### 杂项函数/变量
 
@@ -161,7 +161,7 @@ ifmask=0x7ffffff8
 
 ## 参见
 
-errno(2), math(3), [Q_FRAWMASK(3)](Q_FRAWMASK.3.md), [Q_IFRAWMASK(3)](Q_IFRAWMASK.3.md), [Q_INI(3)](Q_INI.3.md), [Q_IRAWMASK(3)](Q_IRAWMASK.3.md), [Q_QABS(3)](Q_QABS.3.md), [Q_QADDI(3)](Q_QADDI.3.md), [Q_QADDQ(3)](Q_QADDQ.3.md), [Q_SIGNED(3)](Q_SIGNED.3.md), [Q_SIGNSHFT(3)](Q_SIGNSHFT.3.md), [stdint(7)](../man7/stdint.7.md)
+errno(2), math(3), [Q_FRAWMASK(3)](q_frawmask.3.md), [Q_IFRAWMASK(3)](q_ifrawmask.3.md), [Q_INI(3)](q_ini.3.md), [Q_IRAWMASK(3)](q_irawmask.3.md), [Q_QABS(3)](q_qabs.3.md), [Q_QADDI(3)](q_qaddi.3.md), [Q_QADDQ(3)](q_qaddq.3.md), [Q_SIGNED(3)](q_signed.3.md), [Q_SIGNSHFT(3)](q_signshft.3.md), [stdint(7)](../man7/stdint.7.md)
 
 ## 历史
 

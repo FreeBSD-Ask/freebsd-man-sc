@@ -16,7 +16,7 @@
 
 ## 参见
 
-[dtrace(1)](../man1/dtrace.1.md), cam(4), [SDT(9)](../man9/SDT.9.md)
+[dtrace(1)](../man1/dtrace.1.md), cam(4), [SDT(9)](../man9/sdt.9.md)
 
 ## 历史
 

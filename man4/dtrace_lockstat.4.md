@@ -34,7 +34,7 @@ Fn lockstat:::thread-spin 探测在线程自旋线程锁时触发，线程锁是
 
 ## 参见
 
-[dtrace(1)](../man1/dtrace.1.md), [lockstat(1)](../man1/lockstat.1.md), [locking(9)](../man9/locking.9.md), [mutex(9)](../man9/mutex.9.md), [rwlock(9)](../man9/rwlock.9.md), [SDT(9)](../man9/SDT.9.md), [sx(9)](../man9/sx.9.md)
+[dtrace(1)](../man1/dtrace.1.md), [lockstat(1)](../man1/lockstat.1.md), [locking(9)](../man9/locking.9.md), [mutex(9)](../man9/mutex.9.md), [rwlock(9)](../man9/rwlock.9.md), [SDT(9)](../man9/sdt.9.md), [sx(9)](../man9/sx.9.md)
 
 ## 历史
 

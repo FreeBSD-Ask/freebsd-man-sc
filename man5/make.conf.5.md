@@ -194,7 +194,7 @@ SENDMAIL_LDADD=-lsasl
 
 ## 参见
 
-[cc(1)](../man1/cc.1.md), install(1), [make(1)](../man1/make.1.md), [src.conf(5)](src.conf.5.md), [style.Makefile(5)](style.Makefile.5.md), [environ(7)](../man7/environ.7.md), [ports(7)](../man7/ports.7.md), sendmail(8)
+[cc(1)](../man1/cc.1.md), install(1), [make(1)](../man1/make.1.md), [src.conf(5)](src.conf.5.md), [style.Makefile(5)](style.makefile.5.md), [environ(7)](../man7/environ.7.md), [ports(7)](../man7/ports.7.md), sendmail(8)
 
 ## 历史
 

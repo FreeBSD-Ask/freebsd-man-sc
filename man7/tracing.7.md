@@ -12,7 +12,7 @@ FreeBSD 提供了多种跟踪和性能监控工具。在 [development(7)](develo
 
 ### DTrace
 
-[dtrace(1)](../man1/dtrace.1.md) 是 FreeBSD 上最通用的跟踪框架，能够跟踪从内核到用户空间中运行的应用程序的整个 FreeBSD 软件栈。有关更多详细信息，请参阅 [dtrace(1)](../man1/dtrace.1.md) 和 [SDT(9)](../man9/SDT.9.md)。
+[dtrace(1)](../man1/dtrace.1.md) 是 FreeBSD 上最通用的跟踪框架，能够跟踪从内核到用户空间中运行的应用程序的整个 FreeBSD 软件栈。有关更多详细信息，请参阅 [dtrace(1)](../man1/dtrace.1.md) 和 [SDT(9)](../man9/sdt.9.md)。
 
 dwatch(1) 是 DTrace 的用户友好型封装。它简化了常见的 DTrace 使用模式，运行所需的专家知识更少。
 

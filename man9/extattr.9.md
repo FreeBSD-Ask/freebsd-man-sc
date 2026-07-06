@@ -20,11 +20,11 @@
 
 读取扩展属性数据可能返回元数据的特定连续区域，类似于 VOP_READ(9) 风格，但写入会替换与给定名称关联的整个当前 “value”。由于存在大量具有不同扩展属性的文件系统，这些函数的可用性和功能可能受限，应在了解支持文件系统的底层语义的情况下使用。扩展属性数据的授权方案以及最大属性大小、是否允许定义任何或特定新属性等，也可能因文件系统而异。
 
-扩展属性使用以 null 结尾的字符串命名。根据底层文件系统语义，此名称可能区分也可能不区分大小写。相应的 vnode 扩展属性调用为：[VOP_GETEXTATTR(9)](VOP_GETEXTATTR.9.md)、[VOP_LISTEXTATTR(9)](VOP_LISTEXTATTR.9.md) 和 [VOP_SETEXTATTR(9)](VOP_SETEXTATTR.9.md)。
+扩展属性使用以 null 结尾的字符串命名。根据底层文件系统语义，此名称可能区分也可能不区分大小写。相应的 vnode 扩展属性调用为：[VOP_GETEXTATTR(9)](vop_getextattr.9.md)、[VOP_LISTEXTATTR(9)](vop_listextattr.9.md) 和 [VOP_SETEXTATTR(9)](vop_setextattr.9.md)。
 
 ## 参见
 
-[jail(8)](../man8/jail.8.md), [VFS(9)](VFS.9.md), [VOP_GETEXTATTR(9)](VOP_GETEXTATTR.9.md), [VOP_LISTEXTATTR(9)](VOP_LISTEXTATTR.9.md), [VOP_SETEXTATTR(9)](VOP_SETEXTATTR.9.md)
+[jail(8)](../man8/jail.8.md), [VFS(9)](vfs.9.md), [VOP_GETEXTATTR(9)](vop_getextattr.9.md), [VOP_LISTEXTATTR(9)](vop_listextattr.9.md), [VOP_SETEXTATTR(9)](vop_setextattr.9.md)
 
 ## 作者
 

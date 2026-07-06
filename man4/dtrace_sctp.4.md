@@ -94,7 +94,7 @@ Fn sctp:::send、Fn sctp:::receive 和 Fn sctp:::state-change 探测与 Solaris 
 
 ## 参见
 
-[dtrace(1)](../man1/dtrace.1.md), [dtrace_ip(4)](dtrace_ip.4.md), [dtrace_udp(4)](dtrace_udp.4.md), [dtrace_udplite(4)](dtrace_udplite.4.md), [sctp(4)](sctp.4.md), [SDT(9)](../man9/SDT.9.md)
+[dtrace(1)](../man1/dtrace.1.md), [dtrace_ip(4)](dtrace_ip.4.md), [dtrace_udp(4)](dtrace_udp.4.md), [dtrace_udplite(4)](dtrace_udplite.4.md), [sctp(4)](sctp.4.md), [SDT(9)](../man9/sdt.9.md)
 
 ## 作者
 

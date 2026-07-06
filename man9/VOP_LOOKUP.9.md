@@ -99,7 +99,7 @@ found：
 
 ## 参见
 
-[vnode(9)](vnode.9.md), [VOP_ACCESS(9)](VOP_ACCESS.9.md), [VOP_CREATE(9)](VOP_CREATE.9.md), VOP_MKDIR(9), VOP_MKNOD(9), [VOP_RENAME(9)](VOP_RENAME.9.md), VOP_SYMLINK(9)
+[vnode(9)](vnode.9.md), [VOP_ACCESS(9)](vop_access.9.md), [VOP_CREATE(9)](vop_create.9.md), VOP_MKDIR(9), VOP_MKNOD(9), [VOP_RENAME(9)](vop_rename.9.md), VOP_SYMLINK(9)
 
 ## 历史
 

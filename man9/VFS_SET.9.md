@@ -20,7 +20,7 @@ VFS_SET(struct vfsops *vfsops, fsname, int flags)
 
 ## 描述
 
-`VFS_SET` 为具有给定 `vfsops`、`fsname` 和 `flags` 的可加载模块创建一个 `vfsconf` 结构，并通过使用 `vfs_modevent` 作为事件处理程序调用 [DECLARE_MODULE(9)](DECLARE_MODULE.9.md) 来声明它。
+`VFS_SET` 为具有给定 `vfsops`、`fsname` 和 `flags` 的可加载模块创建一个 `vfsconf` 结构，并通过使用 `vfs_modevent` 作为事件处理程序调用 [DECLARE_MODULE(9)](declare_module.9.md) 来声明它。
 
 `flags` 参数的可能取值为：
 
@@ -61,7 +61,7 @@ VFS_SET(myfs_vfsops, myfs, 0);
 
 ## 参见
 
-[jail(2)](../man2/jail.2.md), [jail(8)](../man8/jail.8.md), [DECLARE_MODULE(9)](DECLARE_MODULE.9.md), vfs_modevent(9), [vfsconf(9)](vfsconf.9.md)
+[jail(2)](../man2/jail.2.md), [jail(8)](../man8/jail.8.md), [DECLARE_MODULE(9)](declare_module.9.md), vfs_modevent(9), [vfsconf(9)](vfsconf.9.md)
 
 ## 作者
 

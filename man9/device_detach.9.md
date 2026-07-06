@@ -30,7 +30,7 @@ DEVICE_DETACH(device_t dev)
 
 ## 参见
 
-[device(9)](device.9.md), [DEVICE_ATTACH(9)](DEVICE_ATTACH.9.md), [DEVICE_IDENTIFY(9)](DEVICE_IDENTIFY.9.md), [DEVICE_PROBE(9)](DEVICE_PROBE.9.md), [DEVICE_SHUTDOWN(9)](DEVICE_SHUTDOWN.9.md)
+[device(9)](device.9.md), [DEVICE_ATTACH(9)](DEVICE_ATTACH.9.md), [DEVICE_IDENTIFY(9)](device_identify.9.md), [DEVICE_PROBE(9)](DEVICE_PROBE.9.md), [DEVICE_SHUTDOWN(9)](device_shutdown.9.md)
 
 ## 作者
 

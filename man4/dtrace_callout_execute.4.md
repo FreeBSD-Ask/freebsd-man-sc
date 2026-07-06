@@ -39,7 +39,7 @@ callout_execute:::callout_end
 
 ## 参见
 
-[dtrace(1)](../man1/dtrace.1.md), [tracing(7)](../man7/tracing.7.md), [callout(9)](../man9/callout.9.md), [SDT(9)](../man9/SDT.9.md)
+[dtrace(1)](../man1/dtrace.1.md), [tracing(7)](../man7/tracing.7.md), [callout(9)](../man9/callout.9.md), [SDT(9)](../man9/sdt.9.md)
 
 ## 作者
 

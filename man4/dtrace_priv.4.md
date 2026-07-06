@@ -35,7 +35,7 @@ priv:::priv-err
 
 ## 参见
 
-[dtrace(1)](../man1/dtrace.1.md), [tracing(7)](../man7/tracing.7.md), [priv(9)](../man9/priv.9.md), [SDT(9)](../man9/SDT.9.md)
+[dtrace(1)](../man1/dtrace.1.md), [tracing(7)](../man7/tracing.7.md), [priv(9)](../man9/priv.9.md), [SDT(9)](../man9/sdt.9.md)
 
 ## 作者
 

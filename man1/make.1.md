@@ -969,7 +969,7 @@ NetBSD 4.0 中并行 make 调度方式更改，使 .ORDER 和 .WAIT 递归应用
 
 ## 参见
 
-mkdep(1), [style.Makefile(5)](../man5/style.Makefile.5.md)
+mkdep(1), [style.Makefile(5)](../man5/style.makefile.5.md)
 
 ## 历史
 

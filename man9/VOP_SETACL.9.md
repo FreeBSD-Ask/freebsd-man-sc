@@ -66,7 +66,7 @@ vnode 在进入时将被锁定，并在返回时应保持锁定状态。
 
 ## 参见
 
-[acl(9)](acl.9.md), [vnode(9)](vnode.9.md), [VOP_ACLCHECK(9)](VOP_ACLCHECK.9.md), [VOP_GETACL(9)](VOP_GETACL.9.md)
+[acl(9)](acl.9.md), [vnode(9)](vnode.9.md), [VOP_ACLCHECK(9)](vop_aclcheck.9.md), [VOP_GETACL(9)](vop_getacl.9.md)
 
 ## 作者
 

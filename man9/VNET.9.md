@@ -117,7 +117,7 @@ VNET_DEFINE_STATIC(SLIST_HEAD(, bar), bars);
 #define V_name VNET(name)
 ```
 
-*注意：* 不要将此与 [VFS(9)](VFS.9.md) 使用的约定混淆。
+*注意：* 不要将此与 [VFS(9)](vfs.9.md) 使用的约定混淆。
 
 `VNET_NAME` 宏返回在虚拟网络栈实例内存区域内的偏移量。
 
@@ -177,7 +177,7 @@ CURVNET_RESTORE();
 
 `IS_DEFAULT_VNET` 宏提供了一种安全的方法来检查当前活动实例是否是基础系统的无限制默认网络栈（`vnet0`）。
 
-`VNET_ASSERT` 宏提供了一种有条件添加断言的方法，这些断言仅在编译时启用了 `options VIMAGE` 并且同时启用了 `options VNET_DEBUG` 或 `options INVARIANTS` 时才激活。它使用与 [KASSERT(9)](KASSERT.9.md) 相同的语义。
+`VNET_ASSERT` 宏提供了一种有条件添加断言的方法，这些断言仅在编译时启用了 `options VIMAGE` 并且同时启用了 `options VNET_DEBUG` 或 `options INVARIANTS` 时才激活。它使用与 [KASSERT(9)](kassert.9.md) 相同的语义。
 
 ### 锁定
 
@@ -196,7 +196,7 @@ CURVNET_RESTORE();
 - 在每个虚拟实例中保存返回的 *tag*，并在拆除时使用这些 tag 正确释放事件处理器，或者
 - 使用一个将遍历所有虚拟网络栈实例的事件处理器。
 
-对于第一种情况，可以直接使用普通的 [EVENTHANDLER(9)](EVENTHANDLER.9.md) 函数；对于第二种情况，提供了 `VNET_GLOBAL_EVENTHANDLER_REGISTER` 和 `VNET_GLOBAL_EVENTHANDLER_REGISTER_TAG` 宏。它们的区别在于 `VNET_GLOBAL_EVENTHANDLER_REGISTER_TAG` 接受一个额外的第一个参数，该参数在返回时将携带 `tag`。使用其中任一宏注册的事件处理器不会直接运行 `func`，而是 `func` 将由内部迭代器函数为每个 vnet 调用。这两个宏只能用于不接受额外参数的事件处理器，因为来自 EVENTHANDLER_INVOKE(9) 调用的可变参数将被忽略。
+对于第一种情况，可以直接使用普通的 [EVENTHANDLER(9)](eventhandler.9.md) 函数；对于第二种情况，提供了 `VNET_GLOBAL_EVENTHANDLER_REGISTER` 和 `VNET_GLOBAL_EVENTHANDLER_REGISTER_TAG` 宏。它们的区别在于 `VNET_GLOBAL_EVENTHANDLER_REGISTER_TAG` 接受一个额外的第一个参数，该参数在返回时将携带 `tag`。使用其中任一宏注册的事件处理器不会直接运行 `func`，而是 `func` 将由内部迭代器函数为每个 vnet 调用。这两个宏只能用于不接受额外参数的事件处理器，因为来自 EVENTHANDLER_INVOKE(9) 调用的可变参数将被忽略。
 
 ### Sysctl 处理
 
@@ -204,7 +204,7 @@ CURVNET_RESTORE();
 
 ## 参见
 
-[jail(2)](../man2/jail.2.md), [kvm(3)](../man3/kvm.3.md), [EVENTHANDLER(9)](EVENTHANDLER.9.md), [KASSERT(9)](KASSERT.9.md), [sysctl(9)](sysctl.9.md)
+[jail(2)](../man2/jail.2.md), [kvm(3)](../man3/kvm.3.md), [EVENTHANDLER(9)](eventhandler.9.md), [KASSERT(9)](kassert.9.md), [sysctl(9)](sysctl.9.md)
 
 Marko Zec, Implementing a Clonable Network Stack in the FreeBSD Kernel, USENIX ATC'03, June 2003, Boston
 

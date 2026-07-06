@@ -99,7 +99,7 @@
 
 ## 参见
 
-libgeom(3), geom(8), [DECLARE_GEOM_CLASS(9)](../man9/DECLARE_GEOM_CLASS.9.md), [disk(9)](../man9/disk.9.md), [g_access(9)](../man9/g_access.9.md), [g_attach(9)](../man9/g_attach.9.md), [g_bio(9)](../man9/g_bio.9.md), [g_consumer(9)](../man9/g_consumer.9.md), [g_data(9)](../man9/g_data.9.md), [g_event(9)](../man9/g_event.9.md), [g_geom(9)](../man9/g_geom.9.md), [g_provider(9)](../man9/g_provider.9.md), [g_provider_by_name(9)](../man9/g_provider_by_name.9.md)
+libgeom(3), geom(8), [DECLARE_GEOM_CLASS(9)](../man9/declare_geom_class.9.md), [disk(9)](../man9/disk.9.md), [g_access(9)](../man9/g_access.9.md), [g_attach(9)](../man9/g_attach.9.md), [g_bio(9)](../man9/g_bio.9.md), [g_consumer(9)](../man9/g_consumer.9.md), [g_data(9)](../man9/g_data.9.md), [g_event(9)](../man9/g_event.9.md), [g_geom(9)](../man9/g_geom.9.md), [g_provider(9)](../man9/g_provider.9.md), [g_provider_by_name(9)](../man9/g_provider_by_name.9.md)
 
 ## 历史
 

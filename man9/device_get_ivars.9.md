@@ -25,7 +25,7 @@ device_set_ivars(device_t dev, void *ivar);
 
 `device_set_ivars` 函数设置设备的总线特定实例变量。
 
-通常只有总线驱动程序会使用这些函数。内核假定总线驱动程序会管理此内存，不会自动进行内存分配或释放。客户端驱动程序应通过 [BUS_READ_IVAR(9)](BUS_READ_IVAR.9.md) 接口访问 ivars。
+通常只有总线驱动程序会使用这些函数。内核假定总线驱动程序会管理此内存，不会自动进行内存分配或释放。客户端驱动程序应通过 [BUS_READ_IVAR(9)](bus_read_ivar.9.md) 接口访问 ivars。
 
 ## 参见
 

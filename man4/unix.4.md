@@ -151,7 +151,7 @@ struct xucred {
 
 ## 参见
 
-connect(2), dup(2), fchmod(2), fcntl(2), getsockopt(2), listen(2), recvmsg(2), sendto(2), setsockopt(2), socket(2), [CMSG_DATA(3)](../man3/CMSG_DATA.3.md), [intro(4)](intro.4.md), [sysctl(8)](../man8/sysctl.8.md)
+connect(2), dup(2), fchmod(2), fcntl(2), getsockopt(2), listen(2), recvmsg(2), sendto(2), setsockopt(2), socket(2), [CMSG_DATA(3)](../man3/cmsg_data.3.md), [intro(4)](intro.4.md), [sysctl(8)](../man8/sysctl.8.md)
 
 > "An Introductory 4.3 BSD Interprocess Communication Tutorial", *PS1*, 7.
 

@@ -30,7 +30,7 @@ vunref(struct vnode *vp)
 
 `vrele` 函数接受未锁定的 vnode，返回时 vnode 未锁定。
 
-`vput` 函数应接受锁定的 vnode 作为参数，函数返回后 vnode 被解锁。`vput` 在操作上等同于先调用 [VOP_UNLOCK(9)](VOP_LOCK.9.md) 再调用 `vrele`，但开销更小。
+`vput` 函数应接受锁定的 vnode 作为参数，函数返回后 vnode 被解锁。`vput` 在操作上等同于先调用 [VOP_UNLOCK(9)](vop_lock.9.md) 再调用 `vrele`，但开销更小。
 
 `vunref` 函数接受锁定的 vnode 作为参数，返回时 vnode 保持锁定。
 

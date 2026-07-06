@@ -31,7 +31,7 @@ proc_writemem(struct thread *td, struct proc *p, vm_offset_t va, void *buf, size
 
 这些函数用于读取或写入进程 `p` 的地址空间。`proc_rwmem` 函数要求调用者使用 [uio(9)](uio.9.md) 中描述的 `struct uio` 指定 I/O 参数。`proc_readmem` 和 `proc_writemem` 函数提供了更简单、更少通用的接口，允许调用者从 `p` 地址空间中偏移量为 `va` 的内存读取到内核缓冲区 `buf`（大小为 `len`）或从该缓冲区写入。该操作代表线程 `td` 执行，大多数情况下为当前线程。
 
-这些函数可能会休眠，因此不能在持有任何不可休眠锁时调用。进程 `p` 必须由调用者使用 [PHOLD(9)](PHOLD.9.md) 持有。
+这些函数可能会休眠，因此不能在持有任何不可休眠锁时调用。进程 `p` 必须由调用者使用 [PHOLD(9)](phold.9.md) 持有。
 
 ## 返回值
 
@@ -41,7 +41,7 @@ proc_writemem(struct thread *td, struct proc *p, vm_offset_t va, void *buf, size
 
 ## 参见
 
-[copyin(9)](copy.9.md), [locking(9)](locking.9.md), [PHOLD(9)](PHOLD.9.md), [uio(9)](uio.9.md)
+[copyin(9)](copy.9.md), [locking(9)](locking.9.md), [PHOLD(9)](phold.9.md), [uio(9)](uio.9.md)
 
 ## 作者
 

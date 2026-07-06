@@ -79,4 +79,4 @@ struct syscall_helper_data {
 
 ## 参见
 
-[SYSCALL_MODULE(9)](SYSCALL_MODULE.9.md)
+[SYSCALL_MODULE(9)](syscall_module.9.md)

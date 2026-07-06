@@ -45,7 +45,7 @@ END
 
 ## 参见
 
-[dtrace(1)](../man1/dtrace.1.md), [devstat(9)](../man9/devstat.9.md), [SDT(9)](../man9/SDT.9.md)
+[dtrace(1)](../man1/dtrace.1.md), [devstat(9)](../man9/devstat.9.md), [SDT(9)](../man9/sdt.9.md)
 
 ## 历史
 

@@ -20,7 +20,7 @@ PCI_IOV_ADD_VF(device_t dev, uint16_t vfnum, const nvlist_t *vf_config)
 
 ## 描述
 
-`PCI_IOV_ADD_VF` 方法由 PCI 单根 I/O 虚拟化（SR-IOV）基础设施在初始化一个新的虚拟功能（VF）作为给定物理功能（PF）设备的子设备时调用。在成功调用 [PCI_IOV_INIT(9)](PCI_IOV_INIT.9.md) 之前不会调用此方法。不保证在成功调用 [PCI_IOV_INIT(9)](PCI_IOV_INIT.9.md) 之后一定会调用此方法。如果基础设施在调用 [PCI_IOV_INIT(9)](PCI_IOV_INIT.9.md) 之后遇到资源分配失败，VF 的创建将被中止，并且将立即调用 [PCI_IOV_UNINIT(9)](PCI_IOV_UNINIT.9.md)，而不会在此之前调用任何 `PCI_IOV_ADD_VF`。
+`PCI_IOV_ADD_VF` 方法由 PCI 单根 I/O 虚拟化（SR-IOV）基础设施在初始化一个新的虚拟功能（VF）作为给定物理功能（PF）设备的子设备时调用。在成功调用 [PCI_IOV_INIT(9)](pci_iov_init.9.md) 之前不会调用此方法。不保证在成功调用 [PCI_IOV_INIT(9)](pci_iov_init.9.md) 之后一定会调用此方法。如果基础设施在调用 [PCI_IOV_INIT(9)](pci_iov_init.9.md) 之后遇到资源分配失败，VF 的创建将被中止，并且将立即调用 [PCI_IOV_UNINIT(9)](pci_iov_uninit.9.md)，而不会在此之前调用任何 `PCI_IOV_ADD_VF`。
 
 正在初始化的 VF 的索引通过 `vfnum` 参数传递。VF 始终从 0 开始按顺序编号。
 
@@ -28,7 +28,7 @@ PCI_IOV_ADD_VF(device_t dev, uint16_t vfnum, const nvlist_t *vf_config)
 
 注意，用户可能会在同一 PF 的不同 VF 子设备上设置不同的配置值。PF 驱动程序不得缓存先前对其他 VF 调用 `PCI_IOV_ADD_VF` 时传递的配置参数，并将这些参数应用于当前 VF。
 
-在未先依次调用 [PCI_IOV_UNINIT(9)](PCI_IOV_UNINIT.9.md) 和 [PCI_IOV_INIT(9)](PCI_IOV_INIT.9.md) 的情况下，不会对同一 PF 设备上的同一 `vf_num` 调用此函数两次。
+在未先依次调用 [PCI_IOV_UNINIT(9)](pci_iov_uninit.9.md) 和 [PCI_IOV_INIT(9)](pci_iov_init.9.md) 的情况下，不会对同一 PF 设备上的同一 `vf_num` 调用此函数两次。
 
 ## 返回值
 
@@ -36,7 +36,7 @@ PCI_IOV_ADD_VF(device_t dev, uint16_t vfnum, const nvlist_t *vf_config)
 
 ## 参见
 
-[nv(9)](nv.9.md), [pci(9)](pci.9.md), [PCI_IOV_INIT(9)](PCI_IOV_INIT.9.md), [pci_iov_schema(9)](pci_iov_schema.9.md), [PCI_IOV_UNINIT(9)](PCI_IOV_UNINIT.9.md)
+[nv(9)](nv.9.md), [pci(9)](pci.9.md), [PCI_IOV_INIT(9)](pci_iov_init.9.md), [pci_iov_schema(9)](pci_iov_schema.9.md), [PCI_IOV_UNINIT(9)](pci_iov_uninit.9.md)
 
 ## 作者
 

@@ -49,7 +49,7 @@ DRIVER_MODULE(foo, pci, foo_driver, NULL, NULL);
 
 `arg` 目前未使用，应为 `NULL` 指针。
 
-`DRIVER_MODULE_ORDERED` 宏允许按特定顺序注册驱动。如果单个内核模块包含多个相互依赖的驱动，这会很有用。`order` 参数应为 [SYSINIT(9)](SYSINIT.9.md) 初始化排序常量（`SI_ORDER_*`）之一。驱动模块的默认顺序为 `SI_ORDER_MIDDLE`。通常，模块会为单个驱动指定 `SI_ORDER_ANY` 顺序，以确保它最后注册。
+`DRIVER_MODULE_ORDERED` 宏允许按特定顺序注册驱动。如果单个内核模块包含多个相互依赖的驱动，这会很有用。`order` 参数应为 [SYSINIT(9)](sysinit.9.md) 初始化排序常量（`SI_ORDER_*`）之一。驱动模块的默认顺序为 `SI_ORDER_MIDDLE`。通常，模块会为单个驱动指定 `SI_ORDER_ANY` 顺序，以确保它最后注册。
 
 `EARLY_DRIVER_MODULE` 宏允许为特定 pass 级别注册驱动。引导时的探测和附加过程会对设备树进行多次遍历。某些提供其他设备所需基本服务的关键驱动会在较早的遍历中附加。大多数驱动在最后的通用遍历中附加。在早期遍历中附加的驱动必须通过 `pass` 参数注册特定的 pass 级别（`BUS_PASS_*`）。驱动一旦注册，即可在所有后续遍历中附加到设备。
 
@@ -57,7 +57,7 @@ DRIVER_MODULE(foo, pci, foo_driver, NULL, NULL);
 
 ## 参见
 
-[device(9)](device.9.md), [driver(9)](driver.9.md), [module(9)](module.9.md), [MODULE_PNP_INFO(9)](MODULE_PNP_INFO.9.md), [SYSINIT(9)](SYSINIT.9.md)
+[device(9)](device.9.md), [driver(9)](driver.9.md), [module(9)](module.9.md), [MODULE_PNP_INFO(9)](module_pnp_info.9.md), [SYSINIT(9)](sysinit.9.md)
 
 ## 历史
 

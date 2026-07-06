@@ -31,7 +31,7 @@ VFS_UNMOUNT(struct mount *mp, int mntflags)
 
 ## 参见
 
-[vflush(9)](vflush.9.md), [VFS(9)](VFS.9.md), [vnode(9)](vnode.9.md)
+[vflush(9)](vflush.9.md), [VFS(9)](vfs.9.md), [vnode(9)](vnode.9.md)
 
 ## 作者
 

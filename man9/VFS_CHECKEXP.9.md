@@ -47,7 +47,7 @@ VFS_CHECKEXP(struct mount *mp, struct sockaddr *nam, uint64_t *exflagsp,
 
 ## 参见
 
-[VFS(9)](VFS.9.md), [VFS_FHTOVP(9)](VFS_FHTOVP.9.md), [vnode(9)](vnode.9.md), [VOP_VPTOFH(9)](VOP_VPTOFH.9.md)
+[VFS(9)](vfs.9.md), [VFS_FHTOVP(9)](vfs_fhtovp.9.md), [vnode(9)](vnode.9.md), [VOP_VPTOFH(9)](vop_vptofh.9.md)
 
 ## 作者
 

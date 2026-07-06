@@ -10,7 +10,7 @@
 
 内核中的每个模块都由一个 `module_t` 结构描述。该结构包含设备名称、唯一的 ID 号、指向事件处理函数的指针以及传递给事件处理函数的参数指针，还有一些内核内部数据。如果事件处理函数为 `NULL`，模块将改用一个空操作函数处理程序。
 
-[DECLARE_MODULE(9)](DECLARE_MODULE.9.md) 宏用于向系统注册模块。
+[DECLARE_MODULE(9)](declare_module.9.md) 宏用于向系统注册模块。
 
 当模块加载时，事件处理函数被调用，`what` 参数设置为 `MOD_LOAD`。
 
@@ -44,7 +44,7 @@ DECLARE_MODULE(foo, mod_data, SI_SUB_EXEC, SI_ORDER_ANY);
 
 ## 参见
 
-[DECLARE_MODULE(9)](DECLARE_MODULE.9.md), [DEV_MODULE(9)](DEV_MODULE.9.md), [DRIVER_MODULE(9)](DRIVER_MODULE.9.md), [MODULE_DEPEND(9)](MODULE_DEPEND.9.md), [MODULE_PNP_INFO(9)](MODULE_PNP_INFO.9.md), [MODULE_VERSION(9)](MODULE_VERSION.9.md), [SYSCALL_MODULE(9)](SYSCALL_MODULE.9.md)
+[DECLARE_MODULE(9)](declare_module.9.md), [DEV_MODULE(9)](dev_module.9.md), [DRIVER_MODULE(9)](driver_module.9.md), [MODULE_DEPEND(9)](module_depend.9.md), [MODULE_PNP_INFO(9)](module_pnp_info.9.md), [MODULE_VERSION(9)](module_version.9.md), [SYSCALL_MODULE(9)](syscall_module.9.md)
 
 **/usr/share/examples/kld**
 

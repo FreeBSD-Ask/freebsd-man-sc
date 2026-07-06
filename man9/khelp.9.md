@@ -77,9 +77,9 @@ struct helper {
 
 如果 `KHELP_DECLARE_MOD_UMA` 模块需要持久的每对象数据存储，应在 `h_flags` 字段中设置 HELPER_NEEDS_OSD 标志。目前没有编程方式来检查 `KHELP_DECLARE_MOD_UMA` 类是否为 `KHELP_DECLARE_MOD_UMA` 模块提供关联持久每对象数据的能力，因此需要手动检查。
 
-`KHELP_DECLARE_MOD` 和 `KHELP_DECLARE_MOD_UMA` 宏提供了 [DECLARE_MODULE(9)](DECLARE_MODULE.9.md) 宏的便捷包装，用于向 `KHELP_DECLARE_MOD_UMA` 框架注册 `KHELP_DECLARE_MOD_UMA` 模块。`KHELP_DECLARE_MOD_UMA` 只应由需要使用持久每对象存储的模块使用，即在其 `struct helper` 的 `h_flags` 字段中设置 HELPER_NEEDS_OSD 标志的模块。
+`KHELP_DECLARE_MOD` 和 `KHELP_DECLARE_MOD_UMA` 宏提供了 [DECLARE_MODULE(9)](declare_module.9.md) 宏的便捷包装，用于向 `KHELP_DECLARE_MOD_UMA` 框架注册 `KHELP_DECLARE_MOD_UMA` 模块。`KHELP_DECLARE_MOD_UMA` 只应由需要使用持久每对象存储的模块使用，即在其 `struct helper` 的 `h_flags` 字段中设置 HELPER_NEEDS_OSD 标志的模块。
 
-两个宏共有的前四个参数如下。`hname` 参数指定 `KHELP_DECLARE_MOD_UMA` 模块的唯一 [ascii(7)](../man7/ascii.7.md) 名称。其长度不应超过 HELPER_NAME_MAXLEN-1 个字符。`hdata` 参数是指向模块 `struct helper` 的指针。`hhooks` 参数指向 `struct hookinfo` 结构的静态数组。该数组应为模块希望挂钩的每个 [hhook(9)](hhook.9.md) 点包含一个 `struct hookinfo`，即使对不同的 [hhook(9)](hhook.9.md) 点多次使用相同的钩子函数。`version` 参数指定模块的版本号，将传递给 [MODULE_VERSION(9)](MODULE_VERSION.9.md)。`KHELP_DECLARE_MOD_UMA` 宏接受额外的 `ctor` 和 `dtor` 参数，指定可选的 uma(9) 构造函数和析构函数。在不需要该功能的地方应传递 NULL。
+两个宏共有的前四个参数如下。`hname` 参数指定 `KHELP_DECLARE_MOD_UMA` 模块的唯一 [ascii(7)](../man7/ascii.7.md) 名称。其长度不应超过 HELPER_NAME_MAXLEN-1 个字符。`hdata` 参数是指向模块 `struct helper` 的指针。`hhooks` 参数指向 `struct hookinfo` 结构的静态数组。该数组应为模块希望挂钩的每个 [hhook(9)](hhook.9.md) 点包含一个 `struct hookinfo`，即使对不同的 [hhook(9)](hhook.9.md) 点多次使用相同的钩子函数。`version` 参数指定模块的版本号，将传递给 [MODULE_VERSION(9)](module_version.9.md)。`KHELP_DECLARE_MOD_UMA` 宏接受额外的 `ctor` 和 `dtor` 参数，指定可选的 uma(9) 构造函数和析构函数。在不需要该功能的地方应传递 NULL。
 
 `khelp_get_id` 函数返回名为 `hname` 的 `KHELP_DECLARE_MOD_UMA` 模块的数字标识符。
 

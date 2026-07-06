@@ -57,7 +57,7 @@ VOP_CLOSE(struct vnode *vp, int mode, struct ucred *cred,
 
 ## 参见
 
-[vnode(9)](vnode.9.md), [VOP_LOOKUP(9)](VOP_LOOKUP.9.md)
+[vnode(9)](vnode.9.md), [VOP_LOOKUP(9)](vop_lookup.9.md)
 
 ## 作者
 

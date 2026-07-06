@@ -589,7 +589,7 @@ class box {
 
 ## 参见
 
-indent(1), err(3), warn(3), [style.Makefile(5)](../man5/style.Makefile.5.md), [style.mdoc(5)](../man5/style.mdoc.5.md), [style.lua(9)](style.lua.9.md)
+indent(1), err(3), warn(3), [style.Makefile(5)](../man5/style.makefile.5.md), [style.mdoc(5)](../man5/style.mdoc.5.md), [style.lua(9)](style.lua.9.md)
 
 ## 历史
 

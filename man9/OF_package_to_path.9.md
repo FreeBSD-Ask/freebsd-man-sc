@@ -22,7 +22,7 @@ OF_package_to_path(phandle_t node, char *buf, size_t len)
 
 ## 参见
 
-[OF_finddevice(9)](OF_finddevice.9.md)
+[OF_finddevice(9)](of_finddevice.9.md)
 
 ## 作者
 

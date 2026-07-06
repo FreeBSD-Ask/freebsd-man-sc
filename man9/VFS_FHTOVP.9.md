@@ -33,7 +33,7 @@ VFS_FHTOVP(struct mount *mp, struct fid *fhp, int flags, struct vnode **vpp)
 
 文件句柄的内容由文件系统定义，不被系统的任何其他部分检查。它应包含足够的信息以唯一标识文件系统内的文件，并能注意到文件何时已被删除以及文件系统资源何时已被重用于新文件。例如，UFS 文件系统在其文件句柄中存储 inode 号和 inode 生成计数器。
 
-调用 `VFS_FHTOVP` 之前通常应先调用 [VFS_CHECKEXP(9)](VFS_CHECKEXP.9.md) 来检查客户端是否可访问该文件。
+调用 `VFS_FHTOVP` 之前通常应先调用 [VFS_CHECKEXP(9)](vfs_checkexp.9.md) 来检查客户端是否可访问该文件。
 
 ## 返回值
 
@@ -41,7 +41,7 @@ VFS_FHTOVP(struct mount *mp, struct fid *fhp, int flags, struct vnode **vpp)
 
 ## 参见
 
-[VFS(9)](VFS.9.md), [VFS_CHECKEXP(9)](VFS_CHECKEXP.9.md), [vnode(9)](vnode.9.md), [VOP_VPTOFH(9)](VOP_VPTOFH.9.md)
+[VFS(9)](vfs.9.md), [VFS_CHECKEXP(9)](vfs_checkexp.9.md), [vnode(9)](vnode.9.md), [VOP_VPTOFH(9)](vop_vptofh.9.md)
 
 ## 作者
 

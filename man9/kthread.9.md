@@ -47,7 +47,7 @@ kproc_kthread_add(void (*func)(void *), void *arg, struct proc **procptr,
 
 在 FreeBSD 8.0 中，较旧的 `kthread_*` 函数系列被重命名为 `kproc_*` 函数系列，因为它们以前命名错误，实际上产生的是内核进程。这个新的 `kthread_*` 函数系列被添加以产生真正的内核线程。有关重命名的调用，参见 [kproc(9)](kproc.9.md) 手册页。还请注意，`kproc_kthread_add` 函数出现在两个页面中，因为其功能是分开的。
 
-`kthread_start` 函数用于启动 “内部” 守护进程，如 `bufdaemon` 和 `syncer`，旨在从 [SYSINIT(9)](SYSINIT.9.md) 调用。`udata` 参数实际上是指向 `struct kthread_desc` 的指针，描述应创建的内核线程：
+`kthread_start` 函数用于启动 “内部” 守护进程，如 `bufdaemon` 和 `syncer`，旨在从 [SYSINIT(9)](sysinit.9.md) 调用。`udata` 参数实际上是指向 `struct kthread_desc` 的指针，描述应创建的内核线程：
 
 ```c
 struct kthread_desc {
@@ -121,7 +121,7 @@ buf_daemon()
 
 ## 参见
 
-[kproc(9)](kproc.9.md), [SYSINIT(9)](SYSINIT.9.md), wakeup(9)
+[kproc(9)](kproc.9.md), [SYSINIT(9)](sysinit.9.md), wakeup(9)
 
 ## 历史
 

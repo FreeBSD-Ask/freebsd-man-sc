@@ -18,7 +18,7 @@ device_set_driver(device_t dev, driver_t *driver);
 
 ## 描述
 
-此函数将特定驱动程序关联到树中的给定设备节点。它通常用于 [DEVICE_IDENTIFY(9)](DEVICE_IDENTIFY.9.md) 函数中，以将设备添加到不支持自动添加的总线（如 ISA 总线）。
+此函数将特定驱动程序关联到树中的给定设备节点。它通常用于 [DEVICE_IDENTIFY(9)](device_identify.9.md) 函数中，以将设备添加到不支持自动添加的总线（如 ISA 总线）。
 
 ## 参见
 

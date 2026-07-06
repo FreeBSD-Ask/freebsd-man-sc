@@ -57,7 +57,7 @@ eventhandler_prune_list(struct eventhandler_list *list)
 
 `EVENTHANDLER_DECLARE` 此宏声明一个由参数 `name` 命名的事件处理程序，其回调函数类型为 `type`。
 
-`EVENTHANDLER_DEFINE` 此宏使用 [SYSINIT(9)](SYSINIT.9.md) 向事件处理程序 `name` 注册回调函数 `func`。调用时，函数 `func` 将以参数 `arg` 作为其第一个参数调用，并通过宏 `EVENTHANDLER_INVOKE` 传入任何附加参数（见下文）。
+`EVENTHANDLER_DEFINE` 此宏使用 [SYSINIT(9)](sysinit.9.md) 向事件处理程序 `name` 注册回调函数 `func`。调用时，函数 `func` 将以参数 `arg` 作为其第一个参数调用，并通过宏 `EVENTHANDLER_INVOKE` 传入任何附加参数（见下文）。
 
 `EVENTHANDLER_REGISTER` 此宏向事件处理程序 `name` 注册回调函数 `func`。调用时，函数 `func` 将以参数 `arg` 作为其第一个参数调用，并通过宏 `EVENTHANDLER_INVOKE` 传入任何附加参数（见下文）。`EVENTHANDLER_REGISTER` 返回一个 `eventhandler_tag` 类型的 cookie。
 
@@ -67,7 +67,7 @@ eventhandler_prune_list(struct eventhandler_list *list)
 
 `EVENTHANDLER_INVOKE` 此宏用于调用与事件处理程序 `name` 关联的所有回调。此宏是可变参数的。`name` 参数之后传递给宏的附加参数将作为每个已注册回调函数的第二个及后续参数传递。
 
-`EVENTHANDLER_LIST_DEFINE` 此宏定义对由参数 `name` 命名的事件处理程序列表的引用。它使用 [SYSINIT(9)](SYSINIT.9.md) 初始化引用和事件处理程序列表。
+`EVENTHANDLER_LIST_DEFINE` 此宏定义对由参数 `name` 命名的事件处理程序列表的引用。它使用 [SYSINIT(9)](sysinit.9.md) 初始化引用和事件处理程序列表。
 
 `EVENTHANDLER_LIST_DECLARE` 此宏声明由参数 `name` 命名的事件处理程序列表。仅对于不在该列表定义同一编译单元中的 `EVENTHANDLER_DIRECT_INVOKE` 用户才需要此宏。
 

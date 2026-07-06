@@ -51,7 +51,7 @@ struct vfsconf {
 
 ## 参见
 
-mount(2), [vfs_rootmountalloc(9)](vfs_rootmountalloc.9.md), [VFS_SET(9)](VFS_SET.9.md)
+mount(2), [vfs_rootmountalloc(9)](vfs_rootmountalloc.9.md), [VFS_SET(9)](vfs_set.9.md)
 
 ## 作者
 

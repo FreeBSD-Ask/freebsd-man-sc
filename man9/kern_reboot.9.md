@@ -61,7 +61,7 @@ EVENTHANDLER_REGISTER(shutdown_final, shutdown_fn, private, priority)
 
 ## 关闭钩子
 
-系统定义了三个独立的 [EVENTHANDLER(9)](EVENTHANDLER.9.md) 事件，在关闭过程中依次调用。它们是 `shutdown_pre_sync`、`shutdown_post_sync` 和 `shutdown_final`。它们将按列出的顺序无条件执行。注册到这些事件中任何一个的处理函数都将接收 `howto` 的值作为其第二个参数，可用于决定要采取的操作。
+系统定义了三个独立的 [EVENTHANDLER(9)](eventhandler.9.md) 事件，在关闭过程中依次调用。它们是 `shutdown_pre_sync`、`shutdown_post_sync` 和 `shutdown_final`。它们将按列出的顺序无条件执行。注册到这些事件中任何一个的处理函数都将接收 `howto` 的值作为其第二个参数，可用于决定要采取的操作。
 
 `shutdown_pre_sync` 事件在将文件系统同步到磁盘之前调用。它使任何必须在此点之前发生的操作或状态转换得以进行。
 
@@ -69,7 +69,7 @@ EVENTHANDLER_REGISTER(shutdown_final, shutdown_fn, private, priority)
 
 `shutdown_final` 事件作为 `kern_reboot` 的最后一步调用。诸如 [acpi(4)](../man4/acpi.4.md) 之类的驱动程序和子系统可以向此事件注册处理程序，以执行实际的重启、关机或停机。
 
-值得注意的是，`shutdown_final` 事件也是所有内核模块执行其关闭（`MOD_SHUTDOWN`）钩子的点，以及递归在所有设备上执行 [DEVICE_SHUTDOWN(9)](DEVICE_SHUTDOWN.9.md) 方法的点。
+值得注意的是，`shutdown_final` 事件也是所有内核模块执行其关闭（`MOD_SHUTDOWN`）钩子的点，以及递归在所有设备上执行 [DEVICE_SHUTDOWN(9)](device_shutdown.9.md) 方法的点。
 
 所有事件处理程序与 `kern_reboot` 本身一样，可以在正常关闭上下文或内核 panic 或调试器上下文中运行。处理函数应注意不要触发递归 panic。
 
@@ -126,4 +126,4 @@ bar_shutdown_final(struct void *arg, int howto)
 
 ## 参见
 
-reboot(2), [init(8)](../man8/init.8.md), [DEVICE_SHUTDOWN(9)](DEVICE_SHUTDOWN.9.md), [EVENTHANDLER(9)](EVENTHANDLER.9.md), [module(9)](module.9.md), [panic(9)](panic.9.md), [vfs_unmountall(9)](vfs_unmountall.9.md)
+reboot(2), [init(8)](../man8/init.8.md), [DEVICE_SHUTDOWN(9)](device_shutdown.9.md), [EVENTHANDLER(9)](eventhandler.9.md), [module(9)](module.9.md), [panic(9)](panic.9.md), [vfs_unmountall(9)](vfs_unmountall.9.md)

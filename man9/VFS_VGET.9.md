@@ -31,7 +31,7 @@ VFS_VGET(struct mount *mp, ino_t ino, int flags, struct vnode **vpp)
 
 **`vpp`** vnode 的返回参数。
 
-这是一个可选的文件系统入口点，主要供 NFS 服务器使用，但许多文件系统在 [VOP_LOOKUP(9)](VOP_LOOKUP.9.md) 及类似函数中内部使用它。
+这是一个可选的文件系统入口点，主要供 NFS 服务器使用，但许多文件系统在 [VOP_LOOKUP(9)](vop_lookup.9.md) 及类似函数中内部使用它。
 
 如果文件系统不支持此调用，则应返回 `EOPNOTSUPP`。
 
@@ -39,7 +39,7 @@ VFS_VGET(struct mount *mp, ino_t ino, int flags, struct vnode **vpp)
 
 ## 参见
 
-[VFS(9)](VFS.9.md), [vget(9)](vget.9.md), [vnode(9)](vnode.9.md)
+[VFS(9)](vfs.9.md), [vget(9)](vget.9.md), [vnode(9)](vnode.9.md)
 
 ## 作者
 

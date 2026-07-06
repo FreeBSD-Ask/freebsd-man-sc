@@ -58,4 +58,4 @@ KERNEL_PANICKED()
 
 ## 参见
 
-printf(3), [ddb(4)](../man4/ddb.4.md), [gdb(4)](../man4/gdb.4.md), [KASSERT(9)](KASSERT.9.md), [kern_reboot(9)](kern_reboot.9.md)
+printf(3), [ddb(4)](../man4/ddb.4.md), [gdb(4)](../man4/gdb.4.md), [KASSERT(9)](kassert.9.md), [kern_reboot(9)](kern_reboot.9.md)

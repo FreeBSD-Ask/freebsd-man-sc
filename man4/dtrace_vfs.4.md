@@ -12,13 +12,13 @@
 
 ## 描述
 
-DTrace `vfs` 提供者允许用户跟踪 [VFS(9)](../man9/VFS.9.md) 层中的事件，该层是 FreeBSD 中文件系统的内核接口。
+DTrace `vfs` 提供者允许用户跟踪 [VFS(9)](../man9/vfs.9.md) 层中的事件，该层是 FreeBSD 中文件系统的内核接口。
 
 运行 `dtrace -l -P vfs` 可列出所有 `vfs` 探测。添加 `-v` 可生成程序稳定性报告，其中包含探测参数数量及其类型的信息。
 
-`fplookup` 模块定义了单个探测 Fn vfs:fplookup:lookup:done struct nameidata *ndp int line bool status_code，用于插桩 [VFS(9)](../man9/VFS.9.md) 中的快速路径查找代码。
+`fplookup` 模块定义了单个探测 Fn vfs:fplookup:lookup:done struct nameidata *ndp int line bool status_code，用于插桩 [VFS(9)](../man9/vfs.9.md) 中的快速路径查找代码。
 
-`namecache` 模块提供与 [VFS(9)](../man9/VFS.9.md) 缓存相关的探测。更多详情请参阅 `src/sys/kern/vfs_cache.c` 中的源代码。
+`namecache` 模块提供与 [VFS(9)](../man9/vfs.9.md) 缓存相关的探测。更多详情请参阅 `src/sys/kern/vfs_cache.c` 中的源代码。
 
 `namei` 模块管理与路径名转换和查找操作相关的探测。更多信息请参见 [namei(9)](../man9/namei.9.md)。
 
@@ -38,7 +38,7 @@ DTrace `vfs` 提供者允许用户跟踪 [VFS(9)](../man9/VFS.9.md) 层中的事
 
 ## 参见
 
-[dtrace(1)](../man1/dtrace.1.md), [d(7)](../man7/d.7.md), [SDT(9)](../man9/SDT.9.md), [namei(9)](../man9/namei.9.md), [VFS(9)](../man9/VFS.9.md)
+[dtrace(1)](../man1/dtrace.1.md), [d(7)](../man7/d.7.md), [SDT(9)](../man9/sdt.9.md), [namei(9)](../man9/namei.9.md), [VFS(9)](../man9/vfs.9.md)
 
 > Brendan Gregg, Jim Mauro, *DTrace: Dynamic Tracing in Oracle Solaris, Mac OS X and FreeBSD*, pp. pp. 335-351, Prentice Hall, 2011.
 

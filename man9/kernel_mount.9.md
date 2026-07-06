@@ -84,7 +84,7 @@ msdosfs_cmount(struct mntarg *ma, void *data, int flags, struct thread *td)
 
 ## 参见
 
-[VFS(9)](VFS.9.md), [VFS_MOUNT(9)](VFS_MOUNT.9.md)
+[VFS(9)](vfs.9.md), [VFS_MOUNT(9)](vfs_mount.9.md)
 
 ## 历史
 

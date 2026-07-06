@@ -24,7 +24,7 @@ BUS_CHILD_DELETED(device_t dev, device_t child)
 
 ## 参见
 
-[BUS_ADD_CHILD(9)](BUS_ADD_CHILD.9.md), [device(9)](device.9.md)
+[BUS_ADD_CHILD(9)](bus_add_child.9.md), [device(9)](device.9.md)
 
 ## 历史
 

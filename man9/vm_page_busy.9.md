@@ -91,4 +91,4 @@ vm_page_assert_xbusied(vm_page_t m)
 
 ## 参见
 
-[vm_page_aflag(9)](vm_page_aflag.9.md), [vm_page_alloc(9)](vm_page_alloc.9.md), [vm_page_deactivate(9)](vm_page_deactivate.9.md), [vm_page_free(9)](vm_page_free.9.md), [vm_page_grab(9)](vm_page_grab.9.md), [vm_page_insert(9)](vm_page_insert.9.md), [vm_page_lookup(9)](vm_page_lookup.9.md), [vm_page_rename(9)](vm_page_rename.9.md), [VOP_GETPAGES(9)](VOP_GETPAGES.9.md)
+[vm_page_aflag(9)](vm_page_aflag.9.md), [vm_page_alloc(9)](vm_page_alloc.9.md), [vm_page_deactivate(9)](vm_page_deactivate.9.md), [vm_page_free(9)](vm_page_free.9.md), [vm_page_grab(9)](vm_page_grab.9.md), [vm_page_insert(9)](vm_page_insert.9.md), [vm_page_lookup(9)](vm_page_lookup.9.md), [vm_page_rename(9)](vm_page_rename.9.md), [VOP_GETPAGES(9)](vop_getpages.9.md)

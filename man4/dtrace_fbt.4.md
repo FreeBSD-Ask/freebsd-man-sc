@@ -206,7 +206,7 @@ fbt::vm_page*:return /self->start/ {
 dtrace -n 'ip:::send {printf("%s", args[2]->ip_daddr);}'
 ```
 
-在用 `fbt` 提供者实现自定义脚本之前，请务必先查看可用的 [dtrace(1)](../man1/dtrace.1.md) 提供者。如果没有任何 DTrace 提供者提供所需的探测，请考虑添加新的静态定义跟踪探测（[SDT(9)](../man9/SDT.9.md)）。
+在用 `fbt` 提供者实现自定义脚本之前，请务必先查看可用的 [dtrace(1)](../man1/dtrace.1.md) 提供者。如果没有任何 DTrace 提供者提供所需的探测，请考虑添加新的静态定义跟踪探测（[SDT(9)](../man9/sdt.9.md)）。
 
 ### 帧指针
 

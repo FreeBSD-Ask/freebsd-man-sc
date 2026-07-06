@@ -73,7 +73,7 @@ VFS_STATFS(struct mount *mp, struct statfs *sbp)
 
 ## 参见
 
-[VFS(9)](VFS.9.md), [vnode(9)](vnode.9.md)
+[VFS(9)](vfs.9.md), [vnode(9)](vnode.9.md)
 
 ## 作者
 

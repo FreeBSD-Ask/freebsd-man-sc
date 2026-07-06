@@ -42,7 +42,7 @@ for (child = OF_child(node); child != 0; child = OF_peer(child)) {
 
 ## 参见
 
-[OF_finddevice(9)](OF_finddevice.9.md)
+[OF_finddevice(9)](of_finddevice.9.md)
 
 ## 作者
 

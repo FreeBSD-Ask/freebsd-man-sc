@@ -58,9 +58,9 @@
 
 一组用于声明 [sysctl(8)](../man8/sysctl.8.md) 变量和函数的丰富宏由 [sysctl(9)](sysctl.9.md) 描述。
 
-内核中的不可恢复错误应触发 [panic(9)](panic.9.md)。运行时断言可以使用 [KASSERT(9)](KASSERT.9.md) 宏进行验证。编译时断言应使用 `_Static_assert`。
+内核中的不可恢复错误应触发 [panic(9)](panic.9.md)。运行时断言可以使用 [KASSERT(9)](kassert.9.md) 宏进行验证。编译时断言应使用 `_Static_assert`。
 
-SYSINIT 框架提供了用于声明在启动和关闭期间执行的函数的宏；参见 [SYSINIT(9)](SYSINIT.9.md)。
+SYSINIT 框架提供了用于声明在启动和关闭期间执行的函数的宏；参见 [SYSINIT(9)](sysinit.9.md)。
 
 弃用消息可以使用 [gone_in(9)](gone_in.9.md) 发出。
 
@@ -102,7 +102,7 @@ NUMA 内存域的分配策略通过 [domainset(9)](domainset.9.md) API 管理。
 
 ### 文件系统
 
-文件系统的内核接口是 [VFS(9)](VFS.9.md)。文件系统实现通过 [vfsconf(9)](vfsconf.9.md) 注册自身。
+文件系统的内核接口是 [VFS(9)](vfs.9.md)。文件系统实现通过 [vfsconf(9)](vfsconf.9.md) 注册自身。
 
 [vnode(9)](vnode.9.md) 是文件、目录或其他类文件实体在内核中的抽象且独立于文件系统的表示。
 
@@ -126,7 +126,7 @@ GEOM 框架使用 bio(9) 结构表示 I/O 请求。
 
 为接收传入数据包，网络协议通过 [netisr(9)](netisr.9.md) 注册自身。
 
-网络栈的虚拟化由 [VNET(9)](VNET.9.md) 提供。
+网络栈的虚拟化由 [VNET(9)](vnet.9.md) 提供。
 
 从内核内与网络套接字接口的前端由 [socket(9)](socket.9.md) 描述。套接字实现的后端接口是 [domain(9)](domain.9.md)。
 
@@ -146,7 +146,7 @@ IEEE 802.11 无线网络子系统由 [ieee80211(9)](ieee80211.9.md) 描述。
 
 大多数驱动程序充当设备，并提供一组实现设备接口的方法。这包括 [DEVICE_PROBE(9)](device_probe.9.md)、[DEVICE_ATTACH(9)](device_attach.9.md) 和 [DEVICE_DETACH(9)](device_detach.9.md) 等方法。
 
-除了设备之外，还有总线。总线可以有子设备，形式为设备或其他总线。总线驱动程序将实现附加方法，如 [BUS_ADD_CHILD(9)](BUS_ADD_CHILD.9.md)、[BUS_READ_IVAR(9)](BUS_READ_IVAR.9.md) 或 [BUS_RESCAN(9)](BUS_RESCAN.9.md)。
+除了设备之外，还有总线。总线可以有子设备，形式为设备或其他总线。总线驱动程序将实现附加方法，如 [BUS_ADD_CHILD(9)](bus_add_child.9.md)、[BUS_READ_IVAR(9)](bus_read_ivar.9.md) 或 [BUS_RESCAN(9)](bus_rescan.9.md)。
 
 总线通常代表其子设备执行资源核算。为此有 [rman(9)](rman.9.md) API。
 
@@ -187,7 +187,7 @@ IEEE 802.11 无线网络子系统由 [ieee80211(9)](ieee80211.9.md) 描述。
 
 对于低延迟回调处理，应使用 [callout(9)](callout.9.md) 框架。
 
-预定义事件钩子的动态处理程序使用 [EVENTHANDLER(9)](EVENTHANDLER.9.md) API 注册和调用。
+预定义事件钩子的动态处理程序使用 [EVENTHANDLER(9)](eventhandler.9.md) API 注册和调用。
 
 ### 线程切换和调度
 
@@ -203,7 +203,7 @@ IEEE 802.11 无线网络子系统由 [ieee80211(9)](ieee80211.9.md) 描述。
 
 要通过标识符定位进程或进程组，请使用 [pfind(9)](pfind.9.md) 和 [pgfind(9)](pgfind.9.md)。或者，[pget(9)](pget.9.md) 函数提供额外的搜索精确度。
 
-进程的"持有计数"可以通过 [PHOLD(9)](PHOLD.9.md) 操作。
+进程的"持有计数"可以通过 [PHOLD(9)](phold.9.md) 操作。
 
 信号的内核接口由 [signal(9)](signal.9.md) 描述。
 
@@ -241,17 +241,17 @@ IEEE 802.11 无线网络子系统由 [ieee80211(9)](ieee80211.9.md) 描述。
 
 用于定义可配置故障点的设施由 [fail(9)](fail.9.md) 描述。
 
-[ddb(4)](../man4/ddb.4.md) 内核调试器的命令通过 [DB_COMMAND(9)](DB_COMMAND.9.md) 宏系列定义。
+[ddb(4)](../man4/ddb.4.md) 内核调试器的命令通过 [DB_COMMAND(9)](db_command.9.md) 宏系列定义。
 
 [ktr(4)](../man4/ktr.4.md) 跟踪设施在内核的许多区域添加静态跟踪点。这些跟踪点使用 [ktr(9)](ktr.9.md) 描述的宏定义。
 
-DTrace 的静态探针使用 [SDT(9)](SDT.9.md) 宏定义。
+DTrace 的静态探针使用 [SDT(9)](sdt.9.md) 宏定义。
 
 堆栈跟踪可以通过 [stack(9)](stack.9.md) API 捕获和打印。
 
 内核消毒器可以针对内存使用/访问执行额外的编译器辅助检查。这些运行时能够检测难以识别的 bug 类别，代价是较大的开销。支持内核地址消毒器 KASAN(9) 和内核内存消毒器 KMSAN(9)。
 
-[LOCK_PROFILING(9)](LOCK_PROFILING.9.md) 内核配置选项启用额外代码以协助分析和/或调试锁性能。
+[LOCK_PROFILING(9)](lock_profiling.9.md) 内核配置选项启用额外代码以协助分析和/或调试锁性能。
 
 ### 驱动程序工具
 

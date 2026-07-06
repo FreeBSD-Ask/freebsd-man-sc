@@ -32,9 +32,9 @@ bus_identify_children(device_t dev)
 
 这些函数管理 `dev` 的子设备的状态转换。
 
-`bus_enumerate_hinted_children` 遍历内核环境以识别描述附加到 `dev` 的设备的任何设备提示。对于每组匹配的提示，调用 [BUS_HINTED_CHILD(9)](BUS_HINTED_CHILD.9.md) 方法。此函数通常从总线驱动程序的 [DEVICE_ATTACH(9)](DEVICE_ATTACH.9.md) 方法中调用以添加提示设备。注意，大多数总线驱动程序不使用提示来识别子设备。这通常用于不提供设备枚举机制的旧式总线，如 ISA。
+`bus_enumerate_hinted_children` 遍历内核环境以识别描述附加到 `dev` 的设备的任何设备提示。对于每组匹配的提示，调用 [BUS_HINTED_CHILD(9)](bus_hinted_child.9.md) 方法。此函数通常从总线驱动程序的 [DEVICE_ATTACH(9)](DEVICE_ATTACH.9.md) 方法中调用以添加提示设备。注意，大多数总线驱动程序不使用提示来识别子设备。这通常用于不提供设备枚举机制的旧式总线，如 ISA。
 
-`bus_identify_children` 遍历 `dev` 子设备的所有合格设备驱动程序，调用 [DEVICE_IDENTIFY(9)](DEVICE_IDENTIFY.9.md) 方法。这允许设备驱动程序添加通过替代机制（如固件表）枚举的子设备。此函数通常从总线驱动程序的 [DEVICE_ATTACH(9)](DEVICE_ATTACH.9.md) 方法中调用。
+`bus_identify_children` 遍历 `dev` 子设备的所有合格设备驱动程序，调用 [DEVICE_IDENTIFY(9)](device_identify.9.md) 方法。这允许设备驱动程序添加通过替代机制（如固件表）枚举的子设备。此函数通常从总线驱动程序的 [DEVICE_ATTACH(9)](DEVICE_ATTACH.9.md) 方法中调用。
 
 `bus_attach_children` 将设备驱动程序附加到 `dev` 的所有子设备。此函数在每个子设备上调用 [device_probe_and_attach(9)](device_probe_and_attach.9.md) 并忽略错误。它尽最大努力将设备驱动程序附加到所有子设备。子设备按递增顺序附加。具有相同顺序的子设备按通过 [device_add_child(9)](device_add_child.9.md) 创建设备时的 FIFO 顺序附加。此函数通常从总线驱动程序的 [DEVICE_ATTACH(9)](DEVICE_ATTACH.9.md) 方法中在添加设备后调用。
 
@@ -46,7 +46,7 @@ bus_identify_children(device_t dev)
 
 ## 参见
 
-config_intrhook_establish(9), [device_add_child(9)](device_add_child.9.md), [DEVICE_ATTACH(9)](DEVICE_ATTACH.9.md), [device_delete_children(9)](device_delete_children.9.md), [DEVICE_DETACH(9)](DEVICE_DETACH.9.md), device_detach(9), [DEVICE_IDENTIFY(9)](DEVICE_IDENTIFY.9.md), [device_probe_and_attach(9)](device_probe_and_attach.9.md)
+config_intrhook_establish(9), [device_add_child(9)](device_add_child.9.md), [DEVICE_ATTACH(9)](DEVICE_ATTACH.9.md), [device_delete_children(9)](device_delete_children.9.md), [DEVICE_DETACH(9)](DEVICE_DETACH.9.md), device_detach(9), [DEVICE_IDENTIFY(9)](device_identify.9.md), [device_probe_and_attach(9)](device_probe_and_attach.9.md)
 
 ## 历史
 

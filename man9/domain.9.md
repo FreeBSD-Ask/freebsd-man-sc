@@ -117,7 +117,7 @@ struct protosw {
 
 ## 参见
 
-socket(2), [SYSINIT(9)](SYSINIT.9.md)
+socket(2), [SYSINIT(9)](sysinit.9.md)
 
 ## 历史
 

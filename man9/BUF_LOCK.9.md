@@ -39,7 +39,7 @@ BUF_LOCK(struct buf *bp, int locktype)
 
 ## 参见
 
-[buf(9)](buf.9.md), [BUF_TIMELOCK(9)](BUF_TIMELOCK.9.md), [BUF_UNLOCK(9)](BUF_UNLOCK.9.md), lockmgr(9)
+[buf(9)](buf.9.md), [BUF_TIMELOCK(9)](buf_timelock.9.md), [BUF_UNLOCK(9)](buf_unlock.9.md), lockmgr(9)
 
 ## 作者
 

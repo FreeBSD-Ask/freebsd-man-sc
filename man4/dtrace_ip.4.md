@@ -156,7 +156,7 @@ ip:::receive
 
 ## 参见
 
-[dtrace(1)](../man1/dtrace.1.md), [dtrace_mib(4)](dtrace_mib.4.md), [dtrace_tcp(4)](dtrace_tcp.4.md), [dtrace_udp(4)](dtrace_udp.4.md), [ip(4)](ip.4.md), [ip6(4)](ip6.4.md), [ifnet(9)](../man9/ifnet.9.md), [SDT(9)](../man9/SDT.9.md)
+[dtrace(1)](../man1/dtrace.1.md), [dtrace_mib(4)](dtrace_mib.4.md), [dtrace_tcp(4)](dtrace_tcp.4.md), [dtrace_udp(4)](dtrace_udp.4.md), [ip(4)](ip.4.md), [ip6(4)](ip6.4.md), [ifnet(9)](../man9/ifnet.9.md), [SDT(9)](../man9/sdt.9.md)
 
 ## 历史
 

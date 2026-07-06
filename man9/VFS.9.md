@@ -14,7 +14,7 @@
 
 ## 参见
 
-[dtrace_vfs(4)](../man4/dtrace_vfs.4.md), [VFS_CHECKEXP(9)](VFS_CHECKEXP.9.md), [VFS_FHTOVP(9)](VFS_FHTOVP.9.md), [VFS_MOUNT(9)](VFS_MOUNT.9.md), [VFS_QUOTACTL(9)](VFS_QUOTACTL.9.md), [VFS_SET(9)](VFS_SET.9.md), [VFS_STATFS(9)](VFS_STATFS.9.md), [VFS_SYNC(9)](VFS_SYNC.9.md), [VFS_UNMOUNT(9)](VFS_UNMOUNT.9.md), [VFS_VGET(9)](VFS_VGET.9.md), [vnode(9)](vnode.9.md), [VOP_VPTOFH(9)](VOP_VPTOFH.9.md)
+[dtrace_vfs(4)](../man4/dtrace_vfs.4.md), [VFS_CHECKEXP(9)](vfs_checkexp.9.md), [VFS_FHTOVP(9)](vfs_fhtovp.9.md), [VFS_MOUNT(9)](vfs_mount.9.md), [VFS_QUOTACTL(9)](vfs_quotactl.9.md), [VFS_SET(9)](vfs_set.9.md), [VFS_STATFS(9)](vfs_statfs.9.md), [VFS_SYNC(9)](vfs_sync.9.md), [VFS_UNMOUNT(9)](vfs_unmount.9.md), [VFS_VGET(9)](vfs_vget.9.md), [vnode(9)](vnode.9.md), [VOP_VPTOFH(9)](vop_vptofh.9.md)
 
 ## 作者
 

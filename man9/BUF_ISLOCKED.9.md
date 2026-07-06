@@ -39,7 +39,7 @@ BUF_ISLOCKED(struct buf *bp)
 
 ## 参见
 
-[buf(9)](buf.9.md), [BUF_LOCK(9)](BUF_LOCK.9.md), [BUF_UNLOCK(9)](BUF_UNLOCK.9.md), lockmgr(9)
+[buf(9)](buf.9.md), [BUF_LOCK(9)](buf_lock.9.md), [BUF_UNLOCK(9)](buf_unlock.9.md), lockmgr(9)
 
 ## 作者
 

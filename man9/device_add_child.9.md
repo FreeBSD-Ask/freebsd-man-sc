@@ -32,9 +32,9 @@ device_add_child_ordered(device_t dev, int order, const char *name,
 
 如果附加到总线的设备必须按特定顺序探测（例如，对于 ISA 总线，某些设备对不相关驱动程序的失败探测尝试敏感，因此必须先探测），应使用 `device_add_child_ordered` 的 `order` 参数指定部分排序。新设备将在任何具有更大顺序值的现有设备之前添加。如果使用 `device_add_child`，则新子设备的添加就像其顺序值为零一样。
 
-在 [DEVICE_IDENTIFY(9)](DEVICE_IDENTIFY.9.md) 例程的上下文中添加设备时，应使用 [device_find_child(9)](device_find_child.9.md) 例程来确保该设备尚未添加到树中。由于设备名称和 `devclass_t` 在探测时（而非子设备添加时）关联，驱动程序的先前实例（例如在后来卸载的模块中）可能已经添加了该实例。总线驱动程序的作者在加载和卸载时添加子设备时同样必须小心，以避免子设备重复。
+在 [DEVICE_IDENTIFY(9)](device_identify.9.md) 例程的上下文中添加设备时，应使用 [device_find_child(9)](device_find_child.9.md) 例程来确保该设备尚未添加到树中。由于设备名称和 `devclass_t` 在探测时（而非子设备添加时）关联，驱动程序的先前实例（例如在后来卸载的模块中）可能已经添加了该实例。总线驱动程序的作者在加载和卸载时添加子设备时同样必须小心，以避免子设备重复。
 
-将子设备添加到另一个设备节点时（例如在 identify 例程中），应使用 [BUS_ADD_CHILD(9)](BUS_ADD_CHILD.9.md) 而不是 `device_add_child`。[BUS_ADD_CHILD(9)](BUS_ADD_CHILD.9.md) 将调用 `device_add_child` 并向新子设备添加适当的总线特定数据。`device_add_child` 不会调用 [BUS_ADD_CHILD(9)](BUS_ADD_CHILD.9.md)。
+将子设备添加到另一个设备节点时（例如在 identify 例程中），应使用 [BUS_ADD_CHILD(9)](bus_add_child.9.md) 而不是 `device_add_child`。[BUS_ADD_CHILD(9)](bus_add_child.9.md) 将调用 `device_add_child` 并向新子设备添加适当的总线特定数据。`device_add_child` 不会调用 [BUS_ADD_CHILD(9)](bus_add_child.9.md)。
 
 ## 返回值
 
@@ -42,7 +42,7 @@ device_add_child_ordered(device_t dev, int order, const char *name,
 
 ## 参见
 
-[BUS_ADD_CHILD(9)](BUS_ADD_CHILD.9.md), [device(9)](device.9.md), [device_delete_child(9)](device_delete_child.9.md), [device_find_child(9)](device_find_child.9.md), [DEVICE_IDENTIFY(9)](DEVICE_IDENTIFY.9.md)
+[BUS_ADD_CHILD(9)](bus_add_child.9.md), [device(9)](device.9.md), [device_delete_child(9)](device_delete_child.9.md), [device_find_child(9)](device_find_child.9.md), [DEVICE_IDENTIFY(9)](device_identify.9.md)
 
 ## 作者
 

@@ -37,7 +37,7 @@ dummymbuf_load="YES"
 
 钩子会返回修改后的 mbuf 以供进一步处理，但如果规则解析或操作失败，则会丢弃数据包。此外，原始链中的第一个 mbuf 可能被更换。
 
-该模块基于 [VNET(9)](../man9/VNET.9.md)，因此每个 jail(2) 都提供其自己的钩子和 sysctl 变量集合。
+该模块基于 [VNET(9)](../man9/vnet.9.md)，因此每个 jail(2) 都提供其自己的钩子和 sysctl 变量集合。
 
 ## 规则
 
@@ -112,7 +112,7 @@ sysctl net.dummymbuf.rules=""
 
 ## 参见
 
-jail(2), pfilctl(8), [mbuf(9)](../man9/mbuf.9.md), [pfil(9)](../man9/pfil.9.md), [VNET(9)](../man9/VNET.9.md)
+jail(2), pfilctl(8), [mbuf(9)](../man9/mbuf.9.md), [pfil(9)](../man9/pfil.9.md), [VNET(9)](../man9/vnet.9.md)
 
 ## 作者
 

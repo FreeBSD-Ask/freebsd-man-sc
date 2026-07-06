@@ -152,7 +152,7 @@ lockmgr_assert(const struct lock *lkp, int what)
 
 `lockmgr_disowned` 函数根据锁是否由 `LK_KERNPROC` 持有返回真或假。
 
-`lockmgr_printinfo` 函数打印有关锁的调试信息。主要由 [VOP_PRINT(9)](VOP_PRINT.9.md) 函数使用。
+`lockmgr_printinfo` 函数打印有关锁的调试信息。主要由 [VOP_PRINT(9)](vop_print.9.md) 函数使用。
 
 `lockmgr_recursed` 函数如果锁已递归返回真，否则返回 0。
 
@@ -214,7 +214,7 @@ lockmgr_assert(const struct lock *lkp, int what)
 
 ## 参见
 
-[witness(4)](../man4/witness.4.md), [condvar(9)](condvar.9.md), [locking(9)](locking.9.md), mtx_assert(9), [mutex(9)](mutex.9.md), [panic(9)](panic.9.md), [rwlock(9)](rwlock.9.md), [sleep(9)](sleep.9.md), [sx(9)](sx.9.md), [VOP_PRINT(9)](VOP_PRINT.9.md)
+[witness(4)](../man4/witness.4.md), [condvar(9)](condvar.9.md), [locking(9)](locking.9.md), mtx_assert(9), [mutex(9)](mutex.9.md), [panic(9)](panic.9.md), [rwlock(9)](rwlock.9.md), [sleep(9)](sleep.9.md), [sx(9)](sx.9.md), [VOP_PRINT(9)](vop_print.9.md)
 
 ## 作者
 

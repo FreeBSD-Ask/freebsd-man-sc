@@ -88,7 +88,7 @@ NDFREE_PNBUF(struct nameidata *ndp)
 
 **`RBENEATH`** 要求 `NDFREE_PNBUF` 未跨越 `dirfd` 目录。此标志用于实现 openat(2) 的 `O_RESOLVE_BENEATH` 标志。
 
-**`NAMEILOOKUP`** 组件嵌入在 `NDFREE_PNBUF` 查找结构中，可使用 `vfs_lookup_nameidata` 函数获取该结构。这在需要获取额外查找元数据的 [VOP_LOOKUP(9)](VOP_LOOKUP.9.md) 实现中非常有用。
+**`NAMEILOOKUP`** 组件嵌入在 `NDFREE_PNBUF` 查找结构中，可使用 `vfs_lookup_nameidata` 函数获取该结构。这在需要获取额外查找元数据的 [VOP_LOOKUP(9)](vop_lookup.9.md) 实现中非常有用。
 
 ## 参数描述符标志
 
@@ -210,7 +210,7 @@ NDFREE_PNBUF(struct nameidata *ndp)
 
 ## 参见
 
-[uio(9)](uio.9.md), uma(9), [VFS(9)](VFS.9.md), [vnode(9)](vnode.9.md), vput(9), [vref(9)](vref.9.md), [vrele(9)](vrele.9.md)
+[uio(9)](uio.9.md), uma(9), [VFS(9)](vfs.9.md), [vnode(9)](vnode.9.md), vput(9), [vref(9)](vref.9.md), [vrele(9)](vrele.9.md)
 
 ## 作者
 

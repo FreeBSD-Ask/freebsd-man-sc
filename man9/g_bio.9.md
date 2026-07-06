@@ -158,7 +158,7 @@ example_start(struct bio *bp)
 
 ## 参见
 
-[dtrace_io(4)](../man4/dtrace_io.4.md), [geom(4)](../man4/geom.4.md), [DECLARE_GEOM_CLASS(9)](DECLARE_GEOM_CLASS.9.md), [g_access(9)](g_access.9.md), [g_attach(9)](g_attach.9.md), [g_consumer(9)](g_consumer.9.md), [g_data(9)](g_data.9.md), [g_event(9)](g_event.9.md), [g_geom(9)](g_geom.9.md), [g_provider(9)](g_provider.9.md), [g_provider_by_name(9)](g_provider_by_name.9.md), [g_wither_geom(9)](g_wither_geom.9.md)
+[dtrace_io(4)](../man4/dtrace_io.4.md), [geom(4)](../man4/geom.4.md), [DECLARE_GEOM_CLASS(9)](declare_geom_class.9.md), [g_access(9)](g_access.9.md), [g_attach(9)](g_attach.9.md), [g_consumer(9)](g_consumer.9.md), [g_data(9)](g_data.9.md), [g_event(9)](g_event.9.md), [g_geom(9)](g_geom.9.md), [g_provider(9)](g_provider.9.md), [g_provider_by_name(9)](g_provider_by_name.9.md), [g_wither_geom(9)](g_wither_geom.9.md)
 
 ## 作者
 

@@ -58,7 +58,7 @@ vn_deallocate(struct vnode *vp, off_t *offset, off_t *length,
 
 ## 参见
 
-[vnode(9)](vnode.9.md), [VOP_DEALLOCATE(9)](VOP_DEALLOCATE.9.md)
+[vnode(9)](vnode.9.md), [VOP_DEALLOCATE(9)](vop_deallocate.9.md)
 
 ## 作者
 

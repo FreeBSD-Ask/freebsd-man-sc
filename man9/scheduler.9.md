@@ -73,7 +73,7 @@ updatepri(struct thread *td)
 
 `roundrobin_interval` 函数仅返回由 `roundrobin` 触发的重新调度之间的时钟 tick 数。因此，它所做的就是返回 `sched_quantum` 的当前值。
 
-`sched_setup` 函数是一个 [SYSINIT(9)](SYSINIT.9.md)，被调用来启动 callout 驱动的调度器函数。它只是首次调用 `roundrobin` 和 `schedcpu` 函数。初始调用后，这两个函数将在各自函数完成时再次注册其 callout 事件来传播自身。
+`sched_setup` 函数是一个 [SYSINIT(9)](sysinit.9.md)，被调用来启动 callout 驱动的调度器函数。它只是首次调用 `roundrobin` 和 `schedcpu` 函数。初始调用后，这两个函数将在各自函数完成时再次注册其 callout 事件来传播自身。
 
 `schedclock` 函数由 `statclock` 调用以调整当前运行线程的 ksegrp 的优先级。它更新该组的估计 CPU 时间，然后通过 `resetpriority` 调整优先级。
 

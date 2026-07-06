@@ -92,9 +92,9 @@ SYSCTL_ADD_COUNTER_U64_ARRAY(ctx, parent, nbr, name, access, ptr, len, descr)
 
 **`counter_rate_free(cr)`** 释放 `cr` 计数器。
 
-**`COUNTER_U64_SYSINIT(c)`** 为全局计数器 `c` 定义 [SYSINIT(9)](SYSINIT.9.md) 初始化程序。
+**`COUNTER_U64_SYSINIT(c)`** 为全局计数器 `c` 定义 [SYSINIT(9)](sysinit.9.md) 初始化程序。
 
-**`COUNTER_U64_DEFINE_EARLY(c)`** 定义并初始化全局计数器 `c`。递增 `c` 始终安全，但在 `SI_SUB_COUNTER` [SYSINIT(9)](SYSINIT.9.md) 事件之前的更新会丢失。
+**`COUNTER_U64_DEFINE_EARLY(c)`** 定义并初始化全局计数器 `c`。递增 `c` 始终安全，但在 `SI_SUB_COUNTER` [SYSINIT(9)](sysinit.9.md) 事件之前的更新会丢失。
 
 **`SYSCTL_COUNTER_U64(parent, nbr, name, access, ptr, descr)`** 声明一个表示 `counter` 的静态 [sysctl(9)](sysctl.9.md) oid。`ptr` 参数应是指向已分配 `counter_u64_t` 的指针。读取 oid 返回通过 `counter_u64_fetch` 获取的值。任何对 oid 的写入都会将其清零。
 
@@ -127,7 +127,7 @@ SYSCTL_COUNTER_U64_ARRAY(_debug, OID_AUTO, counter_array, CTLFLAG_RW,
 
 ## 参见
 
-[atomic(9)](atomic.9.md), [critical(9)](critical.9.md), [locking(9)](locking.9.md), [malloc(9)](malloc.9.md), [ratecheck(9)](ratecheck.9.md), [sysctl(9)](sysctl.9.md), [SYSINIT(9)](SYSINIT.9.md), [uma(9)](uma.9.md)
+[atomic(9)](atomic.9.md), [critical(9)](critical.9.md), [locking(9)](locking.9.md), [malloc(9)](malloc.9.md), [ratecheck(9)](ratecheck.9.md), [sysctl(9)](sysctl.9.md), [SYSINIT(9)](sysinit.9.md), [uma(9)](uma.9.md)
 
 ## 历史
 

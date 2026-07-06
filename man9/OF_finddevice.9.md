@@ -33,7 +33,7 @@ if (i2c != -1) {
 
 ## 参见
 
-[OF_child(9)](OF_child.9.md), [OF_parent(9)](OF_child.9.md), [OF_peer(9)](OF_child.9.md)
+[OF_child(9)](of_child.9.md), [OF_parent(9)](of_child.9.md), [OF_peer(9)](of_child.9.md)
 
 ## 作者
 

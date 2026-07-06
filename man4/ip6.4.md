@@ -257,7 +257,7 @@ do {
 
 ## 参见
 
-getsockopt(2), recv(2), send(2), setsockopt(2), socket(2), [CMSG_DATA(3)](../man3/CMSG_DATA.3.md), if_nametoindex(3), inet6_opt_init(3), [bpf(4)](bpf.4.md), [icmp6(4)](icmp6.4.md), [inet6(4)](inet6.4.md), [ip(4)](ip.4.md), [netintro(4)](netintro.4.md), [tcp(4)](tcp.4.md), [udp(4)](udp.4.md)
+getsockopt(2), recv(2), send(2), setsockopt(2), socket(2), [CMSG_DATA(3)](../man3/cmsg_data.3.md), if_nametoindex(3), inet6_opt_init(3), [bpf(4)](bpf.4.md), [icmp6(4)](icmp6.4.md), [inet6(4)](inet6.4.md), [ip(4)](ip.4.md), [netintro(4)](netintro.4.md), [tcp(4)](tcp.4.md), [udp(4)](udp.4.md)
 
 > W. Stevens, M. Thomas, "Advanced Sockets API for IPv6", February 1998.
 

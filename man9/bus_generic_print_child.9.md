@@ -1,6 +1,6 @@
 # bus_generic_print_child.9
 
-`bus_generic_print_child` — [BUS_PRINT_CHILD(9)](BUS_PRINT_CHILD.9.md) 的通用实现
+`bus_generic_print_child` — [BUS_PRINT_CHILD(9)](bus_print_child.9.md) 的通用实现
 
 ## 名称
 
@@ -41,7 +41,7 @@ foo0: <FooCard 1234> numa-domain 1 on bar0
 
 `bus_print_child_footer` 输出字符串 "on" 后跟父设备的名称和单元号（"on bar0"）
 
-如果 `bus_generic_print_child` 不足以满足需求，可以使用这些函数在总线驱动程序中实现 [BUS_PRINT_CHILD(9)](BUS_PRINT_CHILD.9.md)。
+如果 `bus_generic_print_child` 不足以满足需求，可以使用这些函数在总线驱动程序中实现 [BUS_PRINT_CHILD(9)](bus_print_child.9.md)。
 
 ## 返回值
 
@@ -49,7 +49,7 @@ foo0: <FooCard 1234> numa-domain 1 on bar0
 
 ## 参见
 
-[BUS_PRINT_CHILD(9)](BUS_PRINT_CHILD.9.md), [device(9)](device.9.md)
+[BUS_PRINT_CHILD(9)](bus_print_child.9.md), [device(9)](device.9.md)
 
 ## 作者
 

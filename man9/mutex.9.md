@@ -204,7 +204,7 @@ MTX_SYSINIT(name, struct mtx *mtx, const char *description, int opts)
 
 ## 参见
 
-[condvar(9)](condvar.9.md), [LOCK_PROFILING(9)](LOCK_PROFILING.9.md), [locking(9)](locking.9.md), [mtx_pool(9)](mtx_pool.9.md), [panic(9)](panic.9.md), [rwlock(9)](rwlock.9.md), [sema(9)](sema.9.md), [sleep(9)](sleep.9.md), [sx(9)](sx.9.md)
+[condvar(9)](condvar.9.md), [LOCK_PROFILING(9)](lock_profiling.9.md), [locking(9)](locking.9.md), [mtx_pool(9)](mtx_pool.9.md), [panic(9)](panic.9.md), [rwlock(9)](rwlock.9.md), [sema(9)](sema.9.md), [sleep(9)](sleep.9.md), [sx(9)](sx.9.md)
 
 ## 历史
 

@@ -41,7 +41,7 @@ if (OF_getprop_alloc(hdminode, "model", (void **)&model) <= 0)
 
 ## 参见
 
-[OF_device_from_xref(9)](OF_device_from_xref.9.md), [OF_device_register_xref(9)](OF_device_from_xref.9.md)
+[OF_device_from_xref(9)](of_device_from_xref.9.md), [OF_device_register_xref(9)](of_device_from_xref.9.md)
 
 ## 作者
 

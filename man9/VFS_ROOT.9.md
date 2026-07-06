@@ -31,7 +31,7 @@ VFS_ROOT(struct mount *mp, int flags, struct vnode **vpp)
 
 ## 参见
 
-[VFS(9)](VFS.9.md), [vnode(9)](vnode.9.md)
+[VFS(9)](vfs.9.md), [vnode(9)](vnode.9.md)
 
 ## 作者
 

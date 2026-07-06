@@ -66,7 +66,7 @@ SYSINIT(announce, SI_SUB_COPYRIGHT, SI_ORDER_FIRST, print_caddr_t,
 
 ## 参见
 
-[kld(4)](../man4/kld.4.md), [DECLARE_MODULE(9)](DECLARE_MODULE.9.md), [DEV_MODULE(9)](DEV_MODULE.9.md), [DRIVER_MODULE(9)](DRIVER_MODULE.9.md), [MTX_SYSINIT(9)](mtx_pool.9.md), [SYSCALL_MODULE(9)](SYSCALL_MODULE.9.md)
+[kld(4)](../man4/kld.4.md), [DECLARE_MODULE(9)](declare_module.9.md), [DEV_MODULE(9)](dev_module.9.md), [DRIVER_MODULE(9)](driver_module.9.md), [MTX_SYSINIT(9)](mtx_pool.9.md), [SYSCALL_MODULE(9)](syscall_module.9.md)
 
 ## 历史
 

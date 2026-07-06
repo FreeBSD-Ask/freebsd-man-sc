@@ -30,7 +30,7 @@
 
 ## 参见
 
-[rc.conf(5)](../man5/rc.conf.5.md), [devinfo(8)](devinfo.8.md), [MODULE_PNP_INFO(9)](../man9/MODULE_PNP_INFO.9.md)
+[rc.conf(5)](../man5/rc.conf.5.md), [devinfo(8)](devinfo.8.md), [MODULE_PNP_INFO(9)](../man9/module_pnp_info.9.md)
 
 ## 历史
 

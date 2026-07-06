@@ -35,7 +35,7 @@ CTASSERT(sizeof(struct uuid) == 16);
 
 ## 参见
 
-[KASSERT(9)](KASSERT.9.md)
+[KASSERT(9)](kassert.9.md)
 
 ## 作者
 

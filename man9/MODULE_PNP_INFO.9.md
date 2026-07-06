@@ -17,7 +17,7 @@ MODULE_PNP_INFO(const char *descriptor_string, bus, module, void *table,
 
 ## 描述
 
-`MODULE_PNP_INFO` 宏注册一个包含设备识别数据的 `table`，供 [devmatch(8)](../man8/devmatch.8.md) 使用。由于它基于模块标记宏构建，因此必须放在 [DRIVER_MODULE(9)](DRIVER_MODULE.9.md) 行之后。
+`MODULE_PNP_INFO` 宏注册一个包含设备识别数据的 `table`，供 [devmatch(8)](../man8/devmatch.8.md) 使用。由于它基于模块标记宏构建，因此必须放在 [DRIVER_MODULE(9)](driver_module.9.md) 行之后。
 
 该宏接受一个 `descriptor_string` 来描述表项的内存布局。该字符串是由分号分隔的一系列成员组成的。成员由类型和名称标识。在描述符字符串中，通过将类型与冒号连接，后跟名称来编码它们。（特殊类型 `W32` 表示两个成员。第一个名称的编码方式与任何其他类型相同。第二个名称通过在第一个名称后追加正斜杠和第二个名称来编码。）
 
@@ -103,7 +103,7 @@ MODULE_PNP_INFO("U16:device;D:#;T:vendor=0x1234", pci, my_driver,
 
 ## 参见
 
-[devmatch(8)](../man8/devmatch.8.md), [DRIVER_MODULE(9)](DRIVER_MODULE.9.md), [module(9)](module.9.md)
+[devmatch(8)](../man8/devmatch.8.md), [DRIVER_MODULE(9)](driver_module.9.md), [module(9)](module.9.md)
 
 ## 历史
 

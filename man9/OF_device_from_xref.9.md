@@ -53,7 +53,7 @@ acmephy_attach(device_t dev)
 
 ## 参见
 
-[OF_node_from_xref(9)](OF_node_from_xref.9.md)
+[OF_node_from_xref(9)](of_node_from_xref.9.md)
 
 ## 作者
 

@@ -69,7 +69,7 @@ VOP_STAT(struct vnode *vp, struct stat *sb, flags, struct ucred *active_cred,
 
 ## 参见
 
-[VFS(9)](VFS.9.md), [vnode(9)](vnode.9.md), [VOP_ACCESS(9)](VOP_ACCESS.9.md)
+[VFS(9)](vfs.9.md), [vnode(9)](vnode.9.md), [VOP_ACCESS(9)](vop_access.9.md)
 
 ## 作者
 

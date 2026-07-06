@@ -54,7 +54,7 @@ MAC API 旨在随着内核中新服务的添加而轻松扩展。为了确保策
 
 ## 参见
 
-acl(3), mac(3), posix1e(3), [mac(4)](../man4/mac.4.md), [ucred(9)](ucred.9.md), [vaccess(9)](vaccess.9.md), [vaccess_acl_posix1e(9)](vaccess_acl_posix1e.9.md), [VFS(9)](VFS.9.md), [VOP_SETLABEL(9)](VOP_SETLABEL.9.md)
+acl(3), mac(3), posix1e(3), [mac(4)](../man4/mac.4.md), [ucred(9)](ucred.9.md), [vaccess(9)](vaccess.9.md), [vaccess_acl_posix1e(9)](vaccess_acl_posix1e.9.md), [VFS(9)](vfs.9.md), [VOP_SETLABEL(9)](vop_setlabel.9.md)
 
 > “FreeBSD 架构手册”。
 

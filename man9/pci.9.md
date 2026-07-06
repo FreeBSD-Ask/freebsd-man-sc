@@ -288,7 +288,7 @@ pci_find_dbsf(0, bus, slot, func);
 
 `pci_enable_pme` 函数用于在挂起设备之前启用电源管理事件的生成。
 
-`pci_iov_attach` 函数用于声明给定设备（及关联的设备驱动程序）支持 PCI 单根 I/O 虚拟化（SR-IOV）。支持 SR-IOV 的驱动程序必须实现 [PCI_IOV_INIT(9)](PCI_IOV_INIT.9.md)、[PCI_IOV_ADD_VF(9)](PCI_IOV_ADD_VF.9.md) 和 [PCI_IOV_UNINIT(9)](PCI_IOV_UNINIT.9.md) 方法。此函数应在 [DEVICE_ATTACH(9)](device_attach.9.md) 方法期间调用。如果此函数返回错误，建议设备驱动程序仍然成功附加，但禁用 SR-IOV 运行。`pf_schema` 和 `vf_schema` 参数用于分别定义为物理功能（PF）和单个虚拟功能（VF）启用 SR-IOV 时设备驱动程序接受的设备特定配置参数。有关如何构建架构的详细信息，请参见 [pci_iov_schema(9)](pci_iov_schema.9.md)。如果 `pf_schema` 或 `vf_schema` 无效或指定的参数名称与已使用的参数名称冲突，`pci_iov_attach` 将返回错误，PF 设备上将不可用 SR-IOV。如果驱动程序不接受 PF 设备或 VF 设备的配置参数，驱动程序必须为该设备传递空架构。SR-IOV 基础设施取得 `pf_schema` 和 `vf_schema` 的所有权，并负责释放它们。驱动程序绝不能自行释放架构。
+`pci_iov_attach` 函数用于声明给定设备（及关联的设备驱动程序）支持 PCI 单根 I/O 虚拟化（SR-IOV）。支持 SR-IOV 的驱动程序必须实现 [PCI_IOV_INIT(9)](pci_iov_init.9.md)、[PCI_IOV_ADD_VF(9)](pci_iov_add_vf.9.md) 和 [PCI_IOV_UNINIT(9)](pci_iov_uninit.9.md) 方法。此函数应在 [DEVICE_ATTACH(9)](device_attach.9.md) 方法期间调用。如果此函数返回错误，建议设备驱动程序仍然成功附加，但禁用 SR-IOV 运行。`pf_schema` 和 `vf_schema` 参数用于分别定义为物理功能（PF）和单个虚拟功能（VF）启用 SR-IOV 时设备驱动程序接受的设备特定配置参数。有关如何构建架构的详细信息，请参见 [pci_iov_schema(9)](pci_iov_schema.9.md)。如果 `pf_schema` 或 `vf_schema` 无效或指定的参数名称与已使用的参数名称冲突，`pci_iov_attach` 将返回错误，PF 设备上将不可用 SR-IOV。如果驱动程序不接受 PF 设备或 VF 设备的配置参数，驱动程序必须为该设备传递空架构。SR-IOV 基础设施取得 `pf_schema` 和 `vf_schema` 的所有权，并负责释放它们。驱动程序绝不能自行释放架构。
 
 `pci_iov_attach_name` 函数是 `pci_iov_attach` 的变体，允许 **`/dev/iov`** 中关联字符设备的名称由 `fmt` 指定。`pci_iov_attach` 函数使用 `dev` 的名称作为设备名称。
 

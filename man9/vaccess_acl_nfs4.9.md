@@ -20,7 +20,7 @@
 
 此调用实现了具有 NFSv4 ACL 扩展的 UNIX 自主文件安全模型的逻辑。它接受 vnode 类型 `type`、所有者 UID `file_uid`、所有者 GID `file_gid`、文件的访问 ACL `acl`、所需的访问模式 `accmode`、请求凭证 `cred`，以及一个可选的按引用传递的 `int` 指针，用于返回成功评估调用是否需要特权；`privused` 指针可由调用者设为 `NULL` 以不接收特权信息，也可指向一个整数，如果使用了特权则设为 1，否则设为 0。
 
-此调用旨在支持 [VOP_ACCESS(9)](VOP_ACCESS.9.md) 的实现，这些实现将使用自身的访问方法来检索 vnode 属性，然后调用 `vaccess_acl_nfs4()` 来执行实际检查。[VOP_ACCESS(9)](VOP_ACCESS.9.md) 的实现可以选择实现额外的安全机制，其结果将与返回值组合。
+此调用旨在支持 [VOP_ACCESS(9)](vop_access.9.md) 的实现，这些实现将使用自身的访问方法来检索 vnode 属性，然后调用 `vaccess_acl_nfs4()` 来执行实际检查。[VOP_ACCESS(9)](vop_access.9.md) 的实现可以选择实现额外的安全机制，其结果将与返回值组合。
 
 `vaccess_acl_nfs4()` 使用的算法基于 NFSv4 ACL 评估算法，如 NFSv4 Minor Version 1, draft-ietf-nfsv4-minorversion1-21.txt 中所述。该算法从访问 ACL 中选择一个*匹配*条目，然后可与可用的 ACL 掩码条目组合，提供 UNIX 安全兼容性。
 
@@ -38,7 +38,7 @@
 
 ## 参见
 
-[vaccess(9)](vaccess.9.md), [vnode(9)](vnode.9.md), [VOP_ACCESS(9)](VOP_ACCESS.9.md)
+[vaccess(9)](vaccess.9.md), [vnode(9)](vnode.9.md), [VOP_ACCESS(9)](vop_access.9.md)
 
 ## 作者
 

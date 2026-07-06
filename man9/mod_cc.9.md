@@ -87,7 +87,7 @@ struct cc_algo {
 
 注意，目前并非所有 TCP 协议栈都调用 `rttsample` 和 `newround` 函数，因此对这些函数的依赖还取决于所使用的 TCP 协议栈。
 
-`DECLARE_CC_MODULE` 宏提供了对 [DECLARE_MODULE(9)](DECLARE_MODULE.9.md) 宏的便捷封装，用于向 `CCV` 框架注册 `CCV` 模块。`ccname` 参数指定模块的名称。`ccalgo` 参数指向模块的 `struct cc_algo`。
+`DECLARE_CC_MODULE` 宏提供了对 [DECLARE_MODULE(9)](declare_module.9.md) 宏的便捷封装，用于向 `CCV` 框架注册 `CCV` 模块。`ccname` 参数指定模块的名称。`ccalgo` 参数指向模块的 `struct cc_algo`。
 
 `CCV` 模块必须实例化一个 `struct cc_algo`，但只要求设置 name 字段，其他函数指针为可选。注意，如果模块定义了 `cb_init` 函数，则还必须定义 `cc_data_sz` 函数。这是因为在从一个拥塞控制模块切换到另一个时，套接字选项代码会为 `cb_init` 函数预分配内存。如果模块的 `cb_init` 没有分配内存，则 `cc_data_sz` 函数应返回 0。
 

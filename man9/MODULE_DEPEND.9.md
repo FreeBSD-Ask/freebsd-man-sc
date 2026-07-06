@@ -37,7 +37,7 @@ MODULE_DEPEND(foo, bar, 1, 3, 4);
 
 ## 参见
 
-[DECLARE_MODULE(9)](DECLARE_MODULE.9.md), [module(9)](module.9.md), [MODULE_VERSION(9)](MODULE_VERSION.9.md)
+[DECLARE_MODULE(9)](declare_module.9.md), [module(9)](module.9.md), [MODULE_VERSION(9)](module_version.9.md)
 
 ## 作者
 

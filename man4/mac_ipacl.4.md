@@ -25,7 +25,7 @@ mac_ipacl_load= YES
 
 ## 描述
 
-`mac_ipacl` 策略允许主机 root 使用 [sysctl(8)](../man8/sysctl.8.md) 接口限制 [VNET(9)](../man9/VNET.9.md) jail 设置 IPv4 和 IPv6 地址的能力。因此，主机可通过 [sysctl(8)](../man8/sysctl.8.md) MIB 为 jail 及其接口定义有关 IP 地址的规则。
+`mac_ipacl` 策略允许主机 root 使用 [sysctl(8)](../man8/sysctl.8.md) 接口限制 [VNET(9)](../man9/vnet.9.md) jail 设置 IPv4 和 IPv6 地址的能力。因此，主机可通过 [sysctl(8)](../man8/sysctl.8.md) MIB 为 jail 及其接口定义有关 IP 地址的规则。
 
 其默认行为是：如果强制执行 `mac_ipacl` 策略，则禁止 jail 的所有 IP 地址，并根据通过 [sysctl(8)](../man8/sysctl.8.md) 指定的 `security.mac.ipacl.rules` 字符串允许/拒绝 IP（或子网）。
 

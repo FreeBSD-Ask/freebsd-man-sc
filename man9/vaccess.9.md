@@ -18,7 +18,7 @@
 
 此调用实现了 FreeBSD 中许多文件系统通用的 UNIX 自主文件安全模型的逻辑。它接受 vnode 类型 `type`、通过 `file_mode` 给出的权限、所有者 UID `file_uid`、所有者 GID `file_gid`、所需的访问模式 `accmode` 以及请求凭证 `cred`。
 
-此调用旨在支持 [VOP_ACCESS(9)](VOP_ACCESS.9.md) 的实现，这些实现将使用自身的访问方法来检索 vnode 属性，然后调用 `vaccess()` 来执行实际检查。[VOP_ACCESS(9)](VOP_ACCESS.9.md) 的实现可以选择实现额外的安全机制，其结果将与返回值组合。
+此调用旨在支持 [VOP_ACCESS(9)](vop_access.9.md) 的实现，这些实现将使用自身的访问方法来检索 vnode 属性，然后调用 `vaccess()` 来执行实际检查。[VOP_ACCESS(9)](vop_access.9.md) 的实现可以选择实现额外的安全机制，其结果将与返回值组合。
 
 `vaccess()` 使用的算法通过比较传递的凭证、文件所有者和文件组来选择文件权限位的一个组成部分。如果凭证的有效 UID 与文件所有者匹配，则选择权限位的所有者组成部分。如果 UID 不匹配，则将凭证的有效 GID 及其附加组与文件组进行比较——如果匹配，则选择权限位的组组成部分。如果凭证的 UID 和 GID 都不匹配传递的文件所有者和组，则选择权限位的其他组成部分。
 
@@ -36,7 +36,7 @@
 
 ## 参见
 
-[vaccess_acl_nfs4(9)](vaccess_acl_nfs4.9.md), [vaccess_acl_posix1e(9)](vaccess_acl_posix1e.9.md), [vnode(9)](vnode.9.md), [VOP_ACCESS(9)](VOP_ACCESS.9.md)
+[vaccess_acl_nfs4(9)](vaccess_acl_nfs4.9.md), [vaccess_acl_posix1e(9)](vaccess_acl_posix1e.9.md), [vnode(9)](vnode.9.md), [VOP_ACCESS(9)](vop_access.9.md)
 
 ## 作者
 

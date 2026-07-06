@@ -116,7 +116,7 @@ udp:::receive
 
 ## 参见
 
-[dtrace(1)](../man1/dtrace.1.md), [dtrace_ip(4)](dtrace_ip.4.md), [dtrace_sctp(4)](dtrace_sctp.4.md), [dtrace_tcp(4)](dtrace_tcp.4.md), [dtrace_udplite(4)](dtrace_udplite.4.md), [udp(4)](udp.4.md), [SDT(9)](../man9/SDT.9.md)
+[dtrace(1)](../man1/dtrace.1.md), [dtrace_ip(4)](dtrace_ip.4.md), [dtrace_sctp(4)](dtrace_sctp.4.md), [dtrace_tcp(4)](dtrace_tcp.4.md), [dtrace_udplite(4)](dtrace_udplite.4.md), [udp(4)](udp.4.md), [SDT(9)](../man9/sdt.9.md)
 
 ## 历史
 

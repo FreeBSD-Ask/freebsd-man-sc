@@ -66,7 +66,7 @@ struct accept_filter {
 
 `accept_filt_get` 函数在内部使用，通过 setsockopt(2) 系统调用定位要使用的接受过滤器。
 
-`accept_filt_generic_mod_event` 函数提供了一种简单的方式，避免对于不使用参数字段来加载和卸载自身的接受过滤器重复代码。此函数可用于 [DECLARE_MODULE(9)](DECLARE_MODULE.9.md) 宏的 `moduledata_t` 结构。
+`accept_filt_generic_mod_event` 函数提供了一种简单的方式，避免对于不使用参数字段来加载和卸载自身的接受过滤器重复代码。此函数可用于 [DECLARE_MODULE(9)](declare_module.9.md) 宏的 `moduledata_t` 结构。
 
 ## 参见
 

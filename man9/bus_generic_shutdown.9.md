@@ -18,7 +18,7 @@ bus_generic_shutdown(device_t dev)
 
 ## 描述
 
-此函数提供 [DEVICE_SHUTDOWN(9)](DEVICE_SHUTDOWN.9.md) 方法的实现，可供大多数总线代码使用。它简单地调用附加到总线的每个子设备的 [DEVICE_SHUTDOWN(9)](DEVICE_SHUTDOWN.9.md) 方法。
+此函数提供 [DEVICE_SHUTDOWN(9)](device_shutdown.9.md) 方法的实现，可供大多数总线代码使用。它简单地调用附加到总线的每个子设备的 [DEVICE_SHUTDOWN(9)](device_shutdown.9.md) 方法。
 
 ## 返回值
 

@@ -24,7 +24,7 @@
 
 **`flags`** 唯一支持的标志是 `V_SAVE`，表示脏缓冲区应与磁盘同步。
 
-**`cred`** 如果设置了 `V_SAVE`，用于 [VOP_FSYNC(9)](VOP_FSYNC.9.md) 缓冲区的用户凭证。
+**`cred`** 如果设置了 `V_SAVE`，用于 [VOP_FSYNC(9)](vop_fsync.9.md) 缓冲区的用户凭证。
 
 **`slpflag`** 用于函数中任何睡眠优先级的 slp 标志。
 
@@ -64,7 +64,7 @@ if (error)
 
 ## 参见
 
-tsleep(9), [VOP_FSYNC(9)](VOP_FSYNC.9.md)
+tsleep(9), [VOP_FSYNC(9)](vop_fsync.9.md)
 
 ## 作者
 

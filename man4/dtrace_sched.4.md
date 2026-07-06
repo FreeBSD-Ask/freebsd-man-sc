@@ -61,7 +61,7 @@ Fn sched:::lend-pri 和 Fn sched:::load-change 探测是 FreeBSD 特有的。
 
 ## 参见
 
-[dtrace(1)](../man1/dtrace.1.md), [sched_4bsd(4)](sched_4bsd.4.md), [sched_ule(4)](sched_ule.4.md), [SDT(9)](../man9/SDT.9.md), [sleepqueue(9)](../man9/sleepqueue.9.md)
+[dtrace(1)](../man1/dtrace.1.md), [sched_4bsd(4)](sched_4bsd.4.md), [sched_ule(4)](sched_ule.4.md), [SDT(9)](../man9/sdt.9.md), [sleepqueue(9)](../man9/sleepqueue.9.md)
 
 ## 历史
 

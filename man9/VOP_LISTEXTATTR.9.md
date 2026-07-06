@@ -66,4 +66,4 @@ vnode 在进入时将被锁定，并在返回时应保持锁定状态。
 
 ## 参见
 
-[extattr(9)](extattr.9.md), [vnode(9)](vnode.9.md), [VOP_GETEXTATTR(9)](VOP_GETEXTATTR.9.md), [VOP_SETEXTATTR(9)](VOP_SETEXTATTR.9.md)
+[extattr(9)](extattr.9.md), [vnode(9)](vnode.9.md), [VOP_GETEXTATTR(9)](vop_getextattr.9.md), [VOP_SETEXTATTR(9)](vop_setextattr.9.md)
