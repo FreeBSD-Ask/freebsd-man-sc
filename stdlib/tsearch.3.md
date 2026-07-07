@@ -4,7 +4,7 @@
 
 ## 名称
 
-`tsearch`
+`tsearch`, `tfind`, `tdelete`, `twalk`
 
 ## 概要
 
