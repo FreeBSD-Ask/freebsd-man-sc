@@ -1,4 +1,4 @@
-# more(1)
+# less(1)
 
 `less` — display the contents of a file in a terminal
 

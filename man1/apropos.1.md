@@ -1,4 +1,4 @@
-# whatis(1)
+# apropos(1)
 
 `apropos` — 搜索手册页数据库
 
