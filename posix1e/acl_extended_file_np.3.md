@@ -37,7 +37,7 @@ acl_extended_link_np(const char* path_p);
 
 ## 错误
 
-如果发生以下任一情况，`acl_extended_file_np` 函数将返回值 `-1`，并将 `errno` 设置为相应值：
+如果发生以下任一情况，`acl_extended_file_np` 函数将返回值 -1，并将 `errno` 设置为相应值：
 
 `[EACCES]` 对路径前缀的某个组件拒绝搜索权限。
 
