@@ -1,2 +1,3 @@
-# getpeername.2
+# getpeername(2)
 
+`getpeername` —

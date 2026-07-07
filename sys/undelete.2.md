@@ -57,7 +57,7 @@ undelete(const char *path)
 
 **[`EROFS`]** 该名称位于只读文件系统上。
 
-**[`EFAULT`]** `path` 参数指向进程已分配地址空间之外。
+**[`EFAULT`]** `path` 参数指向进程已分配的地址空间之外。
 
 ## 参见
 
