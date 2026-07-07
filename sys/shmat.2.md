@@ -32,7 +32,7 @@ shmdt(const void *addr)
 
 - 如果 `addr` 为 0，段附接到内核选择的地址。
 - 如果 `addr` 非零且 `flag` 中未指定 `SHM_RND`，段附接到指定地址。
-- 如果指定了 `addr` 且指定了 `SHM_RND`，`addr` 向下舍入到 SHMLBA 的最近倍数。
+- 如果指定了 `addr` 且指定了 `SHM_RND`，`addr` 向下舍入到 `SHMLBA` 的最近倍数。
 
 如果指定了 `SHM_REMAP` 标志且传入的 `addr` 不为 `NULL`，则在附接段之前清除虚拟地址范围内的任何现有映射。如果未指定该标志，`addr` 不为 `NULL`，且虚拟地址范围包含一些预先存在的映射，`shmat()` 调用将失败。
 

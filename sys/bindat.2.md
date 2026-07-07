@@ -27,8 +27,8 @@ bindat(int fd, int s, const struct sockaddr *addr, socklen_t addrlen)
 
 `bindat()` 系统调用将本地协议地址分配给套接字。当在 `fd` 参数中传递特殊值 `AT_FDCWD` 时，其行为与调用 [bind(2)](bind.2.md) 相同。否则，`bindat()` 的工作方式与 [bind(2)](bind.2.md) 系统调用相同，但有以下两点例外：
 
-- 它仅限于 PF_LOCAL 域中的套接字。
-- 如果存储在 sockaddr_un 结构的 `sun_path` 字段中的文件路径是相对路径，则相对于与文件描述符 `fd` 关联的目录来定位。
+- 它仅限于 `PF_LOCAL` 域中的套接字。
+- 如果存储在 `sockaddr_un` 结构的 `sun_path` 字段中的文件路径是相对路径，则相对于与文件描述符 `fd` 关联的目录来定位。
 
 ## 返回值
 
