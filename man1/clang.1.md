@@ -1,4 +1,4 @@
-# cpp(1)
+# clang(1)
 
 `clang` — Clang C、C++ 和 Objective-C 编译器
 

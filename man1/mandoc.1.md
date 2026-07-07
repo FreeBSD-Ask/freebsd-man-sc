@@ -1,4 +1,4 @@
-# mdocml(1)
+# mandoc(1)
 
 `mandoc` — 格式化手册页
 
