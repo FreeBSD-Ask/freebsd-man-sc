@@ -80,11 +80,11 @@ const char *ipstr = "127.0.0.1";
 struct in_addr ip;
 struct hostent *hp;
 if (!inet_aton(ipstr, &ip))
-	errx(1, "无法解析 IP 地址 %s", ipstr);
+	errx(1, "can't parse IP address %s", ipstr);
 if ((hp = gethostbyaddr((const void *)&ip,
     sizeof ip, AF_INET)) == NULL)
-	errx(1, "没有与 %s 关联的名称", ipstr);
-printf("与 %s 关联的名称是 %s\n", ipstr, hp->h_name);
+	errx(1, "no name associated with %s", ipstr);
+printf("name associated with %s is %s\n", ipstr, hp->h_name);
 ```
 
 ## 诊断
