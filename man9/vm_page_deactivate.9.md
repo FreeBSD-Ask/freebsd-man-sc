@@ -1,4 +1,4 @@
-# vm\_page\_deactivate.9
+# vm_page_deactivate(9)
 
 `vm_page_deactivate` — 停用一个页面
 

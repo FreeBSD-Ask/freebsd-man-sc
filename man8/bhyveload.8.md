@@ -1,4 +1,4 @@
-# bhyveload.8
+# bhyveload(8)
 
 `bhyveload` — 在 bhyve 虚拟机中加载 FreeBSD 客户机
 

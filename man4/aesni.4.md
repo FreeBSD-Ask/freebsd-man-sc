@@ -1,4 +1,4 @@
-# aesni.4
+# aesni(4)
 
 `aesni` — x86 CPU AES 和 SHA 加密加速驱动
 

@@ -1,4 +1,4 @@
-# ng_eiface.4
+# ng_eiface(4)
 
 `ng_eiface` — 通用以太网接口 netgraph 节点类型
 

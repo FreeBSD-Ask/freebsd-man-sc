@@ -1,4 +1,4 @@
-# ng_hole.4
+# ng_hole(4)
 
 `ng_hole` — netgraph 丢弃节点类型
 

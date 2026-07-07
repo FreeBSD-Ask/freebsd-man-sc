@@ -1,4 +1,4 @@
-# enigma.1
+# enigma(1)
 
 `enigma` — 非常简单的文件加密工具
 

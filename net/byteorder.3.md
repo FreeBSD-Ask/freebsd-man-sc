@@ -1,4 +1,4 @@
-# byteorder.3
+# byteorder(3)
 
 `htonl` — 在主机与网络字节顺序之间转换值
 

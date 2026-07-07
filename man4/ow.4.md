@@ -1,4 +1,4 @@
-# ow.4
+# ow(4)
 
 `ow` — Dallas Semiconductor 1-Wire 总线
 

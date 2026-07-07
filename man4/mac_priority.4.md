@@ -1,4 +1,4 @@
-# mac_priority.4
+# mac_priority(4)
 
 `mac_priority` — 非_root_用户的调度特权策略
 

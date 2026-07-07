@@ -1,4 +1,4 @@
-# pthread_self.3
+# pthread_self(3)
 
 `pthread_self` — 获取调用线程的 ID
 

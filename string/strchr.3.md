@@ -1,4 +1,4 @@
-# strchr.3
+# strchr(3)
 
 `strchr` — 在字符串中定位字符
 

@@ -1,4 +1,4 @@
-# memguard.9
+# memguard(9)
 
 `MemGuard` — 用于调试目的的内存分配器
 

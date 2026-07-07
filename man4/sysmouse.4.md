@@ -1,4 +1,4 @@
-# sysmouse.4
+# sysmouse(4)
 
 `sysmouse` — 虚拟化鼠标驱动程序
 

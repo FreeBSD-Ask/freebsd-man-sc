@@ -1,4 +1,4 @@
-# iconv.3
+# iconv(3)
 
 `iconv_open` — 代码集转换函数
 

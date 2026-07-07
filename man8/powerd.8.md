@@ -1,4 +1,4 @@
-# powerd.8
+# powerd(8)
 
 `powerd` — 系统电源控制工具
 

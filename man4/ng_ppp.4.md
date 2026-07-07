@@ -1,4 +1,4 @@
-# ng_ppp.4
+# ng_ppp(4)
 
 `ng_ppp` — PPP 协议 netgraph 节点类型
 

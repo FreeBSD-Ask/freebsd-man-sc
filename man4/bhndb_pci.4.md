@@ -1,4 +1,4 @@
-# bhndb_pci.4
+# bhndb_pci(4)
 
 `bhndb_pci` — Broadcom 家庭网络部门 PCI 主桥驱动
 

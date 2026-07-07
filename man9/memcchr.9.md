@@ -1,4 +1,4 @@
-# memcchr.9
+# memcchr(9)
 
 `memcchr` — 在字节串中定位不相等字节
 

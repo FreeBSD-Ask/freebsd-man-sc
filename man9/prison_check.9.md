@@ -1,4 +1,4 @@
-# prison\_check.9
+# prison_check(9)
 
 `prison_check` — 根据 jail 限制确定主体是否可以查看实体
 

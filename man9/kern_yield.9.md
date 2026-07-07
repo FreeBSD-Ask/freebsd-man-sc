@@ -1,4 +1,4 @@
-# kern_yield.9
+# kern_yield(9)
 
 `kern_yield` — 让出当前线程执行权的函数
 

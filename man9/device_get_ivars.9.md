@@ -1,4 +1,4 @@
-# device\_get\_ivars.9
+# device_get_ivars(9)
 
 `device_get_ivars` — 访问总线私有变量
 

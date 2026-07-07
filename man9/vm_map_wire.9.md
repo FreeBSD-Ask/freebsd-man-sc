@@ -1,4 +1,4 @@
-# vm\_map\_wire.9
+# vm_map_wire(9)
 
 `vm_map_wire`, `vm_map_unwire` — 管理虚拟内存映射中的页锁定
 

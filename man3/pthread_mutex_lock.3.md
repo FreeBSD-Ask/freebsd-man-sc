@@ -1,4 +1,4 @@
-# pthread_mutex_lock.3
+# pthread_mutex_lock(3)
 
 `pthread_mutex_lock` — 锁定 mutex
 

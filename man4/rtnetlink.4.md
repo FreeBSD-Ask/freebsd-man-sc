@@ -1,4 +1,4 @@
-# rtnetlink.4
+# rtnetlink(4)
 
 `RTNetlink` — 网络配置专用的 Netlink 协议族
 

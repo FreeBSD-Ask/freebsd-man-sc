@@ -1,4 +1,4 @@
-# appleir.4
+# appleir(4)
 
 `appleir` — Apple IR 接收器驱动
 

@@ -1,4 +1,4 @@
-# wcsxfrm.3
+# wcsxfrm(3)
 
 `wcsxfrm` — 在 locale 下转换宽字符串
 

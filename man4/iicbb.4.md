@@ -1,4 +1,4 @@
-# iicbb.4
+# iicbb(4)
 
 `iicbb` — I2C 通用位敲击驱动
 

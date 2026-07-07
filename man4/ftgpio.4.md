@@ -1,4 +1,4 @@
-# ftgpio.4
+# ftgpio(4)
 
 `ftgpio` — Fintek Super I/O 上的 GPIO 控制器
 

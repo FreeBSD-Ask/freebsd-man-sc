@@ -1,4 +1,4 @@
-# nsswitch.conf.5
+# nsswitch.conf(5)
 
 `nsswitch.conf` — 名称服务切换配置文件
 

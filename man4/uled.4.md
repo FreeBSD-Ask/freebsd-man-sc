@@ -1,4 +1,4 @@
-# uled.4
+# uled(4)
 
 `uled` — USB LED 驱动
 

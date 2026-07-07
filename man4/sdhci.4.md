@@ -1,4 +1,4 @@
-# sdhci.4
+# sdhci(4)
 
 `sdhci` — PCI SD 主机控制器桥驱动
 

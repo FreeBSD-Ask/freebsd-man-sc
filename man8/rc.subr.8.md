@@ -1,4 +1,4 @@
-# rc.subr.8
+# rc.subr(8)
 
 `rc.subr` — 系统脚本使用的函数
 

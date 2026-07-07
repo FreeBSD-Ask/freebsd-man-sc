@@ -1,4 +1,4 @@
-# bluetooth.hosts.5
+# bluetooth.hosts(5)
 
 `bluetooth.hosts` — 蓝牙主机名数据库
 

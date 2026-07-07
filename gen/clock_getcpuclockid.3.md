@@ -1,4 +1,4 @@
-# clock_getcpuclockid.3
+# clock_getcpuclockid(3)
 
 `clock_getcpuclockid` — 访问进程 CPU 时间时钟
 

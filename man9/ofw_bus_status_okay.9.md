@@ -1,4 +1,4 @@
-# ofw_bus_status_okay.9.md
+# ofw_bus_status_okay(9)
 
 `ofw_bus_get_status` — 检查设备树节点的状态
 

@@ -1,4 +1,4 @@
-# build.7
+# build(7)
 
 `build` — 构建 FreeBSD 系统的通用说明
 

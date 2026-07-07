@@ -1,4 +1,4 @@
-# elfdump.1
+# elfdump(1)
 
 `elfdump` — 显示 ELF 文件的相关信息
 

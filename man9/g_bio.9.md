@@ -1,4 +1,4 @@
-# g_bio.9
+# g_bio(9)
 
 `g_new_bio` — GEOM bio 控制函数
 

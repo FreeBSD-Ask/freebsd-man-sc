@@ -1,4 +1,4 @@
-# snd_hda.4
+# snd_hda(4)
 
 `snd_hda` — Intel High Definition Audio 桥设备驱动
 

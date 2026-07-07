@@ -1,4 +1,4 @@
-# vm\_fault\_prefault.9
+# vm_fault_prefault(9)
 
 `vm_fault_prefault` — 将页面错误聚集到进程的地址空间中
 

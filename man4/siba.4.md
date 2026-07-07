@@ -1,4 +1,4 @@
-# siba.4
+# siba(4)
 
 `siba` — Sonic Inc. Silicon Backplane 驱动
 

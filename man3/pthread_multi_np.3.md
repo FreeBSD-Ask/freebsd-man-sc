@@ -1,4 +1,4 @@
-# pthread_multi_np.3
+# pthread_multi_np(3)
 
 `pthread_multi_np` — 在多线程与单线程调度模式之间切换
 

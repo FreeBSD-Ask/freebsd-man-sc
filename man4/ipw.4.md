@@ -1,4 +1,4 @@
-# ipw.4
+# ipw(4)
 
 `ipw` — Intel PRO/Wireless 2100 IEEE 802.11a/b 驱动
 

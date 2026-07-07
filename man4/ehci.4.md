@@ -1,4 +1,4 @@
-# ehci.4
+# ehci(4)
 
 `ehci` — USB 增强型主控制器驱动
 

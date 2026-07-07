@@ -1,4 +1,4 @@
-# ssh.1
+# ssh(1)
 
 `ssh` — OpenSSH 远程登录客户端
 

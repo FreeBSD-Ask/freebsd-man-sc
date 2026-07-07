@@ -1,4 +1,4 @@
-# dtrace_vfs.4
+# dtrace_vfs(4)
 
 `dtrace_vfs` — 用于虚拟文件系统（VFS）的 DTrace 提供者
 

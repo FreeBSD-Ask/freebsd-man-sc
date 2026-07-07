@@ -1,4 +1,4 @@
-# devstat.9
+# devstat(9)
 
 `devstat` — 用于保持设备统计信息的内核接口
 

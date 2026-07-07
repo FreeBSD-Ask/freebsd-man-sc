@@ -1,4 +1,4 @@
-# BUS_CHILD_PNPINFO.9
+# BUS_CHILD_PNPINFO(9)
 
 `BUS_CHILD_PNPINFO` — 从设备获取即插即用信息
 

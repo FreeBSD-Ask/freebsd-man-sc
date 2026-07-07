@@ -1,4 +1,4 @@
-# sk.4
+# sk(4)
 
 `sk` — SysKonnect SK-984x 和 SK-982x PCI 千兆以太网适配器驱动
 

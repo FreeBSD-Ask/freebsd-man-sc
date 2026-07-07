@@ -1,4 +1,4 @@
-# dtrace_audit.4
+# dtrace_audit(4)
 
 `dtrace_audit` — 用于跟踪的 DTrace 提供者
 

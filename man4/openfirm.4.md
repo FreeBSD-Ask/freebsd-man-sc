@@ -1,4 +1,4 @@
-# openfirm.4
+# openfirm(4)
 
 `openfirm` — Open Firmware 接口
 

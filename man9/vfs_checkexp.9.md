@@ -1,4 +1,4 @@
-# VFS\_CHECKEXP.9
+# VFS_CHECKEXP(9)
 
 `VFS_CHECKEXP` — 检查文件系统是否导出给客户端
 

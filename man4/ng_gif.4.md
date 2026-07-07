@@ -1,4 +1,4 @@
-# ng_gif.4
+# ng_gif(4)
 
 `ng_gif` — 通用隧道接口 netgraph 节点类型
 

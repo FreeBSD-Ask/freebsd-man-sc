@@ -1,4 +1,4 @@
-# VOP_LOCK.9
+# VOP_LOCK(9)
 
 `VOP_LOCK` — 序列化对 vnode 的访问
 

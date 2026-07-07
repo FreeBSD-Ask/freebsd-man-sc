@@ -1,4 +1,4 @@
-# VOP_VPTOFH.9
+# VOP_VPTOFH(9)
 
 `VOP_VPTOFH` — 将 vnode 转换为 NFS 文件句柄
 

@@ -1,4 +1,4 @@
-# cnv.9
+# cnv(9)
 
 `cnv` — 通过 cookie 管理名称/值对的 API
 

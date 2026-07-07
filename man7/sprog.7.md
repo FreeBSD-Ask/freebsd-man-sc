@@ -1,4 +1,4 @@
-# sprog.7
+# sprog(7)
 
 `sprog` — 安全编程实践
 

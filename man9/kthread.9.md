@@ -1,4 +1,4 @@
-# kthread.9
+# kthread(9)
 
 `kthread_start` — 内核线程
 

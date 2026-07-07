@@ -1,4 +1,4 @@
-# pthread_equal.3
+# pthread_equal(3)
 
 `pthread_equal` — 比较线程 ID
 

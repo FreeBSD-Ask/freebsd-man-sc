@@ -1,4 +1,4 @@
-# vlan.4
+# vlan(4)
 
 `vlan` — IEEE 802.1Q VLAN 网络接口
 

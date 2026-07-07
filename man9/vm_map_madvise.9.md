@@ -1,4 +1,4 @@
-# vm\_map\_madvise.9
+# vm_map_madvise(9)
 
 `vm_map_madvise` — 将内存使用建议应用到映射条目
 

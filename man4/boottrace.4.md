@@ -1,4 +1,4 @@
-# boottrace.4
+# boottrace(4)
 
 `boottrace` — 引导时、运行时和关机时的跟踪设施
 

@@ -1,4 +1,4 @@
-# VOP_ACCESS.9
+# VOP_ACCESS(9)
 
 `VOP_ACCESS` — 检查文件或 Unix 域套接字的访问权限
 

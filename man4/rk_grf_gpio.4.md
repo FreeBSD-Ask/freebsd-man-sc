@@ -1,4 +1,4 @@
-# rk\_grf\_gpio.4
+# rk_grf_gpio(4)
 
 `rk_grf_gpio` — RockChip GPIO_MUTE 引脚驱动
 

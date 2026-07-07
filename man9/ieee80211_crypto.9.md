@@ -1,4 +1,4 @@
-# ieee80211_crypto.9
+# ieee80211_crypto(9)
 
 `ieee80211_crypto` — 802.11 加密支持
 

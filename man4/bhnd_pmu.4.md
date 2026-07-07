@@ -1,4 +1,4 @@
-# bhnd_pmu.4
+# bhnd_pmu(4)
 
 `bhnd_pmu` — Broadcom 家庭网络部门 PMU 驱动
 

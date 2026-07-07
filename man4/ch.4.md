@@ -1,4 +1,4 @@
-# ch.4
+# ch(4)
 
 `ch` — SCSI 介质更换器（juke box）驱动
 

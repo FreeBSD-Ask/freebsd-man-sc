@@ -1,4 +1,4 @@
-# pthread_rwlock_rdlock.3
+# pthread_rwlock_rdlock(3)
 
 `pthread_rwlock_rdlock` — 获取读写锁用于读取
 

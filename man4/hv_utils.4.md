@@ -1,4 +1,4 @@
-# hv_utils.4
+# hv_utils(4)
 
 `hv_utils` — Hyper-V 实用工具驱动
 

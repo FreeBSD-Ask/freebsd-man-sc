@@ -1,4 +1,4 @@
-# resolver.5
+# resolver(5)
 
 `resolver` — 解析器配置文件
 

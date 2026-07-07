@@ -1,4 +1,4 @@
-# freebsd-update.8
+# freebsd-update(8)
 
 `freebsd-update` — 抓取并安装 FreeBSD 的二进制更新
 

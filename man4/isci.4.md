@@ -1,4 +1,4 @@
-# isci.4
+# isci(4)
 
 `isci` — Intel C600 Serial Attached SCSI 驱动
 

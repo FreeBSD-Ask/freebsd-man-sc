@@ -1,4 +1,4 @@
-# hptmv.4
+# hptmv(4)
 
 `hptmv` — HighPoint RocketRAID 182x 设备驱动
 

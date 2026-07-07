@@ -1,4 +1,4 @@
-# pchtherm.4
+# pchtherm(4)
 
 `pchtherm` — Intel PCH 热子系统
 

@@ -1,4 +1,4 @@
-# style.lua.9
+# style.lua(9)
 
 `style.lua` — FreeBSD Lua 文件风格指南
 

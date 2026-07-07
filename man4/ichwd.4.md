@@ -1,4 +1,4 @@
-# ichwd.4
+# ichwd(4)
 
 `ichwd` — Intel ICH 看门狗中断定时器设备驱动
 

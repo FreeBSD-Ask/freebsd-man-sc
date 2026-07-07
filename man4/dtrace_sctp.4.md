@@ -1,4 +1,4 @@
-# dtrace_sctp.4
+# dtrace_sctp(4)
 
 `dtrace_sctp` — 用于跟踪与
 

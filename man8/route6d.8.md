@@ -1,4 +1,4 @@
-# route6d.8
+# route6d(8)
 
 `route6d` — RIP6 路由守护进程
 

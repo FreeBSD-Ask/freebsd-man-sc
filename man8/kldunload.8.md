@@ -1,4 +1,4 @@
-# kldunload.8
+# kldunload(8)
 
 `kldunload` — 从内核中卸载文件
 

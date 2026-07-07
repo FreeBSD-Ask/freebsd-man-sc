@@ -1,4 +1,4 @@
-# ng_echo.4
+# ng_echo(4)
 
 `ng_echo` — netgraph 回显节点类型
 

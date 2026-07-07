@@ -1,4 +1,4 @@
-# ld.lld.1
+# ld.lld(1)
 
 `ld.lld` — 来自 LLVM 项目的 ELF 链接器
 

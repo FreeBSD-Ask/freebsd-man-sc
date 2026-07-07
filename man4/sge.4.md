@@ -1,4 +1,4 @@
-# sge.4
+# sge(4)
 
 `sge` — Silicon Integrated Systems SiS190/191 快速/千兆以太网驱动
 

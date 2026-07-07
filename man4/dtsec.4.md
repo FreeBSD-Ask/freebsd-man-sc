@@ -1,4 +1,4 @@
-# dtsec.4
+# dtsec(4)
 
 `dtsec` — 基于 Freescale Datapath Acceleration Architecture 的三速以太网控制器设备驱动
 

@@ -1,4 +1,4 @@
-# ptnet.4
+# ptnet(4)
 
 `ptnet` — 直通 netmap 端口的以太网驱动程序
 

@@ -1,4 +1,4 @@
-# sftp.1
+# sftp(1)
 
 `sftp` — OpenSSH 安全文件传输
 

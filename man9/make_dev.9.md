@@ -1,4 +1,4 @@
-# make_dev.9
+# make_dev(9)
 
 `make_dev` — 创建和销毁字符设备，包括 devfs 注册
 

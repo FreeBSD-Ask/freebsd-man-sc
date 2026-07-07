@@ -1,4 +1,4 @@
-# protocols.5
+# protocols(5)
 
 `protocols` — 协议名称数据库
 

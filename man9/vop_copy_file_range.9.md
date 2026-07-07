@@ -1,4 +1,4 @@
-# VOP_COPY_FILE_RANGE.9
+# VOP_COPY_FILE_RANGE(9)
 
 `VOP_COPY_FILE_RANGE` — 在单个文件系统内或多个文件系统之间复制文件内或文件之间的字节范围
 

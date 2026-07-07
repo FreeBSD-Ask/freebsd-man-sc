@@ -1,4 +1,4 @@
-# OF\_getprop.9
+# OF_getprop(9)
 
 `OF_getprop` — 访问设备树节点的属性
 

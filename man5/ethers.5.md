@@ -1,4 +1,4 @@
-# ethers.5
+# ethers(5)
 
 `ethers` — 以太网地址数据库
 

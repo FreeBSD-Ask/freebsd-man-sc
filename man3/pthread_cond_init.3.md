@@ -1,4 +1,4 @@
-# pthread_cond_init.3
+# pthread_cond_init(3)
 
 `pthread_cond_init` — 创建条件变量
 

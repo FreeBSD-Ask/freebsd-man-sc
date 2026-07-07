@@ -1,4 +1,4 @@
-# growfs.8
+# growfs(8)
 
 `growfs` — 扩展已有的 UFS 文件系统
 

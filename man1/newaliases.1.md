@@ -1,4 +1,4 @@
-# newaliases.1
+# newaliases(1)
 
 `newaliases` — 重建 sendmail 别名文件的数据
 

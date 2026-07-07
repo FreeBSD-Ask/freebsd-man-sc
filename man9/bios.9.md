@@ -1,4 +1,4 @@
-# bios.9
+# bios(9)
 
 `bios_sigsearch` — 与 PC BIOS 交互
 

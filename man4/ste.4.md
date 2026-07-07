@@ -1,4 +1,4 @@
-# ste.4
+# ste(4)
 
 `ste` — Sundance Technologies ST201 快速以太网设备驱动
 

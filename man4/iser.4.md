@@ -1,4 +1,4 @@
-# iser.4
+# iser(4)
 
 `iser` — iSCSI Extensions for RDMA (iSER) 驱动
 

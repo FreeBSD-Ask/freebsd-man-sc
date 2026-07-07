@@ -1,4 +1,4 @@
-# mbsinit.3
+# mbsinit(3)
 
 `mbsinit` — 确定转换对象状态
 

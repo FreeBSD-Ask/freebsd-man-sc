@@ -1,4 +1,4 @@
-# alloca.3
+# alloca(3)
 
 `alloca` — 内存分配器
 

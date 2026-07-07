@@ -1,4 +1,4 @@
-# vm\_page\_dontneed.9
+# vm_page_dontneed(9)
 
 `vm_page_dontneed` — 指示页面不再需要
 

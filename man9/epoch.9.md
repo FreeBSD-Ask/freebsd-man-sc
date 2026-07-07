@@ -1,4 +1,4 @@
-# epoch.9
+# epoch(9)
 
 `epoch` — 基于 epoch 的内核回收
 

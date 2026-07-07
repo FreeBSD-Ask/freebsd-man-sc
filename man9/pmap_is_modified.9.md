@@ -1,4 +1,4 @@
-# pmap_is_modified.9
+# pmap_is_modified(9)
 
 `pmap_is_modified` — 返回有关物理页面的信息
 

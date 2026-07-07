@@ -1,4 +1,4 @@
-# ure.4
+# ure(4)
 
 `ure` — Realtek RTL8152/RTL8153/RTL8156 USB 以太网驱动
 

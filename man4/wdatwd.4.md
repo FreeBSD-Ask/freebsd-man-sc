@@ -1,4 +1,4 @@
-# wdatwd.4
+# wdatwd(4)
 
 `wdatwd` — 基于 ACPI WDAT 的看门狗中断定时器设备驱动
 

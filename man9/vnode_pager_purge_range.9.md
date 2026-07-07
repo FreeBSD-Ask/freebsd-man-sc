@@ -1,4 +1,4 @@
-# vnode\_pager\_purge\_range.9
+# vnode_pager_purge_range(9)
 
 `vnode_pager_purge_range` — 使给定字节范围内的缓存内容失效
 

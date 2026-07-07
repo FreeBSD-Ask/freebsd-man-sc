@@ -1,4 +1,4 @@
-# virtio_console.4
+# virtio_console(4)
 
 `virtio_console` — VirtIO 控制台驱动
 

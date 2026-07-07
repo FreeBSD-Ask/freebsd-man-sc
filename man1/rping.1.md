@@ -1,4 +1,4 @@
-# rping.1
+# rping(1)
 
 `rping` — RDMA CM 连接和 RDMA ping-pong 测试
 

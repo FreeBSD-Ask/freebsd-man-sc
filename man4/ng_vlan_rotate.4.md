@@ -1,4 +1,4 @@
-# ng_vlan_rotate.4
+# ng_vlan_rotate(4)
 
 `ng_vlan_rotate` — IEEE 802.1ad VLAN 操控 netgraph 节点类型
 

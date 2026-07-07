@@ -1,4 +1,4 @@
-# resource\_int\_value.9
+# resource_int_value(9)
 
 `resource_int_value` — 从提示机制获取值
 

@@ -1,4 +1,4 @@
-# atexit.3
+# atexit(3)
 
 `atexit` — 注册在程序退出时调用的函数
 

@@ -1,4 +1,4 @@
-# superio.4
+# superio(4)
 
 `superio` — Super I/O 控制器和总线驱动
 

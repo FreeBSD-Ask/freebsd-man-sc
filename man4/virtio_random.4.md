@@ -1,4 +1,4 @@
-# virtio_random.4
+# virtio_random(4)
 
 `virtio_random` — VirtIO 熵驱动
 

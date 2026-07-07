@@ -1,4 +1,4 @@
-# audit.4
+# audit(4)
 
 `audit` — 安全事件审计
 

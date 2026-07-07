@@ -1,4 +1,4 @@
-# crypto.4
+# crypto(4)
 
 `crypto` — 用户态访问硬件加速密码学
 

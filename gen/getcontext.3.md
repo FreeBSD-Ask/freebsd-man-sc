@@ -1,4 +1,4 @@
-# getcontext.3
+# getcontext(3)
 
 `getcontext` — 获取和设置用户线程上下文
 

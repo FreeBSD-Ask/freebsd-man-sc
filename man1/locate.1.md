@@ -1,4 +1,4 @@
-# locate.1
+# locate(1)
 
 `locate` — 快速查找文件名
 

@@ -1,4 +1,4 @@
-# mac_biba.4
+# mac_biba(4)
 
 `mac_biba` — Biba 数据完整性策略
 

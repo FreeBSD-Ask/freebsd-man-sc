@@ -1,4 +1,4 @@
-# snd_envy24ht.4
+# snd_envy24ht(4)
 
 `snd_envy24ht` — VIA Envy24HT 及兼容桥设备驱动
 

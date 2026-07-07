@@ -1,4 +1,4 @@
-# fputs.3
+# fputs(3)
 
 `fputs` — 向流输出一行
 

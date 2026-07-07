@@ -1,4 +1,4 @@
-# index.3
+# index(3)
 
 `index` — 在字符串中定位字符
 

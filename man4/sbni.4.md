@@ -1,4 +1,4 @@
-# sbni.4
+# sbni(4)
 
 `sbni` — Granch SBNI12 专线调制解调器驱动
 

@@ -1,4 +1,4 @@
-# sysctl_ctx_init.9
+# sysctl_ctx_init(9)
 
 `sysctl_ctx_init` — 用于管理动态创建 sysctl OID 的 sysctl 上下文
 

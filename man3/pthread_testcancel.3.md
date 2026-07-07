@@ -1,4 +1,4 @@
-# pthread_testcancel.3
+# pthread_testcancel(3)
 
 `pthread_setcancelstate` — 设置可取消状态
 

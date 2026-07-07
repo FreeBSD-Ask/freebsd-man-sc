@@ -1,4 +1,4 @@
-# pthread_rwlockattr_setpshared.3
+# pthread_rwlockattr_setpshared(3)
 
 `pthread_rwlockattr_setpshared` — 设置进程共享属性
 

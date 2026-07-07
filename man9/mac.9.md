@@ -1,4 +1,4 @@
-# mac.9
+# mac(9)
 
 `mac` — TrustedBSD 强制访问控制框架
 

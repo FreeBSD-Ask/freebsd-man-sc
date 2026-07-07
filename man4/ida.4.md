@@ -1,4 +1,4 @@
-# ida.4
+# ida(4)
 
 `ida` — Compaq Intelligent Drive Array 控制器
 

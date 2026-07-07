@@ -1,4 +1,4 @@
-# psignal.9
+# psignal(9)
 
 `psignal` — 向线程、进程或进程组发送信号
 

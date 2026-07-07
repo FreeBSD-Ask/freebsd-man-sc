@@ -1,4 +1,4 @@
-# portindex.5
+# portindex(5)
 
 `portindex` — 包含 Ports 树状态信息的文件
 

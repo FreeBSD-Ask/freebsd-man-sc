@@ -1,4 +1,4 @@
-# hv_netvsc.4
+# hv_netvsc(4)
 
 `hv_netvsc` — Hyper-V 网络虚拟服务消费者
 

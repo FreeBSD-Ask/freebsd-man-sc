@@ -1,4 +1,4 @@
-# uhso.4
+# uhso(4)
 
 `uhso` — 支持 Option N.V. 的若干 HSxPA 设备
 

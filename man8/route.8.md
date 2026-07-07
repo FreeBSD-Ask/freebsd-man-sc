@@ -1,4 +1,4 @@
-# route.8
+# route(8)
 
 `route` — 手动操作路由表
 

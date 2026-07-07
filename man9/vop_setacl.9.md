@@ -1,4 +1,4 @@
-# VOP_SETACL.9
+# VOP_SETACL(9)
 
 `VOP_SETACL` — 设置 vnode 的访问控制列表
 

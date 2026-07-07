@@ -1,4 +1,4 @@
-# vn\_fullpath.9
+# vn_fullpath(9)
 
 `vn_fullpath` — 在给定进程上下文的情况下，将 vnode 引用转换为完整路径名
 

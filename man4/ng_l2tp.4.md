@@ -1,4 +1,4 @@
-# ng_l2tp.4
+# ng_l2tp(4)
 
 `ng_l2tp` — L2TP 协议 netgraph 节点类型
 

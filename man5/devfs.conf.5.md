@@ -1,4 +1,4 @@
-# devfs.conf.5
+# devfs.conf(5)
 
 `devfs.conf` — 引导时的 devfs 配置信息
 

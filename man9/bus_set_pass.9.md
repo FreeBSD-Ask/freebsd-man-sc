@@ -1,4 +1,4 @@
-# bus_set_pass.9
+# bus_set_pass(9)
 
 `bus_set_pass` — 提升总线 pass 级别
 

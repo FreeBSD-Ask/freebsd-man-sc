@@ -1,4 +1,4 @@
-# DEFINE_IFUNC.9
+# DEFINE_IFUNC(9)
 
 `DEFINE_IFUNC` — 定义在运行时选择实现的内核函数
 

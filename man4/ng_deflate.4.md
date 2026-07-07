@@ -1,4 +1,4 @@
-# ng_deflate.4
+# ng_deflate(4)
 
 `ng_deflate` — Deflate PPP 压缩（RFC 1979）netgraph 节点类型
 

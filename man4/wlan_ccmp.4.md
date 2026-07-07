@@ -1,4 +1,4 @@
-# wlan_ccmp.4
+# wlan_ccmp(4)
 
 `wlan_ccmp` — 802.11 设备的 AES-CCMP 加密支持
 

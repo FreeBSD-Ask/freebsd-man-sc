@@ -1,4 +1,4 @@
-# ng_socket.4
+# ng_socket(4)
 
 `ng_socket` — netgraph 套接字节点类型
 

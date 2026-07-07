@@ -1,4 +1,4 @@
-# crypto.9
+# crypto(9)
 
 `crypto` — 内核中密码学服务的 API
 

@@ -1,4 +1,4 @@
-# vnode\_pager\_setsize.9
+# vnode_pager_setsize(9)
 
 `vnode_pager_setsize` — 通知 VM 系统文件大小的更新
 

@@ -1,4 +1,4 @@
-# alpm.4
+# alpm(4)
 
 `alpm` — Acer Aladdin 15x3 电源管理控制器驱动
 

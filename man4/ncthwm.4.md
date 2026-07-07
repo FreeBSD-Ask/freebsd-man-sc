@@ -1,4 +1,4 @@
-# ncthwm.4
+# ncthwm(4)
 
 `ncthwm` — Nuvoton Super I/O 上的硬件监控控制器
 

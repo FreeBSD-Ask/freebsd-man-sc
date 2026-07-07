@@ -1,4 +1,4 @@
-# config.8
+# config(8)
 
 `config` — 构建系统配置文件
 

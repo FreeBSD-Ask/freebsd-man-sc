@@ -1,4 +1,4 @@
-# mps.4
+# mps(4)
 
 `mps` — LSI Fusion-MPT 2 IT/IR 6Gb/s Serial Attached SCSI/SATA 驱动
 

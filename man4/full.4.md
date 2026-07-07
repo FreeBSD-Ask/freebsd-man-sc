@@ -1,4 +1,4 @@
-# full.4
+# full(4)
 
 `full` — full 设备
 

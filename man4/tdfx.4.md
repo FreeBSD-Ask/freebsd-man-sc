@@ -1,4 +1,4 @@
-# tdfx.4
+# tdfx(4)
 
 `tdfx` — Voodoo Graphics 和 VoodooII 内存访问 GLIDE 设备驱动程序
 

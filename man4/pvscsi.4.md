@@ -1,4 +1,4 @@
-# pvscsi.4
+# pvscsi(4)
 
 `pvscsi` — VMware 半虚拟 SCSI 控制器
 

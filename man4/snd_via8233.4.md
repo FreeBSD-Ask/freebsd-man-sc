@@ -1,4 +1,4 @@
-# snd_via8233.4
+# snd_via8233(4)
 
 `snd_via8233` — VIA Technologies VT8233 桥设备驱动
 

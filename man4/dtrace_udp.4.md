@@ -1,4 +1,4 @@
-# dtrace_udp.4
+# dtrace_udp(4)
 
 `dtrace_udp` — 用于跟踪与 UDP 协议相关事件的 DTrace provider
 

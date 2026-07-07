@@ -1,4 +1,4 @@
-# xen.4
+# xen(4)
 
 `xen` — Xen Hypervisor 支持
 

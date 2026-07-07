@@ -1,4 +1,4 @@
-# ng_ether.4
+# ng_ether(4)
 
 `ng_ether` — 以太网 netgraph 节点类型
 

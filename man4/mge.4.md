@@ -1,4 +1,4 @@
-# mge.4
+# mge(4)
 
 `mge` — Marvell 千兆以太网设备驱动
 

@@ -1,4 +1,4 @@
-# VFS\_QUOTACTL.9
+# VFS_QUOTACTL(9)
 
 `VFS_QUOTACTL` — 操作文件系统配额
 

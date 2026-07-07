@@ -1,4 +1,4 @@
-# ssh-keygen.1
+# ssh-keygen(1)
 
 `ssh-keygen` — OpenSSH 认证密钥工具
 

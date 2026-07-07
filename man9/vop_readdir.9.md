@@ -1,4 +1,4 @@
-# VOP_READDIR.9
+# VOP_READDIR(9)
 
 `VOP_READDIR` — 读取目录内容
 

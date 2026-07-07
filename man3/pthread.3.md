@@ -1,4 +1,4 @@
-# pthread.3
+# pthread(3)
 
 `pthread` — POSIX 线程函数
 

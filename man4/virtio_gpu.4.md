@@ -1,4 +1,4 @@
-# virtio_gpu.4
+# virtio_gpu(4)
 
 `virtio_gpu` — VirtIO GPU 驱动
 

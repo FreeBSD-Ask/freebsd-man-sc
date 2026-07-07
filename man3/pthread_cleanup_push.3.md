@@ -1,4 +1,4 @@
-# pthread_cleanup_push.3
+# pthread_cleanup_push(3)
 
 `pthread_cleanup_push` — 为线程退出添加清理函数
 

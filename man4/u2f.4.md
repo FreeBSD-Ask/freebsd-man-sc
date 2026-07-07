@@ -1,4 +1,4 @@
-# u2f.4
+# u2f(4)
 
 `u2f` — FIDO/U2F USB 安全密钥
 

@@ -1,4 +1,4 @@
-# logger.1
+# logger(1)
 
 `logger` — 在系统日志中记录条目
 

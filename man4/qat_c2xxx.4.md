@@ -1,4 +1,4 @@
-# qat_c2xxx.4
+# qat_c2xxx(4)
 
 `qat_c2xxx` — 适用于 Atom C2000 的 Intel QuickAssist Technology 加密驱动程序
 

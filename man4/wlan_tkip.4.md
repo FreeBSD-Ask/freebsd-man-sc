@@ -1,4 +1,4 @@
-# wlan_tkip.4
+# wlan_tkip(4)
 
 `wlan_tkip` — 802.11 设备的 TKIP 和 Michael 加密支持
 

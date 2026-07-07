@@ -1,4 +1,4 @@
-# ng_pipe.4
+# ng_pipe(4)
 
 `ng_pipe` — 流量操控 netgraph 节点类型
 

@@ -1,4 +1,4 @@
-# vfs\_getvfs.9
+# vfs_getvfs(9)
 
 `vfs_getvfs` — 根据文件系统标识符返回挂载点
 

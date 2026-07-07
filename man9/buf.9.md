@@ -1,4 +1,4 @@
-# buf.9
+# buf(9)
 
 `buf` — FreeBSD VM 系统中使用的内核缓冲区 I/O 方案
 

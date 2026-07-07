@@ -1,4 +1,4 @@
-# nvdimm.4
+# nvdimm(4)
 
 `nvdimm` — ACPI NVDIMM 驱动
 

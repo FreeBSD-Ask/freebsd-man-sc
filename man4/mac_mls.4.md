@@ -1,4 +1,4 @@
-# mac_mls.4
+# mac_mls(4)
 
 `mac_mls` — 多级安全机密性策略
 

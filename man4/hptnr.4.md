@@ -1,4 +1,4 @@
-# hptnr.4
+# hptnr(4)
 
 `hptnr` — HighPoint DC 系列数据中心 HBA 卡驱动
 

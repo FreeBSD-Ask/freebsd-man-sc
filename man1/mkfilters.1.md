@@ -1,4 +1,4 @@
-# mkfilters.1
+# mkfilters(1)
 
 `mkfilters` — 为 ipfilter 生成最小防火墙规则集
 

@@ -1,4 +1,4 @@
-# gem.4
+# gem(4)
 
 `gem` — GEM/GMAC 以太网设备驱动程序
 

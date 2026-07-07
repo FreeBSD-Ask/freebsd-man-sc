@@ -1,4 +1,4 @@
-# nlsysevent.4
+# nlsysevent(4)
 
 `nlsysevent` — 基于 Netlink 的内核事件通知模块
 

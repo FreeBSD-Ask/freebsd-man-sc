@@ -1,4 +1,4 @@
-# ufintek.4
+# ufintek(4)
 
 `ufintek` — Fintek F81232 USB 串口 UART 驱动
 

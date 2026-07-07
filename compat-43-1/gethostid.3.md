@@ -1,4 +1,4 @@
-# gethostid.3
+# gethostid(3)
 
 `gethostid` — 获取/设置当前主机的唯一标识符
 

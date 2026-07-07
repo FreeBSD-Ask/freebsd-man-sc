@@ -1,4 +1,4 @@
-# passwd.5
+# passwd(5)
 
 `passwd` — 密码文件格式
 

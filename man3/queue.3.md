@@ -1,4 +1,4 @@
-# queue.3
+# queue(3)
 
 `SLIST_CLASS_ENTRY` — 单链表、单链尾队列、列表和尾队列的实现
 

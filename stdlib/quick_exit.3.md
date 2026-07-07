@@ -1,4 +1,4 @@
-# quick\_exit.3
+# quick_exit(3)
 
 `quick_exit` — 快速退出程序，执行最少的清理
 

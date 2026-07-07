@@ -1,4 +1,4 @@
-# pthread_rwlockattr_destroy.3
+# pthread_rwlockattr_destroy(3)
 
 `pthread_rwlockattr_destroy` — 销毁读写锁属性对象
 

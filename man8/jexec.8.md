@@ -1,4 +1,4 @@
-# jexec.8
+# jexec(8)
 
 `jexec` — 在已存在的 jail 中执行命令
 

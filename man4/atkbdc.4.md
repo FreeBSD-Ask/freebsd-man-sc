@@ -1,4 +1,4 @@
-# atkbdc.4
+# atkbdc(4)
 
 `atkbdc` — AT 键盘控制器接口
 

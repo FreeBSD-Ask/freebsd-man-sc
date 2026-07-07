@@ -1,4 +1,4 @@
-# ng_hub.4
+# ng_hub(4)
 
 `ng_hub` — 数据包分发 netgraph 节点类型
 

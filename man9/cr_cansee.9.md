@@ -1,4 +1,4 @@
-# cr\_cansee.9
+# cr_cansee(9)
 
 `cr_cansee` — 根据用户凭据判断对象的可见性
 

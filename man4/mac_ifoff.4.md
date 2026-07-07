@@ -1,4 +1,4 @@
-# mac_ifoff.4
+# mac_ifoff(4)
 
 `mac_ifoff` — 接口静默策略
 

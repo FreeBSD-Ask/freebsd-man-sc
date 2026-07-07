@@ -1,4 +1,4 @@
-# memory_model.7
+# memory_model(7)
 
 `memory` — 内存模型概述
 

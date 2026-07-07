@@ -1,4 +1,4 @@
-# imcsmb.4
+# imcsmb(4)
 
 `imcsmb` — Intel 集成内存控制器（iMC）SMBus 控制器驱动
 

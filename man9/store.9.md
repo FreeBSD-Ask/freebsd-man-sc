@@ -1,4 +1,4 @@
-# store.9
+# store(9)
 
 `store` — 向用户空间存储数据
 

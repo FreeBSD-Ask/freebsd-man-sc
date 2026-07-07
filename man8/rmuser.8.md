@@ -1,4 +1,4 @@
-# rmuser.8
+# rmuser(8)
 
 `rmuser` — 从系统中删除用户
 

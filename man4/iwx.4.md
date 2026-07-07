@@ -1,4 +1,4 @@
-# iwx.4
+# iwx(4)
 
 `iwx` — Intel Wi-Fi 6 IEEE 802.11ax 无线网络驱动
 

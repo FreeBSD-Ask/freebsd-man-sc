@@ -1,4 +1,4 @@
-# uhid.4
+# uhid(4)
 
 `uhid` — USB 通用 HID 支持
 

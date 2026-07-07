@@ -1,4 +1,4 @@
-# ifconfig.8
+# ifconfig(8)
 
 `ifconfig` — 配置网络接口参数
 

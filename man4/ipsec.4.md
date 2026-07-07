@@ -1,4 +1,4 @@
-# ipsec.4
+# ipsec(4)
 
 `ipsec` — Internet 协议安全协议
 

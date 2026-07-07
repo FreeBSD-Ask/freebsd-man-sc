@@ -1,4 +1,4 @@
-# pthread_suspend_all_np.3
+# pthread_suspend_all_np(3)
 
 `pthread_suspend_all_np` — 挂起所有活动线程
 

@@ -1,4 +1,4 @@
-# ng_tcpmss.4
+# ng_tcpmss(4)
 
 `ng_tcpmss` — 调整 TCP MSS 选项的 netgraph 节点
 

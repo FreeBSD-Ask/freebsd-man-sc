@@ -1,4 +1,4 @@
-# iwlwififw.4
+# iwlwififw(4)
 
 `iwlwififw` — Intel iwlwifi 无线网络驱动的固件
 

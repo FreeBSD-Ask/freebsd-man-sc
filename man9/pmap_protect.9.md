@@ -1,4 +1,4 @@
-# pmap_protect.9
+# pmap_protect(9)
 
 `pmap_protect` — 设置物理页面保护
 

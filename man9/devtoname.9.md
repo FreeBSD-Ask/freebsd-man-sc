@@ -1,4 +1,4 @@
-# devtoname.9
+# devtoname(9)
 
 `devtoname` — 将字符设备转换为表示设备名称的字符串
 

@@ -1,4 +1,4 @@
-# host.1
+# host(1)
 
 `host` — DNS 查询工具
 

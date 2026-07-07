@@ -1,4 +1,4 @@
-# VOP_ACLCHECK.9
+# VOP_ACLCHECK(9)
 
 `VOP_ACLCHECK` — 检查 vnode 的访问控制列表
 

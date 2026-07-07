@@ -1,4 +1,4 @@
-# BUS_GET_CPUS.9
+# BUS_GET_CPUS(9)
 
 `BUS_GET_CPUS` — 请求一组设备特定的 CPU
 

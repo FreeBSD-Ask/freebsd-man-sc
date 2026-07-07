@@ -1,4 +1,4 @@
-# smbfs.4
+# smbfs(4)
 
 `smbfs` — 服务器消息块（SMB1/CIFS）文件系统
 

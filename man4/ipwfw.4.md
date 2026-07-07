@@ -1,4 +1,4 @@
-# ipwfw.4
+# ipwfw(4)
 
 `ipwfw` — Intel PRO/Wireless 2100 驱动的固件模块
 

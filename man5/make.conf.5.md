@@ -1,4 +1,4 @@
-# make.conf.5
+# make.conf(5)
 
 `make.conf` — 系统构建信息
 

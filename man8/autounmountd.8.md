@@ -1,4 +1,4 @@
-# autounmountd.8
+# autounmountd(8)
 
 `autounmountd` — 卸载自动挂载文件系统的守护进程
 

@@ -1,4 +1,4 @@
-# intro.7
+# intro(7)
 
 `intro` — 杂项信息页面
 

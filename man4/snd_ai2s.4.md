@@ -1,4 +1,4 @@
-# snd\_ai2s.4
+# snd_ai2s(4)
 
 `snd_ai2s` — Apple I2S 音频设备驱动
 

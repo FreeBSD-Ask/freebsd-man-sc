@@ -1,4 +1,4 @@
-# strdup.3
+# strdup(3)
 
 `strdup` — 保存字符串的副本
 

@@ -1,4 +1,4 @@
-# polling.4
+# polling(4)
 
 `polling` — 设备轮询支持
 

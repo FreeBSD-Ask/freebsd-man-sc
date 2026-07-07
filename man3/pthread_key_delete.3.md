@@ -1,4 +1,4 @@
-# pthread_key_delete.3
+# pthread_key_delete(3)
 
 `pthread_key_delete` — 删除线程特定数据键
 

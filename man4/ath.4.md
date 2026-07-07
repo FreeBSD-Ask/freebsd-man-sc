@@ -1,4 +1,4 @@
-# ath.4
+# ath(4)
 
 `ath` — Atheros IEEE 802.11 无线网络驱动
 

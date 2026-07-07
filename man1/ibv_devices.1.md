@@ -1,4 +1,4 @@
-# ibv_devices.1
+# ibv_devices(1)
 
 `ibv_devices` — 列出 RDMA 设备
 

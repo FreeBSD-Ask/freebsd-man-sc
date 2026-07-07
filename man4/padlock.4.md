@@ -1,4 +1,4 @@
-# padlock.4
+# padlock(4)
 
 `padlock` — VIA 和 Zhaoxin CPU 加密驱动
 

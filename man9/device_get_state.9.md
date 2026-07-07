@@ -1,4 +1,4 @@
-# device\_get\_state.9
+# device_get_state(9)
 
 `device_get_state` — 操作设备状态
 

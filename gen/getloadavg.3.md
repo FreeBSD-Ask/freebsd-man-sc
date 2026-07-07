@@ -1,4 +1,4 @@
-# getloadavg.3
+# getloadavg(3)
 
 `getloadavg` — 获取系统负载平均值
 

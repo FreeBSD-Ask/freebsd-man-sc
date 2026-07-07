@@ -1,4 +1,4 @@
-# ufoma.4
+# ufoma(4)
 
 `ufoma` — USB 移动电话支持
 

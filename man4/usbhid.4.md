@@ -1,4 +1,4 @@
-# usbhid.4
+# usbhid(4)
 
 `usbhid` — USB HID 传输驱动
 

@@ -1,4 +1,4 @@
-# ucycom.4
+# ucycom(4)
 
 `ucycom` — Cypress CY7C63743 和 CY7C64013 USB 转 RS232 桥接器设备驱动
 

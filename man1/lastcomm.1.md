@@ -1,4 +1,4 @@
-# lastcomm.1
+# lastcomm(1)
 
 `lastcomm` — 显示最近执行的命令
 

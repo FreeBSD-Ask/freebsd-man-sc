@@ -1,4 +1,4 @@
-# dtrace_syscall.4
+# dtrace_syscall(4)
 
 `dtrace_syscall` — 用于系统调用的 DTrace 提供者
 

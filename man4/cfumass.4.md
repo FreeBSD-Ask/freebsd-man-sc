@@ -1,4 +1,4 @@
-# cfumass.4
+# cfumass(4)
 
 `cfumass` — USB 大容量存储类传输的设备端支持
 

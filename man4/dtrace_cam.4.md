@@ -1,4 +1,4 @@
-# dtrace_cam.4
+# dtrace_cam(4)
 
 `dtrace_cam` — 用于跟踪 CAM 相关事件的 DTrace 提供者
 

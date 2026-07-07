@@ -1,4 +1,4 @@
-# sourcefilter.3
+# sourcefilter(3)
 
 `sourcefilter` — 高级多播组成员资格 API
 

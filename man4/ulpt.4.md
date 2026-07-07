@@ -1,4 +1,4 @@
-# ulpt.4
+# ulpt(4)
 
 `ulpt` — USB 打印机支持
 

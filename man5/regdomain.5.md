@@ -1,4 +1,4 @@
-# regdomain.5
+# regdomain(5)
 
 `regdomain.xml` — 802.11 无线监管定义
 

@@ -1,4 +1,4 @@
-# geneve.4
+# geneve(4)
 
 `geneve` — 通用网络虚拟化封装接口
 

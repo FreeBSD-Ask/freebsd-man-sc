@@ -1,4 +1,4 @@
-# ctype_l.3
+# ctype_l(3)
 
 `ctype_l` — 字符分类函数
 

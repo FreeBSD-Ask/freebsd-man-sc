@@ -1,4 +1,4 @@
-# urndis.4
+# urndis(4)
 
 `urndis` — USB Remote NDIS 以太网设备
 

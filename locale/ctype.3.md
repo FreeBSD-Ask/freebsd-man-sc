@@ -1,4 +1,4 @@
-# ctype.3
+# ctype(3)
 
 `ctype` — 字符分类函数
 

@@ -1,4 +1,4 @@
-# stdarg.3
+# stdarg(3)
 
 `stdarg` — 可变参数列表
 

@@ -1,4 +1,4 @@
-# killall.1
+# killall(1)
 
 `killall` — 按名称终止进程
 

@@ -1,4 +1,4 @@
-# pthread_kill.3
+# pthread_kill(3)
 
 `pthread_kill` — 向指定线程发送信号
 

@@ -1,4 +1,4 @@
-# dwcotg.4
+# dwcotg(4)
 
 `dwcotg` — Synopsys DesignWare USB 控制器驱动
 

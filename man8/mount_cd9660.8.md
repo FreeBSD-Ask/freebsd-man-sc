@@ -1,4 +1,4 @@
-# mount_cd9660.8
+# mount_cd9660(8)
 
 `mount_cd9660` — 挂载 ISO-9660 文件系统
 

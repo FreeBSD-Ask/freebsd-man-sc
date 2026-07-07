@@ -1,4 +1,4 @@
-# bzero.3
+# bzero(3)
 
 `bzero` — 向内存写入零
 

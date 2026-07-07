@@ -1,4 +1,4 @@
-# tests.7
+# tests(7)
 
 `tests` — FreeBSD 测试套件简介
 

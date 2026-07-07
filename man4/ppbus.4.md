@@ -1,4 +1,4 @@
-# ppbus.4
+# ppbus(4)
 
 `ppbus` — 并口总线系统
 

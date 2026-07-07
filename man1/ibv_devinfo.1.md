@@ -1,4 +1,4 @@
-# ibv_devinfo.1
+# ibv_devinfo(1)
 
 `ibv_devinfo` — 查询 RDMA 设备
 

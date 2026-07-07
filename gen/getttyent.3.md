@@ -1,4 +1,4 @@
-# getttyent.3
+# getttyent(3)
 
 `getttyent` — ttys(5) 文件例程
 

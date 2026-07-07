@@ -1,4 +1,4 @@
-# rtw89.4
+# rtw89(4)
 
 `rtw89` — Realtek IEEE 802.11ax 无线网络驱动
 

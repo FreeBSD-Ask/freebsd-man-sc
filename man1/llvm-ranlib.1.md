@@ -1,4 +1,4 @@
-# llvm-ranlib.1
+# llvm-ranlib(1)
 
 `llvm-ranlib` — 生成归档索引
 

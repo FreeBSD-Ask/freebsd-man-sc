@@ -1,4 +1,4 @@
-# fhopen.2
+# fhopen(2)
 
 `fhopen` — 通过文件句柄访问文件
 

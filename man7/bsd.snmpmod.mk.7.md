@@ -1,4 +1,4 @@
-# bsd.snmpmod.mk.7
+# bsd.snmpmod.mk(7)
 
 `bsd.snmpmod.mk` — 为 bsnmpd(1) 构建模块
 

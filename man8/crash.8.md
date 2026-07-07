@@ -1,4 +1,4 @@
-# crash.8
+# crash(8)
 
 `crash` — FreeBSD 系统故障
 

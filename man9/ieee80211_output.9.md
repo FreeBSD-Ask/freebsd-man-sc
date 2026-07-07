@@ -1,4 +1,4 @@
-# ieee80211_output.9
+# ieee80211_output(9)
 
 `ieee80211_output` — 软件 802.11 栈输出函数
 

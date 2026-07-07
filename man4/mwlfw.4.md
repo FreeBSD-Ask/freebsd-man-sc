@@ -1,4 +1,4 @@
-# mwlfw.4
+# mwlfw(4)
 
 `mwlfw` — Marvell 88W8363 无线驱动的固件模块
 

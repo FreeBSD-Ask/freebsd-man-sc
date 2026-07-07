@@ -1,4 +1,4 @@
-# devctl_process_running.9
+# devctl_process_running(9)
 
 `devctl_process_running` — 当 devctl 有消费者进程运行时返回真
 

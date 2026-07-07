@@ -1,4 +1,4 @@
-# config_intrhook.9
+# config_intrhook(9)
 
 `config_intrhook` — 调度在启用中断后、挂载根文件系统前运行的函数
 

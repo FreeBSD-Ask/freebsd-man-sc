@@ -1,4 +1,4 @@
-# builtin.1
+# builtin(1)
 
 `builtin` — FreeBSD shell 内建命令索引
 

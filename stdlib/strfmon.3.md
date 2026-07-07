@@ -1,4 +1,4 @@
-# strfmon.3
+# strfmon(3)
 
 `strfmon` — 将货币值转换为字符串
 

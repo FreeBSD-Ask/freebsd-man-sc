@@ -1,4 +1,4 @@
-# pthread_affinity_np.3
+# pthread_affinity_np(3)
 
 `pthread_getaffinity_np` — 管理 CPU 亲和性
 

@@ -1,4 +1,4 @@
-# vr.4
+# vr(4)
 
 `vr` — VIA Technologies Rhine I/II/III 以太网设备驱动
 

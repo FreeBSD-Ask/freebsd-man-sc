@@ -1,4 +1,4 @@
-# priv.9
+# priv(9)
 
 `priv` — 内核权限检查 API
 

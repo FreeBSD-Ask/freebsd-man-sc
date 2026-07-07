@@ -1,4 +1,4 @@
-# vfsconf.9
+# vfsconf(9)
 
 `vfsconf` — vfs 配置信息
 

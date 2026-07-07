@@ -1,4 +1,4 @@
-# device_find_child.9
+# device_find_child(9)
 
 `device_find_child` — 搜索设备的子设备
 

@@ -1,4 +1,4 @@
-# mpi3mr.4
+# mpi3mr(4)
 
 `mpi3mr` — Broadcom MPIMR 3.0 IT/IR 24Gb/s SAS Tri-Mode RAID PCIe 4.0 驱动
 

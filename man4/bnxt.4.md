@@ -1,4 +1,4 @@
-# bnxt.4
+# bnxt(4)
 
 `bnxt` — Broadcom NetXtreme 系列 10Gb 至 400Gb 以太网驱动
 

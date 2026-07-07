@@ -1,4 +1,4 @@
-# vfs\_timestamp.9
+# vfs_timestamp(9)
 
 `vfs_timestamp` — 生成当前时间戳
 

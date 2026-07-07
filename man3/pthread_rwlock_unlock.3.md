@@ -1,4 +1,4 @@
-# pthread_rwlock_unlock.3
+# pthread_rwlock_unlock(3)
 
 `pthread_rwlock_unlock` — 释放读写锁
 

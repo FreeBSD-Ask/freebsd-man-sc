@@ -1,4 +1,4 @@
-# pthread_getspecific.3
+# pthread_getspecific(3)
 
 `pthread_getspecific` — 获取线程特定数据值
 

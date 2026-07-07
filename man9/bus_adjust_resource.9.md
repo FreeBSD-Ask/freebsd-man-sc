@@ -1,4 +1,4 @@
-# bus_adjust_resource.9
+# bus_adjust_resource(9)
 
 `bus_adjust_resource` — 调整从父总线分配的资源
 

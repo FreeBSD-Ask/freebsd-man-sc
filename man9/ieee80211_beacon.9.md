@@ -1,4 +1,4 @@
-# ieee80211_beacon.9
+# ieee80211_beacon(9)
 
 `ieee80211_beacon` — 802.11 信标支持
 

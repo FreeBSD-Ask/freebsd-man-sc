@@ -1,4 +1,4 @@
-# beastie.4th.8
+# beastie.4th(8)
 
 `beastie.4th` — FreeBSD ASCII 字符画引导模块
 

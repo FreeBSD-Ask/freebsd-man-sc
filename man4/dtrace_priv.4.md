@@ -1,4 +1,4 @@
-# dtrace_priv.4
+# dtrace_priv(4)
 
 `dtrace_priv` — 用于内核权限检查 API 的 DTrace 提供者
 

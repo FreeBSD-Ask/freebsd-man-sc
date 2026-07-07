@@ -1,4 +1,4 @@
-# firewire.4
+# firewire(4)
 
 `firewire` — IEEE1394 高性能串行总线
 

@@ -1,4 +1,4 @@
-# uark.4
+# uark(4)
 
 `uark` — 基于 Arkmicro Technologies ARK3116 的 USB 串行适配器
 

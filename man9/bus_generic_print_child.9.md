@@ -1,4 +1,4 @@
-# bus_generic_print_child.9
+# bus_generic_print_child(9)
 
 `bus_generic_print_child` — [BUS_PRINT_CHILD(9)](bus_print_child.9.md) 的通用实现
 

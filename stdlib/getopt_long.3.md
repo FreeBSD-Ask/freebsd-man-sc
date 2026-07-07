@@ -1,4 +1,4 @@
-# getopt_long.3
+# getopt_long(3)
 
 `getopt_long` — 从命令行参数列表中获取长选项
 

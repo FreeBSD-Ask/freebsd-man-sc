@@ -1,4 +1,4 @@
-# nvram.4
+# nvram(4)
 
 `nvram` — 非易失性 RAM
 

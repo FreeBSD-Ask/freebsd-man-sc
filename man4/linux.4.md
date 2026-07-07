@@ -1,4 +1,4 @@
-# linux.4
+# linux(4)
 
 `linux` — Linux ABI 支持
 

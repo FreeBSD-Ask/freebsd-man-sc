@@ -1,4 +1,4 @@
-# targ.4
+# targ(4)
 
 `targ` — SCSI 目标模拟器驱动程序
 

@@ -1,4 +1,4 @@
-# uath.4
+# uath(4)
 
 `uath` — Atheros USB IEEE 802.11a/b/g 无线网络驱动
 

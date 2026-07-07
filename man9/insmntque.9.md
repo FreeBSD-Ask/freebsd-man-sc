@@ -1,4 +1,4 @@
-# insmntque.9
+# insmntque(9)
 
 `insmntque` — 将 vnode 与挂载关联
 

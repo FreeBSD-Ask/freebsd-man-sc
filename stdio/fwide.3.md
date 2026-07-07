@@ -1,4 +1,4 @@
-# fwide.3
+# fwide(3)
 
 `fwide` — 获取/设置流的方向
 

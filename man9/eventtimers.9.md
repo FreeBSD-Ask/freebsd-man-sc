@@ -1,4 +1,4 @@
-# eventtimers.9
+# eventtimers(9)
 
 `eventtimers` — 内核事件定时器子系统
 

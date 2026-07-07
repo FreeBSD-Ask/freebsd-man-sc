@@ -1,4 +1,4 @@
-# bpf.4
+# bpf(4)
 
 `bpf` — Berkeley 数据包过滤器
 

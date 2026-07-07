@@ -1,4 +1,4 @@
-# DRIVER\_MODULE.9
+# DRIVER_MODULE(9)
 
 `DRIVER_MODULE` — 内核驱动声明宏
 

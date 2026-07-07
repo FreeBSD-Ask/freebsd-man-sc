@@ -1,4 +1,4 @@
-# users.1
+# users(1)
 
 `users` — 列出当前用户
 

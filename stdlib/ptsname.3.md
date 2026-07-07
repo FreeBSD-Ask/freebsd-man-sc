@@ -1,4 +1,4 @@
-# ptsname.3
+# ptsname(3)
 
 `grantpt` — 伪终端访问函数
 

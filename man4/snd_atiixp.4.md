@@ -1,4 +1,4 @@
-# snd_atiixp.4
+# snd_atiixp(4)
 
 `snd_atiixp` — ATI IXP 桥设备驱动
 

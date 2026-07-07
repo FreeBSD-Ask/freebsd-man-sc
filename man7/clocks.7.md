@@ -1,4 +1,4 @@
-# clocks.7
+# clocks(7)
 
 `clocks` — 各种系统定时器
 

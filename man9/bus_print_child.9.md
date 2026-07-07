@@ -1,4 +1,4 @@
-# BUS_PRINT_CHILD.9
+# BUS_PRINT_CHILD(9)
 
 `BUS_PRINT_CHILD` — 打印设备信息
 

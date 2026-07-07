@@ -1,4 +1,4 @@
-# pseudofs.9
+# pseudofs(9)
 
 `pseudofs` — 伪文件系统构建工具包
 

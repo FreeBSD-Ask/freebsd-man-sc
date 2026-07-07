@@ -1,4 +1,4 @@
-# ichsmb.4
+# ichsmb(4)
 
 `ichsmb` — Intel ICH SMBus 控制器驱动
 

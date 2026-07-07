@@ -1,4 +1,4 @@
-# viawd.4
+# viawd(4)
 
 `viawd` — VIA 南桥看门狗定时器设备驱动
 

@@ -1,4 +1,4 @@
-# oce.4
+# oce(4)
 
 `oce` — Emulex OneConnect 10Gb 网络适配器设备驱动
 

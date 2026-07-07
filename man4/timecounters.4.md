@@ -1,4 +1,4 @@
-# timecounters.4
+# timecounters(4)
 
 `timecounters` — 内核时间计数器子系统
 

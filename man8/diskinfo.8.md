@@ -1,4 +1,4 @@
-# diskinfo.8
+# diskinfo(8)
 
 `diskinfo` — 获取磁盘设备信息
 

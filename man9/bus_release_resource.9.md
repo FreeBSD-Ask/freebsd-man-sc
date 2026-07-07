@@ -1,4 +1,4 @@
-# bus_release_resource.9
+# bus_release_resource(9)
 
 `bus_release_resource` — 释放总线上的资源
 

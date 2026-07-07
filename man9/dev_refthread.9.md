@@ -1,4 +1,4 @@
-# dev_refthread.9
+# dev_refthread(9)
 
 `dev_refthread` — 安全访问设备方法
 

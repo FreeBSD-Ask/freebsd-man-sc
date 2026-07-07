@@ -1,4 +1,4 @@
-# snd_csa.4
+# snd_csa(4)
 
 `snd_csa` — Crystal Semiconductor CS461x/462x/4280 PCI 桥设备驱动
 

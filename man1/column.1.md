@@ -1,4 +1,4 @@
-# column.1
+# column(1)
 
 `column` — 将列表按列排版
 

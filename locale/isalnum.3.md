@@ -1,4 +1,4 @@
-# isalnum.3
+# isalnum(3)
 
 `isalnum` — 字母数字字符测试
 

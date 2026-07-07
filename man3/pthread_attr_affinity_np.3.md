@@ -1,4 +1,4 @@
-# pthread_attr_affinity_np.3
+# pthread_attr_affinity_np(3)
 
 `pthread_attr_getaffinity_np` — 管理线程属性对象中的 CPU 亲和性
 

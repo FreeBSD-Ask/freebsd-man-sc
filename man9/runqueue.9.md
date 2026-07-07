@@ -1,4 +1,4 @@
-# runqueue.9
+# runqueue(9)
 
 `choosethread` — 管理可运行进程队列
 

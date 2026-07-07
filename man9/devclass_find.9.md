@@ -1,4 +1,4 @@
-# devclass_find.9
+# devclass_find(9)
 
 `devclass_find` — 搜索 devclass
 

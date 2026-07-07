@@ -1,4 +1,4 @@
-# dnv.9
+# dnv(9)
 
 `dnvlist_get` — 获取带有默认值的名称/值对的 API
 

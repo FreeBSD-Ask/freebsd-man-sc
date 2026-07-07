@@ -1,4 +1,4 @@
-# snd_envy24.4
+# snd_envy24(4)
 
 `snd_envy24` — VIA Envy24 及兼容桥设备驱动
 

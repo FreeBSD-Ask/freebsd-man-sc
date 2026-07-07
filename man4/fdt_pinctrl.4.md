@@ -1,4 +1,4 @@
-# fdt_pinctrl.4
+# fdt_pinctrl(4)
 
 `fdt_pinctrl` — FDT I/O 引脚多路复用支持
 

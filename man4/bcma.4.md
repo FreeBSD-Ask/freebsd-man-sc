@@ -1,4 +1,4 @@
-# bcma.4
+# bcma(4)
 
 `bcma` — Broadcom AMBA 背板驱动
 

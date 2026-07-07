@@ -1,4 +1,4 @@
-# strptime.3
+# strptime(3)
 
 `strptime` — 解析日期和时间字符串
 

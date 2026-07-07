@@ -1,4 +1,4 @@
-# iflib.4
+# iflib(4)
 
 `iflib` — 网络接口驱动框架
 

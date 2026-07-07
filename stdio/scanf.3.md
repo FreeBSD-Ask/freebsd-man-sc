@@ -1,4 +1,4 @@
-# scanf.3
+# scanf(3)
 
 `scanf` — 输入格式转换
 

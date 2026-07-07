@@ -1,4 +1,4 @@
-# pthread_cond_broadcast.3
+# pthread_cond_broadcast(3)
 
 `pthread_cond_broadcast` — 唤醒所有等待条件变量的线程
 

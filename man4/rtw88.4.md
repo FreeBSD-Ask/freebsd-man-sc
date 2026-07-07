@@ -1,4 +1,4 @@
-# rtw88.4
+# rtw88(4)
 
 `rtw88` — Realtek IEEE 802.11n/ac 无线网络驱动
 

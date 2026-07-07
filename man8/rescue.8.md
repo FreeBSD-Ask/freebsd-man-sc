@@ -1,4 +1,4 @@
-# rescue.8
+# rescue(8)
 
 `rescue` — **/rescue** 中的救援工具
 

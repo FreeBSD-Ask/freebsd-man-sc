@@ -1,4 +1,4 @@
-# intro.9
+# intro(9)
 
 `intro` — 内核编程接口介绍
 

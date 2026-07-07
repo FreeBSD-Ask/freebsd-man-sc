@@ -1,4 +1,4 @@
-# tsec.4
+# tsec(4)
 
 `tsec` — Freescale 三速以太网控制器设备驱动程序
 

@@ -1,4 +1,4 @@
-# cc_dctcp.4
+# cc_dctcp(4)
 
 `cc_dctcp` — DCTCP 拥塞控制算法
 

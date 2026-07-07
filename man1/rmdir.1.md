@@ -1,4 +1,4 @@
-# rmdir.1
+# rmdir(1)
 
 `rmdir` — 删除目录
 

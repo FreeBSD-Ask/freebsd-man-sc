@@ -1,4 +1,4 @@
-# sched_ule.4
+# sched_ule(4)
 
 `sched_ule` — ULE 调度器
 

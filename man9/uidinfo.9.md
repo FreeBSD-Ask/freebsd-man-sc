@@ -1,4 +1,4 @@
-# uidinfo.9
+# uidinfo(9)
 
 `uidinfo` — 管理 UID 信息的函数
 

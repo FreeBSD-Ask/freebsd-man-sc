@@ -1,4 +1,4 @@
-# linsysfs.4
+# linsysfs(4)
 
 `linsysfs` — Linux 内核对象文件系统
 

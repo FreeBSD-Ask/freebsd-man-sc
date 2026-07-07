@@ -1,4 +1,4 @@
-# hpt27xx.4
+# hpt27xx(4)
 
 `hpt27xx` — HighPoint RocketRAID 27xx SAS 6Gb/s HBA 卡驱动
 

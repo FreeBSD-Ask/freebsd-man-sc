@@ -1,4 +1,4 @@
-# BUS_HINTED_CHILD.9
+# BUS_HINTED_CHILD(9)
 
 `BUS_HINTED_CHILD` — 通知总线设备有关由提示标识的潜在子设备
 

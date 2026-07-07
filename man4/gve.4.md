@@ -1,4 +1,4 @@
-# gve.4
+# gve(4)
 
 `gve` — Google 虚拟网卡 (gVNIC) 以太网驱动
 

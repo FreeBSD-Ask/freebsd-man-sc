@@ -1,4 +1,4 @@
-# ctfdump.1
+# ctfdump(1)
 
 `ctfdump` — 转储 ELF 文件中的 SUNW_ctf 节
 

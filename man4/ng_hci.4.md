@@ -1,4 +1,4 @@
-# ng_hci.4
+# ng_hci(4)
 
 `ng_hci` — 同时作为蓝牙主机控制器接口的 Netgraph 节点类型
 

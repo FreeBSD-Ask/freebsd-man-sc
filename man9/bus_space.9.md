@@ -1,4 +1,4 @@
-# bus_space.9
+# bus_space(9)
 
 `bus_space` — 总线空间操作函数
 

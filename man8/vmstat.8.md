@@ -1,4 +1,4 @@
-# vmstat.8
+# vmstat(8)
 
 `vmstat` — 报告虚拟内存统计信息
 

@@ -1,4 +1,4 @@
-# tree.3
+# tree(3)
 
 `SPLAY_PROTOTYPE` — 伸展树和秩平衡（wavl）树的实现
 

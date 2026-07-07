@@ -1,4 +1,4 @@
-# umodem.4
+# umodem(4)
 
 `umodem` — USB 通信设备类串口（CDC ACM）驱动
 

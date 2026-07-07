@@ -1,4 +1,4 @@
-# device.9
+# device(9)
 
 `device` — 设备的抽象表示
 

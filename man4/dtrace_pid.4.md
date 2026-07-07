@@ -1,4 +1,4 @@
-# dtrace_pid.4
+# dtrace_pid(4)
 
 `dtrace_pid` — 基于函数边界检测的动态用户空间跟踪 DTrace 提供者
 

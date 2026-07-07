@@ -1,4 +1,4 @@
-# maclabel.7
+# maclabel(7)
 
 `maclabel` — 强制访问控制（MAC）标签格式
 

@@ -1,4 +1,4 @@
-# auditpipe.4
+# auditpipe(4)
 
 `auditpipe` — 用于实时审计事件跟踪的伪设备
 

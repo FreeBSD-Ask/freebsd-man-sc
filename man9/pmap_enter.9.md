@@ -1,4 +1,4 @@
-# pmap_enter.9
+# pmap_enter(9)
 
 `pmap_enter` — 将虚拟页面插入物理映射
 

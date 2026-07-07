@@ -1,4 +1,4 @@
-# syncache.4
+# syncache(4)
 
 `syncache` —
 

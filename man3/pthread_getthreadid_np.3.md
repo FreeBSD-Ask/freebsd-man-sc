@@ -1,4 +1,4 @@
-# pthread_getthreadid_np.3
+# pthread_getthreadid_np(3)
 
 `pthread_getthreadid_np` — 获取调用线程的整数 ID
 

@@ -1,4 +1,4 @@
-# intpm.4
+# intpm(4)
 
 `intpm` — Intel PIIX4 电源管理控制器驱动
 

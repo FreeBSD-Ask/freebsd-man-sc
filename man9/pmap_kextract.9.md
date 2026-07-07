@@ -1,4 +1,4 @@
-# pmap_kextract.9
+# pmap_kextract(9)
 
 `pmap_kextract` — 从内核页表中提取物理地址
 

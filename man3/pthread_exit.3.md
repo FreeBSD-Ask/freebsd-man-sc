@@ -1,4 +1,4 @@
-# pthread_exit.3
+# pthread_exit(3)
 
 `pthread_exit` — 终止调用线程
 

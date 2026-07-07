@@ -1,4 +1,4 @@
-# udbp.4
+# udbp(4)
 
 `udbp` — USB 双批量管道驱动
 

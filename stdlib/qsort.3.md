@@ -1,4 +1,4 @@
-# qsort.3
+# qsort(3)
 
 `qsort` — 排序函数
 

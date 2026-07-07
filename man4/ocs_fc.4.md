@@ -1,4 +1,4 @@
-# ocs_fc.4
+# ocs_fc(4)
 
 `ocs_fc` — Emulex 光纤通道主机适配器驱动
 

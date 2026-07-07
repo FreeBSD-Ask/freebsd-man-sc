@@ -1,4 +1,4 @@
-# mount.8
+# mount(8)
 
 `mount` — 挂载文件系统
 

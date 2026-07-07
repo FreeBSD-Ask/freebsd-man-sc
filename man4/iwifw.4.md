@@ -1,4 +1,4 @@
-# iwifw.4
+# iwifw(4)
 
 `iwifw` — Intel PRO/Wireless 2200BG/2225BG/2915ABG 驱动的固件模块
 

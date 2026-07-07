@@ -1,4 +1,4 @@
-# fdt_pinctrl.9
+# fdt_pinctrl(9)
 
 `fdt_pinctrl` — FDT 引脚复用控制器驱动的辅助函数
 

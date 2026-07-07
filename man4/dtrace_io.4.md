@@ -1,4 +1,4 @@
-# dtrace_io.4
+# dtrace_io(4)
 
 `dtrace_io` — 用于跟踪磁盘 I/O 相关事件的 DTrace 提供者
 

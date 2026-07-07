@@ -1,4 +1,4 @@
-# mac_stub.4
+# mac_stub(4)
 
 `mac_stub` — MAC 策略桩模块
 

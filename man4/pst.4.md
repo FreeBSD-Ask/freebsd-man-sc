@@ -1,4 +1,4 @@
-# pst.4
+# pst(4)
 
 `pst` — Promise Supertrak SX6000 设备驱动程序
 

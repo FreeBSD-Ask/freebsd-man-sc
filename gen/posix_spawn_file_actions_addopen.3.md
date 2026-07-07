@@ -1,4 +1,4 @@
-# posix_spawn_file_actions_addopen.3
+# posix_spawn_file_actions_addopen(3)
 
 `posix_spawn_file_actions_addopen` — 向 spawn 文件操作对象添加 open、dup2、close、closefrom 或 chdir/fchdir 操作
 

@@ -1,4 +1,4 @@
-# cdceem.4
+# cdceem(4)
 
 `cdceem` — USB 通信设备类以太网仿真模型驱动
 

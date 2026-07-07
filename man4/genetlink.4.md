@@ -1,4 +1,4 @@
-# genetlink.4
+# genetlink(4)
 
 `genetlink` — 通用 Netlink
 

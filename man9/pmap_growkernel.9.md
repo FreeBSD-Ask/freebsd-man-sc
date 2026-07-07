@@ -1,4 +1,4 @@
-# pmap_growkernel.9
+# pmap_growkernel(9)
 
 `pmap_growkernel` — 扩展内核虚拟地址（KVA）空间
 

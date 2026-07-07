@@ -1,4 +1,4 @@
-# pthread_rwlock_wrlock.3
+# pthread_rwlock_wrlock(3)
 
 `pthread_rwlock_wrlock` — 获取读写锁用于写入
 

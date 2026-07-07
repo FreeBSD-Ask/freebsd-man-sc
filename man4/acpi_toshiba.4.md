@@ -1,4 +1,4 @@
-# acpi_toshiba.4
+# acpi_toshiba(4)
 
 `acpi_toshiba` — Toshiba HCI 接口
 

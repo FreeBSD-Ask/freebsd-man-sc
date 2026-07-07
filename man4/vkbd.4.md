@@ -1,4 +1,4 @@
-# vkbd.4
+# vkbd(4)
 
 `vkbd` — 虚拟 AT 键盘接口
 

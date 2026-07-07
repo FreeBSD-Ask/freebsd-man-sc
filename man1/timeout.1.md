@@ -1,4 +1,4 @@
-# timeout.1
+# timeout(1)
 
 `timeout` — 在时间限制内运行命令
 

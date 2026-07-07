@@ -1,4 +1,4 @@
-# duplocale.3
+# duplocale(3)
 
 `duplocale` — 复制 locale
 

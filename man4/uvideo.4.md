@@ -1,4 +1,4 @@
-# uvideo.4
+# uvideo(4)
 
 `uvideo` — USB 视频类摄像头和捕获驱动
 

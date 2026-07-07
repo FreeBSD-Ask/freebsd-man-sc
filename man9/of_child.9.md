@@ -1,4 +1,4 @@
-# OF\_child.9
+# OF_child(9)
 
 `OF_child` — 导航设备树
 

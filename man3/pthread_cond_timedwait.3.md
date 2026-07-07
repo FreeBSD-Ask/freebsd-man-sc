@@ -1,4 +1,4 @@
-# pthread_cond_timedwait.3
+# pthread_cond_timedwait(3)
 
 `pthread_cond_timedwait` — 在指定时间内等待条件变量
 

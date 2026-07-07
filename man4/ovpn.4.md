@@ -1,4 +1,4 @@
-# ovpn.4
+# ovpn(4)
 
 `ovpn` — OpenVPN DCO 驱动
 

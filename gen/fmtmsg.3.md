@@ -1,4 +1,4 @@
-# fmtmsg.3
+# fmtmsg(3)
 
 `fmtmsg` — 显示详细的诊断消息
 

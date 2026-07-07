@@ -1,4 +1,4 @@
-# vm\_page\_lookup.9
+# vm_page_lookup(9)
 
 `vm_page_lookup` — 查找一个 VM 页面
 

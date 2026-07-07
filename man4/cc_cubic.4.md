@@ -1,4 +1,4 @@
-# cc_cubic.4
+# cc_cubic(4)
 
 `cc_cubic` — CUBIC 拥塞控制算法
 

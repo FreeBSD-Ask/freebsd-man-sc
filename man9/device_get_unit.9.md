@@ -1,4 +1,4 @@
-# device\_get\_unit.9
+# device_get_unit(9)
 
 `device_get_unit` — 访问设备的单元号
 

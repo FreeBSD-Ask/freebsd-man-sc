@@ -1,4 +1,4 @@
-# getdomainname.3
+# getdomainname(3)
 
 `getdomainname` — 获取/设置当前主机的 NIS 域名
 

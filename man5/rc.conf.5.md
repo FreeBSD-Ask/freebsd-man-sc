@@ -1,4 +1,4 @@
-# rc.conf.5
+# rc.conf(5)
 
 `rc.conf` — 系统配置信息
 

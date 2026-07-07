@@ -1,4 +1,4 @@
-# alc.4
+# alc(4)
 
 `alc` — Atheros AR813x/AR815x/AR816x/AR817x 千兆/快速以太网驱动
 

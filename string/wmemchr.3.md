@@ -1,4 +1,4 @@
-# wmemchr.3
+# wmemchr(3)
 
 `wmemchr` — 宽字符串操作
 

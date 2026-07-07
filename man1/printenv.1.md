@@ -1,4 +1,4 @@
-# printenv.1
+# printenv(1)
 
 `printenv` — 打印环境变量
 

@@ -1,4 +1,4 @@
-# ubtbcmfw.4
+# ubtbcmfw(4)
 
 `ubtbcmfw` — 基于 Broadcom BCM2033 芯片的蓝牙 USB 设备固件驱动
 

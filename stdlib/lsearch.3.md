@@ -1,4 +1,4 @@
-# lsearch.3
+# lsearch(3)
 
 `lsearch` — 线性搜索与追加
 

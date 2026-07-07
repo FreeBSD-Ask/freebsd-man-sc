@@ -1,4 +1,4 @@
-# iconv_canonicalize.3
+# iconv_canonicalize(3)
 
 `iconv_canonicalize` — 将字符编码名称解析为规范形式
 

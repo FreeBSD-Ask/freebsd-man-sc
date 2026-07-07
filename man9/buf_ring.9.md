@@ -1,4 +1,4 @@
-# buf_ring.9
+# buf_ring(9)
 
 `buf_ring` — 多生产者、{单, 多}消费者无锁环形缓冲区
 

@@ -1,4 +1,4 @@
-# pflog.4
+# pflog(4)
 
 `pflog` — 包过滤器日志 BPF 抽头
 

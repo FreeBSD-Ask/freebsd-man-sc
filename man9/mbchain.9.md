@@ -1,4 +1,4 @@
-# mbchain.9
+# mbchain(9)
 
 `mbchain` — 用于从各种数据类型构建 mbuf 链的一组函数
 

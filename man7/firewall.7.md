@@ -1,4 +1,4 @@
-# firewall.7
+# firewall(7)
 
 `firewall` — FreeBSD 下的简单防火墙
 

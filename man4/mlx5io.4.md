@@ -1,4 +1,4 @@
-# mlx5io.4
+# mlx5io(4)
 
 `mlx5io` — 管理 Connect-X 4/5/6 Mellanox 网络适配器的 IOCTL 接口
 

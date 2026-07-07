@@ -1,4 +1,4 @@
-# groups.7
+# groups(7)
 
 `groups` — 标准用户组名
 

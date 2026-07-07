@@ -1,4 +1,4 @@
-# mailer.conf.5
+# mailer.conf(5)
 
 `mailer.conf` — mailwrapper(8) 的配置文件
 

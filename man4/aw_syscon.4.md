@@ -1,4 +1,4 @@
-# aw_syscon.4
+# aw_syscon(4)
 
 `aw_syscon` — Allwinner SoC 中系统控制器驱动
 

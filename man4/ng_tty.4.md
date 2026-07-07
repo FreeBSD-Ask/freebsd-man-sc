@@ -1,4 +1,4 @@
-# ng_tty.4
+# ng_tty(4)
 
 `ng_tty` — 同时也是 TTY 钩子的 netgraph 节点类型
 

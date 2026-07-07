@@ -1,4 +1,4 @@
-# virtio_balloon.4
+# virtio_balloon(4)
 
 `virtio_balloon` — VirtIO 内存 Balloon 驱动
 

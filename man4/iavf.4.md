@@ -1,4 +1,4 @@
-# iavf.4
+# iavf(4)
 
 `iavf` — Intel Ethernet 自适应虚拟功能驱动
 

@@ -1,4 +1,4 @@
-# zdiff.1
+# zdiff(1)
 
 `zcmp` — 比较压缩文件
 

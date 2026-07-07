@@ -1,4 +1,4 @@
-# dtrace.1
+# dtrace(1)
 
 `dtrace` — 动态跟踪编译器和跟踪实用程序
 

@@ -1,4 +1,4 @@
-# if_ntb.4
+# if_ntb(4)
 
 `if_ntb` — 用于 Non-Transparent Bridges 的虚拟以太网接口
 

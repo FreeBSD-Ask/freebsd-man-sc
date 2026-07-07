@@ -1,4 +1,4 @@
-# mtw.4
+# mtw(4)
 
 `mtw` — MediaTek MT7601U USB IEEE 802.11n 无线网络驱动
 

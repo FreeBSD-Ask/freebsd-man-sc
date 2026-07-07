@@ -1,4 +1,4 @@
-# ng_pred1.4
+# ng_pred1(4)
 
 `ng_pred1` — Predictor-1 PPP 压缩（RFC 1978）netgraph 节点类型
 

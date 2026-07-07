@@ -1,4 +1,4 @@
-# aq.4
+# aq(4)
 
 `aq` — Aquantia/Marvell AQ1xx 10 千兆以太网驱动
 

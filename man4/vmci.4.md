@@ -1,4 +1,4 @@
-# vmci.4
+# vmci(4)
 
 `vmci` — VMware 虚拟机通信接口
 

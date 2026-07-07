@@ -1,4 +1,4 @@
-# locking.9
+# locking(9)
 
 `locking` — 内核同步原语
 

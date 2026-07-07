@@ -1,4 +1,4 @@
-# vmd.4
+# vmd(4)
 
 `vmd` — Intel 卷管理设备驱动
 

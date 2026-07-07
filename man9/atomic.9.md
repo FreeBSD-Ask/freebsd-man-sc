@@ -1,4 +1,4 @@
-# atomic.9
+# atomic(9)
 
 `atomic_add` — 原子操作
 

@@ -1,4 +1,4 @@
-# ng_pppoe.4
+# ng_pppoe(4)
 
 `ng_pppoe` — RFC 2516 PPPoE 协议 netgraph 节点类型
 

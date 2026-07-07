@@ -1,4 +1,4 @@
-# udplite.4
+# udplite(4)
 
 `udplite` — 轻量用户数据报协议
 

@@ -1,4 +1,4 @@
-# device\_set\_driver.9
+# device_set_driver(9)
 
 `device_set_driver` — 将特定驱动程序关联到树中的设备节点
 

@@ -1,4 +1,4 @@
-# uplcom.4
+# uplcom(4)
 
 `uplcom` — 基于 Prolific PL-2303/2303X/2303HX 串行适配器的 USB 驱动
 

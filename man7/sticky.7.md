@@ -1,4 +1,4 @@
-# sticky.7
+# sticky(7)
 
 `sticky` — 粘滞文本和仅追加目录
 

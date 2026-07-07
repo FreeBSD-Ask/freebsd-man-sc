@@ -1,4 +1,4 @@
-# attimer.4
+# attimer(4)
 
 `attimer` — i8254 可编程间隔定时器（AT 定时器）驱动
 

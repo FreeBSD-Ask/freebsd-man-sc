@@ -1,4 +1,4 @@
-# bhnd.4
+# bhnd(4)
 
 `bhnd` — Broadcom 家庭网络部门互连总线
 

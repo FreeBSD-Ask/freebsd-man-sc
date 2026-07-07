@@ -1,4 +1,4 @@
-# hesiod.conf.5
+# hesiod.conf(5)
 
 `hesiod.conf` — Hesiod 库的配置文件
 

@@ -1,4 +1,4 @@
-# isdigit.3
+# isdigit(3)
 
 `isdigit` — 十进制数字字符测试
 

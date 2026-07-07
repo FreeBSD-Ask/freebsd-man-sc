@@ -1,4 +1,4 @@
-# hidraw.4
+# hidraw(4)
 
 `hidraw` — HID 设备的原始访问
 

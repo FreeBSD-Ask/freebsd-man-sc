@@ -1,4 +1,4 @@
-# snd_es137x.4
+# snd_es137x(4)
 
 `snd_es137x` — Ensoniq AudioPCI ES137x 桥设备驱动
 

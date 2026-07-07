@@ -1,4 +1,4 @@
-# ksz8995ma.4
+# ksz8995ma(4)
 
 `ksz8995ma` — Micrel KSZ8995MA 快速以太网交换芯片驱动
 

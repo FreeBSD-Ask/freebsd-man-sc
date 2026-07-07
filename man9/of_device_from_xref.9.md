@@ -1,4 +1,4 @@
-# OF\_device\_from\_xref.9
+# OF_device_from_xref(9)
 
 `OF_device_from_xref` — 管理 xref 与设备之间的映射
 

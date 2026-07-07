@@ -1,4 +1,4 @@
-# khelp.9
+# khelp(9)
 
 `khelp` — 内核助手框架
 

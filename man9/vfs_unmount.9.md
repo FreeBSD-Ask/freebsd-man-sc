@@ -1,4 +1,4 @@
-# VFS_UNMOUNT.9
+# VFS_UNMOUNT(9)
 
 `VFS_UNMOUNT` — 卸载文件系统
 

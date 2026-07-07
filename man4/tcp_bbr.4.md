@@ -1,4 +1,4 @@
-# tcp_bbr.4
+# tcp_bbr(4)
 
 `tcp_bbr` — TCP 瓶颈带宽与往返时间算法
 

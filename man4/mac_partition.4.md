@@ -1,4 +1,4 @@
-# mac_partition.4
+# mac_partition(4)
 
 `mac_partition` — 进程分区策略
 

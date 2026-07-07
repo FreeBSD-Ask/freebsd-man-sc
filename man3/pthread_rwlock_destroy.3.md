@@ -1,4 +1,4 @@
-# pthread_rwlock_destroy.3
+# pthread_rwlock_destroy(3)
 
 `pthread_rwlock_destroy` — 销毁读写锁
 

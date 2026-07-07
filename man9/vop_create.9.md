@@ -1,4 +1,4 @@
-# VOP_CREATE.9
+# VOP_CREATE(9)
 
 `VOP_CREATE` — 创建文件、套接字、fifo、设备、目录或符号链接
 

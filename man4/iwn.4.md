@@ -1,4 +1,4 @@
-# iwn.4
+# iwn(4)
 
 `iwn` — Intel IEEE 802.11n 无线网络驱动
 

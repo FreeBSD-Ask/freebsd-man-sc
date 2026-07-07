@@ -1,4 +1,4 @@
-# simd.7
+# simd(7)
 
 `simd` — SIMD 增强
 

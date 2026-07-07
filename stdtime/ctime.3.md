@@ -1,4 +1,4 @@
-# ctime.3
+# ctime(3)
 
 `asctime` — 转换二进制日期和时间值
 

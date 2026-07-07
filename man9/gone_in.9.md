@@ -1,4 +1,4 @@
-# gone_in.9
+# gone_in(9)
 
 `gone_in` — 弃用通知函数
 

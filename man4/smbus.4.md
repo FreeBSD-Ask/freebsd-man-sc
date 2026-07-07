@@ -1,4 +1,4 @@
-# smbus.4
+# smbus(4)
 
 `smbus` — 系统管理总线
 

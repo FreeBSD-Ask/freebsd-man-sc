@@ -1,4 +1,4 @@
-# accf\_data.9
+# accf_data(9)
 
 `accf_data` — 缓冲传入连接直到数据到达
 

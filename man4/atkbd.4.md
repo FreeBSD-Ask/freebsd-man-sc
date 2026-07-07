@@ -1,4 +1,4 @@
-# atkbd.4
+# atkbd(4)
 
 `atkbd` — AT 键盘接口
 

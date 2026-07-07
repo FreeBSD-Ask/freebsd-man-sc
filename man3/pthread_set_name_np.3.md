@@ -1,4 +1,4 @@
-# pthread_set_name_np.3
+# pthread_set_name_np(3)
 
 `pthread_get_name_np` — 设置和获取线程名称
 

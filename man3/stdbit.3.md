@@ -1,4 +1,4 @@
-# stdbit.3
+# stdbit(3)
 
 `stdbit` — 位与字节实用工具
 

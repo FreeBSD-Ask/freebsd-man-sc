@@ -1,4 +1,4 @@
-# vm\_map\_findspace.9
+# vm_map_findspace(9)
 
 `vm_map_findspace` — 在映射中查找空闲区域
 

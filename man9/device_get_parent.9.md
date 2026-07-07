@@ -1,4 +1,4 @@
-# device\_get\_parent.9
+# device_get_parent(9)
 
 `device_get_parent` — 返回设备的父设备
 

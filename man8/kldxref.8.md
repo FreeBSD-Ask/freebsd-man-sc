@@ -1,4 +1,4 @@
-# kldxref.8
+# kldxref(8)
 
 `kldxref` — 为内核加载器生成提示信息
 

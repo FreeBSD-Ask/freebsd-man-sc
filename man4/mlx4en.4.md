@@ -1,4 +1,4 @@
-# mlx4en.4
+# mlx4en(4)
 
 `mlx4en` — Mellanox ConnectX-3 10GbE/40GbE 网络适配器驱动
 

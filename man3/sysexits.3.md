@@ -1,4 +1,4 @@
-# sysexits.3
+# sysexits(3)
 
 `sysexits` — 系统程序的旧式退出状态码
 

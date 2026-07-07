@@ -1,4 +1,4 @@
-# redzone.9
+# redzone(9)
 
 `RedZone` — 缓冲区损坏检测器
 

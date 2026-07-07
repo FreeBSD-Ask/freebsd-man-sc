@@ -1,4 +1,4 @@
-# dtrace_lockstat.4
+# dtrace_lockstat(4)
 
 `dtrace_lockstat` — 用于跟踪内核锁定事件的 DTrace 提供者
 

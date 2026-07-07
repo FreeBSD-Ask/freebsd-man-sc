@@ -1,4 +1,4 @@
-# getbsize.3
+# getbsize(3)
 
 `getbsize` — 获取首选块大小
 

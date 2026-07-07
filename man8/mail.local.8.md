@@ -1,4 +1,4 @@
-# mail.local.8
+# mail.local(8)
 
 `mail.local` — 将邮件存储到邮箱中
 

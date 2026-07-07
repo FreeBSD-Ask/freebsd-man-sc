@@ -1,4 +1,4 @@
-# ixl.4
+# ixl(4)
 
 `ixl` — Intel Ethernet 700 系列驱动
 

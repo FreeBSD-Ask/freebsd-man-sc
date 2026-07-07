@@ -1,4 +1,4 @@
-# snd_fm801.4
+# snd_fm801(4)
 
 `snd_fm801` — Forte Media FM801 桥设备驱动
 

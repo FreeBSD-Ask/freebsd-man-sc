@@ -1,4 +1,4 @@
-# services.5
+# services(5)
 
 `services` — Internet 服务名和端口号数据库
 

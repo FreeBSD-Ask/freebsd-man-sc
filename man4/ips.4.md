@@ -1,4 +1,4 @@
-# ips.4
+# ips(4)
 
 `ips` — IBM/Adaptec ServeRAID 控制器驱动
 

@@ -1,4 +1,4 @@
-# device.hints.5
+# device.hints(5)
 
 `device.hints` — 设备资源提示
 

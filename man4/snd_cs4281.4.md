@@ -1,4 +1,4 @@
-# snd_cs4281.4
+# snd_cs4281(4)
 
 `snd_cs4281` — Crystal Semiconductor CS4281 PCI 桥设备驱动
 

@@ -1,4 +1,4 @@
-# runfw.4
+# runfw(4)
 
 `runfw` — Ralink 驱动程序的固件模块
 

@@ -1,4 +1,4 @@
-# netmap.4
+# netmap(4)
 
 `netmap` — 快速数据包 I/O 框架
 

@@ -1,4 +1,4 @@
-# logname.1
+# logname(1)
 
 `logname` — 显示用户的登录名
 

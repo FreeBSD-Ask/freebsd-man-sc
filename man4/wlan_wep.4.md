@@ -1,4 +1,4 @@
-# wlan_wep.4
+# wlan_wep(4)
 
 `wlan_wep` — 802.11 设备的 WEP 加密支持
 

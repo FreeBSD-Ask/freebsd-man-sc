@@ -1,4 +1,4 @@
-# hptiop.4
+# hptiop(4)
 
 `hptiop` — HighPoint RocketRAID 3xxx/4xxx 设备驱动
 

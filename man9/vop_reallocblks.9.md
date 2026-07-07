@@ -1,4 +1,4 @@
-# VOP_REALLOCBLKS.9
+# VOP_REALLOCBLKS(9)
 
 `VOP_REALLOCBLKS` — 重新排列文件中的块使其连续
 

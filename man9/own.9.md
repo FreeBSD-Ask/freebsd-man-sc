@@ -1,4 +1,4 @@
-# own.9
+# own(9)
 
 `own` — Dallas Semiconductor 1-Wire 网络和传输层接口
 

@@ -1,4 +1,4 @@
-# regulator.9
+# regulator(9)
 
 `regulator` — 调压器方法
 

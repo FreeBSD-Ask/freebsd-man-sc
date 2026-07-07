@@ -1,4 +1,4 @@
-# vgone.9
+# vgone(9)
 
 `vgone` — 准备 vnode 以便重用
 

@@ -1,4 +1,4 @@
-# pagesize.1
+# pagesize(1)
 
 `pagesize` — 打印系统页面大小
 

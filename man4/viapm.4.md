@@ -1,4 +1,4 @@
-# viapm.4
+# viapm(4)
 
 `viapm` — VIA 芯片组电源管理控制器驱动
 

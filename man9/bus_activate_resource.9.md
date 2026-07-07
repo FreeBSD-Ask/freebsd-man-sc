@@ -1,4 +1,4 @@
-# bus_activate_resource.9
+# bus_activate_resource(9)
 
 `bus_activate_resource` — 激活或停用资源
 

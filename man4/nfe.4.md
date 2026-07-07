@@ -1,4 +1,4 @@
-# nfe.4
+# nfe(4)
 
 `nfe` — NVIDIA nForce MCP 以太网驱动
 

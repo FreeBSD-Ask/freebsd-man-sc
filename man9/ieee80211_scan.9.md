@@ -1,4 +1,4 @@
-# ieee80211_scan.9
+# ieee80211_scan(9)
 
 `ieee80211_scan` — 802.11 扫描支持
 

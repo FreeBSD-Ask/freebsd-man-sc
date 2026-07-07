@@ -1,4 +1,4 @@
-# vrele.9
+# vrele(9)
 
 `vput`, `vrele`, `vunref` — 减少 vnode 的使用计数
 

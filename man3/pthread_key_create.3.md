@@ -1,4 +1,4 @@
-# pthread_key_create.3
+# pthread_key_create(3)
 
 `pthread_key_create` — 创建线程特定数据键
 

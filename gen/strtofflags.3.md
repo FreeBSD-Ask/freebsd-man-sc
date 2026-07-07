@@ -1,4 +1,4 @@
-# strtofflags.3
+# strtofflags(3)
 
 `fflagstostr`, `strtofflags` — 在文件标志位与其字符串名称之间转换
 

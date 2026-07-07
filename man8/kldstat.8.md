@@ -1,4 +1,4 @@
-# kldstat.8
+# kldstat(8)
 
 `kldstat` — 显示动态内核链接器状态
 

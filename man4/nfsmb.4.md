@@ -1,4 +1,4 @@
-# nfsmb.4
+# nfsmb(4)
 
 `nfsmb` — NVIDIA nForce2/3/4 SMBus 2.0 控制器驱动
 

@@ -1,4 +1,4 @@
-# snd_spicds.4
+# snd_spicds(4)
 
 `snd_spicds` — I2S SPI 音频编解码器驱动
 

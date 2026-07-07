@@ -1,4 +1,4 @@
-# gpioths.4
+# gpioths(4)
 
 `gpioths` — DHTxx 和 AM320x 温湿度传感器驱动
 

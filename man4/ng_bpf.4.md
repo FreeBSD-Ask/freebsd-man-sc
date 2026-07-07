@@ -1,4 +1,4 @@
-# ng_bpf.4
+# ng_bpf(4)
 
 `ng_bpf` — Berkeley 数据包过滤器 netgraph 节点类型
 

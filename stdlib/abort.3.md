@@ -1,4 +1,4 @@
-# abort.3
+# abort(3)
 
 `abort` — 引发异常程序终止
 

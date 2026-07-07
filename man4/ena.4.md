@@ -1,4 +1,4 @@
-# ena.4
+# ena(4)
 
 `ena` — AWS EC2 弹性网络适配器（ENA）驱动
 

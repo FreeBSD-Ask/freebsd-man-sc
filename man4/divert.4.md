@@ -1,4 +1,4 @@
-# divert.4
+# divert(4)
 
 `divert` — 内核数据包转向机制
 

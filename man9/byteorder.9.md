@@ -1,4 +1,4 @@
-# byteorder.9
+# byteorder(9)
 
 `bswap16` — 字节序操作
 

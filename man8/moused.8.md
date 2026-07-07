@@ -1,4 +1,4 @@
-# moused.8
+# moused(8)
 
 `moused` — 将鼠标数据传递给控制台驱动
 

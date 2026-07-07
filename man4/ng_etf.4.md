@@ -1,4 +1,4 @@
-# ng_etf.4
+# ng_etf(4)
 
 `ng_etf` — Ethertype 过滤 netgraph 节点类型
 

@@ -1,4 +1,4 @@
-# upgt.4
+# upgt(4)
 
 `upgt` — Conexant/Intersil PrismGT SoftMAC USB IEEE 802.11b/g 无线网络
 

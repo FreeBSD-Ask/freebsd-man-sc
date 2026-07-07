@@ -1,4 +1,4 @@
-# phones.5
+# phones(5)
 
 `phones` — 远程主机电话号码数据库
 

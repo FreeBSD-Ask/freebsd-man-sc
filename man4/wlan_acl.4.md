@@ -1,4 +1,4 @@
-# wlan_acl.4
+# wlan_acl(4)
 
 `wlan_acl` — 802.11 设备的基于 MAC 的 ACL 支持
 

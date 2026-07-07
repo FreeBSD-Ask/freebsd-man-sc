@@ -1,4 +1,4 @@
-# bsearch.3
+# bsearch(3)
 
 `bsearch` — 对已排序表进行二分查找
 

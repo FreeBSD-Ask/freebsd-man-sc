@@ -1,4 +1,4 @@
-# VOP_LISTEXTATTR.9
+# VOP_LISTEXTATTR(9)
 
 `VOP_LISTEXTATTR` — 从 vnode 中检索命名扩展属性列表
 

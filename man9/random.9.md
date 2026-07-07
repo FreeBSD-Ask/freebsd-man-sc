@@ -1,4 +1,4 @@
-# random.9
+# random(9)
 
 `arc4rand` — 提供伪随机数
 

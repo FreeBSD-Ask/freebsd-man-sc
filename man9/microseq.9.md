@@ -1,4 +1,4 @@
-# microseq.9
+# microseq(9)
 
 `microseq` — ppbus 微序列器开发者指南
 

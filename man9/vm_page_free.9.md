@@ -1,4 +1,4 @@
-# vm\_page\_free.9
+# vm_page_free(9)
 
 `vm_page_free`, `vm_page_free_toq`, `vm_page_free_zero`, `vm_page_try_to_free` — 释放一个页面
 

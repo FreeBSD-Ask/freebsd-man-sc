@@ -1,4 +1,4 @@
-# splash.4
+# splash(4)
 
 `splash` — 启动画面/屏幕保护接口
 

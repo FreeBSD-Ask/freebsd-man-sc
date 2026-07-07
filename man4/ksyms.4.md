@@ -1,4 +1,4 @@
-# ksyms.4
+# ksyms(4)
 
 `ksyms` — 内核符号表接口
 

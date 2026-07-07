@@ -1,4 +1,4 @@
-# refcount.9
+# refcount(9)
 
 `refcount` — 管理简单的引用计数器
 

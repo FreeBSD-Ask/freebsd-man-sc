@@ -1,4 +1,4 @@
-# microuptime.9
+# microuptime(9)
 
 `binuptime` — 获取自启动以来经过的时间
 

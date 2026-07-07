@@ -1,4 +1,4 @@
-# fmtcheck.3
+# fmtcheck(3)
 
 `fmtcheck` — 净化用户提供的 [printf(3)](../stdio/printf.3.md) 风格格式字符串
 

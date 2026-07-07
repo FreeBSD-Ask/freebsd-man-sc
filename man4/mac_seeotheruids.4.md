@@ -1,4 +1,4 @@
-# mac_seeotheruids.4
+# mac_seeotheruids(4)
 
 `mac_seeotheruids` — 控制用户是否能查看其他用户的简单策略
 

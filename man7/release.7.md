@@ -1,4 +1,4 @@
-# release.7
+# release(7)
 
 `release` — 发行版构建基础设施
 

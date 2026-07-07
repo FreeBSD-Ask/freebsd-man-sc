@@ -1,4 +1,4 @@
-# OF\_package\_to\_path.9
+# OF_package_to_path(9)
 
 `OF_package_to_path` — 获取设备树节点的完全限定路径
 

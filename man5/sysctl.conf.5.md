@@ -1,4 +1,4 @@
-# sysctl.conf.5
+# sysctl.conf(5)
 
 `sysctl.conf` — 内核状态默认值
 

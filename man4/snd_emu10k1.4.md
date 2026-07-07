@@ -1,4 +1,4 @@
-# snd_emu10k1.4
+# snd_emu10k1(4)
 
 `snd_emu10k1` — SoundBlaster Live! 和 Audigy PCI 桥设备驱动
 

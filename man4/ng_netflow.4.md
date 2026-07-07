@@ -1,4 +1,4 @@
-# ng_netflow.4
+# ng_netflow(4)
 
 `ng_netflow` — Cisco 的 NetFlow 实现
 

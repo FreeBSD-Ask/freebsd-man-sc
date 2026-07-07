@@ -1,4 +1,4 @@
-# mac_lomac.4
+# mac_lomac(4)
 
 `mac_lomac` — 低水位强制访问控制数据完整性策略
 

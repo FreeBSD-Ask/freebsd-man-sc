@@ -1,4 +1,4 @@
-# ng_tag.4
+# ng_tag(4)
 
 `ng_tag` — mbuf 标签操控 netgraph 节点类型
 

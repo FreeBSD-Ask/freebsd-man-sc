@@ -1,4 +1,4 @@
-# mktemp.3
+# mktemp(3)
 
 `mktemp` — 创建临时文件名（唯一）
 

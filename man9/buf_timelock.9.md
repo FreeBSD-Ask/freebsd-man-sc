@@ -1,4 +1,4 @@
-# BUF_TIMELOCK.9
+# BUF_TIMELOCK(9)
 
 `BUF_TIMELOCK` — 锁定缓冲区
 

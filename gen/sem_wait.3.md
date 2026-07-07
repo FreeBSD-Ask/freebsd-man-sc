@@ -1,4 +1,4 @@
-# sem_wait.3
+# sem_wait(3)
 
 `sem_wait` — 减少（锁定）信号量
 

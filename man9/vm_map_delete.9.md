@@ -1,4 +1,4 @@
-# vm\_map\_delete.9
+# vm_map_delete(9)
 
 `vm_map_delete` — 从映射中释放地址范围
 

@@ -1,4 +1,4 @@
-# pthread_mutex_consistent.3
+# pthread_mutex_consistent(3)
 
 `pthread_mutex_consistent` — 将 robust mutex 所保护的状态标记为一致
 

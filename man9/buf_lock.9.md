@@ -1,4 +1,4 @@
-# BUF\_LOCK.9
+# BUF_LOCK(9)
 
 `BUF_LOCK` — 锁定缓冲区
 

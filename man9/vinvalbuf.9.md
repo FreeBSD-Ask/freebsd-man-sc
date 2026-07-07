@@ -1,4 +1,4 @@
-# vinvalbuf.9
+# vinvalbuf(9)
 
 `vinvalbuf` — 刷新并失效与 vnode 关联的所有缓冲区
 

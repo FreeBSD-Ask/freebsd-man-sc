@@ -1,4 +1,4 @@
-# VOP_SETLABEL.9
+# VOP_SETLABEL(9)
 
 `VOP_SETLABEL` — 在 vnode 上持久存储更新的 MAC 标签
 

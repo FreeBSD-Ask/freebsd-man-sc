@@ -1,4 +1,4 @@
-# cksum.1
+# cksum(1)
 
 `cksum`, `sum` — 显示文件校验和与块计数
 

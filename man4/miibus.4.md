@@ -1,4 +1,4 @@
-# miibus.4
+# miibus(4)
 
 `miibus` — IEEE 802.3 媒体独立接口网络总线
 

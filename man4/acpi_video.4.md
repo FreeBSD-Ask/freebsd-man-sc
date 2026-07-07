@@ -1,4 +1,4 @@
-# acpi_video.4
+# acpi_video(4)
 
 `acpi_video` — ACPI 视频扩展驱动
 

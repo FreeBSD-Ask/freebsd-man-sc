@@ -1,4 +1,4 @@
-# undelete.2
+# undelete(2)
 
 `undelete` — 尝试恢复已删除的文件
 

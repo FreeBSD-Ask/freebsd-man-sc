@@ -1,4 +1,4 @@
-# ieee80211_bmiss.9
+# ieee80211_bmiss(9)
 
 `ieee80211_bmiss` — 802.11 信标丢失支持
 

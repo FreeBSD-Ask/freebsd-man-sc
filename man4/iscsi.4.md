@@ -1,4 +1,4 @@
-# iscsi.4
+# iscsi(4)
 
 `iscsi` — iSCSI 发起端
 

@@ -1,4 +1,4 @@
-# ng_one2many.4
+# ng_one2many(4)
 
 `ng_one2many` — 数据包多路复用 netgraph 节点类型
 

@@ -1,4 +1,4 @@
-# check-password.4th.8
+# check-password.4th(8)
 
 `check-password.4th` — FreeBSD 密码检查引导模块
 

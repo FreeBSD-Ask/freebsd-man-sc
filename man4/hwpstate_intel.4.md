@@ -1,4 +1,4 @@
-# hwpstate_intel.4
+# hwpstate_intel(4)
 
 `hwpstate_intel` — Intel Speed Shift Technology 驱动
 

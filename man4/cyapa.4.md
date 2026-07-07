@@ -1,4 +1,4 @@
-# cyapa.4
+# cyapa(4)
 
 `cyapa` — Cypress APA 触控板 I2C 接口驱动
 

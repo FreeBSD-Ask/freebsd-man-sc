@@ -1,4 +1,4 @@
-# snd_maestro3.4
+# snd_maestro3(4)
 
 `snd_maestro3` — ESS Maestro3/Allegro-1 桥设备驱动
 

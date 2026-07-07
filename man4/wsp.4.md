@@ -1,4 +1,4 @@
-# wsp.4
+# wsp(4)
 
 `wsp` — Wellspring 触控板驱动
 

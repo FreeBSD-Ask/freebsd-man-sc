@@ -1,4 +1,4 @@
-# fpgetround.3
+# fpgetround(3)
 
 `fpgetround` — IEEE 浮点接口
 

@@ -1,4 +1,4 @@
-# fwip.4
+# fwip(4)
 
 `fwip` — IP over FireWire 驱动程序
 

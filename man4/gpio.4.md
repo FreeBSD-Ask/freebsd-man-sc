@@ -1,4 +1,4 @@
-# gpio.4
+# gpio(4)
 
 `gpiobus` — GPIO 总线系统
 

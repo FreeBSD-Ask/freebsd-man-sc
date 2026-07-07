@@ -1,4 +1,4 @@
-# ether_gen_addr.9
+# ether_gen_addr(9)
 
 `ether_gen_addr` — 生成供使用的任意 MAC 地址
 

@@ -1,4 +1,4 @@
-# reboot.8
+# reboot(8)
 
 `reboot` — 停止并重启系统
 

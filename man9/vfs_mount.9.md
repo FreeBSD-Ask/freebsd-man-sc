@@ -1,4 +1,4 @@
-# VFS\_MOUNT.9
+# VFS_MOUNT(9)
 
 `VFS_MOUNT` — 挂载文件系统
 

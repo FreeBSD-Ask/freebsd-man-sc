@@ -1,4 +1,4 @@
-# stats.3
+# stats(3)
 
 `stats` — 统计数据收集
 

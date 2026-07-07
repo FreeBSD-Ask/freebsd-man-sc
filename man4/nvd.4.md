@@ -1,4 +1,4 @@
-# nvd.4
+# nvd(4)
 
 `nvd` — NVM Express 磁盘驱动
 

@@ -1,4 +1,4 @@
-# usb_template.4
+# usb_template(4)
 
 `usb_template` — USB 设备端模板
 

@@ -1,4 +1,4 @@
-# mac_ddb.4
+# mac_ddb(4)
 
 `mac_ddb` — 受限的内核调试器接口策略
 

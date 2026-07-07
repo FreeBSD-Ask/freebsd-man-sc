@@ -1,4 +1,4 @@
-# DEV\_MODULE.9
+# DEV_MODULE(9)
 
 `DEV_MODULE` — 设备驱动模块声明宏
 

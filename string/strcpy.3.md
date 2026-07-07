@@ -1,4 +1,4 @@
-# stpcpy(3)
+# strcpy(3)
 
 `stpcpy` — 复制字符串
 

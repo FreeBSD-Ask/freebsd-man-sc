@@ -1,4 +1,4 @@
-# smbios.4
+# smbios(4)
 
 `smbios` — 系统管理 BIOS
 

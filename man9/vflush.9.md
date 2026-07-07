@@ -1,4 +1,4 @@
-# vflush.9
+# vflush(9)
 
 `vflush` — 刷新挂载点的 vnode
 

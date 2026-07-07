@@ -1,4 +1,4 @@
-# vfs\_unmountall.9
+# vfs_unmountall(9)
 
 `vfs_unmountall` — 卸载所有文件系统
 

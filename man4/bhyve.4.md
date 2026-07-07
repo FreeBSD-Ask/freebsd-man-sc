@@ -1,4 +1,4 @@
-# bhyve.4
+# bhyve(4)
 
 `bhyve` — 虚拟机监视器
 

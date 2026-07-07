@@ -1,4 +1,4 @@
-# ahc.4
+# ahc(4)
 
 `ahc` — Adaptec VL/ISA/PCI SCSI 主机适配器驱动
 

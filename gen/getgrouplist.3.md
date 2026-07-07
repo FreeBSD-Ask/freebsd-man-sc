@@ -1,4 +1,4 @@
-# getgrouplist.3
+# getgrouplist(3)
 
 `getgrouplist` — 生成用户的有效组列表
 

@@ -1,4 +1,4 @@
-# pthread_mutex_trylock.3
+# pthread_mutex_trylock(3)
 
 `pthread_mutex_trylock` — 尝试锁定 mutex 且不阻塞
 

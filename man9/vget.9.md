@@ -1,4 +1,4 @@
-# vget.9
+# vget(9)
 
 `vget` — 从空闲列表获取 vnode
 

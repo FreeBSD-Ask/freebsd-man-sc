@@ -1,4 +1,4 @@
-# apply.1
+# apply(1)
 
 `apply` — 对一组参数应用命令
 

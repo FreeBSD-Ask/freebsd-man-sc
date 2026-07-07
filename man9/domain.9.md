@@ -1,4 +1,4 @@
-# domain.9
+# domain(9)
 
 `domain` — 内核套接字实现的编程接口
 

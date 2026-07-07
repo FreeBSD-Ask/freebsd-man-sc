@@ -1,4 +1,4 @@
-# bus_generic_read_ivar.9
+# bus_generic_read_ivar(9)
 
 `bus_generic_read_ivar` — 总线 `BUS_READ_IVAR` 和 `BUS_WRITE_IVAR` 的通用实现
 

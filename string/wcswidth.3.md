@@ -1,4 +1,4 @@
-# wcswidth.3
+# wcswidth(3)
 
 `wcswidth` — 宽字符串占用的列位置数
 

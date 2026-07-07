@@ -1,4 +1,4 @@
-# fstab.5
+# fstab(5)
 
 `fstab` — 文件系统的静态信息
 

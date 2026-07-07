@@ -1,4 +1,4 @@
-# fnmatch.3
+# fnmatch(3)
 
 `fnmatch` — 测试文件名或路径名是否匹配 shell 风格的模式
 

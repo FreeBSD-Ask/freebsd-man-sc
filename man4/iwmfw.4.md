@@ -1,4 +1,4 @@
-# iwmfw.4
+# iwmfw(4)
 
 `iwmfw` — Intel Wireless 驱动的固件模块
 

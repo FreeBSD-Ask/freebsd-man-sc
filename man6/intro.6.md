@@ -1,4 +1,4 @@
-# intro.6
+# intro(6)
 
 `intro` — 游戏简介
 

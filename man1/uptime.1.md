@@ -1,4 +1,4 @@
-# uptime.1
+# uptime(1)
 
 `uptime` — 显示系统已运行多久
 

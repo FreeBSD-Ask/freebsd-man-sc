@@ -1,4 +1,4 @@
-# hv_kvp.4
+# hv_kvp(4)
 
 `hv_kvp` — Hyper-V 键值对驱动
 

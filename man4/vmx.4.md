@@ -1,4 +1,4 @@
-# vmx.4
+# vmx(4)
 
 `vmx` — VMware VMXNET3 虚拟接口控制器设备
 

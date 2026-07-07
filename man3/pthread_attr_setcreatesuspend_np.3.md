@@ -1,4 +1,4 @@
-# pthread_attr_setcreatesuspend_np.3
+# pthread_attr_setcreatesuspend_np(3)
 
 `pthread_attr_setcreatesuspend_np` — 为创建挂起线程准备属性
 

@@ -1,4 +1,4 @@
-# lorder.1
+# lorder(1)
 
 `lorder` — 列出目标文件的依赖关系
 

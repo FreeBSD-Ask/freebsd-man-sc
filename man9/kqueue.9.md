@@ -1,4 +1,4 @@
-# kqueue.9
+# kqueue(9)
 
 `kqueue_add_filteropts` — 事件传递子系统
 

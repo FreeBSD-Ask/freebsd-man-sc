@@ -1,4 +1,4 @@
-# casuword.9
+# casuword(9)
 
 `casuword` — 从用户空间获取、比较和存储数据
 

@@ -1,4 +1,4 @@
-# vm\_map\_max.9
+# vm_map_max(9)
 
 `vm_map_max`, `vm_map_min`, `vm_map_pmap` — 返回映射属性
 

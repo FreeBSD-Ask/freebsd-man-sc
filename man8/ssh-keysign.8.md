@@ -1,4 +1,4 @@
-# ssh-keysign.8
+# ssh-keysign(8)
 
 `ssh-keysign` — 用于基于主机的认证的 OpenSSH 助手
 

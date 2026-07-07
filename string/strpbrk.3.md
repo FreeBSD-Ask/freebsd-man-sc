@@ -1,4 +1,4 @@
-# strpbrk.3
+# strpbrk(3)
 
 `strpbrk` — 在字符串中定位多个字符
 

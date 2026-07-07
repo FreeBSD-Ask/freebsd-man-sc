@@ -1,4 +1,4 @@
-# periodic.8
+# periodic(8)
 
 `periodic` — 运行周期性系统函数
 

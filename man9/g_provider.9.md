@@ -1,4 +1,4 @@
-# g_provider.9
+# g_provider(9)
 
 `g_new_providerf` — GEOM 提供者管理
 

@@ -1,4 +1,4 @@
-# g_geom.9
+# g_geom(9)
 
 `g_new_geomf` — geom 管理
 

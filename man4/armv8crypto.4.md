@@ -1,4 +1,4 @@
-# armv8crypto.4
+# armv8crypto(4)
 
 `armv8crypto` — ARM CPU 上 AES 加速器驱动
 

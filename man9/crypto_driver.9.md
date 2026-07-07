@@ -1,4 +1,4 @@
-# crypto_driver.9
+# crypto_driver(9)
 
 `crypto_driver` — 对称密码学驱动程序接口
 

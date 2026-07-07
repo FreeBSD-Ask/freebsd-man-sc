@@ -1,4 +1,4 @@
-# chvgpio.4
+# chvgpio(4)
 
 `chvgpio` — Intel Cherry View SoC GPIO 控制器
 

@@ -1,4 +1,4 @@
-# ntb_hw_amd.4
+# ntb_hw_amd(4)
 
 `ntb_hw_amd` — AMD 非透明桥接驱动
 

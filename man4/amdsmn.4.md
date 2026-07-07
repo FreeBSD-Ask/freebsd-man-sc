@@ -1,4 +1,4 @@
-# amdsmn.4
+# amdsmn(4)
 
 `amdsmn` — AMD 处理器系统管理网络设备驱动
 

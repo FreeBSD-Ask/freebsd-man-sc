@@ -1,4 +1,4 @@
-# printf.9
+# printf(9)
 
 `printf` — 格式化输出转换
 

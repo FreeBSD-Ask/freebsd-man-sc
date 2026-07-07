@@ -1,4 +1,4 @@
-# bsdconfig.8
+# bsdconfig(8)
 
 `bsdconfig` — 系统配置工具
 

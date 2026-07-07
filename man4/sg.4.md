@@ -1,4 +1,4 @@
-# sg.4
+# sg(4)
 
 `sg` — 兼容 Linux ioctl 的 SCSI 直通设备
 

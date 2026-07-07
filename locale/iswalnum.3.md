@@ -1,4 +1,4 @@
-# iswalnum.3
+# iswalnum(3)
 
 `iswalnum` — 宽字符分类工具
 

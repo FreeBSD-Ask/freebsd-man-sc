@@ -1,4 +1,4 @@
-# cfi.4
+# cfi(4)
 
 `cfi` — Common Flash Interface（CFI）NOR flash 驱动
 

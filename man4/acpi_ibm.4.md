@@ -1,4 +1,4 @@
-# acpi_ibm.4
+# acpi_ibm(4)
 
 `acpi_ibm` — ThinkPad ACPI 附加功能驱动
 

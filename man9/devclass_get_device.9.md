@@ -1,4 +1,4 @@
-# devclass_get_device.9
+# devclass_get_device(9)
 
 `devclass_get_device` — 将单元号转换为设备
 

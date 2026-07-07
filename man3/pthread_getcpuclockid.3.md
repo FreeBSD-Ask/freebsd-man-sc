@@ -1,4 +1,4 @@
-# pthread_getcpuclockid.3
+# pthread_getcpuclockid(3)
 
 `pthread_getcpuclockid` — 访问线程 CPU 时间时钟
 

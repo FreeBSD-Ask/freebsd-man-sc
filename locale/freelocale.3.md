@@ -1,4 +1,4 @@
-# freelocale.3
+# freelocale(3)
 
 `freelocale` — 释放由 duplocale(3) 或 newlocale(3) 创建的 locale
 

@@ -1,4 +1,4 @@
-# coretemp.4
+# coretemp(4)
 
 `coretemp` — Intel Core 片上数字温度传感器设备驱动
 

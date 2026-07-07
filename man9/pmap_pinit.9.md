@@ -1,4 +1,4 @@
-# pmap_pinit.9
+# pmap_pinit(9)
 
 `pmap_pinit` — 初始化 pmap 结构
 

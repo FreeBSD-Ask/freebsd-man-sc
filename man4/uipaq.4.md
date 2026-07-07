@@ -1,4 +1,4 @@
-# uipaq.4
+# uipaq(4)
 
 `uipaq` — iPAQ 设备的 USB 支持
 

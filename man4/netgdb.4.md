@@ -1,4 +1,4 @@
-# netgdb.4
+# netgdb(4)
 
 `netgdb` — 通过网络用 GDB 调试内核的协议
 

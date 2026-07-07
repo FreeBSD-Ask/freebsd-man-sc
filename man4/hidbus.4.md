@@ -1,4 +1,4 @@
-# hidbus.4
+# hidbus(4)
 
 `hidbus` — 通用 HID 总线驱动
 

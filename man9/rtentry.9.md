@@ -1,4 +1,4 @@
-# rtentry.9
+# rtentry(9)
 
 `rtentry` — 内核路由表中条目的结构
 

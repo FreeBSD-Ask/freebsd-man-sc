@@ -1,4 +1,4 @@
-# vfs\_getopt.9
+# vfs_getopt(9)
 
 `vfs_getopt` — 操作挂载选项及其值
 

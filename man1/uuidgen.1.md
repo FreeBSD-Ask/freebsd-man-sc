@@ -1,4 +1,4 @@
-# uuidgen.1
+# uuidgen(1)
 
 `uuidgen` — 生成通用唯一标识符
 

@@ -1,4 +1,4 @@
-# BUS_SETUP_INTR.9
+# BUS_SETUP_INTR(9)
 
 `BUS_SETUP_INTR` — 创建、附加和拆卸中断处理程序
 

@@ -1,4 +1,4 @@
-# pmap_page_exists_quick.9
+# pmap_page_exists_quick(9)
 
 `pmap_page_exists_quick` — 确定页面是否存在于物理映射中
 

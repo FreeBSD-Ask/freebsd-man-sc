@@ -1,4 +1,4 @@
-# netintro.4
+# netintro(4)
 
 `networking` — 网络设施简介
 

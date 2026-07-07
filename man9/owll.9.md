@@ -1,4 +1,4 @@
-# owll.9
+# owll(9)
 
 `owll` — Dallas Semiconductor 1-Wire 链路层接口
 

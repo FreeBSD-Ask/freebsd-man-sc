@@ -1,4 +1,4 @@
-# login.1
+# login(1)
 
 `login` — 登录到计算机
 

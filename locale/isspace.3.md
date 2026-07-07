@@ -1,4 +1,4 @@
-# isspace.3
+# isspace(3)
 
 `isspace` — 空白字符测试
 

@@ -1,4 +1,4 @@
-# ng_checksum.4
+# ng_checksum(4)
 
 `ng_checksum` — 重建 IP 校验和的节点类型
 

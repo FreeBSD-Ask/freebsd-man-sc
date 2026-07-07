@@ -1,4 +1,4 @@
-# pmap\_activate.9
+# pmap_activate(9)
 
 `pmap_activate` — 激活物理映射
 

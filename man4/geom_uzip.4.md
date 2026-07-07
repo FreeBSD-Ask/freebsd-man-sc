@@ -1,4 +1,4 @@
-# geom_uzip.4
+# geom_uzip(4)
 
 `geom_uzip` — 基于 GEOM 的压缩磁盘映像和分区
 

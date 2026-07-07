@@ -1,4 +1,4 @@
-# capsicum.4
+# capsicum(4)
 
 `Capsicum` — 轻量级 OS 能力与沙箱框架
 

@@ -1,4 +1,4 @@
-# apm.4
+# apm(4)
 
 `apm` — APM BIOS 接口
 

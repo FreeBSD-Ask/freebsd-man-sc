@@ -1,4 +1,4 @@
-# wmt.4
+# wmt(4)
 
 `wmt` — 兼容 MS Windows 7/8/10 的 USB HID 多点触控设备驱动
 

@@ -1,4 +1,4 @@
-# device\_get\_sysctl.9
+# device_get_sysctl(9)
 
 `device_get_sysctl_ctx` — 操作驱动程序特定 sysctl 节点的 sysctl oid 树
 

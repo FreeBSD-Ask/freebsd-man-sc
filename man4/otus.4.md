@@ -1,4 +1,4 @@
-# otus.4
+# otus(4)
 
 `otus` — Atheros AR9170 USB IEEE 802.11a/b/g/n 无线网络驱动
 

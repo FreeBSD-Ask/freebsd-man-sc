@@ -1,4 +1,4 @@
-# znew.1
+# znew(1)
 
 `znew` — 将压缩文件转换为 gzip 压缩文件
 

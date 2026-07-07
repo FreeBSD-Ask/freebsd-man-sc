@@ -1,4 +1,4 @@
-# nullfs.4
+# nullfs(4)
 
 `nullfs` — 空文件系统
 

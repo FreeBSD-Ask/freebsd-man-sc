@@ -1,4 +1,4 @@
-# BUS_CONFIG_INTR.9
+# BUS_CONFIG_INTR(9)
 
 `BUS_CONFIG_INTR` — 配置中断极性与触发模式
 

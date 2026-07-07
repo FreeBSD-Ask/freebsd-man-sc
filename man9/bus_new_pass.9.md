@@ -1,4 +1,4 @@
-# BUS_NEW_PASS.9
+# BUS_NEW_PASS(9)
 
 `BUS_NEW_PASS` — 通知总线 pass 级别已更改
 

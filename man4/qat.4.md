@@ -1,4 +1,4 @@
-# qat.4
+# qat(4)
 
 `qat` — Intel QuickAssist Technology 压缩与加密驱动程序
 

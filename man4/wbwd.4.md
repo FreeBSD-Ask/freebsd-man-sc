@@ -1,4 +1,4 @@
-# wbwd.4
+# wbwd(4)
 
 `wbwd` — Winbond/Nuvoton Super I/O 芯片看门狗定时器设备驱动
 

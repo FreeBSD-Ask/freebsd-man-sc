@@ -1,4 +1,4 @@
-# g_wither_geom.9
+# g_wither_geom(9)
 
 `g_wither_geom` — 在有机会时销毁 geom 及相关提供者和消费者
 

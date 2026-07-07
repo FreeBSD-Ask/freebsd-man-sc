@@ -1,4 +1,4 @@
-# device\_printf.9
+# device_printf(9)
 
 `device_printf` — 格式化输出转换
 

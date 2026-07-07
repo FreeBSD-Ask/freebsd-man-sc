@@ -1,4 +1,4 @@
-# LOCK\_PROFILING.9
+# LOCK_PROFILING(9)
 
 `LOCK_PROFILING` — 内核锁性能分析支持
 

@@ -1,4 +1,4 @@
-# group.5
+# group(5)
 
 `group` — 组权限文件格式
 

@@ -1,4 +1,4 @@
-# stdckdint.3
+# stdckdint(3)
 
 `stdckdint` — 检查整数运算
 

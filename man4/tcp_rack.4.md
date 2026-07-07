@@ -1,4 +1,4 @@
-# tcp_rack.4
+# tcp_rack(4)
 
 `tcp_rack` — TCP RACK-TLP 丢失检测算法
 

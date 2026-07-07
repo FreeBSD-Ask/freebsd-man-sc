@@ -1,4 +1,4 @@
-# watchdog.8
+# watchdog(8)
 
 `watchdog` — 看门狗控制程序
 

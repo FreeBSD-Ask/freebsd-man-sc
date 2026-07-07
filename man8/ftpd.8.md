@@ -1,4 +1,4 @@
-# ftpd.8
+# ftpd(8)
 
 `ftpd` — Internet 文件传输协议服务器
 

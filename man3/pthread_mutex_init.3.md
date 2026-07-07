@@ -1,4 +1,4 @@
-# pthread_mutex_init.3
+# pthread_mutex_init(3)
 
 `pthread_mutex_init` — 创建 mutex
 

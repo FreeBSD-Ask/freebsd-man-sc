@@ -1,4 +1,4 @@
-# cr\_bsd\_visible.9
+# cr_bsd_visible(9)
 
 `cr_bsd_visible` — 根据BSD安全策略判断主体是否可见对应实体
 

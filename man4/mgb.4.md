@@ -1,4 +1,4 @@
-# mgb.4
+# mgb(4)
 
 `mgb` — Microchip LAN743x PCIe 千兆以太网驱动
 

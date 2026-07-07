@@ -1,4 +1,4 @@
-# fpu_kern.9
+# fpu_kern(9)
 
 `fpu_kern` — 在内核中使用 FPU 的设施
 

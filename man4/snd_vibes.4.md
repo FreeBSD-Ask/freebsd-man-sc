@@ -1,4 +1,4 @@
-# snd_vibes.4
+# snd_vibes(4)
 
 `snd_vibes` — S3 SonicVibes 桥设备驱动
 

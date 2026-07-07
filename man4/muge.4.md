@@ -1,4 +1,4 @@
-# muge.4
+# muge(4)
 
 `muge` — Microchip LAN78xx USB 千兆以太网驱动
 

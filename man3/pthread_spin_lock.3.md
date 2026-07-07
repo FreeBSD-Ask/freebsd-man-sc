@@ -1,4 +1,4 @@
-# pthread_spin_lock.3
+# pthread_spin_lock(3)
 
 `pthread_spin_lock` — 锁定或解锁自旋锁
 

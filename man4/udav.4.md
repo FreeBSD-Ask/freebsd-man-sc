@@ -1,4 +1,4 @@
-# udav.4
+# udav(4)
 
 `udav` — Davicom DM9601 USB 以太网驱动
 

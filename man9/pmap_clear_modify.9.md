@@ -1,4 +1,4 @@
-# pmap\_clear\_modify.9
+# pmap_clear_modify(9)
 
 `pmap_clear_modify` — 设置物理页面的信息
 

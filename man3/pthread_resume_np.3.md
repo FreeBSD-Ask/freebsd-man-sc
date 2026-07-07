@@ -1,4 +1,4 @@
-# pthread_resume_np.3
+# pthread_resume_np(3)
 
 `pthread_resume_np` — 恢复被挂起的线程
 

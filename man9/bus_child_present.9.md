@@ -1,4 +1,4 @@
-# bus_child_present.9
+# bus_child_present(9)
 
 `bus_child_present` — 询问总线驱动程序此设备是否仍然实际存在
 

@@ -1,4 +1,4 @@
-# menu.4th.8
+# menu.4th(8)
 
 `menu.4th` — FreeBSD 动态菜单引导模块
 

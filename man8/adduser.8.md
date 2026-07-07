@@ -1,4 +1,4 @@
-# adduser.8
+# adduser(8)
 
 `adduser` — 添加新用户的命令
 

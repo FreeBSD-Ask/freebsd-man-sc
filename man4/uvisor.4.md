@@ -1,4 +1,4 @@
-# uvisor.4
+# uvisor(4)
 
 `uvisor` — 基于 PalmOS 的 PDA 的 USB 支持
 

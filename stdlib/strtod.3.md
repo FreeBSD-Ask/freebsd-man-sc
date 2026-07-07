@@ -1,4 +1,4 @@
-# strtod.3
+# strtod(3)
 
 `strtod`, `strtof`, `strtold` — 将 ASCII 字符串转换为浮点数
 

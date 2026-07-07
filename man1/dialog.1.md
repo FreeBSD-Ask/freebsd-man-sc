@@ -1,4 +1,4 @@
-# dialog.1
+# dialog(1)
 
 `dialog` — 从 shell 脚本显示对话框
 

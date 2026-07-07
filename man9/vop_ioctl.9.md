@@ -1,4 +1,4 @@
-# VOP_IOCTL.9
+# VOP_IOCTL(9)
 
 `VOP_IOCTL` — 设备特定控制
 

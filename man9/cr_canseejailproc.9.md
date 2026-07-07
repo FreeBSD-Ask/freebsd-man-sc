@@ -1,4 +1,4 @@
-# cr\_canseejailproc.9
+# cr_canseejailproc(9)
 
 `cr_canseejailproc` — 判断主体能否看到子 jail 中的实体
 

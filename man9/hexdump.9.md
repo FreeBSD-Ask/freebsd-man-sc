@@ -1,4 +1,4 @@
-# hexdump.9
+# hexdump(9)
 
 `hexdump` — 以十六进制形式将字节块转储到控制台
 

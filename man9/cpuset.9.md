@@ -1,4 +1,4 @@
-# cpuset.9
+# cpuset(9)
 
 `cpuset(9)` — cpuset 操作宏
 

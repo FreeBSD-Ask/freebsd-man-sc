@@ -1,4 +1,4 @@
-# getcwd.3
+# getcwd(3)
 
 `getcwd` — 获取工作目录路径名
 

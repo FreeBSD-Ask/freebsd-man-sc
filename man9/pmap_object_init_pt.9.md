@@ -1,4 +1,4 @@
-# pmap_object_init_pt.9
+# pmap_object_init_pt(9)
 
 `pmap_object_init_pt` — 为 VM 对象初始化页表
 

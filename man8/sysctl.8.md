@@ -1,4 +1,4 @@
-# sysctl.8
+# sysctl(8)
 
 `sysctl` — 获取或设置内核状态
 

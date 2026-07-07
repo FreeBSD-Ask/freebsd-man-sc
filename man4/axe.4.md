@@ -1,4 +1,4 @@
-# axe.4
+# axe(4)
 
 `axe` — ASIX Electronics AX88x7x/760 USB 以太网驱动
 

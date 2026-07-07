@@ -1,4 +1,4 @@
-# wlan_xauth.4
+# wlan_xauth(4)
 
 `wlan_xauth` — 802.11 设备的外部认证器支持
 

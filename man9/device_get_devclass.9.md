@@ -1,4 +1,4 @@
-# device_get_devclass.9
+# device_get_devclass(9)
 
 `device_get_devclass` — 访问设备的 devclass
 

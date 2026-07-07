@@ -1,4 +1,4 @@
-# password.lua.8
+# password.lua(8)
 
 `password.lua` — 引导加载器密码模块
 

@@ -1,4 +1,4 @@
-# witness.4
+# witness(4)
 
 `witness` — 锁验证设施
 

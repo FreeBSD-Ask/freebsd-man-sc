@@ -1,4 +1,4 @@
-# EVENTHANDLER.9
+# EVENTHANDLER(9)
 
 `EVENTHANDLER` — 内核事件处理函数
 

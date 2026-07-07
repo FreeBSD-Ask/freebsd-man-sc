@@ -1,4 +1,4 @@
-# acpi_dock.4
+# acpi_dock(4)
 
 `acpi_dock` — 笔记本扩展坞设备驱动
 

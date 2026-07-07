@@ -1,4 +1,4 @@
-# hv_vmbus.4
+# hv_vmbus(4)
 
 `hv_vmbus` — Hyper-V 虚拟机总线（VMBus）驱动
 

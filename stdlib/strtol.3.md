@@ -1,4 +1,4 @@
-# strtol.3
+# strtol(3)
 
 `strtol`, `strtoll`, `strtoimax`, `strtoq` — 将字符串值转换为 `long`、`long long`、`intmax_t` 或 `quad_t` 整数
 

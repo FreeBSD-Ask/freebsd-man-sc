@@ -1,4 +1,4 @@
-# dtrace_profile.4
+# dtrace_profile(4)
 
 `dtrace_profile` — 在给定时间间隔触发探测的 DTrace 提供者
 

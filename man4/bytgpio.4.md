@@ -1,4 +1,4 @@
-# bytgpio.4
+# bytgpio(4)
 
 `bytgpio` — Intel Bay Trail SoC GPIO 控制器
 

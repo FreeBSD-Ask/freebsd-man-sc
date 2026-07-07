@@ -1,4 +1,4 @@
-# cr\_canseeotheruids.9
+# cr_canseeotheruids(9)
 
 `cr_canseeotheruids` — 判断主体能否看到具有不同用户 ID 的实体
 

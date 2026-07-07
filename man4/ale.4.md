@@ -1,4 +1,4 @@
-# ale.4
+# ale(4)
 
 `ale` — Atheros AR8121/AR8113/AR8114 千兆/快速以太网驱动
 

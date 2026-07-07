@@ -1,4 +1,4 @@
-# ubser.4
+# ubser(4)
 
 `ubser` — BWCT 控制台串行适配器的 USB 支持
 

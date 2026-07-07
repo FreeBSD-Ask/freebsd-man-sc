@@ -1,4 +1,4 @@
-# nge.4
+# nge(4)
 
 `nge` — National Semiconductor PCI 千兆以太网适配器驱动
 

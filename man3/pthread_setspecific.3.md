@@ -1,4 +1,4 @@
-# pthread_setspecific.3
+# pthread_setspecific(3)
 
 `pthread_setspecific` — 设置线程特定数据值
 

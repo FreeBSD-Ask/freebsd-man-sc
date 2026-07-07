@@ -1,4 +1,4 @@
-# rge.4
+# rge(4)
 
 `rge` — RealTek RTL8125/RTL8126/RTL8127/Killer E3000 PCIe 以太网适配器驱动
 

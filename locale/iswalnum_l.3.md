@@ -1,4 +1,4 @@
-# iswalnum_l.3
+# iswalnum_l(3)
 
 `iswalnum_l` — 宽字符分类工具
 

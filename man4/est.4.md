@@ -1,4 +1,4 @@
-# est.4
+# est(4)
 
 `est` — 增强型 SpeedStep 技术
 

@@ -1,4 +1,4 @@
-# VOP_GETACL.9
+# VOP_GETACL(9)
 
 `VOP_GETACL` — 检索 vnode 的访问控制列表
 

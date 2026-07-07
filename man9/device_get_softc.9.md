@@ -1,4 +1,4 @@
-# device\_get\_softc.9
+# device_get_softc(9)
 
 `device_get_softc` — 访问驱动程序私有实例变量
 

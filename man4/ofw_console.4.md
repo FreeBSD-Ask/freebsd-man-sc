@@ -1,4 +1,4 @@
-# ofw\_console.4
+# ofw_console(4)
 
 `ofw_console` — Open Firmware 控制台
 

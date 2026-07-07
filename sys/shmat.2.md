@@ -1,4 +1,4 @@
-# shmat.2
+# shmat(2)
 
 `shmat` — 附接或分离共享内存
 

@@ -1,4 +1,4 @@
-# camcontrol.8
+# camcontrol(8)
 
 `camcontrol` — CAM 控制程序
 

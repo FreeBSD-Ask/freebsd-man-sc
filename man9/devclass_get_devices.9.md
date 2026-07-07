@@ -1,4 +1,4 @@
-# devclass_get_devices.9
+# devclass_get_devices(9)
 
 `devclass_get_devices` — 获取 devclass 中的设备列表
 

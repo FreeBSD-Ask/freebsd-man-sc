@@ -1,4 +1,4 @@
-# umoscom.4
+# umoscom(4)
 
 `umoscom` — 基于 MOSCHIP 芯片的串口适配器的 USB 支持
 

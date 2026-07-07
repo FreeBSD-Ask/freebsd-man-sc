@@ -1,4 +1,4 @@
-# g_event.9
+# g_event(9)
 
 `g_post_event` — GEOM 事件管理
 

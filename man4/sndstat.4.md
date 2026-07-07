@@ -1,4 +1,4 @@
-# sndstat.4
+# sndstat(4)
 
 `sndstat` — 基于 nvlist 的 PCM 音频设备枚举接口
 

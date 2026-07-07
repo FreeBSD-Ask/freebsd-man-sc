@@ -1,4 +1,4 @@
-# BUF\_RECURSED.9
+# BUF_RECURSED(9)
 
 `BUF_RECURSED` — 检查与缓冲区关联的锁是否递归
 

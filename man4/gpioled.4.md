@@ -1,4 +1,4 @@
-# gpioled.4
+# gpioled(4)
 
 `gpioled` — GPIO LED 通用设备驱动
 

@@ -1,4 +1,4 @@
-# orm.4
+# orm(4)
 
 `orm` — ISA I/O 空间选项 ROM 驱动
 

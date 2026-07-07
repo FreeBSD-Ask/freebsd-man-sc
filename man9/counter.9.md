@@ -1,4 +1,4 @@
-# counter.9
+# counter(9)
 
 `counter` — SMP 友好的内核计数器实现
 

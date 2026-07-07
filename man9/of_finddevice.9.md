@@ -1,4 +1,4 @@
-# OF\_finddevice.9
+# OF_finddevice(9)
 
 `OF_finddevice` — 在设备树中查找节点
 

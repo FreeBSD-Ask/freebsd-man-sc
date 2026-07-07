@@ -1,4 +1,4 @@
-# VOP_BMAP.9
+# VOP_BMAP(9)
 
 `VOP_BMAP` — 逻辑块号到物理块号的转换
 

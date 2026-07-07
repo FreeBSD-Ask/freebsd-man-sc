@@ -1,4 +1,4 @@
-# mac_bsdextended.4
+# mac_bsdextended(4)
 
 `mac_bsdextended` — 文件系统防火墙策略
 

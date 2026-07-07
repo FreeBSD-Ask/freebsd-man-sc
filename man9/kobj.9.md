@@ -1,4 +1,4 @@
-# kobj.9
+# kobj(9)
 
 `kobj` — FreeBSD 的内核对象系统
 

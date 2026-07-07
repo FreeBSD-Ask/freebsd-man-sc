@@ -1,4 +1,4 @@
-# thread\_exit.9
+# thread_exit(9)
 
 `thread_exit` — 放弃当前线程上下文
 

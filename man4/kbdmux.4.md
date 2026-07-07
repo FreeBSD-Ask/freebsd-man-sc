@@ -1,4 +1,4 @@
-# kbdmux.4
+# kbdmux(4)
 
 `kbdmux` — 键盘多路复用器
 

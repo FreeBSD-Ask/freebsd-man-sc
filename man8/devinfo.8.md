@@ -1,4 +1,4 @@
-# devinfo.8
+# devinfo(8)
 
 `devinfo` — 打印系统设备配置信息
 

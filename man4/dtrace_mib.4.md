@@ -1,4 +1,4 @@
-# dtrace_mib.4
+# dtrace_mib(4)
 
 `dtrace_mib` — 用于管理信息库的 DTrace 提供者
 

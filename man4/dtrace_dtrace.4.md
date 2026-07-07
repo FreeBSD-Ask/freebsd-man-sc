@@ -1,4 +1,4 @@
-# dtrace_dtrace.4
+# dtrace_dtrace(4)
 
 `dtrace_dtrace` — 用于 BEGIN、END 和 ERROR 探测的 DTrace 提供者
 

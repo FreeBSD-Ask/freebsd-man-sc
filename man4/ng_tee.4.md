@@ -1,4 +1,4 @@
-# ng_tee.4
+# ng_tee(4)
 
 `ng_tee` — netgraph“tee”节点类型
 

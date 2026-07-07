@@ -1,4 +1,4 @@
-# pthread_rwlock_init.3
+# pthread_rwlock_init(3)
 
 `pthread_rwlock_init` — 初始化读写锁
 

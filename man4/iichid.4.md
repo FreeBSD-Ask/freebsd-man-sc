@@ -1,4 +1,4 @@
-# iichid.4
+# iichid(4)
 
 `iichid` — I2C HID 传输驱动
 

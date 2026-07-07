@@ -1,4 +1,4 @@
-# siginterrupt.3
+# siginterrupt(3)
 
 `siginterrupt` — 允许信号中断系统调用
 

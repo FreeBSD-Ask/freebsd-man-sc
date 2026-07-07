@@ -1,4 +1,4 @@
-# fwcam.4
+# fwcam(4)
 
 `fwcam` — IIDC FireWire 数码相机驱动程序
 

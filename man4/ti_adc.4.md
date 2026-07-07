@@ -1,4 +1,4 @@
-# ti\_adc.4
+# ti_adc(4)
 
 `ti_adc` — TI AM3XXX 模数转换器驱动程序
 

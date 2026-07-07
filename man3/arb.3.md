@@ -1,4 +1,4 @@
-# arb.3
+# arb(3)
 
 `ARB_PROTOTYPE` — 基于数组的红黑树
 

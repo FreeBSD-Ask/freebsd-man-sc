@@ -1,4 +1,4 @@
-# snd_cmi.4
+# snd_cmi(4)
 
 `snd_cmi` — CMedia CMI8338/CMI8738 PCI 桥设备驱动
 

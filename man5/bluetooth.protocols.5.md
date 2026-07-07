@@ -1,4 +1,4 @@
-# bluetooth.protocols.5
+# bluetooth.protocols(5)
 
 `bluetooth.protocols` — 蓝牙协议服务多路复用器数据库
 

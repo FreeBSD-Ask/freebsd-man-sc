@@ -1,4 +1,4 @@
-# VOP_ADVLOCK.9
+# VOP_ADVLOCK(9)
 
 `VOP_ADVLOCK` — 建议性记录锁定
 

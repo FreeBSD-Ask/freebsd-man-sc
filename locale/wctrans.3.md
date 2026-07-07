@@ -1,4 +1,4 @@
-# wctrans.3
+# wctrans(3)
 
 `towctrans` — 宽字符映射函数
 

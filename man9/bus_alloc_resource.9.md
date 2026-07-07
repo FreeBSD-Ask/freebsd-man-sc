@@ -1,4 +1,4 @@
-# bus_alloc_resource.9
+# bus_alloc_resource(9)
 
 `bus_alloc_resource` — 从父总线分配资源
 

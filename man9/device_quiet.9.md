@@ -1,4 +1,4 @@
-# device\_quiet.9
+# device_quiet(9)
 
 `device_quiet` — 操作设备静默标志
 

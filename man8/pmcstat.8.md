@@ -1,4 +1,4 @@
-# pmcstat.8
+# pmcstat(8)
 
 `pmcstat` — 使用性能监控硬件进行性能测量
 

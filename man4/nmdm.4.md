@@ -1,4 +1,4 @@
-# nmdm.4
+# nmdm(4)
 
 `nmdm` — nullmodem 终端驱动
 

@@ -1,4 +1,4 @@
-# ar40xx.4
+# ar40xx(4)
 
 `ar40xx_switch` — Qualcomm IPQ4018/IPQ4019 千兆以太网交换机驱动
 

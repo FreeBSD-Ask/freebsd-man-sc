@@ -1,4 +1,4 @@
-# inet6.4
+# inet6(4)
 
 `inet6` — Internet 协议版本 6 协议族
 

@@ -1,4 +1,4 @@
-# ipmi.4
+# ipmi(4)
 
 `ipmi` — OpenIPMI 兼容的 IPMI 接口驱动
 

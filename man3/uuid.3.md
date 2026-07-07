@@ -1,4 +1,4 @@
-# uuid_compare(3)
+# uuid(3)
 
 `uuid_compare` — 符合 DCE 1.1 的 UUID 函数
 

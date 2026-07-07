@@ -1,4 +1,4 @@
-# igmp.4
+# igmp(4)
 
 `igmp` — Internet 组管理协议
 

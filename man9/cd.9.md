@@ -1,4 +1,4 @@
-# cd.9
+# cd(9)
 
 `cd` — CAM SCSI 子系统的 CDROM 驱动程序
 

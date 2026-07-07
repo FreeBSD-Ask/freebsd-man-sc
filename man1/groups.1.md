@@ -1,4 +1,4 @@
-# groups.1
+# groups(1)
 
 `groups` — 显示用户所属的组
 

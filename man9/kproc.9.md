@@ -1,4 +1,4 @@
-# kproc.9
+# kproc(9)
 
 `kproc_start` — 内核进程
 

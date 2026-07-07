@@ -1,4 +1,4 @@
-# nfslockd.4
+# nfslockd(4)
 
 `nfslockd` — NFS 咨询锁定
 

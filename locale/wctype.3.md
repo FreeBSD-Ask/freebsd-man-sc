@@ -1,4 +1,4 @@
-# wctype.3
+# wctype(3)
 
 `iswctype` — 宽字符类函数
 

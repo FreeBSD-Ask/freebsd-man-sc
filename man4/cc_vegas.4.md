@@ -1,4 +1,4 @@
-# cc_vegas.4
+# cc_vegas(4)
 
 `cc_vegas` — Vegas 拥塞控制算法
 

@@ -1,4 +1,4 @@
-# ibv_ud_pingpong.1
+# ibv_ud_pingpong(1)
 
 `ibv_ud_pingpong` — 简单的 InfiniBand UD 传输测试
 

@@ -1,4 +1,4 @@
-# pthread_getconcurrency.3
+# pthread_getconcurrency(3)
 
 `pthread_getconcurrency` — 获取或设置并发级别
 

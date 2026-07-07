@@ -1,4 +1,4 @@
-# sdiff.1
+# sdiff(1)
 
 `sdiff` — 并排显示文件差异
 

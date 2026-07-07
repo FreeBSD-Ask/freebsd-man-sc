@@ -1,4 +1,4 @@
-# regcomp(3)
+# regex(3)
 
 `regcomp` — 正则表达式库
 

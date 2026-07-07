@@ -1,4 +1,4 @@
-# malloc.9
+# malloc(9)
 
 `malloc` — 内核内存管理例程
 

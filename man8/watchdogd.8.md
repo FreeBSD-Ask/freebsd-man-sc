@@ -1,4 +1,4 @@
-# watchdogd.8
+# watchdogd(8)
 
 `watchdogd` — 看门狗守护进程
 

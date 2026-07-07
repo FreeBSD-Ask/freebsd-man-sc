@@ -1,4 +1,4 @@
-# sigsetmask.2
+# sigsetmask(2)
 
 `sigsetmask` — 操作当前信号掩码
 

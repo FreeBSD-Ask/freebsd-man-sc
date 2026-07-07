@@ -1,4 +1,4 @@
-# rue.4
+# rue(4)
 
 `rue` — Realtek RTL8150 USB 至快速以太网控制器驱动
 

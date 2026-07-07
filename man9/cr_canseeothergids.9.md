@@ -1,4 +1,4 @@
-# cr\_canseeothergids.9
+# cr_canseeothergids(9)
 
 `cr_canseeothergids` — 判断主体能否看到属于不相交组集合的实体
 

@@ -1,4 +1,4 @@
-# device\_set\_desc.9
+# device_set_desc(9)
 
 `device_set_desc` — 访问设备的描述
 

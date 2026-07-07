@@ -1,4 +1,4 @@
-# ice.4
+# ice(4)
 
 `ice` — Intel Ethernet 800 系列 1GbE 至 200GbE 驱动
 

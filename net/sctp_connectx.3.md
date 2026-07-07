@@ -1,4 +1,4 @@
-# sctp\_connectx.3
+# sctp_connectx(3)
 
 `sctp_connectx` — 使用多个目的地址连接 SCTP 套接字
 

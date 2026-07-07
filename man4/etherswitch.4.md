@@ -1,4 +1,4 @@
-# etherswitch.4
+# etherswitch(4)
 
 `etherswitch` — 以太网交换机框架
 

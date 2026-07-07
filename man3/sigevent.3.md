@@ -1,4 +1,4 @@
-# sigevent.3
+# sigevent(3)
 
 `sigevent` — 异步事件通知
 

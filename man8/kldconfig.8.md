@@ -1,4 +1,4 @@
-# kldconfig.8
+# kldconfig(8)
 
 `kldconfig` — 显示或修改内核模块搜索路径
 

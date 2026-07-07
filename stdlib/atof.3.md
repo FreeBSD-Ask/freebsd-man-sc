@@ -1,4 +1,4 @@
-# atof.3
+# atof(3)
 
 `atof` — 将 ASCII 字符串转换为 `double`
 

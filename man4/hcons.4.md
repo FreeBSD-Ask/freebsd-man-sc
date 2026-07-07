@@ -1,4 +1,4 @@
-# hcons.4
+# hcons(4)
 
 `hcons` — HID 消费者页面控制驱动
 

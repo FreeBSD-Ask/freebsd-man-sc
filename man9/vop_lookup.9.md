@@ -1,4 +1,4 @@
-# VOP_LOOKUP.9
+# VOP_LOOKUP(9)
 
 `VOP_LOOKUP` — 查找路径名的组成部分
 

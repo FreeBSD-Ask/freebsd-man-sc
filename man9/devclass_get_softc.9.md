@@ -1,4 +1,4 @@
-# devclass_get_softc.9
+# devclass_get_softc(9)
 
 `devclass_get_softc` — 将单元号转换为驱动程序私有结构
 

@@ -1,4 +1,4 @@
-# vm\_map\_stack.9
+# vm_map_stack(9)
 
 `vm_map_stack`, `vm_map_growstack` — 管理进程栈
 

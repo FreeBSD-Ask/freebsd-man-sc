@@ -1,4 +1,4 @@
-# realpath.3
+# realpath(3)
 
 `realpath` — 返回规范化的绝对路径名
 

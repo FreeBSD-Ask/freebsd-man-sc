@@ -1,4 +1,4 @@
-# VOP_VPTOCNP.9
+# VOP_VPTOCNP(9)
 
 `VOP_VPTOCNP` — 将 vnode 转换为其组成部分名称
 

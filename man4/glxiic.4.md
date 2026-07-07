@@ -1,4 +1,4 @@
-# glxiic.4
+# glxiic(4)
 
 `glxiic` — Geode LX CS5536 I2C 控制器驱动
 

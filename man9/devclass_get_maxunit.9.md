@@ -1,4 +1,4 @@
-# devclass_get_maxunit.9
+# devclass_get_maxunit(9)
 
 `devclass_get_maxunit` — 查找类中的最大单元号
 

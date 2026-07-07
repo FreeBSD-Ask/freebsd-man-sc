@@ -1,4 +1,4 @@
-# fwe.4
+# fwe(4)
 
 `fwe` — FireWire 的以太网模拟驱动程序
 

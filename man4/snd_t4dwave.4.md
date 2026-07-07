@@ -1,4 +1,4 @@
-# snd_t4dwave.4
+# snd_t4dwave(4)
 
 `snd_t4dwave` — Trident 4DWave 桥设备驱动
 

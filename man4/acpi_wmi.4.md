@@ -1,4 +1,4 @@
-# acpi_wmi.4
+# acpi_wmi(4)
 
 `acpi_wmi` — ACPI 到 WMI 映射驱动
 

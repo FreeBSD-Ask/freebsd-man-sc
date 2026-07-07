@@ -1,4 +1,4 @@
-# rk\_grf.4
+# rk_grf(4)
 
 `rk_grf` — RockChip SoC 上通用寄存器文件（General Register Files）控制器的驱动
 

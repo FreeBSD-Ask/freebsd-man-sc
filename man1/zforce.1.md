@@ -1,4 +1,4 @@
-# zforce.1
+# zforce(1)
 
 `zforce` — 强制 gzip 文件具有 .gz 后缀
 

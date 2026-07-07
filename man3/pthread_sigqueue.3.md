@@ -1,4 +1,4 @@
-# pthread_sigqueue.3
+# pthread_sigqueue(3)
 
 `pthread_sigqueue` — 向指定线程排队信号
 

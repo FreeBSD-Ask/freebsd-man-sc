@@ -1,4 +1,4 @@
-# xl.4
+# xl(4)
 
 `xl` — 3Com Etherlink XL 和 Fast Etherlink XL 以太网设备驱动
 

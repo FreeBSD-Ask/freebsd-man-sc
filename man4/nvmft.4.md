@@ -1,4 +1,4 @@
-# nvmft.4
+# nvmft(4)
 
 `nvmft` — NVM Express over Fabrics CAM 目标层前端
 

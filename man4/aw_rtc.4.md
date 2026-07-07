@@ -1,4 +1,4 @@
-# aw_rtc.4
+# aw_rtc(4)
 
 `aw_rtc` — Allwinner SoC 中实时时钟（RTC）控制器驱动
 

@@ -1,4 +1,4 @@
-# dummynet.4
+# dummynet(4)
 
 `dummynet` — 流量整形器、带宽管理器和延迟模拟器
 

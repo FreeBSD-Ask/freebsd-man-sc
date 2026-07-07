@@ -1,4 +1,4 @@
-# dtrace_ip.4
+# dtrace_ip(4)
 
 `dtrace_ip` — 用于跟踪 IPv4 和 IPv6 协议相关事件的 DTrace 提供者
 

@@ -1,4 +1,4 @@
-# bce.4
+# bce(4)
 
 `bce` — QLogic NetXtreme II（BCM5706/5708/5709/5716）PCI/PCIe 千兆以太网适配器驱动
 

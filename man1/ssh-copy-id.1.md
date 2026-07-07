@@ -1,4 +1,4 @@
-# ssh-copy-id.1
+# ssh-copy-id(1)
 
 `ssh-copy-id` — 将公钥复制到远程主机
 

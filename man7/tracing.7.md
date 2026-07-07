@@ -1,4 +1,4 @@
-# tracing.7
+# tracing(7)
 
 `tracing` — FreeBSD 跟踪和性能监控简介
 

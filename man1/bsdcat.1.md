@@ -1,4 +1,4 @@
-# bsdcat.1
+# bsdcat(1)
 
 `bsdcat` — 将文件展开到标准输出
 

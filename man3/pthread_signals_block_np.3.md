@@ -1,4 +1,4 @@
-# pthread_signals_block_np.3
+# pthread_signals_block_np(3)
 
 `pthread_signals_block_np` — 快速阻塞和解阻塞异步信号
 

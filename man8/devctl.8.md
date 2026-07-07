@@ -1,4 +1,4 @@
-# devctl.8
+# devctl(8)
 
 `devctl` — 设备控制工具
 

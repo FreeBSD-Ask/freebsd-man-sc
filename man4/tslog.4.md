@@ -1,4 +1,4 @@
-# tslog.4
+# tslog(4)
 
 `tslog` — 引导时事件跟踪设施
 

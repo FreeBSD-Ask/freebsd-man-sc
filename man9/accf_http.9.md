@@ -1,4 +1,4 @@
-# accf\_http.9
+# accf_http(9)
 
 `accf_http` — 缓冲传入连接直到某个完整的 HTTP 请求到达
 

@@ -1,4 +1,4 @@
-# sglist.9
+# sglist(9)
 
 `sglist` — 管理物理内存地址的分散/聚集列表
 

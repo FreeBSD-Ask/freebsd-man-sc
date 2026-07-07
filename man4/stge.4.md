@@ -1,4 +1,4 @@
-# stge.4
+# stge(4)
 
 `stge` — Sundance/Tamarack TC9021 千兆以太网适配器驱动
 

@@ -1,4 +1,4 @@
-# syncer.4
+# syncer(4)
 
 `syncer` — 文件系统同步器内核进程
 

@@ -1,4 +1,4 @@
-# dev_clone.9
+# dev_clone(9)
 
 `dev_clone` — devfs 中基于名称的设备克隆事件处理器
 

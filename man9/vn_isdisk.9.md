@@ -1,4 +1,4 @@
-# vn\_isdisk.9
+# vn_isdisk(9)
 
 `vn_isdisk` — 检查 vnode 是否表示磁盘
 

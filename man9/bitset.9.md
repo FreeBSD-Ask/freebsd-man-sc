@@ -1,4 +1,4 @@
-# bitset.9
+# bitset(9)
 
 `bitset` — 位集操作宏
 

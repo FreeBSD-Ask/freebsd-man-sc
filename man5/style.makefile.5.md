@@ -1,4 +1,4 @@
-# style.Makefile.5
+# style.Makefile(5)
 
 `style.Makefile` — FreeBSD Makefile 风格指南
 

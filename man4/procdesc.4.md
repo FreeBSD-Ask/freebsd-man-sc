@@ -1,4 +1,4 @@
-# procdesc.4
+# procdesc(4)
 
 `procdesc` — 进程描述符设施
 

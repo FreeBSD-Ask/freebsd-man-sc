@@ -1,4 +1,4 @@
-# vtnet.4
+# vtnet(4)
 
 `vtnet` — VirtIO 以太网驱动
 

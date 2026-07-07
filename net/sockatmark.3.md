@@ -1,4 +1,4 @@
-# sockatmark.3
+# sockatmark(3)
 
 `sockatmark` — 确定读指针是否位于 OOB 标记处
 

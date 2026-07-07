@@ -1,4 +1,4 @@
-# dtrace_callout_execute.4
+# dtrace_callout_execute(4)
 
 `dtrace_callout_execute` — 用于 callout API 的 DTrace 提供者
 

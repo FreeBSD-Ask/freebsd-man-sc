@@ -1,4 +1,4 @@
-# pflow.4
+# pflow(4)
 
 `pflow` — 用于 pflow 数据导出的内核接口
 

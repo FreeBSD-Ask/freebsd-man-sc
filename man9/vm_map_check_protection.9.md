@@ -1,4 +1,4 @@
-# vm\_map\_check\_protection.9
+# vm_map_check_protection(9)
 
 `vm_map_check_protection` — 检查 vm_map 的内存保护
 

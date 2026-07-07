@@ -1,4 +1,4 @@
-# VOP_PATHCONF.9
+# VOP_PATHCONF(9)
 
 `VOP_PATHCONF` — 返回 POSIX pathconf 信息
 

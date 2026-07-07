@@ -1,4 +1,4 @@
-# bwn.4
+# bwn(4)
 
 `bwn` — Broadcom BCM43xx SoftMAC IEEE 802.11 无线网络驱动
 

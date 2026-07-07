@@ -1,4 +1,4 @@
-# mlx5en.4
+# mlx5en(4)
 
 `mlx5en` — 基于 NVIDIA Mellanox ConnectX-4/5/6 [Dx/Ex/Lx] 的 200Gb、100Gb、50Gb、40Gb、25Gb 和 10Gb 以太网适配器驱动
 

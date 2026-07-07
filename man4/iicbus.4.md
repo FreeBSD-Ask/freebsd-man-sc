@@ -1,4 +1,4 @@
-# iicbus.4
+# iicbus(4)
 
 `iicbus` — I2C 总线系统
 

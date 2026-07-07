@@ -1,4 +1,4 @@
-# vn\_deallocate.9
+# vn_deallocate(9)
 
 `vn_deallocate` — 对文件中的存储进行清零和/或释放
 

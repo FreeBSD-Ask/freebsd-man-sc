@@ -1,4 +1,4 @@
-# uep.4
+# uep(4)
 
 `uep` — eGalax 触摸屏驱动
 

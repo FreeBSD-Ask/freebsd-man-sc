@@ -1,4 +1,4 @@
-# lock.9
+# lock(9)
 
 `lockinit` — lockmgr 函数系列
 

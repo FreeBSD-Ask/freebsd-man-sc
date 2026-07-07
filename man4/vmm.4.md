@@ -1,4 +1,4 @@
-# vmm.4
+# vmm(4)
 
 `vmm.ko` — bhyve 虚拟机监视器
 

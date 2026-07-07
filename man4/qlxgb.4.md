@@ -1,4 +1,4 @@
-# qlxgb.4
+# qlxgb(4)
 
 `qlxgb` — QLogic 10 千兆以太网与 CNA 适配器驱动程序
 

@@ -1,4 +1,4 @@
-# rtwn_usb.4
+# rtwn_usb(4)
 
 `rtwn_usb` — Realtek 无线 rtwn 网络驱动程序的 USB 支持
 

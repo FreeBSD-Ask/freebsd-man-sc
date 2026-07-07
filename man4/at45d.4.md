@@ -1,4 +1,4 @@
-# at45d.4
+# at45d(4)
 
 `at45d` — DataFlash(tm) 非易失性存储设备驱动
 

@@ -1,4 +1,4 @@
-# ae.4
+# ae(4)
 
 `ae` — Attansic/Atheros L2 快速以太网控制器驱动
 

@@ -1,4 +1,4 @@
-# otusfw.4
+# otusfw(4)
 
 `otusfw` — AR9170 驱动的固件模块
 

@@ -1,4 +1,4 @@
-# mkdir.1
+# mkdir(1)
 
 `mkdir` — 创建目录
 

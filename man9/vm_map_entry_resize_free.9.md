@@ -1,4 +1,4 @@
-# vm\_map\_entry\_resize\_free.9
+# vm_map_entry_resize_free(9)
 
 `vm_map_entry_resize_free` — vm 映射空闲空间算法
 

@@ -1,4 +1,4 @@
-# pthread_condattr.3
+# pthread_condattr(3)
 
 `pthread_condattr_init` — 条件变量属性操作
 

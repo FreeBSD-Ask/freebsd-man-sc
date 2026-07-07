@@ -1,4 +1,4 @@
-# freebsd-update.conf.5
+# freebsd-update.conf(5)
 
 `freebsd-update.conf` — [freebsd-update(8)](../man8/freebsd-update.8.md) 的配置文件
 

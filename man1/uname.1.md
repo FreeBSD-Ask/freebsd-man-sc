@@ -1,4 +1,4 @@
-# uname.1
+# uname(1)
 
 `uname` — 显示系统信息
 

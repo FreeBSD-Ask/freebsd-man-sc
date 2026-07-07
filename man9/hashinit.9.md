@@ -1,4 +1,4 @@
-# hashinit.9
+# hashinit(9)
 
 `hashinit` — 管理内核哈希表
 

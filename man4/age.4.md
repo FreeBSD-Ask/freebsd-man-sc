@@ -1,4 +1,4 @@
-# age.4
+# age(4)
 
 `age` — Attansic/Atheros L1 千兆以太网驱动
 

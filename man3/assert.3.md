@@ -1,4 +1,4 @@
-# assert.3
+# assert(3)
 
 `assert` — 表达式验证宏
 

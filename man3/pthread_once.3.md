@@ -1,4 +1,4 @@
-# pthread_once.3
+# pthread_once(3)
 
 `pthread_once` — 动态包初始化
 

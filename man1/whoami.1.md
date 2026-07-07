@@ -1,4 +1,4 @@
-# whoami.1
+# whoami(1)
 
 `whoami` — 显示有效用户 ID
 

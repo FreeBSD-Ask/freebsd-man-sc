@@ -1,4 +1,4 @@
-# hardclock.9
+# hardclock(9)
 
 `hardclock` — 实时时钟
 

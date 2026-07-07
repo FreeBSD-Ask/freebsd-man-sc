@@ -1,4 +1,4 @@
-# ntsync.4
+# ntsync(4)
 
 `ntsync` — 类 NT 同步操作设备驱动
 

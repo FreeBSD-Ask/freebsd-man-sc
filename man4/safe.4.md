@@ -1,4 +1,4 @@
-# safe.4
+# safe(4)
 
 `safe` — SafeNet SafeXcel 1141/1741 加密加速器
 

@@ -1,4 +1,4 @@
-# ng_car.4
+# ng_car(4)
 
 `ng_car` — 承诺访问速率 netgraph 节点类型
 

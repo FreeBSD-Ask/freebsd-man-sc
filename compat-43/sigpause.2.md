@@ -1,4 +1,4 @@
-# sigpause.2
+# sigpause(2)
 
 `sighold` — 传统的信号管理接口
 

@@ -1,4 +1,4 @@
-# kvmclock.4
+# kvmclock(4)
 
 `kvmclock` — 用于 x86 KVM 客户机的半虚拟化时钟驱动
 

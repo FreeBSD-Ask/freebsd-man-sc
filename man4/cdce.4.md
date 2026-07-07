@@ -1,4 +1,4 @@
-# cdce.4
+# cdce(4)
 
 `cdce` — USB 通信设备类以太网（ECM/NCM）驱动
 

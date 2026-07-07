@@ -1,4 +1,4 @@
-# ntb_hw_intel.4
+# ntb_hw_intel(4)
 
 `ntb_hw_intel` — Intel(R) 非透明桥接驱动
 

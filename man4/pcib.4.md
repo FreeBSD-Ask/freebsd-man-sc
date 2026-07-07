@@ -1,4 +1,4 @@
-# pcib.4
+# pcib(4)
 
 `pcib` — PCI 桥驱动
 

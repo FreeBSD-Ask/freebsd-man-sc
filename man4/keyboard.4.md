@@ -1,4 +1,4 @@
-# keyboard.4
+# keyboard(4)
 
 `keyboard` — PC 键盘接口
 

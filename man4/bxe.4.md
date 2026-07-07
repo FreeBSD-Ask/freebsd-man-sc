@@ -1,4 +1,4 @@
-# bxe.4
+# bxe(4)
 
 `bxe` — QLogic NetXtreme II 10Gb PCIe 以太网适配器驱动
 

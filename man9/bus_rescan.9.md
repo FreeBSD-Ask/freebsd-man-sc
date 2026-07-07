@@ -1,4 +1,4 @@
-# BUS_RESCAN.9
+# BUS_RESCAN(9)
 
 `BUS_RESCAN` — 重新扫描总线以检查已添加或移除的设备
 

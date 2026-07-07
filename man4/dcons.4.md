@@ -1,4 +1,4 @@
-# dcons.4
+# dcons(4)
 
 `dcons` — dumb 控制台设备驱动
 

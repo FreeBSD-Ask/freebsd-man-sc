@@ -1,4 +1,4 @@
-# sigvec.2
+# sigvec(2)
 
 `sigvec` — 软件信号设施
 

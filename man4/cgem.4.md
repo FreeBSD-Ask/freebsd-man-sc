@@ -1,4 +1,4 @@
-# cgem.4
+# cgem(4)
 
 `cgem` — Cadence GEM 千兆以太网驱动
 

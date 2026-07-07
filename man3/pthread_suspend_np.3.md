@@ -1,4 +1,4 @@
-# pthread_suspend_np.3
+# pthread_suspend_np(3)
 
 `pthread_suspend_np` — 挂起一个线程
 
