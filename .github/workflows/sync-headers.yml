@@ -21,7 +21,7 @@ jobs:
         id: sync
         shell: bash
         run: |
-          set -uo pipefail
+          set -o pipefail
           # 设置修改标志
           CHANGED="false"
 
