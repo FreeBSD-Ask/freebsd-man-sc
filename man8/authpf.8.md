@@ -1,4 +1,4 @@
-# authpf(8)
+# authpf-noip(8)
 
 `authpf` — 认证网关用户 shell
 
