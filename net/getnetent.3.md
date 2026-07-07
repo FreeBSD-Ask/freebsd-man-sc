@@ -35,7 +35,7 @@ struct netent {
 
 **`n_aliases`** 以零结尾的网络别名列表。
 
-**`n_addrtype`** 返回的网络号类型；目前仅为 AF_INET。
+**`n_addrtype`** 返回的网络号类型；目前仅为 `AF_INET`。
 
 **`n_net`** 网络号。网络号以机器字节顺序返回。
 
