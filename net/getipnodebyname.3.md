@@ -58,8 +58,8 @@ hptr = getipnodebyname(name, AF_INET6, AI_DEFAULT, &error_num);
 
 - 如果指定了 `AI_V4MAPPED` 标志且 `af` 为 `AF_INET6`，则调用者将接受 IPv4 映射的 IPv6 地址。也就是说，如果未找到 `AAAA` 记录，则查询 `A` 记录，找到的记录作为 IPv4 映射的 IPv6 地址返回（`h_length` 为 16）。除非 `af` 等于 `AF_INET6`，否则忽略 `AI_V4MAPPED` 标志。
 - `AI_V4MAPPED_CFG` 标志仅在内核支持 IPv4 映射 IPv6 地址时与 `AI_V4MAPPED` 标志完全相同。
-- `AI_ALL` 标志与 `AI_V4MAPPED` 标志配合使用，且仅用于 IPv6 地址族。当 `AI_ALL` 与 `AI_V4MAPPED` 标志逻辑或时，调用者想要所有地址：IPv6 和 IPv4 映射的 IPv6。首先查询 `AAAA` 记录，如果成功则返回 IPv6 地址。然后查询 `A` 记录，找到的记录作为 IPv4 映射的 IPv6 地址返回。`h_length` 将为 16。只有当两次查询都失败时，函数才返回 `NULL` 指针。除非 af 等于 AF_INET6，否则忽略此标志。如果同时指定了 `AI_ALL` 和 `AI_V4MAPPED`，`AI_ALL` 优先。
-- `AI_ADDRCONFIG` 标志指定仅当节点配置了至少一个 IPv6 源地址时才查询 `AAAA` 记录，仅当节点配置了至少一个 IPv4 源地址时才查询 `A` 记录。例如，如果节点未配置 IPv6 源地址，且 `af` 等于 AF_INET6，且所查找的节点名同时具有 `AAAA` 和 `A` 记录，则：(a) 如果仅指定了 `AI_ADDRCONFIG`，函数返回 `NULL` 指针；(b) 如果指定了 `AI_ADDRCONFIG` | `AI_V4MAPPED`，则 `A` 记录作为 IPv4 映射的 IPv6 地址返回；
+- `AI_ALL` 标志与 `AI_V4MAPPED` 标志配合使用，且仅用于 IPv6 地址族。当 `AI_ALL` 与 `AI_V4MAPPED` 标志逻辑或时，调用者想要所有地址：IPv6 和 IPv4 映射的 IPv6。首先查询 `AAAA` 记录，如果成功则返回 IPv6 地址。然后查询 `A` 记录，找到的记录作为 IPv4 映射的 IPv6 地址返回。`h_length` 将为 16。只有当两次查询都失败时，函数才返回 `NULL` 指针。除非 `af` 等于 `AF_INET6`，否则忽略此标志。如果同时指定了 `AI_ALL` 和 `AI_V4MAPPED`，`AI_ALL` 优先。
+- `AI_ADDRCONFIG` 标志指定仅当节点配置了至少一个 IPv6 源地址时才查询 `AAAA` 记录，仅当节点配置了至少一个 IPv4 源地址时才查询 `A` 记录。例如，如果节点未配置 IPv6 源地址，且 `af` 等于 `AF_INET6`，且所查找的节点名同时具有 `AAAA` 和 `A` 记录，则：(a) 如果仅指定了 `AI_ADDRCONFIG`，函数返回 `NULL` 指针；(b) 如果指定了 `AI_ADDRCONFIG` | `AI_V4MAPPED`，则 `A` 记录作为 IPv4 映射的 IPv6 地址返回；
 
 特殊的 flags 值 `AI_DEFAULT` 定义为
 

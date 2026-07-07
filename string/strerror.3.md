@@ -54,7 +54,7 @@ main(void)
 		perror("open()");
 		exit(1);
 	}
-	printf("File descriptor: %den", fd);
+	printf("File descriptor: %d\n", fd);
 	return (0);
 }
 ```
