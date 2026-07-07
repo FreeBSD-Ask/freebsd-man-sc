@@ -29,11 +29,11 @@ acl_equiv_mode_np(acl_t acl, mode_t* mode_p);
 
 ## 返回值
 
-成功完成时，如果 ACL 可以表示为 UNIX 权限，函数返回 0；如果无法表示，返回 1。否则，返回值为 `-1`，并设置 `errno` 以指示错误。
+成功完成时，如果 ACL 可以表示为 UNIX 权限，函数返回 0；如果无法表示，返回 1。否则，返回值为 -1，并设置 `errno` 以指示错误。
 
 ## 错误
 
-如果发生以下任一情况，`acl_equiv_mode_np` 函数返回值 `-1`，并将 `errno` 设置为相应值：
+如果发生以下任一情况，`acl_equiv_mode_np` 函数返回值 -1，并将 `errno` 设置为相应值：
 
 `[EINVAL]` 参数 `acl` 未指向有效的 ACL。
 
