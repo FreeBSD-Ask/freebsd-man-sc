@@ -22,11 +22,11 @@
 
 ## 描述
 
-`less` 是一个类似于 [more(1)](more.1.md) 的程序，但它具有更多功能。`less` 不需要在启动前读取整个输入文件，因此对于大型输入文件，它的启动速度比 [vi(1)](vi.1.md) 等文本编辑器更快。`less` 使用 termcap（或在某些系统上使用 terminfo），因此可以在多种终端上运行。甚至对硬拷贝终端也有有限的支持。（在硬拷贝终端上，应在屏幕顶部打印的行以脱字符为前缀。）
+`less` 是一个类似于 [more(1)](less.1.md) 的程序，但它具有更多功能。`less` 不需要在启动前读取整个输入文件，因此对于大型输入文件，它的启动速度比 [vi(1)](vi.1.md) 等文本编辑器更快。`less` 使用 termcap（或在某些系统上使用 terminfo），因此可以在多种终端上运行。甚至对硬拷贝终端也有有限的支持。（在硬拷贝终端上，应在屏幕顶部打印的行以脱字符为前缀。）
 
 ## 命令
 
-命令基于 [more(1)](more.1.md) 和 [vi(1)](vi.1.md)。命令前可以加一个十进制数字，在以下描述中称为 N。该数字被某些命令使用，如所述。
+命令基于 [more(1)](less.1.md) 和 [vi(1)](vi.1.md)。命令前可以加一个十进制数字，在以下描述中称为 N。该数字被某些命令使用，如所述。
 
 在以下描述中，`^X` 表示 control-X。`ESC` 代表 ESCAPE 键；例如 `ESC-v` 表示两字符序列"ESCAPE"，然后是"v"。
 
@@ -76,7 +76,7 @@
 
 `R`：重绘屏幕，丢弃任何缓冲输入。即重新加载当前文件。如果文件在查看时正在更改，这很有用。
 
-`F`：向前滚动，并在到达文件末尾时继续尝试读取。通常此命令在已到达文件末尾时使用。这是一种监视正在增长的文件尾部的方法。（行为类似于 `tail -f` 命令。）要停止等待更多数据，请输入中断字符（通常是 `^C`）。在支持 [poll(2)](../man2/poll.2.md) 的系统上，你也可以使用 `^X` 或 `--intr` 选项指定的字符。如果输入是管道且 `--exit-follow-on-close` 选项生效，当管道的输入端关闭时，`less` 将自动停止等待数据。
+`F`：向前滚动，并在到达文件末尾时继续尝试读取。通常此命令在已到达文件末尾时使用。这是一种监视正在增长的文件尾部的方法。（行为类似于 `tail -f` 命令。）要停止等待更多数据，请输入中断字符（通常是 `^C`）。在支持 [poll(2)](../sys/poll.2.md) 的系统上，你也可以使用 `^X` 或 `--intr` 选项指定的字符。如果输入是管道且 `--exit-follow-on-close` 选项生效，当管道的输入端关闭时，`less` 将自动停止等待数据。
 
 `ESC-f`：与 `F` 类似，但每次找到匹配最后搜索模式的行时，终端响铃。
 
@@ -259,7 +259,7 @@ echo mybrowser '%o'
 
 通过 `%o` 传递给 OSC8 处理器的 URI 保证不包含任何单引号或双引号字符，但可能包含其他 shell 元字符，如分号、美元符号、与号等。处理器应注意在打开器命令中适当引用参数，以防止在打开包含 shell 元字符的 URI 时执行意外的 shell 命令。此外，由于处理器命令像命令提示一样扩展，任何由提示扩展解释的元字符（如百分号、点、冒号、反斜杠等）必须用反斜杠转义（详见提示章节）。
 
-`^X`：当显示"Waiting for data"消息时（例如在 `F` 命令期间），按 `^X` 会停止 `less` 等待并返回提示。这可能使 `less` 认为文件在当前位置结束，因此可能需要使用 `R` 或 `F` 命令来查看更多数据。`--intr` 选项可用于指定使用不同字符代替 `^X`。此命令仅在支持 [poll(2)](../man2/poll.2.md) 函数的系统上有效。在不支持 [poll(2)](../man2/poll.2.md) 的系统上，可改用中断字符（通常是 `^C`）。
+`^X`：当显示"Waiting for data"消息时（例如在 `F` 命令期间），按 `^X` 会停止 `less` 等待并返回提示。这可能使 `less` 认为文件在当前位置结束，因此可能需要使用 `R` 或 `F` 命令来查看更多数据。`--intr` 选项可用于指定使用不同字符代替 `^X`。此命令仅在支持 [poll(2)](../sys/poll.2.md) 函数的系统上有效。在不支持 [poll(2)](../sys/poll.2.md) 的系统上，可改用中断字符（通常是 `^C`）。
 
 ## 选项
 
@@ -394,11 +394,11 @@ color 是 4 位颜色字符串或 8 位颜色字符串：
 - `a-z`、`A-Z`：该行已通过 `m` 或 `M` 命令用相应字母标记。
 - `#`：该行已通过在 `--mouse` 选项生效时用鼠标左键单击来标记。
 
-`-kfilename` 或 `--lesskey-file=filename`：使 `less` 打开并将指定文件解释为 [lesskey(1)](lesskey.1.md) 二进制文件。可以指定多个 `-k` 选项。如果设置了 `LESSKEY` 或 `LESSKEY_SYSTEM` 环境变量，或者在标准位置找到了 lesskey 文件（参见键绑定），它也被用作 `lesskey` 文件。注意下文 `--lesskey-content` 下的警告。
+`-kfilename` 或 `--lesskey-file=filename`：使 `less` 打开并将指定文件解释为 lesskey(1) 二进制文件。可以指定多个 `-k` 选项。如果设置了 `LESSKEY` 或 `LESSKEY_SYSTEM` 环境变量，或者在标准位置找到了 lesskey 文件（参见键绑定），它也被用作 `lesskey` 文件。注意下文 `--lesskey-content` 下的警告。
 
-`--lesskey-src=filename`：使 `less` 打开并将指定文件解释为 [lesskey(1)](lesskey.1.md) 源文件。如果设置了 `LESSKEYIN` 或 `LESSKEYIN_SYSTEM` 环境变量，或者在标准位置找到了 lesskey 源文件（参见键绑定），它也被用作 lesskey 源文件。在 582 版本之前，需要运行 `lesskey` 程序将 lesskey *源*文件转换为 lesskey *二进制*文件供 `less` 使用。较新版本的 `less` 直接读取 lesskey 源文件，如果源文件存在则忽略二进制文件。注意下文 `--lesskey-content` 下的警告。
+`--lesskey-src=filename`：使 `less` 打开并将指定文件解释为 lesskey(1) 源文件。如果设置了 `LESSKEYIN` 或 `LESSKEYIN_SYSTEM` 环境变量，或者在标准位置找到了 lesskey 源文件（参见键绑定），它也被用作 lesskey 源文件。在 582 版本之前，需要运行 `lesskey` 程序将 lesskey *源*文件转换为 lesskey *二进制*文件供 `less` 使用。较新版本的 `less` 直接读取 lesskey 源文件，如果源文件存在则忽略二进制文件。注意下文 `--lesskey-content` 下的警告。
 
-`--lesskey-content=text`：使 `less` 将指定文本解释为 [lesskey(1)](lesskey.1.md) 源文件的内容。在文本中，`lesskey` 行可以用通常的换行符或分号分隔。字面分号可以用反斜杠后跟分号表示。
+`--lesskey-content=text`：使 `less` 将指定文本解释为 lesskey(1) 源文件的内容。在文本中，`lesskey` 行可以用通常的换行符或分号分隔。字面分号可以用反斜杠后跟分号表示。
 
 警告：某些环境变量如 `LESS`、`LESSSECURE`、`LESSCHARSET` 等在启动早期使用，不能在命令行选项指定的文件中设置（`--lesskey`、`--lesskey-src` 或 `--lesskey-content`）。使用 `lesskey` 文件设置环境变量时，使用默认 lesskey 文件或使用 `LESSKEYIN` 或 `LESSKEY_CONTENT` 环境变量指定文件更安全，而不是使用命令行选项。
 
@@ -406,9 +406,9 @@ color 是 4 位颜色字符串或 8 位颜色字符串：
 
 `-L` 或 `--no-lessopen`：忽略 `LESSOPEN` 环境变量（参见下文输入预处理器章节）。此选项可以在 `less` 内部设置，但仅适用于随后打开的文件，不适用于当前打开的文件。
 
-`-m` 或 `--long-prompt`：使 `less` 详细提示（如 [more(1)](more.1.md)），显示文件中的百分比。默认情况下，`less` 用冒号提示。
+`-m` 或 `--long-prompt`：使 `less` 详细提示（如 [more(1)](less.1.md)），显示文件中的百分比。默认情况下，`less` 用冒号提示。
 
-`-M` 或 `--LONG-PROMPT`：使 `less` 的提示比 [more(1)](more.1.md) 更详细。
+`-M` 或 `--LONG-PROMPT`：使 `less` 的提示比 [more(1)](less.1.md) 更详细。
 
 `-n` 或 `--line-numbers`：抑制行号。默认（使用行号）可能在某些情况下使 `less` 运行更慢，特别是对于非常大的输入文件。使用行号意味着：行号将显示在详细提示和 `=` 命令中，`v` 命令会将当前行号传递给编辑器（另参见下文提示中关于 `LESSEDIT` 的讨论）。
 
@@ -466,11 +466,11 @@ ESC ] N ; ... ^G
 
 其中 OSC 类型号 N 是十进制整数。终止序列可以是 BEL 字符（`^G`）如上，或两字符序列 `ESC \`。
 
-`-s` 或 `--squeeze-blank-lines`：使连续的空行压缩为单个空行。这在查看 [nroff(1)](nroff.1.md) 输出时很有用。
+`-s` 或 `--squeeze-blank-lines`：使连续的空行压缩为单个空行。这在查看 nroff(1) 输出时很有用。
 
 `-S` 或 `--chop-long-lines`：使长于屏幕宽度的行被截断而非折行。即，长行中不适合屏幕宽度的部分在你按 `RIGHT-ARROW` 之前不显示。默认是折行；即，在下一行显示剩余部分。另参见 `--wordwrap` 选项。`--header` 选项激活时，`-S` 选项被忽略，长于屏幕宽度的行被截断。
 
-`-ttag` 或 `--tag=tag`：`-t` 选项后跟一个标签，将编辑包含该标签的文件。为此，标签信息必须可用；例如，当前目录中可能有一个名为 `tags` 的文件，之前由 [ctags(1)](ctags.1.md) 或等效命令构建。如果设置了环境变量 `LESSGLOBALTAGS`，它被视为与 [global(1)](global.1.md) 兼容的命令名，并执行该命令来查找标签（参见 <http://www.gnu.org/software/global/global.html>）。`-t` 选项也可以在 `less` 内部指定（使用 `-` 命令）作为检查新文件的方式。命令 `:t` 等同于在 `less` 内部指定 `-t`。
+`-ttag` 或 `--tag=tag`：`-t` 选项后跟一个标签，将编辑包含该标签的文件。为此，标签信息必须可用；例如，当前目录中可能有一个名为 `tags` 的文件，之前由 [ctags(1)](ctags.1.md) 或等效命令构建。如果设置了环境变量 `LESSGLOBALTAGS`，它被视为与 global(1) 兼容的命令名，并执行该命令来查找标签（参见 <http://www.gnu.org/software/global/global.html>）。`-t` 选项也可以在 `less` 内部指定（使用 `-` 命令）作为检查新文件的方式。命令 `:t` 等同于在 `less` 内部指定 `-t`。
 
 `-Ttagsfile` 或 `--tag-file=tagsfile`：指定要使用的标签文件而非 `tags`。
 
@@ -494,7 +494,7 @@ ESC ] N ; ... ^G
 
 `-yn` 或 `--max-forw-scroll=n`：指定向前滚动的最大行数。如果需要向前滚动超过 n 行，则改为重绘屏幕。如果需要，可以使用 `-c` 或 `-C` 选项从屏幕顶部重绘。默认情况下，任何向前移动都导致滚动。
 
-`-zn` 或 `--window=n` 或 `-n`：将默认滚动窗口大小更改为 n 行。默认为一屏。`z` 和 `w` 命令也可用于更改窗口大小。为与某些版本的 [more(1)](more.1.md) 兼容，`z` 可以省略。如果数字 n 为负，表示比当前屏幕大小少 n 行。例如，如果屏幕为 24 行，`-z-4` 将滚动窗口设置为 20 行。如果屏幕随后调整为 40 行，滚动窗口自动更改为 36 行。
+`-zn` 或 `--window=n` 或 `-n`：将默认滚动窗口大小更改为 n 行。默认为一屏。`z` 和 `w` 命令也可用于更改窗口大小。为与某些版本的 [more(1)](less.1.md) 兼容，`z` 可以省略。如果数字 n 为负，表示比当前屏幕大小少 n 行。例如，如果屏幕为 24 行，`-z-4` 将滚动窗口设置为 20 行。如果屏幕随后调整为 40 行，滚动窗口自动更改为 36 行。
 
 `-"cc` 或 `--quotes=cc`：更改文件名引用字符。如果你试图命名同时包含空格和引号字符的文件，这可能很有必要。后跟单个字符时，将引号字符更改为该字符。包含空格的文件名应该用该字符而非双引号包围。后跟两个字符时，将开引号更改为第一个字符，闭引号更改为第二个字符。包含空格的文件名应该以开引号字符开头，以闭引号字符结尾。注意，即使引号字符更改后，此选项仍为 `-"`（破折号后跟双引号）。
 
@@ -641,7 +641,7 @@ modeline 在行中的任何位置包含一个程序名（`vi`、`vim`、`ex` 或
 
 ## 键绑定
 
-你可以通过创建 lesskey 源文件来定义自己的 `less` 命令。此文件指定一组命令键和与每个键关联的操作。你还可以更改行编辑键（参见行编辑），并设置 `less` 使用的环境变量。有关文件格式的详细信息，请参见 [lesskey(1)](lesskey.1.md) 手册页。
+你可以通过创建 lesskey 源文件来定义自己的 `less` 命令。此文件指定一组命令键和与每个键关联的操作。你还可以更改行编辑键（参见行编辑），并设置 `less` 使用的环境变量。有关文件格式的详细信息，请参见 lesskey(1) 手册页。
 
 如果设置了环境变量 `LESSKEYIN`，`less` 使用它作为 lesskey 源文件名。否则，`less` 在标准位置查找 lesskey 源文件：在 Unix 系统上，`less` 查找名为 **$XDG_CONFIG_HOME/lesskey** 或 **$HOME/.config/lesskey** 或 **$HOME/.lesskey** 的 lesskey 文件。在 MS-DOS 和 Windows 系统上，`less` 查找名为 **$HOME/_lesskey** 的 lesskey 文件，如果未找到，则在 `PATH` 环境变量指定的任何目录中查找名为 `_lesskey` 的 lesskey 文件。在 OS/2 系统上，`less` 查找名为 **$HOME/lesskey.ini** 的 lesskey 文件，如果未找到，则在 `INIT` 环境变量指定的任何目录中查找名为 `lesskey.ini` 的 lesskey 文件，如果仍未找到，则在 `PATH` 环境变量指定的任何目录中查找名为 `lesskey.ini` 的 lesskey 文件。
 
@@ -760,7 +760,7 @@ exit $?
 
 如果未设置 `LESSCHARSET` 和 `LESSCHARDEF`，但在 `LC_ALL`、`LC_CTYPE` 或 `LANG` 环境变量中找到 `UTF-8`、`UTF8`、`utf-8` 或 `utf8` 字符串之一，则默认字符集为 utf-8。
 
-如果未找到该字符串，但你的系统支持 [setlocale(3)](../man3/setlocale.3.md) 接口，`less` 将使用 setlocale 确定字符集。setlocale 通过设置 `LANG` 或 `LC_CTYPE` 环境变量来控制。
+如果未找到该字符串，但你的系统支持 [setlocale(3)](../locale/setlocale.3.md) 接口，`less` 将使用 setlocale 确定字符集。setlocale 通过设置 `LANG` 或 `LC_CTYPE` 环境变量来控制。
 
 最后，如果 `setlocale` 接口也不可用，默认字符集为 utf-8。
 
@@ -946,7 +946,7 @@ FE00-FE0F:c,1F3FB-1F3FF:c,1F9B0-1F9B3:c,E0100-E01EF:c
 
 ## 与 more 的兼容性
 
-如果环境变量 `LESS_IS_MORE` 设置为 1，或者程序通过名为 `more` 的文件链接调用且环境变量 `LESS_IS_MORE` 未设置为 0，`less` 的行为（大部分）符合 POSIX [more(1)](more.1.md) 命令规范。在此模式下，`less` 在以下方面行为不同：
+如果环境变量 `LESS_IS_MORE` 设置为 1，或者程序通过名为 `more` 的文件链接调用且环境变量 `LESS_IS_MORE` 未设置为 0，`less` 的行为（大部分）符合 POSIX [more(1)](less.1.md) 命令规范。在此模式下，`less` 在以下方面行为不同：
 
 `-e` 选项的工作方式不同。如果未设置 `-e` 选项，`less` 的行为如同设置了 `-e` 选项。如果设置了 `-e` 选项，`less` 的行为如同设置了 `-E` 选项。
 
@@ -960,7 +960,7 @@ FE00-FE0F:c,1F3FB-1F3FF:c,1F9B0-1F9B3:c,E0100-E01EF:c
 
 ## 环境变量
 
-环境变量可以像通常一样在系统环境中指定，或在 [lesskey(1)](lesskey.1.md) 文件中指定。如果环境变量在多个地方定义，本地 lesskey 文件中定义的变量优先于系统环境中定义的变量，后者优先于系统范围 lesskey 文件中定义的变量。
+环境变量可以像通常一样在系统环境中指定，或在 lesskey(1) 文件中指定。如果环境变量在多个地方定义，本地 lesskey 文件中定义的变量优先于系统环境中定义的变量，后者优先于系统范围 lesskey 文件中定义的变量。
 
 `COLUMNS`：设置屏幕上的列数。优先于 `TERM` 变量指定的列数。（但如果你有支持 `TIOCGWINSZ` 或 `WIOCGETD` 的窗口系统，窗口系统的屏幕大小概念优先于 `LINES` 和 `COLUMNS` 环境变量。）
 
@@ -998,7 +998,7 @@ FE00-FE0F:c,1F3FB-1F3FF:c,1F9B0-1F9B3:c,E0100-E01EF:c
 
 `LESSEDIT`：编辑器原型字符串（用于 `v` 命令）。参见提示章节的讨论。
 
-`LESSGLOBALTAGS`：`-t` 选项用于查找全局标签的命令名。如果你的系统有 [global(1)](global.1.md) 命令，通常应设置为 `global`。如果未设置，不使用全局标签。
+`LESSGLOBALTAGS`：`-t` 选项用于查找全局标签的命令名。如果你的系统有 global(1) 命令，通常应设置为 `global`。如果未设置，不使用全局标签。
 
 `LESSHISTFILE`：用于在 `less` 调用之间记住搜索命令和 shell 命令的历史文件名。如果设置为 `-` 或 **/dev/null**，不使用历史文件。默认值取决于操作系统，通常为：
 
@@ -1042,7 +1042,7 @@ FE00-FE0F:c,1F3FB-1F3FF:c,1F9B0-1F9B3:c,E0100-E01EF:c
 
 `LESS_DATA_DELAY`：从开始从输入读取数据后，显示"Waiting for data"消息之前的持续时间（以毫秒为单位）。默认为 4000（4 秒）。
 
-`LESS_IS_MORE`：模拟 [more(1)](more.1.md) 命令。
+`LESS_IS_MORE`：模拟 [more(1)](less.1.md) 命令。
 
 `LESS_OSC8_xxx`：其中 `xxx` 是 URI 方案如 `http` 或 `file`，设置用于打开包含该方案 URI 的 OSC 8 链接的 OSC 8 处理器。
 
@@ -1092,7 +1092,7 @@ FE00-FE0F:c,1F3FB-1F3FF:c,1F9B0-1F9B3:c,E0100-E01EF:c
 
 ## 参见
 
-[lesskey(1)](lesskey.1.md), [lessecho(1)](lessecho.1.md)
+lesskey(1), [lessecho(1)](lessecho.1.md)
 
 ## 版权
 

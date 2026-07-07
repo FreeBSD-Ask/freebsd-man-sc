@@ -35,7 +35,7 @@ unsigned int stdc_bit_width(value);
 
 ## 参见
 
-bit_fls(3), fls(3), flsl(3), flsll(3), [stdbit(3)](stdbit.3.md), stdc_count_leading_zeros(3), [stdc_first_leading_one(3)](stdc_first_leading_one.3.md)
+bit_fls(3), fls(3), flsl(3), flsll(3), [stdbit(3)](../man3/stdbit.3.md), stdc_count_leading_zeros(3), [stdc_first_leading_one(3)](stdc_first_leading_one.3.md)
 
 ## 标准
 

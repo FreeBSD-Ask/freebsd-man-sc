@@ -40,7 +40,7 @@ kld_list="accf_dns"
 
 ## 参见
 
-[setsockopt(2)](../man2/setsockopt.2.md), [accept_filter(9)](accept_filter.9.md), [accf_data(9)](accf_data.9.md), [accf_http(9)](accf_http.9.md)
+[setsockopt(2)](../sys/getsockopt.2.md), [accept_filter(9)](accept_filter.9.md), [accf_data(9)](accf_data.9.md), [accf_http(9)](accf_http.9.md)
 
 ## 历史
 

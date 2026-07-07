@@ -25,9 +25,9 @@ vm_map_growstack(struct proc *p, vm_offset_t addr)
 
 `vm_map_stack` 函数为新进程映像映射进程栈。栈映射到 `map` 中的 `addrbos` 处，最大大小为 `max_ssize`。传入 `cow` 的写时复制标志也应用到新映射。保护位由 `prot` 和 `max` 提供。
 
-通常由 [execve(2)](../man2/execve.2.md) 调用。
+通常由 [execve(2)](../sys/execve.2.md) 调用。
 
-`vm_map_growstack` 函数负责将进程 `p` 的栈增长到所需地址 `addr`，类似于传统的 [sbrk(2)](../man2/sbrk.2.md) 调用。
+`vm_map_growstack` 函数负责将进程 `p` 的栈增长到所需地址 `addr`，类似于传统的 [sbrk(2)](../sys/brk.2.md) 调用。
 
 ## 实现说明
 

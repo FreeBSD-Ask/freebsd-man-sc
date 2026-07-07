@@ -61,4 +61,4 @@ xdr_replymsg(XDR *xdrs, struct rpc_msg *rmsg);
 
 ## 参见
 
-[rpc(3)](rpc.3.md), [xdr(3)](xdr.3.md)
+[rpc(3)](rpc.3.md), [xdr(3)](../man3/xdr.3.md)

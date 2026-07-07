@@ -18,7 +18,7 @@ Lb libc
 
 ## 描述
 
-`ctime`、`gmtime`、`localtime` 和 `offtime` 函数均接受一个指向时间值的指针作为参数，该时间值表示自 Epoch（1970 年 1 月 1 日 00:00:00 UTC）以来的秒数；参见 [time(3)](time.3.md)。
+`ctime`、`gmtime`、`localtime` 和 `offtime` 函数均接受一个指向时间值的指针作为参数，该时间值表示自 Epoch（1970 年 1 月 1 日 00:00:00 UTC）以来的秒数；参见 [time(3)](../gen/time.3.md)。
 
 `localtime` 函数转换 `clock` 所指向的时间值，并返回指向 `struct tm`（见下文）的指针，该结构包含经当前时区调整后的分解时间信息（参见 [tzset(3)](tzset.3.md)）。当指定时间对应的年份无法容纳于 `int` 类型时，`localtime` 返回 `NULL`。若进程此前未调用过 [tzset(3)](tzset.3.md)，`localtime` 会使用 [tzset(3)](tzset.3.md) 初始化时间转换信息。
 
@@ -40,7 +40,7 @@ Thu Nov 24 18:22:48 1986ene0
 
 `ctime_r` 和 `asctime_r` 函数提供与 `ctime` 和 `asctime` 相同的功能，区别在于调用者必须提供输出缓冲区 `buf`（长度至少为 26 字符）用于存储结果。`localtime_r`、`gmtime_r` 和 `offtime_r` 函数分别提供与 `localtime`、`gmtime` 和 `offtime` 相同的功能，区别在于调用者必须提供输出缓冲区 `result`。
 
-`mktime` 和 `timegm` 函数将 `tm` 所指向的 `struct tm` 中的分解时间转换为时间值，其编码与 [time(3)](time.3.md) 函数返回值相同（即自 Epoch UTC 以来的秒数）。`mktime` 根据当前时区设置解释输入结构（参见 [tzset(3)](tzset.3.md)），而 `timegm` 将输入结构解释为表示协调世界时（UTC）。
+`mktime` 和 `timegm` 函数将 `tm` 所指向的 `struct tm` 中的分解时间转换为时间值，其编码与 [time(3)](../gen/time.3.md) 函数返回值相同（即自 Epoch UTC 以来的秒数）。`mktime` 根据当前时区设置解释输入结构（参见 [tzset(3)](tzset.3.md)），而 `timegm` 将输入结构解释为表示协调世界时（UTC）。
 
 结构的 `tm_wday` 和 `tm_yday` 成员的原始值将被忽略，其他成员的原始值不受其正常范围的限制，必要时会被规范化。例如，10 月 40 日会被改为 11 月 9 日，`tm_hour` 为 -1 表示午夜前 1 小时，`tm_mday` 为 0 表示当前月份的前一天，`tm_mon` 为 -2 表示 `tm_year` 中 1 月之前 2 个月。（`tm_isdst` 为正或零时，会使 `mktime` 初步假定夏令时（例如日光节约时间）对指定时间生效或不生效。`tm_isdst` 为负值时，`mktime` 函数会尝试推测指定时间是否处于夏令时。`tm_isdst` 和 `tm_gmtoff` 成员会被 `timegm` 强制置零。）
 
@@ -76,7 +76,7 @@ long tm_gmtoff;	/* 与 UTC 的偏移量（秒） */
 
 ## 参见
 
-[date(1)](../man1/date.1.md), [clock_gettime(2)](../man2/clock_gettime.2.md), [gettimeofday(2)](../man2/gettimeofday.2.md), [getenv(3)](getenv.3.md), [time(3)](time.3.md), [tzset(3)](tzset.3.md), tzfile(5)
+[date(1)](../man1/date.1.md), [clock_gettime(2)](../sys/clock_gettime.2.md), [gettimeofday(2)](../sys/gettimeofday.2.md), [getenv(3)](../stdlib/getenv.3.md), [time(3)](../gen/time.3.md), [tzset(3)](tzset.3.md), tzfile(5)
 
 ## 标准
 

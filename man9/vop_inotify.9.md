@@ -39,4 +39,4 @@ VOP_INOTIFY_ADD_WATCH(struct vnode *vp, struct inotify_softc *sc,
 
 ## 参见
 
-[inotify(2)](../man2/inotify.2.md), [vnode(9)](vnode.9.md)
+[inotify(2)](../sys/inotify.2.md), [vnode(9)](vnode.9.md)

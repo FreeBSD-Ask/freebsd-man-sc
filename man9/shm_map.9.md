@@ -92,7 +92,7 @@ shm_example(int fd)
 
 ## 参见
 
-[shm_open(2)](../man2/shm_open.2.md)
+[shm_open(2)](../sys/shm_open.2.md)
 
 ## 历史
 

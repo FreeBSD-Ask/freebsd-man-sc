@@ -30,7 +30,7 @@ Lb libc
 
 ## 参见
 
-[setlocale(3)](setlocale.3.md), [strcmp(3)](strcmp.3.md), [strcoll(3)](strcoll.3.md), [wcsxfrm(3)](wcsxfrm.3.md)
+[setlocale(3)](../locale/setlocale.3.md), [strcmp(3)](strcmp.3.md), [strcoll(3)](strcoll.3.md), [wcsxfrm(3)](wcsxfrm.3.md)
 
 ## 标准
 

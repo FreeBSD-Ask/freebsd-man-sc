@@ -53,7 +53,7 @@ getrandom(void *buf, size_t buflen, unsigned int flags);
 
 ## 参见
 
-[arc4random(3)](../man3/arc4random.3.md), [getentropy(3)](../man3/getentropy.3.md), [random(4)](../man4/random.4.md)
+[arc4random(3)](../gen/arc4random.3.md), [getentropy(3)](../gen/getentropy.3.md), [random(4)](../man4/random.4.md)
 
 ## 标准
 

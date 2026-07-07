@@ -34,7 +34,7 @@
 
 如果目标路径的权限不允许写入，`mv` 按 `-i` 选项的规定提示用户确认。
 
-由于 [rename(2)](../man2/rename.2.md) 调用不能跨文件系统工作，`mv` 使用 [cp(1)](cp.1.md) 和 [rm(1)](rm.1.md) 来完成移动。其效果等价于：
+由于 [rename(2)](../sys/rename.2.md) 调用不能跨文件系统工作，`mv` 使用 [cp(1)](cp.1.md) 和 [rm(1)](rm.1.md) 来完成移动。其效果等价于：
 
 ```sh
 rm -f destination_path && \

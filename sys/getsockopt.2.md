@@ -30,7 +30,7 @@ setsockopt(int s, int level, int optname, const void *optval,
 
 `getsockopt()` 和 `setsockopt()` 系统调用操作与套接字关联的*选项*。选项可能存在于多个协议层；它们始终存在于最顶层的“socket”层。
 
-操作套接字选项时，必须指定选项所在的层级和选项名称。要在套接字层操作选项，`level` 指定为 `SOL_SOCKET`。要在任何其他层操作选项，则需提供控制该选项的适当协议的协议号。例如，要指示某选项由 TCP 协议解释，应将 `level` 设置为 TCP 的协议号；参见 [getprotoent(3)](../man3/getprotoent.3.md)。
+操作套接字选项时，必须指定选项所在的层级和选项名称。要在套接字层操作选项，`level` 指定为 `SOL_SOCKET`。要在任何其他层操作选项，则需提供控制该选项的适当协议的协议号。例如，要指示某选项由 TCP 协议解释，应将 `level` 设置为 TCP 的协议号；参见 [getprotoent(3)](../net/getprotoent.3.md)。
 
 `optval` 和 `optlen` 参数用于访问 `setsockopt()` 的选项值。对于 `getsockopt()`，它们标识一个缓冲区，用于返回所请求选项的值。对于 `getsockopt()`，`optlen` 是一个值-结果参数，初始包含 `optval` 所指向缓冲区的大小，返回时修改为指示实际返回值的大小。如果不需提供或返回选项值，`optval` 可以为 NULL。
 
@@ -115,7 +115,7 @@ setsockopt(int s, int level, int optname, const void *optval,
 
 对于支持带外数据的协议，`SO_OOBINLINE` 选项请求带外数据在接收时放置在正常数据输入队列中；然后可以通过 [recv(2)](recv.2.md) 或 [read(2)](read.2.md) 调用在没有 `MSG_OOB` 标志的情况下访问。某些协议的行为始终如同设置了此选项。
 
-`SO_SNDBUF` 和 `SO_RCVBUF` 是分别调整输出和输入缓冲区分配的正常缓冲区大小的选项。对于高容量连接可以增大缓冲区大小，或者减小以限制可能的传入数据积压。系统对这些值设置了绝对上限，可通过 [sysctl(3)](../man3/sysctl.3.md) MIB 变量“`kern.ipc.maxsockbuf`”访问。
+`SO_SNDBUF` 和 `SO_RCVBUF` 是分别调整输出和输入缓冲区分配的正常缓冲区大小的选项。对于高容量连接可以增大缓冲区大小，或者减小以限制可能的传入数据积压。系统对这些值设置了绝对上限，可通过 [sysctl(3)](../gen/sysctl.3.md) MIB 变量“`kern.ipc.maxsockbuf`”访问。
 
 `SO_SNDLOWAT` 是设置输出操作最小计数的选项。大多数输出操作处理调用提供的所有数据，将数据传递给协议进行传输并根据流控需要进行阻塞。非阻塞输出操作在流控允许的范围内处理尽可能多的数据而不会阻塞，但如果流控不允许处理低水位值或整个请求中较小者，则不会处理任何数据。测试套接字写入能力的 [select(2)](select.2.md) 操作仅在可以处理低水位标记数量时才返回 true。`SO_SNDLOWAT` 的默认值设置为便于网络效率的大小，通常为 1024。
 
@@ -169,7 +169,7 @@ struct  accept_filter_arg {
 
 `SO_ACCEPTCONN`、`SO_TYPE`、`SO_PROTOCOL`（及其别名 `SO_PROTOTYPE`）和 `SO_ERROR` 是仅用于 `getsockopt()` 的选项。`SO_ACCEPTCONN` 返回套接字当前是否正在接受连接，即是否在该套接字上调用了 [listen(2)](listen.2.md) 系统调用。`SO_TYPE` 返回套接字的类型，例如 `SOCK_STREAM`；它对启动时继承套接字的服务器很有用。`SO_PROTOCOL` 返回 `AF_INET` 和 `AF_INET6` 地址族套接字的协议号。`SO_ERROR` 返回套接字上任何挂起的错误并清除错误状态。它可用于检查已连接数据报套接字上的异步错误或其他异步错误。`SO_RERROR` 指示接收缓冲区溢出应作为错误处理。过去，接收缓冲区溢出被忽略，程序无法知道是否因溢出而丢失了消息或消息被截断。由于程序过去并不期望得到接收溢出错误，因此此行为不是默认的。
 
-`SO_LABEL` 返回套接字的 MAC 标签。`SO_PEERLABEL` 返回套接字对端的 MAC 标签。注意，你的内核必须编译有 MAC 支持。更多信息请参见 [mac(3)](../man3/mac.3.md)。
+`SO_LABEL` 返回套接字的 MAC 标签。`SO_PEERLABEL` 返回套接字对端的 MAC 标签。注意，你的内核必须编译有 MAC 支持。更多信息请参见 [mac(3)](../posix1e/mac.3.md)。
 
 `SO_LISTENQLIMIT` 返回由 [listen(2)](listen.2.md) 设置的排队连接最大数量。`SO_LISTENQLEN` 返回未接受的完整连接数。`SO_LISTENINCQLEN` 返回未接受的不完整连接数。
 
@@ -217,7 +217,7 @@ struct so_splice {
 
 ## 参见
 
-[ioctl(2)](ioctl.2.md), [listen(2)](listen.2.md), [recvmsg(2)](recv.2.md), [socket(2)](socket.2.md), [getprotoent(3)](../man3/getprotoent.3.md), [mac(3)](../man3/mac.3.md), [sysctl(3)](../man3/sysctl.3.md), [ip(4)](../man4/ip.4.md), [ip6(4)](../man4/ip6.4.md), [sctp(4)](../man4/sctp.4.md), [tcp(4)](../man4/tcp.4.md), [protocols(5)](../man5/protocols.5.md), [sysctl(8)](../man8/sysctl.8.md), [accept_filter(9)](../man9/accept_filter.9.md), [bintime(9)](../man9/bintime.9.md)
+[ioctl(2)](ioctl.2.md), [listen(2)](listen.2.md), [recvmsg(2)](recv.2.md), [socket(2)](socket.2.md), [getprotoent(3)](../net/getprotoent.3.md), [mac(3)](../posix1e/mac.3.md), [sysctl(3)](../gen/sysctl.3.md), [ip(4)](../man4/ip.4.md), [ip6(4)](../man4/ip6.4.md), [sctp(4)](../man4/sctp.4.md), [tcp(4)](../man4/tcp.4.md), [protocols(5)](../man5/protocols.5.md), [sysctl(8)](../man8/sysctl.8.md), [accept_filter(9)](../man9/accept_filter.9.md), [bintime(9)](../man9/microtime.9.md)
 
 ## 历史
 

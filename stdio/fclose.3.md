@@ -38,7 +38,7 @@ Lb libc
 
 `fclose` 和 `fdclose` 函数也可能失败，并为 [fflush(3)](fflush.3.md) 所指定的任何错误设置 `errno`。
 
-`fclose` 函数也可能失败，并为 [close(2)](../man2/close.2.md) 所指定的任何错误设置 `errno`。
+`fclose` 函数也可能失败，并为 [close(2)](../sys/close.2.md) 所指定的任何错误设置 `errno`。
 
 ## 注释
 
@@ -46,7 +46,7 @@ Lb libc
 
 ## 参见
 
-[close(2)](../man2/close.2.md), [fflush(3)](fflush.3.md), [fopen(3)](fopen.3.md), [setbuf(3)](setbuf.3.md)
+[close(2)](../sys/close.2.md), [fflush(3)](fflush.3.md), [fopen(3)](fopen.3.md), [setbuf(3)](setbuf.3.md)
 
 ## 标准
 

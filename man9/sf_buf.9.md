@@ -48,7 +48,7 @@ sf_buf_page(struct sf_buf *sf)
 
 ## 参见
 
-[sendfile(2)](../man2/sendfile.2.md), [vm_page_wire(9)](vm_page_wire.9.md)
+[sendfile(2)](../sys/sendfile.2.md), [vm_page_wire(9)](vm_page_wire.9.md)
 
 ## 作者
 

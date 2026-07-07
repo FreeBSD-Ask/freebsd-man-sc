@@ -29,7 +29,7 @@ clock_getres(clockid_t clock_id, struct timespec *tp);
 
 `clock_gettime()` 和 `clock_settime()` 系统调用允许调用进程获取或设置由 `clock_id` 指定的时钟所使用的值。
 
-`clock_id` 参数可以是从 [clock_getcpuclockid(3)](../man3/clock_getcpuclockid.3.md) 或 [pthread_getcpuclockid(3)](../man3/pthread_getcpuclockid.3.md) 获取的值，也可以是以下值之一：
+`clock_id` 参数可以是从 [clock_getcpuclockid(3)](../gen/clock_getcpuclockid.3.md) 或 [pthread_getcpuclockid(3)](../man3/pthread_getcpuclockid.3.md) 获取的值，也可以是以下值之一：
 
 **`CLOCK_REALTIME`**
 
@@ -78,7 +78,7 @@ struct timespec {
 };
 ```
 
-只有超级用户可以设置一天的时间，且仅能使用 `CLOCK_REALTIME`。如果系统 [securelevel(7)](../man7/securelevel.7.md) 大于 1（参见 [init(8)](../man8/init.8.md)），时间只能向前调整。此限制是为了防止恶意的超级用户在文件上设置任意时间戳。即使系统处于安全模式，仍可使用 [adjtime(2)](adjtime.2.md) 系统调用向后调整系统时间。
+只有超级用户可以设置一天的时间，且仅能使用 `CLOCK_REALTIME`。如果系统 [securelevel(7)](../man7/security.7.md) 大于 1（参见 [init(8)](../man8/init.8.md)），时间只能向前调整。此限制是为了防止恶意的超级用户在文件上设置任意时间戳。即使系统处于安全模式，仍可使用 [adjtime(2)](adjtime.2.md) 系统调用向后调整系统时间。
 
 时钟的分辨率（粒度）由 `clock_getres()` 系统调用返回。该值存放在（非 NULL 的）`*tp` 中。
 
@@ -96,7 +96,7 @@ struct timespec {
 
 ## 参见
 
-[date(1)](../man1/date.1.md), [adjtime(2)](adjtime.2.md), [clock_getcpuclockid(3)](../man3/clock_getcpuclockid.3.md), [ctime(3)](../man3/ctime.3.md), [pthread_getcpuclockid(3)](../man3/pthread_getcpuclockid.3.md)
+[date(1)](../man1/date.1.md), [adjtime(2)](adjtime.2.md), [clock_getcpuclockid(3)](../gen/clock_getcpuclockid.3.md), [ctime(3)](../stdtime/ctime.3.md), [pthread_getcpuclockid(3)](../man3/pthread_getcpuclockid.3.md)
 
 ## 标准
 

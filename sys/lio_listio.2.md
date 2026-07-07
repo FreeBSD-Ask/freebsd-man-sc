@@ -28,13 +28,13 @@ lio_listio(int mode, struct aiocb * const list[],
 
 **`LIO_READ`** 读取数据，如同调用 [aio_read(2)](aio_read.2.md)。
 
-**`LIO_READV`** 读取数据，如同调用 [aio_readv(2)](aio_readv.2.md)。
+**`LIO_READV`** 读取数据，如同调用 [aio_readv(2)](aio_read.2.md)。
 
 **`LIO_NOP`** 不执行操作。
 
 **`LIO_WRITE`** 写入数据，如同调用 [aio_write(2)](aio_write.2.md)。
 
-**`LIO_WRITEV`** 写入数据，如同调用 [aio_writev(2)](aio_writev.2.md)。
+**`LIO_WRITEV`** 写入数据，如同调用 [aio_writev(2)](aio_write.2.md)。
 
 如果 `LIO_READ`、`LIO_READV`、`LIO_WRITE`、`LIO_WRITEV` 操作码与 `LIO_FOFFSET` 标志按位或，则相应的读或写操作使用当前文件描述符偏移量，而不是 `aiocb` 中的 `aio_offset`。
 
@@ -82,7 +82,7 @@ lio_listio(int mode, struct aiocb * const list[],
 
 ## 参见
 
-[aio_error(2)](aio_error.2.md), [aio_read(2)](aio_read.2.md), [aio_readv(2)](aio_readv.2.md), [aio_write(2)](aio_write.2.md), [aio_writev(2)](aio_writev.2.md), [read(2)](read.2.md), [write(2)](write.2.md), [sigevent(3)](../man3/sigevent.3.md), [siginfo(3)](../man3/siginfo.3.md), [aio(4)](../man4/aio.4.md)
+[aio_error(2)](aio_error.2.md), [aio_read(2)](aio_read.2.md), [aio_readv(2)](aio_read.2.md), [aio_write(2)](aio_write.2.md), [aio_writev(2)](aio_write.2.md), [read(2)](read.2.md), [write(2)](write.2.md), [sigevent(3)](../man3/sigevent.3.md), [siginfo(3)](../man3/siginfo.3.md), [aio(4)](../man4/aio.4.md)
 
 ## 标准
 

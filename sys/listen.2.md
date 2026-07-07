@@ -29,9 +29,9 @@ listen(int s, int backlog);
 
 注意，在 FreeBSD 4.5 之前以及引入 syncache 之前，`backlog` 参数还决定了不完整连接队列的长度，该队列用于存放正在完成 TCP 三次握手中的 TCP 套接字。这些不完整的连接现在完全保存在 syncache 中，不受队列长度影响。为帮助应对拒绝服务攻击而增大 `backlog` 值已不再必要。
 
-[sysctl(3)](../man3/sysctl.3.md) MIB 变量 `kern.ipc.soacceptqueue` 指定了 `backlog` 的硬性限制；如果指定的值大于 `kern.ipc.soacceptqueue` 或小于零，`backlog` 将被静默地强制设为 `kern.ipc.soacceptqueue`。
+[sysctl(3)](../gen/sysctl.3.md) MIB 变量 `kern.ipc.soacceptqueue` 指定了 `backlog` 的硬性限制；如果指定的值大于 `kern.ipc.soacceptqueue` 或小于零，`backlog` 将被静默地强制设为 `kern.ipc.soacceptqueue`。
 
-如果监听队列溢出，内核将使用默认优先级 LOG_DEBUG (7) 发出 syslog 消息。[sysctl(3)](../man3/sysctl.3.md) MIB 变量 `kern.ipc.sooverprio` 可用于将此优先级更改为 0..7 (LOG_EMERG..LOG_DEBUG) 范围内的任何值。详细信息请参见 [syslog(3)](../man3/syslog.3.md)。可将其设置为 -1 以禁用这些消息。
+如果监听队列溢出，内核将使用默认优先级 LOG_DEBUG (7) 发出 syslog 消息。[sysctl(3)](../gen/sysctl.3.md) MIB 变量 `kern.ipc.sooverprio` 可用于将此优先级更改为 0..7 (LOG_EMERG..LOG_DEBUG) 范围内的任何值。详细信息请参见 [syslog(3)](../gen/syslog.3.md)。可将其设置为 -1 以禁用这些消息。
 
 变量 `kern.ipc.sooverinterval` 指定了内核发出这些消息的每套接字频率限制。
 
@@ -61,8 +61,8 @@ listen(int s, int backlog);
 
 ## 参见
 
-[netstat(1)](../man1/netstat.1.md), [accept(2)](accept.2.md), [connect(2)](connect.2.md), [socket(2)](socket.2.md), [sysctl(3)](../man3/sysctl.3.md), [syslog(3)](../man3/syslog.3.md), [sysctl(8)](../man8/sysctl.8.md), [accept_filter(9)](../man9/accept_filter.9.md)
+[netstat(1)](../man1/netstat.1.md), [accept(2)](accept.2.md), [connect(2)](connect.2.md), [socket(2)](socket.2.md), [sysctl(3)](../gen/sysctl.3.md), [syslog(3)](../gen/syslog.3.md), [sysctl(8)](../man8/sysctl.8.md), [accept_filter(9)](../man9/accept_filter.9.md)
 
 ## 历史
 
-`listen()` 系统调用出现于 4.2BSD。在运行时配置最大 `backlog` 的能力，以及使用负的 `backlog` 来请求最大允许值的功能，在 FreeBSD 2.2 中引入。在 FreeBSD 10.0 中，`kern.ipc.somaxconn` [sysctl(3)](../man3/sysctl.3.md) 已被 `kern.ipc.soacceptqueue` 替换，以避免对其实际功能的混淆。原有的 [sysctl(3)](../man3/sysctl.3.md) `kern.ipc.somaxconn` 仍然可用，但已从 [sysctl(3)](../man3/sysctl.3.md) -a 的输出中隐藏，以使现有应用程序和脚本继续工作。
+`listen()` 系统调用出现于 4.2BSD。在运行时配置最大 `backlog` 的能力，以及使用负的 `backlog` 来请求最大允许值的功能，在 FreeBSD 2.2 中引入。在 FreeBSD 10.0 中，`kern.ipc.somaxconn` [sysctl(3)](../gen/sysctl.3.md) 已被 `kern.ipc.soacceptqueue` 替换，以避免对其实际功能的混淆。原有的 [sysctl(3)](../gen/sysctl.3.md) `kern.ipc.somaxconn` 仍然可用，但已从 [sysctl(3)](../gen/sysctl.3.md) -a 的输出中隐藏，以使现有应用程序和脚本继续工作。

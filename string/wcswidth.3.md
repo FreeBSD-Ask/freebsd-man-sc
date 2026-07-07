@@ -29,7 +29,7 @@ wcswidth(const wchar_t *pwcs, size_t n);
 
 ## 参见
 
-iswprint(3), [wcwidth(3)](wcwidth.3.md)
+iswprint(3), [wcwidth(3)](../locale/wcwidth.3.md)
 
 ## 标准
 

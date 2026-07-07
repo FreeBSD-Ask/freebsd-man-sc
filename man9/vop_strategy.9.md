@@ -37,7 +37,7 @@ VOP_STRATEGY(struct vnode *vp, struct buf *bp)
 
 ## 参见
 
-[errno(2)](../man2/errno.2.md), [buf(9)](buf.9.md), [vnode(9)](vnode.9.md)
+[errno(2)](../sys/intro.2.md), [buf(9)](buf.9.md), [vnode(9)](vnode.9.md)
 
 ## 作者
 

@@ -75,7 +75,7 @@ sysctl_handle_domainset(SYSCTL_HANDLER_ARGS)
 
 ## 参见
 
-[cpuset(1)](../man1/cpuset.1.md), [cpuset(2)](../man2/cpuset.2.md), [cpuset_setdomain(2)](../man2/cpuset_setdomain.2.md), [bitset(9)](bitset.9.md)
+[cpuset(1)](../man1/cpuset.1.md), [cpuset(2)](../sys/cpuset.2.md), [cpuset_setdomain(2)](../sys/cpuset_getdomain.2.md), [bitset(9)](bitset.9.md)
 
 ## 历史
 

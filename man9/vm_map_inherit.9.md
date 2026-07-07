@@ -34,7 +34,7 @@ vm_map_inherit(vm_map_t map, vm_offset_t start, vm_offset_t end,
 
 ## 参见
 
-[fork(2)](../man2/fork.2.md)
+[fork(2)](../sys/fork.2.md)
 
 ## 作者
 

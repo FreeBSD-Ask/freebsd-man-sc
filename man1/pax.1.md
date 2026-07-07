@@ -88,7 +88,7 @@
 
 文件修改时间仍然会被保留。
 
-`pax` 不理解由 chflags(1) 设置的文件标志，但 [tar(1)](tar.1.md) 和 dump(8) 会保留这些标志。
+`pax` 不理解由 chflags(1) 设置的文件标志，但 [tar(1)](bsdtar.1.md) 和 dump(8) 会保留这些标志。
 
 **`-s`** `replstr` 按照 ed(1) 实用程序正则表达式的语法，根据替换表达式 `replstr` 修改由 `pattern` 或 `file` 操作数指定的文件或归档成员名称。这些正则表达式的格式为：
 
@@ -280,7 +280,7 @@ pax -r -w -v -Y -Z home /backup
 
 ## 参见
 
-cpio(1), [tar(1)](tar.1.md)
+cpio(1), [tar(1)](bsdtar.1.md)
 
 ## 标准
 

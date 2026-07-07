@@ -219,7 +219,7 @@ struct _umtx_time {
 - `val` 新的上限值。
 - `uaddr` `uint32_t` 类型变量的地址。如果不为 `NULL` 且更新成功，则先前的上限值被写入 `uaddr` 所指向的位置。
 
-该请求锁定由 `obj` 参数指向的 umutex，如果无法立即获得则等待。获得锁后，新上限值 `val` 被写入 `struct umutex` 的 `m_ceilings[0]` 成员，之后 umutex 被解锁。锁定不遵循优先级保护协议，以符合 POSIX 对 [pthread_mutex_setprioceiling(3)](../man3/pthread_mutex_setprioceiling.3.md) 接口的要求。
+该请求锁定由 `obj` 参数指向的 umutex，如果无法立即获得则等待。获得锁后，新上限值 `val` 被写入 `struct umutex` 的 `m_ceilings[0]` 成员，之后 umutex 被解锁。锁定不遵循优先级保护协议，以符合 POSIX 对 pthread_mutex_setprioceiling(3) 接口的要求。
 
 **`UMTX_OP_CV_WAIT`** 等待条件。该请求的参数为：
 
@@ -402,7 +402,7 @@ struct umtx_robust_lists_params {
 
 **[`ESRCH`]** 对于 `UMTX_OP_SHM` 请求的 `UMTX_SHM_LOOKUP`、`UMTX_SHM_DESTROY` 和 `UMTX_SHM_ALIVE` 子请求，没有与提供的键关联的共享内存对象。
 
-**[`ENOMEM`]** `UMTX_OP_SHM` 请求的 `UMTX_SHM_CREAT` 子请求无法满足，因为共享内存对象的分配将超过 `RLIMIT_UMTXP` 资源限制，参见 [setrlimit(2)](setrlimit.2.md)。
+**[`ENOMEM`]** `UMTX_OP_SHM` 请求的 `UMTX_SHM_CREAT` 子请求无法满足，因为共享内存对象的分配将超过 `RLIMIT_UMTXP` 资源限制，参见 [setrlimit(2)](getrlimit.2.md)。
 
 **[`EAGAIN`]** 已有最大数量的读者（`URWLOCK_MAX_READERS`）被授予给定 `struct rwlock` 的读所有权。
 
@@ -416,7 +416,7 @@ struct umtx_robust_lists_params {
 
 ## 参见
 
-[clock_gettime(2)](clock_gettime.2.md), [mmap(2)](mmap.2.md), [setrlimit(2)](setrlimit.2.md), [shm_open(2)](shm_open.2.md), [sigaction(2)](sigaction.2.md), [thr_exit(2)](thr_exit.2.md), [thr_kill(2)](thr_kill.2.md), [thr_kill2(2)](thr_kill2.2.md), [thr_new(2)](thr_new.2.md), [thr_self(2)](thr_self.2.md), [thr_set_name(2)](thr_set_name.2.md), [signal(3)](../man3/signal.3.md)
+[clock_gettime(2)](clock_gettime.2.md), [mmap(2)](mmap.2.md), [setrlimit(2)](getrlimit.2.md), [shm_open(2)](shm_open.2.md), [sigaction(2)](sigaction.2.md), [thr_exit(2)](thr_exit.2.md), [thr_kill(2)](thr_kill.2.md), [thr_kill2(2)](thr_kill.2.md), [thr_new(2)](thr_new.2.md), [thr_self(2)](thr_self.2.md), [thr_set_name(2)](thr_set_name.2.md), [signal(3)](../gen/signal.3.md)
 
 ## 标准
 

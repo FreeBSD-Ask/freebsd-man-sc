@@ -46,7 +46,7 @@ setfib -1 netstat -rn
 
 ## 参见
 
-[setfib(2)](../man2/setfib.2.md), setsockopt(2)
+[setfib(2)](../sys/setfib.2.md), setsockopt(2)
 
 ## 标准
 

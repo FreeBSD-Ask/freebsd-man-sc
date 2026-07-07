@@ -50,7 +50,7 @@ sigprocmask(int how, const sigset_t * restrict set,
 
 ## 参见
 
-[kill(2)](kill.2.md), [sigaction(2)](sigaction.2.md), [sigpending(2)](sigpending.2.md), [sigsuspend(2)](sigsuspend.2.md), [fpsetmask(3)](../man3/fpsetmask.3.md), [pthread_sigmask(3)](../man3/pthread_sigmask.3.md), [sigsetops(3)](../man3/sigsetops.3.md)
+[kill(2)](kill.2.md), [sigaction(2)](sigaction.2.md), [sigpending(2)](sigpending.2.md), [sigsuspend(2)](sigsuspend.2.md), [fpsetmask(3)](../man3/fpgetround.3.md), [pthread_sigmask(3)](../man3/pthread_sigmask.3.md), [sigsetops(3)](../gen/sigsetops.3.md)
 
 ## 标准
 

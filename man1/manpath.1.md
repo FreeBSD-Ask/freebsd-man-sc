@@ -52,4 +52,4 @@
 
 ## 参见
 
-[apropos(1)](apropos.1.md), [man(1)](man.1.md), [whatis(1)](whatis.1.md), man.conf(5)
+[apropos(1)](apropos.1.md), [man(1)](man.1.md), [whatis(1)](apropos.1.md), man.conf(5)

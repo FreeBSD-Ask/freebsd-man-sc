@@ -27,4 +27,4 @@ prison_check(struct ucred *cred1, struct ucred *cred2)
 
 ## 参见
 
-[jail(2)](../man2/jail.2.md)
+[jail(2)](../sys/jail.2.md)

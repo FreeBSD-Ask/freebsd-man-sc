@@ -35,7 +35,7 @@ setsid(void);
 
 ## 参见
 
-[setpgid(2)](setpgid.2.md), [tcgetpgrp(3)](../man3/tcgetpgrp.3.md), [tcsetpgrp(3)](../man3/tcsetpgrp.3.md)
+[setpgid(2)](setpgid.2.md), [tcgetpgrp(3)](../gen/tcgetpgrp.3.md), [tcsetpgrp(3)](../gen/tcsetpgrp.3.md)
 
 ## 标准
 

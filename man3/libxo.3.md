@@ -115,7 +115,7 @@ options 是一个以逗号分隔的标记列表，对应于输出样式、标志
             linect, wordct, charct, file);
 ```
 
-每个字段可以有一个角色，默认为 'value' 角色，该角色告诉 `libxo` 如何以及何时渲染该字段，还有一个类似 [printf(3)](printf.3.md) 的格式字符串。
+每个字段可以有一个角色，默认为 'value' 角色，该角色告诉 `libxo` 如何以及何时渲染该字段，还有一个类似 [printf(3)](../stdio/printf.3.md) 的格式字符串。
 
 然后可以使用“--libxo”选项以各种样式生成输出。
 

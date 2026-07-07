@@ -47,7 +47,7 @@ copyinstr(const void *uaddr, void *kaddr, size_t len, size_t *done)
 
 `copy` 函数旨在将连续数据从一个地址空间复制到另一个地址空间。
 
-`copystr` 已弃用，应替换为 [strlcpy(3)](../man3/strlcpy.3.md)，后者有一个内核到内核的版本。它将从 FreeBSD 16 中移除。
+`copystr` 已弃用，应替换为 [strlcpy(3)](../string/strlcpy.3.md)，后者有一个内核到内核的版本。它将从 FreeBSD 16 中移除。
 
 `copyin` 和 `copyin_nofault` 函数从用户空间地址 `uaddr` 复制 `len` 字节数据到内核空间地址 `kaddr`，不保留所复制对象中指针的来源（更多信息参见 [memory_model(7)](../man7/memory_model.7.md)）。`copyinptr` 和 `copyinptr_nofault` 函数执行相同操作，但保留所复制的指向用户空间的指针的来源。
 

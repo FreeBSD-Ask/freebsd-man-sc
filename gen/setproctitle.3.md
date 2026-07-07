@@ -22,7 +22,7 @@ setproctitle_fast(const char *fmt, ...);
 
 `setproctitle` 库例程设置出现在 [ps(1)](../man1/ps.1.md) 命令中的进程标题。`setproctitle_fast` 变体针对高频更新进行了优化，但可能通过不更新程序参数的内核缓存而使 [ps(1)](../man1/ps.1.md) 命令稍慢。
 
-标题由可执行文件的名称开始，后跟由 `fmt` 参数指定的 [printf(3)](printf.3.md) 风格的参数扩展结果。如果 `fmt` 参数以 “-” 字符开头，则跳过可执行文件的名称。
+标题由可执行文件的名称开始，后跟由 `fmt` 参数指定的 [printf(3)](../stdio/printf.3.md) 风格的参数扩展结果。如果 `fmt` 参数以 “-” 字符开头，则跳过可执行文件的名称。
 
 如果 `fmt` 为 NULL，则恢复进程标题。
 
@@ -36,7 +36,7 @@ setproctitle("talking to %s", inet_ntoa(addr));
 
 ## 参见
 
-[ps(1)](../man1/ps.1.md), [w(1)](../man1/w.1.md), kvm(3), kvm_getargv(3), [printf(3)](printf.3.md), setprogname(3)
+[ps(1)](../man1/ps.1.md), [w(1)](../man1/w.1.md), kvm(3), kvm_getargv(3), [printf(3)](../stdio/printf.3.md), setprogname(3)
 
 ## 标准
 

@@ -35,7 +35,7 @@ cc -o foo ${OBJS} `lorder ${STATIC_LIBS} | tsort`
 
 ## 参见
 
-[ar(1)](ar.1.md), [ld(1)](ld.1.md), nm(1), [ranlib(1)](ranlib.1.md), tsort(1)
+[ar(1)](ar.1.md), [ld(1)](ld.lld.1.md), nm(1), [ranlib(1)](ar.1.md), tsort(1)
 
 ## 历史
 

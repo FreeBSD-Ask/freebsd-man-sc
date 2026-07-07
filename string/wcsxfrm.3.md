@@ -28,7 +28,7 @@ Lb libc
 
 ## 参见
 
-[setlocale(3)](setlocale.3.md), [strxfrm(3)](strxfrm.3.md), wcscmp(3), [wcscoll(3)](wcscoll.3.md)
+[setlocale(3)](../locale/setlocale.3.md), [strxfrm(3)](strxfrm.3.md), wcscmp(3), [wcscoll(3)](wcscoll.3.md)
 
 ## 标准
 

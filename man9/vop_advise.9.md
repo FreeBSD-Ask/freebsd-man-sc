@@ -18,7 +18,7 @@ VOP_ADVISE(struct vnode *vp, off_t start, off_t end, int advice)
 
 ## 描述
 
-此调用对文件数据的一个范围应用建议。它用于实现 [posix_fadvise(2)](../man2/posix_fadvise.2.md) 系统调用。
+此调用对文件数据的一个范围应用建议。它用于实现 [posix_fadvise(2)](../sys/posix_fadvise.2.md) 系统调用。
 
 其参数为：
 

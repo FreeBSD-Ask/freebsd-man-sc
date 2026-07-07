@@ -27,15 +27,15 @@
 
 除下文所述例外，所有系统调用都跟随符号链接。例如，如果存在一个指向名为“`afile`”的文件的符号链接“`slink`”，则系统调用“`open("slink" ...)`”将返回指向文件“afile”的文件描述符。
 
-有十三个系统调用不跟随链接，而是对符号链接本身进行操作。它们是：lchflags(2)、lchmod(2)、lchown(2)、lpathconf(2)、lstat(2)、lutimes(2)、[readlink(2)](../man2/readlink.2.md)、readlinkat(2)、[rename(2)](../man2/rename.2.md)、renameat(2)、[rmdir(2)](../man2/rmdir.2.md)、[unlink(2)](../man2/unlink.2.md) 和 unlinkat(2)。由于 [remove(3)](../man3/remove.3.md) 是 [unlink(2)](../man2/unlink.2.md) 的别名，它也不跟随符号链接。当 [rmdir(2)](../man2/rmdir.2.md) 或带 `AT_REMOVEDIR` 标志的 unlinkat(2) 应用于符号链接时，将失败并返回 Er ENOTDIR 错误。
+有十三个系统调用不跟随链接，而是对符号链接本身进行操作。它们是：lchflags(2)、lchmod(2)、lchown(2)、lpathconf(2)、lstat(2)、lutimes(2)、[readlink(2)](../sys/readlink.2.md)、readlinkat(2)、[rename(2)](../sys/rename.2.md)、renameat(2)、[rmdir(2)](../sys/rmdir.2.md)、[unlink(2)](../sys/unlink.2.md) 和 unlinkat(2)。由于 [remove(3)](../stdio/remove.3.md) 是 [unlink(2)](../sys/unlink.2.md) 的别名，它也不跟随符号链接。当 [rmdir(2)](../sys/rmdir.2.md) 或带 `AT_REMOVEDIR` 标志的 unlinkat(2) 应用于符号链接时，将失败并返回 Er ENOTDIR 错误。
 
 linkat(2) 系统调用不跟随符号链接，除非给定 `AT_SYMLINK_FOLLOW` 标志。
 
-以下系统调用跟随符号链接，除非给定 `AT_SYMLINK_NOFOLLOW` 标志：chflagsat(2)、faccessat(2)、fchmodat(2)、fchownat(2)、fstatat(2) 和 [utimensat(2)](../man2/utimensat.2.md)。
+以下系统调用跟随符号链接，除非给定 `AT_SYMLINK_NOFOLLOW` 标志：chflagsat(2)、faccessat(2)、fchmodat(2)、fchownat(2)、fstatat(2) 和 [utimensat(2)](../sys/utimensat.2.md)。
 
 可以通过 lchown(2) 系统调用更改现有符号链接的所有者和组。可以通过 lchflags(2)、lchmod(2)、lchown(2) 和 lutimes(2) 系统调用分别更改现有符号链接的标志、访问权限、所有者/组和修改时间。其中，只有标志和所有权被系统使用；访问权限会被忽略。
 
-4.4BSD 系统与历史上的 4BSD 系统的不同之处在于，系统调用 [chown(2)](../man2/chown.2.md) 已改为跟随符号链接。lchown(2) 系统调用是在新的 [chown(2)](../man2/chown.2.md) 的局限性显现后添加的。
+4.4BSD 系统与历史上的 4BSD 系统的不同之处在于，系统调用 [chown(2)](../sys/chown.2.md) 已改为跟随符号链接。lchown(2) 系统调用是在新的 [chown(2)](../sys/chown.2.md) 的局限性显现后添加的。
 
 ### 挂载选项
 
@@ -65,7 +65,7 @@ file(1) 和 [stat(1)](../man1/stat.1.md) 命令也是此规则的例外。这些
 
 ### 遍历文件树的命令
 
-以下命令要么选择性地、要么总是遍历文件树：chflags(1)、[chgrp(1)](../man1/chgrp.1.md)、[chmod(1)](../man1/chmod.1.md)、[cp(1)](../man1/cp.1.md)、[du(1)](../man1/du.1.md)、[find(1)](../man1/find.1.md)、[ls(1)](../man1/ls.1.md)、[pax(1)](../man1/pax.1.md)、[rm(1)](../man1/rm.1.md)、[tar(1)](../man1/tar.1.md) 和 [chown(8)](../man8/chown.8.md)。
+以下命令要么选择性地、要么总是遍历文件树：chflags(1)、[chgrp(1)](../man1/chgrp.1.md)、[chmod(1)](../man1/chmod.1.md)、[cp(1)](../man1/cp.1.md)、[du(1)](../man1/du.1.md)、[find(1)](../man1/find.1.md)、[ls(1)](../man1/ls.1.md)、[pax(1)](../man1/pax.1.md)、[rm(1)](../man1/rm.1.md)、[tar(1)](../man1/bsdtar.1.md) 和 [chown(8)](../man8/chown.8.md)。
 
 重要的是要认识到，以下规则同样适用于文件树遍历过程中遇到的符号链接以及作为命令行参数列出的符号链接。
 
@@ -93,4 +93,4 @@ file(1) 和 [stat(1)](../man1/stat.1.md) 命令也是此规则的例外。这些
 
 ## 参见
 
-chflags(1), [chgrp(1)](../man1/chgrp.1.md), [chmod(1)](../man1/chmod.1.md), [cp(1)](../man1/cp.1.md), [du(1)](../man1/du.1.md), [find(1)](../man1/find.1.md), [ln(1)](../man1/ln.1.md), [ls(1)](../man1/ls.1.md), [mv(1)](../man1/mv.1.md), [pax(1)](../man1/pax.1.md), [rm(1)](../man1/rm.1.md), [tar(1)](../man1/tar.1.md), lchflags(2), lchmod(2), lchown(2), lstat(2), lutimes(2), [readlink(2)](../man2/readlink.2.md), [rename(2)](../man2/rename.2.md), [symlink(2)](../man2/symlink.2.md), [unlink(2)](../man2/unlink.2.md), [fts(3)](../man3/fts.3.md), [remove(3)](../man3/remove.3.md), [chown(8)](../man8/chown.8.md), [mount(8)](../man8/mount.8.md)
+chflags(1), [chgrp(1)](../man1/chgrp.1.md), [chmod(1)](../man1/chmod.1.md), [cp(1)](../man1/cp.1.md), [du(1)](../man1/du.1.md), [find(1)](../man1/find.1.md), [ln(1)](../man1/ln.1.md), [ls(1)](../man1/ls.1.md), [mv(1)](../man1/mv.1.md), [pax(1)](../man1/pax.1.md), [rm(1)](../man1/rm.1.md), [tar(1)](../man1/bsdtar.1.md), lchflags(2), lchmod(2), lchown(2), lstat(2), lutimes(2), [readlink(2)](../sys/readlink.2.md), [rename(2)](../sys/rename.2.md), [symlink(2)](../sys/symlink.2.md), [unlink(2)](../sys/unlink.2.md), [fts(3)](../gen/fts.3.md), [remove(3)](../stdio/remove.3.md), [chown(8)](../man8/chown.8.md), [mount(8)](../man8/mount.8.md)

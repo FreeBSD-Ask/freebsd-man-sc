@@ -33,7 +33,7 @@ alarm(unsigned int seconds);
 
 ## 参见
 
-setitimer(2), [sigaction(2)](../sys/sigaction.2.md), [sigsuspend(2)](../sys/sigsuspend.2.md), [signal(3)](signal.3.md), [sleep(3)](sleep.3.md), [ualarm(3)](ualarm.3.md), [usleep(3)](usleep.3.md)
+setitimer(2), [sigaction(2)](../sys/sigaction.2.md), [sigsuspend(2)](../sys/sigsuspend.2.md), [signal(3)](signal.3.md), [sleep(3)](../sys-1/sleep.3.md), [ualarm(3)](ualarm.3.md), [usleep(3)](../sys-1/usleep.3.md)
 
 ## 历史
 

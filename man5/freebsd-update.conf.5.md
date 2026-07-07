@@ -75,7 +75,7 @@ date +"%Y-%m-%d_%H%M%S"
 
 ## 参见
 
-[sha256(1)](../man1/sha256.1.md), bectl(8), [freebsd-update(8)](../man8/freebsd-update.8.md)
+[sha256(1)](../man1/md5.1.md), bectl(8), [freebsd-update(8)](../man8/freebsd-update.8.md)
 
 ## 作者
 

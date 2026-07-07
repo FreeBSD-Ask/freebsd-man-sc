@@ -87,7 +87,7 @@ cpu_update_pcb(struct thread *td)
 
 这些函数提供机器无关抽象的架构相关实现。
 
-`cpu_exec_vmspace_reuse` 在 [execve(2)](../man2/execve.2.md) 期间，如果 `exec_new_vmspace` 可以为进程 `p` 重用现有的 `struct vmspace`（`map`），则返回 true。仅当 `map` 未与任何其他消费者共享时才调用此函数。如果返回 false，`exec_new_vmspace` 将创建新的 `struct vmspace`。
+`cpu_exec_vmspace_reuse` 在 [execve(2)](../sys/execve.2.md) 期间，如果 `exec_new_vmspace` 可以为进程 `p` 重用现有的 `struct vmspace`（`map`），则返回 true。仅当 `map` 未与任何其他消费者共享时才调用此函数。如果返回 false，`exec_new_vmspace` 将创建新的 `struct vmspace`。
 
 `cpu_exit` 在进程退出期间释放包含 `td` 的进程的地址空间以外的机器相关资源。
 
@@ -99,7 +99,7 @@ cpu_update_pcb(struct thread *td)
 
 `cpu_set_upcall` 更新新线程的初始用户寄存器状态，以使用 `stack` 中描述的用户栈调用 `entry`，`arg` 作为唯一参数。
 
-`cpu_set_user_tls` 设置新线程的初始用户线程指针寄存器以引用用户 TLS 基指针 `tls_base`。`thr_flags` 参数提供标志位，来自 [thr_new(2)](../man2/thr_new.2.md) 系统调用的 `struct thr_param` 参数的 `flags` 成员的同一命名空间。
+`cpu_set_user_tls` 设置新线程的初始用户线程指针寄存器以引用用户 TLS 基指针 `tls_base`。`thr_flags` 参数提供标志位，来自 [thr_new(2)](../sys/thr_new.2.md) 系统调用的 `struct thr_param` 参数的 `flags` 成员的同一命名空间。
 
 `cpu_update_pcb` 用当前用户寄存器值更新当前线程的 pcb。这在核心转储中写出寄存器注释之前调用。此函数通常只需更新当前线程在上下文切换期间保存在 pcb 中（而非内核进入时的陷阱帧中）的用户寄存器。
 
@@ -113,9 +113,9 @@ cpu_update_pcb(struct thread *td)
 
 `cpu_idle_wakeup` 将 ID 为 `cpu` 的空闲 CPU 从低功耗状态唤醒。
 
-`cpu_procctl` 处理任何机器相关的 [procctl(2)](../man2/procctl.2.md) 请求。
+`cpu_procctl` 处理任何机器相关的 [procctl(2)](../sys/procctl.2.md) 请求。
 
-`cpu_ptrace` 处理任何机器相关的 [ptrace(2)](../man2/ptrace.2.md) 请求。
+`cpu_ptrace` 处理任何机器相关的 [ptrace(2)](../sys/ptrace.2.md) 请求。
 
 `cpu_switch` 通过交换寄存器状态在当前 CPU 上的线程之间切换。此函数将当前 CPU 寄存器状态保存在 `old` 的 pcb 中，并在返回前从 `new` 的 pcb 加载寄存器值。虽然 pcb 通常包含调用者保存的内核寄存器状态，但它也可包含未保存在陷阱帧中的用户寄存器。
 
@@ -133,13 +133,13 @@ cpu_update_pcb(struct thread *td)
 
 这些函数支持与线程对象生命周期相关的机器相关线程状态管理。
 
-一般模型是每次通过 [fork(2)](../man2/fork.2.md) 或 [thr_new(2)](../man2/thr_new.2.md) 等系统调用创建新内核线程，或通过 [kproc_create(9)](kproc_create.9.md)、[kproc_kthread_add(9)](kproc_kthread_add.9.md) 或 [kthread_add(9)](kthread_add.9.md) 创建仅内核线程时，都会分配一个线程对象。当内核线程退出时，线程对象被释放。但是，有一个特殊情况支持每个空闲进程对象缓存一个线程对象的优化。当进程退出时，最后一个线程对象不被释放，而是保持附加到进程。当进程对象稍后在 [fork(2)](../man2/fork.2.md) 中为新进程重用时，内核回收该最后线程对象并将其用作新进程中的初始线程。当线程被回收时，如果现有内核栈不适合新进程，可能会分配新的内核栈。
+一般模型是每次通过 [fork(2)](../sys/fork.2.md) 或 [thr_new(2)](../sys/thr_new.2.md) 等系统调用创建新内核线程，或通过 [kproc_create(9)](kproc.9.md)、kproc_kthread_add(9) 或 [kthread_add(9)](kthread.9.md) 创建仅内核线程时，都会分配一个线程对象。当内核线程退出时，线程对象被释放。但是，有一个特殊情况支持每个空闲进程对象缓存一个线程对象的优化。当进程退出时，最后一个线程对象不被释放，而是保持附加到进程。当进程对象稍后在 [fork(2)](../sys/fork.2.md) 中为新进程重用时，内核回收该最后线程对象并将其用作新进程中的初始线程。当线程被回收时，如果现有内核栈不适合新进程，可能会分配新的内核栈。
 
 `cpu_thread_alloc` 在分配新线程对象时初始化 `td` 中的机器相关字段。
 
 `cpu_thread_new_kstack` 在分配新内核栈后初始化 `td` 中与内核栈相关的机器相关字段。此函数通常设置 `td_pcb`（在将 pcb 存储在内核栈中的架构上）和初始 `td_frame` 指针。`cpu_thread_new_kstack` 在分配新线程对象和回收线程分配新内核栈时都被调用。注意，如果回收线程重用其现有内核栈，则*不*调用此函数。
 
-`cpu_thread_clean` 在 [wait(2)](../man2/wait.2.md) 期间释放进程中最后一个线程的机器相关资源。由于该线程是回收候选，机器相关字段应重置为作为新线程运行，以防它被未来的 [fork(2)](../man2/fork.2.md) 回收。特别是，如果线程重用其现有内核栈，则在线程被重用为新进程的主线程之前不会调用其他 `cpu_thread_*` 函数。
+`cpu_thread_clean` 在 [wait(2)](../sys/wait.2.md) 期间释放进程中最后一个线程的机器相关资源。由于该线程是回收候选，机器相关字段应重置为作为新线程运行，以防它被未来的 [fork(2)](../sys/fork.2.md) 回收。特别是，如果线程重用其现有内核栈，则在线程被重用为新进程的主线程之前不会调用其他 `cpu_thread_*` 函数。
 
 `cpu_thread_exit` 在 `td` 退出时清理任何机器相关状态。这由退出的线程调用，因此不能释放内核内执行期间所需的状态。
 
@@ -147,7 +147,7 @@ cpu_update_pcb(struct thread *td)
 
 ## 参见
 
-[fork(2)](../man2/fork.2.md), [procctl(2)](../man2/procctl.2.md), [ptrace(2)](../man2/ptrace.2.md), [thr_new(2)](../man2/thr_new.2.md), [wait(2)](../man2/wait.2.md), [kproc_create(9)](kproc_create.9.md), [kproc_kthread_add(9)](kproc_kthread_add.9.md), [kthread_add(9)](kthread_add.9.md), [mi_switch(9)](mi_switch.9.md)
+[fork(2)](../sys/fork.2.md), [procctl(2)](../sys/procctl.2.md), [ptrace(2)](../sys/ptrace.2.md), [thr_new(2)](../sys/thr_new.2.md), [wait(2)](../sys/wait.2.md), [kproc_create(9)](kproc.9.md), kproc_kthread_add(9), [kthread_add(9)](kthread.9.md), [mi_switch(9)](mi_switch.9.md)
 
 ## 作者
 

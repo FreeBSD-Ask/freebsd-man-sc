@@ -432,7 +432,7 @@ make kernel KERNFAST=1 DESTDIR=/client
 
 ## 参见
 
-[cc(1)](../man1/cc.1.md), install(1), [make(1)](../man1/make.1.md), [make.conf(5)](../man5/make.conf.5.md), [src.conf(5)](../man5/src.conf.5.md), [arch(7)](arch.7.md), [development(7)](development.7.md), [freebsd-base(7)](freebsd-base.7.md), pkg(7), [ports(7)](ports.7.md), [release(7)](release.7.md), [tests(7)](tests.7.md), [config(8)](../man8/config.8.md), etcupdate(8), nextboot(8), pkg-repo(8), [shutdown(8)](../man8/shutdown.8.md)
+[cc(1)](../man1/clang.1.md), install(1), [make(1)](../man1/make.1.md), [make.conf(5)](../man5/make.conf.5.md), [src.conf(5)](../man5/src.conf.5.md), [arch(7)](arch.7.md), [development(7)](development.7.md), [freebsd-base(7)](freebsd-base.7.md), pkg(7), [ports(7)](ports.7.md), [release(7)](release.7.md), [tests(7)](tests.7.md), [config(8)](../man8/config.8.md), etcupdate(8), nextboot(8), pkg-repo(8), [shutdown(8)](../man8/shutdown.8.md)
 
 ## 历史
 
@@ -450,4 +450,4 @@ Mike W. Meyer <mwm@mired.org>
 
 进行主版本升级时，需要引导进入单用户模式执行 `installworld`。
 
-更新引导 [loader(8)](../man8/loader.8.md) 因架构而异。有关你的架构的更多细节，请查阅 [boot(8)](../man8/boot.8.md)。
+更新引导 [loader(8)](../man8/loader.8.md) 因架构而异。有关你的架构的更多细节，请查阅 [boot(8)](../man8/boot_i386.8.md)。

@@ -138,7 +138,7 @@ extern int * __error();
 
 **9 `EBADF`** *错误的文件描述符。* 文件描述符参数超出范围，引用了未打开的文件，或对仅以写入（读取）方式打开的文件发出了读（写）请求。
 
-**10 `ECHILD`** *没有子进程。* 由没有现有或未等待子进程的进程执行了 [wait(2)](wait.2.md) 或 [waitpid(2)](waitpid.2.md) 函数。
+**10 `ECHILD`** *没有子进程。* 由没有现有或未等待子进程的进程执行了 [wait(2)](wait.2.md) 或 [waitpid(2)](wait.2.md) 函数。
 
 **11 `EDEADLK`** *避免资源死锁。* 试图锁定系统资源，这会导致死锁情况。
 
@@ -162,7 +162,7 @@ extern int * __error();
 
 **21 `EISDIR`** *是目录。* 试图以写入模式打开目录。
 
-**22 `EINVAL`** *无效参数。* 提供了某些无效参数。例如，向 [signal(3)](../man3/signal.3.md) 函数或 [kill(2)](kill.2.md) 系统调用指定了未定义的信号。
+**22 `EINVAL`** *无效参数。* 提供了某些无效参数。例如，向 [signal(3)](../gen/signal.3.md) 函数或 [kill(2)](kill.2.md) 系统调用指定了未定义的信号。
 
 **23 `ENFILE`** *系统中打开文件过多。* 已达到系统允许的最大打开文件数，在至少关闭一个之前无法满足打开请求。
 
@@ -202,7 +202,7 @@ extern int * __error();
 
 **41 `EPROTOTYPE`** *套接字的协议类型错误。* 指定了不支持所请求套接字类型语义的协议。例如，你不能将 ARPA Internet UDP 协议与 `SOCK_STREAM` 类型一起使用。
 
-**42 `ENOPROTOOPT`** *协议不可用。* 在 [getsockopt(2)](getsockopt.2.md) 或 [setsockopt(2)](setsockopt.2.md) 调用中指定了错误的选项或级别。
+**42 `ENOPROTOOPT`** *协议不可用。* 在 [getsockopt(2)](getsockopt.2.md) 或 [setsockopt(2)](getsockopt.2.md) 调用中指定了错误的选项或级别。
 
 **43 `EPROTONOSUPPORT`** *协议不受支持。* 该协议未配置到系统中或没有实现。
 
@@ -230,7 +230,7 @@ extern int * __error();
 
 **55 `ENOBUFS`** *没有可用的缓冲区空间。* 由于系统缺乏足够的缓冲区空间或队列已满，套接字或管道上的操作未执行。
 
-**56 `EISCONN`** *套接字已连接。* 在已连接的套接字上发出了 [connect(2)](connect.2.md) 请求；或在已连接的套接字上指定了目的地的 [sendto(2)](sendto.2.md) 或 [sendmsg(2)](sendmsg.2.md) 请求。
+**56 `EISCONN`** *套接字已连接。* 在已连接的套接字上发出了 [connect(2)](connect.2.md) 请求；或在已连接的套接字上指定了目的地的 [sendto(2)](send.2.md) 或 [sendmsg(2)](send.2.md) 请求。
 
 **57 `ENOTCONN`** *套接字未连接。* 发送或接收数据的请求被拒绝，因为套接字未连接且（在数据报套接字上发送时）未提供地址。
 
@@ -312,7 +312,7 @@ extern int * __error();
 
 ## 参见
 
-[intro(3)](../man3/intro.3.md), [perror(3)](../man3/perror.3.md), [dtrace_syscall(4)](../man4/dtrace_syscall.4.md)
+[intro(3)](../man3/intro.3.md), [perror(3)](../string/strerror.3.md), [dtrace_syscall(4)](../man4/dtrace_syscall.4.md)
 
 ## 历史
 

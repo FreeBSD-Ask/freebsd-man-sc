@@ -40,7 +40,7 @@ contigmalloc_domainset(unsigned long size, struct malloc_type *type,
 
 其他标志（如果存在）将被忽略。
 
-`contigfree` 函数已弃用。请改用 [free(9)](free.9.md)。
+`contigfree` 函数已弃用。请改用 [free(9)](malloc.9.md)。
 
 ## 实现说明
 

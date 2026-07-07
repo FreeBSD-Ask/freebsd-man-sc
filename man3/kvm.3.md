@@ -12,7 +12,7 @@ Lb libkvm
 
 ## 描述
 
-`kvm` 库为访问内核虚拟内存映像（包括运行中的系统和崩溃转储）提供统一接口。对运行中系统的访问，部分函数通过 [sysctl(3)](sysctl.3.md) 实现，其他函数通过 [mem(4)](../man4/mem.4.md) 和 kmem(4) 实现；而崩溃转储可通过 savecore(8) 生成的核心文件进行检查。两种情况下接口的行为类似。可以读写内存、高效查找内核符号地址，并收集有关用户进程的信息。
+`kvm` 库为访问内核虚拟内存映像（包括运行中的系统和崩溃转储）提供统一接口。对运行中系统的访问，部分函数通过 [sysctl(3)](../gen/sysctl.3.md) 实现，其他函数通过 [mem(4)](../man4/mem.4.md) 和 kmem(4) 实现；而崩溃转储可通过 savecore(8) 生成的核心文件进行检查。两种情况下接口的行为类似。可以读写内存、高效查找内核符号地址，并收集有关用户进程的信息。
 
 首先调用 `kvm_open` 函数获取一个描述符，供后续所有调用使用。
 
@@ -30,7 +30,7 @@ kvm 接口最初在 SunOS 中引入。已有大量程序使用此接口开发，
 
 ## 参见
 
-kvm_close(3), kvm_getargv(3), kvm_getenvv(3), kvm_geterr(3), kvm_getloadavg(3), kvm_getprocs(3), kvm_getswapinfo(3), kvm_kerndisp(3), kvm_native(3), kvm_nlist(3), kvm_nlist2(3), kvm_open(3), kvm_open2(3), kvm_openfiles(3), kvm_read(3), kvm_read2(3), kvm_write(3), [sysctl(3)](sysctl.3.md), kmem(4), [mem(4)](../man4/mem.4.md)
+kvm_close(3), kvm_getargv(3), kvm_getenvv(3), kvm_geterr(3), kvm_getloadavg(3), kvm_getprocs(3), kvm_getswapinfo(3), kvm_kerndisp(3), kvm_native(3), kvm_nlist(3), kvm_nlist2(3), kvm_open(3), kvm_open2(3), kvm_openfiles(3), kvm_read(3), kvm_read2(3), kvm_write(3), [sysctl(3)](../gen/sysctl.3.md), kmem(4), [mem(4)](../man4/mem.4.md)
 
 ## 历史
 

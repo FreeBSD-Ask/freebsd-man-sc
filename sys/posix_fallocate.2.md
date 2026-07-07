@@ -23,7 +23,7 @@ posix_fallocate(int fd, off_t offset, off_t len);
 
 成功返回时，保证为 `fd` 所引用文件中 `offset` 到 `offset +` `len` 范围分配所需的存储空间。即如果 `posix_fallocate()` 成功返回，后续对指定文件数据的写入不会因文件系统存储介质上缺乏空闲空间而失败。指定范围内的任何现有文件数据不会被修改。如果 `offset +` `len` 超过当前文件大小，`posix_fallocate()` 将文件大小调整为 `offset +` `len`。否则，文件大小不会改变。
 
-通过 `posix_fallocate()` 分配的空间会在成功调用 [creat(2)](creat.2.md) 或 [open(2)](open.2.md) 截断文件大小时被释放。通过 `posix_fallocate()` 分配的空间可能会在成功调用 [ftruncate(2)](ftruncate.2.md) 将文件大小减小到小于 `offset +` `len` 时被释放。
+通过 `posix_fallocate()` 分配的空间会在成功调用 [creat(2)](creat.2.md) 或 [open(2)](open.2.md) 截断文件大小时被释放。通过 `posix_fallocate()` 分配的空间可能会在成功调用 [ftruncate(2)](truncate.2.md) 将文件大小减小到小于 `offset +` `len` 时被释放。
 
 ## 返回值
 
@@ -59,7 +59,7 @@ posix_fallocate(int fd, off_t offset, off_t len);
 
 ## 参见
 
-[creat(2)](creat.2.md), [ftruncate(2)](ftruncate.2.md), [open(2)](open.2.md), [unlink(2)](unlink.2.md)
+[creat(2)](creat.2.md), [ftruncate(2)](truncate.2.md), [open(2)](open.2.md), [unlink(2)](unlink.2.md)
 
 ## 标准
 

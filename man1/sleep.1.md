@@ -12,7 +12,7 @@
 
 ## 描述
 
-`sleep` 命令暂停执行至少 `number` 秒（默认，或单位 `s`）、分钟（单位 `m`）、小时（单位 `h`）或天（单位 `d`）。间隔可以用 [strtod(3)](../man3/strtod.3.md) 允许的任何形式编写。如果指定了多个间隔，它们将相加。如果最终总和为零或负数，`sleep` 立即退出。
+`sleep` 命令暂停执行至少 `number` 秒（默认，或单位 `s`）、分钟（单位 `m`）、小时（单位 `h`）或天（单位 `d`）。间隔可以用 [strtod(3)](../stdlib/strtod.3.md) 允许的任何形式编写。如果指定了多个间隔，它们将相加。如果最终总和为零或负数，`sleep` 立即退出。
 
 如果 `sleep` 命令收到信号，它采取标准动作。当收到 `SIGINFO` 信号时，在标准输出上打印剩余睡眠秒数的估计值。
 
@@ -54,7 +54,7 @@ done
 
 ## 参见
 
-[nanosleep(2)](../man2/nanosleep.2.md), [sleep(3)](../man3/sleep.3.md)
+[nanosleep(2)](../sys/nanosleep.2.md), [sleep(3)](../sys-1/sleep.3.md)
 
 ## 标准
 

@@ -74,9 +74,9 @@ fstatat(int fd, const char *path, struct stat *sb, int flag);
 
 `struct stat` 中与时间相关的字段有：
 
-**`st_atim`** 文件数据最后一次被访问的时间。由 [read(2)](read.2.md) 和 [readv(2)](readv.2.md) 等系统调用隐式更改，由 [utimes(2)](utimes.2.md) 显式更改。
+**`st_atim`** 文件数据最后一次被访问的时间。由 [read(2)](read.2.md) 和 [readv(2)](read.2.md) 等系统调用隐式更改，由 [utimes(2)](utimes.2.md) 显式更改。
 
-**`st_mtim`** 文件数据最后一次被修改的时间。由 [truncate(2)](truncate.2.md)、[write(2)](write.2.md) 和 [writev(2)](writev.2.md) 等系统调用隐式更改，由 [utimes(2)](utimes.2.md) 显式更改。此外，任何修改目录内容的系统调用都会更改受影响目录的 `st_mtim`。例如，[creat(2)](creat.2.md)、[mkdir(2)](mkdir.2.md)、[rename(2)](rename.2.md)、[link(2)](link.2.md) 和 [unlink(2)](unlink.2.md)。
+**`st_mtim`** 文件数据最后一次被修改的时间。由 [truncate(2)](truncate.2.md)、[write(2)](write.2.md) 和 [writev(2)](write.2.md) 等系统调用隐式更改，由 [utimes(2)](utimes.2.md) 显式更改。此外，任何修改目录内容的系统调用都会更改受影响目录的 `st_mtim`。例如，[creat(2)](creat.2.md)、[mkdir(2)](mkdir.2.md)、[rename(2)](rename.2.md)、[link(2)](link.2.md) 和 [unlink(2)](unlink.2.md)。
 
 **`st_ctim`** 文件状态最后一次被更改（inode 数据修改）的时间。由任何影响文件元数据（包括 `st_mtim`）的系统调用隐式更改，例如 [chflags(2)](chflags.2.md)、[chmod(2)](chmod.2.md)、[chown(2)](chown.2.md)、[truncate(2)](truncate.2.md)、[utimes(2)](utimes.2.md) 和 [write(2)](write.2.md)。此外，任何修改目录内容的系统调用都会更改受影响目录的 `st_ctim`。例如，[creat(2)](creat.2.md)、[mkdir(2)](mkdir.2.md)、[rename(2)](rename.2.md)、[link(2)](link.2.md) 和 [unlink(2)](unlink.2.md)。
 
@@ -222,7 +222,7 @@ fstatat(int fd, const char *path, struct stat *sb, int flag);
 
 ## 参见
 
-[access(2)](access.2.md), [chmod(2)](chmod.2.md), [chown(2)](chown.2.md), [fhstat(2)](fhstat.2.md), [statfs(2)](statfs.2.md), [utimes(2)](utimes.2.md), [sticky(7)](../man7/sticky.7.md), [symlink(7)](../man7/symlink.7.md)
+[access(2)](access.2.md), [chmod(2)](chmod.2.md), [chown(2)](chown.2.md), [fhstat(2)](fhopen.2.md), [statfs(2)](statfs.2.md), [utimes(2)](utimes.2.md), [sticky(7)](../man7/sticky.7.md), [symlink(7)](../man7/symlink.7.md)
 
 ## 标准
 

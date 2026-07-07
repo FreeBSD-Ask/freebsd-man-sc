@@ -24,7 +24,7 @@
 
 `dbopen` 函数以读和/或写方式打开 `file`。通过将 `file` 参数设置为 `NULL`，可以创建不打算保存到磁盘的文件。
 
-`flags` 和 `mode` 参数如 [open(2)](../man2/open.2.md) 例程所指定，但是，只有 `O_CREAT`、`O_EXCL`、`O_EXLOCK`、`O_NOFOLLOW`、`O_NONBLOCK`、`O_RDONLY`、`O_RDWR`、`O_SHLOCK`、`O_SYNC`、`O_WRONLY` 和 `O_TRUNC` 标志有意义。
+`flags` 和 `mode` 参数如 [open(2)](../sys/open.2.md) 例程所指定，但是，只有 `O_CREAT`、`O_EXCL`、`O_EXLOCK`、`O_NOFOLLOW`、`O_NONBLOCK`、`O_RDONLY`、`O_RDWR`、`O_SHLOCK`、`O_SYNC`、`O_WRONLY` 和 `O_TRUNC` 标志有意义。
 
 `type` 参数的类型为 `DBTYPE`（定义在 `#include <db.h>` 头文件中），可设置为 `DB_BTREE`、`DB_HASH` 或 `DB_RECNO`。
 
@@ -78,7 +78,7 @@ typedef struct {
 
 **`del`** 指向用于从数据库中删除键/数据对的例程的指针。`flags` 参数可设置为以下值：`del` 例程出错时返回 -1（设置 `errno`），成功时返回 0，如果指定的 `key` 不在文件中则返回 1。
 
-**`fd`** 指向返回代表底层数据库的文件描述符的例程的指针。所有以相同 `file` 名调用 `dbopen` 的进程都将获得引用同一文件的文件描述符。此文件描述符可安全地用作 [fcntl(2)](../man2/fcntl.2.md) 和 [flock(2)](../man2/flock.2.md) 锁定函数的参数。该文件描述符不一定与访问方法使用的任何底层文件关联。内存数据库没有可用的文件描述符。`fd` 例程出错时返回 -1（设置 `errno`），成功时返回文件描述符。
+**`fd`** 指向返回代表底层数据库的文件描述符的例程的指针。所有以相同 `file` 名调用 `dbopen` 的进程都将获得引用同一文件的文件描述符。此文件描述符可安全地用作 [fcntl(2)](../sys/fcntl.2.md) 和 [flock(2)](../sys/flock.2.md) 锁定函数的参数。该文件描述符不一定与访问方法使用的任何底层文件关联。内存数据库没有可用的文件描述符。`fd` 例程出错时返回 -1（设置 `errno`），成功时返回文件描述符。
 
 **`get`** 指向用于从数据库进行按键检索的接口例程的指针。与指定 `key` 关联的数据的地址和长度在 `data` 所引用的结构中返回。`get` 例程出错时返回 -1（设置 `errno`），成功时返回 0，如果 `key` 不在文件中则返回 1。
 
@@ -109,19 +109,19 @@ typedef struct {
 
 ## 错误
 
-`dbopen` 例程可能失败并为库例程 [open(2)](../man2/open.2.md) 和 malloc(3) 所指定的任何错误或以下错误设置 `errno`：
+`dbopen` 例程可能失败并为库例程 [open(2)](../sys/open.2.md) 和 malloc(3) 所指定的任何错误或以下错误设置 `errno`：
 
 **`EFTYPE`** 文件格式不正确。
 
 **`EINVAL`** 指定了与当前文件规范不兼容或对该函数无意义的参数（哈希函数、填充字节等），（例如，未先初始化就使用游标），或者文件版本号与软件不匹配。
 
-`close` 例程可能失败并为库例程 [close(2)](../man2/close.2.md)、[read(2)](../man2/read.2.md)、[write(2)](../man2/write.2.md)、free(3) 或 [fsync(2)](../man2/fsync.2.md) 所指定的任何错误设置 `errno`。
+`close` 例程可能失败并为库例程 [close(2)](../sys/close.2.md)、[read(2)](../sys/read.2.md)、[write(2)](../sys/write.2.md)、free(3) 或 [fsync(2)](../sys/fsync.2.md) 所指定的任何错误设置 `errno`。
 
-`del`、`get`、`put` 和 `seq` 例程可能失败并为库例程 [read(2)](../man2/read.2.md)、[write(2)](../man2/write.2.md)、free(3) 或 malloc(3) 所指定的任何错误设置 `errno`。
+`del`、`get`、`put` 和 `seq` 例程可能失败并为库例程 [read(2)](../sys/read.2.md)、[write(2)](../sys/write.2.md)、free(3) 或 malloc(3) 所指定的任何错误设置 `errno`。
 
 对于内存数据库，`fd` 例程将失败并将 `errno` 设置为 `ENOENT`。
 
-`sync` 例程可能失败并为库例程 [fsync(2)](../man2/fsync.2.md) 所指定的任何错误设置 `errno`。
+`sync` 例程可能失败并为库例程 [fsync(2)](../sys/fsync.2.md) 所指定的任何错误设置 `errno`。
 
 ## 参见
 

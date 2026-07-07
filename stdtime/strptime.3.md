@@ -38,7 +38,7 @@ Lb libc
 
 ## 参见
 
-[date(1)](../man1/date.1.md), [scanf(3)](scanf.3.md), [strftime(3)](strftime.3.md)
+[date(1)](../man1/date.1.md), [scanf(3)](../stdio/scanf.3.md), [strftime(3)](strftime.3.md)
 
 ## 历史
 

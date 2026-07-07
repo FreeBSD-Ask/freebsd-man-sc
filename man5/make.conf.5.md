@@ -34,7 +34,7 @@ MAKE_SHELL?=sh
 
 **`CFLAGS`**（`str`）控制编译 C 代码时的编译器设置。不支持 `-O` 和 `-O2` 以外的优化级别。
 
-**`CPUTYPE`**（`str`）控制生成代码时面向的处理器。这控制某些代码（当前仅 OpenSSL）中特定于处理器的优化，并修改 `CFLAGS` 和 `COPTFLAGS` 的值，使其包含对 [cc(1)](../man1/cc.1.md) 的适当优化指令。要设置 `CPUTYPE` 的值，请使用 “`?=`” 而不是 “`=`”，以便 [make(1)](../man1/make.1.md) 的目标可以覆盖它。可以使用 `NO_CPU_CFLAGS` 变量覆盖 `CFLAGS` 的自动设置。有关可识别的 `CPUTYPE` 选项列表，请参见 **/usr/share/examples/etc/make.conf**。
+**`CPUTYPE`**（`str`）控制生成代码时面向的处理器。这控制某些代码（当前仅 OpenSSL）中特定于处理器的优化，并修改 `CFLAGS` 和 `COPTFLAGS` 的值，使其包含对 [cc(1)](../man1/clang.1.md) 的适当优化指令。要设置 `CPUTYPE` 的值，请使用 “`?=`” 而不是 “`=`”，以便 [make(1)](../man1/make.1.md) 的目标可以覆盖它。可以使用 `NO_CPU_CFLAGS` 变量覆盖 `CFLAGS` 的自动设置。有关可识别的 `CPUTYPE` 选项列表，请参见 **/usr/share/examples/etc/make.conf**。
 
 **`CXXFLAGS`**（`str`）控制编译 C++ 代码时的编译器设置。`CXXFLAGS` 初始设置为 `CFLAGS` 的值。如果要向 `CXXFLAGS` 值中追加内容，请使用 “`+=`” 而不是 “`=`”。
 
@@ -92,9 +92,9 @@ SENDMAIL_LDADD=-lsasl
 
 **`BOOT_COMCONSOLE_SPEED`**（`int`）如果引导块已配置为使用串行控制台而不是键盘/显卡，则用于控制台的波特率。
 
-**`BOOT_PXELDR_ALWAYS_SERIAL`**（`bool`）将强制使用串行控制台的代码编译到 pxeboot(8) 中。这类似于 [boot(8)](../man8/boot.8.md) 块中的 `-h` 选项。
+**`BOOT_PXELDR_ALWAYS_SERIAL`**（`bool`）将强制使用串行控制台的代码编译到 pxeboot(8) 中。这类似于 [boot(8)](../man8/boot_i386.8.md) 块中的 `-h` 选项。
 
-**`BOOT_PXELDR_PROBE_KEYBOARD`**（`bool`）将探测键盘的代码编译到 pxeboot(8) 中。如果未找到键盘，则以双控制台配置引导。这类似于 [boot(8)](../man8/boot.8.md) 块中的 `-D` 选项。
+**`BOOT_PXELDR_PROBE_KEYBOARD`**（`bool`）将探测键盘的代码编译到 pxeboot(8) 中。如果未找到键盘，则以双控制台配置引导。这类似于 [boot(8)](../man8/boot_i386.8.md) 块中的 `-D` 选项。
 
 **`ENABLE_SUID_K5SU`**（`bool`）如果你希望使用 ksu 工具，请设置此项。否则，它将在未设置 set-user-ID 位的情况下安装。
 
@@ -140,9 +140,9 @@ SENDMAIL_LDADD=-lsasl
 
 **`SENDMAIL_DPADD`**（`str`）构建 sendmail(8) 时要添加的额外依赖项。
 
-**`SENDMAIL_LDADD`**（`str`）构建 sendmail(8) 时添加到 [ld(1)](../man1/ld.1.md) 命令末尾的标志。
+**`SENDMAIL_LDADD`**（`str`）构建 sendmail(8) 时添加到 [ld(1)](../man1/ld.lld.1.md) 命令末尾的标志。
 
-**`SENDMAIL_LDFLAGS`**（`str`）构建 sendmail(8) 时传递给 [ld(1)](../man1/ld.1.md) 命令的标志。
+**`SENDMAIL_LDFLAGS`**（`str`）构建 sendmail(8) 时传递给 [ld(1)](../man1/ld.lld.1.md) 命令的标志。
 
 **`SENDMAIL_M4_FLAGS`**（`str`）从 `.mc` 文件构建 `.cf` 文件时传递给 m4(1) 的标志。
 
@@ -162,7 +162,7 @@ SENDMAIL_LDADD=-lsasl
 
 **`TOP_TABLE_SIZE`**（`int`）[top(1)](../man1/top.1.md) 对用户名使用哈希表。可以调整此哈希表的大小以匹配本地用户数。表大小应为一个约等于 **/etc/passwd** 中行数两倍的素数。默认值为 20011。
 
-**`WANT_FORCE_OPTIMIZATION_DOWNGRADE`**（`int`）使系统编译器以将高优化级别强制降低到较低级别的方式构建。已知 [cc(1)](../man1/cc.1.md) `-O2` 及以上级别会在不同时期触发已知的优化器错误。所赋值是所使用的最高优化值。
+**`WANT_FORCE_OPTIMIZATION_DOWNGRADE`**（`int`）使系统编译器以将高优化级别强制降低到较低级别的方式构建。已知 [cc(1)](../man1/clang.1.md) `-O2` 及以上级别会在不同时期触发已知的优化器错误。所赋值是所使用的最高优化值。
 
 ### 构建文档
 
@@ -194,7 +194,7 @@ SENDMAIL_LDADD=-lsasl
 
 ## 参见
 
-[cc(1)](../man1/cc.1.md), install(1), [make(1)](../man1/make.1.md), [src.conf(5)](src.conf.5.md), [style.Makefile(5)](style.makefile.5.md), [environ(7)](../man7/environ.7.md), [ports(7)](../man7/ports.7.md), sendmail(8)
+[cc(1)](../man1/clang.1.md), install(1), [make(1)](../man1/make.1.md), [src.conf(5)](src.conf.5.md), [style.Makefile(5)](style.makefile.5.md), [environ(7)](../man7/environ.7.md), [ports(7)](../man7/ports.7.md), sendmail(8)
 
 ## 历史
 

@@ -73,7 +73,7 @@ lcong48(unsigned short p[7]);
 
 ## 参见
 
-[arc4random(3)](arc4random.3.md), [rand(3)](../man3/rand.3.md), [random(3)](../man3/random.3.md)
+[arc4random(3)](arc4random.3.md), [rand(3)](../stdlib/rand.3.md), [random(3)](../stdlib/random.3.md)
 
 ## 标准
 

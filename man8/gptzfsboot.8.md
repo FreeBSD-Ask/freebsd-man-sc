@@ -18,15 +18,15 @@ GPT 标准允许可变数量的分区，但 `gptzfsboot` 只能从包含 128 个
 
 `gptzfsboot` 会尝试查找所有由 BIOS 可见的硬盘或其上的分区所组成的 ZFS 存储池。`gptzfsboot` 会在所有可见磁盘以及已发现的受支持分区中（针对所有受支持的分区方案类型）查找 ZFS 设备标签。搜索从加载 `gptzfsboot` 自身的磁盘开始。其他磁盘按 BIOS 定义的顺序进行探测。在对磁盘进行探测后，如果 `gptzfsboot` 确定整盘不是 ZFS 存储池的成员，则会按分区表中的顺序逐一探测各分区。目前支持 GPT 和 MBR 分区方案。对于 GPT 方案，仅探测 `freebsd-zfs` 类型的分区。在探测过程中看到的第一个存储池将作为默认引导存储池。
 
-由存储池的 `bootfs` 属性指定的文件系统作为默认引导文件系统。如果未设置 `bootfs` 属性，则使用该存储池的根文件系统作为默认值。从引导文件系统加载 [loader(8)](loader.8.md)。如果引导文件系统中存在 `/boot.config` 或 `/boot/config`，则从中读取引导选项，方式与 [boot(8)](boot.8.md) 相同。
+由存储池的 `bootfs` 属性指定的文件系统作为默认引导文件系统。如果未设置 `bootfs` 属性，则使用该存储池的根文件系统作为默认值。从引导文件系统加载 [loader(8)](loader.8.md)。如果引导文件系统中存在 `/boot.config` 或 `/boot/config`，则从中读取引导选项，方式与 [boot(8)](boot_i386.8.md) 相同。
 
 第一个成功探测到的设备以及第一个检测到的存储池的 ZFS GUID 会通过 `vfs.zfs.boot.primary_vdev` 和 `vfs.zfs.boot.primary_pool` 变量提供给 [loader(8)](loader.8.md)。
 
 ## 用法
 
-通常 `gptzfsboot` 会以完全自动的模式引导。但与 [boot(8)](boot.8.md) 一样，可以中断自动引导过程，并通过提示符与 `gptzfsboot` 交互。`gptzfsboot` 接受 [boot(8)](boot.8.md) 支持的所有选项。
+通常 `gptzfsboot` 会以完全自动的模式引导。但与 [boot(8)](boot_i386.8.md) 一样，可以中断自动引导过程，并通过提示符与 `gptzfsboot` 交互。`gptzfsboot` 接受 [boot(8)](boot_i386.8.md) 支持的所有选项。
 
-文件系统规范和 [loader(8)](loader.8.md) 的路径与 [boot(8)](boot.8.md) 不同。其格式为
+文件系统规范和 [loader(8)](loader.8.md) 的路径与 [boot(8)](boot_i386.8.md) 不同。其格式为
 
 `[[zfs:pool/filesystem:][/path/to/loader]]`
 
@@ -60,7 +60,7 @@ gpart bootcode -p /boot/gptzfsboot -i 1 ada0
 
 ## 参见
 
-[boot.config(5)](../man5/boot.config.5.md), [boot(8)](boot.8.md), [gpart(8)](gpart.8.md), [loader(8)](loader.8.md), zpool(8)
+[boot.config(5)](../man5/boot.config.5.md), [boot(8)](boot_i386.8.md), [gpart(8)](gpart.8.md), [loader(8)](loader.8.md), zpool(8)
 
 ## 历史
 

@@ -22,7 +22,7 @@ posix_openpt(int oflag);
 
 ## 描述
 
-`posix_openpt()` 函数分配一个新的伪终端，并与其主设备建立连接。从设备将被创建在 **/dev/pts** 中。伪终端分配完成后，从设备在使用前应具有正确的权限（参见 [grantpt(3)](../man3/grantpt.3.md)）。从设备的名称可以通过调用 [ptsname(3)](../man3/ptsname.3.md) 来确定。
+`posix_openpt()` 函数分配一个新的伪终端，并与其主设备建立连接。从设备将被创建在 **/dev/pts** 中。伪终端分配完成后，从设备在使用前应具有正确的权限（参见 [grantpt(3)](../stdlib/ptsname.3.md)）。从设备的名称可以通过调用 [ptsname(3)](../stdlib/ptsname.3.md) 来确定。
 
 打开文件描述的文件状态标志和文件访问模式将根据 `oflag` 的值进行设置。`oflag` 的值由以下列表中定义的标志按位或构成：
 
@@ -54,7 +54,7 @@ posix_openpt(int oflag);
 
 ## 参见
 
-[grantpt(3)](../man3/grantpt.3.md), [ptsname(3)](../man3/ptsname.3.md), [pts(4)](../man4/pts.4.md), [tty(4)](../man4/tty.4.md)
+[grantpt(3)](../stdlib/ptsname.3.md), [ptsname(3)](../stdlib/ptsname.3.md), [pts(4)](../man4/pts.4.md), [tty(4)](../man4/tty.4.md)
 
 ## 标准
 

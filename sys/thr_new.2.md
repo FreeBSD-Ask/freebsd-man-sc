@@ -102,7 +102,7 @@ struct thr_param {
 
 **[`EPROCLIM`]** 创建新线程将超过 `RACCT_NTHR` 限制，参见 rctl_get_racct(2)。
 
-**[`EPROCLIM`]** 创建新线程将超过 `kern.threads.max_threads_per_proc` [sysctl(3)](../man3/sysctl.3.md) 限制。
+**[`EPROCLIM`]** 创建新线程将超过 `kern.threads.max_threads_per_proc` [sysctl(3)](../gen/sysctl.3.md) 限制。
 
 **[`ENOMEM`]** 没有足够的内核内存来分配新线程结构。
 

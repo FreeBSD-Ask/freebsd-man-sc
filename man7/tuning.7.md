@@ -104,7 +104,7 @@ FreeBSD 允许在内核配置中指定多个调度器，并在引导时从中选
 
 ## 参见
 
-[netstat(1)](../man1/netstat.1.md), [systat(1)](../man1/systat.1.md), sendfile(2), [ata(4)](../man4/ata.4.md), [dummynet(4)](../man4/dummynet.4.md), [eventtimers(4)](../man4/eventtimers.4.md), [ffs(4)](../man4/ffs.4.md), login.conf(5), [rc.conf(5)](../man5/rc.conf.5.md), [sysctl.conf(5)](../man5/sysctl.conf.5.md), [firewall(7)](firewall.7.md), [hier(7)](hier.7.md), [ports(7)](ports.7.md), [stats(7)](stats.7.md), [boot(8)](../man8/boot.8.md), bsdinstall(8), ccdconfig(8), [config(8)](../man8/config.8.md), fsck(8), gjournal(8), [gpart(8)](../man8/gpart.8.md), gstripe(8), [ifconfig(8)](../man8/ifconfig.8.md), [ipfw(8)](../man8/ipfw.8.md), [loader(8)](../man8/loader.8.md), [mount(8)](../man8/mount.8.md), newfs(8), [route(8)](../man8/route.8.md), [sysctl(8)](../man8/sysctl.8.md), tunefs(8)
+[netstat(1)](../man1/netstat.1.md), [systat(1)](../man1/systat.1.md), sendfile(2), [ata(4)](../man4/ata.4.md), [dummynet(4)](../man4/dummynet.4.md), [eventtimers(4)](../man4/eventtimers.4.md), [ffs(4)](../man4/ffs.4.md), login.conf(5), [rc.conf(5)](../man5/rc.conf.5.md), [sysctl.conf(5)](../man5/sysctl.conf.5.md), [firewall(7)](firewall.7.md), [hier(7)](hier.7.md), [ports(7)](ports.7.md), [stats(7)](stats.7.md), [boot(8)](../man8/boot_i386.8.md), bsdinstall(8), ccdconfig(8), [config(8)](../man8/config.8.md), fsck(8), gjournal(8), [gpart(8)](../man8/gpart.8.md), gstripe(8), [ifconfig(8)](../man8/ifconfig.8.md), [ipfw(8)](../man8/ipfw.8.md), [loader(8)](../man8/loader.8.md), [mount(8)](../man8/mount.8.md), newfs(8), [route(8)](../man8/route.8.md), [sysctl(8)](../man8/sysctl.8.md), tunefs(8)
 
 ## 历史
 

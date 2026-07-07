@@ -37,7 +37,7 @@ thr_self(long *id);
 
 ## 参见
 
-[_umtx_op(2)](_umtx_op.2.md), [thr_exit(2)](thr_exit.2.md), [thr_kill(2)](thr_kill.2.md), [thr_kill2(2)](thr_kill2.2.md), [thr_new(2)](thr_new.2.md), [thr_set_name(2)](thr_set_name.2.md), [pthread_getthreadid_np(3)](../man3/pthread_getthreadid_np.3.md), [pthread_self(3)](../man3/pthread_self.3.md)
+[_umtx_op(2)](_umtx_op.2.md), [thr_exit(2)](thr_exit.2.md), [thr_kill(2)](thr_kill.2.md), [thr_kill2(2)](thr_kill.2.md), [thr_new(2)](thr_new.2.md), [thr_set_name(2)](thr_set_name.2.md), [pthread_getthreadid_np(3)](../man3/pthread_getthreadid_np.3.md), [pthread_self(3)](../man3/pthread_self.3.md)
 
 ## 标准
 

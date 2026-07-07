@@ -70,9 +70,9 @@ $ zcat database.gz | locate -d - pattern
 
 **`-l`** `number` 将输出限制为 `number` 个文件名并退出。
 
-**`-m`** 使用 [mmap(2)](../man2/mmap.2.md) 而非 [stdio(3)](../man3/stdio.3.md) 库。这是默认行为，在大多数情况下更快。
+**`-m`** 使用 [mmap(2)](../sys/mmap.2.md) 而非 [stdio(3)](../stdio/stdio.3.md) 库。这是默认行为，在大多数情况下更快。
 
-**`-s`** 使用 [stdio(3)](../man3/stdio.3.md) 库而非 [mmap(2)](../man2/mmap.2.md)。
+**`-s`** 使用 [stdio(3)](../stdio/stdio.3.md) 库而非 [mmap(2)](../sys/mmap.2.md)。
 
 ## 环境变量
 
@@ -88,7 +88,7 @@ $ zcat database.gz | locate -d - pattern
 
 ## 参见
 
-[find(1)](find.1.md), [whereis(1)](whereis.1.md), [which(1)](which.1.md), [fnmatch(3)](../man3/fnmatch.3.md), [locate.updatedb(8)](../man8/locate.updatedb.8.md)
+[find(1)](find.1.md), [whereis(1)](whereis.1.md), [which(1)](which.1.md), [fnmatch(3)](../gen/fnmatch.3.md), [locate.updatedb(8)](../man8/locate.updatedb.8.md)
 
 > Woods, James A., "Finding Files Fast", *;login*, 8:1, pp. pp. 8-10, 1983.
 

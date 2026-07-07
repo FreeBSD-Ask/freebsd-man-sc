@@ -68,7 +68,7 @@ struct nfsd_srvargs {
 };
 ```
 
-以作为 [nfsd(8)](../man8/nfsd.8.md) 守护进程进入内核。每当 [nfsd(8)](../man8/nfsd.8.md) 守护进程收到 Kerberos 认证票据时，它将从 `nfssvc()` 返回，且 `errno` == `ENEEDAUTH`。[nfsd(8)](../man8/nfsd.8.md) 工具将尝试认证票据，并为 nsd_uid 字段中指定的“用户 ID”在服务器上生成一组凭证。这通过首先认证 Kerberos 票据，然后将 Kerberos 主体映射到本地名称，并通过 [getpwnam(3)](../man3/getpwnam.3.md) 和 [getgrouplist(3)](../man3/getgrouplist.3.md) 获取该用户的一组凭证来完成。如果成功，[nfsd(8)](../man8/nfsd.8.md) 工具将以 `NFSSVC_NFSD` 和 `NFSSVC_AUTHIN` 标志调用 `nfssvc()`，将 nsd_cr 中的凭证映射传入内核，缓存到该客户端的服务器套接字上。如果认证失败，[nfsd(8)](../man8/nfsd.8.md) 以 `NFSSVC_NFSD` 和 `NFSSVC_AUTHINFAIL` 标志调用 `nfssvc()`，表示认证失败。
+以作为 [nfsd(8)](../man8/nfsd.8.md) 守护进程进入内核。每当 [nfsd(8)](../man8/nfsd.8.md) 守护进程收到 Kerberos 认证票据时，它将从 `nfssvc()` 返回，且 `errno` == `ENEEDAUTH`。[nfsd(8)](../man8/nfsd.8.md) 工具将尝试认证票据，并为 nsd_uid 字段中指定的“用户 ID”在服务器上生成一组凭证。这通过首先认证 Kerberos 票据，然后将 Kerberos 主体映射到本地名称，并通过 [getpwnam(3)](../gen/getpwent.3.md) 和 [getgrouplist(3)](../gen/getgrouplist.3.md) 获取该用户的一组凭证来完成。如果成功，[nfsd(8)](../man8/nfsd.8.md) 工具将以 `NFSSVC_NFSD` 和 `NFSSVC_AUTHIN` 标志调用 `nfssvc()`，将 nsd_cr 中的凭证映射传入内核，缓存到该客户端的服务器套接字上。如果认证失败，[nfsd(8)](../man8/nfsd.8.md) 以 `NFSSVC_NFSD` 和 `NFSSVC_AUTHINFAIL` 标志调用 `nfssvc()`，表示认证失败。
 
 主 [nfsd(8)](../man8/nfsd.8.md) 服务器守护进程调用 `nfssvc()` 时使用 `NFSSVC_ADDSOCK` 标志和指向以下结构的指针：
 

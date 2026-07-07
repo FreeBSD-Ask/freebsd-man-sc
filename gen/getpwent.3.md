@@ -100,11 +100,11 @@ struct passwd {
 
 ## 兼容性
 
-历史函数 [setpwfile(3)](../man3/setpwfile.3.md) 允许指定备用的密码数据库，现已弃用且不再可用。
+历史函数 setpwfile(3) 允许指定备用的密码数据库，现已弃用且不再可用。
 
 ## 错误
 
-除了以下错误外，这些例程还可能因 [open(2)](../sys/open.2.md)、[dbopen(3)](../man3/dbopen.3.md)、[socket(2)](../sys/socket.2.md) 和 [connect(2)](../sys/connect.2.md) 中指定的任何错误而失败：
+除了以下错误外，这些例程还可能因 [open(2)](../sys/open.2.md)、[dbopen(3)](../db/dbopen.3.md)、[socket(2)](../sys/socket.2.md) 和 [connect(2)](../sys/connect.2.md) 中指定的任何错误而失败：
 
 **[`ERANGE`]** 由 `buffer` 和 `bufsize` 参数指定的缓冲区大小不足以存储结果。调用者应使用更大的缓冲区重试。
 

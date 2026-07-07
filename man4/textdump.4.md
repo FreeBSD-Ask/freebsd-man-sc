@@ -32,7 +32,7 @@
 
 **`version.txt`** 内核版本字符串。可通过清除 `debug.ddb.textdump.do_version` sysctl 禁用。
 
-可使用 [tar(1)](../man1/tar.1.md) 提取内核 textdump。
+可使用 [tar(1)](../man1/bsdtar.1.md) 提取内核 textdump。
 
 ## 配置
 
@@ -67,7 +67,7 @@ script kdb.enter.witness=show locks
 
 ## 参见
 
-[tar(1)](../man1/tar.1.md), [ddb(4)](ddb.4.md), tar(5), ddb(8), dumpon(8), savecore(8), [sysctl(8)](../man8/sysctl.8.md)
+[tar(1)](../man1/bsdtar.1.md), [ddb(4)](ddb.4.md), tar(5), ddb(8), dumpon(8), savecore(8), [sysctl(8)](../man8/sysctl.8.md)
 
 ## 历史
 

@@ -28,11 +28,11 @@ Lb libc
 
 ## 错误
 
-`remove` 函数可能失败，并为 lstat(2)、[rmdir(2)](../man2/rmdir.2.md) 或 [unlink(2)](../man2/unlink.2.md) 例程所指定的任何错误设置 `errno`。
+`remove` 函数可能失败，并为 lstat(2)、[rmdir(2)](../sys/rmdir.2.md) 或 [unlink(2)](../sys/unlink.2.md) 例程所指定的任何错误设置 `errno`。
 
 ## 参见
 
-[rmdir(2)](../man2/rmdir.2.md), [unlink(2)](../man2/unlink.2.md)
+[rmdir(2)](../sys/rmdir.2.md), [unlink(2)](../sys/unlink.2.md)
 
 ## 标准
 

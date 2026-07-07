@@ -306,7 +306,7 @@ struct mtsetlist {
 
 ## 参见
 
-mt(1), [tar(1)](../man1/tar.1.md), [sa(4)](sa.4.md)
+mt(1), [tar(1)](../man1/bsdtar.1.md), [sa(4)](sa.4.md)
 
 ## 历史
 

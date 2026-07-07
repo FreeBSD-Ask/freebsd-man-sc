@@ -2160,7 +2160,7 @@ ipfw add 100 queue 1 ip from 192.168.0.0/24 to any
 
 ## 参见
 
-[cpp(1)](../man1/cpp.1.md), m4(1), fnmatch(3), [altq(4)](../man4/altq.4.md), [divert(4)](../man4/divert.4.md), [dummynet(4)](../man4/dummynet.4.md), if_bridge(4), [ip(4)](../man4/ip.4.md), [ipfirewall(4)](../man4/ipfirewall.4.md), [ng_ether(4)](../man4/ng_ether.4.md), [ng_ipfw(4)](../man4/ng_ipfw.4.md), [protocols(5)](../man5/protocols.5.md), [services(5)](../man5/services.5.md), [init(8)](init.8.md), [kldload(8)](kldload.8.md), [reboot(8)](reboot.8.md), [sysctl(8)](sysctl.8.md), syslogd(8), [sysrc(8)](sysrc.8.md)
+[cpp(1)](../man1/clang.1.md), m4(1), fnmatch(3), [altq(4)](../man4/altq.4.md), [divert(4)](../man4/divert.4.md), [dummynet(4)](../man4/dummynet.4.md), if_bridge(4), [ip(4)](../man4/ip.4.md), [ipfirewall(4)](../man4/ipfirewall.4.md), [ng_ether(4)](../man4/ng_ether.4.md), [ng_ipfw(4)](../man4/ng_ipfw.4.md), [protocols(5)](../man5/protocols.5.md), [services(5)](../man5/services.5.md), [init(8)](init.8.md), [kldload(8)](kldload.8.md), [reboot(8)](reboot.8.md), [sysctl(8)](sysctl.8.md), syslogd(8), [sysrc(8)](sysrc.8.md)
 
 ## 历史
 

@@ -19,7 +19,7 @@ VOP_DEALLOCATE(struct vnode *vp, off_t *offset, off_t *len, int flags,
 
 ## 描述
 
-此 VOP 调用对文件中的偏移量范围清零/释放存储空间。它用于实现 [fspacectl(2)](../man2/fspacectl.2.md) 系统调用。
+此 VOP 调用对文件中的偏移量范围清零/释放存储空间。它用于实现 [fspacectl(2)](../sys/fspacectl.2.md) 系统调用。
 
 其参数为：
 

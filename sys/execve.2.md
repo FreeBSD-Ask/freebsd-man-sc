@@ -123,7 +123,7 @@ char **argv, **envp;
 
 ## 参见
 
-[ktrace(1)](../man1/ktrace.1.md), [_exit(2)](_exit.2.md), [fork(2)](fork.2.md), [open(2)](open.2.md), execl(3), [exit(3)](../gen/exit.3.md), [sysctl(3)](../gen/sysctl.3.md), [fdescfs(4)](../man4/fdescfs.4.md), [a.out(5)](../man5/a.out.5.md), [elf(5)](../man5/elf.5.md), [environ(7)](../man7/environ.7.md), [mount(8)](../man8/mount.8.md)
+[ktrace(1)](../man1/ktrace.1.md), [_exit(2)](_exit.2.md), [fork(2)](fork.2.md), [open(2)](open.2.md), execl(3), [exit(3)](../stdlib/exit.3.md), [sysctl(3)](../gen/sysctl.3.md), [fdescfs(4)](../man4/fdescfs.4.md), [a.out(5)](../man5/a.out.5.md), [elf(5)](../man5/elf.5.md), [environ(7)](../man7/environ.7.md), [mount(8)](../man8/mount.8.md)
 
 ## 标准
 

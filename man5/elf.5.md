@@ -511,7 +511,7 @@ FreeBSD 定义了以下 ELF note 类型（`desc` 的相应解释如下）
 
 ## 参见
 
-as(1), gdb(1) (`ports/devel/gdb`), [ld(1)](../man1/ld.1.md), objdump(1), [readelf(1)](../man1/readelf.1.md), execve(2), zlib(3), [ar(5)](ar.5.md), [core(5)](core.5.md)
+as(1), gdb(1) (`ports/devel/gdb`), [ld(1)](../man1/ld.lld.1.md), objdump(1), [readelf(1)](../man1/readelf.1.md), execve(2), zlib(3), [ar(5)](ar.5.md), [core(5)](core.5.md)
 
 > Hewlett Packard, *Elf-64 Object File Format*.
 

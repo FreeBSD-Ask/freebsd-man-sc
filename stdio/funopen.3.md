@@ -22,7 +22,7 @@ Lb libc
 
 通常，省略某个函数意味着对生成的流执行相应操作的任何尝试都将失败。若省略关闭函数，关闭流时将刷新所有缓冲输出然后成功返回。
 
-`readfn`、`writefn`、`seekfn` 和 `closefn` 的调用约定必须分别与 [read(2)](../man2/read.2.md)、[write(2)](../man2/write.2.md)、[lseek(2)](../man2/lseek.2.md) 和 [close(2)](../man2/close.2.md) 匹配，唯一区别是传递给它们的 `cookie` 参数（在 `funopen` 中指定）替代了传统的文件描述符参数。
+`readfn`、`writefn`、`seekfn` 和 `closefn` 的调用约定必须分别与 [read(2)](../sys/read.2.md)、[write(2)](../sys/write.2.md)、[lseek(2)](../sys/lseek.2.md) 和 [close(2)](../sys/close.2.md) 匹配，唯一区别是传递给它们的 `cookie` 参数（在 `funopen` 中指定）替代了传统的文件描述符参数。
 
 读写 I/O 函数允许通过调用 setvbuf(3) 更改全缓冲或行缓冲流的底层缓冲区。它们也不必完全填满或清空缓冲区。但不允许将流从无缓冲改为缓冲，也不允许更改行缓冲标志的状态。它们还必须准备应对在最近指定缓冲区之外的其他缓冲区上发生读取或写入调用的情况。
 
@@ -48,7 +48,7 @@ Lb libc
 
 ## 参见
 
-[fcntl(2)](../man2/fcntl.2.md), [open(2)](../man2/open.2.md), [fclose(3)](fclose.3.md), [fopen(3)](fopen.3.md), [fopencookie(3)](fopencookie.3.md), [fseek(3)](fseek.3.md), [setbuf(3)](setbuf.3.md)
+[fcntl(2)](../sys/fcntl.2.md), [open(2)](../sys/open.2.md), [fclose(3)](fclose.3.md), [fopen(3)](fopen.3.md), [fopencookie(3)](fopencookie.3.md), [fseek(3)](fseek.3.md), [setbuf(3)](setbuf.3.md)
 
 ## 历史
 

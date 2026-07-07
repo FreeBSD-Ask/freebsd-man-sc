@@ -24,7 +24,7 @@ getppid(void);
 
 ## 描述
 
-`getpid()` 系统调用返回调用进程的进程 ID。尽管该 ID 保证唯一，但出于安全原因，*不应*使用它来构造临时文件名；请参见 [mkstemp(3)](../man3/mkstemp.3.md)。
+`getpid()` 系统调用返回调用进程的进程 ID。尽管该 ID 保证唯一，但出于安全原因，*不应*使用它来构造临时文件名；请参见 mkstemp(3)。
 
 `getppid()` 系统调用返回调用进程的父进程的进程 ID。
 
@@ -34,7 +34,7 @@ getppid(void);
 
 ## 参见
 
-[fork(2)](fork.2.md), [getpgrp(2)](getpgrp.2.md), [kill(2)](kill.2.md), [setpgid(2)](setpgid.2.md), [setsid(2)](setsid.2.md), [exec(3)](../man3/exec.3.md)
+[fork(2)](fork.2.md), [getpgrp(2)](getpgrp.2.md), [kill(2)](kill.2.md), [setpgid(2)](setpgid.2.md), [setsid(2)](setsid.2.md), [exec(3)](../gen/exec.3.md)
 
 ## 标准
 

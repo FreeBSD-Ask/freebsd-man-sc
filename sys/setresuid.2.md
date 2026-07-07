@@ -52,7 +52,7 @@ setresuid(uid_t ruid, uid_t euid, uid_t suid);
 
 ## 参见
 
-[getegid(2)](getegid.2.md), [geteuid(2)](geteuid.2.md), [getgid(2)](getgid.2.md), [getuid(2)](getuid.2.md), [issetugid(2)](issetugid.2.md), [setgid(2)](setgid.2.md), [setregid(2)](setregid.2.md), [setreuid(2)](setreuid.2.md), [setuid(2)](setuid.2.md)
+[getegid(2)](getgid.2.md), [geteuid(2)](getuid.2.md), [getgid(2)](getgid.2.md), [getuid(2)](getuid.2.md), [issetugid(2)](issetugid.2.md), [setgid(2)](setuid.2.md), [setregid(2)](setregid.2.md), [setreuid(2)](setreuid.2.md), [setuid(2)](setuid.2.md)
 
 ## 历史
 

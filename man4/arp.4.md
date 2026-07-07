@@ -28,7 +28,7 @@ ARP 被动监视冒充本地主机的主机（即响应对本地主机地址的 
 
 ## MIB 变量
 
-ARP 协议在 [sysctl(3)](../man3/sysctl.3.md) MIB 的 `net.link.ether.inet` 分支中实现了许多可配置变量。
+ARP 协议在 [sysctl(3)](../gen/sysctl.3.md) MIB 的 `net.link.ether.inet` 分支中实现了许多可配置变量。
 
 **`allow_multicast`** 安装硬件地址中设置了多播位的 ARP 条目。安装此类条目违反 RFC 1812，但某些专有负载均衡技术要求路由器这样做。默认关闭。
 

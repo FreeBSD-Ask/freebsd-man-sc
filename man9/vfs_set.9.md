@@ -61,7 +61,7 @@ VFS_SET(myfs_vfsops, myfs, 0);
 
 ## 参见
 
-[jail(2)](../man2/jail.2.md), [jail(8)](../man8/jail.8.md), [DECLARE_MODULE(9)](declare_module.9.md), vfs_modevent(9), [vfsconf(9)](vfsconf.9.md)
+[jail(2)](../sys/jail.2.md), [jail(8)](../man8/jail.8.md), [DECLARE_MODULE(9)](declare_module.9.md), vfs_modevent(9), [vfsconf(9)](vfsconf.9.md)
 
 ## 作者
 

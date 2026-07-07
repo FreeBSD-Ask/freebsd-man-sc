@@ -58,7 +58,7 @@ pdwait(int fd, int *status, int options,
 
 以下系统调用也具有特定于进程描述符的效应：
 
-[fstat(2)](fstat.2.md) 查询进程描述符的状态；当前仅定义了 `st_mode`、`st_birthtime`、`st_atime`、`st_ctime` 和 `st_mtime` 字段。如果属主的读、写和执行位被设置，则由进程描述符表示的进程仍然存活。
+[fstat(2)](stat.2.md) 查询进程描述符的状态；当前仅定义了 `st_mode`、`st_birthtime`、`st_atime`、`st_ctime` 和 `st_mtime` 字段。如果属主的读、写和执行位被设置，则由进程描述符表示的进程仍然存活。
 
 [poll(2)](poll.2.md) 和 [select(2)](select.2.md) 允许等待进程状态转换；当前仅定义了 `POLLHUP`，并在进程死亡时引发。进程状态转换也可使用 [kqueue(2)](kqueue.2.md) 过滤器 `EVFILT_PROCDESC` 监控；当前仅实现了 `NOTE_EXIT`。
 
@@ -82,7 +82,7 @@ pdwait(int fd, int *status, int options,
 
 ## 参见
 
-[close(2)](close.2.md), [fork(2)](fork.2.md), [fstat(2)](fstat.2.md), [kill(2)](kill.2.md), [kqueue(2)](kqueue.2.md), [poll(2)](poll.2.md), [wait4(2)](wait4.2.md), [capsicum(4)](../man4/capsicum.4.md), [procdesc(4)](../man4/procdesc.4.md)
+[close(2)](close.2.md), [fork(2)](fork.2.md), [fstat(2)](stat.2.md), [kill(2)](kill.2.md), [kqueue(2)](kqueue.2.md), [poll(2)](poll.2.md), [wait4(2)](wait.2.md), [capsicum(4)](../man4/capsicum.4.md), [procdesc(4)](../man4/procdesc.4.md)
 
 ## 历史
 

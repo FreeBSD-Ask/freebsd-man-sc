@@ -34,13 +34,13 @@ setmode(const char *mode_str);
 
 ## 错误
 
-`setmode()` 函数可能失败并为 [malloc(3)](../stdlib/malloc.3.md) 或 [strtol(3)](../stdlib/strtol.3.md) 库例程指定的任何错误设置 errno。此外，`setmode()` 将失败并将 `errno` 设置为：
+`setmode()` 函数可能失败并为 [malloc(3)](../stdlib/memory.3.md) 或 [strtol(3)](../stdlib/strtol.3.md) 库例程指定的任何错误设置 errno。此外，`setmode()` 将失败并将 `errno` 设置为：
 
 **`[EINVAL]`** `mode` 参数不表示有效的模式。
 
 ## 参见
 
-[chmod(1)](../man1/chmod.1.md), [stat(2)](../sys/stat.2.md), [umask(2)](../sys/umask.2.md), [malloc(3)](../stdlib/malloc.3.md)
+[chmod(1)](../man1/chmod.1.md), [stat(2)](../sys/stat.2.md), [umask(2)](../sys/umask.2.md), [malloc(3)](../stdlib/memory.3.md)
 
 ## 历史
 

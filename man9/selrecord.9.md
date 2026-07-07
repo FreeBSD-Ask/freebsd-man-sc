@@ -43,7 +43,7 @@ selwakeup(struct selinfo *sip)
 
 ## 参见
 
-[poll(2)](../man2/poll.2.md), [select(2)](../man2/select.2.md)
+[poll(2)](../sys/poll.2.md), [select(2)](../sys/select.2.md)
 
 ## 作者
 

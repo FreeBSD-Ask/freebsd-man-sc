@@ -190,7 +190,7 @@ vfs.root.mountfrom="ufs:/dev/da0s1a"
 
 ## 参见
 
-[kenv(1)](../man1/kenv.1.md), loader.conf.lua(5), [rc.conf(5)](rc.conf.5.md), [boot(8)](../man8/boot.8.md), cpucontrol(8), [loader(8)](../man8/loader.8.md), [loader.4th(8)](../man8/loader.4th.8.md)
+[kenv(1)](../man1/kenv.1.md), loader.conf.lua(5), [rc.conf(5)](rc.conf.5.md), [boot(8)](../man8/boot_i386.8.md), cpucontrol(8), [loader(8)](../man8/loader.8.md), [loader.4th(8)](../man8/loader.4th.8.md)
 
 ## 历史
 

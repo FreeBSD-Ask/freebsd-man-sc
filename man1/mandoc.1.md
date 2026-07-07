@@ -80,7 +80,7 @@ MANPAGER='w3m -T text/html' man -T html -O tag=toc mandoc
 
 **`style`** =`style.css` 文件 `style.css` 用作外部样式表。必须是有效的绝对或相对 URI。推荐使用随 `mandoc` 分发的 `mandoc.css` 文件。它提供类似于终端输出的外观，以及 `mandoc` HTML 输出特有的额外功能，特别是通过在支持深链接的锚点位置加下划虚线使其在视觉上突出，提供显示元素语义功能（宏名称）的工具提示，提供响应式 Web 设计的某些简单方面，以及为偏好深色配色方案的用户提供简单支持。可以使用自定义 CSS 文件，但编写它需要精通 HTML 5、CSS 4 和 mdoc(7) 所有语言，以及熟悉 `mandoc.css` 中使用的 `mandoc` 特定类。此外，虽然 `mandoc.css` 文件始终适应与其一起分发的 `mandoc` 版本生成的 HTML 输出，但维护自定义 CSS 文件通常需要在每次 `mandoc` 升级到新版本时进行调整。如果未通过 `-O` `style` 指定样式表，`-T` `html` 会在 HTML 输出中嵌入一个最小样式表，主要用于为各种宏选择适当的 font-style 和 font-weight 属性。结果在任何图形或基于文本的 Web 浏览器中都可读，但不追求看起来类似于终端输出。相反，格式化主要留给浏览器默认设置和浏览器配置中的用户设置。
 
-**`tag`** [=`term`] 语法和语义与 “ASCII 输出” 相同。这通过向分页器传递以片段标识符结尾的 `file://` URI 实现，而非仅传递文件名。使用此参数时，请使用支持此类 URI 的分页器，例如：因此，对于 HTML 输出，此参数不适用于 [more(1)](more.1.md) 或 [less(1)](less.1.md)。例如，`MANPAGER=less man -T html -O tag=toc mandoc` 不起作用，因为 [less(1)](less.1.md) 不支持 `file://` URI。
+**`tag`** [=`term`] 语法和语义与 “ASCII 输出” 相同。这通过向分页器传递以片段标识符结尾的 `file://` URI 实现，而非仅传递文件名。使用此参数时，请使用支持此类 URI 的分页器，例如：因此，对于 HTML 输出，此参数不适用于 [more(1)](less.1.md) 或 [less(1)](less.1.md)。例如，`MANPAGER=less man -T html -O tag=toc mandoc` 不起作用，因为 [less(1)](less.1.md) 不支持 `file://` URI。
 
 **`toc`** 如果输入文件包含至少两个非标准章节，在输出开头附近打印目录。
 

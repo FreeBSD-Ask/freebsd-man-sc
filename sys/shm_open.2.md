@@ -53,7 +53,7 @@ shm_unlink(const char *path);
 - largepage 对象的内存是在使用 ftruncate(2) 系统调用扩展对象时分配的，而常规共享内存对象的内存是惰性分配的，并且在未使用时可以被换出到交换设备。
 - largepage 对象映射的大小必须是底层大页大小的倍数。此类映射的大多数属性只能以大页大小的粒度进行修改。例如，当使用 [munmap(2)](munmap.2.md) 取消映射 largepage 对象映射的一部分时，或者当使用 [mprotect(2)](mprotect.2.md) 调整 largepage 对象映射的保护属性时，起始地址必须是大页大小对齐的，且操作的长度必须是大页大小的倍数。否则，相应的系统调用将失败并将 `errno` 设置为 `EINVAL`。
 
-`shm_create_largepage()` 的 `psind` 参数指定用于支持对象的大页大小。此参数是 [getpagesizes(3)](../man3/getpagesizes.3.md) 返回的页大小数组的索引。特别地，支持 largepage 对象的所有大页必须具有相同的大小。例如，在具有 2MB 和 1GB 大页大小的系统上，一个 2GB 的 largepage 对象将由 1024 个 2MB 页或 2 个 1GB 页组成，具体取决于 `psind` 参数指定的值。`alloc_policy` 参数指定当尝试使用 ftruncate(2) 为对象分配内存失败时会发生什么。接受以下值：
+`shm_create_largepage()` 的 `psind` 参数指定用于支持对象的大页大小。此参数是 [getpagesizes(3)](../sys-1/getpagesizes.3.md) 返回的页大小数组的索引。特别地，支持 largepage 对象的所有大页必须具有相同的大小。例如，在具有 2MB 和 1GB 大页大小的系统上，一个 2GB 的 largepage 对象将由 1024 个 2MB 页或 2 个 1GB 页组成，具体取决于 `psind` 参数指定的值。`alloc_policy` 参数指定当尝试使用 ftruncate(2) 为对象分配内存失败时会发生什么。接受以下值：
 
 **`SHM_LARGEPAGE_ALLOC_DEFAULT`** 如果（非阻塞）内存分配因空闲连续内存不足而失败，内核将尝试对物理内存进行碎片整理并再次尝试分配。后续分配可能成功也可能失败。如果此后续分配也失败，ftruncate(2) 将失败并将 `errno` 设置为 `ENOMEM`。
 

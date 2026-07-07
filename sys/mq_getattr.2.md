@@ -47,7 +47,7 @@ mq_getattr(mqd_t mqdes, struct mq_attr *mqstat);
 
 ## 参见
 
-[mq_open(2)](mq_open.2.md), [mq_send(2)](mq_send.2.md), [mq_setattr(2)](mq_setattr.2.md), [mq_timedsend(2)](mq_timedsend.2.md)
+[mq_open(2)](mq_open.2.md), [mq_send(2)](mq_send.2.md), [mq_setattr(2)](mq_setattr.2.md), [mq_timedsend(2)](mq_send.2.md)
 
 ## 标准
 

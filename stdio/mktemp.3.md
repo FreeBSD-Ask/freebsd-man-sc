@@ -26,7 +26,7 @@ Lb libc
 
 `mkstemp` 函数对模板进行相同的替换，并创建模板文件，模式为 0600，返回一个打开用于读写的文件描述符。这避免了测试文件存在性与打开文件使用之间的竞争。
 
-`mkostemp` 函数类似于 `mkstemp`，但允许指定额外的 [open(2)](../man2/open.2.md) 标志（定义于
+`mkostemp` 函数类似于 `mkstemp`，但允许指定额外的 [open(2)](../sys/open.2.md) 标志（定义于
 
 `#include <fcntl.h>`
 
@@ -52,11 +52,11 @@ Lb libc
 
 [`EINVAL`] `oflags` 参数无效。
 
-`mkstemp`、`mkostemp`、`mkstemps`、`mkostemps` 和 `mkdtemp` 函数还可能将 `errno` 设置为 [stat(2)](../man2/stat.2.md) 函数指定的任何值。
+`mkstemp`、`mkostemp`、`mkstemps`、`mkostemps` 和 `mkdtemp` 函数还可能将 `errno` 设置为 [stat(2)](../sys/stat.2.md) 函数指定的任何值。
 
-`mkstemp`、`mkostemp`、`mkstemps` 和 `mkostemps` 函数还可能将 `errno` 设置为 [open(2)](../man2/open.2.md) 函数指定的任何值。
+`mkstemp`、`mkostemp`、`mkstemps` 和 `mkostemps` 函数还可能将 `errno` 设置为 [open(2)](../sys/open.2.md) 函数指定的任何值。
 
-`mkdtemp` 函数还可能将 `errno` 设置为 [mkdir(2)](../man2/mkdir.2.md) 函数指定的任何值。
+`mkdtemp` 函数还可能将 `errno` 设置为 [mkdir(2)](../sys/mkdir.2.md) 函数指定的任何值。
 
 ## 注释
 
@@ -70,7 +70,7 @@ Lb libc
 
 ## 参见
 
-[chmod(2)](../man2/chmod.2.md), [getpid(2)](../man2/getpid.2.md), [mkdir(2)](../man2/mkdir.2.md), [open(2)](../man2/open.2.md), [stat(2)](../man2/stat.2.md)
+[chmod(2)](../sys/chmod.2.md), [getpid(2)](../sys/getpid.2.md), [mkdir(2)](../sys/mkdir.2.md), [open(2)](../sys/open.2.md), [stat(2)](../sys/stat.2.md)
 
 ## 标准
 
@@ -82,4 +82,4 @@ Lb libc
 
 ## 缺陷
 
-此函数族生成的文件名可被猜测，但使用大量 `X` 字符增加可能的临时文件名数量时风险降低。这使得 `mktemp` 中测试文件存在性（在 `mktemp` 函数调用中）与打开文件使用（稍后在用户应用程序中）之间的竞争从安全角度特别危险。只要可能，应改用 `mkstemp`、`mkostemp` 或 `mkostempsat`，因为它们不存在竞争条件。若无法使用 `mkstemp`，`mktemp` 创建的文件名应使用 [open(2)](../man2/open.2.md) 的 `O_EXCL` 标志创建，并测试调用的返回状态以判断失败。这可确保程序在攻击者已创建该文件意图操纵或读取其内容时不会盲目继续。
+此函数族生成的文件名可被猜测，但使用大量 `X` 字符增加可能的临时文件名数量时风险降低。这使得 `mktemp` 中测试文件存在性（在 `mktemp` 函数调用中）与打开文件使用（稍后在用户应用程序中）之间的竞争从安全角度特别危险。只要可能，应改用 `mkstemp`、`mkostemp` 或 `mkostempsat`，因为它们不存在竞争条件。若无法使用 `mkstemp`，`mktemp` 创建的文件名应使用 [open(2)](../sys/open.2.md) 的 `O_EXCL` 标志创建，并测试调用的返回状态以判断失败。这可确保程序在攻击者已创建该文件意图操纵或读取其内容时不会盲目继续。

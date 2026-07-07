@@ -25,7 +25,7 @@ getdtablesize(void);
 
 ## 参见
 
-[close(2)](close.2.md), [closefrom(2)](closefrom.2.md), [dup(2)](dup.2.md), [getrlimit(2)](getrlimit.2.md), [sysconf(3)](../man3/sysconf.3.md)
+[close(2)](close.2.md), [closefrom(2)](closefrom.2.md), [dup(2)](dup.2.md), [getrlimit(2)](getrlimit.2.md), [sysconf(3)](../gen/sysconf.3.md)
 
 ## 历史
 

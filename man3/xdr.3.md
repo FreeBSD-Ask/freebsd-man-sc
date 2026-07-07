@@ -157,7 +157,7 @@ xdrrec_create(XDR *xdrs, u_int sendsize, u_int recvsize,
     int (*writeit)(void *, void *, int));
 ```
 
-此例程初始化 `xdrs` 所指向的 XDR 流对象。流的数据写入大小为 `sendsize` 的缓冲区；值为零表示系统应使用合适的默认值。流的数据从大小为 `recvsize` 的缓冲区读取；同样可以通过传递零值来设置为合适的默认值。当流的输出缓冲区满时，调用 `writeit`。类似地，当流的输入缓冲区为空时，调用 `readit`。这两个例程的行为类似于系统调用 [read(2)](../man2/read.2.md) 和 [write(2)](../man2/write.2.md)，不同之处在于 `handle` 作为第一个参数传递给前述例程。注意：XDR 流的 `op` 字段必须由调用者设置。警告：此 XDR 流实现了中间记录流。因此流中有额外的字节用于提供记录边界信息。
+此例程初始化 `xdrs` 所指向的 XDR 流对象。流的数据写入大小为 `sendsize` 的缓冲区；值为零表示系统应使用合适的默认值。流的数据从大小为 `recvsize` 的缓冲区读取；同样可以通过传递零值来设置为合适的默认值。当流的输出缓冲区满时，调用 `writeit`。类似地，当流的输入缓冲区为空时，调用 `readit`。这两个例程的行为类似于系统调用 [read(2)](../sys/read.2.md) 和 [write(2)](../sys/write.2.md)，不同之处在于 `handle` 作为第一个参数传递给前述例程。注意：XDR 流的 `op` 字段必须由调用者设置。警告：此 XDR 流实现了中间记录流。因此流中有额外的字节用于提供记录边界信息。
 
 ```c
 int
@@ -216,7 +216,7 @@ xdrstdio_create(XDR *xdrs, FILE *file, enum xdr_op op);
 #endif
 ```
 
-此例程初始化 `xdrs` 所指向的 XDR 流对象。XDR 流数据写入到或读取自标准 I/O 流 `file`。`op` 参数决定 XDR 流的方向（`XDR_ENCODE`、`XDR_DECODE` 或 `XDR_FREE`）。警告：与此类 XDR 流关联的销毁例程会对 `file` 流调用 [fflush(3)](fflush.3.md)，但从不调用 [fclose(3)](fclose.3.md)。
+此例程初始化 `xdrs` 所指向的 XDR 流对象。XDR 流数据写入到或读取自标准 I/O 流 `file`。`op` 参数决定 XDR 流的方向（`XDR_ENCODE`、`XDR_DECODE` 或 `XDR_FREE`）。警告：与此类 XDR 流关联的销毁例程会对 `file` 流调用 [fflush(3)](../stdio/fflush.3.md)，但从不调用 [fclose(3)](../stdio/fclose.3.md)。
 
 ```c
 int
@@ -299,7 +299,7 @@ xdr_wrapstring(XDR *xdrs, char **sp);
 
 ## 参见
 
-[rpc(3)](rpc.3.md)
+[rpc(3)](../rpc/rpc.3.md)
 
 > "eXternal Data Representation Standard: Protocol Specification".
 

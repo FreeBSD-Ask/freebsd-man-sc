@@ -33,7 +33,7 @@ typeof(value) stdc_bit_floor(value);
 
 ## 参见
 
-[stdbit(3)](stdbit.3.md), [stdc_bit_ceil(3)](stdc_bit_ceil.3.md)
+[stdbit(3)](../man3/stdbit.3.md), [stdc_bit_ceil(3)](stdc_bit_ceil.3.md)
 
 ## 标准
 

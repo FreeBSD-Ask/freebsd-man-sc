@@ -48,7 +48,7 @@ tdsignal(struct thread *td, int signum)
 
 ## 参见
 
-[sigaction(2)](../man2/sigaction.2.md), [signal(9)](signal.9.md), [tsleep(9)](sleep.9.md)
+[sigaction(2)](../sys/sigaction.2.md), [signal(9)](signal.9.md), [tsleep(9)](sleep.9.md)
 
 ## 历史
 

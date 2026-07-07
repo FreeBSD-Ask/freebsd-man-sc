@@ -25,7 +25,7 @@ semget(key_t key, int nsems, int flag);
 
 - 可以指定 IPC_PRIVATE，在这种情况下将创建一个新的 IPC 对象。
 - 可以指定一个整数常量。如果不存在与 `key` 对应的 IPC 对象，且 `flag` 中设置了 IPC_CREAT 位，则会创建一个新的 IPC 对象。
-- 可以使用 [ftok(3)](../man3/ftok.3.md) 函数从路径名生成一个 key。
+- 可以使用 [ftok(3)](../gen/ftok.3.md) 函数从路径名生成一个 key。
 
 新创建的 IPC 对象的模式通过将这些常量按位或到 `flag` 参数中来确定：
 
@@ -69,4 +69,4 @@ semget(key_t key, int nsems, int flag);
 
 ## 参见
 
-[semctl(2)](semctl.2.md), [semop(2)](semop.2.md), [ftok(3)](../man3/ftok.3.md)
+[semctl(2)](semctl.2.md), [semop(2)](semop.2.md), [ftok(3)](../gen/ftok.3.md)

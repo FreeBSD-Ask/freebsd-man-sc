@@ -33,7 +33,7 @@ unsigned int stdc_trailing_ones(value);
 
 ## 参见
 
-[stdbit(3)](stdbit.3.md), stdc_leading_ones(3), [stdc_trailing_zeros(3)](stdc_trailing_zeros.3.md), stdc_first_trailing_zero(3)
+[stdbit(3)](../man3/stdbit.3.md), stdc_leading_ones(3), [stdc_trailing_zeros(3)](stdc_trailing_zeros.3.md), stdc_first_trailing_zero(3)
 
 ## 标准
 

@@ -29,11 +29,11 @@ kill(pid_t pid, int sig);
 
 **如果** `pid` 大于零：`sig` 信号发送给 ID 等于 `pid` 的进程。
 
-**如果** `pid` 为零：`sig` 信号发送给组 ID 等于发送者进程组 ID 且进程有权限的所有进程；这是 [killpg(2)](killpg.2.md) 的一个变体。
+**如果** `pid` 为零：`sig` 信号发送给组 ID 等于发送者进程组 ID 且进程有权限的所有进程；这是 [killpg(2)](../compat-43/killpg.2.md) 的一个变体。
 
 **如果** `pid` 为 -1：如果用户具有超级用户权限，信号将发送给除系统进程（设置了 `P_SYSTEM` 标志的进程）、ID 为 1 的进程（通常是 [init(8)](../man8/init.8.md)）以及发送信号的进程之外的所有进程。如果用户不是超级用户，信号将发送给调用者有权限的所有进程，但不包括发送信号的进程。只要有任何进程能被发送信号，就不会返回错误。
 
-如果进程号为负但不为 -1，信号将发送给所有进程组 ID 等于该进程号绝对值的进程。这是 [killpg(2)](killpg.2.md) 的一个变体。
+如果进程号为负但不为 -1，信号将发送给所有进程组 ID 等于该进程号绝对值的进程。这是 [killpg(2)](../compat-43/killpg.2.md) 的一个变体。
 
 ## 返回值
 
@@ -51,7 +51,7 @@ kill(pid_t pid, int sig);
 
 ## 参见
 
-[getpgrp(2)](getpgrp.2.md), [getpid(2)](getpid.2.md), [killpg(2)](killpg.2.md), [sigaction(2)](sigaction.2.md), [sigqueue(2)](sigqueue.2.md), [raise(3)](../man3/raise.3.md), [init(8)](../man8/init.8.md)
+[getpgrp(2)](getpgrp.2.md), [getpid(2)](getpid.2.md), [killpg(2)](../compat-43/killpg.2.md), [sigaction(2)](sigaction.2.md), [sigqueue(2)](sigqueue.2.md), [raise(3)](../gen/raise.3.md), [init(8)](../man8/init.8.md)
 
 ## 标准
 

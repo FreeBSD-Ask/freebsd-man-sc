@@ -71,7 +71,7 @@ reboot -r
 
 ## 参见
 
-[kenv(1)](../man1/kenv.1.md), reboot(2), getutxent(3), [ipmi(4)](../man4/ipmi.4.md), [boot(8)](boot.8.md), dumpon(8), nextboot(8), savecore(8), [shutdown(8)](shutdown.8.md), sync(8)
+[kenv(1)](../man1/kenv.1.md), reboot(2), getutxent(3), [ipmi(4)](../man4/ipmi.4.md), [boot(8)](boot_i386.8.md), dumpon(8), nextboot(8), savecore(8), [shutdown(8)](shutdown.8.md), sync(8)
 
 ## 历史
 

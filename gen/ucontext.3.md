@@ -42,7 +42,7 @@ Lb libc
 
 ## 参见
 
-[sigaltstack(2)](../man2/sigaltstack.2.md), [getcontext(3)](getcontext.3.md), getcontextx(3), [makecontext(3)](makecontext.3.md)
+[sigaltstack(2)](../sys/sigaltstack.2.md), [getcontext(3)](getcontext.3.md), getcontextx(3), [makecontext(3)](makecontext.3.md)
 
 ## 标准
 

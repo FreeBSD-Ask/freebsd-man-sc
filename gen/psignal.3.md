@@ -60,7 +60,7 @@ str2sig(char *str, int *pnum);
 
 ## 参见
 
-[sigaction(2)](../sys/sigaction.2.md), perror(3), [strerror(3)](strerror.3.md)
+[sigaction(2)](../sys/sigaction.2.md), perror(3), [strerror(3)](../string/strerror.3.md)
 
 ## 标准
 

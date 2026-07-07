@@ -54,7 +54,7 @@ ptrace(int request, pid_t pid, caddr_t addr, int data);
 
 **`security.bsd.see_jail_proc`** 将此 sysctl 设置为零禁止属于与目标进程不同 Jail 的进程发起 `ptrace()` 请求，即使请求进程的 Jail 是目标进程 Jail 的祖先。这些请求将以 ESRCH 错误失败。
 
-**`securelevel` 和 init** 只有 securelevel 为零时才能用 `ptrace` 跟踪 [init(1)](../man1/init.1.md) 进程。
+**`securelevel` 和 init** 只有 securelevel 为零时才能用 `ptrace` 跟踪 init(1) 进程。
 
 **[procctl(2)](procctl.2.md) `PROC_TRACE_CTL`** 进程可通过 [procctl(2)](procctl.2.md) `PROC_TRACE_CTL` 请求拒绝跟踪自身的尝试。此时请求返回 EPERM 错误。
 
@@ -82,7 +82,7 @@ ptrace(int request, pid_t pid, caddr_t addr, int data);
 
 `request` 参数指定正在执行的操作；其余参数的含义取决于操作，但除下文提到的一个特殊情况外，所有 `ptrace()` 调用都由跟踪进程发起，`pid` 参数指定被跟踪进程的进程 ID 或对应的线程 ID。`request` 参数可以是：
 
-**`PT_TRACE_ME`** 此请求是被跟踪进程唯一使用的请求；它声明该进程期望被其父进程跟踪。所有其他参数被忽略。（如果父进程不期望跟踪子进程，可能会对结果感到困惑；一旦被跟踪进程停止，除了通过 `ptrace()` 外无法使其继续。）当进程使用此请求并调用 [execve(2)](execve.2.md) 或基于它的任何例程（如 [execv(3)](../man3/execv.3.md)）时，它将在执行新映像的第一条指令前停止。此外，正在执行的可执行文件上的任何 setuid 或 setgid 位将被忽略。如果子进程由 [vfork(2)](vfork.2.md) 系统调用或带 `RFMEM` 标志的 [rfork(2)](rfork.2.md) 调用创建，调试事件仅在 [execve(2)](execve.2.md) 执行后才报告给父进程。
+**`PT_TRACE_ME`** 此请求是被跟踪进程唯一使用的请求；它声明该进程期望被其父进程跟踪。所有其他参数被忽略。（如果父进程不期望跟踪子进程，可能会对结果感到困惑；一旦被跟踪进程停止，除了通过 `ptrace()` 外无法使其继续。）当进程使用此请求并调用 [execve(2)](execve.2.md) 或基于它的任何例程（如 [execv(3)](../gen/exec.3.md)）时，它将在执行新映像的第一条指令前停止。此外，正在执行的可执行文件上的任何 setuid 或 setgid 位将被忽略。如果子进程由 [vfork(2)](vfork.2.md) 系统调用或带 `RFMEM` 标志的 [rfork(2)](rfork.2.md) 调用创建，调试事件仅在 [execve(2)](execve.2.md) 执行后才报告给父进程。
 
 **`PT_READ_I`**, **`PT_READ_D`** 这些请求从被跟踪进程的地址空间读取单个 `int` 数据。传统上，`ptrace()` 允许具有不同指令和数据地址空间的机器，因此有两个请求：概念上，`PT_READ_I` 从指令空间读取，`PT_READ_D` 从数据空间读取。在当前 FreeBSD 实现中，这两个请求完全相同。`addr` 参数指定（在被跟踪进程的虚拟地址空间中）要进行读取的地址。此地址不需要满足任何对齐约束。读取的值作为 `ptrace()` 的返回值返回。
 
@@ -217,7 +217,7 @@ struct ptrace_sc_ret {
 
 `data` 参数设置为结构大小。如果系统调用成功完成，`sr_error` 设置为零，系统调用的返回值保存在 `sr_retval` 中。如果系统调用执行失败，`sr_error` 字段设置为正的 errno(2) 值。如果系统调用以异常方式完成，`sr_error` 设置为负值：
 - `ERESTART`：系统调用将被重启。
-- `EJUSTRETURN`：系统调用成功完成但未设置返回值（例如 [setcontext(2)](setcontext.2.md) 和 [sigreturn(2)](sigreturn.2.md)）。
+- `EJUSTRETURN`：系统调用成功完成但未设置返回值（例如 setcontext(2) 和 [sigreturn(2)](sigreturn.2.md)）。
 
 **`PT_FOLLOW_FORK`** 此请求控制被跟踪进程的新子进程的跟踪。如果 `data` 非零，在被跟踪进程的事件跟踪掩码中设置 `PTRACE_FORK`。如果 `data` 为零，从被跟踪进程的事件跟踪掩码中清除 `PTRACE_FORK`。
 
@@ -282,7 +282,7 @@ struct ptrace_sc_remote {
 
 ## PT_COREDUMP 和 PT_SC_REMOTE 用法
 
-在转储或发起远程系统调用之前，进程必须已停止。目标进程中的单个线程在内核中被临时取消挂起以执行操作。如果 `ptrace` 调用在线程被取消挂起之前失败，则没有可供 [waitpid(2)](waitpid.2.md) 等待的事件。如果线程已被取消挂起，它将在 `ptrace` 调用返回之前再次停止，必须使用 [waitpid(2)](waitpid.2.md) 等待进程以消费新的停止事件。由于难以推断错误发生前线程是否已被取消挂起，建议在 `PT_COREDUMP` 和 `PT_SC_REMOTE` 之后无条件执行带 `WNOHANG` 标志的 [waitpid(2)](waitpid.2.md)，并静默接受零结果。
+在转储或发起远程系统调用之前，进程必须已停止。目标进程中的单个线程在内核中被临时取消挂起以执行操作。如果 `ptrace` 调用在线程被取消挂起之前失败，则没有可供 [waitpid(2)](wait.2.md) 等待的事件。如果线程已被取消挂起，它将在 `ptrace` 调用返回之前再次停止，必须使用 [waitpid(2)](wait.2.md) 等待进程以消费新的停止事件。由于难以推断错误发生前线程是否已被取消挂起，建议在 `PT_COREDUMP` 和 `PT_SC_REMOTE` 之后无条件执行带 `WNOHANG` 标志的 [waitpid(2)](wait.2.md)，并静默接受零结果。
 
 对于 `PT_SC_REMOTE`，所选线程必须在安全位置停止，当前定义为系统调用退出或从内核返回用户模式（基本上是信号处理程序调用位置）。如果在不安全的停止处尝试执行远程系统调用，内核返回 EBUSY 状态。
 
@@ -378,7 +378,7 @@ struct ptrace_xstate_info {
 
 ## 参见
 
-[execve(2)](execve.2.md), [kill(2)](kill.2.md), [procctl(2)](procctl.2.md), [setcontext(2)](setcontext.2.md), [sigaction(2)](sigaction.2.md), [sigreturn(2)](sigreturn.2.md), [vfork(2)](vfork.2.md), [wait(2)](wait.2.md), [execv(3)](../man3/execv.3.md), [i386_set_watch(3)](../man3/i386_set_watch.3.md), [init(1)](../man1/init.1.md)
+[execve(2)](execve.2.md), [kill(2)](kill.2.md), [procctl(2)](procctl.2.md), setcontext(2), [sigaction(2)](sigaction.2.md), [sigreturn(2)](sigreturn.2.md), [vfork(2)](vfork.2.md), [wait(2)](wait.2.md), [execv(3)](../gen/exec.3.md), [i386_set_watch(3)](../sys-1/i386_set_watch.3.md), init(1)
 
 ## 历史
 

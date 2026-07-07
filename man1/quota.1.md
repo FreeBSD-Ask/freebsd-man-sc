@@ -26,7 +26,7 @@
 
 **`-q`** 打印更简洁的消息，仅包含使用量超过配额的文件系统信息。`-q` 标志优先于 `-v` 标志。
 
-**`-r`** 显示配额结构中出现的原始配额信息。非零时间值也将以 [ctime(3)](../man3/ctime.3.md) 格式显示。此选项隐含 `-v` 并将覆盖 `-q` 标志。
+**`-r`** 显示配额结构中出现的原始配额信息。非零时间值也将以 [ctime(3)](../stdtime/ctime.3.md) 格式显示。此选项隐含 `-v` 并将覆盖 `-q` 标志。
 
 **`-u`** 打印用户配额。除非指定了 `-g`，否则这是默认行为。
 
@@ -50,7 +50,7 @@
 
 ## 参见
 
-[quotactl(2)](../man2/quotactl.2.md), [ctime(3)](../man3/ctime.3.md), [fstab(5)](../man5/fstab.5.md), [edquota(8)](../man8/edquota.8.md), [quotacheck(8)](../man8/quotacheck.8.md), [quotaon(8)](../man8/quotaon.8.md), [repquota(8)](../man8/repquota.8.md), rpc.rquotad(8)
+[quotactl(2)](../sys/quotactl.2.md), [ctime(3)](../stdtime/ctime.3.md), [fstab(5)](../man5/fstab.5.md), [edquota(8)](../man8/edquota.8.md), [quotacheck(8)](../man8/quotacheck.8.md), [quotaon(8)](../man8/quotaon.8.md), [repquota(8)](../man8/repquota.8.md), rpc.rquotad(8)
 
 ## 历史
 

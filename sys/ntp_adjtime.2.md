@@ -24,7 +24,7 @@ ntp_gettime(struct ntptimeval *);
 
 ## 描述
 
-`ntp_adjtime()` 和 `ntp_gettime()` 这两个系统调用是内核与网络时间协议（NTP）守护进程 [ntpd(8)](../man8/ntpd.8.md) 之间的接口。
+`ntp_adjtime()` 和 `ntp_gettime()` 这两个系统调用是内核与网络时间协议（NTP）守护进程 ntpd(8) 之间的接口。
 
 `ntp_adjtime()` 函数供 NTP 守护进程用于将系统时钟调整到外部导出的时间。由 `ntp_adjtime()` 设置的时间偏移和相关变量被 `hardclock()` 用于调整控制系统时钟的相位锁定环或频率锁定环（分别为 PLL 或 FLL）的相位和频率。
 
@@ -142,7 +142,7 @@ struct ntptimeval {
 
 ## 返回值
 
-`ntp_adjtime()` 和 `ntp_gettime()` 成功时返回时钟的当前状态，或返回 [copyin(9)](../man9/copyin.9.md) 和 [copyout(9)](../man9/copyout.9.md) 的任何错误。如果调用 `ntp_adjtime()` 的用户没有足够的权限，`ntp_adjtime()` 还可能返回 `EPERM`。
+`ntp_adjtime()` 和 `ntp_gettime()` 成功时返回时钟的当前状态，或返回 [copyin(9)](../man9/copy.9.md) 和 [copyout(9)](../man9/copy.9.md) 的任何错误。如果调用 `ntp_adjtime()` 的用户没有足够的权限，`ntp_adjtime()` 还可能返回 `EPERM`。
 
 时钟的可能状态有：
 
@@ -164,7 +164,7 @@ struct ntptimeval {
 
 ## 参见
 
-[options(4)](../man4/options.4.md), [ntpd(8)](../man8/ntpd.8.md), [hardclock(9)](../man9/hardclock.9.md), [hz(9)](../man9/hz.9.md)
+options(4), ntpd(8), [hardclock(9)](../man9/hardclock.9.md), [hz(9)](../man9/hz.9.md)
 
 - `http://www.bipm.fr/enus/5_Scientific/c_time/time_1.html`
 - `http://www.boulder.nist.gov/timefreq/general/faq.htm`
@@ -172,4 +172,4 @@ struct ntptimeval {
 
 ## 缺陷
 
-请注意，此 API 极其复杂且有状态。用户不应在没有首先深入审查 [ntpd(8)](../man8/ntpd.8.md) 源代码的情况下尝试修改。
+请注意，此 API 极其复杂且有状态。用户不应在没有首先深入审查 ntpd(8) 源代码的情况下尝试修改。

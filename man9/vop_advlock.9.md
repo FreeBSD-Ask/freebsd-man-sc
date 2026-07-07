@@ -25,7 +25,7 @@ VOP_ADVLOCK(struct vnode *vp, caddr_t id, int op, struct flock *fl,
 
 **`F_WAIT`** 等待直到获得锁。
 
-**`F_FLOCK`** 对锁使用 [flock(2)](../man2/flock.2.md) 语义。
+**`F_FLOCK`** 对锁使用 [flock(2)](../sys/flock.2.md) 语义。
 
 **`F_POSIX`** 对锁使用 POSIX 语义。
 
@@ -37,7 +37,7 @@ VOP_ADVLOCK(struct vnode *vp, caddr_t id, int op, struct flock *fl,
 
 **`id`** 正在更改锁的 id 令牌。
 
-**`op`** 要执行的操作（参见 [fcntl(2)](../man2/fcntl.2.md)）。
+**`op`** 要执行的操作（参见 [fcntl(2)](../sys/fcntl.2.md)）。
 
 **`fl`** 锁的描述。
 
@@ -51,7 +51,7 @@ VOP_ADVLOCK(struct vnode *vp, caddr_t id, int op, struct flock *fl,
 
 ## 参见
 
-[fcntl(2)](../man2/fcntl.2.md), [flock(2)](../man2/flock.2.md), [vnode(9)](vnode.9.md)
+[fcntl(2)](../sys/fcntl.2.md), [flock(2)](../sys/flock.2.md), [vnode(9)](vnode.9.md)
 
 ## 作者
 

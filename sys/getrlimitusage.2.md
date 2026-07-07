@@ -21,9 +21,9 @@ getrlimitusage(unsigned which, int flags, rlim_t *res);
 
 ## 描述
 
-`getrlimitusage()` 系统调用允许进程查询由 [setrlimit(2)](setrlimit.2.md) 调用限制的资源的当前消耗量。
+`getrlimitusage()` 系统调用允许进程查询由 [setrlimit(2)](getrlimit.2.md) 调用限制的资源的当前消耗量。
 
-`which` 参数指定资源，与 [getrlimit(2)](getrlimit.2.md) 和 [setrlimit(2)](setrlimit.2.md) 调用相同，强制执行的资源类型列表参见它们的手册页。
+`which` 参数指定资源，与 [getrlimit(2)](getrlimit.2.md) 和 [setrlimit(2)](getrlimit.2.md) 调用相同，强制执行的资源类型列表参见它们的手册页。
 
 `flags` 参数通过以下方式修改调用行为：
 
@@ -45,7 +45,7 @@ getrlimitusage(unsigned which, int flags, rlim_t *res);
 
 ## 参见
 
-[procstat(1)](../man1/procstat.1.md), [getrlimit(2)](getrlimit.2.md), [setrlimit(2)](setrlimit.2.md)
+[procstat(1)](../man1/procstat.1.md), [getrlimit(2)](getrlimit.2.md), [setrlimit(2)](getrlimit.2.md)
 
 ## 历史
 

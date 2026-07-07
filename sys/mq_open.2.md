@@ -45,7 +45,7 @@ mq_open(const char *name, int oflag, ...);
 
 ## 注释
 
-FreeBSD 基于文件描述符实现消息队列。该描述符在 [fork(2)](fork.2.md) 后由子进程继承。该描述符在 [exec(3)](../man3/exec.3.md) 后的新映像中被关闭。[select(2)](select.2.md) 和 [kevent(2)](kevent.2.md) 系统调用支持消息队列描述符。
+FreeBSD 基于文件描述符实现消息队列。该描述符在 [fork(2)](fork.2.md) 后由子进程继承。该描述符在 [exec(3)](../gen/exec.3.md) 后的新映像中被关闭。[select(2)](select.2.md) 和 [kevent(2)](kqueue.2.md) 系统调用支持消息队列描述符。
 
 关于加载模块或将服务编译到内核中的说明，请参见 [mqueuefs(4)](../man4/mqueuefs.4.md) 联机手册。
 
@@ -89,7 +89,7 @@ FreeBSD 基于文件描述符实现消息队列。该描述符在 [fork(2)](fork
 
 ## 参见
 
-[mq_close(2)](mq_close.2.md), [mq_getattr(2)](mq_getattr.2.md), [mq_receive(2)](mq_receive.2.md), [mq_send(2)](mq_send.2.md), [mq_setattr(2)](mq_setattr.2.md), [mq_unlink(2)](mq_unlink.2.md), [mq_timedreceive(3)](../man3/mq_timedreceive.3.md), [mq_timedsend(3)](../man3/mq_timedsend.3.md), [mqueuefs(4)](../man4/mqueuefs.4.md)
+[mq_close(2)](mq_close.2.md), [mq_getattr(2)](mq_getattr.2.md), [mq_receive(2)](mq_receive.2.md), [mq_send(2)](mq_send.2.md), [mq_setattr(2)](mq_setattr.2.md), [mq_unlink(2)](mq_unlink.2.md), mq_timedreceive(3), mq_timedsend(3), [mqueuefs(4)](../man4/mqueuefs.4.md)
 
 ## 标准
 

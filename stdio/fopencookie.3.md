@@ -33,7 +33,7 @@ typedef struct {
 
 通常，省略某个函数意味着对生成的流执行相应操作的任何尝试都将失败。若省略 `write` 函数，写入流的数据会被丢弃。若省略 `close` 函数，关闭流时将刷新所有缓冲输出然后成功返回。
 
-`read`、`write` 和 `close` 的调用约定必须分别与 [read(2)](../man2/read.2.md)、[write(2)](../man2/write.2.md) 和 [close(2)](../man2/close.2.md) 匹配，唯一区别是传递给它们的 `cookie` 参数（在 `fopencookie` 中指定）替代了传统的文件描述符参数。`seek` 函数使用 `*offset` 和 `whence` 更新当前流偏移量。若 `*offset` 非 NULL，则用当前流偏移量更新 `*offset`。
+`read`、`write` 和 `close` 的调用约定必须分别与 [read(2)](../sys/read.2.md)、[write(2)](../sys/write.2.md) 和 [close(2)](../sys/close.2.md) 匹配，唯一区别是传递给它们的 `cookie` 参数（在 `fopencookie` 中指定）替代了传统的文件描述符参数。`seek` 函数使用 `*offset` 和 `whence` 更新当前流偏移量。若 `*offset` 非 NULL，则用当前流偏移量更新 `*offset`。
 
 `fopencookie` 实现为 [funopen(3)](funopen.3.md) 接口的薄层封装。该接口的限制、可能性和要求同样适用于 `fopencookie`。
 
@@ -49,7 +49,7 @@ typedef struct {
 
 ## 参见
 
-[fcntl(2)](../man2/fcntl.2.md), [open(2)](../man2/open.2.md), [fclose(3)](fclose.3.md), [fopen(3)](fopen.3.md), [fseek(3)](fseek.3.md), [funopen(3)](funopen.3.md)
+[fcntl(2)](../sys/fcntl.2.md), [open(2)](../sys/open.2.md), [fclose(3)](fclose.3.md), [fopen(3)](fopen.3.md), [fseek(3)](fseek.3.md), [funopen(3)](funopen.3.md)
 
 ## 历史
 

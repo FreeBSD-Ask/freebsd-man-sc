@@ -33,7 +33,7 @@ sem_unlink(const char *name);
 
 `oflag` 参数中可设置以下位：
 
-**`O_CREAT`** 如果信号量不存在则创建。对 `sem_open()` 调用的第三个参数必须是 `mode_t` 类型，指定信号量的模式。仅检查 `S_IWUSR`、`S_IWGRP` 和 `S_IWOTH` 位；无法仅授予信号量的“读”权限。该模式会根据进程的文件创建掩码进行修改；参见 [umask(2)](../man2/umask.2.md)。第四个参数必须是 `unsigned int` 类型，指定信号量的初始值，且不得大于 `SEM_VALUE_MAX`。
+**`O_CREAT`** 如果信号量不存在则创建。对 `sem_open()` 调用的第三个参数必须是 `mode_t` 类型，指定信号量的模式。仅检查 `S_IWUSR`、`S_IWGRP` 和 `S_IWOTH` 位；无法仅授予信号量的“读”权限。该模式会根据进程的文件创建掩码进行修改；参见 [umask(2)](../sys/umask.2.md)。第四个参数必须是 `unsigned int` 类型，指定信号量的初始值，且不得大于 `SEM_VALUE_MAX`。
 
 **`O_EXCL`** 如果信号量不存在则创建。如果信号量已存在，`sem_open()` 将失败。除非同时指定了 `O_CREAT`，否则此标志被忽略。
 
@@ -85,7 +85,7 @@ sem_unlink(const char *name);
 
 ## 参见
 
-[close(2)](../man2/close.2.md), [open(2)](../man2/open.2.md), [umask(2)](../man2/umask.2.md), [unlink(2)](../man2/unlink.2.md), [sem_getvalue(3)](sem_getvalue.3.md), [sem_post(3)](sem_post.3.md), sem_trywait(3), [sem_wait(3)](sem_wait.3.md)
+[close(2)](../sys/close.2.md), [open(2)](../sys/open.2.md), [umask(2)](../sys/umask.2.md), [unlink(2)](../sys/unlink.2.md), [sem_getvalue(3)](sem_getvalue.3.md), [sem_post(3)](sem_post.3.md), sem_trywait(3), [sem_wait(3)](sem_wait.3.md)
 
 ## 标准
 

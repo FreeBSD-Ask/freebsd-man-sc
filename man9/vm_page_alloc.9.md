@@ -57,7 +57,7 @@ vm_page_alloc_noobj_domain(int domain, int req)
 
 ## 描述
 
-`vm_page_alloc` 系列函数分配一个或多个物理内存页。大多数内核代码不应直接调用这些函数，而应使用内核内存分配器（如 [malloc(9)](malloc.9.md) 或 [uma(9)](uma.9.md)），或使用页缓存的更高层接口（如 [vm_page_grab(9)](vm_page_grab.9.md)）。
+`vm_page_alloc` 系列函数分配一个或多个物理内存页。大多数内核代码不应直接调用这些函数，而应使用内核内存分配器（如 [malloc(9)](malloc.9.md) 或 [uma(9)](zone.9.md)），或使用页缓存的更高层接口（如 [vm_page_grab(9)](vm_page_grab.9.md)）。
 
 所有函数都接受一个 `req` 参数，该参数编码了分配优先级和可选的修饰标志，如下所述。名称中不包含 "noobj" 的函数还会将起始索引为 `pindex` 的页面插入到 VM 对象 `object` 中。该对象必须处于写锁定状态，且在指定索引处不能已有驻留页面。名称中包含 "domain" 的函数通过从 `domain` 指定的 [numa(4)](../man4/numa.4.md) 域返回页面来支持 NUMA 感知分配。
 
@@ -101,7 +101,7 @@ vm_page_alloc_noobj_domain(int domain, int req)
 
 ## 参见
 
-[numa(4)](../man4/numa.4.md), [malloc(9)](malloc.9.md), [uma(9)](uma.9.md), [vm_page_grab(9)](vm_page_grab.9.md), [vm_page_sbusy(9)](vm_page_sbusy.9.md)
+[numa(4)](../man4/numa.4.md), [malloc(9)](malloc.9.md), [uma(9)](zone.9.md), [vm_page_grab(9)](vm_page_grab.9.md), vm_page_sbusy(9)
 
 ## 作者
 

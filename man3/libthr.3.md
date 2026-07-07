@@ -30,13 +30,13 @@ Lb libthr
 
 首先，在 SMP 系统上，执行自旋循环，库尝试通过 [atomic(9)](../man9/atomic.9.md) 操作获取锁。循环次数由 `LIBPTHREAD_SPINLOOPS` 环境变量控制，默认值为 2000。
 
-如果自旋循环未能获取互斥锁，则执行让步循环，执行与自旋循环相同的 [atomic(9)](../man9/atomic.9.md) 获取尝试，但每次尝试后通过 [sched_yield(2)](../man2/sched_yield.2.md) 系统调用让出线程的 CPU 时间。默认情况下不执行让步循环。这由 `LIBPTHREAD_YIELDLOOPS` 环境变量控制。
+如果自旋循环未能获取互斥锁，则执行让步循环，执行与自旋循环相同的 [atomic(9)](../man9/atomic.9.md) 获取尝试，但每次尝试后通过 [sched_yield(2)](../sys/sched_yield.2.md) 系统调用让出线程的 CPU 时间。默认情况下不执行让步循环。这由 `LIBPTHREAD_YIELDLOOPS` 环境变量控制。
 
-如果自旋和让步循环均未能获取锁，则线程被移出 CPU 并通过 [_umtx_op(2)](../man2/_umtx_op.2.md) 系统调用在内核中休眠。当锁可用时，内核唤醒线程并将锁的所有权移交给被唤醒的线程。
+如果自旋和让步循环均未能获取锁，则线程被移出 CPU 并通过 [_umtx_op(2)](../sys/_umtx_op.2.md) 系统调用在内核中休眠。当锁可用时，内核唤醒线程并将锁的所有权移交给被唤醒的线程。
 
 ## 线程栈
 
-每个线程都有一个私有的用户态栈区域，供 C 运行时使用。主（初始）线程栈的大小由内核设置，并受 `RLIMIT_STACK` 进程资源限制控制（参见 [getrlimit(2)](../man2/getrlimit.2.md)）。
+每个线程都有一个私有的用户态栈区域，供 C 运行时使用。主（初始）线程栈的大小由内核设置，并受 `RLIMIT_STACK` 进程资源限制控制（参见 [getrlimit(2)](../sys/getrlimit.2.md)）。
 
 默认情况下，主线程的栈大小等于该进程的 `RLIMIT_STACK` 值。如果进程环境中存在 `LIBPTHREAD_SPLITSTACK_MAIN` 环境变量（其值无关紧要），则在线程库初始化时，主线程的栈在 64 位体系结构上缩减为 4MB，在 32 位体系结构上缩减为 2MB。在这种情况下，内核为初始进程栈保留的地址空间区域的其余部分用于非初始线程栈。`LIBPTHREAD_BIGSTACK_MAIN` 环境变量的存在会覆盖 `LIBPTHREAD_SPLITSTACK_MAIN`；保留它是为了向后兼容。
 
@@ -62,11 +62,11 @@ Lb libthr
 
 **`kern.ipc.umtx_vnode_persistent`** 默认情况下，由内存中映射文件支持的共享锁在对应文件页面的最后一次取消映射时自动销毁，这符合 POSIX 规定。将 sysctl 设置为 1 会使此类共享锁对象持续存在，直到虚拟文件系统回收该 vnode。注意，如果文件未被打开且未被映射，内核可能随时回收它，使此 sysctl 不如听起来有用。
 
-**`kern.ipc.umtx_max_robust`** 一个线程允许的健壮互斥锁的最大数量。内核不会解锁超过指定数量的互斥锁，更多详情参见 [_umtx_op(2)](../man2/_umtx_op.2.md)。默认值对于大多数有用的应用程序来说已足够大。
+**`kern.ipc.umtx_max_robust`** 一个线程允许的健壮互斥锁的最大数量。内核不会解锁超过指定数量的互斥锁，更多详情参见 [_umtx_op(2)](../sys/_umtx_op.2.md)。默认值对于大多数有用的应用程序来说已足够大。
 
 **`debug.umtx.robust_faults_verbose`** 非零值使内核在检测到某些不一致后过早中止健壮互斥锁解锁时发出一些诊断信息，作为防止内存损坏的措施。
 
-`RLIMIT_UMTXP` 限制（参见 [getrlimit(2)](../man2/getrlimit.2.md)）定义了给定用户可同时创建的共享锁数量。
+`RLIMIT_UMTXP` 限制（参见 [getrlimit(2)](../sys/getrlimit.2.md)）定义了给定用户可同时创建的共享锁数量。
 
 ## 与运行时链接器的交互
 
@@ -76,7 +76,7 @@ Lb libthr
 
 ## 信号
 
-该实现会插入用户安装的 [signal(3)](signal.3.md) 处理程序。执行此插入是为了将信号传递推迟到进入（libthr 内部）临界区的线程，在临界区中调用用户提供的信号处理程序是不安全的。一种此类情况是持有内部库锁。当信号在无法安全调用信号处理程序时被传递，调用会被推迟，并在退出临界区之后执行。在解释 [ktrace(1)](../man1/ktrace.1.md) 日志时应考虑这一点。
+该实现会插入用户安装的 [signal(3)](../gen/signal.3.md) 处理程序。执行此插入是为了将信号传递推迟到进入（libthr 内部）临界区的线程，在临界区中调用用户提供的信号处理程序是不安全的。一种此类情况是持有内部库锁。当信号在无法安全调用信号处理程序时被传递，调用会被推迟，并在退出临界区之后执行。在解释 [ktrace(1)](../man1/ktrace.1.md) 日志时应考虑这一点。
 
 `libthr` 库使用 `SIGTHR` 信号进行内部操作，特别是用于取消请求。该信号的屏蔽和处置由库控制，用户程序不应尝试修改它们。该库会插入控制信号的函数，以防止无意修改并保护可移植代码免受 `SIGTHR` 的影响。
 
@@ -88,7 +88,7 @@ Lb libthr
 
 对于进程私有对象，内部结构使用 malloc(3) 分配，或者对于 [pthread_mutex_init(3)](pthread_mutex_init.3.md)，使用 `libthr` 中实现的内部内存分配器分配。互斥锁的内部分配器用于避免许多需要工作互斥锁才能运行的 malloc(3) 实现中的引导问题。出于同样的原因，相同的分配器用于线程特定数据，参见 [pthread_setspecific(3)](pthread_setspecific.3.md)。
 
-对于进程共享对象，内部结构的创建首先使用 [_umtx_op(2)](../man2/_umtx_op.2.md) 操作 `UMTX_OP_SHM` 分配共享内存段，然后使用 [mmap(2)](../man2/mmap.2.md) 以 `MAP_SHARED` 标志将其映射到进程地址空间。POSIX 标准要求：
+对于进程共享对象，内部结构的创建首先使用 [_umtx_op(2)](../sys/_umtx_op.2.md) 操作 `UMTX_OP_SHM` 分配共享内存段，然后使用 [mmap(2)](../sys/mmap.2.md) 以 `MAP_SHARED` 标志将其映射到进程地址空间。POSIX 标准要求：
 
 ```sh
 只有进程共享同步对象本身可用于执行同步。
@@ -98,11 +98,11 @@ Lb libthr
 
 在 FreeBSD 实现中，进程共享对象需要在每个使用它们的进程中初始化。特别是，如果你映射包含已在不同进程中初始化的进程共享对象的用户部分的共享内存，锁定函数将无法在其上工作。
 
-另一种损坏情况是 fork 出的子进程在与父进程共享的内存中创建对象，而父进程无法使用它。注意，进程在 [fork(2)](../man2/fork.2.md) 之后本就不应使用非异步信号安全的函数。
+另一种损坏情况是 fork 出的子进程在与父进程共享的内存中创建对象，而父进程无法使用它。注意，进程在 [fork(2)](../sys/fork.2.md) 之后本就不应使用非异步信号安全的函数。
 
 ## 参见
 
-[ktrace(1)](../man1/ktrace.1.md), ld-elf.so.1(1), [_umtx_op(2)](../man2/_umtx_op.2.md), errno(2), [getrlimit(2)](../man2/getrlimit.2.md), [thr_exit(2)](../man2/thr_exit.2.md), [thr_kill(2)](../man2/thr_kill.2.md), thr_kill2(2), [thr_new(2)](../man2/thr_new.2.md), [thr_self(2)](../man2/thr_self.2.md), [thr_set_name(2)](../man2/thr_set_name.2.md), dlclose(3), [dlopen(3)](dlopen.3.md), [getenv(3)](getenv.3.md), [pthread_attr(3)](pthread_attr.3.md), pthread_attr_setstacksize(3), [pthread_create(3)](pthread_create.3.md), [signal(3)](signal.3.md), [atomic(9)](../man9/atomic.9.md)
+[ktrace(1)](../man1/ktrace.1.md), ld-elf.so.1(1), [_umtx_op(2)](../sys/_umtx_op.2.md), errno(2), [getrlimit(2)](../sys/getrlimit.2.md), [thr_exit(2)](../sys/thr_exit.2.md), [thr_kill(2)](../sys/thr_kill.2.md), thr_kill2(2), [thr_new(2)](../sys/thr_new.2.md), [thr_self(2)](../sys/thr_self.2.md), [thr_set_name(2)](../sys/thr_set_name.2.md), dlclose(3), [dlopen(3)](../gen/dlopen.3.md), [getenv(3)](../stdlib/getenv.3.md), [pthread_attr(3)](pthread_attr.3.md), pthread_attr_setstacksize(3), [pthread_create(3)](pthread_create.3.md), [signal(3)](../gen/signal.3.md), [atomic(9)](../man9/atomic.9.md)
 
 ## 历史
 

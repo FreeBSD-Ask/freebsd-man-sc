@@ -171,7 +171,7 @@ ISO/IEC JTC1/SC22/WG14 委员会负责 ISO/IEC 9899，即 C 标准。
 
 ## 参见
 
-c89(1), c99(1), [cc(1)](../man1/cc.1.md)
+c89(1), c99(1), [cc(1)](../man1/clang.1.md)
 
 ## 标准
 

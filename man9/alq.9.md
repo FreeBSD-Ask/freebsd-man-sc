@@ -106,7 +106,7 @@ struct ale {
 
 ## 参见
 
-[syslog(3)](../man3/syslog.3.md), [kproc(9)](kproc.9.md), [ktr(9)](ktr.9.md), msleep_spin(9), [vnode(9)](vnode.9.md)
+[syslog(3)](../gen/syslog.3.md), [kproc(9)](kproc.9.md), [ktr(9)](ktr.9.md), msleep_spin(9), [vnode(9)](vnode.9.md)
 
 ## 历史
 

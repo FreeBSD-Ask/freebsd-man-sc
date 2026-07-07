@@ -32,7 +32,7 @@ Lb libc
 
 **`EBADF`** 提供的 `fp` 参数不是可写流。
 
-`fputws` 函数也可能失败并为 [write(2)](../man2/write.2.md) 例程指定的任何错误设置 `errno`。
+`fputws` 函数也可能失败并为 [write(2)](../sys/write.2.md) 例程指定的任何错误设置 `errno`。
 
 ## 参见
 

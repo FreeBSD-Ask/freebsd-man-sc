@@ -60,11 +60,11 @@ dnvlist_take_binary(const nvlist_t *nvl, const char *name, size_t *sizep,
 
 `dnvlist_get` 函数返回与 `name` 关联的值。若名为 `name` 的元素不存在，函数返回 `defval` 中提供的值。返回的字符串、nvlist、描述符、二进制数据或数组不得被用户修改，因为它们仍属于该 nvlist。若 nvlist 处于错误状态，尝试使用这些函数中的任何一个都会导致程序中止。
 
-`dnvlist_take` 函数返回与 `name` 关联的值，并从 `nvl` 中移除关联的元素。若名为 `name` 的元素不存在，返回 `defval` 中提供的值。当值为字符串、二进制或数组值时，调用者负责使用 [free(3)](../man3/free.3.md) 释放返回的内存。当值为 nvlist 时，调用者负责使用 `nvlist_destroy` 销毁返回的 nvlist。当值为描述符时，调用者负责使用 [close(2)](../man2/close.2.md) 关闭返回的描述符。
+`dnvlist_take` 函数返回与 `name` 关联的值，并从 `nvl` 中移除关联的元素。若名为 `name` 的元素不存在，返回 `defval` 中提供的值。当值为字符串、二进制或数组值时，调用者负责使用 [free(3)](../stdlib/memory.3.md) 释放返回的内存。当值为 nvlist 时，调用者负责使用 `nvlist_destroy` 销毁返回的 nvlist。当值为描述符时，调用者负责使用 [close(2)](../sys/close.2.md) 关闭返回的描述符。
 
 ## 参见
 
-[close(2)](../man2/close.2.md), [free(3)](../man3/free.3.md), [nv(9)](nv.9.md)
+[close(2)](../sys/close.2.md), [free(3)](../stdlib/memory.3.md), [nv(9)](nv.9.md)
 
 ## 历史
 

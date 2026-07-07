@@ -40,7 +40,7 @@ Lb libc
 
 ## 参见
 
-[open(2)](../man2/open.2.md), fdopen(3), [flockfile(3)](flockfile.3.md), [stdio(3)](stdio.3.md)
+[open(2)](../sys/open.2.md), fdopen(3), [flockfile(3)](flockfile.3.md), [stdio(3)](stdio.3.md)
 
 ## 标准
 

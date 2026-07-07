@@ -50,7 +50,7 @@ thr_kill2(pid_t pid, long id, int sig);
 
 ## 参见
 
-[_umtx_op(2)](_umtx_op.2.md), [kill(2)](kill.2.md), [thr_exit(2)](thr_exit.2.md), [thr_new(2)](thr_new.2.md), [thr_self(2)](thr_self.2.md), [thr_set_name(2)](thr_set_name.2.md), [pthread_kill(3)](../man3/pthread_kill.3.md), [signal(3)](../man3/signal.3.md)
+[_umtx_op(2)](_umtx_op.2.md), [kill(2)](kill.2.md), [thr_exit(2)](thr_exit.2.md), [thr_new(2)](thr_new.2.md), [thr_self(2)](thr_self.2.md), [thr_set_name(2)](thr_set_name.2.md), [pthread_kill(3)](../man3/pthread_kill.3.md), [signal(3)](../gen/signal.3.md)
 
 ## 标准
 

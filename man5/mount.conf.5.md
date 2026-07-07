@@ -90,7 +90,7 @@ unionfs:/jail/freebsd-8-stable
 
 ## 参见
 
-nmount(2), [md(4)](../man4/md.4.md), [boot.config(5)](boot.config.5.md), [fstab(5)](fstab.5.md), [boot(8)](../man8/boot.8.md), [loader(8)](../man8/loader.8.md), [mount(8)](../man8/mount.8.md)
+nmount(2), [md(4)](../man4/md.4.md), [boot.config(5)](boot.config.5.md), [fstab(5)](fstab.5.md), [boot(8)](../man8/boot_i386.8.md), [loader(8)](../man8/loader.8.md), [mount(8)](../man8/mount.8.md)
 
 ## 历史
 

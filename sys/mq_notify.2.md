@@ -53,7 +53,7 @@ mq_notify(mqd_t mqdes, const struct sigevent *notification);
 
 ## 参见
 
-[mq_open(2)](mq_open.2.md), [mq_send(2)](mq_send.2.md), [mq_timedsend(2)](mq_timedsend.2.md), [sigevent(3)](../man3/sigevent.3.md), [siginfo(3)](../man3/siginfo.3.md)
+[mq_open(2)](mq_open.2.md), [mq_send(2)](mq_send.2.md), [mq_timedsend(2)](mq_send.2.md), [sigevent(3)](../man3/sigevent.3.md), [siginfo(3)](../man3/siginfo.3.md)
 
 ## 标准
 

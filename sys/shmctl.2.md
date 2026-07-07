@@ -29,7 +29,7 @@ shmctl(int shmid, int cmd, struct shmid_ds *buf);
 
 **`IPC_SET`** 将该段 `struct shmid_ds` 的 `shm_perm.uid`、`shm_perm.gid` 和 `shm_perm.mode` 成员更改为与 `buf` 所指向结构中的相应成员一致。调用进程的有效 uid 必须与 `shm_perm.uid` 或 `shm_perm.cuid` 匹配，否则必须具有超级用户权限。
 
-**`IPC_RMID`** 从系统中移除该段。移除操作在所有已附加该段的进程退出后才会生效。要使操作成功，调用进程的有效 uid 必须与 `shm_perm.uid` 或 `shm_perm.cuid` 匹配，否则该进程必须具有超级用户权限。如果 `kern.ipc.shm_allow_removed` [sysctl(3)](../man3/sysctl.3.md) 变量设置为 0，则一旦执行了 IPC_RMID 操作，将不允许更多进程附加该段。
+**`IPC_RMID`** 从系统中移除该段。移除操作在所有已附加该段的进程退出后才会生效。要使操作成功，调用进程的有效 uid 必须与 `shm_perm.uid` 或 `shm_perm.cuid` 匹配，否则该进程必须具有超级用户权限。如果 `kern.ipc.shm_allow_removed` [sysctl(3)](../gen/sysctl.3.md) 变量设置为 0，则一旦执行了 IPC_RMID 操作，将不允许更多进程附加该段。
 
 `shmid_ds` 结构定义如下：
 
@@ -62,4 +62,4 @@ struct shmid_ds {
 
 ## 参见
 
-[shmat(2)](shmat.2.md), shmdt(2), [shmget(2)](shmget.2.md), [ftok(3)](../man3/ftok.3.md)
+[shmat(2)](shmat.2.md), shmdt(2), [shmget(2)](shmget.2.md), [ftok(3)](../gen/ftok.3.md)

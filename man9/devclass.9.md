@@ -20,7 +20,7 @@ typedef struct devclass *devclass_t;
 
 ## 参见
 
-[devclass_add_driver(9)](devclass_add_driver.9.md), [devclass_delete_driver(9)](devclass_delete_driver.9.md), [devclass_find(9)](devclass_find.9.md), [devclass_find_driver(9)](devclass_find_driver.9.md), [devclass_get_device(9)](devclass_get_device.9.md), [devclass_get_devices(9)](devclass_get_devices.9.md), [devclass_get_maxunit(9)](devclass_get_maxunit.9.md), [devclass_get_name(9)](devclass_get_name.9.md), [devclass_get_softc(9)](devclass_get_softc.9.md), [device(9)](device.9.md), [driver(9)](driver.9.md)
+devclass_add_driver(9), devclass_delete_driver(9), [devclass_find(9)](devclass_find.9.md), devclass_find_driver(9), [devclass_get_device(9)](devclass_get_device.9.md), [devclass_get_devices(9)](devclass_get_devices.9.md), [devclass_get_maxunit(9)](devclass_get_maxunit.9.md), [devclass_get_name(9)](devclass_get_name.9.md), [devclass_get_softc(9)](devclass_get_softc.9.md), [device(9)](device.9.md), [driver(9)](driver.9.md)
 
 ## 作者
 

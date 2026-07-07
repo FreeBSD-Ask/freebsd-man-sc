@@ -166,7 +166,7 @@ customize_cmd cust_etc_size
 
 ## 参见
 
-[make.conf(5)](../man5/make.conf.5.md), [boot(8)](boot.8.md), [boot0cfg(8)](boot0cfg.8.md)
+[make.conf(5)](../man5/make.conf.5.md), [boot(8)](boot_i386.8.md), [boot0cfg(8)](boot0cfg.8.md)
 
 ## 历史
 

@@ -46,7 +46,7 @@
 
 ## 参见
 
-libsa(3), loader.conf(5), [tuning(7)](../man7/tuning.7.md), [boot(8)](boot.8.md), btxld(8), [loader.efi(8)](loader.efi.8.md), loader_4th(8), loader_lua(8), loader_simp(8)
+libsa(3), loader.conf(5), [tuning(7)](../man7/tuning.7.md), [boot(8)](boot_i386.8.md), btxld(8), [loader.efi(8)](loader.efi.8.md), loader_4th(8), loader_lua(8), loader_simp(8)
 
 ## 历史
 

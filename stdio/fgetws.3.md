@@ -34,7 +34,7 @@ Lb libc
 
 **`EILSEQ`** 从输入流获取的数据不构成有效的多字节字符。
 
-`fgetws` 函数也可能失败并为 [fflush(3)](fflush.3.md)、fstat(2)、[read(2)](../man2/read.2.md) 或 malloc(3) 所指定的任何错误设置 `errno`。
+`fgetws` 函数也可能失败并为 [fflush(3)](fflush.3.md)、fstat(2)、[read(2)](../sys/read.2.md) 或 malloc(3) 所指定的任何错误设置 `errno`。
 
 ## 参见
 

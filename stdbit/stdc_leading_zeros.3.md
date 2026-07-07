@@ -33,7 +33,7 @@ unsigned int stdc_leading_zeros(value);
 
 ## 参见
 
-[stdbit(3)](stdbit.3.md), [stdc_leading_ones(3)](stdc_leading_ones.3.md), [stdc_trailing_zeros(3)](stdc_trailing_zeros.3.md), [stdc_first_leading_one(3)](stdc_first_leading_one.3.md)
+[stdbit(3)](../man3/stdbit.3.md), [stdc_leading_ones(3)](stdc_leading_ones.3.md), [stdc_trailing_zeros(3)](stdc_trailing_zeros.3.md), [stdc_first_leading_one(3)](stdc_first_leading_one.3.md)
 
 ## 标准
 

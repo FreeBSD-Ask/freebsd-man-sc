@@ -48,7 +48,7 @@ while ((ch = getwchar()) != WEOF) {
 
 ## 参见
 
-iswprint(3), [wcswidth(3)](wcswidth.3.md)
+iswprint(3), [wcswidth(3)](../string/wcswidth.3.md)
 
 ## 标准
 

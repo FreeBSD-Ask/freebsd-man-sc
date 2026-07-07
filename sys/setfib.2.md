@@ -47,7 +47,7 @@ net.fibs="N"
 
 ## 参见
 
-[setfib(1)](../man1/setfib.1.md), [setsockopt(2)](setsockopt.2.md)
+[setfib(1)](../man1/setfib.1.md), [setsockopt(2)](getsockopt.2.md)
 
 ## 标准
 

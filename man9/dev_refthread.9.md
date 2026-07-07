@@ -44,7 +44,7 @@ dev_relthread(struct cdev *dev, int ref)
 
 ## 参见
 
-[devfs(4)](../man4/devfs.4.md), [destroy_dev(9)](destroy_dev.9.md)
+[devfs(4)](../man4/devfs.4.md), [destroy_dev(9)](make_dev.9.md)
 
 ## 注意事项
 

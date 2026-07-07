@@ -50,7 +50,7 @@ listsysctls () { set -A reply $(sysctl -AN ${1%.*}) }
 compctl -K listsysctls sysctl
 ```
 
-要在 [tcsh(1)](../man1/tcsh.1.md) 中启用变量名补全，使用：
+要在 [tcsh(1)](../man1/csh.1.md) 中启用变量名补全，使用：
 
 ```sh
 complete sysctl 'n/*/`sysctl -Na`/'

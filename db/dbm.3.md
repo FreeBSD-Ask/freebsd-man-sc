@@ -27,7 +27,7 @@ typedef struct {
 } datum;
 ```
 
-`dbm_open` 函数打开或创建数据库。`base` 参数是包含数据库的文件的基本名；实际数据库带有 `.db` 后缀。即，如果 `base` 为 **/home/me/mystuff**，则实际数据库位于文件 **/home/me/mystuff.db** 中。`flags` 和 `mode` 参数传递给 [open(2)](../man2/open.2.md)。（`O_RDWR | O_CREAT`）是 `flags` 的典型值；`0660` 是 `mode` 的典型值。`dbm_open` 返回的指针标识数据库，并作为其他函数的 `db` 参数。如果出现任何错误，`dbm_open` 函数返回 `NULL` 并设置 `errno`。
+`dbm_open` 函数打开或创建数据库。`base` 参数是包含数据库的文件的基本名；实际数据库带有 `.db` 后缀。即，如果 `base` 为 **/home/me/mystuff**，则实际数据库位于文件 **/home/me/mystuff.db** 中。`flags` 和 `mode` 参数传递给 [open(2)](../sys/open.2.md)。（`O_RDWR | O_CREAT`）是 `flags` 的典型值；`0660` 是 `mode` 的典型值。`dbm_open` 返回的指针标识数据库，并作为其他函数的 `db` 参数。如果出现任何错误，`dbm_open` 函数返回 `NULL` 并设置 `errno`。
 
 `dbm_close` 函数关闭数据库。
 
@@ -45,7 +45,7 @@ typedef struct {
 
 ## 参见
 
-[open(2)](../man2/open.2.md), [dbopen(3)](dbopen.3.md), [hash(3)](hash.3.md)
+[open(2)](../sys/open.2.md), [dbopen(3)](dbopen.3.md), [hash(3)](hash.3.md)
 
 ## 标准
 

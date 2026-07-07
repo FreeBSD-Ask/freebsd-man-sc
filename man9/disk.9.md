@@ -36,7 +36,7 @@ disk_add_alias(struct disk *disk, const char *alias);
 
 每个磁盘设备由一个 `struct disk` 结构描述，其中包含磁盘设备的各种参数、可在设备上执行的各种方法的函数指针，以及设备驱动程序的私有数据存储。此外，某些字段保留供 GEOM 用于管理对设备的访问及其统计信息。
 
-GEOM 拥有 `struct disk` 的所有权，驱动程序必须使用 `disk_alloc` 函数为其分配存储，填充各字段，并在设备准备好服务请求时调用 `disk_create`。`disk_add_alias` 为磁盘添加别名，必须在 `disk_create` 之前调用，但可以多次调用。对于添加的每个别名，将使用 [make_dev_alias(9)](make_dev_alias.9.md) 创建一个设备节点，方式与使用 [make_dev(9)](make_dev.9.md) 为 `d_name` 和 `d_unit` 创建主设备节点相同。应注意确保只有 一个驱动程序为任何给定名称创建别名。驱动程序在修改 `d_mediasize` 后可以调用 `disk_resize` 通知 GEOM 磁盘容量变化。`flags` 字段应设置为 M_WAITOK 或 M_NOWAIT。`disk_gone` 孤立与驱动器关联的所有 provider，在每个 provider 中设置 ENXIO 错误条件。此外，如果 provider 中已设置错误条件，它还会阻止在最后一次关闭写入时重新 taste。调用 `disk_destroy` 后，设备驱动程序不得再访问 `struct disk` 的内容。
+GEOM 拥有 `struct disk` 的所有权，驱动程序必须使用 `disk_alloc` 函数为其分配存储，填充各字段，并在设备准备好服务请求时调用 `disk_create`。`disk_add_alias` 为磁盘添加别名，必须在 `disk_create` 之前调用，但可以多次调用。对于添加的每个别名，将使用 [make_dev_alias(9)](make_dev.9.md) 创建一个设备节点，方式与使用 [make_dev(9)](make_dev.9.md) 为 `d_name` 和 `d_unit` 创建主设备节点相同。应注意确保只有 一个驱动程序为任何给定名称创建别名。驱动程序在修改 `d_mediasize` 后可以调用 `disk_resize` 通知 GEOM 磁盘容量变化。`flags` 字段应设置为 M_WAITOK 或 M_NOWAIT。`disk_gone` 孤立与驱动器关联的所有 provider，在每个 provider 中设置 ENXIO 错误条件。此外，如果 provider 中已设置错误条件，它还会阻止在最后一次关闭写入时重新 taste。调用 `disk_destroy` 后，设备驱动程序不得再访问 `struct disk` 的内容。
 
 `disk_create` 函数接受第二个参数 `version`，必须始终传入 `DISK_VERSION`。如果 GEOM 检测到驱动程序是针对不支持的版本编译的，它会忽略该设备并在控制台上打印警告。
 

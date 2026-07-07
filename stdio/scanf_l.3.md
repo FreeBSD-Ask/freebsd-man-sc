@@ -24,7 +24,7 @@ Lb libc
 
 ## 参见
 
-[scanf(3)](scanf.3.md), [xlocale(3)](xlocale.3.md)
+[scanf(3)](scanf.3.md), [xlocale(3)](../locale/xlocale.3.md)
 
 ## 标准
 

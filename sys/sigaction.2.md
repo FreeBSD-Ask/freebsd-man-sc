@@ -88,7 +88,7 @@ sigaction(int sig, const struct sigaction * restrict act,
 | `SIGQUIT` | 创建核心转储 | 退出程序 |
 | `SIGILL` | 创建核心转储 | 非法指令 |
 | `SIGTRAP` | 创建核心转储 | 跟踪陷阱 |
-| `SIGABRT` | 创建核心转储 | [abort(3)](../man3/abort.3.md) 调用（原 `SIGIOT`） |
+| `SIGABRT` | 创建核心转储 | [abort(3)](../stdlib/abort.3.md) 调用（原 `SIGIOT`） |
 | `SIGEMT` | 创建核心转储 | 模拟指令执行 |
 | `SIGFPE` | 创建核心转储 | 浮点异常 |
 | `SIGKILL` | 终止进程 | 杀死程序 |
@@ -199,7 +199,7 @@ POSIX `SA_SIGINFO` 处理程序的 `uap` 参数指向 ucontext_t 的实例。
 
 ## 参见
 
-[kill(1)](../man1/kill.1.md), [kill(2)](kill.2.md), [ptrace(2)](ptrace.2.md), setitimer(2), setrlimit(2), [sigaltstack(2)](sigaltstack.2.md), [sigpending(2)](sigpending.2.md), [sigprocmask(2)](sigprocmask.2.md), [sigsuspend(2)](sigsuspend.2.md), [wait(2)](wait.2.md), fpsetmask(3), [setjmp(3)](../man3/setjmp.3.md), [siginfo(3)](../man3/siginfo.3.md), [siginterrupt(3)](../man3/siginterrupt.3.md), [sigsetops(3)](../man3/sigsetops.3.md), [ucontext(3)](../man3/ucontext.3.md), [tty(4)](../man4/tty.4.md)
+[kill(1)](../man1/kill.1.md), [kill(2)](kill.2.md), [ptrace(2)](ptrace.2.md), setitimer(2), setrlimit(2), [sigaltstack(2)](sigaltstack.2.md), [sigpending(2)](sigpending.2.md), [sigprocmask(2)](sigprocmask.2.md), [sigsuspend(2)](sigsuspend.2.md), [wait(2)](wait.2.md), fpsetmask(3), [setjmp(3)](../gen/setjmp.3.md), [siginfo(3)](../man3/siginfo.3.md), [siginterrupt(3)](../gen/siginterrupt.3.md), [sigsetops(3)](../gen/sigsetops.3.md), [ucontext(3)](../gen/ucontext.3.md), [tty(4)](../man4/tty.4.md)
 
 ## 标准
 

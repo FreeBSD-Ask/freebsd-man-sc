@@ -42,7 +42,7 @@ priv_check_cred(struct ucred *cred, int priv)
 
 ## 参见
 
-[jail(2)](../man2/jail.2.md), [dtrace_priv(4)](../man4/dtrace_priv.4.md), [mac(9)](mac.9.md), [ucred(9)](ucred.9.md)
+[jail(2)](../sys/jail.2.md), [dtrace_priv(4)](../man4/dtrace_priv.4.md), [mac(9)](mac.9.md), [ucred(9)](ucred.9.md)
 
 ## 作者
 

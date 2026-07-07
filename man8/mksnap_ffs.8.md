@@ -36,7 +36,7 @@ rm /home/.snap/snap1
 
 ## 参见
 
-[rm(1)](../man1/rm.1.md), [chmod(2)](../man2/chmod.2.md), [chown(8)](chown.8.md), mdconfig(8), [mount(8)](mount.8.md), snapinfo(8)
+[rm(1)](../man1/rm.1.md), [chmod(2)](../sys/chmod.2.md), [chown(8)](chown.8.md), mdconfig(8), [mount(8)](mount.8.md), snapinfo(8)
 
 ## 历史
 

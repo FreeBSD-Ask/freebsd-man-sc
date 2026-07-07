@@ -136,7 +136,7 @@ cookie 的概念在 [nv(9)](nv.9.md) 的 `nvlist_next`、`nvlist_get_parent` 和
 
 `cnvlist_get` 函数返回与 `cookie` 关联的值。返回的字符串、nvlist、描述符、二进制数据或数组不得被用户修改，因为它们仍属于 nvlist。nvlist 不得处于错误状态。
 
-`cnvlist_take` 函数返回与给定 cookie 关联的值，并从 nvlist 中移除该元素。当值为字符串、二进制数据或数组值时，调用者负责使用 [free(3)](../man3/free.3.md) 释放返回的内存。当值为 nvlist 时，调用者负责使用 `nvlist_destroy` 销毁返回的 nvlist。当值为描述符时，调用者负责使用 [close(2)](../man2/close.2.md) 关闭返回的描述符。
+`cnvlist_take` 函数返回与给定 cookie 关联的值，并从 nvlist 中移除该元素。当值为字符串、二进制数据或数组值时，调用者负责使用 [free(3)](../stdlib/memory.3.md) 释放返回的内存。当值为 nvlist 时，调用者负责使用 `nvlist_destroy` 销毁返回的 nvlist。当值为描述符时，调用者负责使用 [close(2)](../sys/close.2.md) 关闭返回的描述符。
 
 `cnvlist_free` 函数移除由 `cookie` 标识的元素并释放任何关联资源。如果由 `cookie` 标识的元素类型错误或不存在，程序将中止。
 
@@ -182,7 +182,7 @@ return (0);
 
 ## 参见
 
-[close(2)](../man2/close.2.md), [free(3)](../man3/free.3.md), [nv(9)](nv.9.md)
+[close(2)](../sys/close.2.md), [free(3)](../stdlib/memory.3.md), [nv(9)](nv.9.md)
 
 ## 作者
 

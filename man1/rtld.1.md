@@ -8,11 +8,11 @@
 
 ## 描述
 
-`rtld` 实用程序是一个自包含的共享对象，为将共享对象加载和链接编辑到进程地址空间提供运行时支持。它通常也被称为动态链接器。它使用动态链接程序中包含的数据结构来确定需要哪些共享库，并使用 [mmap(2)](../man2/mmap.2.md) 系统调用加载它们。
+`rtld` 实用程序是一个自包含的共享对象，为将共享对象加载和链接编辑到进程地址空间提供运行时支持。它通常也被称为动态链接器。它使用动态链接程序中包含的数据结构来确定需要哪些共享库，并使用 [mmap(2)](../sys/mmap.2.md) 系统调用加载它们。
 
 在所有共享库成功加载后，`rtld` 继续解析来自主程序和所有已加载对象的外部引用。提供了一种机制，可以按对象调用初始化例程，使共享对象有机会在程序正式开始执行之前执行任何额外的设置。这对于包含静态构造函数的 C++ 库很有用。
 
-在解析已加载对象的依赖项时，`rtld` 会翻译 rpath 和 soname 中的动态令牌字符串。如果在链接二进制文件时设置了静态链接器的 `-z origin` 选项，则在对象加载时执行令牌扩展，参见 [ld(1)](ld.1.md)。当前可识别以下字符串：
+在解析已加载对象的依赖项时，`rtld` 会翻译 rpath 和 soname 中的动态令牌字符串。如果在链接二进制文件时设置了静态链接器的 `-z origin` 选项，则在对象加载时执行令牌扩展，参见 [ld(1)](ld.lld.1.md)。当前可识别以下字符串：
 
 **`$ORIGIN`** 翻译为已加载对象的完整路径。
 
@@ -35,7 +35,7 @@
 
 `rtld` 实用程序识别许多环境变量，可用于修改其行为。在 64 位架构上，32 位对象的链接器识别下面列出的所有环境变量，但以 `LD_32_` 为前缀，例如：`LD_32_TRACE_LOADED_OBJECTS`。如果激活的映像是 setuid 或 setgid 的，则忽略这些变量。
 
-运行时链接器能够访问进程启动时提供的环境。启动后，环境变量由更高级别的库维护，运行时链接器无法访问。在运行时，可以使用 [rtld_get_var(3)](../man3/rtld_get_var.3.md) 查询有效设置，其中一些可以使用 rtld_set_var(3) 更改。
+运行时链接器能够访问进程启动时提供的环境。启动后，环境变量由更高级别的库维护，运行时链接器无法访问。在运行时，可以使用 [rtld_get_var(3)](../gen/rtld_get_var.3.md) 查询有效设置，其中一些可以使用 rtld_set_var(3) 更改。
 
 **`%a`** 主程序的名称（也称为“\_\_progname）”。
 
@@ -81,17 +81,17 @@
 
 **`LD_TRACE_LOADED_OBJECTS_FMT1`**
 
-**`LD_TRACE_LOADED_OBJECTS_FMT2`** 设置时，这些变量被解释为类似于 [printf(3)](../man3/printf.3.md) 的格式字符串，用于自定义跟踪输出，并由 [ldd(1)](ldd.1.md) 的 `-f` 选项使用，使 [ldd(1)](ldd.1.md) 更方便地作为过滤器操作。如果依赖项名称以字符串 `lib` 开头，则使用 `LD_TRACE_LOADED_OBJECTS_FMT1`，否则使用 `LD_TRACE_LOADED_OBJECTS_FMT2`。可以使用以下转换：此外，识别 `en` 和 `et` 并具有其通常含义。
+**`LD_TRACE_LOADED_OBJECTS_FMT2`** 设置时，这些变量被解释为类似于 [printf(3)](../stdio/printf.3.md) 的格式字符串，用于自定义跟踪输出，并由 [ldd(1)](ldd.1.md) 的 `-f` 选项使用，使 [ldd(1)](ldd.1.md) 更方便地作为过滤器操作。如果依赖项名称以字符串 `lib` 开头，则使用 `LD_TRACE_LOADED_OBJECTS_FMT1`，否则使用 `LD_TRACE_LOADED_OBJECTS_FMT2`。可以使用以下转换：此外，识别 `en` 和 `et` 并具有其通常含义。
 
-**`LD_UTRACE`** 如果设置，`rtld` 将通过 [utrace(2)](../man2/utrace.2.md) 记录共享对象的加载和卸载等事件。
+**`LD_UTRACE`** 如果设置，`rtld` 将通过 [utrace(2)](../sys/utrace.2.md) 记录共享对象的加载和卸载等事件。
 
 **`LD_LOADFLTR`** 如果设置，`rtld` 将立即处理已加载对象的 filtee 依赖项，而不是推迟到需要时。通常，filtee 在从过滤器对象第一次符号解析时打开。
 
 **`LD_SHOW_AUXV`** 如果设置，使 `rtld` 在将控制权传递给任何用户代码之前，将 aux 向量的内容转储到标准输出。
 
-**`LD_STATIC_TLS_EXTRA`** 如果指定了该变量且具有数值，`rtld` 将静态 TLS 额外空间的大小设置为指定的字节数。静态 TLS 额外空间在使用 [dlopen(3)](../man3/dlopen.3.md) 加载为 initial-exec TLS 代码模型编译的对象时使用。可指定的最小值为 '128'。
+**`LD_STATIC_TLS_EXTRA`** 如果指定了该变量且具有数值，`rtld` 将静态 TLS 额外空间的大小设置为指定的字节数。静态 TLS 额外空间在使用 [dlopen(3)](../gen/dlopen.3.md) 加载为 initial-exec TLS 代码模型编译的对象时使用。可指定的最小值为 '128'。
 
-**`LD_NO_DL_ITERATE_PHDR_AFTER_FORK`** 允许 [dl_iterate_phdr(3)](../man3/dl_iterate_phdr.3.md) 在回调中阻塞，而不会导致 [fork(2)](../man2/fork.2.md) 死锁。缺点是以此模式启动的映像在 fork 之后不能使用 [dl_iterate_phdr(3)](../man3/dl_iterate_phdr.3.md)。
+**`LD_NO_DL_ITERATE_PHDR_AFTER_FORK`** 允许 [dl_iterate_phdr(3)](../gen/dl_iterate_phdr.3.md) 在回调中阻塞，而不会导致 [fork(2)](../sys/fork.2.md) 死锁。缺点是以此模式启动的映像在 fork 之后不能使用 [dl_iterate_phdr(3)](../gen/dl_iterate_phdr.3.md)。
 
 ## 直接执行模式
 
@@ -139,7 +139,7 @@
 
 **`_rtld_version__FreeBSD_version`** 符号导出在 `rtld` 构建期间提供的 `__FreeBSD_version` 定义的值。自引入 `_rtld_version` 设施以来，该符号始终存在。
 
-**`_rtld_version_laddr_offset`** `link_map` 结构的 `l_addr` 成员包含共享对象的加载偏移量。在此之前，`l_addr` 包含库的基地址。参见 [dlinfo(3)](../man3/dlinfo.3.md)。它还指示结构中 `l_refname` 成员的存在。
+**`_rtld_version_laddr_offset`** `link_map` 结构的 `l_addr` 成员包含共享对象的加载偏移量。在此之前，`l_addr` 包含库的基地址。参见 [dlinfo(3)](../gen/dlinfo.3.md)。它还指示结构中 `l_refname` 成员的存在。
 
 **`_rtld_version_dlpi_tls_data`** 结构 `dl_phdr_info` 的 `dlpi_tls_data` 成员包含调用线程的模块 TLS 段地址，而不是初始化段的地址。
 
@@ -155,4 +155,4 @@
 
 ## 参见
 
-[ld(1)](ld.1.md), [ldd(1)](ldd.1.md), [dlinfo(3)](../man3/dlinfo.3.md), [rtld_get_var(3)](../man3/rtld_get_var.3.md), [capsicum(4)](../man4/capsicum.4.md), [elf(5)](../man5/elf.5.md), [libmap.conf(5)](../man5/libmap.conf.5.md), ldconfig(8)
+[ld(1)](ld.lld.1.md), [ldd(1)](ldd.1.md), [dlinfo(3)](../gen/dlinfo.3.md), [rtld_get_var(3)](../gen/rtld_get_var.3.md), [capsicum(4)](../man4/capsicum.4.md), [elf(5)](../man5/elf.5.md), [libmap.conf(5)](../man5/libmap.conf.5.md), ldconfig(8)

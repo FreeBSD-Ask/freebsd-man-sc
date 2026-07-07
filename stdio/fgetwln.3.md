@@ -32,7 +32,7 @@ Lb libc
 
 **`EBADF`** 参数 `stream` 不是为读取而打开的流。
 
-`fgetwln` 函数也可能失败并为 mbrtowc(3)、realloc(3) 或 [read(2)](../man2/read.2.md) 所指定的任何错误设置 `errno`。
+`fgetwln` 函数也可能失败并为 mbrtowc(3)、realloc(3) 或 [read(2)](../sys/read.2.md) 所指定的任何错误设置 `errno`。
 
 ## 参见
 

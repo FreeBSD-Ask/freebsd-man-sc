@@ -85,7 +85,7 @@ PID F F2 TT STAT TIME COMMAND
 
 ## 参见
 
-[ps(1)](ps.1.md), [procctl(2)](../man2/procctl.2.md), [rc.conf(5)](../man5/rc.conf.5.md)
+[ps(1)](ps.1.md), [procctl(2)](../sys/procctl.2.md), [rc.conf(5)](../man5/rc.conf.5.md)
 
 ## 缺陷
 

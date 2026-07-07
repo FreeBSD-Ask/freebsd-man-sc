@@ -52,7 +52,7 @@ struct nlist {
 #define	N_EXT	01	/* 外部位，或入 */
 ```
 
-符号的 `n_value` 字段由链接器 [ld(1)](../man1/ld.1.md) 作为相应段内的地址进行重定位。不属于任何段的符号的 `N_value` 字段不会被链接器更改。此外，除非 `n_type` 字段设置了以下位之一，链接器将根据自身规则丢弃某些符号：
+符号的 `n_value` 字段由链接器 [ld(1)](../man1/ld.lld.1.md) 作为相应段内的地址进行重定位。不属于任何段的符号的 `N_value` 字段不会被链接器更改。此外，除非 `n_type` 字段设置了以下位之一，链接器将根据自身规则丢弃某些符号：
 
 ```sh
 /*
@@ -86,7 +86,7 @@ struct nlist {
 #define	N_LENG	0xfe	/* 带有长度信息的第二个 stab 条目 */
 ```
 
-其中注释给出了 *sdb* 对 `.stab` `s` 以及给定 `n_type` 的 `n_name`、`n_other`、`n_desc` 和 `n_value` 字段的约定用法。*Sdb* 使用 `n_desc` 字段保存 Portable C Compiler [cc(1)](../man1/cc.1.md) 所使用的形式中的类型说明符；有关这些类型值格式的详细信息，请参见头文件 `pcc.h`。
+其中注释给出了 *sdb* 对 `.stab` `s` 以及给定 `n_type` 的 `n_name`、`n_other`、`n_desc` 和 `n_value` 字段的约定用法。*Sdb* 使用 `n_desc` 字段保存 Portable C Compiler [cc(1)](../man1/clang.1.md) 所使用的形式中的类型说明符；有关这些类型值格式的详细信息，请参见头文件 `pcc.h`。
 
 Berkeley Pascal 编译器 pc(1) 使用以下 `n_type` 值：
 
@@ -113,7 +113,7 @@ Berkeley Pascal 编译器 pc(1) 使用以下 `n_type` 值：
 
 ## 参见
 
-as(1), [ld(1)](../man1/ld.1.md), [a.out(5)](a.out.5.md)
+as(1), [ld(1)](../man1/ld.lld.1.md), [a.out(5)](a.out.5.md)
 
 ## 历史
 

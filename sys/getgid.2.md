@@ -36,7 +36,7 @@ getegid(void);
 
 ## 参见
 
-[getuid(2)](getuid.2.md), [issetugid(2)](issetugid.2.md), [setgid(2)](setgid.2.md), [setregid(2)](setregid.2.md)
+[getuid(2)](getuid.2.md), [issetugid(2)](issetugid.2.md), [setgid(2)](setuid.2.md), [setregid(2)](setregid.2.md)
 
 ## 标准
 

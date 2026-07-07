@@ -21,7 +21,7 @@ VOP_FSYNC(struct vnode *vp, int waitfor, struct thread *td)
 
 ## 描述
 
-`VOP_FSYNC` 确保文件在崩溃后可以恢复到其当前状态。这通常需要将文件的脏缓冲区、其 inode 以及可能的其他文件系统元数据刷新到持久介质。`VOP_FSYNC` 用于实现 [sync(2)](../man2/sync.2.md) 和 [fsync(2)](../man2/fsync.2.md) 系统调用。
+`VOP_FSYNC` 确保文件在崩溃后可以恢复到其当前状态。这通常需要将文件的脏缓冲区、其 inode 以及可能的其他文件系统元数据刷新到持久介质。`VOP_FSYNC` 用于实现 [sync(2)](../sys/sync.2.md) 和 [fsync(2)](../sys/fsync.2.md) 系统调用。
 
 其参数为：
 
@@ -37,7 +37,7 @@ VOP_FSYNC(struct vnode *vp, int waitfor, struct thread *td)
 
 **`td`** 调用线程。
 
-`VOP_FDATASYNC` 类似，但不要求刷新文件的所有元数据。它只要求文件的数据在崩溃后可恢复。这意味着数据本身必须刷新到磁盘，以及一些元数据（如文件大小），但不一定包括其属性。`VOP_FDATASYNC` 应始终等待 I/O 完成，就像以 `MNT_WAIT` 调用一样。`VOP_FDATASYNC` 用于实现 [fdatasync(2)](../man2/fdatasync.2.md)。
+`VOP_FDATASYNC` 类似，但不要求刷新文件的所有元数据。它只要求文件的数据在崩溃后可恢复。这意味着数据本身必须刷新到磁盘，以及一些元数据（如文件大小），但不一定包括其属性。`VOP_FDATASYNC` 应始终等待 I/O 完成，就像以 `MNT_WAIT` 调用一样。`VOP_FDATASYNC` 用于实现 [fdatasync(2)](../sys/fsync.2.md)。
 
 ## 锁定
 

@@ -74,7 +74,7 @@ SYSCTL_ADD_COUNTER_U64_ARRAY(ctx, parent, nbr, name, access, ptr, len, descr)
 
 **`counter_u64_add(c, v)`** 将 `v` 加到 `c`。KPI 不保证对回绕的任何保护。
 
-**`counter_enter()`** 进入允许通过 `counter_u64_add_protected` 安全更新多个计数器的模式。在某些机器上，这展开为 [critical(9)](critical.9.md) 节，而在其他机器上则是空操作。参见“实现说明”章节。
+**`counter_enter()`** 进入允许通过 `counter_u64_add_protected` 安全更新多个计数器的模式。在某些机器上，这展开为 [critical(9)](critical_enter.9.md) 节，而在其他机器上则是空操作。参见“实现说明”章节。
 
 **`counter_exit()`** 退出更新多个计数器的模式。
 
@@ -106,13 +106,13 @@ SYSCTL_ADD_COUNTER_U64_ARRAY(ctx, parent, nbr, name, access, ptr, len, descr)
 
 ## 实现说明
 
-在所有架构上，`counter` 使用在内存中特殊对齐的每 CPU 数据字段实现，以避免由于 CPU 之间共享变量而导致的 CPU 间总线流量。这些字段使用 `UMA_ZONE_PCPU` [uma(9)](uma.9.md) 区分配。更新操作仅触及当前 CPU 私有的字段。获取操作遍历所有每 CPU 字段并获取所有字段快照总和。
+在所有架构上，`counter` 使用在内存中特殊对齐的每 CPU 数据字段实现，以避免由于 CPU 之间共享变量而导致的 CPU 间总线流量。这些字段使用 `UMA_ZONE_PCPU` [uma(9)](zone.9.md) 区分配。更新操作仅触及当前 CPU 私有的字段。获取操作遍历所有每 CPU 字段并获取所有字段快照总和。
 
 在 amd64 上，`counter` 更新实现为不带锁语义的单条指令，对当前 CPU 的私有数据操作，对抢占和中断安全。
 
 在 i386 架构上，当机器支持 cmpxchg8 指令时，使用此指令。多指令序列提供与 amd64 单指令实现相同的保证。
 
-在某些架构上，更新计数器需要 [critical(9)](critical.9.md) 节。
+在某些架构上，更新计数器需要 [critical(9)](critical_enter.9.md) 节。
 
 ## 实例
 
@@ -127,7 +127,7 @@ SYSCTL_COUNTER_U64_ARRAY(_debug, OID_AUTO, counter_array, CTLFLAG_RW,
 
 ## 参见
 
-[atomic(9)](atomic.9.md), [critical(9)](critical.9.md), [locking(9)](locking.9.md), [malloc(9)](malloc.9.md), [ratecheck(9)](ratecheck.9.md), [sysctl(9)](sysctl.9.md), [SYSINIT(9)](sysinit.9.md), [uma(9)](uma.9.md)
+[atomic(9)](atomic.9.md), [critical(9)](critical_enter.9.md), [locking(9)](locking.9.md), [malloc(9)](malloc.9.md), [ratecheck(9)](ratecheck.9.md), [sysctl(9)](sysctl.9.md), [SYSINIT(9)](sysinit.9.md), [uma(9)](zone.9.md)
 
 ## 历史
 

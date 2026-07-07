@@ -36,7 +36,7 @@ Rv -std
 
 ## 参见
 
-[getgid(2)](../man2/getgid.2.md), [getuid(2)](../man2/getuid.2.md), setegid(2), seteuid(2), setgid(2), [setuid(2)](../man2/setuid.2.md)
+[getgid(2)](../sys/getgid.2.md), [getuid(2)](../sys/getuid.2.md), setegid(2), seteuid(2), setgid(2), [setuid(2)](../sys/setuid.2.md)
 
 ## 历史
 

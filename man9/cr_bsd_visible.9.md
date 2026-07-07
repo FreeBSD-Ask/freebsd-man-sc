@@ -25,7 +25,7 @@ cr_bsd_visible(struct ucred *u1, struct ucred *u2);
 
 **`security.bsd.see_jail_proc`** 若设置为 0，则当主体与对象或主体不关联相同的 jail 时，主体无法看到对方。对应的内部函数为 [cr_canseejailproc(9)](cr_canseejailproc.9.md)。
 
-按惯例，超级用户（有效用户 ID 为 0）不受上述任何策略限制，前提是 [sysctl(8)](../man8/sysctl.8.md) 变量 `security.bsd.suser_enabled` 为非零值，且没有活动的 MAC 策略明确拒绝此豁免（参见 [priv_check_cred(9)](priv_check_cred.9.md)）。
+按惯例，超级用户（有效用户 ID 为 0）不受上述任何策略限制，前提是 [sysctl(8)](../man8/sysctl.8.md) 变量 `security.bsd.suser_enabled` 为非零值，且没有活动的 MAC 策略明确拒绝此豁免（参见 priv_check_cred(9)）。
 
 此函数旨在作为实现 [cr_cansee(9)](cr_cansee.9.md) 及类似函数的辅助工具。
 
@@ -37,13 +37,13 @@ cr_bsd_visible(struct ucred *u1, struct ucred *u2);
 
 [`ESRCH`] 凭据 `u1` 和 `u2` 没有相同的真实用户 ID。
 
-[`ESRCH`] 凭据 `u1` 和 `u2` 不属于任何公共组（由 [realgroupmember(9)](realgroupmember.9.md) 判定）。
+[`ESRCH`] 凭据 `u1` 和 `u2` 不属于任何公共组（由 [realgroupmember(9)](groupmember.9.md) 判定）。
 
 [`ESRCH`] 凭据 `u1` 和 `u2` 不在同一 jail 中。
 
 ## 参见
 
-[cr_cansee(9)](cr_cansee.9.md), [cr_canseejailproc(9)](cr_canseejailproc.9.md), [cr_canseeothergids(9)](cr_canseeothergids.9.md), [cr_canseeotheruids(9)](cr_canseeotheruids.9.md), [priv_check_cred(9)](priv_check_cred.9.md)
+[cr_cansee(9)](cr_cansee.9.md), [cr_canseejailproc(9)](cr_canseejailproc.9.md), [cr_canseeothergids(9)](cr_canseeothergids.9.md), [cr_canseeotheruids(9)](cr_canseeotheruids.9.md), priv_check_cred(9)
 
 ## 作者
 

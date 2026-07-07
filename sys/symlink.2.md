@@ -80,7 +80,7 @@ symlinkat(const char *name1, int fd, const char *name2);
 
 ## 参见
 
-[ln(1)](../man1/ln.1.md), [chflags(2)](chflags.2.md), [link(2)](link.2.md), [lstat(2)](lstat.2.md), [readlink(2)](readlink.2.md), [unlink(2)](unlink.2.md), [symlink(7)](../man7/symlink.7.md)
+[ln(1)](../man1/ln.1.md), [chflags(2)](chflags.2.md), [link(2)](link.2.md), [lstat(2)](stat.2.md), [readlink(2)](readlink.2.md), [unlink(2)](unlink.2.md), [symlink(7)](../man7/symlink.7.md)
 
 ## 标准
 

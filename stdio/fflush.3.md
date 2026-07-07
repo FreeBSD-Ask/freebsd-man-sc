@@ -34,11 +34,11 @@ Lb libc
 
 **`EBADF`** `stream` 参数不是打开的流。
 
-`fflush` 函数也可能失败，并为 [write(2)](../man2/write.2.md) 例程所指定的任何错误设置 `errno`，但如果 `stream` 是只读描述符，`fflush` 返回 0。
+`fflush` 函数也可能失败，并为 [write(2)](../sys/write.2.md) 例程所指定的任何错误设置 `errno`，但如果 `stream` 是只读描述符，`fflush` 返回 0。
 
 ## 参见
 
-[write(2)](../man2/write.2.md), [fclose(3)](fclose.3.md), [fopen(3)](fopen.3.md), [setbuf(3)](setbuf.3.md)
+[write(2)](../sys/write.2.md), [fclose(3)](fclose.3.md), [fopen(3)](fopen.3.md), [setbuf(3)](setbuf.3.md)
 
 ## 标准
 

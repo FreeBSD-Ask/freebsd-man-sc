@@ -42,7 +42,7 @@ file -s /dev/da0s1
 
 ## 参见
 
-[mount(2)](../man2/mount.2.md), [unmount(2)](../man2/unmount.2.md), [fsck_msdosfs(8)](../man8/fsck_msdosfs.8.md), [mount(8)](../man8/mount.8.md), [mount_msdosfs(8)](../man8/mount_msdosfs.8.md), [newfs_msdos(8)](../man8/newfs_msdos.8.md), [umount(8)](../man8/umount.8.md)
+[mount(2)](../sys/mount.2.md), [unmount(2)](../sys/mount.2.md), [fsck_msdosfs(8)](../man8/fsck_msdosfs.8.md), [mount(8)](../man8/mount.8.md), [mount_msdosfs(8)](../man8/mount_msdosfs.8.md), [newfs_msdos(8)](../man8/newfs_msdos.8.md), [umount(8)](../man8/umount.8.md)
 
 ## 作者
 

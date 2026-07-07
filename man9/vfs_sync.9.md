@@ -37,7 +37,7 @@ VFS_SYNC(struct mount *mp, int waitfor)
 
 ## 参见
 
-[fsync(2)](../man2/fsync.2.md), [sync(2)](../man2/sync.2.md), [VFS(9)](vfs.9.md), [vnode(9)](vnode.9.md), [VOP_FSYNC(9)](vop_fsync.9.md)
+[fsync(2)](../sys/fsync.2.md), [sync(2)](../sys/sync.2.md), [VFS(9)](vfs.9.md), [vnode(9)](vnode.9.md), [VOP_FSYNC(9)](vop_fsync.9.md)
 
 ## 作者
 

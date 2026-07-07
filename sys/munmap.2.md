@@ -35,11 +35,11 @@ munmap(void *addr, size_t len);
 
 ## 参见
 
-[madvise(2)](madvise.2.md), [mincore(2)](mincore.2.md), [mmap(2)](mmap.2.md), [mprotect(2)](mprotect.2.md), [msync(2)](msync.2.md), [getpagesize(3)](../man3/getpagesize.3.md)
+[madvise(2)](madvise.2.md), [mincore(2)](mincore.2.md), [mmap(2)](mmap.2.md), [mprotect(2)](mprotect.2.md), [msync(2)](msync.2.md), [getpagesize(3)](../sys-1/getpagesize.3.md)
 
 ## 标准
 
-`munmap()` 系统调用遵循 -p1003.1-2024。可移植程序应确保 `addr` 是 [sysconf(3)](../man3/sysconf.3.md) 返回的页大小的倍数。
+`munmap()` 系统调用遵循 -p1003.1-2024。可移植程序应确保 `addr` 是 [sysconf(3)](../gen/sysconf.3.md) 返回的页大小的倍数。
 
 ## 历史
 

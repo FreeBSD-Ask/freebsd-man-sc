@@ -32,7 +32,7 @@ Lb libc
 
 `mode` 字符串还可在 "`+`" 或首字母之后包含字母 "`b`"。这严格是为了与 ISO/IEC 9899:1990 ("ISO C89") 兼容，仅对 `fmemopen` 有效；否则 "`b`" 被忽略。
 
-任何创建的文件将具有模式 "`S_IRUSR` | `S_IWUSR` | `S_IRGRP` | `S_IWGRP` | `S_IROTH` | `S_IWOTH`"（`0666`），并由进程的 umask 值修改（参见 [umask(2)](../man2/umask.2.md)）。
+任何创建的文件将具有模式 "`S_IRUSR` | `S_IWUSR` | `S_IRGRP` | `S_IWGRP` | `S_IROTH` | `S_IWOTH`"（`0666`），并由进程的 umask 值修改（参见 [umask(2)](../sys/umask.2.md)）。
 
 读写流上读取和写入可以任意顺序交织，不需要像早期版本 *stdio* 那样中间定位。但这不可移植到其他系统；ISO/IEC 9899:1990 ("ISO C89") 和 IEEE Std 1003.1 ("POSIX.1") 都要求在输出和输入之间介入文件定位函数，除非输入操作遇到文件末尾。
 
@@ -56,17 +56,17 @@ Lb libc
 
 `fopen`、`fdopen`、`freopen` 和 `fmemopen` 函数也可能失败，并为 malloc(3) 例程所指定的任何错误设置 `errno`。
 
-`fopen` 函数也可能失败，并为 [open(2)](../man2/open.2.md) 例程所指定的任何错误设置 `errno`。
+`fopen` 函数也可能失败，并为 [open(2)](../sys/open.2.md) 例程所指定的任何错误设置 `errno`。
 
-`fdopen` 函数也可能失败，并为 [fcntl(2)](../man2/fcntl.2.md) 例程所指定的任何错误设置 `errno`。
+`fdopen` 函数也可能失败，并为 [fcntl(2)](../sys/fcntl.2.md) 例程所指定的任何错误设置 `errno`。
 
-`freopen` 函数也可能失败，并为 [open(2)](../man2/open.2.md)、[fclose(3)](fclose.3.md) 和 [fflush(3)](fflush.3.md) 例程所指定的任何错误设置 `errno`。
+`freopen` 函数也可能失败，并为 [open(2)](../sys/open.2.md)、[fclose(3)](fclose.3.md) 和 [fflush(3)](fflush.3.md) 例程所指定的任何错误设置 `errno`。
 
 若 `size` 参数为 0，`fmemopen` 函数也可能失败并设置 `errno`。
 
 ## 参见
 
-[open(2)](../man2/open.2.md), [fclose(3)](fclose.3.md), fileno(3), [fseek(3)](fseek.3.md), [funopen(3)](funopen.3.md)
+[open(2)](../sys/open.2.md), [fclose(3)](fclose.3.md), fileno(3), [fseek(3)](fseek.3.md), [funopen(3)](funopen.3.md)
 
 ## 标准
 

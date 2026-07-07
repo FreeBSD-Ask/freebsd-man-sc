@@ -37,7 +37,7 @@ getsid(pid_t pid);
 
 ## 参见
 
-[getpgid(2)](getpgid.2.md), [getpgrp(2)](getpgrp.2.md), [setpgid(2)](setpgid.2.md), [setsid(2)](setsid.2.md), [termios(4)](../man4/termios.4.md)
+[getpgid(2)](getpgrp.2.md), [getpgrp(2)](getpgrp.2.md), [setpgid(2)](setpgid.2.md), [setsid(2)](setsid.2.md), [termios(4)](../man4/termios.4.md)
 
 ## 历史
 

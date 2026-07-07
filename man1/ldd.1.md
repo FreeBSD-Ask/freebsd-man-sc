@@ -32,7 +32,7 @@ find . -type f | xargs file -F ' ' | grep 'ELF.*dynamically' | cut -f1 -d' ' | x
 
 ## 参见
 
-[ld(1)](ld.1.md), nm(1), [readelf(1)](readelf.1.md), rtld(1)
+[ld(1)](ld.lld.1.md), nm(1), [readelf(1)](readelf.1.md), rtld(1)
 
 ## 历史
 

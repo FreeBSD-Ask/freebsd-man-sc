@@ -44,7 +44,7 @@
 
 ## 参见
 
-[fstat(1)](fstat.1.md), [netstat(1)](netstat.1.md), [ps(1)](ps.1.md), [systat(1)](systat.1.md), [sysctl(3)](../man3/sysctl.3.md), [iostat(8)](../man8/iostat.8.md), nfsdumpstate(8), pstat(8), [vmstat(8)](../man8/vmstat.8.md)
+[fstat(1)](fstat.1.md), [netstat(1)](netstat.1.md), [ps(1)](ps.1.md), [systat(1)](systat.1.md), [sysctl(3)](../gen/sysctl.3.md), [iostat(8)](../man8/iostat.8.md), nfsdumpstate(8), pstat(8), [vmstat(8)](../man8/vmstat.8.md)
 
 ## 历史
 

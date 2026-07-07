@@ -48,7 +48,7 @@ cat /mnt/mqueue/myqueue
 
 ## 参见
 
-[mq_open(2)](../man2/mq_open.2.md), [nmount(2)](../man2/nmount.2.md), [unmount(2)](../man2/unmount.2.md), [mount(8)](../man8/mount.8.md), [umount(8)](../man8/umount.8.md)
+[mq_open(2)](../sys/mq_open.2.md), [nmount(2)](../sys/mount.2.md), [unmount(2)](../sys/mount.2.md), [mount(8)](../man8/mount.8.md), [umount(8)](../man8/umount.8.md)
 
 ## 作者
 

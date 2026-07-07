@@ -101,7 +101,7 @@ typedef struct mousestatus {
 
 ## 参见
 
-[ioctl(2)](../man2/ioctl.2.md), [psm(4)](psm.4.md), [sysmouse(4)](sysmouse.4.md), [ums(4)](ums.4.md), [moused(8)](../man8/moused.8.md)
+[ioctl(2)](../sys/ioctl.2.md), [psm(4)](psm.4.md), [sysmouse(4)](sysmouse.4.md), [ums(4)](ums.4.md), [moused(8)](../man8/moused.8.md)
 
 ## 作者
 

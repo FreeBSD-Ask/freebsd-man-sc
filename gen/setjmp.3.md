@@ -55,7 +55,7 @@ longjmperror(void);
 
 ## 错误
 
-如果 `env` 的内容已损坏，或者对应于一个已经返回的环境，`longjmp` 例程会调用 `longjmperror` 例程。如果 `longjmperror` 返回，程序将被中止（参见 [abort(3)](../man3/abort.3.md)）。`longjmperror` 的默认版本会向标准错误输出消息“`longjmp botch`”并返回。希望更优雅退出的用户程序应自行编写 `longjmperror` 的版本。
+如果 `env` 的内容已损坏，或者对应于一个已经返回的环境，`longjmp` 例程会调用 `longjmperror` 例程。如果 `longjmperror` 返回，程序将被中止（参见 [abort(3)](../stdlib/abort.3.md)）。`longjmperror` 的默认版本会向标准错误输出消息“`longjmp botch`”并返回。希望更优雅退出的用户程序应自行编写 `longjmperror` 的版本。
 
 ## 参见
 

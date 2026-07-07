@@ -58,11 +58,11 @@ versionsort(const struct dirent **d1, const struct dirent **d2);
 
 `select` 参数是指向用户提供的子例程的指针，`scandir` 调用该子例程来选择要包含在数组中的条目。select 例程接收一个指向目录项的指针，如果该目录项要包含在数组中，则应返回非零值。如果 `select` 为 null，则将包含所有目录项。
 
-`compar` 参数是指向用户提供的子例程的指针，该子例程传递给 [qsort(3)](qsort.3.md) 用于对完成的数组进行排序。如果此指针为 null，则不对数组排序。
+`compar` 参数是指向用户提供的子例程的指针，该子例程传递给 [qsort(3)](../stdlib/qsort.3.md) 用于对完成的数组进行排序。如果此指针为 null，则不对数组排序。
 
-`alphasort` 函数是一个例程，可用于 `compar` 参数，使用 [strcoll(3)](strcoll.3.md) 按字母顺序对数组排序。
+`alphasort` 函数是一个例程，可用于 `compar` 参数，使用 [strcoll(3)](../string/strcoll.3.md) 按字母顺序对数组排序。
 
-`versionsort` 函数是一个例程，可用于 `compar` 参数，使用 [strverscmp(3)](strverscmp.3.md) 对数组进行自然排序。
+`versionsort` 函数是一个例程，可用于 `compar` 参数，使用 [strverscmp(3)](../string/strverscmp.3.md) 对数组进行自然排序。
 
 为数组分配的内存可以使用 free(3) 释放，方法是先释放数组中的每个指针，然后释放数组本身。
 
@@ -84,7 +84,7 @@ versionsort(const struct dirent **d1, const struct dirent **d2);
 
 ## 参见
 
-openat(2), [directory(3)](directory.3.md), malloc(3), [qsort(3)](qsort.3.md), [strcoll(3)](strcoll.3.md), [strverscmp(3)](strverscmp.3.md), [dir(5)](../man5/dir.5.md)
+openat(2), [directory(3)](directory.3.md), malloc(3), [qsort(3)](../stdlib/qsort.3.md), [strcoll(3)](../string/strcoll.3.md), [strverscmp(3)](../string/strverscmp.3.md), [dir(5)](../man5/dir.5.md)
 
 ## 标准
 

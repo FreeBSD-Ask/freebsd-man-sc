@@ -94,7 +94,7 @@ execvp(we.we_wordv[0], we.we_wordv);
 
 ## 参见
 
-[sh(1)](../man1/sh.1.md), [fnmatch(3)](fnmatch.3.md), [glob(3)](glob.3.md), [popen(3)](popen.3.md), [system(3)](../man3/system.3.md)
+[sh(1)](../man1/sh.1.md), [fnmatch(3)](fnmatch.3.md), [glob(3)](glob.3.md), [popen(3)](popen.3.md), [system(3)](../stdlib/system.3.md)
 
 ## 标准
 

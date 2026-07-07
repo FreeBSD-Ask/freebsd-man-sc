@@ -34,13 +34,13 @@ pclose(FILE *stream);
 
 注意，输出 `popen` 流默认是全缓冲的。
 
-`pclose` 函数等待关联的进程终止，并返回由 [wait4(2)](../sys/wait4.2.md) 返回的命令退出状态。
+`pclose` 函数等待关联的进程终止，并返回由 [wait4(2)](../sys/wait.2.md) 返回的命令退出状态。
 
 ## 返回值
 
 如果 [fork(2)](../sys/fork.2.md) 或 [pipe(2)](../sys/pipe.2.md) 调用失败，或者无法分配内存，`popen` 函数返回 `NULL`。
 
-如果 `stream` 未与“popened”命令关联、`stream` 已经“pclosed”，或者 [wait4(2)](../sys/wait4.2.md) 返回错误，`pclose` 函数返回 -1。
+如果 `stream` 未与“popened”命令关联、`stream` 已经“pclosed”，或者 [wait4(2)](../sys/wait.2.md) 返回错误，`pclose` 函数返回 -1。
 
 ## 错误
 
@@ -48,7 +48,7 @@ pclose(FILE *stream);
 
 ## 参见
 
-[sh(1)](../man1/sh.1.md), [fork(2)](../sys/fork.2.md), [pipe(2)](../sys/pipe.2.md), [wait4(2)](../sys/wait4.2.md), [fclose(3)](../man3/fclose.3.md), [fflush(3)](../man3/fflush.3.md), [fopen(3)](../man3/fopen.3.md), [stdio(3)](../man3/stdio.3.md), [system(3)](../man3/system.3.md)
+[sh(1)](../man1/sh.1.md), [fork(2)](../sys/fork.2.md), [pipe(2)](../sys/pipe.2.md), [wait4(2)](../sys/wait.2.md), [fclose(3)](../stdio/fclose.3.md), [fflush(3)](../stdio/fflush.3.md), [fopen(3)](../stdio/fopen.3.md), [stdio(3)](../stdio/stdio.3.md), [system(3)](../stdlib/system.3.md)
 
 ## 历史
 
@@ -58,7 +58,7 @@ pclose(FILE *stream);
 
 ## 缺陷
 
-由于为读取而打开的命令的标准输入与调用 `popen` 的进程共享其寻道偏移量，如果原始进程已执行了缓冲读取，则命令的输入位置可能不如预期。类似地，为写入而打开的命令的输出可能与原始进程的输出混杂在一起。后者可以通过在 `popen` 之前调用 [fflush(3)](../man3/fflush.3.md) 来避免。
+由于为读取而打开的命令的标准输入与调用 `popen` 的进程共享其寻道偏移量，如果原始进程已执行了缓冲读取，则命令的输入位置可能不如预期。类似地，为写入而打开的命令的输出可能与原始进程的输出混杂在一起。后者可以通过在 `popen` 之前调用 [fflush(3)](../stdio/fflush.3.md) 来避免。
 
 无法执行 shell 与 shell 无法执行命令或命令立即退出是无法区分的。唯一的提示是退出状态为 127。
 

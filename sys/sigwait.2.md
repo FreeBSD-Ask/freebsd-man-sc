@@ -45,7 +45,7 @@ sigwait(const sigset_t * restrict set, int * restrict sig);
 
 ## 参见
 
-[sigaction(2)](sigaction.2.md), [sigpending(2)](sigpending.2.md), [sigqueue(2)](sigqueue.2.md), [sigsuspend(2)](sigsuspend.2.md), [sigtimedwait(2)](sigtimedwait.2.md), [sigwaitinfo(2)](sigwaitinfo.2.md), [pause(3)](../man3/pause.3.md), [pthread_sigmask(3)](../man3/pthread_sigmask.3.md)
+[sigaction(2)](sigaction.2.md), [sigpending(2)](sigpending.2.md), [sigqueue(2)](sigqueue.2.md), [sigsuspend(2)](sigsuspend.2.md), [sigtimedwait(2)](sigwaitinfo.2.md), [sigwaitinfo(2)](sigwaitinfo.2.md), [pause(3)](../gen/pause.3.md), [pthread_sigmask(3)](../man3/pthread_sigmask.3.md)
 
 ## 标准
 

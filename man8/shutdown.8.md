@@ -30,9 +30,9 @@
 
 **`-k`** 踢出所有人。`-k` 选项实际上不会停机系统，而是使系统保持多用户状态，但禁用登录（对除超级用户以外的所有人）。
 
-**`-o`** 如果指定了 `-c`、`-h`、`-p` 或 `-r` 选项之一，`shutdown` 将执行 [fasthalt(8)](fasthalt.8.md) 或 [fastboot(8)](fastboot.8.md)，而不是向 [init(8)](init.8.md) 发送信号。
+**`-o`** 如果指定了 `-c`、`-h`、`-p` 或 `-r` 选项之一，`shutdown` 将执行 [fasthalt(8)](reboot.8.md) 或 [fastboot(8)](reboot.8.md)，而不是向 [init(8)](init.8.md) 发送信号。
 
-**`-n`** 如果指定了 `-o` 选项，通过向 [fasthalt(8)](fasthalt.8.md) 或 [fastboot(8)](fastboot.8.md) 传递 `-n` 来阻止文件系统缓存被刷新。此选项可能不应使用。
+**`-n`** 如果指定了 `-o` 选项，通过向 [fasthalt(8)](reboot.8.md) 或 [fastboot(8)](reboot.8.md) 传递 `-n` 来阻止文件系统缓存被刷新。此选项可能不应使用。
 
 **`-q`** 静默关机。抑制向所有已登录用户发送的关于系统关机的警告消息。在抑制警告时提供 `warning-message` 是一个错误。
 
@@ -103,7 +103,7 @@ shutdown -p now
 
 ## 参见
 
-[kill(1)](../man1/kill.1.md), [login(1)](../man1/login.1.md), [wall(1)](../man1/wall.1.md), nologin(5), [halt(8)](halt.8.md), [init(8)](init.8.md), [reboot(8)](reboot.8.md)
+[kill(1)](../man1/kill.1.md), [login(1)](../man1/login.1.md), [wall(1)](../man1/wall.1.md), nologin(5), [halt(8)](reboot.8.md), [init(8)](init.8.md), [reboot(8)](reboot.8.md)
 
 ## 历史
 

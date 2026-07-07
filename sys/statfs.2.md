@@ -126,7 +126,7 @@ char	  f_mntonname[MNAMELEN];    /* 挂载到的目录 */
 
 **`MNT_USER`** 该文件系统由用户挂载。
 
-**`MNT_VERIFIED`** 该文件系统被标记为已验证，无需在 [execve(2)](execve.2.md) 时进行指纹检查，参见 [mac_veriexec(4)](../man4/mac_veriexec.4.md)。
+**`MNT_VERIFIED`** 该文件系统被标记为已验证，无需在 [execve(2)](execve.2.md) 时进行指纹检查，参见 mac_veriexec(4)。
 
 对于特定文件系统未定义的字段设置为 -1。`fstatfs()` 系统调用返回由描述符 `fd` 引用的已打开文件的相同信息。
 
@@ -170,7 +170,7 @@ char	  f_mntonname[MNAMELEN];    /* 挂载到的目录 */
 
 ## 参见
 
-[fhstatfs(2)](fhstatfs.2.md), [getfsstat(2)](getfsstat.2.md), [named_attribute(7)](../man7/named_attribute.7.md)
+[fhstatfs(2)](fhopen.2.md), [getfsstat(2)](getfsstat.2.md), [named_attribute(7)](../man7/named_attribute.7.md)
 
 ## 历史
 

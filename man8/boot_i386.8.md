@@ -124,7 +124,7 @@ boot:
 
 ## 参见
 
-[ddb(4)](../man4/ddb.4.md), [boot.config(5)](../man5/boot.config.5.md), [make.conf(5)](../man5/make.conf.5.md), [mount.conf(5)](../man5/mount.conf.5.md), ttys(5), [boot0cfg(8)](boot0cfg.8.md), btxld(8), [config(8)](config.8.md), efibootmgr(8), efivar(8), [gpart(8)](gpart.8.md), [gptboot(8)](gptboot.8.md), [gptzfsboot(8)](gptzfsboot.8.md), [halt(8)](halt.8.md), [loader(8)](loader.8.md), nextboot(8), [reboot(8)](reboot.8.md), [shutdown(8)](shutdown.8.md), [uefi(8)](uefi.8.md), zfsbootcfg(8)
+[ddb(4)](../man4/ddb.4.md), [boot.config(5)](../man5/boot.config.5.md), [make.conf(5)](../man5/make.conf.5.md), [mount.conf(5)](../man5/mount.conf.5.md), ttys(5), [boot0cfg(8)](boot0cfg.8.md), btxld(8), [config(8)](config.8.md), efibootmgr(8), efivar(8), [gpart(8)](gpart.8.md), [gptboot(8)](gptboot.8.md), [gptzfsboot(8)](gptzfsboot.8.md), [halt(8)](reboot.8.md), [loader(8)](loader.8.md), nextboot(8), [reboot(8)](reboot.8.md), [shutdown(8)](shutdown.8.md), [uefi(8)](uefi.8.md), zfsbootcfg(8)
 
 ## 缺陷
 

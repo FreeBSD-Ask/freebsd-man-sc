@@ -89,7 +89,7 @@
 
 ## 参见
 
-nm(1), [addr2line(1)](addr2line.1.md), elfcopy(1),
+nm(1), [addr2line(1)](llvm-addr2line.1.md), elfcopy(1),
 
 ## 作者
 

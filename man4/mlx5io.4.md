@@ -80,4 +80,4 @@ struct mlx5_eeprom_get {
 
 ## 参见
 
-[errno(2)](../man2/errno.2.md), [ioctl(2)](../man2/ioctl.2.md), [mlx5en(4)](mlx5en.4.md), [mlx5ib(4)](mlx5ib.4.md), [mlx5tool(8)](../man8/mlx5tool.8.md) 和 [pci(9)](../man9/pci.9.md)
+[errno(2)](../sys/intro.2.md), [ioctl(2)](../sys/ioctl.2.md), [mlx5en(4)](mlx5en.4.md), [mlx5ib(4)](mlx5ib.4.md), [mlx5tool(8)](../man8/mlx5tool.8.md) 和 [pci(9)](../man9/pci.9.md)

@@ -87,7 +87,7 @@ sys 0.00
 
 ## 参见
 
-[builtin(1)](builtin.1.md), [csh(1)](csh.1.md), [getrusage(2)](../man2/getrusage.2.md), [wait(2)](../man2/wait.2.md)
+[builtin(1)](builtin.1.md), [csh(1)](csh.1.md), [getrusage(2)](../sys/getrusage.2.md), [wait(2)](../sys/wait.2.md)
 
 ## 标准
 

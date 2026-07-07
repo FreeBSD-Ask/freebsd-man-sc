@@ -86,7 +86,7 @@ uuid_dec_be(const void *buf, uuid_t *);
 
 ## 参见
 
-[uuidgen(1)](../man1/uuidgen.1.md), [uuidgen(2)](../man2/uuidgen.2.md)
+[uuidgen(1)](../man1/uuidgen.1.md), [uuidgen(2)](../sys/uuidgen.2.md)
 
 ## 标准
 

@@ -61,11 +61,11 @@ struct kld_file_stat {
 
 **[`EINVAL`]** `stat` 的 `version` 字段中指定的版本不是正确的版本。如果你已正确填写了 `version` 字段，但出现此错误，则需要重新构建 world、内核或你的应用程序。
 
-**[`EFAULT`]** 在 [copyout(9)](../man9/copyout.9.md) 函数中将字段复制到 `stat` 时出现问题。
+**[`EFAULT`]** 在 [copyout(9)](../man9/copy.9.md) 函数中将字段复制到 `stat` 时出现问题。
 
 ## 参见
 
-[kldfind(2)](kldfind.2.md), [kldfirstmod(2)](kldfirstmod.2.md), [kldload(2)](kldload.2.md), [kldnext(2)](kldnext.2.md), [kldsym(2)](kldsym.2.md), [kldunload(2)](kldunload.2.md), [modfind(2)](modfind.2.md), [modfnext(2)](modfnext.2.md), [modnext(2)](modnext.2.md), [modstat(2)](modstat.2.md), [kld(4)](../man4/kld.4.md), [kldstat(8)](../man8/kldstat.8.md)
+[kldfind(2)](kldfind.2.md), [kldfirstmod(2)](kldfirstmod.2.md), [kldload(2)](kldload.2.md), [kldnext(2)](kldnext.2.md), [kldsym(2)](kldsym.2.md), [kldunload(2)](kldunload.2.md), [modfind(2)](modfind.2.md), [modfnext(2)](modnext.2.md), [modnext(2)](modnext.2.md), [modstat(2)](modstat.2.md), [kld(4)](../man4/kld.4.md), [kldstat(8)](../man8/kldstat.8.md)
 
 ## 历史
 

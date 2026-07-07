@@ -79,7 +79,7 @@ feed-forward 范式支持定义专用的时钟函数。
 
 ## 参见
 
-[date(1)](../man1/date.1.md), [adjtime(2)](adjtime.2.md), [clock_gettime(2)](clock_gettime.2.md), [ctime(3)](../man3/ctime.3.md)
+[date(1)](../man1/date.1.md), [adjtime(2)](adjtime.2.md), [clock_gettime(2)](clock_gettime.2.md), [ctime(3)](../stdtime/ctime.3.md)
 
 ## 历史
 

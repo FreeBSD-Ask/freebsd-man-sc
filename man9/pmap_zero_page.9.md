@@ -38,7 +38,7 @@ FreeBSD 支持的每种架构都必须实现此函数。
 
 ## 参见
 
-[bzero(3)](../man3/bzero.3.md), [pmap(9)](pmap.9.md)
+[bzero(3)](../string/bzero.3.md), [pmap(9)](pmap.9.md)
 
 ## 作者
 

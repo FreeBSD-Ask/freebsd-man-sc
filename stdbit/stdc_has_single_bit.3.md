@@ -35,7 +35,7 @@ bool stdc_has_single_bit(value);
 
 ## 参见
 
-[stdbit(3)](stdbit.3.md), [stdc_count_ones(3)](stdc_count_ones.3.md)
+[stdbit(3)](../man3/stdbit.3.md), [stdc_count_ones(3)](stdc_count_ones.3.md)
 
 ## 标准
 

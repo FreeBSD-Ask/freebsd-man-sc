@@ -55,7 +55,7 @@ cap_rights_set(&rights, CAP_READ, CAP_WRITE, CAP_FSTAT, CAP_SEEK);
 
 完整的能力权限列表可在 [rights(4)](../man4/rights.4.md) 手册页中找到。
 
-`cap_rights_init` 函数初始化所提供的 `cap_rights_t` 结构。只有经过正确初始化的结构才能传递给其余函数。为方便起见，该结构可在初始化时直接填入能力权限，而无需稍后调用 `cap_rights_set` 函数。为更加便利，该函数会返回指向给定结构的指针，因此可直接传递给 [cap_rights_limit(2)](../man2/cap_rights_limit.2.md)：
+`cap_rights_init` 函数初始化所提供的 `cap_rights_t` 结构。只有经过正确初始化的结构才能传递给其余函数。为方便起见，该结构可在初始化时直接填入能力权限，而无需稍后调用 `cap_rights_set` 函数。为更加便利，该函数会返回指向给定结构的指针，因此可直接传递给 [cap_rights_limit(2)](../sys/cap_rights_limit.2.md)：
 
 ```c
 cap_rights_t rights;
@@ -97,7 +97,7 @@ if (cap_rights_limit(fd, cap_rights_init(&rights, CAP_READ, CAP_WRITE)) < 0)
 
 ## 实例
 
-以下示例演示了如何准备一个 `cap_rights_t` 结构以传递给 [cap_rights_limit(2)](../man2/cap_rights_limit.2.md) 系统调用。
+以下示例演示了如何准备一个 `cap_rights_t` 结构以传递给 [cap_rights_limit(2)](../sys/cap_rights_limit.2.md) 系统调用。
 
 ```c
 cap_rights_t rights;
@@ -116,7 +116,7 @@ if (cap_rights_limit(fd, &rights) < 0 && errno != ENOSYS)
 
 ## 参见
 
-[cap_rights_limit(2)](../man2/cap_rights_limit.2.md), [open(2)](../man2/open.2.md), [capsicum(4)](../man4/capsicum.4.md), [rights(4)](../man4/rights.4.md)
+[cap_rights_limit(2)](../sys/cap_rights_limit.2.md), [open(2)](../sys/open.2.md), [capsicum(4)](../man4/capsicum.4.md), [rights(4)](../man4/rights.4.md)
 
 ## 历史
 

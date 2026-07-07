@@ -152,7 +152,7 @@ execvp("ls", g.gl_pathv);
 
 ## 参见
 
-[sh(1)](../man1/sh.1.md), [fnmatch(3)](fnmatch.3.md), [regex(3)](regex.3.md)
+[sh(1)](../man1/sh.1.md), [fnmatch(3)](fnmatch.3.md), [regex(3)](../man3/regex.3.md)
 
 ## 标准
 

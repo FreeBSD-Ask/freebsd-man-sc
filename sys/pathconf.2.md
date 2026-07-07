@@ -137,7 +137,7 @@ fpathconf(int fd, int name);
 
 ## 参见
 
-[chflags(2)](chflags.2.md), [copy_file_range(2)](copy_file_range.2.md), [lseek(2)](lseek.2.md), [sysctl(3)](../man3/sysctl.3.md)
+[chflags(2)](chflags.2.md), [copy_file_range(2)](copy_file_range.2.md), [lseek(2)](lseek.2.md), [sysctl(3)](../gen/sysctl.3.md)
 
 ## 历史
 

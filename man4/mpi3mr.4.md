@@ -35,7 +35,7 @@ mpi3mr_load="YES"
 
 ## 参见
 
-[cam(4)](cam.4.md), [cd(4)](cd.4.md), [ch(4)](ch.4.md), [da(4)](da.4.md), [mpr(4)](mpr.4.md), [pci(4)](pci.4.md), [sa(4)](sa.4.md), [scsi(4)](scsi.4.md)
+[cam(4)](scsi.4.md), [cd(4)](cd.4.md), [ch(4)](ch.4.md), [da(4)](da.4.md), [mpr(4)](mpr.4.md), [pci(4)](pci.4.md), [sa(4)](sa.4.md), [scsi(4)](scsi.4.md)
 
 ## 历史
 

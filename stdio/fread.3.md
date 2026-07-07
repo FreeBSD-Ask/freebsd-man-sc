@@ -32,7 +32,7 @@ Lb libc
 
 ## 参见
 
-[read(2)](../man2/read.2.md), [write(2)](../man2/write.2.md)
+[read(2)](../sys/read.2.md), [write(2)](../sys/write.2.md)
 
 ## 标准
 

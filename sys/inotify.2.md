@@ -43,7 +43,7 @@ struct inotify_event {
 
 ## 描述
 
-inotify 系统调用提供了监视文件系统事件的接口。它们旨在与 Linux inotify 接口兼容。提供的功能类似于 [kevent(2)](kevent.2.md) 系统调用的 `EVFILT_VNODE` 过滤器，但进一步允许监视目录而无需打开该目录中的每个对象。这避免了竞态条件，并减少了监视大型文件层次结构所需的文件描述符数量。
+inotify 系统调用提供了监视文件系统事件的接口。它们旨在与 Linux inotify 接口兼容。提供的功能类似于 [kevent(2)](kqueue.2.md) 系统调用的 `EVFILT_VNODE` 过滤器，但进一步允许监视目录而无需打开该目录中的每个对象。这避免了竞态条件，并减少了监视大型文件层次结构所需的文件描述符数量。
 
 inotify 允许监视一个或多个文件系统对象（通常是文件或目录）的事件，如文件打开或关闭。被监视的对象与由 `inotify_init()` 或 `inotify_init1()` 返回的文件描述符关联。当事件发生时，描述该事件的记录可从 inotify 文件描述符中读取。因此，每个 inotify 描述符都引用一个等待读取的事件队列。inotify 描述符在 [fork(2)](fork.2.md) 调用中继承，并可通过 [unix(4)](../man4/unix.4.md) 套接字传递给其他进程。
 
@@ -157,7 +157,7 @@ inotify 事件记录中还可设置一些附加标志：
 
 ## 参见
 
-[kevent(2)](kevent.2.md), [capsicum(4)](../man4/capsicum.4.md)
+[kevent(2)](kqueue.2.md), [capsicum(4)](../man4/capsicum.4.md)
 
 ## 标准
 

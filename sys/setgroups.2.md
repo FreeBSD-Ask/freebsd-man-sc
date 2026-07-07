@@ -44,7 +44,7 @@ setgroups(int ngroups, const gid_t *gidset);
 
 ## 参见
 
-[getgroups(2)](getgroups.2.md), [setcred(2)](setcred.2.md), [initgroups(3)](../man3/initgroups.3.md)
+[getgroups(2)](getgroups.2.md), [setcred(2)](setcred.2.md), [initgroups(3)](../gen/initgroups.3.md)
 
 ## 历史
 
@@ -58,7 +58,7 @@ setgroups(int ngroups, const gid_t *gidset);
 
 仅依赖 `setgroups()` 来更改有效组 ID 的程序必须进行修改，例如同时调用 [setegid(2)](setregid.2.md) 或改用 [setcred(2)](setcred.2.md)，否则它们会在无意中保留原有的有效组 ID。
 
-使用 `setgroups()` 时将有效组 ID 作为数组 `gidset` 的第一个元素且未在数组其余部分重复该 ID 的程序（包括那些使用 `initgroups()` 的程序），现在会将此组 ID 插入补充组集合中。这通常是期望的行为，正如 [initgroups(3)](../man3/initgroups.3.md) 手册页中所解释的，其结果是后续进程有效组 ID 的更改不会移除对原始有效组 ID 的成员资格，因为这些更改不影响补充组。明确不希望如此的应用程序必须进行修改，停止将有效组 ID 作为第一个元素传递给 `setgroups()`。
+使用 `setgroups()` 时将有效组 ID 作为数组 `gidset` 的第一个元素且未在数组其余部分重复该 ID 的程序（包括那些使用 `initgroups()` 的程序），现在会将此组 ID 插入补充组集合中。这通常是期望的行为，正如 [initgroups(3)](../gen/initgroups.3.md) 手册页中所解释的，其结果是后续进程有效组 ID 的更改不会移除对原始有效组 ID 的成员资格，因为这些更改不影响补充组。明确不希望如此的应用程序必须进行修改，停止将有效组 ID 作为第一个元素传递给 `setgroups()`。
 
 要清除调用进程的所有补充组，应始终使用以下语句
 

@@ -69,7 +69,7 @@ timer_settime(timer_t timerid, int flags,
 
 ## 参见
 
-[clock_getres(2)](clock_getres.2.md), [timer_create(2)](timer_create.2.md), [timer_delete(2)](timer_delete.2.md), [siginfo(3)](../man3/siginfo.3.md)
+[clock_getres(2)](clock_gettime.2.md), [timer_create(2)](timer_create.2.md), [timer_delete(2)](timer_delete.2.md), [siginfo(3)](../man3/siginfo.3.md)
 
 ## 标准
 

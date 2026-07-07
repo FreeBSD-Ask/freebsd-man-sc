@@ -80,7 +80,7 @@ gpart bootcode -b /boot/mbr ada0
 
 ## 参见
 
-[geom(4)](../man4/geom.4.md), [boot(8)](boot.8.md), [gpart(8)](gpart.8.md)
+[geom(4)](../man4/geom.4.md), [boot(8)](boot_i386.8.md), [gpart(8)](gpart.8.md)
 
 ## 作者
 

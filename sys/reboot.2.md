@@ -65,7 +65,7 @@ reboot(int howto);
 
 ## 参见
 
-[kexec_load(2)](kexec_load.2.md), [crash(8)](../man8/crash.8.md), [halt(8)](../man8/halt.8.md), [init(8)](../man8/init.8.md), [reboot(8)](../man8/reboot.8.md), savecore(8), reboot(9)
+[kexec_load(2)](kexec_load.2.md), [crash(8)](../man8/crash.8.md), [halt(8)](../man8/reboot.8.md), [init(8)](../man8/init.8.md), [reboot(8)](../man8/reboot.8.md), savecore(8), reboot(9)
 
 ## 历史
 

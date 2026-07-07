@@ -106,7 +106,7 @@ cpuset -C -c -l 0,2 -p <pid>
 
 ## 参见
 
-nproc(1), [cpuset(2)](../man2/cpuset.2.md), [rctl(8)](../man8/rctl.8.md)
+nproc(1), [cpuset(2)](../sys/cpuset.2.md), [rctl(8)](../man8/rctl.8.md)
 
 ## 历史
 

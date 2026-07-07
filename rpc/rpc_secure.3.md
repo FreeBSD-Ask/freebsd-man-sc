@@ -82,7 +82,7 @@ user2netname(char *name, const uid_t uid, const char *domain);
 
 ## 参见
 
-[rpc(3)](rpc.3.md), [xdr(3)](xdr.3.md)
+[rpc(3)](rpc.3.md), [xdr(3)](../man3/xdr.3.md)
 
 以下手册：
 

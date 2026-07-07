@@ -32,7 +32,7 @@ Lb libc
 
 **`EBADF`** `stream` 参数不是可写流。
 
-`fputs` 和 `puts` 函数也可能失败并为 [write(2)](../man2/write.2.md) 例程指定的任何错误设置 `errno`。
+`fputs` 和 `puts` 函数也可能失败并为 [write(2)](../sys/write.2.md) 例程指定的任何错误设置 `errno`。
 
 ## 参见
 

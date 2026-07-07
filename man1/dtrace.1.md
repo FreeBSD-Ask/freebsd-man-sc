@@ -41,11 +41,11 @@ DTrace 是从 Solaris 移植的综合性动态跟踪框架。DTrace 提供了强
 
 **`-c`** `cmd` 运行指定的命令 `cmd` 并在其完成时退出。如果命令行上存在多个 `-c` 选项，`dtrace` 会在所有命令都退出时退出，并在每个子进程终止时报告其退出状态。第一个命令的进程 ID 通过 `$target` 宏变量提供给命令行上指定或使用 `-s` 选项指定的任何 D 程序。
 
-**`-C`** 在编译 D 程序之前对其运行 C 预处理器 [cpp(1)](cpp.1.md)。可以使用 `-D`、`-U`、`-I` 和 `-H` 选项向 C 预处理器传递选项。使用 `-X` 选项可以选择 C 标准符合度。有关 D 编译器在调用 C 预处理器时定义的令牌集合的说明，参见 `-X`。
+**`-C`** 在编译 D 程序之前对其运行 C 预处理器 [cpp(1)](clang.1.md)。可以使用 `-D`、`-U`、`-I` 和 `-H` 选项向 C 预处理器传递选项。使用 `-X` 选项可以选择 C 标准符合度。有关 D 编译器在调用 C 预处理器时定义的令牌集合的说明，参见 `-X`。
 
 **`-d`** 在应用语法转换后将 D 脚本转储到标准输出。例如，D 中的 if 语句就是通过此类转换实现的：探针体中的条件子句在编译时被替换为一个以原始条件为谓词的独立探针。
 
-**`-D`** `name`[=`value`] 在调用 [cpp(1)](cpp.1.md) 时定义 `name`（通过 `-C` 选项启用）。如果指定了附加的 `value`，则该名称会被赋予相应的值。此选项将 `-D` 选项传递给每次 [cpp(1)](cpp.1.md) 调用。
+**`-D`** `name`[=`value`] 在调用 [cpp(1)](clang.1.md) 时定义 `name`（通过 `-C` 选项启用）。如果指定了附加的 `value`，则该名称会被赋予相应的值。此选项将 `-D` 选项传递给每次 [cpp(1)](clang.1.md) 调用。
 
 **`-e`** 在编译任何请求并消费匿名跟踪状态（`-a` 选项）之后，但在启用任何探针之前退出。可以将此选项与 `-a` 选项组合以打印匿名跟踪数据并退出。也可以将此选项与 D 编译器选项组合。这种组合可在不实际执行程序和启用相应插桩的情况下验证程序是否可编译。
 
@@ -57,11 +57,11 @@ DTrace 是从 Solaris 移植的综合性动态跟踪框架。DTrace 提供了强
 
 **`-h`** 生成一个头文件，其中包含与指定提供者定义中的探针对应的宏。此选项应用于生成一个头文件，该文件被其他源文件包含，以便稍后与 `-G` 选项一起使用。如果存在 `-o` 选项，则使用为该选项指定的路径名保存头文件。如果不存在 `-o` 选项，且 DTrace 程序包含在名为 `filename.d` 的文件中，则使用名称 `filename.h` 保存头文件。
 
-**`-H`** 调用 [cpp(1)](cpp.1.md) 时打印包含文件的路径名（通过 `-C` 选项启用）。此选项将 `-H` 选项传递给每次 [cpp(1)](cpp.1.md) 调用，使其将路径名列表（每行一个）显示到标准错误。
+**`-H`** 调用 [cpp(1)](clang.1.md) 时打印包含文件的路径名（通过 `-C` 选项启用）。此选项将 `-H` 选项传递给每次 [cpp(1)](clang.1.md) 调用，使其将路径名列表（每行一个）显示到标准错误。
 
 **`-i`** `probe-id` [[`predicate`] `action`] 指定要跟踪或列出（`-l` 选项）的探针标识符（`probe-id`）。可以使用 `dtrace -l` 所示的十进制整数指定探针 ID。`-i` 参数可以后缀一个可选的 D 探针子句。一次可以指定多个 `-i` 选项。
 
-**`-I`** `path` 在调用 [cpp(1)](cpp.1.md) 时（通过 `-C` 选项启用），将指定的目录 `path` 添加到 #include 文件的搜索路径中。此选项将 `-I` 选项传递给每次 [cpp(1)](cpp.1.md) 调用。指定的 `path` 会插入到搜索路径中默认目录列表之前。
+**`-I`** `path` 在调用 [cpp(1)](clang.1.md) 时（通过 `-C` 选项启用），将指定的目录 `path` 添加到 #include 文件的搜索路径中。此选项将 `-I` 选项传递给每次 [cpp(1)](clang.1.md) 调用。指定的 `path` 会插入到搜索路径中默认目录列表之前。
 
 **`-l`** 列出探针而不是启用它们。如果指定了 `-l` 选项，`dtrace` 会生成一份报告，列出与使用 `-P`、`-m`、`-f`、`-n`、`-i` 和 `-s` 选项给出的描述相匹配的探针。如果未指定这些选项中的任何一个，此选项会列出所有探针。
 
@@ -87,7 +87,7 @@ DTrace 是从 Solaris 移植的综合性动态跟踪框架。DTrace 提供了强
 
 **`-S`** 显示 D 编译器中间代码。D 编译器会为每个 D 程序生成一份中间代码报告到标准错误。
 
-**`-U`** `name` 在调用 [cpp(1)](cpp.1.md) 时取消定义指定的 `name`（通过 `-C` 选项启用）。此选项将 `-U` 选项传递给每次 [cpp(1)](cpp.1.md) 调用。
+**`-U`** `name` 在调用 [cpp(1)](clang.1.md) 时取消定义指定的 `name`（通过 `-C` 选项启用）。此选项将 `-U` 选项传递给每次 [cpp(1)](clang.1.md) 调用。
 
 **`-v`** 设置详细模式。如果指定了 `-v` 选项，`dtrace` 会生成一份程序稳定性报告，显示指定 D 程序的最小接口稳定性和依赖级别。
 
@@ -168,15 +168,15 @@ DTrace 是从 Solaris 移植的综合性动态跟踪框架。DTrace 提供了强
 
 **`ustackframes`=`scalar`** 执行 `ustack()` 动作时回溯的用户空间栈帧最大数量。
 
-**`-X`** `a | c | s | t` 指定调用 [cpp(1)](cpp.1.md) 时（通过 `-C` 选项启用）应选择的 ISO C 标准符合度。`-X` 选项参数根据参数字母的值影响 __STDC__ 宏的值和存在性。`-X` 选项支持以下参数：
+**`-X`** `a | c | s | t` 指定调用 [cpp(1)](clang.1.md) 时（通过 `-C` 选项启用）应选择的 ISO C 标准符合度。`-X` 选项参数根据参数字母的值影响 __STDC__ 宏的值和存在性。`-X` 选项支持以下参数：
 
-**`a`** 默认。ISO C 加 K&R 兼容性扩展，以及 ISO C 所要求的语义更改。如果未指定 `-X`，这是默认模式。当 [cpp(1)](cpp.1.md) 与 `-Xa` 选项一起调用时，预定义宏 __STDC__ 的值为 0。
+**`a`** 默认。ISO C 加 K&R 兼容性扩展，以及 ISO C 所要求的语义更改。如果未指定 `-X`，这是默认模式。当 [cpp(1)](clang.1.md) 与 `-Xa` 选项一起调用时，预定义宏 __STDC__ 的值为 0。
 
-**`c`** 符合。严格符合 ISO C，不带 K&R C 兼容性扩展。当 [cpp(1)](cpp.1.md) 与 `-Xc` 选项一起调用时，预定义宏 __STDC__ 的值为 1。
+**`c`** 符合。严格符合 ISO C，不带 K&R C 兼容性扩展。当 [cpp(1)](clang.1.md) 与 `-Xc` 选项一起调用时，预定义宏 __STDC__ 的值为 1。
 
-**`s`** 仅 K&R C。当 [cpp(1)](cpp.1.md) 与 `-Xs` 选项一起调用时，不定义宏 __STDC__。
+**`s`** 仅 K&R C。当 [cpp(1)](clang.1.md) 与 `-Xs` 选项一起调用时，不定义宏 __STDC__。
 
-**`t`** 过渡。ISO C 加 K&R C 兼容性扩展，不带 ISO C 所要求的语义更改。当 [cpp(1)](cpp.1.md) 与 `-Xt` 选项一起调用时，预定义宏 __STDC__ 的值为 0。
+**`t`** 过渡。ISO C 加 K&R C 兼容性扩展，不带 ISO C 所要求的语义更改。当 [cpp(1)](clang.1.md) 与 `-Xt` 选项一起调用时，预定义宏 __STDC__ 的值为 0。
 
 由于 `-X` 选项仅影响 D 编译器如何调用 C 预处理器，从 D 的角度看 `-Xa` 和 `-Xt` 选项是等价的，二者都只是为了方便复用 C 构建环境中的设置。
 
@@ -473,7 +473,7 @@ DTrace 是从 Solaris 移植的综合性动态跟踪框架。DTrace 提供了强
 
 ## 参见
 
-[cpp(1)](cpp.1.md), dwatch(1), [dtrace_audit(4)](../man4/dtrace_audit.4.md), [dtrace_callout_execute(4)](../man4/dtrace_callout_execute.4.md), [dtrace_cam(4)](../man4/dtrace_cam.4.md), [dtrace_dtmalloc(4)](../man4/dtrace_dtmalloc.4.md), [dtrace_dtrace(4)](../man4/dtrace_dtrace.4.md), [dtrace_fbt(4)](../man4/dtrace_fbt.4.md), [dtrace_io(4)](../man4/dtrace_io.4.md), [dtrace_ip(4)](../man4/dtrace_ip.4.md), [dtrace_kinst(4)](../man4/dtrace_kinst.4.md), [dtrace_lockstat(4)](../man4/dtrace_lockstat.4.md), [dtrace_mib(4)](../man4/dtrace_mib.4.md), [dtrace_pid(4)](../man4/dtrace_pid.4.md), [dtrace_proc(4)](../man4/dtrace_proc.4.md), [dtrace_priv(4)](../man4/dtrace_priv.4.md), [dtrace_profile(4)](../man4/dtrace_profile.4.md), [dtrace_sched(4)](../man4/dtrace_sched.4.md), [dtrace_sctp(4)](../man4/dtrace_sctp.4.md), [dtrace_syscall(4)](../man4/dtrace_syscall.4.md), [dtrace_tcp(4)](../man4/dtrace_tcp.4.md), [dtrace_udp(4)](../man4/dtrace_udp.4.md), [dtrace_udplite(4)](../man4/dtrace_udplite.4.md), [dtrace_vfs(4)](../man4/dtrace_vfs.4.md), [elf(5)](../man5/elf.5.md), [d(7)](../man7/d.7.md), [tracing(7)](../man7/tracing.7.md), [SDT(9)](../man9/sdt.9.md)
+[cpp(1)](clang.1.md), dwatch(1), [dtrace_audit(4)](../man4/dtrace_audit.4.md), [dtrace_callout_execute(4)](../man4/dtrace_callout_execute.4.md), [dtrace_cam(4)](../man4/dtrace_cam.4.md), [dtrace_dtmalloc(4)](../man4/dtrace_dtmalloc.4.md), [dtrace_dtrace(4)](../man4/dtrace_dtrace.4.md), [dtrace_fbt(4)](../man4/dtrace_fbt.4.md), [dtrace_io(4)](../man4/dtrace_io.4.md), [dtrace_ip(4)](../man4/dtrace_ip.4.md), [dtrace_kinst(4)](../man4/dtrace_kinst.4.md), [dtrace_lockstat(4)](../man4/dtrace_lockstat.4.md), [dtrace_mib(4)](../man4/dtrace_mib.4.md), [dtrace_pid(4)](../man4/dtrace_pid.4.md), [dtrace_proc(4)](../man4/dtrace_proc.4.md), [dtrace_priv(4)](../man4/dtrace_priv.4.md), [dtrace_profile(4)](../man4/dtrace_profile.4.md), [dtrace_sched(4)](../man4/dtrace_sched.4.md), [dtrace_sctp(4)](../man4/dtrace_sctp.4.md), [dtrace_syscall(4)](../man4/dtrace_syscall.4.md), [dtrace_tcp(4)](../man4/dtrace_tcp.4.md), [dtrace_udp(4)](../man4/dtrace_udp.4.md), [dtrace_udplite(4)](../man4/dtrace_udplite.4.md), [dtrace_vfs(4)](../man4/dtrace_vfs.4.md), [elf(5)](../man5/elf.5.md), [d(7)](../man7/d.7.md), [tracing(7)](../man7/tracing.7.md), [SDT(9)](../man9/sdt.9.md)
 
 > "Solaris Dynamic Tracing Guide"
 

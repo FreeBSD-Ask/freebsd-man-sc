@@ -35,7 +35,7 @@ unsigned int stdc_first_trailing_one(value);
 
 ## 参见
 
-bit_ffs(3), ffs(3), ffsl(3), ffsll(3), [stdbit(3)](stdbit.3.md), [stdc_trailing_zeros(3)](stdc_trailing_zeros.3.md), [stdc_first_trailing_zero(3)](stdc_first_trailing_zero.3.md), [stdc_first_leading_one(3)](stdc_first_leading_one.3.md)
+bit_ffs(3), ffs(3), ffsl(3), ffsll(3), [stdbit(3)](../man3/stdbit.3.md), [stdc_trailing_zeros(3)](stdc_trailing_zeros.3.md), [stdc_first_trailing_zero(3)](stdc_first_trailing_zero.3.md), [stdc_first_leading_one(3)](stdc_first_leading_one.3.md)
 
 ## 标准
 

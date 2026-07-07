@@ -22,11 +22,11 @@ Lb libc
 
 `gethostid` 函数返回当前处理器的 32 位标识符。
 
-此函数已被弃用。hostid 应通过 [sysctl(3)](sysctl.3.md) 设置或获取。
+此函数已被弃用。hostid 应通过 [sysctl(3)](../gen/sysctl.3.md) 设置或获取。
 
 ## 参见
 
-[gethostname(3)](gethostname.3.md), [sysctl(3)](sysctl.3.md), [sysctl(8)](../man8/sysctl.8.md)
+[gethostname(3)](../gen/gethostname.3.md), [sysctl(3)](../gen/sysctl.3.md), [sysctl(8)](../man8/sysctl.8.md)
 
 ## 历史
 

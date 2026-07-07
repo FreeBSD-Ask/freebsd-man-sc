@@ -30,7 +30,7 @@
 
 如果向 `init` 发送终止（`TERM`）信号（例如 “`kill -TERM 1`”），它会终止多用户运行并恢复单用户模式。如果存在死锁的未完成进程（由于硬件或软件故障），`init` 不会等待它们全部终止（那可能需要永远），而是在 30 秒后超时并打印警告消息。
 
-如果向 `init` 发送终端停止（`TSTP`）信号（即 “`kill -TSTP 1`”），它将停止创建新进程，并允许系统缓慢消亡。随后的挂起将恢复完整的多用户运行，或终止信号将启动单用户 shell。此钩子由 [reboot(8)](reboot.8.md) 和 [halt(8)](halt.8.md) 使用。
+如果向 `init` 发送终端停止（`TSTP`）信号（即 “`kill -TSTP 1`”），它将停止创建新进程，并允许系统缓慢消亡。随后的挂起将恢复完整的多用户运行，或终止信号将启动单用户 shell。此钩子由 [reboot(8)](reboot.8.md) 和 [halt(8)](reboot.8.md) 使用。
 
 如果向 `init` 发送中断（`INT`）信号（即 “`kill -INT 1`”），它会终止所有可能终止的进程（同样，不会等待死锁的进程）并重启机器。当机器看起来卡死时，这对于从内核内部或从 X 中干净地关闭机器很有用。
 
@@ -105,7 +105,7 @@
 
 ## 参见
 
-[kill(1)](../man1/kill.1.md), [login(1)](../man1/login.1.md), [sh(1)](../man1/sh.1.md), ttys(5), [security(7)](../man7/security.7.md), getty(8), [halt(8)](halt.8.md), [jail(8)](jail.8.md), [rc(8)](rc.8.md), [reboot(8)](reboot.8.md), [shutdown(8)](shutdown.8.md), [sysctl(8)](sysctl.8.md)
+[kill(1)](../man1/kill.1.md), [login(1)](../man1/login.1.md), [sh(1)](../man1/sh.1.md), ttys(5), [security(7)](../man7/security.7.md), getty(8), [halt(8)](reboot.8.md), [jail(8)](jail.8.md), [rc(8)](rc.8.md), [reboot(8)](reboot.8.md), [shutdown(8)](shutdown.8.md), [sysctl(8)](sysctl.8.md)
 
 ## 历史
 

@@ -66,7 +66,7 @@ cpuset_getid(cpulevel_t level, cpuwhich_t which, id_t id,
 
 `cpuset_getid()` 从 `which` 指示的对象中检索集合 id，并将其存储在 `setid` 指向的空间中。检索到的 id 可以是根集合或已分配集合的 id，具体取决于 `level` 的值。`level` 应为 `CPU_LEVEL_CPUSET` 或 `CPU_LEVEL_ROOT`，以从 `id` 参数指定的进程或线程获取集合 id。不支持对进程或线程指定 `CPU_LEVEL_WHICH`，因为这引用的是未编号的匿名掩码。
 
-集合的实际内容可以使用 [cpuset_getaffinity(2)](cpuset_getaffinity.2.md)、[cpuset_setaffinity(2)](cpuset_setaffinity.2.md)、[cpuset_getdomain(2)](cpuset_getdomain.2.md) 和 [cpuset_setdomain(2)](cpuset_setdomain.2.md) 来检索或操作。[cpuset(9)](../man9/cpuset.9.md) 宏可用于操作 `cpuset_t` 类型的掩码，并通过这些 API 进行获取和设置。详见这些手册页。
+集合的实际内容可以使用 [cpuset_getaffinity(2)](cpuset_getaffinity.2.md)、[cpuset_setaffinity(2)](cpuset_getaffinity.2.md)、[cpuset_getdomain(2)](cpuset_getdomain.2.md) 和 [cpuset_setdomain(2)](cpuset_getdomain.2.md) 来检索或操作。[cpuset(9)](../man9/cpuset.9.md) 宏可用于操作 `cpuset_t` 类型的掩码，并通过这些 API 进行获取和设置。详见这些手册页。
 
 ## 返回值
 
@@ -137,7 +137,7 @@ if (cpuset_setaffinity(CPU_LEVEL_SET, CPU_WHICH_CPUSET, cpuset_id,
 
 ## 参见
 
-[cpuset(1)](../man1/cpuset.1.md), [cpuset_getaffinity(2)](cpuset_getaffinity.2.md), [cpuset_getdomain(2)](cpuset_getdomain.2.md), [cpuset_setaffinity(2)](cpuset_setaffinity.2.md), [cpuset_setdomain(2)](cpuset_setdomain.2.md), [pthread_affinity_np(3)](../man3/pthread_affinity_np.3.md), [pthread_attr_affinity_np(3)](../man3/pthread_attr_affinity_np.3.md), [CPU_SET(9)](../man9/CPU_SET.9.md), [CPU_ZERO(9)](../man9/CPU_ZERO.9.md), [cpuset(9)](../man9/cpuset.9.md)
+[cpuset(1)](../man1/cpuset.1.md), [cpuset_getaffinity(2)](cpuset_getaffinity.2.md), [cpuset_getdomain(2)](cpuset_getdomain.2.md), [cpuset_setaffinity(2)](cpuset_getaffinity.2.md), [cpuset_setdomain(2)](cpuset_getdomain.2.md), [pthread_affinity_np(3)](../man3/pthread_affinity_np.3.md), [pthread_attr_affinity_np(3)](../man3/pthread_attr_affinity_np.3.md), [CPU_SET(9)](../man9/cpuset.9.md), [CPU_ZERO(9)](../man9/cpuset.9.md), [cpuset(9)](../man9/cpuset.9.md)
 
 ## 历史
 

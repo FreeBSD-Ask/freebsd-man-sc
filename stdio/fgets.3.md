@@ -32,7 +32,7 @@ Lb libc
 
 **`EBADF`** 给定的 `stream` 不是可读流。
 
-`fgets` 函数也可能失败并为 [fflush(3)](fflush.3.md)、fstat(2)、[read(2)](../man2/read.2.md) 或 malloc(3) 所指定的任何错误设置 `errno`。
+`fgets` 函数也可能失败并为 [fflush(3)](fflush.3.md)、fstat(2)、[read(2)](../sys/read.2.md) 或 malloc(3) 所指定的任何错误设置 `errno`。
 
 `gets_s` 函数也可能失败并为 getchar(3) 所指定的任何错误设置 `errno`。
 

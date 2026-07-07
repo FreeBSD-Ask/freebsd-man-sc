@@ -66,7 +66,7 @@ cpuset_setaffinity(cpulevel_t level, cpuwhich_t which, id_t id,
 
 ## 参见
 
-[cpuset(1)](../man1/cpuset.1.md), [cpuset(2)](cpuset.2.md), [cpuset_getdomain(2)](cpuset_getdomain.2.md), [cpuset_getid(2)](cpuset_getid.2.md), [cpuset_setdomain(2)](cpuset_setdomain.2.md), [cpuset_setid(2)](cpuset_setid.2.md), [pthread_affinity_np(3)](../man3/pthread_affinity_np.3.md), [pthread_attr_affinity_np(3)](../man3/pthread_attr_affinity_np.3.md), [capsicum(4)](../man4/capsicum.4.md), [cpuset(9)](../man9/cpuset.9.md)
+[cpuset(1)](../man1/cpuset.1.md), [cpuset(2)](cpuset.2.md), [cpuset_getdomain(2)](cpuset_getdomain.2.md), [cpuset_getid(2)](cpuset.2.md), [cpuset_setdomain(2)](cpuset_getdomain.2.md), [cpuset_setid(2)](cpuset.2.md), [pthread_affinity_np(3)](../man3/pthread_affinity_np.3.md), [pthread_attr_affinity_np(3)](../man3/pthread_attr_affinity_np.3.md), [capsicum(4)](../man4/capsicum.4.md), [cpuset(9)](../man9/cpuset.9.md)
 
 ## 历史
 

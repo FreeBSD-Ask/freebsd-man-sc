@@ -34,7 +34,7 @@ geteuid(void);
 
 ## 参见
 
-[getgid(2)](getgid.2.md), [issetugid(2)](issetugid.2.md), [setgid(2)](setgid.2.md), [setreuid(2)](setreuid.2.md), [setuid(2)](setuid.2.md)
+[getgid(2)](getgid.2.md), [issetugid(2)](issetugid.2.md), [setgid(2)](setuid.2.md), [setreuid(2)](setreuid.2.md), [setuid(2)](setuid.2.md)
 
 ## 标准
 

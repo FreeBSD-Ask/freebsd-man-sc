@@ -21,7 +21,7 @@ cr_canseeotheruids(struct ucred *u1, struct ucred *u2);
 
 当且仅当 [sysctl(8)](../man8/sysctl.8.md) 变量 `security.bsd.see_other_uids` 设置为 0 时，此策略生效。
 
-按惯例，超级用户（有效用户 ID 为 0）不受此策略限制，前提是 [sysctl(8)](../man8/sysctl.8.md) 变量 `security.bsd.suser_enabled` 为非零值，且没有活动的 MAC 策略明确拒绝此豁免（参见 [priv_check_cred(9)](priv_check_cred.9.md)）。
+按惯例，超级用户（有效用户 ID 为 0）不受此策略限制，前提是 [sysctl(8)](../man8/sysctl.8.md) 变量 `security.bsd.suser_enabled` 为非零值，且没有活动的 MAC 策略明确拒绝此豁免（参见 [priv_check_cred(9)](priv.9.md)）。
 
 ## 返回值
 
@@ -29,4 +29,4 @@ cr_canseeotheruids(struct ucred *u1, struct ucred *u2);
 
 ## 参见
 
-[cr_bsd_visible(9)](cr_bsd_visible.9.md), [priv_check_cred(9)](priv_check_cred.9.md)
+[cr_bsd_visible(9)](cr_bsd_visible.9.md), [priv_check_cred(9)](priv.9.md)

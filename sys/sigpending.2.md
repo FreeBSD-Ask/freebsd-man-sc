@@ -35,7 +35,7 @@ sigpending(sigset_t *set);
 
 ## 参见
 
-[sigaction(2)](sigaction.2.md), [sigprocmask(2)](sigprocmask.2.md), [sigsuspend(2)](sigsuspend.2.md), [sigsetops(3)](../man3/sigsetops.3.md)
+[sigaction(2)](sigaction.2.md), [sigprocmask(2)](sigprocmask.2.md), [sigsuspend(2)](sigsuspend.2.md), [sigsetops(3)](../gen/sigsetops.3.md)
 
 ## 标准
 

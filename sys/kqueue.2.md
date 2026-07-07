@@ -138,7 +138,7 @@ struct kevent {
 
 **`NOTE_CLOSE`** 引用受监视文件的文件描述符已关闭。被关闭的文件描述符没有写权限。
 
-**`NOTE_CLOSE_WRITE`** 引用受监视文件的文件描述符已关闭。被关闭的文件描述符具有写权限。此 note 以及 `NOTE_CLOSE` 在文件被 [unmount(2)](unmount.2.md) 或 [revoke(2)](revoke.2.md) 强制关闭时不会激活。对于此类事件，会发送 `NOTE_REVOKE`。
+**`NOTE_CLOSE_WRITE`** 引用受监视文件的文件描述符已关闭。被关闭的文件描述符具有写权限。此 note 以及 `NOTE_CLOSE` 在文件被 [unmount(2)](mount.2.md) 或 [revoke(2)](revoke.2.md) 强制关闭时不会激活。对于此类事件，会发送 `NOTE_REVOKE`。
 
 **`NOTE_DELETE`** 对描述符引用的文件调用了 `unlink()` 系统调用。
 
@@ -166,9 +166,9 @@ struct kevent {
 
 **`NOTE_EXIT`** 进程已退出。退出状态将存储在 `data` 中。
 
-**`NOTE_JAIL_SET`** Jail 已通过 [jail_set(2)](jail_set.2.md) 更改。
+**`NOTE_JAIL_SET`** Jail 已通过 [jail_set(2)](jail.2.md) 更改。
 
-**`NOTE_JAIL_ATTACH`** 进程已通过 [jail_attach(2)](jail_attach.2.md) 或类似调用附加到 jail。进程 ID 将存储在 `data` 中。如果自上次调用 `kevent()` 以来有多个进程附加，`data` 将为零。
+**`NOTE_JAIL_ATTACH`** 进程已通过 [jail_attach(2)](jail.2.md) 或类似调用附加到 jail。进程 ID 将存储在 `data` 中。如果自上次调用 `kevent()` 以来有多个进程附加，`data` 将为零。
 
 **`NOTE_JAIL_REMOVE`** Jail 已被移除。
 
@@ -216,7 +216,7 @@ struct kevent {
 
 **`EVFILT_JAIL`** 以要监视的 jail ID 作为标识符，在 `fflags` 中指定要监视的事件，当 jail 执行一个或多个请求的事件时返回。如果进程通常可以看到 jail，则可以向其附加事件。标识符为零时将监视进程自身的 jail。要监视的事件为：返回时，`fflags` 包含触发过滤器的事件。如果自上次调用 `kevent()` 以来收到多个 `NOTE_JAIL_ATTACH` 或 `NOTE_JAIL_CHILD` 事件，它还将包含 `NOTE_JAIL_MULTI`。
 
-**`EVFILT_JAILDESC`** 以 [jail_set(2)](jail_set.2.md) 或 [jail_get(2)](jail_get.2.md) 返回的 jail 描述符作为标识符，在 `fflags` 中指定要监视的事件，当 jail 执行一个或多个请求的事件时返回。要监视的事件及产生的 `fflags` 与上文 `EVFILT_JAIL` 中列出的相同。
+**`EVFILT_JAILDESC`** 以 [jail_set(2)](jail.2.md) 或 [jail_get(2)](jail.2.md) 返回的 jail 描述符作为标识符，在 `fflags` 中指定要监视的事件，当 jail 执行一个或多个请求的事件时返回。要监视的事件及产生的 `fflags` 与上文 `EVFILT_JAIL` 中列出的相同。
 
 **`EVFILT_TIMER`** 建立一个由 `ident` 标识的任意定时器。添加定时器时，`data` 指定触发定时器的时刻（用于 `NOTE_ABSTIME`）或超时周期。除非指定 `EV_ONESHOT` 或 `NOTE_ABSTIME`，否则定时器将是周期性的。返回时，`data` 包含自上次调用 `kevent()` 以来超时已过期的次数。对于非单调定时器，此过滤器在内部自动设置 `EV_CLEAR` 标志。过滤器在 `fflags` 参数中接受以下标志：如果未设置 `fflags`，则默认为毫秒。返回时，`fflags` 包含触发过滤器的事件。指定超时为 0 的周期性定时器将被静默调整为在 `fflags` 中请求的精度指定的时间单位后超时 1 次。如果指定的绝对时间已经过去，则将其视为指定了当前时间，事件将尽快触发。如果重新添加现有定时器，现有定时器将被有效取消（丢弃任何未交付的先前定时器过期记录），并使用 `data` 和 `fflags` 中包含的新参数重新启动。系统范围内定时器数量有限制，由 `kern.kq_calloutmax` sysctl 控制。
 
@@ -325,7 +325,7 @@ main(int argc, char **argv)
 
 ## 参见
 
-[aio_error(2)](aio_error.2.md), [aio_read(2)](aio_read.2.md), [aio_return(2)](aio_return.2.md), [poll(2)](poll.2.md), [read(2)](read.2.md), [select(2)](select.2.md), [sigaction(2)](sigaction.2.md), [write(2)](write.2.md), [pthread_setcancelstate(3)](../man3/pthread_setcancelstate.3.md), [signal(3)](../man3/signal.3.md)
+[aio_error(2)](aio_error.2.md), [aio_read(2)](aio_read.2.md), [aio_return(2)](aio_return.2.md), [poll(2)](poll.2.md), [read(2)](read.2.md), [select(2)](select.2.md), [sigaction(2)](sigaction.2.md), [write(2)](write.2.md), [pthread_setcancelstate(3)](../man3/pthread_testcancel.3.md), [signal(3)](../gen/signal.3.md)
 
 > Jonathan Lemon, "Kqueue: A Generic and Scalable Event Notification Facility", *Proceedings of the FREENIX Track: 2001 USENIX Annual Technical Conference*, USENIX Association, June 25-30, 2001.
 

@@ -22,11 +22,11 @@
 
 注意，由于冒号（`:`）用于分隔功能条目，因此必须在功能值或名称中嵌入字面冒号时使用 `\:` 转义序列。
 
-FreeBSD 附带的默认 **/etc/login.conf** 是开箱即用的配置。每当对此文件或用户的 `~/.login_conf` 文件进行更改时，在使用 cap_mkdb(1) 将文件编译为数据库之前，修改不会被采纳。此数据库文件将具有 `.db` 扩展名，并通过 cgetent(3) 访问。有关功能数据库格式的更深入描述，请参见 [getcap(3)](../man3/getcap.3.md)。
+FreeBSD 附带的默认 **/etc/login.conf** 是开箱即用的配置。每当对此文件或用户的 `~/.login_conf` 文件进行更改时，在使用 cap_mkdb(1) 将文件编译为数据库之前，修改不会被采纳。此数据库文件将具有 `.db` 扩展名，并通过 cgetent(3) 访问。有关功能数据库格式的更深入描述，请参见 [getcap(3)](../gen/getcap.3.md)。
 
 ## 功能
 
-数据库中每条记录内的字段遵循 [getcap(3)](../man3/getcap.3.md) 的布尔型、字符串型 `=` 和数字型 `#` 约定，但数字型已弃用，推荐使用字符串格式，两种形式都可用于数字数据。值分为以下类别：
+数据库中每条记录内的字段遵循 [getcap(3)](../gen/getcap.3.md) 的布尔型、字符串型 `=` 和数字型 `#` 约定，但数字型已弃用，推荐使用字符串格式，两种形式都可用于数字数据。值分为以下类别：
 
 **b** 显式选择 512 字节块
 
@@ -93,7 +93,7 @@ FreeBSD 附带的默认 **/etc/login.conf** 是开箱即用的配置。每当对
 | umtxp | number | | 最大进程共享 pthread 锁数。 |
 | vmemoryuse | size | | 每个进程最大允许的 VM 使用总量。 |
 
-这些资源限制条目实际上同时指定了最大限制和当前限制（参见 [getrlimit(2)](../man2/getrlimit.2.md)）。当前（软）限制是通常使用的限制，尽管允许用户将当前限制增加到最大（硬）限制。可以通过在功能名称后附加 `-max` 或 `-cur` 来单独指定最大和当前限制。
+这些资源限制条目实际上同时指定了最大限制和当前限制（参见 [getrlimit(2)](../sys/getrlimit.2.md)）。当前（软）限制是通常使用的限制，尽管允许用户将当前限制增加到最大（硬）限制。可以通过在功能名称后附加 `-max` 或 `-cur` 来单独指定最大和当前限制。
 
 ## 环境变量
 
@@ -103,7 +103,7 @@ FreeBSD 附带的默认 **/etc/login.conf** 是开箱即用的配置。每当对
 | cpumask | string | | 要将用户绑定到的 CPU 列表。语法与 [cpuset(1)](../man1/cpuset.1.md) 的 `-l` 参数相同，或为单词 `default`。如果设置为 `default`，则不采取任何操作。 |
 | hushlogin | bool | false | 与拥有 ~/.hushlogin 文件相同。 |
 | ignorenologin | bool | false | 登录不被 nologin 阻止。 |
-| ftp-chroot | bool | false | 通过 [chroot(2)](../man2/chroot.2.md) 到用户的 `HOME` 目录限制 FTP 访问。详见 [ftpd(8)](../man8/ftpd.8.md)。 |
+| ftp-chroot | bool | false | 通过 [chroot(2)](../sys/chroot.2.md) 到用户的 `HOME` 目录限制 FTP 访问。详见 [ftpd(8)](../man8/ftpd.8.md)。 |
 | label | string | | 默认 MAC 策略；参见 [maclabel(7)](../man7/maclabel.7.md)。 |
 | lang | string | | 将 $LANG 环境变量设置为指定值。 |
 | mail | string | | 将 $MAIL 环境变量设置为指定值。 |
@@ -143,13 +143,13 @@ FreeBSD 附带的默认 **/etc/login.conf** 是开箱即用的配置。每当对
 
 设置环境变量的功能会扫描 `~` 和 `$` 字符，分别替换为用户的主目录和名称。要将这些字符字面传递到环境变量中，请在字符前加反斜杠 `\` 进行转义。
 
-*host.allow* 和 *host.deny* 条目是用于检查对系统的远程访问的逗号分隔列表，由主机名和/或 IP 地址列表组成，远程网络登录将根据这些列表进行检查。这些列表中的项目可以包含 shell 程序用于通配符匹配的通配符形式（有关实现的详细信息，请参见 [fnmatch(3)](../man3/fnmatch.3.md)）。对主机的检查同时针对远程系统的 Internet 地址和主机名（如果可用）。如果两个列表都为空或未指定，则允许来自任何远程主机的登录。如果 host.allow 包含一个或多个主机，则只允许匹配该列表中任何项的远程系统登录。如果 host.deny 包含一个或多个主机，则来自任何匹配主机的登录将被拒绝。
+*host.allow* 和 *host.deny* 条目是用于检查对系统的远程访问的逗号分隔列表，由主机名和/或 IP 地址列表组成，远程网络登录将根据这些列表进行检查。这些列表中的项目可以包含 shell 程序用于通配符匹配的通配符形式（有关实现的详细信息，请参见 [fnmatch(3)](../gen/fnmatch.3.md)）。对主机的检查同时针对远程系统的 Internet 地址和主机名（如果可用）。如果两个列表都为空或未指定，则允许来自任何远程主机的登录。如果 host.allow 包含一个或多个主机，则只允许匹配该列表中任何项的远程系统登录。如果 host.deny 包含一个或多个主机，则来自任何匹配主机的登录将被拒绝。
 
 *times.allow* 和 *times.deny* 条目由逗号分隔的时间段列表组成，在这些时间段内允许类中的用户登录。这些表示为一个或多个日期代码，后跟以 24 小时格式表示的开始和结束时间，以连字符或破折号分隔。例如，MoThSa0200-1300 转换为周一、周四和周六的凌晨 2 点到下午 1 点。如果这两个时间列表都为空，则类中的用户可以在任何时间访问。如果指定了 *times.allow*，则只允许在给定的时间段内登录。如果指定了 *times.deny*，则在给定的时间段内拒绝登录，无论 *times.allow* 中指定的某个时间段是否适用。
 
 注意，[login(1)](../man1/login.1.md) 仅强制执行实际登录在这些条目允许的时间段内。在会话生命周期内的进一步强制执行需要单独的守护进程来监视从允许时间段到非允许时间段的转换。
 
-*ttys.allow* 和 *ttys.deny* 条目包含逗号分隔的 tty 设备列表（不带 /dev/ 前缀），类中的用户可使用这些设备访问系统，和/或 ttygroup 列表（有关 ttygroup 的信息，请参见 [getttyent(3)](../man3/getttyent.3.md) 和 ttys(5)）。如果两个条目都不存在，则用户使用的登录设备选择不受限制。如果仅指定了 *ttys.allow*，则用户仅限于给定组或设备列表中的 tty。如果仅指定了 *ttys.deny*，则用户被阻止使用指定的设备或组中的设备。如果两个列表都给定且非空，则用户限于 ttys.allow 允许但 ttys.deny 不可用的那些设备。
+*ttys.allow* 和 *ttys.deny* 条目包含逗号分隔的 tty 设备列表（不带 /dev/ 前缀），类中的用户可使用这些设备访问系统，和/或 ttygroup 列表（有关 ttygroup 的信息，请参见 [getttyent(3)](../gen/getttyent.3.md) 和 ttys(5)）。如果两个条目都不存在，则用户使用的登录设备选择不受限制。如果仅指定了 *ttys.allow*，则用户仅限于给定组或设备列表中的 tty。如果仅指定了 *ttys.deny*，则用户被阻止使用指定的设备或组中的设备。如果两个列表都给定且非空，则用户限于 ttys.allow 允许但 ttys.deny 不可用的那些设备。
 
 用于强制执行密码质量限制的 *minpasswordlen* 和 *minpasswordcase* 功能（以前由 `login.conf` 支持）已被 pam_passwdqc(8) PAM 模块取代。
 
@@ -187,7 +187,7 @@ FreeBSD 附带的默认 **/etc/login.conf** 是开箱即用的配置。每当对
 
 ## 参见
 
-cap_mkdb(1), [login(1)](../man1/login.1.md), [chroot(2)](../man2/chroot.2.md), [getcap(3)](../man3/getcap.3.md), [getttyent(3)](../man3/getttyent.3.md), login_cap(3), login_class(3), pam(3), [passwd(5)](passwd.5.md), ttys(5), [ftpd(8)](../man8/ftpd.8.md) (`ports/ftp/freebsd-ftpd`), pam_passwdqc(8)
+cap_mkdb(1), [login(1)](../man1/login.1.md), [chroot(2)](../sys/chroot.2.md), [getcap(3)](../gen/getcap.3.md), [getttyent(3)](../gen/getttyent.3.md), login_cap(3), login_class(3), pam(3), [passwd(5)](passwd.5.md), ttys(5), [ftpd(8)](../man8/ftpd.8.md) (`ports/ftp/freebsd-ftpd`), pam_passwdqc(8)
 
 ## 历史
 

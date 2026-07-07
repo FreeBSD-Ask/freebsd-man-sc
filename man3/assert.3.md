@@ -24,7 +24,7 @@ static_assert(expression, message);
 
 在所有编译模式下，`assert` 都定义为带有省略号参数的宏，与 C23 标准一致。这允许包含逗号的表达式直接传递，而无需额外的封闭括号。仅评估单个标量表达式。禁止提供多个参数，因此顶层逗号运算符是不允许的。特别是，这可以防止意外地以 `static_assert` 的风格编写 `assert`，否则会通过逗号运算符被静默评估为始终为真。
 
-通过将 `NDEBUG` 定义为宏（例如使用 [cc(1)](../man1/cc.1.md) 选项 `-DNDEBUG`），可在编译时移除 `assert` 宏。与大多数其他头文件不同，
+通过将 `NDEBUG` 定义为宏（例如使用 [cc(1)](../man1/clang.1.md) 选项 `-DNDEBUG`），可在编译时移除 `assert` 宏。与大多数其他头文件不同，
 
 ```c
 #include <assert.h>

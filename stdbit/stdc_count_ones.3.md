@@ -33,7 +33,7 @@ unsigned int stdc_count_ones(value);
 
 ## 参见
 
-bit_count(3), [stdbit(3)](stdbit.3.md), [stdc_count_zeros(3)](stdc_count_zeros.3.md), [stdc_has_single_bit(3)](stdc_has_single_bit.3.md)
+bit_count(3), [stdbit(3)](../man3/stdbit.3.md), [stdc_count_zeros(3)](stdc_count_zeros.3.md), [stdc_has_single_bit(3)](stdc_has_single_bit.3.md)
 
 ## 标准
 

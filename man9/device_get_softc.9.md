@@ -28,7 +28,7 @@ device_get_softc(device_t dev);
 
 ## 参见
 
-[device(9)](device.9.md), [DEVICE_PROBE(9)](device_probe.9.md), [device_set_softc(9)](device_set_softc.9.md), [driver(9)](driver.9.md)
+[device(9)](device.9.md), [DEVICE_PROBE(9)](device_probe.9.md), device_set_softc(9), [driver(9)](driver.9.md)
 
 ## 作者
 

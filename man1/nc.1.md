@@ -38,7 +38,7 @@
 
 **`-e`** 如果支持 IPsec，则可使用 [ipsec_set_policy(3)](../man3/ipsec_set_policy.3.md) 中描述的语法指定要使用的 IPsec 策略。此标志最多可指定两次，因为通常每个方向需要一个策略。
 
-**`-F`** 使用 [sendmsg(2)](../man2/sendmsg.2.md) 将第一个已连接的套接字传递到标准输出并退出。这与 `-X` 结合使用时很有用，可让 `nc` 通过代理执行连接建立，然后将连接的其余部分留给另一个程序（例如 [ssh(1)](ssh.1.md) 使用 [ssh_config(5)](../man5/ssh_config.5.md) 的 `ProxyUseFdpass` 选项）。
+**`-F`** 使用 [sendmsg(2)](../sys/send.2.md) 将第一个已连接的套接字传递到标准输出并退出。这与 `-X` 结合使用时很有用，可让 `nc` 通过代理执行连接建立，然后将连接的其余部分留给另一个程序（例如 [ssh(1)](ssh.1.md) 使用 [ssh_config(5)](../man5/ssh_config.5.md) 的 `ProxyUseFdpass` 选项）。
 
 **`-h`** 打印 `nc` 帮助。
 
@@ -52,9 +52,9 @@
 
 **`--lb`** 使用 `-l` 时，将套接字置于负载均衡模式。在此模式下，多个套接字可绑定到相同的地址和端口，传入连接在它们之间分配。
 
-**`-M`** 使用 [stats(3)](../man3/stats.3.md) 框架收集每连接 TCP 统计信息，并在连接关闭后以 JSON 格式打印到 [stderr(4)](../man4/stderr.4.md)。
+**`-M`** 使用 [stats(3)](../man3/stats.3.md) 框架收集每连接 TCP 统计信息，并在连接关闭后以 JSON 格式打印到 [stderr(4)](../man4/fd.4.md)。
 
-**`-N`** 在输入上的 EOF 之后对网络套接字执行 [shutdown(2)](../man2/shutdown.2.md)。某些服务器需要此操作来完成其工作。
+**`-N`** 在输入上的 EOF 之后对网络套接字执行 [shutdown(2)](../sys/shutdown.2.md)。某些服务器需要此操作来完成其工作。
 
 **`-n`** 不对任何指定的地址、主机名或端口进行 DNS 或服务查找。
 

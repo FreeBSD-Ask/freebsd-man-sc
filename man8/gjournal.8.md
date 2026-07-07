@@ -30,7 +30,7 @@
 
 `gjournal` 工具用于在指定 GEOM provider 上配置日志。日志和数据可以存储在同一个 provider 上，也可以存储在两个独立的 provider 上。这是块级别的日志记录，而非文件系统级别的日志记录，这意味着所有内容都会被记录，例如对于文件系统，它会同时记录数据和元数据。`gjournal` GEOM 类可以与文件系统通信，这允许使用 `gjournal` 进行文件系统日志记录，并使文件系统保持一致状态。目前仅支持 UFS 文件系统。
 
-使用 `gjournal` 在 UFS 文件系统上配置日志记录时，应首先使用 `gjournal` 工具创建一个 `gjournal` provider，然后在其上运行 newfs(8) 或 tunefs(8) 并加上 `-J` 标志，指示 UFS 与下方的 `gjournal` provider 协同工作。日志化 UFS 的工作方式有重要差异。最重要的是，[sync(2)](../man2/sync.2.md) 和 [fsync(2)](../man2/fsync.2.md) 系统调用不再按预期工作。要确保数据已存储到数据 provider 上，应在调用 [sync(2)](../man2/sync.2.md) 之后使用 `gjournal` 的 `sync` 命令。为获得最佳性能，使用 `gjournal` 时应禁用 soft-updates。同时使用 `async` [mount(8)](mount.8.md) 选项也是安全且推荐的。
+使用 `gjournal` 在 UFS 文件系统上配置日志记录时，应首先使用 `gjournal` 工具创建一个 `gjournal` provider，然后在其上运行 newfs(8) 或 tunefs(8) 并加上 `-J` 标志，指示 UFS 与下方的 `gjournal` provider 协同工作。日志化 UFS 的工作方式有重要差异。最重要的是，[sync(2)](../sys/sync.2.md) 和 [fsync(2)](../sys/fsync.2.md) 系统调用不再按预期工作。要确保数据已存储到数据 provider 上，应在调用 [sync(2)](../sys/sync.2.md) 之后使用 `gjournal` 的 `sync` 命令。为获得最佳性能，使用 `gjournal` 时应禁用 soft-updates。同时使用 `async` [mount(8)](mount.8.md) 选项也是安全且推荐的。
 
 当 `gjournal` 配置在 gmirror(8) 或 graid3(8) provider 之上时，它也会使它们保持一致状态，因此可以在这些 provider 上禁用断电或系统崩溃时的自动同步。
 

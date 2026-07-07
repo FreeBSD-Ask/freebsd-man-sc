@@ -74,7 +74,7 @@ struct itimerval {
 
 ## 标准
 
-`getitimer()` 和 `setitimer()` 函数遵循 IEEE Std 1003.1-2001 ("POSIX.1")。然而，后来的 IEEE Std 1003.1-2008 ("POSIX.1") 修订版将这两个函数标记为过时，建议改用 [timer_gettime(2)](timer_gettime.2.md) 和 [timer_settime(2)](timer_settime.2.md)。
+`getitimer()` 和 `setitimer()` 函数遵循 IEEE Std 1003.1-2001 ("POSIX.1")。然而，后来的 IEEE Std 1003.1-2008 ("POSIX.1") 修订版将这两个函数标记为过时，建议改用 [timer_gettime(2)](timer_settime.2.md) 和 [timer_settime(2)](timer_settime.2.md)。
 
 ## 历史
 

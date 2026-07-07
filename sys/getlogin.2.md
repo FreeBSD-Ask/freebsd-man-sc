@@ -39,7 +39,7 @@ setlogin(const char *name);
 
 *注意：* 每个会话只有一个登录名。
 
-确保 `setlogin()` 仅在进程采取了充分步骤以确保已与其父进程的会话分离之后才被调用，这一点*至关重要*。调用 `setsid()` 系统调用是做到这一点的*唯一*方法。[daemon(3)](../man3/daemon.3.md) 函数会调用 `setsid()`，这是脱离控制终端并转入后台运行的理想方式。
+确保 `setlogin()` 仅在进程采取了充分步骤以确保已与其父进程的会话分离之后才被调用，这一点*至关重要*。调用 `setsid()` 系统调用是做到这一点的*唯一*方法。[daemon(3)](../gen/daemon.3.md) 函数会调用 `setsid()`，这是脱离控制终端并转入后台运行的理想方式。
 
 特别地，执行 `ioctl(ttyfd, TIOCNOTTY, ...)` 或 `setpgrp(...)` 是*不够的*。
 
@@ -69,7 +69,7 @@ setlogin(const char *name);
 
 ## 参见
 
-[setsid(2)](setsid.2.md), [daemon(3)](../man3/daemon.3.md)
+[setsid(2)](setsid.2.md), [daemon(3)](../gen/daemon.3.md)
 
 ## 标准
 

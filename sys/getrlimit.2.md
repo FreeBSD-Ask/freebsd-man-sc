@@ -103,7 +103,7 @@ struct rlimit {
 
 ## 参见
 
-[csh(1)](../man1/csh.1.md), quota(1), [quotactl(2)](quotactl.2.md), [sigaction(2)](sigaction.2.md), [sigaltstack(2)](sigaltstack.2.md), [sysctl(3)](../man3/sysctl.3.md), [ulimit(3)](../man3/ulimit.3.md)
+[csh(1)](../man1/csh.1.md), quota(1), [quotactl(2)](quotactl.2.md), [sigaction(2)](sigaction.2.md), [sigaltstack(2)](sigaltstack.2.md), [sysctl(3)](../gen/sysctl.3.md), [ulimit(3)](../gen/ulimit.3.md)
 
 ## 历史
 

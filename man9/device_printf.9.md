@@ -26,4 +26,4 @@ device_printf(device_t dev, const char *fmt, ...);
 
 ## 参见
 
-[printf(3)](../man3/printf.3.md), [printf(9)](printf.9.md)
+[printf(3)](../stdio/printf.3.md), [printf(9)](printf.9.md)

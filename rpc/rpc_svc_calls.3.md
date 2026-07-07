@@ -65,7 +65,7 @@ svc_sendreply(SVCXPRT *xprt, xdrproc_t outproc, void *out);
 
 **`svc_exit`** 该函数被任何 RPC 服务器过程或其他方式调用时，会导致 `svc_run` 返回。在当前实现中，`svc_exit` 将全局变量 `svc_fdset` 清零。如果要恢复 RPC 服务器活动，必须通过 [rpc_svc_create(3)](rpc_svc_create.3.md) 函数之一或使用 `xprt_register` 重新向 RPC 库注册服务。`svc_exit` 函数具有全局作用域，会终止所有 RPC 服务器活动。
 
-**`fd_set` `svc_fdset`** 一个全局变量，反映 RPC 服务器的读文件描述符位掩码；它适合作为 [select(2)](../man2/select.2.md) 系统调用的参数。仅在服务实现者不调用 `svc_run` 而是自行实现异步事件处理时才有意义。此变量是只读的（不要将其地址传递给 [select(2)](../man2/select.2.md)），但在调用 `svc_getreqset` 或任何创建例程后它可能会发生变化。
+**`fd_set` `svc_fdset`** 一个全局变量，反映 RPC 服务器的读文件描述符位掩码；它适合作为 [select(2)](../sys/select.2.md) 系统调用的参数。仅在服务实现者不调用 `svc_run` 而是自行实现异步事件处理时才有意义。此变量是只读的（不要将其地址传递给 [select(2)](../sys/select.2.md)），但在调用 `svc_getreqset` 或任何创建例程后它可能会发生变化。
 
 **`svc_freeargs`** 一个函数宏，释放 RPC/XDR 系统在使用 `svc_getargs` 解码服务过程参数时分配的任何数据。如果成功释放结果，该例程返回 `TRUE`，否则返回 `FALSE`。
 
@@ -73,20 +73,20 @@ svc_sendreply(SVCXPRT *xprt, xdrproc_t outproc, void *out);
 
 **`svc_getreq_common`** 调用以处理给定文件描述符上的请求。
 
-**`svc_getreq_poll`** 仅在服务实现者不调用 `svc_run` 而是实现自定义异步事件处理时才有意义。当 [poll(2)](../man2/poll.2.md) 确定 RPC 请求到达某些 RPC 文件描述符时调用；`pollretval` 是 [poll(2)](../man2/poll.2.md) 的返回值，`pfdp` 是进行 [poll(2)](../man2/poll.2.md) 操作的 `pollfd` 结构数组。假定数组足够大，可以容纳允许的最大描述符数。
+**`svc_getreq_poll`** 仅在服务实现者不调用 `svc_run` 而是实现自定义异步事件处理时才有意义。当 [poll(2)](../sys/poll.2.md) 确定 RPC 请求到达某些 RPC 文件描述符时调用；`pollretval` 是 [poll(2)](../sys/poll.2.md) 的返回值，`pfdp` 是进行 [poll(2)](../sys/poll.2.md) 操作的 `pollfd` 结构数组。假定数组足够大，可以容纳允许的最大描述符数。
 
-**`svc_getreqset`** 仅在服务实现者不调用 `svc_run` 而是实现自定义异步事件处理时才有意义。当 [poll(2)](../man2/poll.2.md) 确定 RPC 请求到达某些 RPC 文件描述符时调用；`rdfds` 是结果读文件描述符位掩码。该例程在与 `rdfds` 值关联的所有文件描述符被服务后返回。
+**`svc_getreqset`** 仅在服务实现者不调用 `svc_run` 而是实现自定义异步事件处理时才有意义。当 [poll(2)](../sys/poll.2.md) 确定 RPC 请求到达某些 RPC 文件描述符时调用；`rdfds` 是结果读文件描述符位掩码。该例程在与 `rdfds` 值关联的所有文件描述符被服务后返回。
 
 **`svc_getrpccaller`** 获取与 RPC 服务传输句柄 `xprt` 关联的过程调用方的网络地址的推荐方式。
 
 **`__svc_getcallercreds`** *警告：*此宏是 FreeBSD 特有的，因此不可移植。此宏返回指向 `cmsgcred` 结构的指针（该结构定义于 `<sys/socket.h>`），用于标识调用客户端。仅当客户端通过 `AF_LOCAL` 套接字调用服务器时才有效。
 
-**`struct pollfd` `svc_pollset[FD_SETSIZE]`** `svc_pollset` 是从 `svc_fdset[]` 派生的 `pollfd` 结构数组。它适合作为 [poll(2)](../man2/poll.2.md) 系统调用的参数。在当前实现中，`svc_pollset` 从 `svc_fdset` 的派生在 `svc_run` 中完成。不调用 `svc_run` 但希望使用此数组的服务实现者必须自行执行此派生。
+**`struct pollfd` `svc_pollset[FD_SETSIZE]`** `svc_pollset` 是从 `svc_fdset[]` 派生的 `pollfd` 结构数组。它适合作为 [poll(2)](../sys/poll.2.md) 系统调用的参数。在当前实现中，`svc_pollset` 从 `svc_fdset` 的派生在 `svc_run` 中完成。不调用 `svc_run` 但希望使用此数组的服务实现者必须自行执行此派生。
 
-**`svc_run`** 此例程永不返回。它等待 RPC 请求到达，并在请求到达时调用 `svc_getreq_poll` 调用适当的服务过程。此过程通常等待 [poll(2)](../man2/poll.2.md) 系统调用返回。
+**`svc_run`** 此例程永不返回。它等待 RPC 请求到达，并在请求到达时调用 `svc_getreq_poll` 调用适当的服务过程。此过程通常等待 [poll(2)](../sys/poll.2.md) 系统调用返回。
 
 **`svc_sendreply`** 由 RPC 服务的分发例程调用，以发送远程过程调用的结果。`xprt` 参数是请求关联的传输句柄；`outproc` 是用于编码结果的 XDR 例程；`out` 是结果的地址。该例程成功时返回 `TRUE`，否则返回 `FALSE`。
 
 ## 参见
 
-[poll(2)](../man2/poll.2.md), [select(2)](../man2/select.2.md), [rpc(3)](rpc.3.md), [rpc_svc_create(3)](rpc_svc_create.3.md), [rpc_svc_err(3)](rpc_svc_err.3.md), [rpc_svc_reg(3)](rpc_svc_reg.3.md)
+[poll(2)](../sys/poll.2.md), [select(2)](../sys/select.2.md), [rpc(3)](rpc.3.md), [rpc_svc_create(3)](rpc_svc_create.3.md), [rpc_svc_err(3)](rpc_svc_err.3.md), [rpc_svc_reg(3)](rpc_svc_reg.3.md)

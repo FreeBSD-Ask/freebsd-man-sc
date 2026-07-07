@@ -24,11 +24,11 @@ Lb libc
 
 ## 错误
 
-`time` 函数可能因 [clock_gettime(2)](../man2/clock_gettime.2.md) 中描述的任何原因而失败。
+`time` 函数可能因 [clock_gettime(2)](../sys/clock_gettime.2.md) 中描述的任何原因而失败。
 
 ## 参见
 
-[clock_gettime(2)](../man2/clock_gettime.2.md), [gettimeofday(2)](../man2/gettimeofday.2.md), [ctime(3)](ctime.3.md)
+[clock_gettime(2)](../sys/clock_gettime.2.md), [gettimeofday(2)](../sys/gettimeofday.2.md), [ctime(3)](../stdtime/ctime.3.md)
 
 ## 标准
 

@@ -112,7 +112,7 @@
 
 **`dot`** `file ...` 用于读取未验证的文件。
 
-确保 shell `verify` 选项关闭。此选项仅在 [mac_veriexec(4)](../man4/mac_veriexec.4.md) 活动时才有意义。
+确保 shell `verify` 选项关闭。此选项仅在 mac_veriexec(4) 活动时才有意义。
 
 如果每个 `file` 存在则读取它。
 
@@ -122,11 +122,11 @@
 
 **`force_depend`** `name` 输出建议性消息并强制 `name` 服务启动。`name` 参数是位于 **/etc/rc.d** 的脚本的路径的 [basename(1)](../man1/basename.1.md) 组件（存储在其他位置（如 **/usr/local/etc/rc.d**）的脚本目前无法用 `force_depend` 控制）。如果脚本因任何原因失败，它将输出警告并以返回值 1 返回。如果成功则返回 0。
 
-**`is_verified`** `file` 如果 [veriexec(8)](veriexec.8.md) 不存在，或 [mac_veriexec(4)](../man4/mac_veriexec.4.md) 未活动，则直接返回成功。否则使用 [veriexec(8)](veriexec.8.md) 检查 `file` 是否已验证。如果未验证，返回码将为 80（EAUTH）。
+**`is_verified`** `file` 如果 [veriexec(8)](veriexec.8.md) 不存在，或 mac_veriexec(4) 未活动，则直接返回成功。否则使用 [veriexec(8)](veriexec.8.md) 检查 `file` 是否已验证。如果未验证，返回码将为 80（EAUTH）。
 
 **`info`** `message` 向 `stdout` 显示信息消息，并使用 [logger(1)](../man1/logger.1.md) 将其记录到系统日志。消息由脚本名（来自 `$0`）、后跟 “: INFO: ”、然后是 `message` 组成。此信息输出的显示可通过 [rc.conf(5)](../man5/rc.conf.5.md) 变量 `rc_info` 开启或关闭。
 
-**`load_kld`** [`-e` `regex`] [`-m` `module`] `file` 将 `file` 作为内核模块加载，除非它已加载。为了检查模块状态，可使用 `-m` 指定确切的模块名，或通过 `-e` 提供匹配模块名的 [egrep(1)](../man1/egrep.1.md) 正则表达式。默认情况下，假定模块与 `file` 同名，但并非总是如此。
+**`load_kld`** [`-e` `regex`] [`-m` `module`] `file` 将 `file` 作为内核模块加载，除非它已加载。为了检查模块状态，可使用 `-m` 指定确切的模块名，或通过 `-e` 提供匹配模块名的 [egrep(1)](../man1/grep.1.md) 正则表达式。默认情况下，假定模块与 `file` 同名，但并非总是如此。
 
 **`load_rc_config`** [`flag`] [`service`] source `service` 的配置文件。如果未指定 `service`，仅加载全局配置文件。首先，如果 **/etc/rc.conf** 尚未被读取，则 source 它。然后，如果 **/etc/rc.conf.d/**`service` 是存在的文件，则 source 它。后者也可包含其他变量赋值以覆盖调用脚本定义的 `run_rc_command` 参数，为管理员提供一种简便机制来覆盖给定 [rc.d(8)](rc.d.8.md) 脚本的行为而无需编辑该脚本。
 
@@ -286,7 +286,7 @@ date "+@ %s [%Y-%m-%d %H:%M:%S %Z] $*"
 - `--arg` `arg` 将 `arg` 传递给 `run_rc_script`，默认为由 [rc(8)](rc.8.md) 设置的 `_boot`。
 - `--break` `break` 如果任何 `file` 匹配任何 `break`，则停止处理。
 
-**`safe_dot`** `file ...` 当 [mac_veriexec(4)](../man4/mac_veriexec.4.md) 活动且 `file` 未验证时，由 `sdot` 使用。
+**`safe_dot`** `file ...` 当 mac_veriexec(4) 活动且 `file` 未验证时，由 `sdot` 使用。
 
 此函数将 `file` 的输入限制为简单变量赋值，任何非字母数字字符替换为 **_**。
 
@@ -298,7 +298,7 @@ date "+@ %s [%Y-%m-%d %H:%M:%S %Z] $*"
 
 **`vdot`** `file ...` 用于仅读取已验证的文件。
 
-确保 shell `verify` 选项开启。此选项仅在 [mac_veriexec(4)](../man4/mac_veriexec.4.md) 活动时才有意义，否则此函数实际上与 `dot` 相同。
+确保 shell `verify` 选项开启。此选项仅在 mac_veriexec(4) 活动时才有意义，否则此函数实际上与 `dot` 相同。
 
 如果每个 `file` 存在且 `is_verfied` `file` 成功，则读取它，否则将返回码设置为 80（EAUTH）。
 

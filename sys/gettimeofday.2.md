@@ -45,7 +45,7 @@ struct timezone {
 };
 ```
 
-`timezone` 结构指示本地时区（以格林威治以西的分钟数衡量），以及一个标志，如果非零，则表示一年中适当时段本地适用夏令时。内核通常不跟踪这些值，它们通常返回为零。使用 [localtime(3)](../man3/localtime.3.md) 查找当前活动时区的偏移量。
+`timezone` 结构指示本地时区（以格林威治以西的分钟数衡量），以及一个标志，如果非零，则表示一年中适当时段本地适用夏令时。内核通常不跟踪这些值，它们通常返回为零。使用 [localtime(3)](../stdtime/ctime.3.md) 查找当前活动时区的偏移量。
 
 只有超级用户可以设置时间或时区。如果系统运行在 securelevel >= 2（参见 [init(8)](../man8/init.8.md)），时间最多只能前进或后退一秒。此限制是为了防止恶意超级用户在文件上设置任意时间戳。即使系统处于安全模式，也可以使用 [adjtime(2)](adjtime.2.md) 系统调用无限制地向后调整系统时间。
 
@@ -63,7 +63,7 @@ struct timezone {
 
 ## 参见
 
-[date(1)](../man1/date.1.md), [adjtime(2)](adjtime.2.md), [clock_gettime(2)](clock_gettime.2.md), [ctime(3)](../man3/ctime.3.md), [timeradd(3)](../man3/timeradd.3.md), [clocks(7)](../man7/clocks.7.md)
+[date(1)](../man1/date.1.md), [adjtime(2)](adjtime.2.md), [clock_gettime(2)](clock_gettime.2.md), [ctime(3)](../stdtime/ctime.3.md), [timeradd(3)](../man3/timeradd.3.md), [clocks(7)](../man7/clocks.7.md)
 
 ## 标准
 

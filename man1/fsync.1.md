@@ -22,7 +22,7 @@
 
 ## 参见
 
-fsync(2), sync(2), [syncer(4)](../man4/syncer.4.md), [halt(8)](../man8/halt.8.md), [reboot(8)](../man8/reboot.8.md)
+fsync(2), sync(2), [syncer(4)](../man4/syncer.4.md), [halt(8)](../man8/reboot.8.md), [reboot(8)](../man8/reboot.8.md)
 
 ## 历史
 

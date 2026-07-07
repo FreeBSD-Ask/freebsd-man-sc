@@ -27,7 +27,7 @@ VOP_STAT(struct vnode *vp, struct stat *sb, flags, struct ucred *active_cred,
 
 这些入口点操作文件或目录的各种属性，包括文件权限、所有者、组、大小、访问时间和修改时间。
 
-`VOP_STAT` 返回适合 [stat(2)](../man2/stat.2.md) 系统调用的格式的数据，默认实现为 `VOP_GETATTR` 的包装器。文件系统可能出于性能原因想要实现自己的变体。
+`VOP_STAT` 返回适合 [stat(2)](../sys/stat.2.md) 系统调用的格式的数据，默认实现为 `VOP_GETATTR` 的包装器。文件系统可能出于性能原因想要实现自己的变体。
 
 对于 `VOP_GETATTR` 和 `VOP_SETATTR`，参数为：
 

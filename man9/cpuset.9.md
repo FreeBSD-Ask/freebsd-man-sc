@@ -81,7 +81,7 @@ CPU_COPY_STORE_REL(cpuset_t *from, cpuset_t *to);
 
 `CPU_ISFULLSET` 宏在 `cpuset` 为满集（包含所有 CPU）时返回 `true`。
 
-`CPU_FFS` 宏返回 `cpuset` 中第一个（最低位）CPU 的从 1 开始的索引，若 `cpuset` 为空则返回 0。与 [ffs(3)](../man3/ffs.3.md) 类似，若要把 `CPU_FFS` 的非零结果用作其他 `cpuset(9)` 宏的 `cpu_idx` 索引参数，必须从结果中减去一。
+`CPU_FFS` 宏返回 `cpuset` 中第一个（最低位）CPU 的从 1 开始的索引，若 `cpuset` 为空则返回 0。与 [ffs(3)](../string/ffs.3.md) 类似，若要把 `CPU_FFS` 的非零结果用作其他 `cpuset(9)` 宏的 `cpu_idx` 索引参数，必须从结果中减去一。
 
 `CPU_COUNT` 宏返回 `cpuset` 中 CPU 的总数。
 
@@ -113,7 +113,7 @@ myset = CPUSET_T_INITIALIZER(0x1);
 
 ## 参见
 
-[cpuset(1)](../man1/cpuset.1.md), [cpuset(2)](../man2/cpuset.2.md), [bitset(9)](bitset.9.md)
+[cpuset(1)](../man1/cpuset.1.md), [cpuset(2)](../sys/cpuset.2.md), [bitset(9)](bitset.9.md)
 
 ## 历史
 

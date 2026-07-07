@@ -53,7 +53,7 @@ sigqueue(pid_t pid, int signo, const union sigval value);
 
 ## 参见
 
-[kill(2)](kill.2.md), [sigaction(2)](sigaction.2.md), [sigpending(2)](sigpending.2.md), [sigsuspend(2)](sigsuspend.2.md), [sigtimedwait(2)](sigtimedwait.2.md), [sigwait(2)](sigwait.2.md), [sigwaitinfo(2)](sigwaitinfo.2.md), [pause(3)](../man3/pause.3.md), [pthread_sigmask(3)](../man3/pthread_sigmask.3.md), [siginfo(3)](../man3/siginfo.3.md)
+[kill(2)](kill.2.md), [sigaction(2)](sigaction.2.md), [sigpending(2)](sigpending.2.md), [sigsuspend(2)](sigsuspend.2.md), [sigtimedwait(2)](sigwaitinfo.2.md), [sigwait(2)](sigwait.2.md), [sigwaitinfo(2)](sigwaitinfo.2.md), [pause(3)](../gen/pause.3.md), [pthread_sigmask(3)](../man3/pthread_sigmask.3.md), [siginfo(3)](../man3/siginfo.3.md)
 
 ## 标准
 

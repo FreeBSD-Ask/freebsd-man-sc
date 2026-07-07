@@ -21,7 +21,7 @@ device ataraid
 
 对元数据格式的只读支持意味着 FreeBSD 可将给定的 RAID 阵列用于正常的读/写操作。此类阵列的创建和重建必须在控制器 BIOS 中完成。
 
-对元数据格式的读写支持意味着 FreeBSD 可将给定的 RAID 阵列用于正常的读/写操作。此外，可使用 [atacontrol(8)](../man8/atacontrol.8.md) 实用程序创建、重建、更新和使此类 RAID 阵列失败。
+对元数据格式的读写支持意味着 FreeBSD 可将给定的 RAID 阵列用于正常的读/写操作。此外，可使用 atacontrol(8) 实用程序创建、重建、更新和使此类 RAID 阵列失败。
 
 `ataraid` 驱动可读取以下元数据格式：
 
@@ -50,7 +50,7 @@ device ataraid
 - VIA Tech V-RAID
 - FreeBSD PseudoRAID
 
-也可在没有特殊软件 RAID 功能的控制器上使用软件 RAID。详情参见 [atacontrol(8)](../man8/atacontrol.8.md)。
+也可在没有特殊软件 RAID 功能的控制器上使用软件 RAID。详情参见 atacontrol(8)。
 
 ## 文件
 
@@ -58,7 +58,7 @@ device ataraid
 
 ## 参见
 
-[ata(4)](ata.4.md), [atacontrol(8)](../man8/atacontrol.8.md)
+[ata(4)](ata.4.md), atacontrol(8)
 
 ## 作者
 

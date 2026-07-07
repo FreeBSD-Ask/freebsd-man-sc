@@ -62,7 +62,7 @@ mq_timedsend(mqd_t mqdes, const char *msg_ptr, size_t msg_len,
 
 ## 参见
 
-[mq_open(2)](mq_open.2.md), [mq_receive(2)](mq_receive.2.md), [mq_setattr(2)](mq_setattr.2.md), [mq_timedreceive(2)](mq_timedreceive.2.md)
+[mq_open(2)](mq_open.2.md), [mq_receive(2)](mq_receive.2.md), [mq_setattr(2)](mq_setattr.2.md), [mq_timedreceive(2)](mq_receive.2.md)
 
 ## 标准
 

@@ -48,7 +48,7 @@ if (weight_kg > max_load) {
 
 ## 参见
 
-[abort(3)](../man3/abort.3.md), [exit(3)](../man3/exit.3.md)
+[abort(3)](../stdlib/abort.3.md), [exit(3)](../stdlib/exit.3.md)
 
 ## 历史
 

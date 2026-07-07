@@ -25,7 +25,7 @@ getgroups(int gidsetlen, gid_t *gidset);
 
 如果 `gidsetlen` 为零，`getgroups()` 返回调用进程补充组集合的基数，并忽略 `gidset` 参数。
 
-返回的值不会超过 `{NGROUPS_MAX}` 个。`{NGROUPS_MAX}` 的值应使用 [sysconf(3)](../man3/sysconf.3.md) 获取，以避免将其硬编码到可执行文件中。
+返回的值不会超过 `{NGROUPS_MAX}` 个。`{NGROUPS_MAX}` 的值应使用 [sysconf(3)](../gen/sysconf.3.md) 获取，以避免将其硬编码到可执行文件中。
 
 ## 返回值
 
@@ -43,7 +43,7 @@ getgroups(int gidsetlen, gid_t *gidset);
 
 ## 参见
 
-[setgroups(2)](setgroups.2.md), [initgroups(3)](../man3/initgroups.3.md), [sysconf(3)](../man3/sysconf.3.md)
+[setgroups(2)](setgroups.2.md), [initgroups(3)](../gen/initgroups.3.md), [sysconf(3)](../gen/sysconf.3.md)
 
 ## 标准
 
@@ -59,6 +59,6 @@ getgroups(int gidsetlen, gid_t *gidset);
 
 ## 安全注意事项
 
-`getgroups()` 系统调用在 `gidset` 数组中获取补充组集合。特别是，如前文历史部分所述，它不再在 `gidset` 的第一个槽位获取有效组 ID。以特定方式处理该槽位的程序必须修改为通过其他方式获取有效组 ID，例如调用 [getegid(2)](getegid.2.md)。
+`getgroups()` 系统调用在 `gidset` 数组中获取补充组集合。特别是，如前文历史部分所述，它不再在 `gidset` 的第一个槽位获取有效组 ID。以特定方式处理该槽位的程序必须修改为通过其他方式获取有效组 ID，例如调用 [getegid(2)](getgid.2.md)。
 
-当且仅当有效组 ID 被显式设置为补充组时，它才存在于补充组集合中。`initgroups()` 函数强制执行此要求，而 `setgroups()` 系统调用则不然。请参阅 [initgroups(3)](../man3/initgroups.3.md) 手册页了解其设计理由。
+当且仅当有效组 ID 被显式设置为补充组时，它才存在于补充组集合中。`initgroups()` 函数强制执行此要求，而 `setgroups()` 系统调用则不然。请参阅 [initgroups(3)](../gen/initgroups.3.md) 手册页了解其设计理由。

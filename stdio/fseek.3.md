@@ -60,11 +60,11 @@ Lb libc
 
 **`ESPIPE`** 流底层的文件描述符关联到管道或 FIFO，或文件位置指示器的值未指定（参见 [ungetc(3)](ungetc.3.md)）。
 
-`fgetpos`、`fseek`、`fseeko`、`fsetpos`、`ftell`、`ftello` 和 `rewind` 函数也可能失败，并为 [fflush(3)](fflush.3.md)、fstat(2)、[lseek(2)](../man2/lseek.2.md) 和 malloc(3) 例程所指定的任何错误设置 `errno`。
+`fgetpos`、`fseek`、`fseeko`、`fsetpos`、`ftell`、`ftello` 和 `rewind` 函数也可能失败，并为 [fflush(3)](fflush.3.md)、fstat(2)、[lseek(2)](../sys/lseek.2.md) 和 malloc(3) 例程所指定的任何错误设置 `errno`。
 
 ## 参见
 
-[lseek(2)](../man2/lseek.2.md), clearerr(3), [fwide(3)](fwide.3.md), [ungetc(3)](ungetc.3.md), [ungetwc(3)](ungetwc.3.md)
+[lseek(2)](../sys/lseek.2.md), clearerr(3), [fwide(3)](fwide.3.md), [ungetc(3)](ungetc.3.md), [ungetwc(3)](ungetwc.3.md)
 
 ## 标准
 

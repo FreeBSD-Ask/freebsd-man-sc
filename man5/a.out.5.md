@@ -20,7 +20,7 @@
 
 一个二进制文件最多由 7 个节（section）组成。这些节依次为：
 
-**exec** 头部 包含内核用于将二进制文件加载到内存并执行、以及链接编辑器 [ld(1)](../man1/ld.1.md) 用于将二进制文件与其他二进制文件组合的参数。此节是唯一必需的节。
+**exec** 头部 包含内核用于将二进制文件加载到内存并执行、以及链接编辑器 [ld(1)](../man1/ld.lld.1.md) 用于将二进制文件与其他二进制文件组合的参数。此节是唯一必需的节。
 
 **text** 段 包含程序执行时加载到内存的机器代码及相关数据。可以以只读方式加载。
 
@@ -53,7 +53,7 @@ struct exec {
 
 **`EX_DYNAMIC`** 表示该可执行文件需要运行时链接编辑器的服务。
 
-**`EX_PIC`** 表示该目标文件包含位置无关代码。当 as(1) 收到 ‘`-k`’ 标志时设置此标志，必要时由 [ld(1)](../man1/ld.1.md) 保留。
+**`EX_PIC`** 表示该目标文件包含位置无关代码。当 as(1) 收到 ‘`-k`’ 标志时设置此标志，必要时由 [ld(1)](../man1/ld.lld.1.md) 保留。
 
 **`OMAGIC`** text 和 data 段紧随头部之后且连续。内核将 text 和 data 段都加载到可写内存中。
 
@@ -162,7 +162,7 @@ struct nlist {
 
 **`n_type`** 链接编辑器用它来确定如何更新符号的值。`n_type` 字段通过位掩码分解为三个子字段。链接编辑器将 `N_EXT` 类型位设置的符号视为 “外部” 符号，并允许来自其他二进制文件的引用。`N_TYPE` 掩码选择链接编辑器关注的位：`N_STAB` 掩码选择符号调试器（如 gdb(1)）（`ports/devel/gdb`）关注的位；这些值在 [stab(5)](stab.5.md) 中描述。
 
-**`n_other`** 此字段提供符号性质的信息，独立于由 `n_type` 字段确定的符号在段中的位置。目前，`n_other` 字段的低 4 位持有以下两个值之一：`AUX_FUNC` 和 `AUX_OBJECT`（定义见 link.h）。`AUX_FUNC` 将符号与可调用函数关联，而 `AUX_OBJECT` 将符号与数据关联，无论它们位于 text 段还是 data 段。此字段旨在供 [ld(1)](../man1/ld.1.md) 用于构造动态可执行文件。
+**`n_other`** 此字段提供符号性质的信息，独立于由 `n_type` 字段确定的符号在段中的位置。目前，`n_other` 字段的低 4 位持有以下两个值之一：`AUX_FUNC` 和 `AUX_OBJECT`（定义见 link.h）。`AUX_FUNC` 将符号与可调用函数关联，而 `AUX_OBJECT` 将符号与数据关联，无论它们位于 text 段还是 data 段。此字段旨在供 [ld(1)](../man1/ld.lld.1.md) 用于构造动态可执行文件。
 
 **`n_desc`** 保留供调试器使用；由链接编辑器原样传递。不同的调试器将此字段用于不同目的。
 
@@ -172,7 +172,7 @@ struct nlist {
 
 ## 参见
 
-as(1), gdb(1) (`ports/devel/gdb`), [ld(1)](../man1/ld.1.md), brk(2), execve(2), nlist(3), [core(5)](core.5.md), [elf(5)](elf.5.md), [link(5)](link.5.md), [stab(5)](stab.5.md)
+as(1), gdb(1) (`ports/devel/gdb`), [ld(1)](../man1/ld.lld.1.md), brk(2), execve(2), nlist(3), [core(5)](core.5.md), [elf(5)](elf.5.md), [link(5)](link.5.md), [stab(5)](stab.5.md)
 
 ## 历史
 

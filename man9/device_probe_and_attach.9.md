@@ -29,7 +29,7 @@ device_probe_and_attach(device_t dev);
 
 这些函数管理设备与设备驱动程序之间的关系。
 
-`device_probe` 调用每个合适驱动程序的 [DEVICE_PROBE(9)](device_probe.9.md) 方法，以找到与 `dev` 最匹配的驱动程序。若找到匹配的驱动程序，`dev` 会被设置为 `DS_ALIVE` 状态并返回 0。若 `dev` 已经 attach 到设备驱动程序或已通过 [device_disable(9)](device_disable.9.md) 被禁用，则不会对其进行探测并返回 -1。
+`device_probe` 调用每个合适驱动程序的 [DEVICE_PROBE(9)](device_probe.9.md) 方法，以找到与 `dev` 最匹配的驱动程序。若找到匹配的驱动程序，`dev` 会被设置为 `DS_ALIVE` 状态并返回 0。若 `dev` 已经 attach 到设备驱动程序或已通过 [device_disable(9)](device_enable.9.md) 被禁用，则不会对其进行探测并返回 -1。
 
 `device_attach` 将设备驱动程序完全 attach 到 `dev`。此函数会打印设备的描述并调用 [DEVICE_ATTACH(9)](device_attach.9.md) 方法。若 [DEVICE_ATTACH(9)](device_attach.9.md) 方法成功，`dev` 会被设置为 `DS_ATTACHED` 状态并返回 0。若 [DEVICE_ATTACH(9)](device_attach.9.md) 方法失败，会调用 [BUS_CHILD_DETACHED(9)](bus_child_detached.9.md) 并返回一个错误值。
 

@@ -27,7 +27,7 @@ sctp_generic_recvmsg(int s, struct iovec *iov, int iovlen,
 
 ## 描述
 
-`sctp_generic_recvmsg()` 是 [sctp_recvmsg(3)](../man3/sctp_recvmsg.3.md) 函数调用所使用的真正系统调用。此调用更高效，因为它是真正的系统调用，但它是 FreeBSD 特有的，不能期望在其他操作系统上存在。详细用法请参见 [sctp_recvmsg(3)](../man3/sctp_recvmsg.3.md) 函数调用。
+`sctp_generic_recvmsg()` 是 [sctp_recvmsg(3)](../net/sctp_recvmsg.3.md) 函数调用所使用的真正系统调用。此调用更高效，因为它是真正的系统调用，但它是 FreeBSD 特有的，不能期望在其他操作系统上存在。详细用法请参见 [sctp_recvmsg(3)](../net/sctp_recvmsg.3.md) 函数调用。
 
 ## 返回值
 
@@ -41,4 +41,4 @@ sctp_generic_recvmsg(int s, struct iovec *iov, int iovlen,
 
 ## 参见
 
-[sctp_recvmsg(3)](../man3/sctp_recvmsg.3.md), [sctp(4)](../man4/sctp.4.md)
+[sctp_recvmsg(3)](../net/sctp_recvmsg.3.md), [sctp(4)](../man4/sctp.4.md)

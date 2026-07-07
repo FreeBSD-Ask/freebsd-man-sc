@@ -24,7 +24,7 @@ vm_map_madvise(vm_map_t map, vm_offset_t start, vm_offset_t end,
 
 建议分为影响 `vm_map_entry` 结构的建议和影响底层对象的建议两类。
 
-`vm_map_madvise` 函数由 [madvise(2)](../man2/madvise.2.md) 系统调用使用。
+`vm_map_madvise` 函数由 [madvise(2)](../sys/madvise.2.md) 系统调用使用。
 
 ## 返回值
 
@@ -32,7 +32,7 @@ vm_map_madvise(vm_map_t map, vm_offset_t start, vm_offset_t end,
 
 ## 参见
 
-[madvise(2)](../man2/madvise.2.md), [vm_map(9)](vm_map.9.md)
+[madvise(2)](../sys/madvise.2.md), [vm_map(9)](vm_map.9.md)
 
 ## 作者
 

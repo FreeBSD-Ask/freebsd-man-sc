@@ -261,7 +261,7 @@ reldoc 目标在提交 f61e92ca5a23 中已移除，因此 `DOCDIR`、`DOCBRANCH`
 
 ## 参见
 
-[cc(1)](../man1/cc.1.md), git(1)（`ports/devel/git`）, install(1), [make(1)](../man1/make.1.md), mkimg(1), [uname(1)](../man1/uname.1.md), [md(4)](../man4/md.4.md), [make.conf(5)](../man5/make.conf.5.md), [build(7)](build.7.md), [ports(7)](ports.7.md), [chroot(8)](../man8/chroot.8.md), [mtree(8)](../man8/mtree.8.md), [sysctl(8)](../man8/sysctl.8.md)
+[cc(1)](../man1/clang.1.md), git(1)（`ports/devel/git`）, install(1), [make(1)](../man1/make.1.md), mkimg(1), [uname(1)](../man1/uname.1.md), [md(4)](../man4/md.4.md), [make.conf(5)](../man5/make.conf.5.md), [build(7)](build.7.md), [ports(7)](ports.7.md), [chroot(8)](../man8/chroot.8.md), [mtree(8)](../man8/mtree.8.md), [sysctl(8)](../man8/sysctl.8.md)
 
 > "FreeBSD Release Engineering"。
 

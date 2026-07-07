@@ -246,7 +246,7 @@ typedef struct _ftsent {
 
 ## 参见
 
-[find(1)](../man1/find.1.md), [chdir(2)](../sys/chdir.2.md), [stat(2)](../sys/stat.2.md), [ftw(3)](ftw.3.md), [qsort(3)](qsort.3.md)
+[find(1)](../man1/find.1.md), [chdir(2)](../sys/chdir.2.md), [stat(2)](../sys/stat.2.md), [ftw(3)](ftw.3.md), [qsort(3)](../stdlib/qsort.3.md)
 
 ## 历史
 

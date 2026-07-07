@@ -44,7 +44,7 @@ tarfs_load="YES"
 
 ## 参见
 
-[tar(1)](../man1/tar.1.md), zstd(1), [fstab(5)](../man5/fstab.5.md), tar(5), [mount(8)](../man8/mount.8.md), [sysctl(8)](../man8/sysctl.8.md)
+[tar(1)](../man1/bsdtar.1.md), zstd(1), [fstab(5)](../man5/fstab.5.md), tar(5), [mount(8)](../man8/mount.8.md), [sysctl(8)](../man8/sysctl.8.md)
 
 ## 历史
 

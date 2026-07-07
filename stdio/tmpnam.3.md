@@ -44,13 +44,13 @@ Lb libc
 
 ## 环境变量
 
-**`TMPDIR`** [仅 `tempnam` 和 `tmpfile`] 若设置，指定临时文件存储的目录。对于 [issetugid(2)](../man2/issetugid.2.md) 为真的进程，`TMPDIR` 被忽略。
+**`TMPDIR`** [仅 `tempnam` 和 `tmpfile`] 若设置，指定临时文件存储的目录。对于 [issetugid(2)](../sys/issetugid.2.md) 为真的进程，`TMPDIR` 被忽略。
 
 ## 兼容性
 
 这些接口仅为 System V 和 ANSI 兼容性而提供。
 
-这些函数的大多数历史实现仅提供有限数量的可能临时文件名（通常 26 个），之后文件名开始被回收。这些函数的 System V 实现（以及 [mktemp(3)](mktemp.3.md)）使用 [access(2)](../man2/access.2.md) 系统调用来确定是否可创建临时文件。这对 setuid 或 setgid 程序有明显的影响，复杂了此类程序中这些接口的可移植使用。
+这些函数的大多数历史实现仅提供有限数量的可能临时文件名（通常 26 个），之后文件名开始被回收。这些函数的 System V 实现（以及 [mktemp(3)](mktemp.3.md)）使用 [access(2)](../sys/access.2.md) 系统调用来确定是否可创建临时文件。这对 setuid 或 setgid 程序有明显的影响，复杂了此类程序中这些接口的可移植使用。
 
 若用户可能不希望临时文件被公开读写，则不应在期望在其他系统上使用的软件中使用 `tmpfile` 接口。
 

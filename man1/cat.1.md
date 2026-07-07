@@ -64,7 +64,7 @@ cat file1 - file2 - file3
 
 ## 参见
 
-[head(1)](head.1.md), [more(1)](more.1.md), pr(1), [sh(1)](sh.1.md), [tail(1)](tail.1.md), vis(1), [zcat(1)](zcat.1.md), fcntl(2), setbuf(3)
+[head(1)](head.1.md), [more(1)](less.1.md), pr(1), [sh(1)](sh.1.md), [tail(1)](tail.1.md), vis(1), [zcat(1)](gzip.1.md), fcntl(2), setbuf(3)
 
 > Rob Pike, "UNIX Style, or cat -v Considered Harmful", *USENIX Summer Conference Proceedings*, 1983.
 

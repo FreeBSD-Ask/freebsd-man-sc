@@ -38,4 +38,4 @@ securelevel_ge(struct ucred *cr, int level)
 
 ## 参见
 
-[securelevel(7)](../man7/securelevel.7.md)
+[securelevel(7)](../man7/security.7.md)

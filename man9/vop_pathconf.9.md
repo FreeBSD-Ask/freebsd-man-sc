@@ -53,7 +53,7 @@ vnode 在进入时将被锁定，并在返回时应保持锁定状态。
 
 ## 参见
 
-[pathconf(2)](../man2/pathconf.2.md), [vnode(9)](vnode.9.md)
+[pathconf(2)](../sys/pathconf.2.md), [vnode(9)](vnode.9.md)
 
 ## 作者
 

@@ -39,7 +39,7 @@ sigreturn(const ucontext_t *scp);
 
 ## 参见
 
-[sigaction(2)](sigaction.2.md), [setjmp(3)](../man3/setjmp.3.md), [ucontext(3)](../man3/ucontext.3.md)
+[sigaction(2)](sigaction.2.md), [setjmp(3)](../gen/setjmp.3.md), [ucontext(3)](../gen/ucontext.3.md)
 
 ## 历史
 

@@ -204,7 +204,7 @@ CURVNET_RESTORE();
 
 ## 参见
 
-[jail(2)](../man2/jail.2.md), [kvm(3)](../man3/kvm.3.md), [EVENTHANDLER(9)](eventhandler.9.md), [KASSERT(9)](kassert.9.md), [sysctl(9)](sysctl.9.md)
+[jail(2)](../sys/jail.2.md), [kvm(3)](../man3/kvm.3.md), [EVENTHANDLER(9)](eventhandler.9.md), [KASSERT(9)](kassert.9.md), [sysctl(9)](sysctl.9.md)
 
 Marko Zec, Implementing a Clonable Network Stack in the FreeBSD Kernel, USENIX ATC'03, June 2003, Boston
 

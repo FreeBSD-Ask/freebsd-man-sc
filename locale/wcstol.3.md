@@ -22,11 +22,11 @@ Lb libc
 
 ## 描述
 
-`wcstol`、`wcstoul`、`wcstoll`、`wcstoull`、`wcstoimax` 和 `wcstoumax` 函数分别是 `strtol`、`strtoul`、`strtoll`、`strtoull`、`strtoimax` 和 `strtoumax` 函数的宽字符版本。详情请参阅它们的手册页（例如 [strtol(3)](strtol.3.md)）。
+`wcstol`、`wcstoul`、`wcstoll`、`wcstoull`、`wcstoimax` 和 `wcstoumax` 函数分别是 `strtol`、`strtoul`、`strtoll`、`strtoull`、`strtoimax` 和 `strtoumax` 函数的宽字符版本。详情请参阅它们的手册页（例如 [strtol(3)](../stdlib/strtol.3.md)）。
 
 ## 参见
 
-[strtol(3)](strtol.3.md), [strtoul(3)](strtoul.3.md)
+[strtol(3)](../stdlib/strtol.3.md), [strtoul(3)](../stdlib/strtoul.3.md)
 
 ## 标准
 

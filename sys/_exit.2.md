@@ -29,7 +29,7 @@ _exit(int status);
 - 如果进程的终止导致某个进程组成为孤儿进程组（通常因为该组所有成员的父进程都已退出；参见 [intro(2)](intro.2.md) 中的“孤儿进程组”），并且孤儿进程组中有任何成员处于停止状态，那么 `SIGHUP` 信号和 `SIGCONT` 信号会被发送到新成为孤儿的进程组的所有成员。
 - 如果该进程是控制进程（参见 [intro(2)](intro.2.md)），`SIGHUP` 信号会被发送到控制终端的前台进程组，并且对控制终端的所有当前访问权限都会被撤销。
 
-大多数 C 程序调用库例程 [exit(3)](../man3/exit.3.md)，该例程在调用 `_exit()` 之前会刷新缓冲区、关闭流、删除临时文件、调用 [atexit(3)](../man3/atexit.3.md) 处理程序等。
+大多数 C 程序调用库例程 [exit(3)](../stdlib/exit.3.md)，该例程在调用 `_exit()` 之前会刷新缓冲区、关闭流、删除临时文件、调用 [atexit(3)](../stdlib/atexit.3.md) 处理程序等。
 
 ## 返回值
 
@@ -37,7 +37,7 @@ _exit(int status);
 
 ## 参见
 
-[fork(2)](fork.2.md), [sigaction(2)](sigaction.2.md), [wait(2)](wait.2.md), [atexit(3)](../man3/atexit.3.md), [exit(3)](../man3/exit.3.md), [init(8)](../man8/init.8.md)
+[fork(2)](fork.2.md), [sigaction(2)](sigaction.2.md), [wait(2)](wait.2.md), [atexit(3)](../stdlib/atexit.3.md), [exit(3)](../stdlib/exit.3.md), [init(8)](../man8/init.8.md)
 
 ## 标准
 

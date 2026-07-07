@@ -51,7 +51,7 @@ devstat_compute_etime(struct bintime *cur_time, struct bintime *prev_time);
 
 ## 描述
 
-`devstat` 库是用于处理内核 [devstat(9)](../man9/devstat.9.md) 接口的辅助函数库，用户可通过 [sysctl(3)](sysctl.3.md) 和 [kvm(3)](kvm.3.md) 访问该接口。所有以 `kvm_t *` 作为第一个参数的函数都可以传递 `NULL` 而不是 kvm 句柄作为此参数，这将导致通过 [sysctl(3)](sysctl.3.md) 读取数据。否则，使用提供的句柄通过 [kvm(3)](kvm.3.md) 读取。`devstat_checkversion()` 函数应该对每个将要使用的 kvm 句柄调用一次（如果使用 [sysctl(3)](sysctl.3.md) 则传递 `NULL`）。
+`devstat` 库是用于处理内核 [devstat(9)](../man9/devstat.9.md) 接口的辅助函数库，用户可通过 [sysctl(3)](../gen/sysctl.3.md) 和 [kvm(3)](kvm.3.md) 访问该接口。所有以 `kvm_t *` 作为第一个参数的函数都可以传递 `NULL` 而不是 kvm 句柄作为此参数，这将导致通过 [sysctl(3)](../gen/sysctl.3.md) 读取数据。否则，使用提供的句柄通过 [kvm(3)](kvm.3.md) 读取。`devstat_checkversion()` 函数应该对每个将要使用的 kvm 句柄调用一次（如果使用 [sysctl(3)](../gen/sysctl.3.md) 则传递 `NULL`）。
 
 `devstat_getnumdevs()` 函数返回内核中向 `devstat` 子系统注册的设备数量。
 
@@ -274,7 +274,7 @@ struct devinfo {
 
 ## 参见
 
-[systat(1)](../man1/systat.1.md), [kvm(3)](kvm.3.md), [sysctl(3)](sysctl.3.md), [iostat(8)](../man8/iostat.8.md), [rpc.rstatd(8)](../man8/rpc.rstatd.8.md), [sysctl(8)](../man8/sysctl.8.md), [vmstat(8)](../man8/vmstat.8.md), [devstat(9)](../man9/devstat.9.md)
+[systat(1)](../man1/systat.1.md), [kvm(3)](kvm.3.md), [sysctl(3)](../gen/sysctl.3.md), [iostat(8)](../man8/iostat.8.md), [rpc.rstatd(8)](../man8/rpc.rstatd.8.md), [sysctl(8)](../man8/sysctl.8.md), [vmstat(8)](../man8/vmstat.8.md), [devstat(9)](../man9/devstat.9.md)
 
 ## 历史
 

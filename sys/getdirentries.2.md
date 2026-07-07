@@ -75,7 +75,7 @@ char      d_name[MAXNAMLEN + 1];	/* 见下文 */
 
 ## 参见
 
-[lseek(2)](lseek.2.md), [open(2)](open.2.md), [directory(3)](../man3/directory.3.md), [dir(5)](../man5/dir.5.md)
+[lseek(2)](lseek.2.md), [open(2)](open.2.md), [directory(3)](../gen/directory.3.md), [dir(5)](../man5/dir.5.md)
 
 ## 历史
 

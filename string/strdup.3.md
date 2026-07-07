@@ -34,7 +34,7 @@ strndupa(const char *str, size_t len);
 
 `strndup` 函数从字符串 `str` 中最多复制 `len` 个字符，并始终在复制的字符串末尾添加 `NUL` 终止符。
 
-`strdupa` 函数与 `strdup` 功能相同，但使用 [alloca(3)](alloca.3.md) 分配内存。类似地，`strndupa` 函数与 `strndup` 功能相同，但使用 [alloca(3)](alloca.3.md) 分配内存。
+`strdupa` 函数与 `strdup` 功能相同，但使用 [alloca(3)](../man3/alloca.3.md) 分配内存。类似地，`strndupa` 函数与 `strndup` 功能相同，但使用 [alloca(3)](../man3/alloca.3.md) 分配内存。
 
 ## 返回值
 
@@ -42,7 +42,7 @@ strndupa(const char *str, size_t len);
 
 ## 参见
 
-[alloca(3)](alloca.3.md), free(3), malloc(3), wcsdup(3)
+[alloca(3)](../man3/alloca.3.md), free(3), malloc(3), wcsdup(3)
 
 ## 标准
 

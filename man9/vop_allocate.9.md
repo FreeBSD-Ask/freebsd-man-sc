@@ -19,7 +19,7 @@ VOP_ALLOCATE(struct vnode *vp, off_t *offset, off_t *len, int ioflag,
 
 ## 描述
 
-此调用为文件中一个偏移量范围分配存储空间。它用于实现 [posix_fallocate(2)](../man2/posix_fallocate.2.md) 系统调用。
+此调用为文件中一个偏移量范围分配存储空间。它用于实现 [posix_fallocate(2)](../sys/posix_fallocate.2.md) 系统调用。
 
 其参数为：
 

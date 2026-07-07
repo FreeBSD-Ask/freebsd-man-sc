@@ -66,9 +66,9 @@ struct coredump_writer {
 
 注意，此系统的设计使得 `cd_probe` 函数可以检查所讨论的进程并做出明智的决策。同一 coredumper 中被转储的不同进程可以以不同优先级探测。
 
-一旦选择了最高优先级的 coredumper，将调用 `cd_handle` 函数。`cd_handle` 将接收线程和 `RLIMIT_CORE` [setrlimit(2)](../man2/setrlimit.2.md) `limit`。进入时持有 proc 锁，应在处理程序返回之前解锁。`limit` 通常传递给属于进程 `p_sysent` 的 `sv_coredump`。
+一旦选择了最高优先级的 coredumper，将调用 `cd_handle` 函数。`cd_handle` 将接收线程和 `RLIMIT_CORE` [setrlimit(2)](../sys/getrlimit.2.md) `limit`。进入时持有 proc 锁，应在处理程序返回之前解锁。`limit` 通常传递给属于进程 `p_sysent` 的 `sv_coredump`。
 
-`cd_handle` 函数应在转储成功时返回 0，否则返回适当的 [errno(2)](../man2/errno.2.md)。
+`cd_handle` 函数应在转储成功时返回 0，否则返回适当的 [errno(2)](../sys/intro.2.md)。
 
 ### 自定义核心转储写入器
 
@@ -82,7 +82,7 @@ struct coredump_writer {
 
 ## 参见
 
-[setrlimit(2)](../man2/setrlimit.2.md), [core(5)](../man5/core.5.md)
+[setrlimit(2)](../sys/getrlimit.2.md), [core(5)](../man5/core.5.md)
 
 ## 作者
 

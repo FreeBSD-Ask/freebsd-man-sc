@@ -109,7 +109,7 @@ le64enc(void *, uint64_t)
 
 ## 参见
 
-[byteorder(3)](../man3/byteorder.3.md)
+[byteorder(3)](../net/byteorder.3.md)
 
 ## 历史
 

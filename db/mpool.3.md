@@ -54,9 +54,9 @@
 
 **[Er** EINVAL] 所请求的记录不存在。
 
-`mpool_new` 和 `mpool_get` 函数可能失败并为库例程 read(2)、[write(2)](../man2/write.2.md) 和 malloc(3) 所指定的任何错误设置 `errno`。
+`mpool_new` 和 `mpool_get` 函数可能失败并为库例程 read(2)、[write(2)](../sys/write.2.md) 和 malloc(3) 所指定的任何错误设置 `errno`。
 
-`mpool_sync` 函数可能失败并为库例程 [write(2)](../man2/write.2.md) 所指定的任何错误设置 `errno`。
+`mpool_sync` 函数可能失败并为库例程 [write(2)](../sys/write.2.md) 所指定的任何错误设置 `errno`。
 
 `mpool_close` 函数可能失败并为库例程 free(3) 所指定的任何错误设置 `errno`。
 

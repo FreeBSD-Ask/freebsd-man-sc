@@ -24,7 +24,7 @@ Lb libc
 
 ## 描述
 
-`wscanf` 函数族根据如下所述的 `format` 扫描输入。该格式中可包含*转换说明符；*转换的结果（若有）通过*指针*参数存储。`wscanf` 函数从标准输入流 `stdin` 读取输入，`fwscanf` 从流指针 `stream` 读取输入，`swscanf` 从 `str` 所指向的宽字符串读取输入。`vfwscanf` 类似于 vfwprintf(3)，使用指针的可变参数列表从流指针 `stream` 读取输入（参见 [stdarg(3)](stdarg.3.md)）。`vwscanf` 从标准输入扫描可变参数列表，`vswscanf` 从宽字符串扫描；二者分别类似于 `vwprintf` 和 `vswprintf` 函数。每个后续的*指针*参数必须与每个后续的转换说明符正确对应（但参见下文的 `*` 转换）。所有转换均以 `%`（百分号）字符引入。`format` 字符串中也可包含其他字符。`format` 字符串中的空白字符（如空格、制表符或换行符）匹配输入中任意数量的空白字符，包括零个。其他字符仅匹配其自身。当输入字符不匹配此类格式字符时，扫描停止。当无法进行输入转换时（参见下文），扫描也会停止。
+`wscanf` 函数族根据如下所述的 `format` 扫描输入。该格式中可包含*转换说明符；*转换的结果（若有）通过*指针*参数存储。`wscanf` 函数从标准输入流 `stdin` 读取输入，`fwscanf` 从流指针 `stream` 读取输入，`swscanf` 从 `str` 所指向的宽字符串读取输入。`vfwscanf` 类似于 vfwprintf(3)，使用指针的可变参数列表从流指针 `stream` 读取输入（参见 [stdarg(3)](../man3/stdarg.3.md)）。`vwscanf` 从标准输入扫描可变参数列表，`vswscanf` 从宽字符串扫描；二者分别类似于 `vwprintf` 和 `vswprintf` 函数。每个后续的*指针*参数必须与每个后续的转换说明符正确对应（但参见下文的 `*` 转换）。所有转换均以 `%`（百分号）字符引入。`format` 字符串中也可包含其他字符。`format` 字符串中的空白字符（如空格、制表符或换行符）匹配输入中任意数量的空白字符，包括零个。其他字符仅匹配其自身。当输入字符不匹配此类格式字符时，扫描停止。当无法进行输入转换时（参见下文），扫描也会停止。
 
 ## 转换
 
@@ -66,7 +66,7 @@ Lb libc
 
 **`x`, `X`** 匹配可选带符号的十六进制整数；下一个指针必须是指向 `unsigned int` 的指针。
 
-**`a`, `A`, `e`, `E`, `f`, `F`, `g`, `G`** 匹配 [wcstod(3)](wcstod.3.md) 风格的浮点数。下一个指针必须是指向 `float` 的指针（除非指定了 `l` 或 `L`）。
+**`a`, `A`, `e`, `E`, `f`, `F`, `g`, `G`** 匹配 [wcstod(3)](../locale/wcstod.3.md) 风格的浮点数。下一个指针必须是指向 `float` 的指针（除非指定了 `l` 或 `L`）。
 
 **`s`** 匹配非空白宽字符序列；下一个指针必须是指向 `char` 的指针，且数组必须足够大以容纳整个序列的多字节表示和终止 `NUL` 字符。输入字符串在空白字符或最大字段宽度处停止，以先到者为准。若存在 `l` 限定符，下一个指针必须是指向 `wchar_t` 的指针，输入将存入其中。
 
@@ -92,7 +92,7 @@ Lb libc
 
 ## 参见
 
-fgetwc(3), [scanf(3)](scanf.3.md), [wcrtomb(3)](wcrtomb.3.md), [wcstod(3)](wcstod.3.md), [wcstol(3)](wcstol.3.md), wcstoul(3), [wprintf(3)](wprintf.3.md)
+fgetwc(3), [scanf(3)](scanf.3.md), [wcrtomb(3)](../locale/wcrtomb.3.md), [wcstod(3)](../locale/wcstod.3.md), [wcstol(3)](../locale/wcstol.3.md), wcstoul(3), [wprintf(3)](wprintf.3.md)
 
 ## 标准
 

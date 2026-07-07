@@ -35,7 +35,7 @@ thr_exit(long *state);
 
 ## 参见
 
-[_exit(2)](_exit.2.md), [_umtx_op(2)](_umtx_op.2.md), [thr_kill(2)](thr_kill.2.md), [thr_kill2(2)](thr_kill2.2.md), [thr_new(2)](thr_new.2.md), [thr_self(2)](thr_self.2.md), [thr_set_name(2)](thr_set_name.2.md), [pthread_exit(3)](../man3/pthread_exit.3.md)
+[_exit(2)](_exit.2.md), [_umtx_op(2)](_umtx_op.2.md), [thr_kill(2)](thr_kill.2.md), [thr_kill2(2)](thr_kill.2.md), [thr_new(2)](thr_new.2.md), [thr_self(2)](thr_self.2.md), [thr_set_name(2)](thr_set_name.2.md), [pthread_exit(3)](../man3/pthread_exit.3.md)
 
 ## 标准
 

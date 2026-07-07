@@ -91,4 +91,4 @@ quotactl(const char *path, int cmd, int id, void *addr);
 
 ## 缺陷
 
-应该有某种方式将此调用与 [setrlimit(2)](setrlimit.2.md) 和 [getrlimit(2)](getrlimit.2.md) 提供的资源限制接口集成。
+应该有某种方式将此调用与 [setrlimit(2)](getrlimit.2.md) 和 [getrlimit(2)](getrlimit.2.md) 提供的资源限制接口集成。

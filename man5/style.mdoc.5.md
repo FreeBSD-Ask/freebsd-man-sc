@@ -32,7 +32,7 @@ Then run
 > Then run
 > `Nm make Cm install Cm clean`.
 
-- 对示例和字面 shell 命令使用字面格式，例如：渲染为：错误的方式是使用 **Nm** 等宏来修饰命令调用：渲染为：这会污染 [whatis(1)](../man1/whatis.1.md) 数据库，导致 `whatis clean` 错误地显示编写该命令的手册页。
+- 对示例和字面 shell 命令使用字面格式，例如：渲染为：错误的方式是使用 **Nm** 等宏来修饰命令调用：渲染为：这会污染 [whatis(1)](../man1/apropos.1.md) 数据库，导致 `whatis clean` 错误地显示编写该命令的手册页。
 
 ### 版权头
 

@@ -34,7 +34,7 @@ openat(int fd, const char *path, int flags, ...);
 
 在 [capsicum(4)](../man4/capsicum.4.md) capability 模式下，不允许调用 `open()`。`openat()` 的 `path` 参数必须严格相对于文件描述符 `fd`；即 `path` 不能是绝对路径，也不能包含导致路径解析逃逸出以 `fd` 为起点的目录层级的 ".." 组件。此外，`path` 中的符号链接不能以绝对路径为目标，也不能包含逃逸的 ".." 组件。`fd` 不能为 `AT_FDCWD`。
 
-如果 `vfs.lookup_cap_dotdot` [sysctl(3)](../man3/sysctl.3.md) MIB 设置为零，则 capability 模式下使用的路径中的 ".." 组件将被完全禁用。如果 `vfs.lookup_cap_dotdot_nonlocal` MIB 设置为零，则在非本地文件系统上不允许 ".."。
+如果 `vfs.lookup_cap_dotdot` [sysctl(3)](../gen/sysctl.3.md) MIB 设置为零，则 capability 模式下使用的路径中的 ".." 组件将被完全禁用。如果 `vfs.lookup_cap_dotdot_nonlocal` MIB 设置为零，则在非本地文件系统上不允许 ".."。
 
 `flags` 由以下值按位或构成：
 
@@ -271,13 +271,13 @@ opath_fd = openat(fd, "", O_EMPTY_PATH | O_PATH);
 
 **[ENOTCAPABLE]** `path` 包含导致目录超出 `fd` 指定目录层级的 ".." 组件，且指定了 `O_RESOLVE_BENEATH`。
 
-**[ENOTCAPABLE]** `path` 包含 ".." 组件，设置了 `vfs.lookup_cap_dotdot` [sysctl(3)](../man3/sysctl.3.md)，且进程处于 capability 模式。
+**[ENOTCAPABLE]** `path` 包含 ".." 组件，设置了 `vfs.lookup_cap_dotdot` [sysctl(3)](../gen/sysctl.3.md)，且进程处于 capability 模式。
 
 **[ENOATTR]** 指定了 `O_NAMEDATTR` 且文件对象不是命名属性目录或命名属性。
 
 ## 参见
 
-[chmod(2)](chmod.2.md), [chflags(2)](chflags.2.md), [close(2)](close.2.md), [dup(2)](dup.2.md), [execve(2)](execve.2.md), [fexecve(2)](fexecve.2.md), [fhopen(2)](fhopen.2.md), [fork(2)](fork.2.md), [getdtablesize(2)](getdtablesize.2.md), [getfh(2)](getfh.2.md), [lgetfh(2)](lgetfh.2.md), [lseek(2)](lseek.2.md), [read(2)](read.2.md), [umask(2)](umask.2.md), [write(2)](write.2.md), [fopen(3)](../man3/fopen.3.md), [capsicum(4)](../man4/capsicum.4.md), [devfs(4)](../man4/devfs.4.md), [unix(4)](../man4/unix.4.md), [named_attribute(7)](../man7/named_attribute.7.md)
+[chmod(2)](chmod.2.md), [chflags(2)](chflags.2.md), [close(2)](close.2.md), [dup(2)](dup.2.md), [execve(2)](execve.2.md), [fexecve(2)](execve.2.md), [fhopen(2)](fhopen.2.md), [fork(2)](fork.2.md), [getdtablesize(2)](getdtablesize.2.md), [getfh(2)](getfh.2.md), [lgetfh(2)](getfh.2.md), [lseek(2)](lseek.2.md), [read(2)](read.2.md), [umask(2)](umask.2.md), [write(2)](write.2.md), [fopen(3)](../stdio/fopen.3.md), [capsicum(4)](../man4/capsicum.4.md), [devfs(4)](../man4/devfs.4.md), [unix(4)](../man4/unix.4.md), [named_attribute(7)](../man7/named_attribute.7.md)
 
 ## 标准
 

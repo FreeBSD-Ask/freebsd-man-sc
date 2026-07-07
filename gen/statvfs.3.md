@@ -28,7 +28,7 @@ fstatvfs(int fd, struct statvfs *buf);
 
 `statvfs` 结构包含以下成员：
 
-**`f_namemax`** 此文件系统上文件名的最大长度（以字节为单位）。应用程序应改用 [pathconf(2)](../man2/pathconf.2.md)。
+**`f_namemax`** 此文件系统上文件名的最大长度（以字节为单位）。应用程序应改用 [pathconf(2)](../sys/pathconf.2.md)。
 
 **`f_fsid`** 在此实现中无意义。
 
@@ -56,13 +56,13 @@ fstatvfs(int fd, struct statvfs *buf);
 
 ## 错误
 
-`statvfs` 和 `fstatvfs` 函数可能因 [statfs(2)](../man2/statfs.2.md) 或 fstatfs(2) 以及 [pathconf(2)](../man2/pathconf.2.md) 或 fpathconf(2) 所述的任何原因而失败。此外，`statvfs` 和 `fstatvfs` 函数还可能因以下原因失败：
+`statvfs` 和 `fstatvfs` 函数可能因 [statfs(2)](../sys/statfs.2.md) 或 fstatfs(2) 以及 [pathconf(2)](../sys/pathconf.2.md) 或 fpathconf(2) 所述的任何原因而失败。此外，`statvfs` 和 `fstatvfs` 函数还可能因以下原因失败：
 
 **[`EOVERFLOW`]** 一个或多个文件系统统计信息的值无法用 `struct statvfs` 中使用的数据类型表示。
 
 ## 参见
 
-[pathconf(2)](../man2/pathconf.2.md), [statfs(2)](../man2/statfs.2.md)
+[pathconf(2)](../sys/pathconf.2.md), [statfs(2)](../sys/statfs.2.md)
 
 ## 标准
 

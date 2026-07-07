@@ -46,4 +46,4 @@
 
 ## 参见
 
-[quota(1)](../man1/quota.1.md), [quotactl(2)](../man2/quotactl.2.md), [fstab(5)](../man5/fstab.5.md), [quotacheck(8)](quotacheck.8.md), [quotaon(8)](quotaon.8.md), [repquota(8)](repquota.8.md)
+[quota(1)](../man1/quota.1.md), [quotactl(2)](../sys/quotactl.2.md), [fstab(5)](../man5/fstab.5.md), [quotacheck(8)](quotacheck.8.md), [quotaon(8)](quotaon.8.md), [repquota(8)](repquota.8.md)

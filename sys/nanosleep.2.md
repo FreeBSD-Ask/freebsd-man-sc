@@ -71,7 +71,7 @@ nanosleep(const struct timespec *rqtp, struct timespec *rmtp);
 
 ## 参见
 
-[clock_gettime(2)](clock_gettime.2.md), [sigaction(2)](sigaction.2.md), [sleep(3)](../man3/sleep.3.md)
+[clock_gettime(2)](clock_gettime.2.md), [sigaction(2)](sigaction.2.md), [sleep(3)](../sys-1/sleep.3.md)
 
 ## 标准
 
@@ -79,6 +79,6 @@ nanosleep(const struct timespec *rqtp, struct timespec *rmtp);
 
 ## 历史
 
-此系统调用的前身 `sleep()` 出现于 Version 3 AT&T UNIX，但在 [alarm(3)](../man3/alarm.3.md) 引入 Version 7 AT&T UNIX 时被移除。`nanosleep()` 系统调用自 NetBSD 1.3 起可用，并被移植到 OpenBSD 2.1 和 FreeBSD 3.0。`clock_nanosleep()` 系统调用自 FreeBSD 11.1 起可用。
+此系统调用的前身 `sleep()` 出现于 Version 3 AT&T UNIX，但在 [alarm(3)](../gen/alarm.3.md) 引入 Version 7 AT&T UNIX 时被移除。`nanosleep()` 系统调用自 NetBSD 1.3 起可用，并被移植到 OpenBSD 2.1 和 FreeBSD 3.0。`clock_nanosleep()` 系统调用自 FreeBSD 11.1 起可用。
 
 在 FreeBSD 15.0 中，`clock_nanosleep()` 使用 `CLOCK_MONOTONIC`、`CLOCK_REALTIME`、`CLOCK_UPTIME` 时钟以及 `nanosleep()` 的默认行为已切换为使用精确时钟。

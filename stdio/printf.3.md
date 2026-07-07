@@ -146,7 +146,7 @@ char *newfmt(const char *fmt, ...)
 
 ## 错误
 
-除 [write(2)](../man2/write.2.md) 系统调用文档中所述的错误外，`printf` 函数族还可能在以下情况下失败：
+除 [write(2)](../sys/write.2.md) 系统调用文档中所述的错误外，`printf` 函数族还可能在以下情况下失败：
 
 **`EILSEQ`** 遇到无效的宽字符代码。
 

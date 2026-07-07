@@ -122,7 +122,7 @@ Lb libc
 
 ## 参见
 
-[date(1)](../man1/date.1.md), printf(1), [ctime(3)](ctime.3.md), [printf(3)](printf.3.md), [strptime(3)](strptime.3.md), [wcsftime(3)](wcsftime.3.md)
+[date(1)](../man1/date.1.md), printf(1), [ctime(3)](ctime.3.md), [printf(3)](../stdio/printf.3.md), [strptime(3)](strptime.3.md), [wcsftime(3)](../locale/wcsftime.3.md)
 
 ## 标准
 

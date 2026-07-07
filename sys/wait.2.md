@@ -127,7 +127,7 @@ struct __wrusage {
 
 **`WIFCONTINUED(status)`** 如果进程未终止，并且在作业控制停止或调试器分离后已继续，则为真。仅当 wait 调用指定了 `WCONTINUED` 选项时，此宏才可能为真。
 
-**`WIFEXITED(status)`** 如果进程通过调用 [_exit(2)](_exit.2.md) 或 [exit(3)](../man3/exit.3.md) 正常终止，则为真。
+**`WIFEXITED(status)`** 如果进程通过调用 [_exit(2)](_exit.2.md) 或 [exit(3)](../stdlib/exit.3.md) 正常终止，则为真。
 
 **`WIFSIGNALED(status)`** 如果进程由于接收到信号而终止，则为真。
 
@@ -135,7 +135,7 @@ struct __wrusage {
 
 根据这些宏的值，以下宏产生关于子进程的其余状态信息：
 
-**`WEXITSTATUS(status)`** 如果 `WIFEXITED(status)` 为真，求值为子进程传递给 [_exit(2)](_exit.2.md) 或 [exit(3)](../man3/exit.3.md) 的参数的低 8 位。
+**`WEXITSTATUS(status)`** 如果 `WIFEXITED(status)` 为真，求值为子进程传递给 [_exit(2)](_exit.2.md) 或 [exit(3)](../stdlib/exit.3.md) 的参数的低 8 位。
 
 **`WTERMSIG(status)`** 如果 `WIFSIGNALED(status)` 为真，求值为导致进程终止的信号编号。
 
@@ -181,7 +181,7 @@ struct __wrusage {
 
 ## 参见
 
-[_exit(2)](_exit.2.md), pdwait(2), [procctl(2)](procctl.2.md), [ptrace(2)](ptrace.2.md), [sigaction(2)](sigaction.2.md), [exit(3)](../man3/exit.3.md), [siginfo(3)](../man3/siginfo.3.md)
+[_exit(2)](_exit.2.md), pdwait(2), [procctl(2)](procctl.2.md), [ptrace(2)](ptrace.2.md), [sigaction(2)](sigaction.2.md), [exit(3)](../stdlib/exit.3.md), [siginfo(3)](../man3/siginfo.3.md)
 
 ## 标准
 

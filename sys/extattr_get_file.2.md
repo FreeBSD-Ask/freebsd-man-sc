@@ -138,7 +138,7 @@ extattr_set_link(const char *path, int attrnamespace,
 
 ## 参见
 
-[extattr(3)](../man3/extattr.3.md), [getextattr(8)](../man8/getextattr.8.md), [setextattr(8)](../man8/setextattr.8.md), [extattr(9)](../man9/extattr.9.md), [VOP_GETEXTATTR(9)](../man9/VOP_GETEXTATTR.9.md), [VOP_SETEXTATTR(9)](../man9/VOP_SETEXTATTR.9.md)
+[extattr(3)](../posix1e/extattr.3.md), [getextattr(8)](../man8/rmextattr.8.md), [setextattr(8)](../man8/rmextattr.8.md), [extattr(9)](../man9/extattr.9.md), [VOP_GETEXTATTR(9)](../man9/VOP_GETEXTATTR.9.md), [VOP_SETEXTATTR(9)](../man9/VOP_SETEXTATTR.9.md)
 
 ## 历史
 

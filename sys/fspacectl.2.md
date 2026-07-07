@@ -81,7 +81,7 @@ struct spacectl_range {
 
 ## 参见
 
-[creat(2)](creat.2.md), [ftruncate(2)](ftruncate.2.md), [open(2)](open.2.md), [unlink(2)](unlink.2.md)
+[creat(2)](creat.2.md), [ftruncate(2)](truncate.2.md), [open(2)](open.2.md), [unlink(2)](unlink.2.md)
 
 ## 历史
 

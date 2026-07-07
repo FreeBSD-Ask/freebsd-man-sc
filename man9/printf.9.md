@@ -101,4 +101,4 @@ log(LOG_DEBUG, "%s%d: been there.\n", sc->sc_name, sc->sc_unit);
 
 ## 参见
 
-[printf(3)](../man3/printf.3.md), [syslog(3)](../man3/syslog.3.md)
+[printf(3)](../stdio/printf.3.md), [syslog(3)](../gen/syslog.3.md)

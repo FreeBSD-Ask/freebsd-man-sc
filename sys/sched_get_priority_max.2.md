@@ -55,7 +55,7 @@ sched_rr_get_interval(pid_t pid, struct timespec *interval);
 
 ## 参见
 
-[sched_getparam(2)](sched_getparam.2.md), [sched_getscheduler(2)](sched_getscheduler.2.md), [sched_setparam(2)](sched_setparam.2.md), [sched_setscheduler(2)](sched_setscheduler.2.md)
+[sched_getparam(2)](sched_setparam.2.md), [sched_getscheduler(2)](sched_setscheduler.2.md), [sched_setparam(2)](sched_setparam.2.md), [sched_setscheduler(2)](sched_setscheduler.2.md)
 
 ## 标准
 

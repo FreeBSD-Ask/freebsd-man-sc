@@ -271,7 +271,7 @@ make show-valid-targets
 
 **`WITH_CLEAN`** 在构建 world 和/或内核之前进行清理。注意，在源码树根目录的 `.clean_build_epoch` 中记录新纪元也会强制进行 clean world 构建。设置后，以下选项也生效：
 
-**`WITHOUT_CPP`** 不构建 [cpp(1)](../man1/cpp.1.md)。
+**`WITHOUT_CPP`** 不构建 [cpp(1)](../man1/clang.1.md)。
 
 **`WITHOUT_CROSS_COMPILER`** 不在 buildworld 的交叉工具阶段构建任何交叉编译器。当编译与系统上安装的 FreeBSD 版本不同的 FreeBSD 时，通过 XCC 提供备用编译器以确保成功。当使用与主机相同版本的 FreeBSD 进行编译时，可以安全使用此选项。当主机 FreeBSD 版本与正在构建的源码接近时，此选项也可能是安全的，但如果版本之间工具链有任何变化，则无法保证。设置后，它会强制以下选项：
 
@@ -313,7 +313,7 @@ make show-valid-targets
 
 **`WITHOUT_DYNAMICROOT`** 如果不想动态链接 **/bin** 和 **/sbin**，请设置此选项。
 
-**`WITHOUT_EE`** 不构建和安装 [edit(1)](../man1/edit.1.md)、[ee(1)](../man1/ee.1.md) 及相关程序。
+**`WITHOUT_EE`** 不构建和安装 [edit(1)](../man1/ee.1.md)、[ee(1)](../man1/ee.1.md) 及相关程序。
 
 **`WITHOUT_EFI`** 不构建 efivar(3) 和 efivar(8)。这是 i386/i386、powerpc/powerpc64 和 powerpc/powerpc64le 上的默认设置。
 
@@ -425,7 +425,7 @@ make show-valid-targets
 
 **`WITHOUT_LLVM_ASSERTIONS`** 禁用 LLVM 中的调试断言。
 
-**`WITHOUT_LLVM_BINUTILS`** 安装 ELF 工具链的二进制工具而不是 LLVM 的。这包括 [addr2line(1)](../man1/addr2line.1.md)、[ar(1)](../man1/ar.1.md)、nm(1)、objcopy(1)、[ranlib(1)](../man1/ranlib.1.md)、[readelf(1)](../man1/readelf.1.md)、size(1) 和 strip(1)。无论此设置如何，c++filt(1) 和 objdump(1) 都使用 LLVM 工具。strings(1) 始终由 ELF 工具链提供。
+**`WITHOUT_LLVM_BINUTILS`** 安装 ELF 工具链的二进制工具而不是 LLVM 的。这包括 [addr2line(1)](../man1/llvm-addr2line.1.md)、[ar(1)](../man1/ar.1.md)、nm(1)、objcopy(1)、[ranlib(1)](../man1/ar.1.md)、[readelf(1)](../man1/readelf.1.md)、size(1) 和 strip(1)。无论此设置如何，c++filt(1) 和 objdump(1) 都使用 LLVM 工具。strings(1) 始终由 ELF 工具链提供。
 
 **`WITHOUT_LLVM_BINUTILS_BOOTSTRAP`** 不在构建的引导阶段构建 LLVM 二进制工具。要能够构建系统，必须通过 `XAR`、`XNM`、`XOBJCOPY`、`XSIZE`、`XSTRINGS` 和 `XSTRIPBIN` 提供备用二进制工具。
 
@@ -519,7 +519,7 @@ make show-valid-targets
 
 **`WITH_MANSPLITPKG`** 在 make package 期间将手册页拆分为单独的软件包。
 
-**`WITHOUT_MAN_UTILS`** 不构建手册页工具，[apropos(1)](../man1/apropos.1.md)、makewhatis(1)、[man(1)](../man1/man.1.md)、[whatis(1)](../man1/whatis.1.md)、manctl(8) 及相关支持文件。
+**`WITHOUT_MAN_UTILS`** 不构建手册页工具，[apropos(1)](../man1/apropos.1.md)、makewhatis(1)、[man(1)](../man1/man.1.md)、[whatis(1)](../man1/apropos.1.md)、manctl(8) 及相关支持文件。
 
 **`WITH_META_ERROR_TARGET`** 启用 META_MODE .ERROR 目标。此目标将失败目标的 meta 文件复制到 `ERROR_LOGDIR`（默认为 `${SRCTOP:H}/error`）以帮助进行故障分析。依赖于 `WITH_META_MODE`。设置 `WITH_DIRDEPS_BUILD` 时这是默认值。必须在环境、make 命令行或 **/etc/src-env.conf** 中设置，而不是 **/etc/src.conf**。
 
@@ -665,7 +665,7 @@ make show-valid-targets
 
 **`WITHOUT_TCP_WRAPPERS`** 不构建或安装 tcpd(8) 及相关工具。
 
-**`WITHOUT_TCSH`** 不构建和安装 **/bin/csh**（即 [tcsh(1)](../man1/tcsh.1.md)）。
+**`WITHOUT_TCSH`** 不构建和安装 **/bin/csh**（即 [tcsh(1)](../man1/csh.1.md)）。
 
 **`WITHOUT_TELNET`** 不构建 [telnet(1)](../man1/telnet.1.md) 及相关程序。
 

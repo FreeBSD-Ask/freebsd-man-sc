@@ -94,7 +94,7 @@ fhlinkat(fhandle_t *fhp, int tofd, const char *to);
 
 ## 参见
 
-[fhopen(2)](fhopen.2.md), [fhreadlink(2)](fhreadlink.2.md), [fhstat(2)](fhstat.2.md)
+[fhopen(2)](fhopen.2.md), [fhreadlink(2)](fhreadlink.2.md), [fhstat(2)](fhopen.2.md)
 
 ## 历史
 

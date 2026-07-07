@@ -65,7 +65,7 @@ connect(int s, const struct sockaddr *name, socklen_t namelen);
 
 **[`EACCES`]** 试图通过不提供广播功能的套接字连接到广播地址（通过 `INADDR_BROADCAST` 常量或 `INADDR_NONE` 返回值获得）。
 
-**[`EAGAIN`]** 请求了自动分配的端口号，但没有可用的自动分配端口。增大由 [sysctl(3)](../man3/sysctl.3.md) MIB 变量 `net.inet.ip.portrange.first` 和 `net.inet.ip.portrange.last` 指定的端口范围可能缓解此问题。
+**[`EAGAIN`]** 请求了自动分配的端口号，但没有可用的自动分配端口。增大由 [sysctl(3)](../gen/sysctl.3.md) MIB 变量 `net.inet.ip.portrange.first` 和 `net.inet.ip.portrange.last` 指定的端口范围可能缓解此问题。
 
 以下错误特定于在 UNIX 域中连接名称。这些错误在未来版本的 UNIX IPC 域中可能不适用。
 
@@ -85,7 +85,7 @@ connect(int s, const struct sockaddr *name, socklen_t namelen);
 
 ## 参见
 
-[accept(2)](accept.2.md), [getpeername(2)](getpeername.2.md), [getsockname(2)](getsockname.2.md), [select(2)](select.2.md), [socket(2)](socket.2.md), [sysctl(3)](../man3/sysctl.3.md), [sysctl(8)](../man8/sysctl.8.md)
+[accept(2)](accept.2.md), [getpeername(2)](getpeername.2.md), [getsockname(2)](getsockname.2.md), [select(2)](select.2.md), [socket(2)](socket.2.md), [sysctl(3)](../gen/sysctl.3.md), [sysctl(8)](../man8/sysctl.8.md)
 
 ## 历史
 

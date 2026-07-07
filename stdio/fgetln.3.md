@@ -32,7 +32,7 @@ Lb libc
 
 **`ENOMEM`** 由于可用内存不足，或因为需要扩展的大小超过 INT_MAX，内部行缓冲区无法扩展。
 
-`fgetln` 函数也可能失败并为 [fflush(3)](fflush.3.md)、malloc(3)、[read(2)](../man2/read.2.md)、[stat(2)](../man2/stat.2.md) 或 realloc(3) 所指定的任何错误设置 `errno`。
+`fgetln` 函数也可能失败并为 [fflush(3)](fflush.3.md)、malloc(3)、[read(2)](../sys/read.2.md)、[stat(2)](../sys/stat.2.md) 或 realloc(3) 所指定的任何错误设置 `errno`。
 
 ## 参见
 

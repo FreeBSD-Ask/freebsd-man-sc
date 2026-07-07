@@ -46,7 +46,7 @@ setloginclass(const char *name);
 
 ## 参见
 
-[ps(1)](../man1/ps.1.md), [setusercontext(3)](../man3/setusercontext.3.md), [login.conf(5)](../man5/login.conf.5.md), [rctl(8)](../man8/rctl.8.md)
+[ps(1)](../man1/ps.1.md), setusercontext(3), [login.conf(5)](../man5/login.conf.5.md), [rctl(8)](../man8/rctl.8.md)
 
 ## 历史
 

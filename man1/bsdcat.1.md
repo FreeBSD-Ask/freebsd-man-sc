@@ -36,4 +36,4 @@ cat example.txt.gz | bsdcat > example.txt
 
 ## 参见
 
-bzcat(1), uncompress(1), [xzcat(1)](xzcat.1.md), [zcat(1)](zcat.1.md), libarchive-formats(5)
+bzcat(1), uncompress(1), [xzcat(1)](xz.1.md), [zcat(1)](gzip.1.md), libarchive-formats(5)

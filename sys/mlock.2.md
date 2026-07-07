@@ -60,7 +60,7 @@ munlock(const void *addr, size_t len);
 
 ## 参见
 
-[fork(2)](fork.2.md), [mincore(2)](mincore.2.md), [minherit(2)](minherit.2.md), [mlockall(2)](mlockall.2.md), [mmap(2)](mmap.2.md), [munlockall(2)](munlockall.2.md), [munmap(2)](munmap.2.md), [setrlimit(2)](setrlimit.2.md), [getpagesize(3)](../man3/getpagesize.3.md)
+[fork(2)](fork.2.md), [mincore(2)](mincore.2.md), [minherit(2)](minherit.2.md), [mlockall(2)](mlockall.2.md), [mmap(2)](mmap.2.md), [munlockall(2)](mlockall.2.md), [munmap(2)](munmap.2.md), [setrlimit(2)](getrlimit.2.md), [getpagesize(3)](../sys-1/getpagesize.3.md)
 
 ## 历史
 

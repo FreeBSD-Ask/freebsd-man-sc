@@ -49,7 +49,7 @@ procctl(idtype_t idtype, id_t id, int cmd, void *data);
 
 **`PROC_LOGSIGEXIT_CTL_FORCE_DISABLE`** 禁用对因通常会导致 core dump 的信号而退出的日志记录。
 
-**`PROC_LOGSIGEXIT_CTL_NOFORCE`** 日志行为委托给 [sysctl(3)](../man3/sysctl.3.md) MIB 变量 `kern.logsigexit`。
+**`PROC_LOGSIGEXIT_CTL_NOFORCE`** 日志行为委托给 [sysctl(3)](../gen/sysctl.3.md) MIB 变量 `kern.logsigexit`。
 
 **`PROC_LOGSIGEXIT_CTL_FORCE_ENABLE`**
 

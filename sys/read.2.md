@@ -81,7 +81,7 @@ struct iovec {
 
 **[EAGAIN]** 文件标记为非阻塞 I/O，且没有可读数据。
 
-**[EISDIR]** 文件描述符与目录关联。仅当文件系统支持且 `security.bsd.allow_read_dir` sysctl MIB 设置为非零值时，root 才能直接读取目录。对于大多数场景，应改用 [readdir(3)](../man3/readdir.3.md) 函数。
+**[EISDIR]** 文件描述符与目录关联。仅当文件系统支持且 `security.bsd.allow_read_dir` sysctl MIB 设置为非零值时，root 才能直接读取目录。对于大多数场景，应改用 [readdir(3)](../gen/directory.3.md) 函数。
 
 **[EOPNOTSUPP]** 文件描述符与不允许常规读操作的文件系统和文件类型关联。
 
@@ -107,7 +107,7 @@ struct iovec {
 
 ## 参见
 
-[dup(2)](dup.2.md), [fcntl(2)](fcntl.2.md), [getdirentries(2)](getdirentries.2.md), [lseek(2)](lseek.2.md), [open(2)](open.2.md), [pipe(2)](pipe.2.md), [select(2)](select.2.md), [socket(2)](socket.2.md), [socketpair(2)](socketpair.2.md), [write(2)](write.2.md), [fread(3)](../man3/fread.3.md), [readdir(3)](../man3/readdir.3.md)
+[dup(2)](dup.2.md), [fcntl(2)](fcntl.2.md), [getdirentries(2)](getdirentries.2.md), [lseek(2)](lseek.2.md), [open(2)](open.2.md), [pipe(2)](pipe.2.md), [select(2)](select.2.md), [socket(2)](socket.2.md), [socketpair(2)](socketpair.2.md), [write(2)](write.2.md), [fread(3)](../stdio/fread.3.md), [readdir(3)](../gen/directory.3.md)
 
 ## 标准
 

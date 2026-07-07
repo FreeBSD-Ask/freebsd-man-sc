@@ -84,7 +84,7 @@ Lb libc
 
 ## 参见
 
-iconv(1), mkcsmapper(1), mkesdb(1), [__iconv_get_list(3)](__iconv_get_list.3.md), [iconv_canonicalize(3)](iconv_canonicalize.3.md), [iconvctl(3)](iconvctl.3.md), [iconvlist(3)](iconvlist.3.md)
+iconv(1), mkcsmapper(1), mkesdb(1), [__iconv_get_list(3)](../iconv/__iconv_get_list.3.md), [iconv_canonicalize(3)](../iconv/iconv_canonicalize.3.md), [iconvctl(3)](../iconv/iconvctl.3.md), [iconvlist(3)](../iconv/iconvlist.3.md)
 
 ## 标准
 

@@ -66,7 +66,7 @@ assert(memcmp(&setrights, &getrights, sizeof(setrights)) == 0);
 
 ## 参见
 
-[cap_rights_limit(2)](../sys/cap_rights_limit.2.md), [errno(2)](../sys/errno.2.md), [open(2)](../sys/open.2.md), [assert(3)](assert.3.md), [cap_rights_init(3)](../man3/cap_rights_init.3.md), [err(3)](err.3.md), [memcmp(3)](../man3/memcmp.3.md), [memset(3)](../man3/memset.3.md), [capsicum(4)](../man4/capsicum.4.md), [rights(4)](../man4/rights.4.md)
+[cap_rights_limit(2)](../sys/cap_rights_limit.2.md), [errno(2)](../sys/intro.2.md), [open(2)](../sys/open.2.md), [assert(3)](../man3/assert.3.md), [cap_rights_init(3)](../man3/cap_rights_init.3.md), [err(3)](err.3.md), [memcmp(3)](../string/memcmp.3.md), [memset(3)](../string/memset.3.md), [capsicum(4)](../man4/capsicum.4.md), [rights(4)](../man4/rights.4.md)
 
 ## 历史
 

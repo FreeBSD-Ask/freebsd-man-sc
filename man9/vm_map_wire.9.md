@@ -48,7 +48,7 @@ vm_map_unwire(vm_map_t map, vm_offset_t start, vm_offset_t end, int flags)
 
 ## 参见
 
-[mlockall(2)](../man2/mlockall.2.md), [munlockall(2)](../man2/munlockall.2.md), [vm_map(9)](vm_map.9.md)
+[mlockall(2)](../sys/mlockall.2.md), [munlockall(2)](../sys/mlockall.2.md), [vm_map(9)](vm_map.9.md)
 
 ## 作者
 

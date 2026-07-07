@@ -114,13 +114,13 @@ struct utmpx {
 
 ## 错误
 
-除了 [open(2)](../man2/open.2.md)、fdopen(3)、[fopen(3)](fopen.3.md)、[fseek(3)](fseek.3.md) 中描述的错误条件外，`pututxline` 函数还可能产生以下错误：
+除了 [open(2)](../sys/open.2.md)、fdopen(3)、[fopen(3)](../stdio/fopen.3.md)、[fseek(3)](../stdio/fseek.3.md) 中描述的错误条件外，`pututxline` 函数还可能产生以下错误：
 
 **`ESRCH`** `ut_type` 的值为 `DEAD_PROCESS`，且找不到进程条目。
 
 **`EINVAL`** `ut_type` 的值不被此实现支持。
 
-除了 [fopen(3)](fopen.3.md) 中描述的错误条件外，`setutxdb` 函数还可能产生以下错误：
+除了 [fopen(3)](../stdio/fopen.3.md) 中描述的错误条件外，`setutxdb` 函数还可能产生以下错误：
 
 **`EINVAL`** `type` 参数包含此实现不支持的值。
 
@@ -128,7 +128,7 @@ struct utmpx {
 
 ## 参见
 
-[last(1)](../man1/last.1.md), write(1), [getpid(2)](../man2/getpid.2.md), [gettimeofday(2)](../man2/gettimeofday.2.md), [tty(4)](../man4/tty.4.md), ac(8), newsyslog(8), utx(8)
+[last(1)](../man1/last.1.md), write(1), [getpid(2)](../sys/getpid.2.md), [gettimeofday(2)](../sys/gettimeofday.2.md), [tty(4)](../man4/tty.4.md), ac(8), newsyslog(8), utx(8)
 
 ## 标准
 

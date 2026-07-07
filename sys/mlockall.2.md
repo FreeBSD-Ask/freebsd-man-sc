@@ -56,7 +56,7 @@ munlockall(void);
 
 ## 参见
 
-[mincore(2)](mincore.2.md), [mlock(2)](mlock.2.md), [mmap(2)](mmap.2.md), [munmap(2)](munmap.2.md), [setrlimit(2)](setrlimit.2.md)
+[mincore(2)](mincore.2.md), [mlock(2)](mlock.2.md), [mmap(2)](mmap.2.md), [munmap(2)](munmap.2.md), [setrlimit(2)](getrlimit.2.md)
 
 ## 标准
 

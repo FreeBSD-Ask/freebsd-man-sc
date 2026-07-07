@@ -10,7 +10,7 @@
 
 `gptboot` 用于在基于 BIOS 的计算机上从 GPT 分区的磁盘上的 UFS 分区引导系统。`gptboot` 通过 [gpart(8)](gpart.8.md) 安装到一个 `freebsd-boot` 分区中。对于 UEFI，则改用 gptboot.efi(8)。虽然两者在概念上相似，但细节有所不同。
 
-启动时，`gptboot` 首先读取 GPT，并确定从哪个驱动器和分区引导，具体如下文“引导”一节所述。如果未找到符合条件的分区，或者用户在三秒内按下任意键，`gptboot` 会从自动引导切换到交互模式。交互模式允许手动选择磁盘、分区、文件名和引导选项标志，详见 [boot(8)](boot.8.md)。
+启动时，`gptboot` 首先读取 GPT，并确定从哪个驱动器和分区引导，具体如下文“引导”一节所述。如果未找到符合条件的分区，或者用户在三秒内按下任意键，`gptboot` 会从自动引导切换到交互模式。交互模式允许手动选择磁盘、分区、文件名和引导选项标志，详见 [boot(8)](boot_i386.8.md)。
 
 ## 实现说明
 
@@ -82,7 +82,7 @@ gpart set -a bootonce -i 2 ada0
 
 ## 参见
 
-[boot.config(5)](../man5/boot.config.5.md), [rc.conf(5)](../man5/rc.conf.5.md), [boot(8)](boot.8.md), [gpart(8)](gpart.8.md)
+[boot.config(5)](../man5/boot.config.5.md), [rc.conf(5)](../man5/rc.conf.5.md), [boot(8)](boot_i386.8.md), [gpart(8)](gpart.8.md)
 
 ## 历史
 

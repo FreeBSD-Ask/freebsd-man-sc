@@ -218,7 +218,7 @@ dev.mpr.X.use_phy_num
 
 ## 参见
 
-[cam(4)](cam.4.md), [cd(4)](cd.4.md), [ch(4)](ch.4.md), [da(4)](da.4.md), [mps(4)](mps.4.md), [mpt(4)](mpt.4.md), [pci(4)](pci.4.md), [sa(4)](sa.4.md), [scsi(4)](scsi.4.md), [targ(4)](targ.4.md), [loader.conf(5)](../man5/loader.conf.5.md), [mprutil(8)](../man8/mprutil.8.md), [sysctl(8)](../man8/sysctl.8.md)
+[cam(4)](scsi.4.md), [cd(4)](cd.4.md), [ch(4)](ch.4.md), [da(4)](da.4.md), [mps(4)](mps.4.md), [mpt(4)](mpt.4.md), [pci(4)](pci.4.md), [sa(4)](sa.4.md), [scsi(4)](scsi.4.md), [targ(4)](targ.4.md), [loader.conf(5)](../man5/loader.conf.5.md), [mprutil(8)](../man8/mpsutil.8.md), [sysctl(8)](../man8/sysctl.8.md)
 
 ## 历史
 

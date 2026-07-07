@@ -108,7 +108,7 @@
 **`flua/`** FreeBSD Lua 共享库
 **`i18n/`** 用于国际化的共享库
 
-**`ldscripts/`** 链接器脚本；参见 [ld(1)](../man1/ld.1.md)
+**`ldscripts/`** 链接器脚本；参见 [ld(1)](../man1/ld.lld.1.md)
 **`pkgconfig/`** pkgconf(1) 开发工具的编译器和链接器标志集合
 
 **`bsdconfig/`** 由 ncurses FreeBSD 配置向导调用的实用程序
@@ -282,7 +282,7 @@
 
 **`/bin/`** 基本的 BSD 用户实用程序；参见 [intro(1)](../man1/intro.1.md)
 
-**`/boot/`** FreeBSD [boot(8)](../man8/boot.8.md) 期间使用的程序和配置
+**`/boot/`** FreeBSD [boot(8)](../man8/boot_i386.8.md) 期间使用的程序和配置
 
 **`/compat/`** 支持与其他操作系统二进制兼容的文件
 

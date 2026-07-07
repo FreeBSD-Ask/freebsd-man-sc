@@ -42,7 +42,7 @@
 
 **`-d`** 打印额外的调试信息。重复指定以增加详细程度。不显示手册页。
 
-**`-f`** `expression` 在所有手册页的名称中搜索扩展正则 `expression`，模拟 [whatis(1)](whatis.1.md)。
+**`-f`** `expression` 在所有手册页的名称中搜索扩展正则 `expression`，模拟 [whatis(1)](apropos.1.md)。
 
 **`-h`** 显示简短帮助信息并退出。
 
@@ -173,4 +173,4 @@ $ man -w -K '\<arm\>' -S 1:8
 
 ## 参见
 
-[apropos(1)](apropos.1.md), [intro(1)](intro.1.md), [mandoc(1)](mandoc.1.md), [manpath(1)](manpath.1.md), [whatis(1)](whatis.1.md), intro(2), [intro(3)](../man3/intro.3.md), [intro(3lua)](../man3lua/intro.3lua.md), [intro(4)](../man4/intro.4.md), [intro(5)](../man5/intro.5.md), man.conf(5), [intro(6)](../man6/intro.6.md), [intro(7)](../man7/intro.7.md), mdoc(7), re_format(7), [intro(8)](../man8/intro.8.md), [intro(9)](../man9/intro.9.md)
+[apropos(1)](apropos.1.md), [intro(1)](intro.1.md), [mandoc(1)](mandoc.1.md), [manpath(1)](manpath.1.md), [whatis(1)](apropos.1.md), intro(2), [intro(3)](../man3/intro.3.md), [intro(3lua)](../man3lua/intro.3lua.md), [intro(4)](../man4/intro.4.md), [intro(5)](../man5/intro.5.md), man.conf(5), [intro(6)](../man6/intro.6.md), [intro(7)](../man7/intro.7.md), mdoc(7), re_format(7), [intro(8)](../man8/intro.8.md), [intro(9)](../man9/intro.9.md)

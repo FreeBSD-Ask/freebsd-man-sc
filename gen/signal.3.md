@@ -57,10 +57,10 @@ signal(int sig, sig_t func);
 | 21 | `SIGTTIN` | 停止进程 | 尝试从控制终端后台读取 |
 | 22 | `SIGTTOU` | 停止进程 | 尝试向控制终端后台写入 |
 | 23 | `SIGIO` | 丢弃信号 | 描述符上可能进行 I/O（参见 [fcntl(2)](../sys/fcntl.2.md)） |
-| 24 | `SIGXCPU` | 终止进程 | 超出 CPU 时间限制（参见 [setrlimit(2)](../sys/setrlimit.2.md)） |
-| 25 | `SIGXFSZ` | 终止进程 | 超出文件大小限制（参见 [setrlimit(2)](../sys/setrlimit.2.md)） |
-| 26 | `SIGVTALRM` | 终止进程 | 虚拟时间警报（参见 [setitimer(2)](../sys/setitimer.2.md)） |
-| 27 | `SIGPROF` | 终止进程 | 性能分析定时器警报（参见 [setitimer(2)](../sys/setitimer.2.md)） |
+| 24 | `SIGXCPU` | 终止进程 | 超出 CPU 时间限制（参见 [setrlimit(2)](../sys/getrlimit.2.md)） |
+| 25 | `SIGXFSZ` | 终止进程 | 超出文件大小限制（参见 [setrlimit(2)](../sys/getrlimit.2.md)） |
+| 26 | `SIGVTALRM` | 终止进程 | 虚拟时间警报（参见 [setitimer(2)](../sys/getitimer.2.md)） |
+| 27 | `SIGPROF` | 终止进程 | 性能分析定时器警报（参见 [setitimer(2)](../sys/getitimer.2.md)） |
 | 28 | `SIGWINCH` | 丢弃信号 | 窗口大小改变 |
 | 29 | `SIGINFO` | 丢弃信号 | 键盘的状态请求 |
 | 30 | `SIGUSR1` | 终止进程 | 用户定义信号 1 |
