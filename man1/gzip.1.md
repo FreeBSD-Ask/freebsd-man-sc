@@ -1,4 +1,4 @@
-# gzip(1)
+# zcat(1)
 
 `gzip` — 使用 Lempel-Ziv 编码 (LZ77) 的压缩/解压缩工具
 
