@@ -1,4 +1,4 @@
-# nmtree(8)
+# mtree(8)
 
 `mtree` — 映射目录层次结构
 
