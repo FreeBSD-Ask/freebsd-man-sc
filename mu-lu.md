@@ -213,14 +213,16 @@
 * [zmore(1)](man1/zmore.1.md)
 * [znew(1)](man1/znew.1.md)
 
-## compat-43
+## man2
+
+### compat-43
 
 * [sigpause(2)](compat-43/sigpause.2.md)
 * [sigsetmask(2)](compat-43/sigsetmask.2.md)
 * [killpg(2)](compat-43/killpg.2.md)
 * [sigvec(2)](compat-43/sigvec.2.md)
 
-## sys
+### sys
 
 * [abort2(2)](sys/abort2.2.md)
 * [accept(2)](sys/accept.2.md)
@@ -445,16 +447,18 @@
 * [write(2)](sys/write.2.md)
 * [sched\_yield(2)](sys/sched_yield.2.md)
 
-## capability
+## man3
+
+### capability
 
 * [cap\_rights\_init(3)](man3/cap_rights_init.3.md)
 
-## compat-43
+### compat-43
 
 * [gethostid(3)](compat-43-1/gethostid.3.md)
 * [setruid(3)](compat-43-1/setruid.3.md)
 
-## db
+### db
 
 * [btree(3)](db/btree.3.md)
 * [dbm(3)](db/dbm.3.md)
@@ -463,7 +467,7 @@
 * [recno(3)](db/recno.3.md)
 * [mpool(3)](db/mpool.3.md)
 
-## gen
+### gen
 
 * [getttyent(3)](gen/getttyent.3.md)
 * [clock\_getcpuclockid(3)](gen/clock_getcpuclockid.3.md)
@@ -588,11 +592,11 @@
 * [getutxent(3)](gen/getutxent.3.md)
 * [ucontext(3)](gen/ucontext.3.md)
 
-## gmon
+### gmon
 
 * [moncontrol(3)](man3/moncontrol.3.md)
 
-## iconv
+### iconv
 
 * [iconv(3)](iconv/iconv.3.md)
 * [iconvctl(3)](iconv/iconvctl.3.md)
@@ -600,7 +604,7 @@
 * [\\_\\_iconv\\_get\\_list(3)](iconv/__iconv_get_list.3.md)
 * [iconvlist(3)](iconv/iconvlist.3.md)
 
-## locale
+### locale
 
 * [isalpha(3)](locale/isalpha.3.md)
 * [isalnum(3)](locale/isalnum.3.md)
@@ -660,7 +664,7 @@
 * [iswalnum\_l(3)](locale/iswalnum_l.3.md)
 * [wctrans(3)](locale/wctrans.3.md)
 
-## net
+### net
 
 * [sourcefilter(3)](net/sourcefilter.3.md)
 * [sctp\\_bindx(3)](net/sctp_bindx.3.md)
@@ -701,7 +705,7 @@
 * [getaddrinfo(3)](net/getaddrinfo.3.md)
 * [getnameinfo(3)](net/getnameinfo.3.md)
 
-## posix1e
+### posix1e
 
 * [acl\_add\_flag\_np(3)](posix1e/acl_add_flag_np.3.md)
 * [acl\_add\_perm(3)](posix1e/acl_add_perm.3.md)
@@ -753,11 +757,11 @@
 * [acl\_strip\_np(3)](posix1e/acl_strip_np.3.md)
 * [acl\_valid(3)](posix1e/acl_valid.3.md)
 
-## regex
+### regex
 
 * [regex(3)](man3/regex.3.md)
 
-## rpc
+### rpc
 
 * [bindresvport(3)](rpc/bindresvport.3.md)
 * [des\_crypt(3)](rpc/des_crypt.3.md)
@@ -780,7 +784,7 @@
 * [rpc\_svc\_create(3)](rpc/rpc_svc_create.3.md)
 * [rpc\_xdr(3)](rpc/rpc_xdr.3.md)
 
-## stdbit
+### stdbit
 
 * [stdc\_has\_single\_bit(3)](stdbit/stdc_has_single_bit.3.md)
 * [stdc\_count\_ones(3)](stdbit/stdc_count_ones.3.md)
@@ -797,7 +801,7 @@
 * [stdc\_bit\_floor(3)](stdbit/stdc_bit_floor.3.md)
 * [stdc\_bit\_ceil(3)](stdbit/stdc_bit_ceil.3.md)
 
-## stdio
+### stdio
 
 * [fread(3)](stdio/fread.3.md)
 * [ferror(3)](stdio/ferror.3.md)
@@ -835,7 +839,7 @@
 * [ungetwc(3)](stdio/ungetwc.3.md)
 * [wscanf(3)](stdio/wscanf.3.md)
 
-## stdlib
+### stdlib
 
 * [rand(3)](stdlib/rand.3.md)
 * [bsearch(3)](stdlib/bsearch.3.md)
@@ -876,14 +880,14 @@
 * [set\_constraint\_handler\_s(3)](stdlib/set_constraint_handler_s.3.md)
 * [qsort(3)](stdlib/qsort.3.md)
 
-## stdtime
+### stdtime
 
 * [strftime(3)](stdtime/strftime.3.md)
 * [tzset(3)](stdtime/tzset.3.md)
 * [strptime(3)](stdtime/strptime.3.md)
 * [ctime(3)](stdtime/ctime.3.md)
 
-## string
+### string
 
 * [bstring(3)](string/bstring.3.md)
 * [bcmp(3)](string/bcmp.3.md)
@@ -925,7 +929,7 @@
 * [wmemchr(3)](string/wmemchr.3.md)
 * [bzero(3)](string/bzero.3.md)
 
-## sys
+### sys
 
 * [rfork\_thread(3)](sys-1/rfork_thread.3.md)
 * [auxv(3)](sys-1/auxv.3.md)
@@ -938,19 +942,19 @@
 * [usleep(3)](sys-1/usleep.3.md)
 * [sleep(3)](sys-1/sleep.3.md)
 
-## uuid
+### uuid
 
 * [uuid(3)](man3/uuid.3.md)
 
-## xdr
+### xdr
 
 * [xdr(3)](man3/xdr.3.md)
 
-## man3lua
+### man3lua
 
 * [intro.3lua](man3lua/intro.3lua.md)
 
-## pthread
+### pthread
 
 * [pthread(3)](man3/pthread.3.md)
 * [pthread\_affinity\_np(3)](man3/pthread_affinity_np.3.md)
@@ -1023,11 +1027,11 @@
 * [pthread\_testcancel(3)](man3/pthread_testcancel.3.md)
 * [pthread\_yield(3)](man3/pthread_yield.3.md)
 
-## qmath
+### qmath
 
 * [qmath(3)](man3/qmath.3.md)
 
-## misc
+### misc
 
 * [alloca(3)](man3/alloca.3.md)
 * [arb(3)](man3/arb.3.md)
