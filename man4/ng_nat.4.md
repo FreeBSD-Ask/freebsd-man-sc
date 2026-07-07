@@ -1,4 +1,4 @@
-# ng_nat.4
+# ng_nat(4)
 
 `ng_nat` — NAT netgraph 节点类型
 

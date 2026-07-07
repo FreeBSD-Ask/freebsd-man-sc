@@ -1,4 +1,4 @@
-# autofs.4
+# autofs(4)
 
 `autofs` — 自动挂载文件系统
 

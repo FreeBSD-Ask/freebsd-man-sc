@@ -1,4 +1,4 @@
-# ng_ubt.4
+# ng_ubt(4)
 
 `ng_ubt` — 同时也是蓝牙 USB 设备驱动程序的 Netgraph 节点类型
 

@@ -1,4 +1,4 @@
-# qlnxe.4
+# qlnxe(4)
 
 `qlnxe` — Cavium 25/40/100 千兆以太网与 CNA 适配器驱动程序
 

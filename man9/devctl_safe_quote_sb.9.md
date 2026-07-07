@@ -1,4 +1,4 @@
-# devctl_safe_quote_sb.9
+# devctl_safe_quote_sb(9)
 
 `devctl_safe_quote_sb` — 将正确转义的字符串插入 sbuf
 

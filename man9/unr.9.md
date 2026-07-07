@@ -1,4 +1,4 @@
-# unr.9
+# unr(9)
 
 `new_unrhdr` — 内核单元号分配器
 

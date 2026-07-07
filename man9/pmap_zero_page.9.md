@@ -1,4 +1,4 @@
-# pmap\_zero\_page.9
+# pmap_zero_page(9)
 
 `pmap_zero_page` — 使用机器相关优化对页面进行零填充
 

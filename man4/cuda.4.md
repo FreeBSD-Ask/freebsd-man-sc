@@ -1,4 +1,4 @@
-# cuda.4
+# cuda(4)
 
 `cuda` — Apple CUDA I/O 控制器驱动
 

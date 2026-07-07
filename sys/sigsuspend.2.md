@@ -1,4 +1,4 @@
-# sigsuspend.2
+# sigsuspend(2)
 
 `sigsuspend` — 原子地释放被屏蔽的信号并等待中断
 

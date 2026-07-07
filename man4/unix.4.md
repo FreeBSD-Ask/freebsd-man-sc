@@ -1,4 +1,4 @@
-# unix.4
+# unix(4)
 
 `unix` — UNIX 域协议族
 

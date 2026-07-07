@@ -1,4 +1,4 @@
-# umount.8
+# umount(8)
 
 `umount` — 卸载文件系统
 

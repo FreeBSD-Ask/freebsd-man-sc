@@ -1,4 +1,4 @@
-# isl.4
+# isl(4)
 
 `isl` — Intersil(TM) I2C ISL29018 传感器驱动
 

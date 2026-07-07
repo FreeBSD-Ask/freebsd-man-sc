@@ -1,4 +1,4 @@
-# stack.9
+# stack(9)
 
 `stack` — 内核线程栈跟踪例程
 

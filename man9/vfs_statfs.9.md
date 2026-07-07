@@ -1,4 +1,4 @@
-# VFS_STATFS.9
+# VFS_STATFS(9)
 
 `VFS_STATFS` — 返回文件系统状态
 

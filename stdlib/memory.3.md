@@ -1,4 +1,4 @@
-# memory.3
+# memory(3)
 
 `aligned_alloc` — 内存管理函数
 

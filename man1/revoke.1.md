@@ -1,4 +1,4 @@
-# revoke.1
+# revoke(1)
 
 `revoke` — 撤销字符设备
 

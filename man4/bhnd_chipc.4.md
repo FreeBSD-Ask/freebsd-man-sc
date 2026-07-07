@@ -1,4 +1,4 @@
-# bhnd_chipc.4
+# bhnd_chipc(4)
 
 `bhnd_chipc` — Broadcom 家庭网络部门 ChipCommon 驱动
 

@@ -1,4 +1,4 @@
-# ng_gif_demux.4
+# ng_gif_demux(4)
 
 `ng_gif_demux` — 用于来自 [ng_gif(4)](ng_gif.4.md) 节点数据包的解复用器
 

@@ -1,4 +1,4 @@
-# powermac\_nvram.4
+# powermac_nvram(4)
 
 `powermac_nvram` — 非易失性 RAM
 

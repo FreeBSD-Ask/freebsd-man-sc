@@ -1,4 +1,4 @@
-# acpi_sony.4
+# acpi_sony(4)
 
 `acpi_sony` — Sony 笔记本的 ACPI 笔记本控制器驱动
 

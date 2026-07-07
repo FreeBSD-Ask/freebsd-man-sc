@@ -1,4 +1,4 @@
-# umct.4
+# umct(4)
 
 `umct` — Magic Control Technology USB-RS232 转换器驱动
 

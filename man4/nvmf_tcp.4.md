@@ -1,4 +1,4 @@
-# nvmf_tcp.4
+# nvmf_tcp(4)
 
 `nvmf_tcp` — NVM Express over Fabrics 的 TCP 传输
 

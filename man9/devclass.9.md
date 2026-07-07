@@ -1,4 +1,4 @@
-# devclass.9
+# devclass(9)
 
 `devclass` — 表示一类设备的对象
 

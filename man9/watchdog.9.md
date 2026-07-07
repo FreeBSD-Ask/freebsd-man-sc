@@ -1,4 +1,4 @@
-# watchdog.9
+# watchdog(9)
 
 `watchdog` — 软件和硬件看门狗设施
 

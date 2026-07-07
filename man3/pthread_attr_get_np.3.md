@@ -1,4 +1,4 @@
-# pthread_attr_get_np.3
+# pthread_attr_get_np(3)
 
 `pthread_attr_get_np` — 获取已存在线程的属性
 

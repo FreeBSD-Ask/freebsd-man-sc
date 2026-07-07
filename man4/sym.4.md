@@ -1,4 +1,4 @@
-# sym.4
+# sym(4)
 
 `sym` — NCR/Symbios/LSI Logic 53C8XX PCI SCSI 主机适配器驱动
 

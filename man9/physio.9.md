@@ -1,4 +1,4 @@
-# physio.9
+# physio(9)
 
 `physio` — 在原始设备上启动 I/O
 

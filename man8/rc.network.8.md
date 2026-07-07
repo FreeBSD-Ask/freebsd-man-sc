@@ -1,4 +1,4 @@
-# rc.network.8
+# rc.network(8)
 
 `rc` — 自动重启和守护进程启动的命令脚本
 

@@ -1,4 +1,4 @@
-# dummymbuf.4
+# dummymbuf(4)
 
 `dummymbuf` — mbuf 修改 pfil 钩子
 

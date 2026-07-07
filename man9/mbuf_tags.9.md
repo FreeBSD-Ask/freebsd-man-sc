@@ -1,4 +1,4 @@
-# mbuf_tags.9
+# mbuf_tags(9)
 
 `mbuf_tags` — 通用数据包属性框架
 

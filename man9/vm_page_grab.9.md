@@ -1,4 +1,4 @@
-# vm\_page\_grab.9
+# vm_page_grab(9)
 
 `vm_page_grab` — 从对象中返回一个页面
 

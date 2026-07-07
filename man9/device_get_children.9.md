@@ -1,4 +1,4 @@
-# device_get_children.9
+# device_get_children(9)
 
 `device_get_children` — 检查连接到设备的子设备
 

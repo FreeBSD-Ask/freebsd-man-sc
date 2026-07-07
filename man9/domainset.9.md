@@ -1,4 +1,4 @@
-# domainset.9
+# domainset(9)
 
 `domainset` — domainset 函数与操作
 

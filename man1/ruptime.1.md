@@ -1,4 +1,4 @@
-# ruptime.1
+# ruptime(1)
 
 `ruptime` — 显示本地机器的主机状态
 

@@ -1,4 +1,4 @@
-# ps4dshock.4
+# ps4dshock(4)
 
 `ps4dshock` — Sony PlayStation 4 Dualshock 4 游戏手柄驱动程序
 

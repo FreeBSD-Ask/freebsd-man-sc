@@ -1,4 +1,4 @@
-# vfs\_suser.9
+# vfs_suser(9)
 
 `vfs_suser` — 检查凭证是否对挂载点具有超级用户权限
 

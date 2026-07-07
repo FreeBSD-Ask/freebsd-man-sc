@@ -1,4 +1,4 @@
-# vm\_map\_submap.9
+# vm_map_submap(9)
 
 `vm_map_submap` — 创建从属映射
 

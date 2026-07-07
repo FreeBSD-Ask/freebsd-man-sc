@@ -1,4 +1,4 @@
-# random.4
+# random(4)
 
 `random` — 熵设备
 

@@ -1,4 +1,4 @@
-# bitstring.3
+# bitstring(3)
 
 `bit_alloc` — 位串操作函数与宏
 

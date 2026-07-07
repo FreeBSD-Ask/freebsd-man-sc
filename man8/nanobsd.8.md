@@ -1,4 +1,4 @@
-# nanobsd.8
+# nanobsd(8)
 
 `nanobsd.sh` — 创建嵌入式 FreeBSD 系统镜像
 

@@ -1,4 +1,4 @@
-# tcp.4
+# tcp(4)
 
 `tcp` — Internet 传输控制协议
 

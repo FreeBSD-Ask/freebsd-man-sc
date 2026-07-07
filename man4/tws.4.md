@@ -1,4 +1,4 @@
-# tws.4
+# tws(4)
 
 `tws` — 3ware 9750 SATA+SAS 6Gb/s RAID 控制卡驱动
 

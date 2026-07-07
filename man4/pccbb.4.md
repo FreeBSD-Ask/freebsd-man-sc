@@ -1,4 +1,4 @@
-# pccbb.4
+# pccbb(4)
 
 `pccbb` — CardBus 桥驱动
 

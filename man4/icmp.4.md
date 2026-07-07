@@ -1,4 +1,4 @@
-# icmp.4
+# icmp(4)
 
 `icmp` — Internet 控制报文协议
 

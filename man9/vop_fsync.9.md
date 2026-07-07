@@ -1,4 +1,4 @@
-# VOP_FSYNC.9
+# VOP_FSYNC(9)
 
 `VOP_FDATASYNC` — 刷新文件的文件系统缓冲区
 

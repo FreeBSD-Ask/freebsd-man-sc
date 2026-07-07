@@ -1,4 +1,4 @@
-# uchcom.4
+# uchcom(4)
 
 `uchcom` — WinChipHead CH9102/CH343/CH341/CH340 USB 转串口 UART 驱动
 

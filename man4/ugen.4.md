@@ -1,4 +1,4 @@
-# ugen.4
+# ugen(4)
 
 `ugen` — USB 通用设备支持
 

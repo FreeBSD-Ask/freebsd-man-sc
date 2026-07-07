@@ -1,4 +1,4 @@
-# geom_linux_lvm.4
+# geom_linux_lvm(4)
 
 `geom_linux_lvm` — 基于 GEOM 的 Linux LVM 逻辑卷映射
 

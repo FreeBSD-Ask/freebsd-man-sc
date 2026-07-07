@@ -1,4 +1,4 @@
-# reallocf.3
+# reallocf(3)
 
 `reallocf` — 内存重新分配函数
 

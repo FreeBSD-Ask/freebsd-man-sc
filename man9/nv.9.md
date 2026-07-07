@@ -1,4 +1,4 @@
-# nv.9.md
+# nv(9)
 
 `nvlist_create` — 名称/值对库
 

@@ -1,4 +1,4 @@
-# aac.4
+# aac(4)
 
 `aac` — Adaptec AdvancedRAID 控制器驱动
 

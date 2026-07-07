@@ -1,4 +1,4 @@
-# mlx4ib.4
+# mlx4ib(4)
 
 `mlx4ib` — Mellanox ConnectX-3 10GbE/40GbE 网络适配器驱动
 

@@ -1,4 +1,4 @@
-# atp.4
+# atp(4)
 
 `atp` — Apple 触控板驱动
 

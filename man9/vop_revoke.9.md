@@ -1,4 +1,4 @@
-# VOP_REVOKE.9
+# VOP_REVOKE(9)
 
 `VOP_REVOKE` — 撤销对设备及其别名的访问
 

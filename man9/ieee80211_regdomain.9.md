@@ -1,4 +1,4 @@
-# ieee80211_regdomain.9
+# ieee80211_regdomain(9)
 
 `ieee80211_regdomain` — 802.11 监管支持
 

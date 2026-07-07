@@ -1,4 +1,4 @@
-# mpt.4
+# mpt(4)
 
 `mpt` — LSI Fusion-MPT SCSI/光纤通道驱动
 

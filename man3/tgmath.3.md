@@ -1,4 +1,4 @@
-# tgmath.3
+# tgmath(3)
 
 `tgmath` — 类型通用宏
 

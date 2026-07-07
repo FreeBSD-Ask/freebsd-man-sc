@@ -1,4 +1,4 @@
-# ng_ether_echo.4
+# ng_ether_echo(4)
 
 `ng_ether_echo` — netgraph ether_echo 节点类型
 

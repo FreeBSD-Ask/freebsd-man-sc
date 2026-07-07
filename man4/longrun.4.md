@@ -1,4 +1,4 @@
-# longrun.4
+# longrun(4)
 
 `longrun` — Transmeta(TM) Crusoe(TM) LongRun(TM) 支持
 

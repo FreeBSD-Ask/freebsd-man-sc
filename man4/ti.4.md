@@ -1,4 +1,4 @@
-# ti.4
+# ti(4)
 
 `ti` — Alteon Networks Tigon I 和 Tigon II 千兆以太网驱动程序
 

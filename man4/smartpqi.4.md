@@ -1,4 +1,4 @@
-# smartpqi.4
+# smartpqi(4)
 
 `smartpqi` — Microchip Smart Storage SCSI 驱动
 

@@ -1,4 +1,4 @@
-# mvs.4
+# mvs(4)
 
 `mvs` — Marvell 串行 ATA 主机控制器驱动
 

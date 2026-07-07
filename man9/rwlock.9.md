@@ -1,4 +1,4 @@
-# rwlock.9
+# rwlock(9)
 
 `rwlock` — 内核读/写锁
 

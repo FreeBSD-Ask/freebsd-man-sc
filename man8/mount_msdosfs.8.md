@@ -1,4 +1,4 @@
-# mount_msdosfs.8
+# mount_msdosfs(8)
 
 `mount_msdosfs` — 挂载 MS-DOS（FAT）文件系统
 

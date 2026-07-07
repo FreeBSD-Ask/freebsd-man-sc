@@ -1,4 +1,4 @@
-# VOP_SETEXTATTR.9
+# VOP_SETEXTATTR(9)
 
 `VOP_SETEXTATTR` — 为 vnode 设置命名扩展属性
 

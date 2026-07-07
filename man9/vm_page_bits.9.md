@@ -1,4 +1,4 @@
-# vm\_page\_bits.9
+# vm_page_bits(9)
 
 `vm_page_bits`, `vm_page_set_validclean`, `vm_page_clear_dirty`, `vm_page_set_invalid`, `vm_page_zero_invalid`, `vm_page_is_valid`, `vm_page_test_dirty`, `vm_page_dirty`, `vm_page_undirty` — 管理页面干净和脏位
 

@@ -1,4 +1,4 @@
-# fdescfs.4
+# fdescfs(4)
 
 `fdescfs` — 文件描述符文件系统
 

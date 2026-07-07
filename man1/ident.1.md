@@ -1,4 +1,4 @@
-# ident.1
+# ident(1)
 
 `ident` — 识别文件中的 RCS 关键字字符串
 

@@ -1,4 +1,4 @@
-# spigen.4
+# spigen(4)
 
 `spigen` — SPI 通用 I/O 设备驱动
 

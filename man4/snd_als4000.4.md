@@ -1,4 +1,4 @@
-# snd_als4000.4
+# snd_als4000(4)
 
 `snd_als4000` — Avance Logic ALS4000 PCI 桥设备驱动
 

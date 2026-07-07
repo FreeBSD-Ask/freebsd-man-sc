@@ -1,4 +1,4 @@
-# amdtemp.4
+# amdtemp(4)
 
 `amdtemp` — AMD 处理器片上数字温度传感器设备驱动
 

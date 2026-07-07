@@ -1,4 +1,4 @@
-# fbtab.5
+# fbtab(5)
 
 `fbtab` — 登录时更改设备保护
 

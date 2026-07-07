@@ -1,4 +1,4 @@
-# scp.1
+# scp(1)
 
 `scp` — OpenSSH 安全文件复制
 

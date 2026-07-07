@@ -1,4 +1,4 @@
-# kldload.8
+# kldload(8)
 
 `kldload` — 将文件加载到内核中
 

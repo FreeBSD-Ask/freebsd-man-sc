@@ -1,4 +1,4 @@
-# chgrp.1
+# chgrp(1)
 
 `chgrp` — 更改组
 

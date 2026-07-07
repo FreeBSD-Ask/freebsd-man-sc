@@ -1,4 +1,4 @@
-# h_ertt.4
+# h_ertt(4)
 
 `h_ertt` — 增强往返时间 Khelp 模块
 

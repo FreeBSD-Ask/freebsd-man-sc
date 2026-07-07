@@ -1,4 +1,4 @@
-# arcmsr.4
+# arcmsr(4)
 
 `arcmsr` — Areca RAID 控制器驱动
 

@@ -1,4 +1,4 @@
-# simplebus.4
+# simplebus(4)
 
 `simplebus` — ePAPR simple-bus 驱动
 

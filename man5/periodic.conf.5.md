@@ -1,4 +1,4 @@
-# periodic.conf.5
+# periodic.conf(5)
 
 `periodic.conf` — 周期性作业配置信息
 

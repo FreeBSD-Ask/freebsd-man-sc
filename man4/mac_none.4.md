@@ -1,4 +1,4 @@
-# mac_none.4
+# mac_none(4)
 
 `mac_none` — 空 MAC 策略模块
 

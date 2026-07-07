@@ -1,4 +1,4 @@
-# telnet.1
+# telnet(1)
 
 `telnet` — TELNET 协议的用户界面
 

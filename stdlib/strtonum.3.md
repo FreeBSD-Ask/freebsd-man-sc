@@ -1,4 +1,4 @@
-# strtonum.3
+# strtonum(3)
 
 `strtonum` — 可靠地将字符串值转换为整数
 

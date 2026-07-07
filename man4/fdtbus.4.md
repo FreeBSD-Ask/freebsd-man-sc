@@ -1,4 +1,4 @@
-# fdtbus.4
+# fdtbus(4)
 
 `fdtbus` — Flattened Device Tree 总线驱动程序
 

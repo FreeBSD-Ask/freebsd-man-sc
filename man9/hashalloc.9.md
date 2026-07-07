@@ -1,4 +1,4 @@
-# hashalloc.9
+# hashalloc(9)
 
 `hashalloc` — 分配和释放内核哈希表
 

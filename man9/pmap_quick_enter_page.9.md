@@ -1,4 +1,4 @@
-# pmap_quick_enter_page.9
+# pmap_quick_enter_page(9)
 
 `pmap_quick_enter_page` — 管理快速、单页面内核地址空间映射
 

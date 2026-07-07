@@ -1,4 +1,4 @@
-# imx\_wdog.4
+# imx_wdog(4)
 
 `imx_wdog` — NXP i.MX5 和 i.MX6 看门狗定时器驱动
 

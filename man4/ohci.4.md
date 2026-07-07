@@ -1,4 +1,4 @@
-# ohci.4
+# ohci(4)
 
 `ohci` — OHCI USB 主控制器驱动
 

@@ -1,4 +1,4 @@
-# snd_hdspe.4
+# snd_hdspe(4)
 
 `snd_hdspe` — RME HDSPe 桥设备驱动
 

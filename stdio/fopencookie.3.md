@@ -1,4 +1,4 @@
-# fopencookie.3
+# fopencookie(3)
 
 `fopencookie` — 打开流
 

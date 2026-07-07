@@ -1,4 +1,4 @@
-# intro.4
+# intro(4)
 
 `intro` — 设备和设备驱动简介
 

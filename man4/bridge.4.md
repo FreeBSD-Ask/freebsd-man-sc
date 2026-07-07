@@ -1,4 +1,4 @@
-# bridge.4
+# bridge(4)
 
 `if_bridge` — 网络桥接设备
 

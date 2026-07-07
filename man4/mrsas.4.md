@@ -1,4 +1,4 @@
-# mrsas.4
+# mrsas(4)
 
 `mrsas` — Broadcom/LSI MegaRAID 6/12Gb/s SAS+SATA RAID 控制器驱动
 

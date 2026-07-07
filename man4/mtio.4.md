@@ -1,4 +1,4 @@
-# mtio.4
+# mtio(4)
 
 `mtio` — FreeBSD 磁带接口
 

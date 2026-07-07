@@ -1,4 +1,4 @@
-# hostname.7
+# hostname(7)
 
 `hostname` — 主机名解析描述
 

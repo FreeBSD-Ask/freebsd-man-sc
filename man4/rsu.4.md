@@ -1,4 +1,4 @@
-# rsu.4
+# rsu(4)
 
 `rsu` — Realtek RTL8188SU/RTL8192SU USB IEEE 802.11b/g/n 无线网络驱动
 

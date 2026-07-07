@@ -1,4 +1,4 @@
-# pmap_map.9
+# pmap_map(9)
 
 `pmap_map` — 将物理内存范围映射到内核虚拟地址（KVA）空间
 

@@ -1,4 +1,4 @@
-# lastlogin.8
+# lastlogin(8)
 
 `lastlogin` — 显示用户的最近登录时间
 

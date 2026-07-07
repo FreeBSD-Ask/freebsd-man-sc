@@ -1,4 +1,4 @@
-# ntb_hw_plx.4
+# ntb_hw_plx(4)
 
 `ntb_hw_plx` — PLX/Avago/Broadcom 非透明桥接驱动
 

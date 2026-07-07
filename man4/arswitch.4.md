@@ -1,4 +1,4 @@
-# arswitch.4
+# arswitch(4)
 
 `arswitch` — Atheros AR8000 系列以太网交换机驱动
 

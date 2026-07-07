@@ -1,4 +1,4 @@
-# kernacc.9
+# kernacc(9)
 
 `kernacc` — 检查内存区域的可访问性
 

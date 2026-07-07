@@ -1,4 +1,4 @@
-# device\_get\_driver.9
+# device_get_driver(9)
 
 `device_get_driver` — 访问设备的当前驱动程序
 

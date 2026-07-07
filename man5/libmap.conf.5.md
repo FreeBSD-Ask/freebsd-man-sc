@@ -1,4 +1,4 @@
-# libmap.conf.5
+# libmap.conf(5)
 
 `libmap.conf` — 动态对象依赖映射的配置文件
 

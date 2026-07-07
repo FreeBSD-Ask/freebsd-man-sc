@@ -1,4 +1,4 @@
-# mwl.4
+# mwl(4)
 
 `mwl` — Marvell 88W8363 IEEE 802.11n 无线网络驱动
 

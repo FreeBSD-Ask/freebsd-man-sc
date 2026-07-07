@@ -1,4 +1,4 @@
-# vm\_map\_inherit.9
+# vm_map_inherit(9)
 
 `vm_map_inherit` — 为映射中的某个范围设置 fork 继承标志
 

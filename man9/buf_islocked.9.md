@@ -1,4 +1,4 @@
-# BUF\_ISLOCKED.9
+# BUF_ISLOCKED(9)
 
 `BUF_ISLOCKED` — 返回与缓冲区关联的锁的状态
 

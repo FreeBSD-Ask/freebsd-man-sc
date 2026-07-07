@@ -1,4 +1,4 @@
-# DELAY.9
+# DELAY(9)
 
 `DELAY` — 忙等待一段时间间隔
 

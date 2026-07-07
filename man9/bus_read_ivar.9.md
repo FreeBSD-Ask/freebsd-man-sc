@@ -1,4 +1,4 @@
-# BUS_READ_IVAR.9
+# BUS_READ_IVAR(9)
 
 `BUS_READ_IVAR` — 操作总线特定的设备实例变量
 

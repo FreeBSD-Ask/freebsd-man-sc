@@ -1,4 +1,4 @@
-# pthread_join.3
+# pthread_join(3)
 
 `pthread_join` — 检查线程终止状态
 

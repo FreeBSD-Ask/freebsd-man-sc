@@ -1,4 +1,4 @@
-# ffs.4
+# ffs(4)
 
 `ffs` — Berkeley 快速文件系统
 

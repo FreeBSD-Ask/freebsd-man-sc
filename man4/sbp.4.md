@@ -1,4 +1,4 @@
-# sbp.4
+# sbp(4)
 
 `sbp` — Serial Bus Protocol 2 (SBP-2) 大容量存储设备驱动
 

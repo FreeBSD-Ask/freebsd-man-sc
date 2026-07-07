@@ -1,4 +1,4 @@
-# forward.5
+# forward(5)
 
 `forward` — 邮件转发指令
 

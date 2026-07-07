@@ -1,4 +1,4 @@
-# exterror.9
+# exterror(9)
 
 `exterror` — 向用户态提供扩展错误信息
 

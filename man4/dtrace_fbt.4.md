@@ -1,4 +1,4 @@
-# dtrace_fbt.4
+# dtrace_fbt(4)
 
 `dtrace_fbt` — 基于函数边界的动态内核跟踪 DTrace 提供者
 

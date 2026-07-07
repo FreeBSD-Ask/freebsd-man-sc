@@ -1,4 +1,4 @@
-# hmt.4
+# hmt(4)
 
 `hmt` — 兼容 MS Windows 7/8/10 的 HID 多点触控设备驱动
 

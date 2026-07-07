@@ -1,4 +1,4 @@
-# cc_newreno.4
+# cc_newreno(4)
 
 `cc_newreno` — NewReno 拥塞控制算法
 

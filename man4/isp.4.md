@@ -1,4 +1,4 @@
-# isp.4
+# isp(4)
 
 `isp` — Qlogic FibreChannel SCSI 主机适配器驱动
 

@@ -1,4 +1,4 @@
-# extattr.9
+# extattr(9)
 
 `extattr` — 虚拟文件系统命名扩展属性
 

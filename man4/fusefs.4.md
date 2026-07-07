@@ -1,4 +1,4 @@
-# fusefs.4
+# fusefs(4)
 
 `fusefs` — 用户空间文件系统
 

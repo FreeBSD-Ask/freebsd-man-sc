@@ -1,4 +1,4 @@
-# qlxge.4
+# qlxge(4)
 
 `qlxge` — QLogic 8100 系列 10 千兆以太网适配器驱动程序
 

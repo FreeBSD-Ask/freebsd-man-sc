@@ -1,4 +1,4 @@
-# mdchain.9
+# mdchain(9)
 
 `mdchain` — 一组将 mbuf 链拆解为各种数据类型的函数
 

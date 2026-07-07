@@ -1,4 +1,4 @@
-# jls.8
+# jls(8)
 
 `jls` — 列出 jail
 

@@ -1,4 +1,4 @@
-# sctp.4
+# sctp(4)
 
 `sctp` — Internet Stream Control Transmission Protocol（互联网流控制传输协议）
 

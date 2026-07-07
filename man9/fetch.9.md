@@ -1,4 +1,4 @@
-# fetch.9
+# fetch(9)
 
 `fetch` — 从用户空间获取数据
 

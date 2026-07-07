@@ -1,4 +1,4 @@
-# mlx5ib.4
+# mlx5ib(4)
 
 `mlx5ib` — 基于 Mellanox ConnectX-4 和 ConnectX-4 LX 的 100Gb、50Gb、40Gb、25Gb 和 10Gb 网络适配器驱动
 

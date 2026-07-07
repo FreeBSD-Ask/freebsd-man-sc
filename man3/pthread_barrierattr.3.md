@@ -1,4 +1,4 @@
-# pthread_barrierattr.3
+# pthread_barrierattr(3)
 
 `pthread_barrierattr_destroy` — 操作屏障属性对象
 

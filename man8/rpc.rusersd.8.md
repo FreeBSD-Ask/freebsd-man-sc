@@ -1,4 +1,4 @@
-# rpc.rusersd.8
+# rpc.rusersd(8)
 
 `rpc.rusersd` — 已登录用户服务器
 

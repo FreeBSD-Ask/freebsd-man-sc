@@ -1,4 +1,4 @@
-# isalpha.3
+# isalpha(3)
 
 `isalpha` — 字母字符测试
 

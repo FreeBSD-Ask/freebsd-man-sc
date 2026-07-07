@@ -1,4 +1,4 @@
-# pmap_copy.9
+# pmap_copy(9)
 
 `pmap_copy` — 复制物理内存页面
 

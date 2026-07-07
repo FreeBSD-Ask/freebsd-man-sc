@@ -1,4 +1,4 @@
-# kstack_contains.9
+# kstack_contains(9)
 
 `kstack_contains` — 确定地址范围是否位于线程的内核栈内
 

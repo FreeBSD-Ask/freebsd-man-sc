@@ -1,4 +1,4 @@
-# kmsan.9
+# kmsan(9)
 
 `KMSAN` — 内核内存消毒器
 

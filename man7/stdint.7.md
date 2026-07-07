@@ -1,4 +1,4 @@
-# stdint.7
+# stdint(7)
 
 `stdint` — 标准整数类型
 

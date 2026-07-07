@@ -1,4 +1,4 @@
-# devclass_get_drivers.9
+# devclass_get_drivers(9)
 
 `devclass_get_drivers` — 获取 devclass 中的驱动程序列表
 

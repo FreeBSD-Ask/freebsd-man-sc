@@ -1,4 +1,4 @@
-# style.9
+# style(9)
 
 `style` — 内核源文件风格指南
 

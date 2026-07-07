@@ -1,4 +1,4 @@
-# putwc.3
+# putwc(3)
 
 `fputwc` — 向流输出宽字符
 

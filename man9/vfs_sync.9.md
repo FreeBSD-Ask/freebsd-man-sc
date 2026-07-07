@@ -1,4 +1,4 @@
-# VFS_SYNC.9
+# VFS_SYNC(9)
 
 `VFS_SYNC` — 刷新未写入的数据
 

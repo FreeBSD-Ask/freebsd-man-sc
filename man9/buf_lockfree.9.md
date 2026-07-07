@@ -1,4 +1,4 @@
-# BUF\_LOCKFREE.9
+# BUF_LOCKFREE(9)
 
 `BUF_LOCKFREE` — 销毁缓冲区的锁
 

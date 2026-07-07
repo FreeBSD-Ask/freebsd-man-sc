@@ -1,4 +1,4 @@
-# bhyvectl.8
+# bhyvectl(8)
 
 `bhyvectl` — bhyve 实例的控制工具
 

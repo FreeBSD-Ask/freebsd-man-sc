@@ -1,4 +1,4 @@
-# VOP_ADVISE.9
+# VOP_ADVISE(9)
 
 `VOP_ADVISE` — 应用关于文件数据使用的建议
 

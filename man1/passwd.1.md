@@ -1,4 +1,4 @@
-# passwd.1
+# yppasswd(1)
 
 `passwd` — 修改用户密码
 

@@ -1,4 +1,4 @@
-# acpi_asus.4
+# acpi_asus(4)
 
 `acpi_asus` — Asus 笔记本附加功能
 

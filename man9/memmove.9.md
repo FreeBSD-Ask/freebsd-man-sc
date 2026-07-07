@@ -1,4 +1,4 @@
-# memmove.9
+# memmove(9)
 
 `memmove` — 复制内存中的字节
 

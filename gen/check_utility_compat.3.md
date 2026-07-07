@@ -1,4 +1,4 @@
-# check_utility_compat.3
+# check_utility_compat(3)
 
 `check_utility_compat` — 判断工具是否应保持兼容性
 

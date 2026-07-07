@@ -1,4 +1,4 @@
-# cpu_machdep.9
+# cpu_machdep(9)
 
 `cpu_machdep` — 处理 CPU 和线程状态的机器相关接口
 

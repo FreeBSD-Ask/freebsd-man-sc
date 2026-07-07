@@ -1,4 +1,4 @@
-# shells.5
+# shells(5)
 
 `shells` — shell 数据库
 

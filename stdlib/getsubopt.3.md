@@ -1,4 +1,4 @@
-# getsubopt.3
+# getsubopt(3)
 
 `getsubopt` — 从参数中获取子选项
 

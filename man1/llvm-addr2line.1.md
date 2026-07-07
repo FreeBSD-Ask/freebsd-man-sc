@@ -1,4 +1,4 @@
-# llvm-addr2line.1
+# llvm-addr2line(1)
 
 `llvm-addr2line` — a drop-in replacement for addr2line
 

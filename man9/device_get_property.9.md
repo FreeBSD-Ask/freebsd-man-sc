@@ -1,4 +1,4 @@
-# device\_get\_property.9
+# device_get_property(9)
 
 `device_get_property` — 访问设备特定数据
 

@@ -1,4 +1,4 @@
-# siis.4
+# siis(4)
 
 `siis` — SiliconImage 串行 ATA 主机控制器驱动
 

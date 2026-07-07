@@ -1,4 +1,4 @@
-# vm\_page\_wire.9
+# vm_page_wire(9)
 
 `vm_page_wire`, `vm_page_unwire`, `vm_page_unwire_noq` — 锁定和解锁页面
 

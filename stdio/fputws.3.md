@@ -1,4 +1,4 @@
-# fputws.3
+# fputws(3)
 
 `fputws` — 向流输出一行宽字符
 

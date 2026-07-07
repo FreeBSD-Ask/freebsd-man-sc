@@ -1,4 +1,4 @@
-# drbr.9
+# drbr(9)
 
 `drbr` — 网络驱动到 buf_ring 的接口
 

@@ -1,4 +1,4 @@
-# tftpd.8
+# tftpd(8)
 
 `tftpd` — Internet 简单文件传输协议服务器
 

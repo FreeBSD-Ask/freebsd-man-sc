@@ -1,4 +1,4 @@
-# cd.4
+# cd(4)
 
 `cd` — SCSI CD-ROM 驱动
 

@@ -1,4 +1,4 @@
-# pmap_is_prefaultable.9
+# pmap_is_prefaultable(9)
 
 `pmap_is_prefaultable` — 确定页面是否可以预故障
 

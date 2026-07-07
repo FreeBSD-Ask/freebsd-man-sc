@@ -1,4 +1,4 @@
-# iflibtxrx.9
+# iflibtxrx(9)
 
 `iflibtxrx` — 设备相关传输与接收函数
 

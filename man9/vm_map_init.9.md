@@ -1,4 +1,4 @@
-# vm\_map\_init.9
+# vm_map_init(9)
 
 `vm_map_init` — 为进程零初始化 vm_map 结构
 

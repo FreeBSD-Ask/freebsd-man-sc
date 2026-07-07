@@ -1,4 +1,4 @@
-# orders.7
+# orders(7)
 
 `orders` — 数量级
 

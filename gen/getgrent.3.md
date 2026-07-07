@@ -1,4 +1,4 @@
-# getgrent.3
+# getgrent(3)
 
 `getgrent` — 组数据库操作
 

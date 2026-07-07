@@ -1,4 +1,4 @@
-# nvme.4
+# nvme(4)
 
 `nvme` — NVM Express 核心驱动
 

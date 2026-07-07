@@ -1,4 +1,4 @@
-# ng_vlan.4
+# ng_vlan(4)
 
 `ng_vlan` — IEEE 802.1Q VLAN 标记 netgraph 节点类型
 

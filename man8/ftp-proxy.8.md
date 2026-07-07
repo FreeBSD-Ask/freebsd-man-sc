@@ -1,4 +1,4 @@
-# ftp-proxy.8
+# ftp-proxy(8)
 
 `ftp-proxy` — Internet 文件传输协议代理守护进程
 

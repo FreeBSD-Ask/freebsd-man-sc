@@ -1,4 +1,4 @@
-# bus_generic_new_pass.9
+# bus_generic_new_pass(9)
 
 `bus_generic_new_pass` — 总线设备 BUS_NEW_PASS 的通用实现
 

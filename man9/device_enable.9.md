@@ -1,4 +1,4 @@
-# device_enable.9
+# device_enable(9)
 
 `device_enable` — 操作设备启用标志
 

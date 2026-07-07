@@ -1,4 +1,4 @@
-# akbd.4
+# akbd(4)
 
 `akbd` — ADB 键盘驱动
 

@@ -1,4 +1,4 @@
-# isrune.3
+# isrune(3)
 
 `isrune` — 有效字符测试
 

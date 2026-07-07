@@ -1,4 +1,4 @@
-# ffclock.4
+# ffclock(4)
 
 `FFCLOCK` — 前馈系统时钟
 

@@ -1,4 +1,4 @@
-# jail.8
+# jail(8)
 
 `jail` — 管理系统 jail
 

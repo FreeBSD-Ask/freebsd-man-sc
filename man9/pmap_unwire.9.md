@@ -1,4 +1,4 @@
-# pmap\_unwire.9
+# pmap_unwire(9)
 
 `pmap_unwire` — 解除一组虚拟页面的锁定属性
 

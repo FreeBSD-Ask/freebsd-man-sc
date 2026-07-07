@@ -1,4 +1,4 @@
-# ng_ipfw.4
+# ng_ipfw(4)
 
 `ng_ipfw` — netgraph 与 IP 防火墙之间的接口
 

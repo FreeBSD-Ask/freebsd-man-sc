@@ -1,4 +1,4 @@
-# iwlwifi.4
+# iwlwifi(4)
 
 `iwlwifi` — Intel IEEE 802.11a/b/g/n/ac/ax/be 无线网络驱动
 

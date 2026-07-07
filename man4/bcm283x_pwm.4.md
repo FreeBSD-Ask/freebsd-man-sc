@@ -1,4 +1,4 @@
-# bcm283x\_pwm.4
+# bcm283x_pwm(4)
 
 `bcm283x_pwm` — Raspberry Pi 2/3 PWM 驱动
 

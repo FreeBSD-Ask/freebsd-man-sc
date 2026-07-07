@@ -1,4 +1,4 @@
-# hconf.4
+# hconf(4)
 
 `hconf` — MS Windows 精密触控板配置驱动
 

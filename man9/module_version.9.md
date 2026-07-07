@@ -1,4 +1,4 @@
-# MODULE\_VERSION.9
+# MODULE_VERSION(9)
 
 `MODULE_VERSION` — 设置内核模块版本
 

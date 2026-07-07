@@ -1,4 +1,4 @@
-# VOP_READLINK.9
+# VOP_READLINK(9)
 
 `VOP_READLINK` — 读取符号链接的目标
 

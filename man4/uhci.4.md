@@ -1,4 +1,4 @@
-# uhci.4
+# uhci(4)
 
 `uhci` — UHCI USB 主机控制器驱动
 

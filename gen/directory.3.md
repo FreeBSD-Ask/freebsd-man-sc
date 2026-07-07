@@ -1,4 +1,4 @@
-# directory.3
+# directory(3)
 
 `opendir` — 目录操作
 

@@ -1,4 +1,4 @@
-# gethostname.3
+# gethostname(3)
 
 `gethostname` — 获取/设置当前主机的名称
 

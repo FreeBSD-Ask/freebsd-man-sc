@@ -1,4 +1,4 @@
-# mac_portacl.4
+# mac_portacl(4)
 
 `mac_portacl` — 网络端口访问控制策略
 

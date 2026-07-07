@@ -1,4 +1,4 @@
-# ubsa.4
+# ubsa(4)
 
 `ubsa` — Belkin 串行适配器的 USB 支持
 

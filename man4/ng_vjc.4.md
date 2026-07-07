@@ -1,4 +1,4 @@
-# ng_vjc.4
+# ng_vjc(4)
 
 `ng_vjc` — Van Jacobson 压缩 netgraph 节点类型
 

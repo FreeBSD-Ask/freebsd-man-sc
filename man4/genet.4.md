@@ -1,4 +1,4 @@
-# genet.4
+# genet(4)
 
 `genet` — Raspberry Pi 4 / BCM2711 千兆以太网控制器驱动程序
 

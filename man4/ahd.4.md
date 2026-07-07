@@ -1,4 +1,4 @@
-# ahd.4
+# ahd(4)
 
 `ahd` — Adaptec PCI/PCI-X Ultra320 SCSI 主机适配器驱动
 

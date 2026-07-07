@@ -1,4 +1,4 @@
-# iwm.4
+# iwm(4)
 
 `iwm` — Intel IEEE 802.11ac 无线网络驱动
 

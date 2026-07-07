@@ -1,4 +1,4 @@
-# rccgpio.4
+# rccgpio(4)
 
 `rccgpio` — ADI Engineering RCC-VE 与 RCC-DFF/DFFv2 GPIO 控制器
 

@@ -1,4 +1,4 @@
-# umass.4
+# umass(4)
 
 `umass` — USB 大容量存储设备驱动
 

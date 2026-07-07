@@ -1,4 +1,4 @@
-# mpr.4
+# mpr(4)
 
 `mpr` — LSI Fusion-MPT 3/3.5 IT/IR 12Gb/s Serial Attached SCSI/SATA/PCIe 驱动
 

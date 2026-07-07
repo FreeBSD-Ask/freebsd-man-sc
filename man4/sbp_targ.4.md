@@ -1,4 +1,4 @@
-# sbp_targ.4
+# sbp_targ(4)
 
 `sbp_targ` — Serial Bus Protocol 2 (SBP-2) 目标模式设备驱动
 

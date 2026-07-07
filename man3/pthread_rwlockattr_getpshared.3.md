@@ -1,4 +1,4 @@
-# pthread_rwlockattr_getpshared.3
+# pthread_rwlockattr_getpshared(3)
 
 `pthread_rwlockattr_getpshared` — 获取进程共享属性
 

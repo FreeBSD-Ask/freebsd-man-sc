@@ -1,4 +1,4 @@
-# ufshci.4
+# ufshci(4)
 
 `ufshci` — 通用闪存存储主机控制器接口驱动
 

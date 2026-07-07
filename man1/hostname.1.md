@@ -1,4 +1,4 @@
-# hostname.1
+# hostname(1)
 
 `hostname` — 设置或打印当前主机系统的名称
 

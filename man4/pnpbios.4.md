@@ -1,4 +1,4 @@
-# pnpbios.4
+# pnpbios(4)
 
 `pnpbios` — 对主板上嵌入式设备的支持
 

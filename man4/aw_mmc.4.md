@@ -1,4 +1,4 @@
-# aw_mmc.4
+# aw_mmc(4)
 
 `aw_mmc` — Allwinner SoC 中 SD/MMC 控制器驱动
 

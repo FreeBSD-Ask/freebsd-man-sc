@@ -1,4 +1,4 @@
-# beinstall.8
+# beinstall(8)
 
 `beinstall.sh` — 使用当前 FreeBSD 源码树安装引导环境
 

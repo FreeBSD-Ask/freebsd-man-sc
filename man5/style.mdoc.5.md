@@ -1,4 +1,4 @@
-# style.mdoc.5
+# style.mdoc(5)
 
 `style.mdoc` — FreeBSD 手册页风格指南
 

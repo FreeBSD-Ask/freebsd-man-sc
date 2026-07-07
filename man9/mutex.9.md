@@ -1,4 +1,4 @@
-# mutex.9.md
+# mutex(9)
 
 `mutex` — 内核同步原语
 

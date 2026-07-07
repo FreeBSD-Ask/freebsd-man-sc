@@ -1,4 +1,4 @@
-# Table of contents
+# 目录
 
 * [man 页](README.md)
 * [目录](mu-lu.md)

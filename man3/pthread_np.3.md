@@ -1,4 +1,4 @@
-# pthread_np.3
+# pthread_np(3)
 
 `pthread_np` — FreeBSD 对 POSIX 线程函数的扩展
 

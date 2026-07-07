@@ -1,4 +1,4 @@
-# imx6\_snvs.4
+# imx6_snvs(4)
 
 `imx6_snvs` — NXP i.MX6 片上实时时钟驱动
 

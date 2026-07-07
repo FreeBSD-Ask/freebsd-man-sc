@@ -1,4 +1,4 @@
-# rights.4
+# rights(4)
 
 `Capability` — 文件描述符的 Capsicum 能力权能
 

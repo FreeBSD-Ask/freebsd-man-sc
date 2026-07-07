@@ -1,4 +1,4 @@
-# kern_testfrwk.9
+# kern_testfrwk(9)
 
 `kern_testfrwk` — 内核测试框架
 

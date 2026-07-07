@@ -1,4 +1,4 @@
-# boot.config.5
+# boot.config(5)
 
 `boot.config` — 旧版引导块的配置文件
 

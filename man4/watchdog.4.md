@@ -1,4 +1,4 @@
-# watchdog.4
+# watchdog(4)
 
 `watchdog` — 硬件和软件看门狗
 

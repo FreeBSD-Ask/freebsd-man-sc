@@ -1,4 +1,4 @@
-# environ.7
+# environ(7)
 
 `environ` — 用户环境
 

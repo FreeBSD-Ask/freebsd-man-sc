@@ -1,4 +1,4 @@
-# pthread_cond_wait.3
+# pthread_cond_wait(3)
 
 `pthread_cond_wait` — 等待条件变量
 

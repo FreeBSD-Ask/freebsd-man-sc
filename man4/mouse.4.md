@@ -1,4 +1,4 @@
-# mouse.4
+# mouse(4)
 
 `mouse` — 鼠标和指向设备驱动
 

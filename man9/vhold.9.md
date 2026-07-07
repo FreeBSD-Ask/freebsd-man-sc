@@ -1,4 +1,4 @@
-# vhold.9
+# vhold(9)
 
 `vhold` — 获取/释放对 vnode 的持有
 

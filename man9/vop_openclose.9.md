@@ -1,4 +1,4 @@
-# VOP_OPENCLOSE.9
+# VOP_OPENCLOSE(9)
 
 `VOP_OPEN` — 打开或关闭文件
 

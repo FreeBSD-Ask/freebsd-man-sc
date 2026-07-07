@@ -1,4 +1,4 @@
-# mos.4
+# mos(4)
 
 `mos` — Moschip MCS7730/MCS7830/MCS7832 USB 以太网驱动
 

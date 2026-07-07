@@ -1,4 +1,4 @@
-# crypto_buffer.9
+# crypto_buffer(9)
 
 `crypto_buffer` — 对称密码学请求缓冲区
 

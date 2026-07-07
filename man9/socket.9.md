@@ -1,4 +1,4 @@
-# socket.9
+# socket(9)
 
 `socket` — 内核套接字接口
 

@@ -1,4 +1,4 @@
-# BUS_DESCRIBE_INTR.9
+# BUS_DESCRIBE_INTR(9)
 
 `BUS_DESCRIBE_INTR` — 为活动中断处理程序关联描述
 

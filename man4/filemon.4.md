@@ -1,4 +1,4 @@
-# filemon.4
+# filemon(4)
 
 `filemon` — filemon 设备
 

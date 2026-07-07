@@ -1,4 +1,4 @@
-# pthread_rwlockattr_init.3
+# pthread_rwlockattr_init(3)
 
 `pthread_rwlockattr_init` — 初始化读写锁属性对象
 

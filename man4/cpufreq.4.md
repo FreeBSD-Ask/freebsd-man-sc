@@ -1,4 +1,4 @@
-# cpufreq.4
+# cpufreq(4)
 
 `cpufreq` — CPU 频率控制框架
 

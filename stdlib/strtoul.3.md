@@ -1,4 +1,4 @@
-# strtoul.3
+# strtoul(3)
 
 `strtoul`, `strtoull`, `strtoumax`, `strtouq` — 将字符串转换为 `unsigned long`、`unsigned long long`、`uintmax_t` 或 `u_quad_t` 整数
 

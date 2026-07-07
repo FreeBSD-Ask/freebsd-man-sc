@@ -1,4 +1,4 @@
-# dcons_crom.4
+# dcons_crom(4)
 
 `dcons_crom` — 配置 ROM 桩
 

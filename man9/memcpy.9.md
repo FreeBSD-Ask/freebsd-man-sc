@@ -1,4 +1,4 @@
-# memcpy.9
+# memcpy(9)
 
 `memcpy` — 复制内存中的字节
 

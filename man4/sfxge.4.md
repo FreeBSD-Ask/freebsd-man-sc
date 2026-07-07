@@ -1,4 +1,4 @@
-# sfxge.4
+# sfxge(4)
 
 `sfxge` — Solarflare 10Gb 以太网适配器驱动
 

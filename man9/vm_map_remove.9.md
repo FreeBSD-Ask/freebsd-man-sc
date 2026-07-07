@@ -1,4 +1,4 @@
-# vm\_map\_remove.9
+# vm_map_remove(9)
 
 `vm_map_remove` — 从映射中移除虚拟地址范围
 

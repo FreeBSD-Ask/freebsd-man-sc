@@ -1,4 +1,4 @@
-# ral.4
+# ral(4)
 
 `ral` — Ralink Technology IEEE 802.11a/g/n 无线网络驱动程序
 

@@ -1,4 +1,4 @@
-# VOP_REMOVE.9
+# VOP_REMOVE(9)
 
 `VOP_REMOVE` — 删除文件或目录
 

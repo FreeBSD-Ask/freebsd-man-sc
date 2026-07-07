@@ -1,4 +1,4 @@
-# vaccess\_acl\_posix1e.9
+# vaccess_acl_posix1e(9)
 
 `vaccess_acl_posix1e` — 使用 vnode 参数生成 POSIX.1e ACL 访问控制决策
 

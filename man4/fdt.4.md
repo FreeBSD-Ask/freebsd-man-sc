@@ -1,4 +1,4 @@
-# fdt.4
+# fdt(4)
 
 `fdt` — Flattened Device Tree 支持
 

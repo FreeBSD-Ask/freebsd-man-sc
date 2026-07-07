@@ -1,4 +1,4 @@
-# efirt.9
+# efirt(9)
 
 `efirt` — 内核访问 UEFI 运行时服务
 

@@ -1,4 +1,4 @@
-# pmap\_resident\_count.9
+# pmap_resident_count(9)
 
 `pmap_resident_count` — 返回页面驻留和锁定统计信息
 

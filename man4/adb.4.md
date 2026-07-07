@@ -1,4 +1,4 @@
-# adb.4
+# adb(4)
 
 `adb` — Apple Desktop Bus
 

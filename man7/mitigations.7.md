@@ -1,4 +1,4 @@
-# mitigations.7
+# mitigations(7)
 
 `mitigations` — FreeBSD 安全漏洞缓解措施
 

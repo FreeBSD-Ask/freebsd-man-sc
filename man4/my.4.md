@@ -1,4 +1,4 @@
-# my.4
+# my(4)
 
 `my` — Myson Technology 以太网 PCI 驱动
 

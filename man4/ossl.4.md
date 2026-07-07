@@ -1,4 +1,4 @@
-# ossl.4
+# ossl(4)
 
 `ossl` — 使用 OpenSSL 汇编例程的驱动
 

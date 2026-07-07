@@ -1,4 +1,4 @@
-# safexcel.4
+# safexcel(4)
 
 `safexcel` — Inside Secure SafeXcel-IP-97 加密卸载引擎
 

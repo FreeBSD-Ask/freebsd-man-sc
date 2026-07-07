@@ -1,4 +1,4 @@
-# netlink.4
+# netlink(4)
 
 `Netlink` — 内核网络配置协议
 

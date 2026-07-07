@@ -1,4 +1,4 @@
-# ng_cisco.4
+# ng_cisco(4)
 
 `ng_cisco` — Cisco HDLC 协议 netgraph 节点类型
 

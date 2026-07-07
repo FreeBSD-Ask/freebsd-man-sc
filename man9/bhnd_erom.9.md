@@ -1,4 +1,4 @@
-# bhnd\_erom.9
+# bhnd_erom(9)
 
 `bhnd_erom` — BHND 设备枚举表解析
 

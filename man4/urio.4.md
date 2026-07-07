@@ -1,4 +1,4 @@
-# urio.4
+# urio(4)
 
 `urio` — Rio MP3 播放器的 USB 驱动
 

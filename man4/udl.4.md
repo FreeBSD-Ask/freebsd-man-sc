@@ -1,4 +1,4 @@
-# udl.4
+# udl(4)
 
 `udl` — DisplayLink DL-120 / DL-160 USB 显示设备驱动
 

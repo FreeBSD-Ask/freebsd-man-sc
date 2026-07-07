@@ -1,4 +1,4 @@
-# iicsmb.4
+# iicsmb(4)
 
 `iicsmb` — I2C 到 SMBus 桥
 

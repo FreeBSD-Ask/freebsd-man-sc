@@ -1,4 +1,4 @@
-# malo.4
+# malo(4)
 
 `malo` — Marvell Libertas IEEE 802.11b/g 无线网络驱动
 

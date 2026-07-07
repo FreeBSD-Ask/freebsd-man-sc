@@ -1,4 +1,4 @@
-# bcopy.9
+# bcopy(9)
 
 `bcopy` — 复制对象中的字节
 

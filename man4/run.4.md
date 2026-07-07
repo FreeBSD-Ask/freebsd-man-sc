@@ -1,4 +1,4 @@
-# run.4
+# run(4)
 
 `run` — Ralink Technology USB IEEE 802.11a/g/n 无线网络驱动
 

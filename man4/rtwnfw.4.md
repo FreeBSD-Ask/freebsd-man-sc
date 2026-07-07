@@ -1,4 +1,4 @@
-# rtwnfw.4
+# rtwnfw(4)
 
 `rtwnfw` — Realtek 无线驱动程序的固件模块
 

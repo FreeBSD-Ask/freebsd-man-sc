@@ -1,4 +1,4 @@
-# vfs\_unbusy.9
+# vfs_unbusy(9)
 
 `vfs_unbusy` — 解除挂载点的忙碌状态
 

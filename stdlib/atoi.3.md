@@ -1,4 +1,4 @@
-# atoi.3
+# atoi(3)
 
 `atoi` — 将 ASCII 字符串转换为整数
 

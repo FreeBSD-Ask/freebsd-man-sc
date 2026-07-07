@@ -1,4 +1,4 @@
-# sleepqueue.9
+# sleepqueue(9)
 
 `init_sleepqueues` — 管理睡眠线程的队列
 

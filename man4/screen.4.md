@@ -1,4 +1,4 @@
-# screen.4
+# screen(4)
 
 `screen` — PC 显示接口
 

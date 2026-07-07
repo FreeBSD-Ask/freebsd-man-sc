@@ -1,4 +1,4 @@
-# crypto.7
+# crypto(7)
 
 `crypto` — OpenCrypto 算法
 

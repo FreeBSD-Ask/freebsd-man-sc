@@ -1,4 +1,4 @@
-# tcpdump.1
+# tcpdump(1)
 
 `tcpdump` — 转储网络上的流量
 

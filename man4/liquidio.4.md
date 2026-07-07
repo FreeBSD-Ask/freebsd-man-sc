@@ -1,4 +1,4 @@
-# liquidio.4
+# liquidio(4)
 
 `liquidio` — Cavium 10Gb/25Gb 以太网驱动
 

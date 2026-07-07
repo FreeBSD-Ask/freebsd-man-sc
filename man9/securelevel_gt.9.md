@@ -1,4 +1,4 @@
-# securelevel\_gt.9
+# securelevel_gt(9)
 
 `securelevel_gt` — 测试活动安全级别
 

@@ -1,4 +1,4 @@
-# g_data.9
+# g_data(9)
 
 `g_read_data` — 从 GEOM 消费者读取/向其写入数据
 

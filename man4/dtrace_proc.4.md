@@ -1,4 +1,4 @@
-# dtrace_proc.4
+# dtrace_proc(4)
 
 `dtrace_proc` — 用于跟踪用户进程相关事件的 DTrace 提供者
 

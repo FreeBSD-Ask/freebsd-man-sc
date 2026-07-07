@@ -1,4 +1,4 @@
-# bus_generic_detach.9
+# bus_generic_detach(9)
 
 `bus_generic_detach` — 总线 `DEVICE_DETACH` 的通用实现
 

@@ -1,4 +1,4 @@
-# cc_cdg.4
+# cc_cdg(4)
 
 `cc_cdg` — CDG 拥塞控制算法
 

@@ -1,4 +1,4 @@
-# vfs\_busy.9
+# vfs_busy(9)
 
 `vfs_busy` — 将挂载点标记为忙碌
 

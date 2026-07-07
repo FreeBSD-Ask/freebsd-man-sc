@@ -1,4 +1,4 @@
-# ng_frame_relay.4
+# ng_frame_relay(4)
 
 `ng_frame_relay` — 帧中继 netgraph 节点类型
 

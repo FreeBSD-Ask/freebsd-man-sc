@@ -1,4 +1,4 @@
-# hpen.4
+# hpen(4)
 
 `hpen` — 兼容 MS Windows 的 HID 数位板驱动
 

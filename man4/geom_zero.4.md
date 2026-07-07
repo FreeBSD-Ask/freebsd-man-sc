@@ -1,4 +1,4 @@
-# geom_zero.4
+# geom_zero(4)
 
 `gzero` — 基于 GEOM 的零磁盘/块设备
 

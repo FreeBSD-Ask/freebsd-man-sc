@@ -1,4 +1,4 @@
-# vmgenc.4
+# vmgenc(4)
 
 `vmgenc` — ACPI 虚拟机生成 ID 计数器
 

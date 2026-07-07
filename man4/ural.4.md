@@ -1,4 +1,4 @@
-# ural.4
+# ural(4)
 
 `ural` — Ralink RT2500USB IEEE 802.11a/b/g 无线网络驱动
 

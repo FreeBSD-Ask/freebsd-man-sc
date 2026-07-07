@@ -1,4 +1,4 @@
-# pthread_yield.3
+# pthread_yield(3)
 
 `pthread_yield` — 让出当前线程的控制权
 

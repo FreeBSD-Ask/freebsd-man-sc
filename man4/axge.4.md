@@ -1,4 +1,4 @@
-# axge.4
+# axge(4)
 
 `axge` — ASIX Electronics AX88178A/179/179A USB 千兆以太网驱动
 

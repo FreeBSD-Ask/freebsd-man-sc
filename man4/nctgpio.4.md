@@ -1,4 +1,4 @@
-# nctgpio.4
+# nctgpio(4)
 
 `nctgpio` — Nuvoton 和 Winbond Super I/O 上的 GPIO 控制器
 

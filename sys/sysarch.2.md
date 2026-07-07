@@ -1,4 +1,4 @@
-# sysarch.2
+# sysarch(2)
 
 `sysarch` — 依赖于体系结构的系统调用
 

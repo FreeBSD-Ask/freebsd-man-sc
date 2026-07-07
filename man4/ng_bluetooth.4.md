@@ -1,4 +1,4 @@
-# ng_bluetooth.4
+# ng_bluetooth(4)
 
 `ng_bluetooth` — 全局 Bluetooth 变量的占位符
 

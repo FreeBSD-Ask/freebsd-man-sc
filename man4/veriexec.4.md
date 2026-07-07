@@ -1,4 +1,4 @@
-# veriexec.4
+# veriexec(4)
 
 `veriexec` — veriexec 设备
 

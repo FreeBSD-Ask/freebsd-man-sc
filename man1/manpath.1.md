@@ -1,4 +1,4 @@
-# manpath.1
+# manpath(1)
 
 `manpath` — 显示手册页搜索路径
 

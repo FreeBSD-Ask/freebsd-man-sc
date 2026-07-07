@@ -1,4 +1,4 @@
-# diskless.8
+# diskless(8)
 
 `diskless` — 通过 PXE 在网络上引导系统
 

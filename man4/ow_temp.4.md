@@ -1,4 +1,4 @@
-# ow_temp.4
+# ow_temp(4)
 
 `ow_temp` — Dallas Semiconductor 1-Wire 温度传感器
 

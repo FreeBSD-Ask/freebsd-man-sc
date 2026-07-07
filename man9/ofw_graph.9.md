@@ -1,4 +1,4 @@
-# ofw\_graph.9
+# ofw_graph(9)
 
 `ofw_graph` — DTS graph 绑定的辅助函数
 

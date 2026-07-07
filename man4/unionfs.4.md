@@ -1,4 +1,4 @@
-# unionfs.4
+# unionfs(4)
 
 `unionfs` — 联合挂载文件系统
 

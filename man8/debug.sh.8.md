@@ -1,4 +1,4 @@
-# debug.sh.8
+# debug.sh(8)
 
 `debug.sh` — 选择性调试脚本
 

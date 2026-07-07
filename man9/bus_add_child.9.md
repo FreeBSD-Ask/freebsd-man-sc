@@ -1,4 +1,4 @@
-# BUS_ADD_CHILD.9
+# BUS_ADD_CHILD(9)
 
 `BUS_ADD_CHILD` — 以给定优先级向设备树添加设备节点
 

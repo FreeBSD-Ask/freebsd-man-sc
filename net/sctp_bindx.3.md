@@ -1,4 +1,4 @@
-# sctp\_bindx.3
+# sctp_bindx(3)
 
 `sctp_bindx` — 将 SCTP 套接字绑定到地址列表或从中解绑
 

@@ -1,4 +1,4 @@
-# ieee80211_input.9
+# ieee80211_input(9)
 
 `ieee80211_input` — 软件 802.11 栈输入函数
 

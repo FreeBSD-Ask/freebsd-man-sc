@@ -1,4 +1,4 @@
-# realpath.1
+# realpath(1)
 
 `realpath` — 返回解析后的物理路径
 

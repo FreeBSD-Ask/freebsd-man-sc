@@ -1,4 +1,4 @@
-# bnxt_re.4
+# bnxt_re(4)
 
 `bnxt_re` — Broadcom NetXtreme-E RoCE 驱动
 

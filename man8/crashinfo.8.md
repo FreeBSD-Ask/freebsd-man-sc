@@ -1,4 +1,4 @@
-# crashinfo.8
+# crashinfo(8)
 
 `crashinfo` — 分析操作系统的核心转储
 

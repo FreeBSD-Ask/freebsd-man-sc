@@ -1,4 +1,4 @@
-# iostat.8
+# iostat(8)
 
 `iostat` — 报告 I/O 统计信息
 

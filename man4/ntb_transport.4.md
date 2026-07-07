@@ -1,4 +1,4 @@
-# ntb_transport.4
+# ntb_transport(4)
 
 `ntb_transport` — 面向非透明桥接的包传输
 

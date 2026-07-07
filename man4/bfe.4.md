@@ -1,4 +1,4 @@
-# bfe.4
+# bfe(4)
 
 `bfe` — Broadcom BCM4401 以太网设备驱动
 

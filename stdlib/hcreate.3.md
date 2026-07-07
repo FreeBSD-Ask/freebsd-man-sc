@@ -1,4 +1,4 @@
-# hcreate.3
+# hcreate(3)
 
 `hcreate` — 管理哈希搜索表
 

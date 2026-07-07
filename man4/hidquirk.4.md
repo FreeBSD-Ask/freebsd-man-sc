@@ -1,4 +1,4 @@
-# hidquirk.4
+# hidquirk(4)
 
 `hidquirk` — HID 怪癖模块
 

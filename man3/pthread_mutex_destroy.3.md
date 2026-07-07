@@ -1,4 +1,4 @@
-# pthread_mutex_destroy.3
+# pthread_mutex_destroy(3)
 
 `pthread_mutex_destroy` — 释放为 mutex 分配的资源
 

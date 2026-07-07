@@ -1,4 +1,4 @@
-# ng_ksocket.4
+# ng_ksocket(4)
 
 `ng_ksocket` — 内核套接字 netgraph 节点类型
 

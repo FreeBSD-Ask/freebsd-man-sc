@@ -1,4 +1,4 @@
-# chown.8
+# chown(8)
 
 `chown` — 更改文件属主和属组
 

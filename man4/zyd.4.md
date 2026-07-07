@@ -1,4 +1,4 @@
-# zyd.4
+# zyd(4)
 
 `zyd` — ZyDAS ZD1211/ZD1211B USB IEEE 802.11b/g 无线网络驱动
 

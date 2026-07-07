@@ -1,4 +1,4 @@
-# ucontext.3
+# ucontext(3)
 
 `ucontext` — 用户线程上下文
 

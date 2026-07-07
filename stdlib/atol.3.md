@@ -1,4 +1,4 @@
-# atol.3
+# atol(3)
 
 `atol`, `atoll` — 将 ASCII 字符串转换为 `long` 或 `long long` 整数
 

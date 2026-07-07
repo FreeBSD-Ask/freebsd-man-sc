@@ -1,4 +1,4 @@
-# BUS_GET_PROPERTY.9
+# BUS_GET_PROPERTY(9)
 
 `BUS_GET_PROPERTY` — 获取子设备的特定属性
 

@@ -1,4 +1,4 @@
-# ng_UI.4
+# ng_UI(4)
 
 `ng_UI` — UI netgraph 节点类型
 

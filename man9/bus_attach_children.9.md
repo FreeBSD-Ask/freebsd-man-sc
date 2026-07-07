@@ -1,4 +1,4 @@
-# bus_attach_children.9
+# bus_attach_children(9)
 
 `bus_attach_children` — 管理总线设备的子设备
 

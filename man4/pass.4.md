@@ -1,4 +1,4 @@
-# pass.4
+# pass(4)
 
 `pass` — CAM 应用程序直通驱动
 

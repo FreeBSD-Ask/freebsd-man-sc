@@ -1,4 +1,4 @@
-# shutdown.8
+# shutdown(8)
 
 `shutdown`, `poweroff` — 在指定时间关闭系统
 

@@ -1,4 +1,4 @@
-# icmp6.4
+# icmp6(4)
 
 `icmp6` — IPv6 的 Internet 控制报文协议
 

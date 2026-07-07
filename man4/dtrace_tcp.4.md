@@ -1,4 +1,4 @@
-# dtrace_tcp.4
+# dtrace_tcp(4)
 
 `dtrace_tcp` — 用于跟踪与
 

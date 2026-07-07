@@ -1,4 +1,4 @@
-# BUF\_LOCKINIT.9
+# BUF_LOCKINIT(9)
 
 `BUF_LOCKINIT` — 初始化缓冲区锁
 

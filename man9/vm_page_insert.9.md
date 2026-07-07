@@ -1,4 +1,4 @@
-# vm\_page\_insert.9
+# vm_page_insert(9)
 
 `vm_page_insert`, `vm_page_remove` — 从对象中添加/移除页面
 

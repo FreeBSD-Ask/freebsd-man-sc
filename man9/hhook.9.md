@@ -1,4 +1,4 @@
-# hhook.9
+# hhook(9)
 
 `hhook` — 辅助钩子框架
 

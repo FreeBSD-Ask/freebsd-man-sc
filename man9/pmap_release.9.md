@@ -1,4 +1,4 @@
-# pmap_release.9
+# pmap_release(9)
 
 `pmap_release` — 释放物理映射持有的资源
 

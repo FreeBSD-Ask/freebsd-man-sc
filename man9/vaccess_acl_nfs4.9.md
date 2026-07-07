@@ -1,4 +1,4 @@
-# vaccess\_acl\_nfs4.9
+# vaccess_acl_nfs4(9)
 
 `vaccess_acl_nfs4` — 使用 vnode 参数生成 NFSv4 ACL 访问控制决策
 

@@ -1,4 +1,4 @@
-# pfind.9
+# pfind(9)
 
 `pfind` — 按编号定位进程
 

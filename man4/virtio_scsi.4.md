@@ -1,4 +1,4 @@
-# virtio_scsi.4
+# virtio_scsi(4)
 
 `virtio_scsi` — VirtIO SCSI 驱动
 

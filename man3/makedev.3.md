@@ -1,4 +1,4 @@
-# makedev.3
+# makedev(3)
 
 `makedev` — 设备号转换
 

@@ -1,4 +1,4 @@
-# amdsmb.4
+# amdsmb(4)
 
 `amdsmb` — AMD-8111 SMBus 2.0 控制器驱动
 

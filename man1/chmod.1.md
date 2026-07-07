@@ -1,4 +1,4 @@
-# chmod.1
+# chmod(1)
 
 `chmod` — 更改文件模式
 

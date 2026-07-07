@@ -1,4 +1,4 @@
-# mailstats.8
+# mailstats(8)
 
 `mailstats` — 显示邮件统计信息
 

@@ -1,4 +1,4 @@
-# bus_get_resource.9
+# bus_get_resource(9)
 
 `bus_get_resource` — 读取具有给定资源 ID 的资源范围/值
 

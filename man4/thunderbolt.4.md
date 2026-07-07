@@ -1,4 +1,4 @@
-# thunderbolt.4
+# thunderbolt(4)
 
 `thunderbolt` — Thunderbolt / USB4 原生主控制器驱动程序
 

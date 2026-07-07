@@ -1,4 +1,4 @@
-# aacraid.4
+# aacraid(4)
 
 `aacraid` — Adaptec Series 6/7/8 6G 和 12G SAS+SATA RAID 控制器驱动
 

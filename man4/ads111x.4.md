@@ -1,4 +1,4 @@
-# ads111x.4
+# ads111x(4)
 
 `ads111x` — ADS101x 和 ADS111x I2C 模数转换器驱动
 

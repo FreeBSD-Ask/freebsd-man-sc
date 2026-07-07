@@ -1,4 +1,4 @@
-# efidev.4
+# efidev(4)
 
 `efidev` — 用户态访问 UEFI 运行时服务
 

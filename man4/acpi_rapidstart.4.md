@@ -1,4 +1,4 @@
-# acpi_rapidstart.4
+# acpi_rapidstart(4)
 
 `acpi_rapidstart` — Intel Rapid Start 技术 ACPI 驱动
 

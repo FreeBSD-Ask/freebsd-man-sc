@@ -1,4 +1,4 @@
-# fwohci.4
+# fwohci(4)
 
 `fwohci` — OHCI FireWire 芯片组设备驱动程序
 

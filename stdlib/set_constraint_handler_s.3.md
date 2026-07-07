@@ -1,4 +1,4 @@
-# set_constraint_handler_s.3
+# set_constraint_handler_s(3)
 
 `set_constraint_handler_s` — 运行时约束违规处理
 

@@ -1,4 +1,4 @@
-# mmcsd.4
+# mmcsd(4)
 
 `mmcsd` — MMC 和 SD 存储卡驱动
 

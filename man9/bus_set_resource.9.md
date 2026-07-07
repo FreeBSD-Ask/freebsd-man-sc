@@ -1,4 +1,4 @@
-# bus_set_resource.9
+# bus_set_resource(9)
 
 `bus_set_resource` — 将明确资源与给定资源 ID 关联
 

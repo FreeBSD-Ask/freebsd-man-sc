@@ -1,4 +1,4 @@
-# lzmainfo.1
+# lzmainfo(1)
 
 `lzmainfo` — 显示 .lzma 文件头中存储的信息
 

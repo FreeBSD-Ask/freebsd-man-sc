@@ -1,4 +1,4 @@
-# resettodr.9
+# resettodr(9)
 
 `resettodr` — 根据系统时间设置电池后备时钟
 

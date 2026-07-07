@@ -1,4 +1,4 @@
-# VOP_RDWR.9
+# VOP_RDWR(9)
 
 `VOP_READ` — 读取或写入文件
 

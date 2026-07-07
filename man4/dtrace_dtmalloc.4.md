@@ -1,4 +1,4 @@
-# dtrace_dtmalloc.4
+# dtrace_dtmalloc(4)
 
 `dtrace_dtmalloc` — 用于按类型跟踪内核内存分配的 DTrace 提供者
 

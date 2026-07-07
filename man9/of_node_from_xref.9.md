@@ -1,4 +1,4 @@
-# OF\_node\_from\_xref.9
+# OF_node_from_xref(9)
 
 `OF_node_from_xref` — 在内核 phandle 和有效 phandle 之间转换
 

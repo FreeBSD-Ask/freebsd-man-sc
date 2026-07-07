@@ -1,4 +1,4 @@
-# am335x\_dmtpps.4
+# am335x_dmtpps(4)
 
 `am335x_dmtpps` — AM335x 系统的 RFC 2783 每秒脉冲 API 驱动
 

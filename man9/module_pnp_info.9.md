@@ -1,4 +1,4 @@
-# MODULE\_PNP\_INFO.9
+# MODULE_PNP_INFO(9)
 
 `MODULE_PNP_INFO` — 注册用于设备匹配的即插即用信息
 

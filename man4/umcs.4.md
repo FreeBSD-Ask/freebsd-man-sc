@@ -1,4 +1,4 @@
-# umcs.4
+# umcs(4)
 
 `umcs` — 基于 MCS7820 和 MCS7840 芯片的串口适配器的 USB 支持
 

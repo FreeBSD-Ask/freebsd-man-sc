@@ -1,4 +1,4 @@
-# jedec_dimm.4
+# jedec_dimm(4)
 
 `jedec_dimm` — 报告 JEDEC DDR3/DDR4 DIMM 的资产信息和温度
 

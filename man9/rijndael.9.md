@@ -1,4 +1,4 @@
-# rijndael.9
+# rijndael(9)
 
 `rijndael_makeKey` — AES 加密
 

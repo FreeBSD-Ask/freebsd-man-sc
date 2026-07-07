@@ -1,4 +1,4 @@
-# pcf.4
+# pcf(4)
 
 `pcf` — Philips I2C 总线控制器
 

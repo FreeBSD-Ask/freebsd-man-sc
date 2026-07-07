@@ -1,4 +1,4 @@
-# snl.3
+# snl(3)
 
 `snl_init` — 简单 Netlink 库
 

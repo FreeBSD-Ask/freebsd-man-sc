@@ -1,4 +1,4 @@
-# colrm.1
+# colrm(1)
 
 `colrm` — 从文件中删除列
 

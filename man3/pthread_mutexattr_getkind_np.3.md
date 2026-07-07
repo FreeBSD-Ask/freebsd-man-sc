@@ -1,4 +1,4 @@
-# pthread_mutexattr_getkind_np.3
+# pthread_mutexattr_getkind_np(3)
 
 `pthread_mutexattr_getkind_np` — mutex 属性操作（遗留）
 

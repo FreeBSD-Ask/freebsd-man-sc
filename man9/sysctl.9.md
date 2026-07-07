@@ -1,4 +1,4 @@
-# sysctl.9
+# sysctl(9)
 
 `SYSCTL_DECL` — 动态和静态 sysctl MIB 创建函数
 

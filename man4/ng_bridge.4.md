@@ -1,4 +1,4 @@
-# ng_bridge.4
+# ng_bridge(4)
 
 `ng_bridge` — 以太网桥接 netgraph 节点类型
 

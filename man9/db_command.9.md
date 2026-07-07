@@ -1,4 +1,4 @@
-# DB_COMMAND.9
+# DB_COMMAND(9)
 
 `DB_COMMAND` — 扩展 ddb 命令集
 

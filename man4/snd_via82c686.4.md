@@ -1,4 +1,4 @@
-# snd_via82c686.4
+# snd_via82c686(4)
 
 `snd_via82c686` — VIA Technologies 82C686A 桥设备驱动
 

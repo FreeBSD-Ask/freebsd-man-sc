@@ -1,4 +1,4 @@
-# kasan.9
+# kasan(9)
 
 `KASAN` — 内核地址消毒器
 

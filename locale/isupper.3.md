@@ -1,4 +1,4 @@
-# isupper.3
+# isupper(3)
 
 `isupper` — 大写字母测试
 

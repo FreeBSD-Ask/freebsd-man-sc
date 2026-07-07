@@ -1,4 +1,4 @@
-# pthread_atfork.3
+# pthread_atfork(3)
 
 `pthread_atfork` — 注册 fork 处理程序
 

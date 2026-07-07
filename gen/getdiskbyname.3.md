@@ -1,4 +1,4 @@
-# getdiskbyname.3
+# getdiskbyname(3)
 
 `getdiskbyname` — 按名称获取通用磁盘描述
 

@@ -1,4 +1,4 @@
-# pmu.4
+# pmu(4)
 
 `pmu` — Apple PMU99 电源管理驱动
 

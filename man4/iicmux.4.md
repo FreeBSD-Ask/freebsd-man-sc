@@ -1,4 +1,4 @@
-# iicmux.4
+# iicmux(4)
 
 `iicmux` — I2C 总线多路复用器框架
 

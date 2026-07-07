@@ -1,4 +1,4 @@
-# BUF_UNLOCK.9
+# BUF_UNLOCK(9)
 
 `BUF_UNLOCK` — 解锁已锁定的缓冲区
 

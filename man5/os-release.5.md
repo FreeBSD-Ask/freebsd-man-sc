@@ -1,4 +1,4 @@
-# os-release.5
+# os-release(5)
 
 `os-release` — 描述当前操作系统及其部分属性的文件
 

@@ -1,4 +1,4 @@
-# devfs.rules.5
+# devfs.rules(5)
 
 `devfs.rules` — devfs 配置信息
 

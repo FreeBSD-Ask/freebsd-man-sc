@@ -1,4 +1,4 @@
-# pthread_cleanup_pop.3
+# pthread_cleanup_pop(3)
 
 `pthread_cleanup_pop` — 调用首个清理例程
 

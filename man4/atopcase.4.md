@@ -1,4 +1,4 @@
-# atopcase.4
+# atopcase(4)
 
 `atopcase` — Apple HID-over-SPI 传输驱动
 

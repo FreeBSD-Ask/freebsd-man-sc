@@ -1,4 +1,4 @@
-# felix.4
+# felix(4)
 
 `felix` — Microchip Ocelot Felix 交换机驱动程序
 

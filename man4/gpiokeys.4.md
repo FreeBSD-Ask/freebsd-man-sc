@@ -1,4 +1,4 @@
-# gpiokeys.4
+# gpiokeys(4)
 
 `gpiokeys` — GPIO 按键设备驱动
 

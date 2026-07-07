@@ -1,4 +1,4 @@
-# ig4.4
+# ig4(4)
 
 `ig4` — Synopsys DesignWare I2C 控制器
 

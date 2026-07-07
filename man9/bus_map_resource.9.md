@@ -1,4 +1,4 @@
-# bus_map_resource.9
+# bus_map_resource(9)
 
 `bus_map_resource` — 映射或取消映射活动资源
 

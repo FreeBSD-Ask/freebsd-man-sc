@@ -1,4 +1,4 @@
-# tcpdrop.8
+# tcpdrop(8)
 
 `tcpdrop` — 丢弃 TCP 连接
 

@@ -1,4 +1,4 @@
-# ng_mppc.4
+# ng_mppc(4)
 
 `ng_mppc` — Microsoft MPPC/MPPE 压缩和加密 netgraph 节点类型
 

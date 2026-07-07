@@ -1,4 +1,4 @@
-# service.8
+# service(8)
 
 `service` — 控制（启动/停止等）或列出系统服务
 

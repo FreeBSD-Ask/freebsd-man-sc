@@ -1,4 +1,4 @@
-# usb_quirk.4
+# usb_quirk(4)
 
 `usb_quirk` — USB quirks 模块
 

@@ -1,4 +1,4 @@
-# setruid.3
+# setruid(3)
 
 `setruid` — 设置用户和组 ID
 

@@ -1,4 +1,4 @@
-# PCI\_IOV\_UNINIT.9
+# PCI_IOV_UNINIT(9)
 
 `PCI_IOV_UNINIT` — 在 PF 设备上禁用 SR-IOV
 

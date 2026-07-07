@@ -1,4 +1,4 @@
-# at_quick_exit.3
+# at_quick_exit(3)
 
 `at_quick_exit` — 注册在快速退出时运行的清理函数
 

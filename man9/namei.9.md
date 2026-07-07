@@ -1,4 +1,4 @@
-# namei.9.md
+# namei(9)
 
 `namei` — 路径名转换与查找操作
 

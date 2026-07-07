@@ -1,4 +1,4 @@
-# iflibdd.9
+# iflibdd(9)
 
 `iflibdd` — 设备相关配置函数
 

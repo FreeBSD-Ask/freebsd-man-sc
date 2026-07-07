@@ -1,4 +1,4 @@
-# pthread_attr.3
+# pthread_attr(3)
 
 `pthread_attr_init` — 线程属性操作
 

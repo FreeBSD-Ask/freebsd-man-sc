@@ -1,4 +1,4 @@
-# ugold.4
+# ugold(4)
 
 `ugold` — TEMPer gold HID 温度计
 

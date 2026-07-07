@@ -1,4 +1,4 @@
-# condvar.9
+# condvar(9)
 
 `condvar` — 内核条件变量
 

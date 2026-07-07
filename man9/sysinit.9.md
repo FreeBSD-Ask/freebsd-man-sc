@@ -1,4 +1,4 @@
-# SYSINIT.9
+# SYSINIT(9)
 
 `SYSINIT` — 动态内核初始化框架
 

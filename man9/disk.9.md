@@ -1,4 +1,4 @@
-# disk.9
+# disk(9)
 
 `disk` — 内核磁盘存储 API
 

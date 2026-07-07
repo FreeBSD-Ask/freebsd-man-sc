@@ -1,4 +1,4 @@
-# ucom.4
+# ucom(4)
 
 `ucom` — USB tty 支持
 

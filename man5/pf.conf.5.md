@@ -1,4 +1,4 @@
-# pf.conf.5
+# pf.conf(5)
 
 `pf.conf` — 包过滤器配置文件
 

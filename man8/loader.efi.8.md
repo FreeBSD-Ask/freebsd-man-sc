@@ -1,4 +1,4 @@
-# loader.efi.8
+# loader.efi(8)
 
 `loader.efi` — UEFI 内核加载器
 

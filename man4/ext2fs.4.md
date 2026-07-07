@@ -1,4 +1,4 @@
-# ext2fs.4
+# ext2fs(4)
 
 `ext2fs` — ext2/ext3/ext4 文件系统
 

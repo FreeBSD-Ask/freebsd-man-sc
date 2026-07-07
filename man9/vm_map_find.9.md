@@ -1,4 +1,4 @@
-# vm\_map\_find.9
+# vm_map_find(9)
 
 `vm_map_find` — 在映射中查找空闲区域，并可选地映射一个 vm_object
 

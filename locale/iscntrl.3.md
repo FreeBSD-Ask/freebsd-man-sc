@@ -1,4 +1,4 @@
-# iscntrl.3
+# iscntrl(3)
 
 `iscntrl` — 控制字符测试
 

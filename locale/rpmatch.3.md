@@ -1,4 +1,4 @@
-# rpmatch.3
+# rpmatch(3)
 
 `rpmatch` — 判断对问题的回答是肯定还是否定
 

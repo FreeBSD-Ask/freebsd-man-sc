@@ -1,4 +1,4 @@
-# rk\_pinctrl.4
+# rk_pinctrl(4)
 
 `rk_pinctrl` — RockChip SoC 上引脚复用的驱动
 

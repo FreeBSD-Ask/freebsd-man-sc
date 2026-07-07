@@ -1,4 +1,4 @@
-# owc.4
+# owc(4)
 
 `owc` — Dallas Semiconductor 1-Wire 控制器
 

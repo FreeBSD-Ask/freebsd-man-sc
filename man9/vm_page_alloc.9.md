@@ -1,4 +1,4 @@
-# vm\_page\_alloc.9
+# vm_page_alloc(9)
 
 `vm_page_alloc` — 分配一页内存
 

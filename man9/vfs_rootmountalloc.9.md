@@ -1,4 +1,4 @@
-# vfs\_rootmountalloc.9
+# vfs_rootmountalloc(9)
 
 `vfs_rootmountalloc` — 分配根 `mount` 结构
 

@@ -1,4 +1,4 @@
-# proc\_rwmem.9
+# proc_rwmem(9)
 
 `proc_rwmem` — 读取或写入进程地址空间
 

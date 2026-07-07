@@ -1,4 +1,4 @@
-# freebsd-base.7
+# freebsd-base(7)
 
 `freebsd-base` — 基本系统软件包
 

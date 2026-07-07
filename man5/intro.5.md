@@ -1,4 +1,4 @@
-# intro.5
+# intro(5)
 
 `intro` — 文件格式简介
 

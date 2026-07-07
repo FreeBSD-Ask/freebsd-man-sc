@@ -1,4 +1,4 @@
-# ng_pptpgre.4
+# ng_pptpgre(4)
 
 `ng_pptpgre` — PPTP GRE 协议 netgraph 节点类型
 

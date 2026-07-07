@@ -1,4 +1,4 @@
-# vaccess.9
+# vaccess(9)
 
 `vaccess` — 使用 vnode 参数生成访问控制决策
 

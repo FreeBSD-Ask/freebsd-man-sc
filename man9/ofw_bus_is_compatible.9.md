@@ -1,4 +1,4 @@
-# ofw_bus_is_compatible.9.md
+# ofw_bus_is_compatible(9)
 
 `ofw_bus_is_compatible` — 检查设备树节点与驱动程序的兼容性
 

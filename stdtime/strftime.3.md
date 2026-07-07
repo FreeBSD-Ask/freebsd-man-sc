@@ -1,4 +1,4 @@
-# strftime.3
+# strftime(3)
 
 `strftime` — 格式化日期和时间
 

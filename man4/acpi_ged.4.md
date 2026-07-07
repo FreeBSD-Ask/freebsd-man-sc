@@ -1,4 +1,4 @@
-# acpi_ged.4
+# acpi_ged(4)
 
 `acpi_ged` — ACPI 通用事件设备
 

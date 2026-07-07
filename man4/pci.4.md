@@ -1,4 +1,4 @@
-# pci.4
+# pci(4)
 
 `pci` — 通用 PCI/PCIe 总线驱动
 

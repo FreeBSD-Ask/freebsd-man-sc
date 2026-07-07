@@ -1,4 +1,4 @@
-# pthread_sigmask.3
+# pthread_sigmask(3)
 
 `pthread_sigmask` — 检查和/或更改线程的信号掩码
 

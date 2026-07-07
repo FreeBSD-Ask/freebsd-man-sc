@@ -1,4 +1,4 @@
-# mtx_pool.9.md
+# mtx_pool(9)
 
 `mtx_pool` — 互斥锁池例程
 

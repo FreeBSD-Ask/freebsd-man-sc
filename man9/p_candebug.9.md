@@ -1,4 +1,4 @@
-# p\_candebug.9
+# p_candebug(9)
 
 `p_candebug` — 确定进程的可调试性
 

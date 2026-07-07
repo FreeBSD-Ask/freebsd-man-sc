@@ -1,4 +1,4 @@
-# pthread_mutex_timedlock.3
+# pthread_mutex_timedlock(3)
 
 `pthread_mutex_timedlock` — 锁定 mutex 且不无限期阻塞
 

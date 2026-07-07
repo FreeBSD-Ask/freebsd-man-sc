@@ -1,4 +1,4 @@
-# gpioiic.4
+# gpioiic(4)
 
 `gpioiic` — GPIO I2C 位操作设备驱动
 

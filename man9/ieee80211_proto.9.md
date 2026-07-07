@@ -1,4 +1,4 @@
-# ieee80211_proto.9
+# ieee80211_proto(9)
 
 `ieee80211_proto` — 802.11 状态机支持
 

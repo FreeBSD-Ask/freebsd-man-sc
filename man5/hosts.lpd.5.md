@@ -1,4 +1,4 @@
-# hosts.lpd.5
+# hosts.lpd(5)
 
 `hosts.lpd` — 允许使用本地打印服务的受信任主机
 

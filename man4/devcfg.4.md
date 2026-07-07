@@ -1,4 +1,4 @@
-# devcfg.4
+# devcfg(4)
 
 `devcfg` — Zynq PL 设备配置接口
 

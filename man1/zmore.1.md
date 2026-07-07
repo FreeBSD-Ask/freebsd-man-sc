@@ -1,4 +1,4 @@
-# zmore.1
+# zmore(1)
 
 `zmore` — 查看压缩文件
 

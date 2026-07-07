@@ -1,4 +1,4 @@
-# BUS_CHILD_DELETED.9
+# BUS_CHILD_DELETED(9)
 
 `BUS_CHILD_DELETED` — 通知总线设备子设备将被删除
 

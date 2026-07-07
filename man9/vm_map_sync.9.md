@@ -1,4 +1,4 @@
-# vm\_map\_sync.9
+# vm_map_sync(9)
 
 `vm_map_sync` — 将脏页推送到其 pager
 

@@ -1,4 +1,4 @@
-# dpms.4
+# dpms(4)
 
 `dpms` — VESA BIOS DPMS 驱动
 

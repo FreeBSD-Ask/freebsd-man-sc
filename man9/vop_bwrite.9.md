@@ -1,4 +1,4 @@
-# VOP_BWRITE.9
+# VOP_BWRITE(9)
 
 `VOP_BWRITE` — 写入文件系统缓冲区
 

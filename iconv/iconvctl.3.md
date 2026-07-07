@@ -1,4 +1,4 @@
-# iconvctl.3
+# iconvctl(3)
 
 `iconvctl` — 控制 [iconv(3)](iconv.3.md) 的诊断设施
 

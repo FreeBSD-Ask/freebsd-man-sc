@@ -1,4 +1,4 @@
-# g_attach.9
+# g_attach(9)
 
 `g_attach` — 将 GEOM 消费者附加到/从提供者分离
 

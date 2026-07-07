@@ -1,4 +1,4 @@
-# dtrace_udplite.4
+# dtrace_udplite(4)
 
 `dtrace_udplite` — 用于跟踪与 UDP-Lite 协议相关事件的 DTrace 提供者
 

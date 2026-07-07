@@ -1,4 +1,4 @@
-# coredumper_register.9
+# coredumper_register(9)
 
 `coredumper_register` — 可加载的用户核心转储器支持
 

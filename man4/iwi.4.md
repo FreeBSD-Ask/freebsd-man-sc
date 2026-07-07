@@ -1,4 +1,4 @@
-# iwi.4
+# iwi(4)
 
 `iwi` — Intel PRO/Wireless 2200BG/2225BG/2915ABG IEEE 802.11 网络驱动
 

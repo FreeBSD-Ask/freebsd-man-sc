@@ -1,4 +1,4 @@
-# tcp\_functions.9
+# tcp_functions(9)
 
 `tcp_functions` — 替代 TCP 栈框架
 

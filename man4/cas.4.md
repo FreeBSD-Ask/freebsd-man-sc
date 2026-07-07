@@ -1,4 +1,4 @@
-# cas.4
+# cas(4)
 
 `cas` — Sun Cassini/Cassini+ 及 National Semiconductor DP83065 Saturn 千兆以太网驱动
 

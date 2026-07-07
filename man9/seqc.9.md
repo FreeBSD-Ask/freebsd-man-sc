@@ -1,4 +1,4 @@
-# seqc.9
+# seqc(9)
 
 `seqc_consistent` — 无锁读算法
 

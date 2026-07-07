@@ -1,4 +1,4 @@
-# amdsmu.4
+# amdsmu(4)
 
 `amdsmu` — AMD 系统管理单元设备驱动
 

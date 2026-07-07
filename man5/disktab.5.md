@@ -1,4 +1,4 @@
-# disktab.5
+# disktab(5)
 
 `disktab` — 磁盘描述文件
 

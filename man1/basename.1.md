@@ -1,4 +1,4 @@
-# basename.1
+# basename(1)
 
 `basename` — 返回路径名中的文件名或目录部分
 

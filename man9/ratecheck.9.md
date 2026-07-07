@@ -1,4 +1,4 @@
-# ratecheck.9
+# ratecheck(9)
 
 `ratecheck` — 事件速率限制
 

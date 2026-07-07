@@ -1,4 +1,4 @@
-# smsc.4
+# smsc(4)
 
 `smsc` — USB Microchip LAN9xxx 快速以太网驱动
 

@@ -1,4 +1,4 @@
-# pthread_rwlock_timedwrlock.3
+# pthread_rwlock_timedwrlock(3)
 
 `pthread_rwlock_timedwrlock` — 获取读写锁用于写入或在指定时间后放弃
 

@@ -1,4 +1,4 @@
-# pfsync.4
+# pfsync(4)
 
 `pfsync` — 包过滤器状态表同步接口
 

@@ -1,4 +1,4 @@
-# VOP\_INACTIVE.9
+# VOP_INACTIVE(9)
 
 `VOP_INACTIVE`, `VOP_RECLAIM` — 为 vnode 回收文件系统资源
 

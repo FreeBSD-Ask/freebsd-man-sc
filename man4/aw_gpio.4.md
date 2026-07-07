@@ -1,4 +1,4 @@
-# aw_gpio.4
+# aw_gpio(4)
 
 `aw_gpio` — Allwinner SoC 上 GPIO 与引脚复用功能驱动
 

@@ -1,4 +1,4 @@
-# ismt.4
+# ismt(4)
 
 `ismt` — Intel SMBus Message Transport (SMBus 2.0) 驱动
 

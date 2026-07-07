@@ -1,4 +1,4 @@
-# rtsx.4
+# rtsx(4)
 
 `rtsx` — Realtek SD 卡读卡器
 

@@ -1,4 +1,4 @@
-# cue.4
+# cue(4)
 
 `cue` — CATC USB-EL1210A USB 以太网驱动
 

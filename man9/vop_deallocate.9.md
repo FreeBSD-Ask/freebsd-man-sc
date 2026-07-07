@@ -1,4 +1,4 @@
-# VOP_DEALLOCATE.9
+# VOP_DEALLOCATE(9)
 
 `VOP_DEALLOCATE` — 将文件中的存储空间清零和/或释放
 

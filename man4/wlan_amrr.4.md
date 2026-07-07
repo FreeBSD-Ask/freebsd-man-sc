@@ -1,4 +1,4 @@
-# wlan_amrr.4
+# wlan_amrr(4)
 
 `wlan_amrr` — 802.11 设备的 AMRR 速率自适应算法支持
 

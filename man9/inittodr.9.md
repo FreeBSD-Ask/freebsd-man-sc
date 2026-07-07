@@ -1,4 +1,4 @@
-# inittodr.9
+# inittodr(9)
 
 `inittodr` — 初始化系统时间
 

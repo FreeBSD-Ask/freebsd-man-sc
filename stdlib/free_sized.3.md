@@ -1,4 +1,4 @@
-# free_sized.3
+# free_sized(3)
 
 `free_sized` — C23 带尺寸释放函数
 

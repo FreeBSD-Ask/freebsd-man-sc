@@ -1,4 +1,4 @@
-# netisr.9.md
+# netisr(9)
 
 `netisr` — 内核网络分发服务
 

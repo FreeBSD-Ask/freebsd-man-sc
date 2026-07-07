@@ -1,4 +1,4 @@
-# memalignment.3
+# memalignment(3)
 
 `memalignment` — 查找对象的内存对齐
 

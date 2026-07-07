@@ -1,4 +1,4 @@
-# ktrace.1
+# ktrace(1)
 
 `ktrace` — 启用内核进程跟踪
 

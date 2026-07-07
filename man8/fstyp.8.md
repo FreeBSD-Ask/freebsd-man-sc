@@ -1,4 +1,4 @@
-# fstyp.8
+# fstyp(8)
 
 `fstyp` — 确定文件系统类型
 

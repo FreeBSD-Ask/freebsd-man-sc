@@ -1,4 +1,4 @@
-# i2ctinyusb.4
+# i2ctinyusb(4)
 
 `i2ctinyusb` — USB/I2C 桥接设备驱动
 

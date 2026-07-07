@@ -1,4 +1,4 @@
-# devfs_set_cdevpriv.9
+# devfs_set_cdevpriv(9)
 
 `devfs_set_cdevpriv` — 管理设备的每次打开文件描述符数据
 

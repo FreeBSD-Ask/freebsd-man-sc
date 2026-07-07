@@ -1,4 +1,4 @@
-# mi_switch.9
+# mi_switch(9)
 
 `mi_switch` — 切换到另一线程上下文
 

@@ -1,4 +1,4 @@
-# devclass_get_count.9
+# devclass_get_count(9)
 
 `devclass_get_count` — 获取 devclass 中的设备数量
 

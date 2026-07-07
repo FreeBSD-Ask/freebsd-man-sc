@@ -1,4 +1,4 @@
-# pthread_barrier_destroy.3
+# pthread_barrier_destroy(3)
 
 `pthread_barrier_destroy` — 销毁、初始化或等待屏障对象
 

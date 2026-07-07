@@ -1,4 +1,4 @@
-# tmpfs.4
+# tmpfs(4)
 
 `tmpfs` — 内存文件系统
 

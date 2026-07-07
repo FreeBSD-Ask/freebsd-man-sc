@@ -1,4 +1,4 @@
-# xhci.4
+# xhci(4)
 
 `xhci` — USB eXtensible 主机控制器驱动
 

@@ -1,4 +1,4 @@
-# aw_spi.4
+# aw_spi(4)
 
 `aw_spi` — Allwinner SoC 中 SPI 控制器驱动
 

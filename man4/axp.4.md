@@ -1,4 +1,4 @@
-# axp.4
+# axp(4)
 
 `axp` — Advanced Micro Devices 10G 以太网驱动
 

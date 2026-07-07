@@ -1,4 +1,4 @@
-# rndtest.4
+# rndtest(4)
 
 `rndtest` — FIPS 140-2 随机数生成器测试监视器
 

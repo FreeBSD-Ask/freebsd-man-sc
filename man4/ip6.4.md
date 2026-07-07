@@ -1,4 +1,4 @@
-# ip6.4
+# ip6(4)
 
 `ip6` — Internet 协议版本 6（IPv6）网络层
 

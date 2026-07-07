@@ -1,4 +1,4 @@
-# VFS_ROOT.9
+# VFS_ROOT(9)
 
 `VFS_ROOT` — 返回文件系统的根 vnode
 

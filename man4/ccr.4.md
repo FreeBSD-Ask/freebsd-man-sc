@@ -1,4 +1,4 @@
-# ccr.4
+# ccr(4)
 
 `ccr` — Chelsio T6 加密加速器驱动
 

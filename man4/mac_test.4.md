@@ -1,4 +1,4 @@
-# mac_test.4
+# mac_test(4)
 
 `mac_test` — MAC 框架测试策略
 

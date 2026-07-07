@@ -1,4 +1,4 @@
-# pmap_init.9
+# pmap_init(9)
 
 `pmap_init` — 初始化 pmap 子系统
 

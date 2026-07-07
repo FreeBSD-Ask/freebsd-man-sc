@@ -1,4 +1,4 @@
-# pthread_cond_signal.3
+# pthread_cond_signal(3)
 
 `pthread_cond_signal` — 唤醒等待条件变量的线程
 

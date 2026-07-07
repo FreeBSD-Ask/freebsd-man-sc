@@ -1,4 +1,4 @@
-# xdma.4
+# xdma(4)
 
 `xdma` — DMA 抽象层
 

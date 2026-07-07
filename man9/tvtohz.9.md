@@ -1,4 +1,4 @@
-# tvtohz.9
+# tvtohz(9)
 
 `tvtohz` — 将时间间隔转换为时钟滴答数
 

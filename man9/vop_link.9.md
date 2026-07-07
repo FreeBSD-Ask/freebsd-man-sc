@@ -1,4 +1,4 @@
-# VOP_LINK.9
+# VOP_LINK(9)
 
 `VOP_LINK` — 为文件创建新名称
 

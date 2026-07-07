@@ -1,4 +1,4 @@
-# nvmf.4
+# nvmf(4)
 
 `nvmf` — NVM Express over Fabrics 主机驱动
 

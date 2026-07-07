@@ -1,4 +1,4 @@
-# BUS_BIND_INTR.9
+# BUS_BIND_INTR(9)
 
 `BUS_BIND_INTR` — 将中断资源绑定到特定 CPU
 

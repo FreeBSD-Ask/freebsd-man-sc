@@ -1,4 +1,4 @@
-# limits.1
+# limits(1)
 
 `limits` — set or display process resource limits
 

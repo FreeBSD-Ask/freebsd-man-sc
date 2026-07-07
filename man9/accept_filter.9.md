@@ -1,4 +1,4 @@
-# accept\_filter.9
+# accept_filter(9)
 
 `accept_filter` — 过滤传入连接
 

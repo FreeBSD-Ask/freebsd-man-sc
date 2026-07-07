@@ -1,4 +1,4 @@
-# perror.1
+# perror(1)
 
 `perror` — 将错误号以字符串形式打印
 

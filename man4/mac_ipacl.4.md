@@ -1,4 +1,4 @@
-# mac_ipacl.4
+# mac_ipacl(4)
 
 `mac_ipacl` — IP 地址访问控制策略
 

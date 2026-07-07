@@ -1,4 +1,4 @@
-# uslcom.4
+# uslcom(4)
 
 `uslcom` — 基于 Silicon Laboratories CP2101/CP2102/CP2103/CP2104/CP2105 的 USB 串口适配器
 

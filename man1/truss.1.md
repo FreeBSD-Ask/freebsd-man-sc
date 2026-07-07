@@ -1,4 +1,4 @@
-# truss.1
+# truss(1)
 
 `truss` — 跟踪系统调用
 

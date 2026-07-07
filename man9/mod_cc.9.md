@@ -1,4 +1,4 @@
-# mod_cc.9.md
+# mod_cc(9)
 
 `mod_cc` — 模块化拥塞控制
 

@@ -1,4 +1,4 @@
-# cxgb.4
+# cxgb(4)
 
 `cxgb` — Chelsio T3 10 千兆以太网适配器驱动
 

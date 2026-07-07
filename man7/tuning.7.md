@@ -1,4 +1,4 @@
-# tuning.7
+# tuning(7)
 
 `tuning` — FreeBSD 下的性能调优
 

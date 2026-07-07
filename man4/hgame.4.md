@@ -1,4 +1,4 @@
-# hgame.4
+# hgame(4)
 
 `hgame` — 通用 HID 游戏手柄、摇杆和控制器 evdev 驱动
 

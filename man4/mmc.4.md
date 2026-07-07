@@ -1,4 +1,4 @@
-# mmc.4
+# mmc(4)
 
 `mmc` — MultiMediaCard 和 SD 卡总线驱动
 

@@ -1,4 +1,4 @@
-# bhndb.4
+# bhndb(4)
 
 `bhndb` — Broadcom 家庭网络部门互连桥驱动
 

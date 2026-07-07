@@ -1,4 +1,4 @@
-# renice.8
+# renice(8)
 
 `renice` — 修改正在运行进程的优先级
 

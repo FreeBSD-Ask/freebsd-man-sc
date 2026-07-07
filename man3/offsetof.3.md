@@ -1,4 +1,4 @@
-# offsetof.3
+# offsetof(3)
 
 `offsetof` — 结构成员的偏移量
 

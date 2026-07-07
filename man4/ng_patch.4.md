@@ -1,4 +1,4 @@
-# ng_patch.4
+# ng_patch(4)
 
 `ng_patch` — 简易 mbuf 数据修改 netgraph 节点类型
 

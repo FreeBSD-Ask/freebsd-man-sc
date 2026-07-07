@@ -1,4 +1,4 @@
-# src.conf.5
+# src.conf(5)
 
 `src.conf` — 源码构建选项
 

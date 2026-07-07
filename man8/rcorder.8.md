@@ -1,4 +1,4 @@
-# rcorder.8
+# rcorder(8)
 
 `rcorder` — 打印相互依赖文件的依赖顺序
 

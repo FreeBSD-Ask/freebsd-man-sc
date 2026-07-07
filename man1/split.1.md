@@ -1,4 +1,4 @@
-# split.1
+# split(1)
 
 `split` — 将文件分割成多片
 

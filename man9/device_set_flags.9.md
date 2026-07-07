@@ -1,4 +1,4 @@
-# device\_set\_flags.9
+# device_set_flags(9)
 
 `device_set_flags` — 操作驱动程序标志
 

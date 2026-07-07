@@ -1,4 +1,4 @@
-# vge.4
+# vge(4)
 
 `vge` — VIA Networking Technologies Velocity 千兆以太网适配器驱动
 

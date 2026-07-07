@@ -1,4 +1,4 @@
-# pgfind.9
+# pgfind(9)
 
 `pgfind` — 按编号定位进程组
 

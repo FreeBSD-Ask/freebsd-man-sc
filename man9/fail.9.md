@@ -1,4 +1,4 @@
-# fail.9
+# fail(9)
 
 `DEBUG_FP` — 故障点
 

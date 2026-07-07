@@ -1,4 +1,4 @@
-# vale.4
+# vale(4)
 
 `vale` — 使用 netmap API 的极快虚拟局域以太网
 

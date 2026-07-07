@@ -1,4 +1,4 @@
-# lockstat.1
+# lockstat(1)
 
 `lockstat` — 报告内核锁和性能分析统计信息
 

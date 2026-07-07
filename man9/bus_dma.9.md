@@ -1,4 +1,4 @@
-# bus_dma.9
+# bus_dma(9)
 
 `bus_dma` — 总线与机器无关的 DMA 映射接口
 

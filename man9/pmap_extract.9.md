@@ -1,4 +1,4 @@
-# pmap_extract.9
+# pmap_extract(9)
 
 `pmap_extract` — 将虚拟地址映射到物理页面
 

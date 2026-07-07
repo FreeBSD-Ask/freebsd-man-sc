@@ -1,4 +1,4 @@
-# siginfo.3
+# siginfo(3)
 
 `siginfo` — 信号生成信息
 

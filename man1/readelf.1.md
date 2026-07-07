@@ -1,4 +1,4 @@
-# readelf.1
+# readelf(1)
 
 `readelf` — 显示 ELF 对象的相关信息
 

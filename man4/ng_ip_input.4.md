@@ -1,4 +1,4 @@
-# ng_ip_input.4
+# ng_ip_input(4)
 
 `ng_ip_input` — netgraph IP 输入节点类型
 

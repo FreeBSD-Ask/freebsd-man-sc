@@ -1,4 +1,4 @@
-# uftdi.4
+# uftdi(4)
 
 `uftdi` — Future Technology Devices International USB 串口 UART 驱动
 

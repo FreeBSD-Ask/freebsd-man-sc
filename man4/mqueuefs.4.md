@@ -1,4 +1,4 @@
-# mqueuefs.4
+# mqueuefs(4)
 
 `mqueuefs` — POSIX 消息队列文件系统
 

@@ -1,4 +1,4 @@
-# mxge.4
+# mxge(4)
 
 `mxge` — Myricom Myri10GE 10 千兆以太网适配器驱动
 

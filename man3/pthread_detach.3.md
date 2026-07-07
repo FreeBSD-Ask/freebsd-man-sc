@@ -1,4 +1,4 @@
-# pthread_detach.3
+# pthread_detach(3)
 
 `pthread_detach` — 分离线程
 

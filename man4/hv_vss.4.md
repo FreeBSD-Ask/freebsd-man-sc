@@ -1,4 +1,4 @@
-# hv_vss.4
+# hv_vss(4)
 
 `hv_vss` — Hyper-V 卷影复制服务 API
 

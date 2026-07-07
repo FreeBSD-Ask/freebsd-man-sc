@@ -1,4 +1,4 @@
-# mtkswitch.4
+# mtkswitch(4)
 
 `mtkswitch` — MediaTek/Ralink 以太网交换机驱动
 

@@ -1,4 +1,4 @@
-# chromebook_platform.4
+# chromebook_platform(4)
 
 `chromebook_platform` — 各种 Chromebook 型号硬件的支持驱动
 

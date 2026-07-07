@@ -1,4 +1,4 @@
-# enic.4
+# enic(4)
 
 `enic` — VIC 以太网 NIC 驱动
 

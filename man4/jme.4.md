@@ -1,4 +1,4 @@
-# jme.4
+# jme(4)
 
 `jme` — JMicron 千兆/快速以太网驱动
 

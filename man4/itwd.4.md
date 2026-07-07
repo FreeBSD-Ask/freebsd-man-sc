@@ -1,4 +1,4 @@
-# itwd.4
+# itwd(4)
 
 `itwd` — ITE Super I/O 芯片看门狗定时器驱动
 

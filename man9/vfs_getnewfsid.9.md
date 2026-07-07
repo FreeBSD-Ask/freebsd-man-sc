@@ -1,4 +1,4 @@
-# vfs\_getnewfsid.9
+# vfs_getnewfsid(9)
 
 `vfs_getnewfsid` — 分配新的文件系统标识符
 

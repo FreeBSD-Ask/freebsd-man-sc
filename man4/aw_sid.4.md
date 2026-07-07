@@ -1,4 +1,4 @@
-# aw_sid.4
+# aw_sid(4)
 
 `aw_sid` — Allwinner SoC 中 SID 控制器驱动
 

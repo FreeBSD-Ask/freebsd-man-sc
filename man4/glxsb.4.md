@@ -1,4 +1,4 @@
-# glxsb.4
+# glxsb(4)
 
 `glxsb` — Geode LX 安全块加密加速器
 

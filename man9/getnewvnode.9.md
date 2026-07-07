@@ -1,4 +1,4 @@
-# getnewvnode.9
+# getnewvnode(9)
 
 `getnewvnode` — 获取新 vnode
 

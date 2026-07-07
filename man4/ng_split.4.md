@@ -1,4 +1,4 @@
-# ng_split.4
+# ng_split(4)
 
 `ng_split` — 分离入站和出站数据流的 netgraph 节点
 

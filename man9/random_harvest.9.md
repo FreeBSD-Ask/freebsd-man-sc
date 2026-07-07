@@ -1,4 +1,4 @@
-# random\_harvest.9
+# random_harvest(9)
 
 `random_harvest` — 为熵设备从内核收集熵
 

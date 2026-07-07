@@ -1,4 +1,4 @@
-# VFS_SET.9
+# VFS_SET(9)
 
 `VFS_SET` — 设置可加载文件系统
 

@@ -1,4 +1,4 @@
-# bus_generic_shutdown.9
+# bus_generic_shutdown(9)
 
 `bus_generic_shutdown` — 总线 `DEVICE_SHUTDOWN` 的通用实现
 

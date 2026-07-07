@@ -1,4 +1,4 @@
-# zero\_region.9
+# zero_region(9)
 
 `zero_region` — 预填充为零的只读区域
 

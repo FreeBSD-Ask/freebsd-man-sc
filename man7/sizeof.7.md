@@ -1,4 +1,4 @@
-# sizeof.7
+# sizeof(7)
 
 `sizeof` — 返回给定操作数的存储大小
 

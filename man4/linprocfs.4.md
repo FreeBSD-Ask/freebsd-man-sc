@@ -1,4 +1,4 @@
-# linprocfs.4
+# linprocfs(4)
 
 `linprocfs` — Linux 进程文件系统
 

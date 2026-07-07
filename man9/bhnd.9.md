@@ -1,4 +1,4 @@
-# bhnd.9
+# bhnd(9)
 
 `bhnd` — BHND 驱动程序编程接口
 

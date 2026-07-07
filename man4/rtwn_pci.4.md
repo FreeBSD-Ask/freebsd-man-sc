@@ -1,4 +1,4 @@
-# rtwn_pci.4
+# rtwn_pci(4)
 
 `rtwn_pci` — Realtek 无线 rtwn 网络驱动程序的 PCI/PCIe 支持
 

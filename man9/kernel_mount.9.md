@@ -1,4 +1,4 @@
-# kernel_mount.9
+# kernel_mount(9)
 
 `free_mntarg` — 作为内核挂载接口的一部分提供的函数
 

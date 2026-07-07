@@ -1,4 +1,4 @@
-# backlight.9
+# backlight(9)
 
 `backlight` — 背光方法
 

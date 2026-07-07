@@ -1,4 +1,4 @@
-# security.7
+# security(7)
 
 `security` — FreeBSD 安全简介
 

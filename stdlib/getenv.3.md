@@ -1,4 +1,4 @@
-# getenv.3
+# getenv(3)
 
 `getenv`, `clearenv`, `getenv_r`, `putenv`, `secure_getenv`, `setenv`, `unsetenv` — 环境变量函数
 

@@ -1,4 +1,4 @@
-# boot0cfg.8
+# boot0cfg(8)
 
 `boot0cfg` — 引导管理器安装/配置工具
 

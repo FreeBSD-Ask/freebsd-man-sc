@@ -1,4 +1,4 @@
-# asmc.4
+# asmc(4)
 
 `asmc` — Apple 系统管理控制器（SMC）设备驱动
 

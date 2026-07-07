@@ -1,4 +1,4 @@
-# iic_gpiomux.4
+# iic_gpiomux(4)
 
 `iic_gpiomux` — 通过 GPIO 控制的 I2C 多路复用器硬件驱动
 

@@ -1,4 +1,4 @@
-# procfs.4
+# procfs(4)
 
 `procfs` — 进程文件系统
 

@@ -1,4 +1,4 @@
-# killpg.2
+# killpg(2)
 
 `killpg` — 向进程组发送信号
 

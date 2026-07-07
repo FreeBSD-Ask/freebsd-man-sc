@@ -1,4 +1,4 @@
-# pthread_spin_init.3
+# pthread_spin_init(3)
 
 `pthread_spin_init` — 初始化或销毁自旋锁
 

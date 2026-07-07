@@ -1,4 +1,4 @@
-# vte.4
+# vte(4)
 
 `vte` — Vortex86 RDC R6040 快速以太网驱动
 

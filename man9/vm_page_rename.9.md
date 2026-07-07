@@ -1,4 +1,4 @@
-# vm\_page\_rename.9
+# vm_page_rename(9)
 
 `vm_page_rename` — 移动一个页面
 

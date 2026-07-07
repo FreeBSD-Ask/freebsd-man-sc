@@ -1,4 +1,4 @@
-# system.3
+# system(3)
 
 `system` — 将命令传递给 shell
 

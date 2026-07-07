@@ -1,4 +1,4 @@
-# multicast.4
+# multicast(4)
 
 `multicast` — 多播路由
 

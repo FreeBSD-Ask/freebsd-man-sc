@@ -1,4 +1,4 @@
-# ip.4
+# ip(4)
 
 `ip` — Internet 协议
 

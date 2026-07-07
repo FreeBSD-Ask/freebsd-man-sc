@@ -1,4 +1,4 @@
-# devctl_notify.9
+# devctl_notify(9)
 
 `devctl_notify` — 通过 devctl 向用户态发送消息
 

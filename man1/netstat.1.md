@@ -1,4 +1,4 @@
-# netstat.1
+# netstat(1)
 
 `netstat` — 显示网络状态和统计信息
 

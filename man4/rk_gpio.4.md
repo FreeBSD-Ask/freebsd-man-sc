@@ -1,4 +1,4 @@
-# rk\_gpio.4
+# rk_gpio(4)
 
 `rk_gpio` — RockChip SoC 上 GPIO 控制器的驱动
 

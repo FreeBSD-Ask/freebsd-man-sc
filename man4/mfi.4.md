@@ -1,4 +1,4 @@
-# mfi.4
+# mfi(4)
 
 `mfi` — LSI MegaRAID SAS 驱动
 

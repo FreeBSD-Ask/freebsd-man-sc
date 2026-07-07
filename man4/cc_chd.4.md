@@ -1,4 +1,4 @@
-# cc_chd.4
+# cc_chd(4)
 
 `cc_chd` — CHD 拥塞控制算法
 

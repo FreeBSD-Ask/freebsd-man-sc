@@ -1,4 +1,4 @@
-# dtrace_kinst.4
+# dtrace_kinst(4)
 
 `dtrace_kinst` — 用于跟踪给定内核函数中任意指令的 DTrace 提供者
 

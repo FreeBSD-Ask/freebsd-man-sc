@@ -1,4 +1,4 @@
-# siftr.4
+# siftr(4)
 
 `SIFTR` — 用于 TCP 研究的统计信息
 

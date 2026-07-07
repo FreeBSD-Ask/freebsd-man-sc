@@ -1,4 +1,4 @@
-# operator.7
+# operator(7)
 
 `operator` — C 和 C++ 运算符优先级与求值顺序
 

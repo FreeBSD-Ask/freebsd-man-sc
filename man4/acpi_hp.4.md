@@ -1,4 +1,4 @@
-# acpi_hp.4
+# acpi_hp(4)
 
 `acpi_hp` — HP 笔记本的 ACPI 附加功能驱动
 

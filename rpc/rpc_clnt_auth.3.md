@@ -1,4 +1,4 @@
-# auth_destroy(3)
+# rpc_clnt_auth(3)
 
 `auth_destroy` — 客户端远程过程调用认证的库例程
 

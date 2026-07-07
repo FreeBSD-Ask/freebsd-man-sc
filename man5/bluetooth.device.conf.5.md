@@ -1,4 +1,4 @@
-# bluetooth.device.conf.5
+# bluetooth.device.conf(5)
 
 `bluetooth.device.conf` — 蓝牙设备配置文件
 

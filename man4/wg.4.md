@@ -1,4 +1,4 @@
-# wg.4
+# wg(4)
 
 `wg` — WireGuard 协议驱动
 

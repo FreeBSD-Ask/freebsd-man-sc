@@ -1,4 +1,4 @@
-# ath10k.4
+# ath10k(4)
 
 `ath10k` — Qualcomm Atheros IEEE 802.11ac 无线网络驱动
 

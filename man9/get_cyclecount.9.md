@@ -1,4 +1,4 @@
-# get_cyclecount.9
+# get_cyclecount(9)
 
 `get_cyclecount` — 获取 CPU 的快速计数器寄存器内容
 

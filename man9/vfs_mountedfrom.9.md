@@ -1,4 +1,4 @@
-# vfs\_mountedfrom.9
+# vfs_mountedfrom(9)
 
 `vfs_mountedfrom` — 设置挂载的来源名称
 

@@ -1,4 +1,4 @@
-# pmap\_remove.9
+# pmap_remove(9)
 
 `pmap_remove` — 从物理映射中移除页面
 

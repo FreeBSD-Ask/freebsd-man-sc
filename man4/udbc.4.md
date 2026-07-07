@@ -1,4 +1,4 @@
-# udbc.4
+# udbc(4)
 
 `udbc` — USB 调试类设备驱动
 

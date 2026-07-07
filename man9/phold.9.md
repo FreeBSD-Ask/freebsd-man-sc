@@ -1,4 +1,4 @@
-# PHOLD.9
+# PHOLD(9)
 
 `PHOLD` — 保持进程
 

@@ -1,4 +1,4 @@
-# vref.9
+# vref(9)
 
 `vref`, `vrefl` — 增加 vnode 的使用计数
 

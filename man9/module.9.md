@@ -1,4 +1,4 @@
-# module.9
+# module(9)
 
 `module` — 描述内核模块的结构
 

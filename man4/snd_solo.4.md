@@ -1,4 +1,4 @@
-# snd_solo.4
+# snd_solo(4)
 
 `snd_solo` — ESS Solo-1/1E PCI 桥设备驱动
 

@@ -1,4 +1,4 @@
-# rsufw.4
+# rsufw(4)
 
 `rsufw` — Realtek 驱动的固件模块
 

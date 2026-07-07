@@ -1,4 +1,4 @@
-# ng_lmi.4
+# ng_lmi(4)
 
 `ng_lmi` — 帧中继 LMI 协议 netgraph 节点类型
 

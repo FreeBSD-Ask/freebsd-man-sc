@@ -1,4 +1,4 @@
-# tarfs.4
+# tarfs(4)
 
 `tarfs` — tarball 文件系统
 

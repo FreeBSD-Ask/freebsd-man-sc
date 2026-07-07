@@ -1,4 +1,4 @@
-# ftp.1
+# pftp(1)
 
 `ftp` — Internet 文件传输程序
 

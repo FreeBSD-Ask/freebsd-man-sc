@@ -1,4 +1,4 @@
-# pcm.4
+# pcm(4)
 
 `sound` — FreeBSD PCM 音频设备基础设施
 

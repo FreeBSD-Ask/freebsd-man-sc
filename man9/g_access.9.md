@@ -1,4 +1,4 @@
-# g_access.9
+# g_access(9)
 
 `g_access` — 控制对 GEOM 消费者及其提供者的访问
 

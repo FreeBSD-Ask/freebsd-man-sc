@@ -1,4 +1,4 @@
-# termios.4
+# termios(4)
 
 `termios` — 通用终端线路规程
 

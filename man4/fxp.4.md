@@ -1,4 +1,4 @@
-# fxp.4
+# fxp(4)
 
 `fxp` — Intel EtherExpress PRO/100 以太网设备驱动程序
 

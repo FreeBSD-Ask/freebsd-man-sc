@@ -1,4 +1,4 @@
-# valloc.3
+# valloc(3)
 
 `valloc` — 对齐的内存分配函数
 

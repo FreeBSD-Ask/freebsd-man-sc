@@ -1,4 +1,4 @@
-# devctl.4
+# devctl(4)
 
 `devctl` — 设备事件报告与设备控制接口
 

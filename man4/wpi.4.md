@@ -1,4 +1,4 @@
-# wpi.4
+# wpi(4)
 
 `wpi` — Intel PRO/Wireless 3945ABG IEEE 802.11a/b/g 网络驱动
 

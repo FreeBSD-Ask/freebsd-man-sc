@@ -1,4 +1,4 @@
-# ntptime.8
+# ntptime(8)
 
 `ntptime` — 读取内核时间变量
 

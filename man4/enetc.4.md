@@ -1,4 +1,4 @@
-# enetc.4
+# enetc(4)
 
 `enetc` — Freescale ENETC PCIe 千兆以太网驱动
 

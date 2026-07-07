@@ -1,4 +1,4 @@
-# smp.4
+# smp(4)
 
 `SMP` — FreeBSD 对称多处理器内核说明
 

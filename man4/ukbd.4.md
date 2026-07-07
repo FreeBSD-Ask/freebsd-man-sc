@@ -1,4 +1,4 @@
-# ukbd.4
+# ukbd(4)
 
 `ukbd` — USB 键盘驱动
 

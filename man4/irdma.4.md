@@ -1,4 +1,4 @@
-# irdma.4
+# irdma(4)
 
 `irdma` — Intel(R) Ethernet Controller E810 的 RDMA FreeBSD 驱动
 

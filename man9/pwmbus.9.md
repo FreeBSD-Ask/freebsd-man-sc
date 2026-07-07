@@ -1,4 +1,4 @@
-# pwmbus.9
+# pwmbus(9)
 
 `pwmbus` — PWMBUS 方法
 

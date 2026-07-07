@@ -1,4 +1,4 @@
-# scheduler.9
+# scheduler(9)
 
 `curpriority_cmp` — 对可运行进程执行轮转调度
 

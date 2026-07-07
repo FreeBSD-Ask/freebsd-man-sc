@@ -1,4 +1,4 @@
-# pthread_create.3
+# pthread_create(3)
 
 `pthread_create` — 创建新线程
 

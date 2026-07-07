@@ -1,4 +1,4 @@
-# lessecho.1
+# lessecho(1)
 
 `lessecho` — expand metacharacters
 

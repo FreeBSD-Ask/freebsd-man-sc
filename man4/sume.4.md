@@ -1,4 +1,4 @@
-# sume.4
+# sume(4)
 
 `sume` — NetFPGA SUME 4x10Gb 以太网驱动
 

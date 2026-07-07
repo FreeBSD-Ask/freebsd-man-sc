@@ -1,4 +1,4 @@
-# ioat.4
+# ioat(4)
 
 `I/OAT` — Intel I/O 加速技术
 

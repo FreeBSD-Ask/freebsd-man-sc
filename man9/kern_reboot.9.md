@@ -1,4 +1,4 @@
-# kern_reboot.9
+# kern_reboot(9)
 
 `kern_reboot` — 重启、停机或关闭系统电源
 

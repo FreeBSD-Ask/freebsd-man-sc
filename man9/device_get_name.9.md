@@ -1,4 +1,4 @@
-# device\_get\_name.9
+# device_get_name(9)
 
 `device_get_name` — 访问设备的设备类或实例名称
 

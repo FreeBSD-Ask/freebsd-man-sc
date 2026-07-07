@@ -1,4 +1,4 @@
-# funopen.3
+# funopen(3)
 
 `funopen` — 打开流
 

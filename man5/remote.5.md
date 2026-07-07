@@ -1,4 +1,4 @@
-# remote.5
+# remote(5)
 
 `remote` — 远程主机描述文件
 

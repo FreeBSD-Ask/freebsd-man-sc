@@ -1,4 +1,4 @@
-# vm\_map\_lookup.9
+# vm_map_lookup(9)
 
 `vm_map_lookup`, `vm_map_lookup_done` — 查找支持给定虚拟区域的 vm_object
 

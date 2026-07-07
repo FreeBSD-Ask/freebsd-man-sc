@@ -1,4 +1,4 @@
-# vm\_map\_insert.9
+# vm_map_insert(9)
 
 `vm_map_insert` — 将一个对象插入到映射中
 

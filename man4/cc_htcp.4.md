@@ -1,4 +1,4 @@
-# cc_htcp.4
+# cc_htcp(4)
 
 `cc_htcp` — H-TCP 拥塞控制算法
 

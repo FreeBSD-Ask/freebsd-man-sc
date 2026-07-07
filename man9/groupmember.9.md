@@ -1,4 +1,4 @@
-# groupmember.9
+# groupmember(9)
 
 `groupmember` — 检查凭据是否要求某些组成员身份
 

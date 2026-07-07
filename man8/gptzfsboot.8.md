@@ -1,4 +1,4 @@
-# gptzfsboot.8
+# gptzfsboot(8)
 
 `gptzfsboot` — 用于基于 BIOS 的计算机上从 ZFS 启动的 GPT 引导代码
 

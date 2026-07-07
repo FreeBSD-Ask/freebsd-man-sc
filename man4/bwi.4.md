@@ -1,4 +1,4 @@
-# bwi.4
+# bwi(4)
 
 `bwi` — Broadcom BCM43xx IEEE 802.11b/g 无线网络驱动
 

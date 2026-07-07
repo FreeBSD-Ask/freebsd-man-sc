@@ -1,4 +1,4 @@
-# truncate.1
+# truncate(1)
 
 `truncate` — 调整文件大小或管理文件空间
 

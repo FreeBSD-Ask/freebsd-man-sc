@@ -1,4 +1,4 @@
-# cxgbe.4
+# cxgbe(4)
 
 `cxgbe` — 基于 Chelsio T7、T6、T5 和 T4 的 1Gb 至 400Gb 以太网驱动
 

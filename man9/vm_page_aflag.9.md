@@ -1,4 +1,4 @@
-# vm\_page\_aflag.9
+# vm_page_aflag(9)
 
 `vm_page_aflag_clear`, `vm_page_aflag_set`, `vm_page_reference` — 更改页面原子标志
 

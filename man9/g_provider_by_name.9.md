@@ -1,4 +1,4 @@
-# g_provider_by_name.9
+# g_provider_by_name(9)
 
 `g_provider_by_name` — 查找具有给定名称的 GEOM 提供者
 

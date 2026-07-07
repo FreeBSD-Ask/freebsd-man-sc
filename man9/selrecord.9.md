@@ -1,4 +1,4 @@
-# selrecord.9
+# selrecord(9)
 
 `seldrain` — 记录和唤醒 select 请求
 

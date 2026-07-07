@@ -1,4 +1,4 @@
-# hosts.equiv.5
+# hosts.equiv(5)
 
 `hosts.equiv` — 受信任的远程主机和用户名数据库
 

@@ -1,4 +1,4 @@
-# reallocarray.3
+# reallocarray(3)
 
 `reallocarray` — 内存重新分配函数
 

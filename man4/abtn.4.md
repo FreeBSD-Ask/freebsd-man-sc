@@ -1,4 +1,4 @@
-# abtn.4
+# abtn(4)
 
 `abtn` — ADB 键盘特殊键驱动
 

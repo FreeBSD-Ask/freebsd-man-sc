@@ -1,4 +1,4 @@
-# pthread_schedparam.3
+# pthread_schedparam(3)
 
 `pthread_setschedparam` — 线程调度参数操作
 

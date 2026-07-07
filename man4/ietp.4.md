@@ -1,4 +1,4 @@
-# ietp.4
+# ietp(4)
 
 `ietp` — Elantech I2C 触摸板设备驱动
 

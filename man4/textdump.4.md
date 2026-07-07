@@ -1,4 +1,4 @@
-# textdump.4
+# textdump(4)
 
 `textdump` — textdump 内核转储设施
 

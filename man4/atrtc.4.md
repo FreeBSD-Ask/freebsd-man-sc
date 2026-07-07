@@ -1,4 +1,4 @@
-# atrtc.4
+# atrtc(4)
 
 `atrtc` — AT 实时时钟（RTC）驱动
 

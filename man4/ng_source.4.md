@@ -1,4 +1,4 @@
-# ng_source.4
+# ng_source(4)
 
 `ng_source` — 用于流量生成的 netgraph 节点
 

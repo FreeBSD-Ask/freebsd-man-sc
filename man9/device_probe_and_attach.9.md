@@ -1,4 +1,4 @@
-# device\_probe\_and\_attach.9
+# device_probe_and_attach(9)
 
 `device_attach` — 管理设备与设备驱动程序的连接
 

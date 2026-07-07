@@ -1,4 +1,4 @@
-# snd_emu10kx.4
+# snd_emu10kx(4)
 
 `snd_emu10kx` — Creative SoundBlaster Live! 和 Audigy 声卡设备驱动
 

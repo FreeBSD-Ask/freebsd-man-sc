@@ -1,4 +1,4 @@
-# ciss.4
+# ciss(4)
 
 `ciss` — Common Interface for SCSI-3 Support 驱动
 

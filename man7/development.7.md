@@ -1,4 +1,4 @@
-# development.7
+# development(7)
 
 `development` — FreeBSD 开发流程简介
 

@@ -1,4 +1,4 @@
-# ata.4
+# ata(4)
 
 `ata` — 通用 ATA/SATA 控制器驱动
 

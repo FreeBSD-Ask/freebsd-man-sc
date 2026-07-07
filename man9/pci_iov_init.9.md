@@ -1,4 +1,4 @@
-# PCI\_IOV\_INIT.9
+# PCI_IOV_INIT(9)
 
 `PCI_IOV_INIT` — 在 PF 设备上启用 SR-IOV
 

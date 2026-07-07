@@ -1,4 +1,4 @@
-# iflibdi.9
+# iflibdi(9)
 
 `iflibdi` — 设备无关配置函数
 

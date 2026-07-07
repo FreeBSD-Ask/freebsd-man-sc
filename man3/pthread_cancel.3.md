@@ -1,4 +1,4 @@
-# pthread_cancel.3
+# pthread_cancel(3)
 
 `pthread_cancel` — 取消线程的执行
 

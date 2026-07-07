@@ -1,4 +1,4 @@
-# sockstat.1
+# sockstat(1)
 
 `sockstat` — 列出打开的套接字
 

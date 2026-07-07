@@ -1,4 +1,4 @@
-# uvscom.4
+# uvscom(4)
 
 `uvscom` — SUNTAC Slipper U VS-10U 串口适配器的 USB 支持驱动
 

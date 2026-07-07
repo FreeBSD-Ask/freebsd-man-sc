@@ -1,4 +1,4 @@
-# sem_destroy.3
+# sem_destroy(3)
 
 `sem_destroy` — 销毁一个未命名信号量
 

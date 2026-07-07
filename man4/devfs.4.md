@@ -1,4 +1,4 @@
-# devfs.4
+# devfs(4)
 
 `devfs` — 设备文件系统
 

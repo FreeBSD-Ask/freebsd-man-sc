@@ -1,4 +1,4 @@
-# dmesg.8
+# dmesg(8)
 
 `dmesg` — 显示内核消息缓冲区
 

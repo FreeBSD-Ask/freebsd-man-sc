@@ -1,4 +1,4 @@
-# hv_storvsc.4
+# hv_storvsc(4)
 
 `hv_storvsc` — Hyper-V 存储虚拟服务消费者
 

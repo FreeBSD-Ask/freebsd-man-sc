@@ -1,4 +1,4 @@
-# tzsetup.8
+# tzsetup(8)
 
 `tzsetup` — 设置本地时区
 

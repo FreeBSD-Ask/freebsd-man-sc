@@ -1,4 +1,4 @@
-# cardbus.4
+# cardbus(4)
 
 `cardbus` — CardBus 总线驱动
 

@@ -1,4 +1,4 @@
-# vslock.9
+# vslock(9)
 
 `vslock`, `vsunlock` — 将用户空间地址锁定/解锁在内存中
 

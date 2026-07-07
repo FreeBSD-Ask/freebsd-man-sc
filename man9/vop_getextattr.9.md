@@ -1,4 +1,4 @@
-# VOP_GETEXTATTR.9
+# VOP_GETEXTATTR(9)
 
 `VOP_GETEXTATTR` — 从 vnode 检索命名的扩展属性
 

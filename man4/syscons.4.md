@@ -1,4 +1,4 @@
-# syscons.4
+# syscons(4)
 
 `syscons` — 旧版控制台驱动程序
 

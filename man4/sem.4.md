@@ -1,4 +1,4 @@
-# sem.4
+# sem(4)
 
 `sem` — POSIX 信号量
 

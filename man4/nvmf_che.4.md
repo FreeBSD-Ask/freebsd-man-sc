@@ -1,4 +1,4 @@
-# nvmf_che.4
+# nvmf_che(4)
 
 `nvmf_che` — Chelsio NIC 上 NVM Express over Fabrics 的 TCP 传输
 

@@ -1,4 +1,4 @@
-# ng_macfilter.4
+# ng_macfilter(4)
 
 `ng_macfilter` — 使用以太网 MAC 地址的数据包过滤 netgraph 节点
 

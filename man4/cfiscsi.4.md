@@ -1,4 +1,4 @@
-# cfiscsi.4
+# cfiscsi(4)
 
 `cfiscsi` — CAM 目标层 iSCSI target 前端
 

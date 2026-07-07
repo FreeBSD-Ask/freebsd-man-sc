@@ -1,4 +1,4 @@
-# igc.4
+# igc(4)
 
 `igc` — Intel Ethernet Controller I225 2.5GbE 驱动
 

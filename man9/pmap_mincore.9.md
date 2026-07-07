@@ -1,4 +1,4 @@
-# pmap_mincore.9
+# pmap_mincore(9)
 
 `pmap_mincore` — 确定虚拟地址是否驻留在物理内存中
 

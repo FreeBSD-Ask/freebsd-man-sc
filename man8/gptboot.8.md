@@ -1,4 +1,4 @@
-# gptboot.8
+# gptboot(8)
 
 `gptboot` — 用于基于 BIOS 的计算机上从 UFS 启动的 GPT 引导代码
 

@@ -1,4 +1,4 @@
-# rarpd.8
+# rarpd(8)
 
 `rarpd` — 反向 ARP 守护进程
 

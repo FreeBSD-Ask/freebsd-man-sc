@@ -1,4 +1,4 @@
-# wlan_gcmp.4
+# wlan_gcmp(4)
 
 `wlan_gcmp` — 802.11 设备的 AES-GCMP 加密支持
 

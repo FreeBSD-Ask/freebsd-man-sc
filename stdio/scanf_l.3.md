@@ -1,4 +1,4 @@
-# scanf_l.3
+# scanf_l(3)
 
 `scanf_l` — 输入格式转换
 

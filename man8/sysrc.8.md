@@ -1,4 +1,4 @@
-# sysrc.8
+# sysrc(8)
 
 `sysrc` — 安全地编辑系统 rc 文件
 

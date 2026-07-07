@@ -1,4 +1,4 @@
-# kue.4
+# kue(4)
 
 `kue` — Kawasaki LSI KL5KUSB101B USB 以太网驱动
 

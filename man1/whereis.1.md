@@ -1,4 +1,4 @@
-# whereis.1
+# whereis(1)
 
 `whereis` — 定位程序
 

@@ -1,4 +1,4 @@
-# time.9
+# time(9)
 
 `boottime` — 系统时间变量
 

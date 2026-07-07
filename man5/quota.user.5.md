@@ -1,4 +1,4 @@
-# quota.user.5
+# quota.user(5)
 
 `quota.user` — 每个文件系统的配额数据库
 

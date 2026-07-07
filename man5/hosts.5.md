@@ -1,4 +1,4 @@
-# hosts.5
+# hosts(5)
 
 `hosts` — 主机名数据库
 

@@ -1,4 +1,4 @@
-# loader.8
+# loader(8)
 
 `loader` — 内核引导的最终阶段
 

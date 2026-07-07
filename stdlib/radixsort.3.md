@@ -1,4 +1,4 @@
-# radixsort.3
+# radixsort(3)
 
 `radixsort` — 基数排序
 

@@ -1,4 +1,4 @@
-# iconvlist.3
+# iconvlist(3)
 
 `iconvlist` — 获取 [iconv(3)](iconv.3.md) 所支持的字符编码列表
 

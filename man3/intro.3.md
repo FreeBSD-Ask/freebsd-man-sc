@@ -1,4 +1,4 @@
-# intro.3
+# intro(3)
 
 `intro` — C 库简介
 

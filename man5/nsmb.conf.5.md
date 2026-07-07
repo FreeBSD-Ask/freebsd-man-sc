@@ -1,4 +1,4 @@
-# nsmb.conf.5
+# nsmb.conf(5)
 
 `nsmb.conf` — 服务器消息块（SMB1/CIFS）请求的配置文件
 

@@ -1,4 +1,4 @@
-# routed.8
+# routed(8)
 
 `routed`, `rdisc` — 网络 RIP 和路由器发现路由守护进程
 

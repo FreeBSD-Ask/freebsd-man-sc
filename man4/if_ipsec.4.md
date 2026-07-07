@@ -1,4 +1,4 @@
-# if_ipsec.4
+# if_ipsec(4)
 
 `if_ipsec` — IPsec 虚拟隧道接口
 

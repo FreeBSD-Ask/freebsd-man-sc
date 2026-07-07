@@ -1,4 +1,4 @@
-# aue.4
+# aue(4)
 
 `aue` — ADMtek AN986 Pegasus USB 快速以太网驱动
 

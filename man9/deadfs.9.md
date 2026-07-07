@@ -1,4 +1,4 @@
-# deadfs.9
+# deadfs(9)
 
 `deadfs` — 拥有已回收 vnode 的伪文件系统
 

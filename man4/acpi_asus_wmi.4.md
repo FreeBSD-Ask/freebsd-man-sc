@@ -1,4 +1,4 @@
-# acpi_asus_wmi.4
+# acpi_asus_wmi(4)
 
 `acpi_asus_wmi` — Asus 笔记本 WMI 附加功能
 

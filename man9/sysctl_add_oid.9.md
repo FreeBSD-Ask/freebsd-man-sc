@@ -1,4 +1,4 @@
-# sysctl_add_oid.9
+# sysctl_add_oid(9)
 
 `sysctl_add_oid` — 运行时 sysctl 树操作
 

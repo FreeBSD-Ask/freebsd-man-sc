@@ -1,4 +1,4 @@
-# hkbd.4
+# hkbd(4)
 
 `hkbd` — HID 键盘驱动
 

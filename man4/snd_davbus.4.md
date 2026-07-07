@@ -1,4 +1,4 @@
-# snd\_davbus.4
+# snd_davbus(4)
 
 `snd_davbus` — Apple Davbus 音频设备驱动
 

@@ -1,4 +1,4 @@
-# cxgbev.4
+# cxgbev(4)
 
 `cxgbev` — 基于 Chelsio T4、T5 和 T6 的 100Gb、40Gb、25Gb、10Gb 和 1Gb 以太网 VF 驱动
 

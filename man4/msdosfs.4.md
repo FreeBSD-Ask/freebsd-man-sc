@@ -1,4 +1,4 @@
-# msdosfs.4
+# msdosfs(4)
 
 `msdosfs` — MS-DOS（FAT）文件系统
 

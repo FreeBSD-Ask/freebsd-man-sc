@@ -1,4 +1,4 @@
-# intr_event.9
+# intr_event(9)
 
 `intr_event_add_handler` — 内核中断处理程序与线程 API
 

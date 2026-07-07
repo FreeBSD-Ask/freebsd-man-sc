@@ -1,4 +1,4 @@
-# nvmem.9.md
+# nvmem(9)
 
 `nvmem` — 非易失性内存单元访问
 

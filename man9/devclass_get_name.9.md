@@ -1,4 +1,4 @@
-# devclass_get_name.9
+# devclass_get_name(9)
 
 `devclass_get_name` — 访问 devclass 的名称
 

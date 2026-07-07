@@ -1,4 +1,4 @@
-# virtio_blk.4
+# virtio_blk(4)
 
 `virtio_blk` — VirtIO 块设备驱动
 

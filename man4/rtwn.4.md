@@ -1,4 +1,4 @@
-# rtwn.4
+# rtwn(4)
 
 `rtwn` — Realtek IEEE 802.11n/ac 无线网络驱动
 

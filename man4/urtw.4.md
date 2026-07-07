@@ -1,4 +1,4 @@
-# urtw.4
+# urtw(4)
 
 `urtw` — Realtek RTL8187B/L USB IEEE 802.11b/g 无线网络驱动
 

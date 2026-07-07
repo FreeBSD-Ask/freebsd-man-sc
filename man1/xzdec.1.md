@@ -1,4 +1,4 @@
-# xzdec.1
+# xzdec(1)
 
 `xzdec`, `lzmadec` — 小型 `.xz` 和 `.lzma` 解压缩器
 

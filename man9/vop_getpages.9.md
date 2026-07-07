@@ -1,4 +1,4 @@
-# VOP_GETPAGES.9
+# VOP_GETPAGES(9)
 
 `VOP_GETPAGES` — 从文件读取或写入 VM 页面
 

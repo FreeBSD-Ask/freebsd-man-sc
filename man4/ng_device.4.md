@@ -1,4 +1,4 @@
-# ng_device.4
+# ng_device(4)
 
 `ng_device` — 设备 netgraph 节点类型
 

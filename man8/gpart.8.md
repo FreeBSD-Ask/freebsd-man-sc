@@ -1,4 +1,4 @@
-# gpart.8
+# gpart(8)
 
 `gpart` — 磁盘分区 GEOM 类的控制工具
 

@@ -1,4 +1,4 @@
-# imx\_spi.4
+# imx_spi(4)
 
 `imx_spi` — NXP i.MX 系列 SPI（Serial Peripheral Interface，串行外设接口）驱动
 

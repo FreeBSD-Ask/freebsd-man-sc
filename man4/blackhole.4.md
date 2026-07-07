@@ -1,4 +1,4 @@
-# blackhole.4
+# blackhole(4)
 
 `blackhole` — 静默丢弃被拒绝的 SCTP、TCP 或 UDP 数据包
 

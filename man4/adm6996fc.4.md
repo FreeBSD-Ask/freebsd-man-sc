@@ -1,4 +1,4 @@
-# adm6996fc.4
+# adm6996fc(4)
 
 `adm6996fc` — Infineon ADM6996FC 快速以太网交换芯片驱动
 

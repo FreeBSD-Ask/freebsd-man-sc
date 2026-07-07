@@ -1,4 +1,4 @@
-# xz.1
+# xzcat(1)
 
 `xz`, `unxz`, `xzcat`, `lzma`, `unlzma`, `lzcat` — 压缩或解压 `.xz` 和 `.lzma` 文件
 

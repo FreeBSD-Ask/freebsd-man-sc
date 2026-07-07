@@ -1,4 +1,4 @@
-# strxfrm.3
+# strxfrm(3)
 
 `strxfrm` — 在 locale 下转换字符串
 

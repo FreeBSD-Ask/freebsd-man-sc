@@ -1,4 +1,4 @@
-# hptrr.4
+# hptrr(4)
 
 `hptrr` — HighPoint RocketRAID 设备驱动
 

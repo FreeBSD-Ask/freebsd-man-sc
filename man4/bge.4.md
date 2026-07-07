@@ -1,4 +1,4 @@
-# bge.4
+# bge(4)
 
 `bge` — Broadcom BCM57xx/BCM590x 千兆/快速以太网驱动
 

@@ -1,4 +1,4 @@
-# aibs.4
+# aibs(4)
 
 `aibs` — ASUSTeK AI Booster ACPI ATK0110 电压、温度和风扇传感器
 

@@ -1,4 +1,4 @@
-# VOP_RENAME.9
+# VOP_RENAME(9)
 
 `VOP_RENAME` — 重命名文件
 

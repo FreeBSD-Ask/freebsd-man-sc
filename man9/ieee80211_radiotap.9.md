@@ -1,4 +1,4 @@
-# ieee80211_radiotap.9
+# ieee80211_radiotap(9)
 
 `ieee80211_radiotap` — 802.11 设备数据包捕获支持
 

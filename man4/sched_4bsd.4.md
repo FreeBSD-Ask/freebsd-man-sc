@@ -1,4 +1,4 @@
-# sched_4bsd.4
+# sched_4bsd(4)
 
 `sched_4bsd` — 4.4BSD 调度器
 

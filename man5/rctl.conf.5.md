@@ -1,4 +1,4 @@
-# rctl.conf.5
+# rctl.conf(5)
 
 `rctl.conf` — 资源限制数据库默认值
 

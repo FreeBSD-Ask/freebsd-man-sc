@@ -1,4 +1,4 @@
-# smu.4
+# smu(4)
 
 `smu` — Apple System Management Unit 驱动
 

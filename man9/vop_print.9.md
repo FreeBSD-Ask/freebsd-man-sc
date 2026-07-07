@@ -1,4 +1,4 @@
-# VOP_PRINT.9
+# VOP_PRINT(9)
 
 `VOP_PRINT` — 打印调试信息
 

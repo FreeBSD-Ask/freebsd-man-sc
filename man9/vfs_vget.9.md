@@ -1,4 +1,4 @@
-# VFS_VGET.9
+# VFS_VGET(9)
 
 `VFS_VGET` — 将 inode 号转换为 vnode
 

@@ -1,4 +1,4 @@
-# mount.conf.5
+# mount.conf(5)
 
 `mount.conf` — 根文件系统挂载配置文件
 

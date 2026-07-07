@@ -1,4 +1,4 @@
-# systat.1
+# systat(1)
 
 `systat` — 显示系统统计信息
 

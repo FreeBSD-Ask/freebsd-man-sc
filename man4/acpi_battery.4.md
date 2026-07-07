@@ -1,4 +1,4 @@
-# acpi_battery.4
+# acpi_battery(4)
 
 `acpi_battery` — ACPI 电池管理子系统
 

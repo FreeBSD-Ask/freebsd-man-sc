@@ -1,4 +1,4 @@
-# linuxkpi.4
+# linuxkpi(4)
 
 `linuxkpi` — Linux 内核编程接口支持
 

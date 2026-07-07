@@ -1,4 +1,4 @@
-# pthread_cond_destroy.3
+# pthread_cond_destroy(3)
 
 `pthread_cond_destroy` — 销毁条件变量
 

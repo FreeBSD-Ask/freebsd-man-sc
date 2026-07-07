@@ -1,4 +1,4 @@
-# netgraph.4
+# netgraph(4)
 
 `netgraph` — 基于图的内核网络子系统
 

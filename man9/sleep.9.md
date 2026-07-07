@@ -1,4 +1,4 @@
-# sleep.9
+# sleep(9)
 
 `msleep` — 等待事件
 

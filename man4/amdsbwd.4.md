@@ -1,4 +1,4 @@
-# amdsbwd.4
+# amdsbwd(4)
 
 `amdsbwd` — AMD 南桥看门狗定时器设备驱动
 

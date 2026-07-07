@@ -1,4 +1,4 @@
-# KASSERT.9
+# KASSERT(9)
 
 `KASSERT` — 内核表达式验证宏
 

@@ -1,4 +1,4 @@
-# firmware.9
+# firmware(9)
 
 `firmware_register` — 固件镜像加载与管理
 

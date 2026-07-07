@@ -1,4 +1,4 @@
-# networking.7
+# networking(7)
 
 `networking` — 连接到网络的快速入门指南
 

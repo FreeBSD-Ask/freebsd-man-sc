@@ -1,4 +1,4 @@
-# CPU\_ELAN.4
+# CPU_ELAN(4)
 
 `CPU_ELAN` — AMD Elan 520 CPU 支持
 

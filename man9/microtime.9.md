@@ -1,4 +1,4 @@
-# microtime.9
+# microtime(9)
 
 `bintime` — 获取当前时间
 

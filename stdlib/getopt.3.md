@@ -1,4 +1,4 @@
-# getopt.3
+# getopt(3)
 
 `getopt` — 从命令行参数列表中获取选项字符
 

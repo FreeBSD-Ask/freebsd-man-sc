@@ -1,4 +1,4 @@
-# blacklistctl.8
+# blacklistctl(8)
 
 `blacklistctl` — 显示和修改 blacklistd 数据库的状态
 

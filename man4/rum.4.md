@@ -1,4 +1,4 @@
-# rum.4
+# rum(4)
 
 `rum` — Ralink Technology USB IEEE 802.11a/b/g 无线网络驱动
 

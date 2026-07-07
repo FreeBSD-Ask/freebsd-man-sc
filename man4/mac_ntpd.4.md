@@ -1,4 +1,4 @@
-# mac_ntpd.4
+# mac_ntpd(4)
 
 `mac_ntpd` — 允许 ntpd 以非 root 用户身份运行的策略
 

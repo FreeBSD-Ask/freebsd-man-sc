@@ -1,4 +1,4 @@
-# rgephy.4
+# rgephy(4)
 
 `rgephy` — Realtek RTL8168/8169/8110/8211 系列 10/100/1000 千兆以太网 PHY 驱动
 

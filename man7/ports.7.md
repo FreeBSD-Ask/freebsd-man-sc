@@ -1,4 +1,4 @@
-# ports.7
+# ports(7)
 
 `ports` — 第三方应用程序
 

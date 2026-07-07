@@ -1,4 +1,4 @@
-# VOP_STRATEGY.9
+# VOP_STRATEGY(9)
 
 `VOP_STRATEGY` — 读取或写入文件系统缓冲区
 

@@ -1,4 +1,4 @@
-# ipfirewall.4
+# ipfirewall(4)
 
 `ipfw` — IP 数据包过滤和流量统计
 

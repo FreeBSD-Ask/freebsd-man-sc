@@ -1,4 +1,4 @@
-# ieee80211_ddb.9
+# ieee80211_ddb(9)
 
 `ieee80211_ddb` — 802.11 ddb 支持
 

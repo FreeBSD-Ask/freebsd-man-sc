@@ -1,4 +1,4 @@
-# acpi_thermal.4
+# acpi_thermal(4)
 
 `acpi_thermal` — ACPI 散热管理子系统
 

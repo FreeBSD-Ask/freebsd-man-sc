@@ -1,4 +1,4 @@
-# critical_enter.9
+# critical_enter(9)
 
 `critical_enter` — 进入和退出临界区
 

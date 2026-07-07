@@ -1,4 +1,4 @@
-# VOP_ALLOCATE.9
+# VOP_ALLOCATE(9)
 
 `VOP_ALLOCATE` — 为文件分配存储空间
 

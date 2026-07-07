@@ -1,4 +1,4 @@
-# dpcpu.9
+# dpcpu(9)
 
 `dpcpu` — 内核动态每 CPU 内存分配器
 

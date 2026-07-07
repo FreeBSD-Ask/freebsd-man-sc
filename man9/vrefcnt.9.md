@@ -1,4 +1,4 @@
-# vrefcnt.9
+# vrefcnt(9)
 
 `vrefcnt` — 返回 vnode 的使用计数
 

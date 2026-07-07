@@ -1,4 +1,4 @@
-# imx6\_ahci.4
+# imx6_ahci(4)
 
 `imx6_ahci` — NXP i.MX6 片上 SATA 控制器驱动
 

@@ -1,4 +1,4 @@
-# ath_hal.4
+# ath_hal(4)
 
 `ath_hal` — Atheros 硬件访问层（HAL）
 

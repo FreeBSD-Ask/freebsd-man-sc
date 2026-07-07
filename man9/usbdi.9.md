@@ -1,4 +1,4 @@
-# usbdi.9
+# usbdi(9)
 
 `usb_fifo_alloc_buffer` — 通用串行总线驱动程序编程接口
 

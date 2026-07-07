@@ -1,4 +1,4 @@
-# timeradd.3
+# timeradd(3)
 
 `timeradd` — 对 timeval 和 timespec 的操作
 

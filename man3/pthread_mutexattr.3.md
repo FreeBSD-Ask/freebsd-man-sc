@@ -1,4 +1,4 @@
-# pthread_mutexattr.3
+# pthread_mutexattr(3)
 
 `pthread_mutexattr_init` — mutex 属性操作
 

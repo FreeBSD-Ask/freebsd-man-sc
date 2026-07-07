@@ -1,4 +1,4 @@
-# VOP_ATTRIB.9
+# VOP_ATTRIB(9)
 
 `VOP_GETATTR` — 获取和设置文件或目录的属性
 

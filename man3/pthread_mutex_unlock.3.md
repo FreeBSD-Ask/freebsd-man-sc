@@ -1,4 +1,4 @@
-# pthread_mutex_unlock.3
+# pthread_mutex_unlock(3)
 
 `pthread_mutex_unlock` — 解锁 mutex
 

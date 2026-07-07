@@ -1,4 +1,4 @@
-# btsockstat.1
+# btsockstat(1)
 
 `btsockstat` — 显示 Bluetooth 套接字信息
 

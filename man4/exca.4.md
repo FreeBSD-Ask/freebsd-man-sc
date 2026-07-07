@@ -1,4 +1,4 @@
-# exca.4
+# exca(4)
 
 `exca` — PC Card 和 CardBus 系统的辅助模块
 

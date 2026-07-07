@@ -1,4 +1,4 @@
-# vm\_map\_protect.9
+# vm_map_protect(9)
 
 `vm_map_protect` — 将保护位应用到虚拟内存区域
 

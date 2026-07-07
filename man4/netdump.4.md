@@ -1,4 +1,4 @@
-# netdump.4
+# netdump(4)
 
 `netdump` — 将内核转储传输到远程服务器的协议
 

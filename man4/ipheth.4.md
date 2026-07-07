@@ -1,4 +1,4 @@
-# ipheth.4
+# ipheth(4)
 
 `ipheth` — USB Apple iPhone/iPad 网络共享以太网驱动
 

@@ -1,4 +1,4 @@
-# kdump.1
+# kdump(1)
 
 `kdump` — 显示内核跟踪数据
 

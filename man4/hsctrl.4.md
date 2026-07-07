@@ -1,4 +1,4 @@
-# hsctrl.4
+# hsctrl(4)
 
 `hsctrl` — HID 系统控制驱动
 

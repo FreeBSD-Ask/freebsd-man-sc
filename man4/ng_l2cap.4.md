@@ -1,4 +1,4 @@
-# ng_l2cap.4
+# ng_l2cap(4)
 
 `ng_l2cap` — 实现蓝牙逻辑链路控制和适配协议的 Netgraph 节点类型
 

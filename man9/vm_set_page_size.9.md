@@ -1,4 +1,4 @@
-# vm\_set\_page\_size.9
+# vm_set_page_size(9)
 
 `vm_set_page_size` — 初始化系统页面大小
 

@@ -1,4 +1,4 @@
-# pthread_main_np.3
+# pthread_main_np(3)
 
 `pthread_main_np` — 标识初始线程
 

@@ -1,4 +1,4 @@
-# insque.3
+# insque(3)
 
 `insque` — 双向链表管理
 

@@ -1,4 +1,4 @@
-# named_attribute.7
+# named_attribute(7)
 
 `named_attribute` — 类 Solaris 的扩展属性系统接口
 

@@ -1,4 +1,4 @@
-# ispfw.4
+# ispfw(4)
 
 `ispfw` — Qlogic FibreChannel SCSI 主机适配器固件
 

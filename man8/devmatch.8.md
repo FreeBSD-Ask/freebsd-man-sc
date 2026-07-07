@@ -1,4 +1,4 @@
-# devmatch.8
+# devmatch(8)
 
 `devmatch` — 打印未附加设备的信息
 

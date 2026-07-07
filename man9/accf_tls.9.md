@@ -1,4 +1,4 @@
-# accf\_tls.9
+# accf_tls(9)
 
 `accf_tls` — 缓冲传入连接直到类似 TLS 握手的请求到达
 

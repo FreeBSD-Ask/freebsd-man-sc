@@ -1,4 +1,4 @@
-# tsearch.3
+# tsearch(3)
 
 `tsearch` — 操作二叉搜索树
 

@@ -1,4 +1,4 @@
-# MODULE\_DEPEND.9
+# MODULE_DEPEND(9)
 
 `MODULE_DEPEND` — 设置内核模块依赖
 

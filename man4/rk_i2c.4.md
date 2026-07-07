@@ -1,4 +1,4 @@
-# rk\_i2c.4
+# rk_i2c(4)
 
 `rk_i2c` — RockChip SoC 上 I2C 控制器的驱动
 

@@ -1,4 +1,4 @@
-# ping.8
+# ping(8)
 
 `ping` — 向网络主机发送 ICMP 或 ICMPv6 ECHO_REQUEST 数据包
 

@@ -1,4 +1,4 @@
-# netfpga10g_nf10bmac.4
+# netfpga10g_nf10bmac(4)
 
 `netfpga10g_nf10bmac` — NetFPGA-10G 嵌入式 CPU 以太网核心驱动
 

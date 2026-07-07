@@ -1,4 +1,4 @@
-# ng_iface.4
+# ng_iface(4)
 
 `ng_iface` — 接口 netgraph 节点类型
 

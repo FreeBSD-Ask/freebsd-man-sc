@@ -1,4 +1,4 @@
-# lindebugfs.4
+# lindebugfs(4)
 
 `lindebugfs` — 用于调试的 Linux 文件系统
 

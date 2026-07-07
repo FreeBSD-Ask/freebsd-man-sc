@@ -1,4 +1,4 @@
-# mlx.4
+# mlx(4)
 
 `mlx` — Mylex DAC 系列 Parallel SCSI RAID 驱动
 

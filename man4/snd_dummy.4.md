@@ -1,4 +1,4 @@
-# snd_dummy.4
+# snd_dummy(4)
 
 `snd_dummy` — 虚拟音频驱动
 

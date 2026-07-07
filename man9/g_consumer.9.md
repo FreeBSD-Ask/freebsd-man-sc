@@ -1,4 +1,4 @@
-# g_consumer.9
+# g_consumer(9)
 
 `g_new_consumer` — GEOM 消费者管理
 

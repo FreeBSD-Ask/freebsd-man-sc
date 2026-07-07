@@ -1,4 +1,4 @@
-# pms.4
+# pms(4)
 
 `pms` — PMC-Sierra PM8001/8081/8088/8089/8074/8076/8077 SAS/SATA HBA 控制器驱动
 

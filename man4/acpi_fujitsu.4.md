@@ -1,4 +1,4 @@
-# acpi_fujitsu.4
+# acpi_fujitsu(4)
 
 `acpi_fujitsu` — Fujitsu 笔记本附加功能
 

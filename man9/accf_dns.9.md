@@ -1,4 +1,4 @@
-# accf\_dns.9
+# accf_dns(9)
 
 `accf_dns` — 缓冲传入 DNS 请求直到完整的首个请求到达
 

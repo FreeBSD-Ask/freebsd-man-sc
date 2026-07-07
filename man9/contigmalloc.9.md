@@ -1,4 +1,4 @@
-# contigmalloc.9
+# contigmalloc(9)
 
 `contigmalloc` — 管理连续内核物理内存
 

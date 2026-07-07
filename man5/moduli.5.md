@@ -1,4 +1,4 @@
-# moduli.5
+# moduli(5)
 
 `moduli` — Diffie-Hellman 模数
 

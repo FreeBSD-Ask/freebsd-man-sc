@@ -1,4 +1,4 @@
-# networks.5
+# networks(5)
 
 `networks` — 网络名数据库
 

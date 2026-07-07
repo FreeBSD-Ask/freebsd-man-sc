@@ -1,4 +1,4 @@
-# cpuctl.4
+# cpuctl(4)
 
 `cpuctl` — cpuctl 伪设备
 

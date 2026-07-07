@@ -1,4 +1,4 @@
-# linuxkpi_wlan.4
+# linuxkpi_wlan(4)
 
 `linuxkpi_wlan` — LinuxKPI 802.11 支持
 

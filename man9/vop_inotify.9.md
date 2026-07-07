@@ -1,4 +1,4 @@
-# VOP_INOTIFY.9
+# VOP_INOTIFY(9)
 
 `VOP_INOTIFY` — vnode inotify 接口
 

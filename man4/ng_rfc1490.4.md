@@ -1,4 +1,4 @@
-# ng_rfc1490.4
+# ng_rfc1490(4)
 
 `ng_rfc1490` — RFC 1490 netgraph 节点类型
 

@@ -1,4 +1,4 @@
-# snd_neomagic.4
+# snd_neomagic(4)
 
 `snd_neomagic` — NeoMagic 256AV/ZX 桥设备驱动
 

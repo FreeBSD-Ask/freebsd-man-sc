@@ -1,4 +1,4 @@
-# snd_ich.4
+# snd_ich(4)
 
 `snd_ich` — Intel ICH AC'97 及兼容桥设备驱动
 

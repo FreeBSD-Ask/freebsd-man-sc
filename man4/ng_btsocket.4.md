@@ -1,4 +1,4 @@
-# ng_btsocket.4
+# ng_btsocket(4)
 
 `ng_btsocket` — Bluetooth socket 层
 

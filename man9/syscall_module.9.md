@@ -1,4 +1,4 @@
-# SYSCALL\_MODULE.9
+# SYSCALL_MODULE(9)
 
 `SYSCALL_MODULE` — 系统调用内核模块声明宏
 

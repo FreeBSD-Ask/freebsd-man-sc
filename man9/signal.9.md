@@ -1,4 +1,4 @@
-# signal.9
+# signal(9)
 
 `signal` — 内核信号函数
 

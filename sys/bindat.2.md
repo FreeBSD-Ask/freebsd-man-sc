@@ -1,4 +1,4 @@
-# bindat.2
+# bindat(2)
 
 `bindat` — 为套接字分配本地协议地址
 

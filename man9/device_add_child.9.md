@@ -1,4 +1,4 @@
-# device_add_child.9
+# device_add_child(9)
 
 `device_add_child` — 将新设备作为现有设备的子设备添加
 

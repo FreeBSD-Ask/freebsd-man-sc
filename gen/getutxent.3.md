@@ -1,4 +1,4 @@
-# getutxent.3
+# getutxent(3)
 
 `endutxent` — 用户记账数据库函数
 

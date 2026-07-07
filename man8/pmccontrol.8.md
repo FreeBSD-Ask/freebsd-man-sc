@@ -1,4 +1,4 @@
-# pmccontrol.8
+# pmccontrol(8)
 
 `pmccontrol` — 控制硬件性能监控计数器
 

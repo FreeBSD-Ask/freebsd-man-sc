@@ -1,4 +1,4 @@
-# superio.9
+# superio(9)
 
 `superio` — Super I/O 总线接口
 

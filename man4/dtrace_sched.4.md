@@ -1,4 +1,4 @@
-# dtrace_sched.4
+# dtrace_sched(4)
 
 `dtrace_sched` — 用于跟踪 CPU 调度事件的 DTrace 提供者
 

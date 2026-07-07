@@ -1,4 +1,4 @@
-# device_delete_children.9
+# device_delete_children(9)
 
 `device_delete_children` — 删除给定设备的所有子设备
 

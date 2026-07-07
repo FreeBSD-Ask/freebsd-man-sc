@@ -1,4 +1,4 @@
-# acpi_panasonic.4
+# acpi_panasonic(4)
 
 `acpi_panasonic` — Panasonic 笔记本的 ACPI 热键驱动
 

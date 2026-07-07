@@ -1,4 +1,4 @@
-# chroot.8
+# chroot(8)
 
 `chroot` — 更改根目录
 

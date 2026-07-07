@@ -1,4 +1,4 @@
-# getenv.9
+# getenv(9)
 
 `freeenv` — 内核环境变量函数
 

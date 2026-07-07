@@ -1,4 +1,4 @@
-# driver.9
+# driver(9)
 
 `driver` — 描述设备驱动的结构
 

@@ -1,4 +1,4 @@
-# gpioctl.8
+# gpioctl(8)
 
 `gpioctl` — GPIO 控制工具
 

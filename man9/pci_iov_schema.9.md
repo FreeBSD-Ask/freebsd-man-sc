@@ -1,4 +1,4 @@
-# pci\_iov\_schema.9
+# pci_iov_schema(9)
 
 `pci_iov_schema` — PCI SR-IOV 配置架构接口
 

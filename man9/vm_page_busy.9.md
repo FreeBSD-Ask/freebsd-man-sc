@@ -1,4 +1,4 @@
-# vm\_page\_busy.9
+# vm_page_busy(9)
 
 `vm_page_busied`, `vm_page_busy_downgrade`, `vm_page_busy_sleep`, `vm_page_sbusied`, `vm_page_sunbusy`, `vm_page_trysbusy`, `vm_page_tryxbusy`, `vm_page_xbusied`, `vm_page_xunbusy`, `vm_page_assert_sbusied`, `vm_page_assert_unbusied`, `vm_page_assert_xbusied` — 保护页面标识更改和页面内容引用
 

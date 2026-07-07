@@ -1,4 +1,4 @@
-# syscall_helper_register.9
+# syscall_helper_register(9)
 
 `syscall_helper_register` — 内核系统调用注册例程
 

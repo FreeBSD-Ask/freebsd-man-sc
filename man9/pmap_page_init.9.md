@@ -1,4 +1,4 @@
-# pmap_page_init.9
+# pmap_page_init(9)
 
 `pmap_page_init` — 初始化 VM 页面的机器相关字段
 

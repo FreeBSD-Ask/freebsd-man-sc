@@ -1,4 +1,4 @@
-# snd_uaudio.4
+# snd_uaudio(4)
 
 `snd_uaudio` — USB 音频与 MIDI 设备驱动
 

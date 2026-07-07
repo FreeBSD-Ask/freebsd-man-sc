@@ -1,4 +1,4 @@
-# msk.4
+# msk(4)
 
 `msk` — Marvell/SysKonnect Yukon II 千兆以太网适配器驱动
 

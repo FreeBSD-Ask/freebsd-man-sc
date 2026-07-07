@@ -1,4 +1,4 @@
-# ng_async.4
+# ng_async(4)
 
 `ng_async` — 异步成帧 netgraph 节点类型
 

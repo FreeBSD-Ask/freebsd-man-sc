@@ -1,4 +1,4 @@
-# pmap_qenter.9
+# pmap_qenter(9)
 
 `pmap_qenter` — 管理临时内核空间映射
 

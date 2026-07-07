@@ -1,4 +1,4 @@
-# DEVICE_PROBE.9
+# DEVICE_PROBE(9)
 
 `DEVICE_PROBE` — 探测设备是否存在
 

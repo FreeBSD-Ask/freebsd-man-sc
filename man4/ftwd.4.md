@@ -1,4 +1,4 @@
-# ftwd.4
+# ftwd(4)
 
 `ftwd` — Fintek F81803 看门狗定时器
 

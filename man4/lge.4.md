@@ -1,4 +1,4 @@
-# lge.4
+# lge(4)
 
 `lge` — Level 1 LXT1001 NetCellerator PCI 千兆以太网适配器驱动
 

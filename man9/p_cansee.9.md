@@ -1,4 +1,4 @@
-# p\_cansee.9
+# p_cansee(9)
 
 `p_cansee` — 确定进程的可见性
 

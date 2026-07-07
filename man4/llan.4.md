@@ -1,4 +1,4 @@
-# llan.4
+# llan(4)
 
 `llan` — POWER 逻辑局域网
 

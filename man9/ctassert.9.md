@@ -1,4 +1,4 @@
-# CTASSERT.9
+# CTASSERT(9)
 
 `CTASSERT` — 编译时断言宏
 

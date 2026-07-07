@@ -1,4 +1,4 @@
-# inet.4
+# inet(4)
 
 `inet` — Internet 协议族
 
