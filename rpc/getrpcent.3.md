@@ -53,7 +53,7 @@ struct rpcent {
 
 `getrpcent` 函数读取文件的下一行，必要时打开文件。
 
-`setrpcent` 函数打开并回绕文件。如果 `stayopen` 标志非零，则在每次调用 `getrpcent`（无论是直接调用还是通过其他 “getrpc” 调用间接调用）之后，net 数据库不会被关闭。
+`setrpcent` 函数打开并回绕文件。如果 `stayopen` 标志非零，则在每次调用 `getrpcent`（无论是直接调用还是通过其他“getrpc”调用间接调用）之后，net 数据库不会被关闭。
 
 `endrpcent` 函数关闭文件。
 
