@@ -189,7 +189,7 @@ RFC 1078 描述了 TCPMUX 协议：“TCP 客户端连接到远程主机的 TCP 
 
 ## 参见
 
-cvs(1) (`ports/devel/opencvs`), [date(1)](../man1/date.1.md), [nc(1)](../man1/nc.1.md), ipsec_set_policy(3), [ipsec(4)](../man4/ipsec.4.md), hosts_access(5), hosts_options(5), login.conf(5), netconfig(5), [passwd(5)](../man5/passwd.5.md), rpc(5), [services(5)](../man5/services.5.md), bootpd(8), comsat(8), fingerd(8), [ftpd(8)](ftpd.8.md) (`ports/ftp/freebsd-ftpd`), imapd(8) (`ports/mail/courier-imap`), nmbd(8) (`ports/net/samba412`), rlogind(8), rpc.rquotad(8), [rpc.rusersd(8)](rpc.rusersd.8.md), rpc.rwalld(8), rpc.statd(8), rshd(8), prometheus_sysctl_exporter(8), smbd(8) (`ports/net/samba412`), talkd(8), telnetd(8) (`ports/net/freebsd-telnetd`), [tftpd(8)](tftpd.8.md), uucpd(8) (`ports/net/freebsd-uucp`)
+cvs(1) (`ports/devel/opencvs`), [date(1)](../man1/date.1.md), [nc(1)](../man1/nc.1.md), [ipsec_set_policy(3)](../man3/ipsec_set_policy.3.md), [ipsec(4)](../man4/ipsec.4.md), hosts_access(5), hosts_options(5), [login.conf(5)](../man5/login.conf.5.md), netconfig(5), [passwd(5)](../man5/passwd.5.md), rpc(5), [services(5)](../man5/services.5.md), bootpd(8), comsat(8), fingerd(8), [ftpd(8)](ftpd.8.md) (`ports/ftp/freebsd-ftpd`), imapd(8) (`ports/mail/courier-imap`), nmbd(8) (`ports/net/samba412`), rlogind(8), rpc.rquotad(8), [rpc.rusersd(8)](rpc.rusersd.8.md), rpc.rwalld(8), rpc.statd(8), rshd(8), prometheus_sysctl_exporter(8), smbd(8) (`ports/net/samba412`), talkd(8), telnetd(8) (`ports/net/freebsd-telnetd`), [tftpd(8)](tftpd.8.md), uucpd(8) (`ports/net/freebsd-uucp`)
 
 > Michael C. St. Johns, "Identification Protocol", RFC1413.
 

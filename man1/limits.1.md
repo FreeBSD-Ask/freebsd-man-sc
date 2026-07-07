@@ -215,7 +215,7 @@ limit sbsize 512;
 
 ## 参见
 
-[csh(1)](csh.1.md), [env(1)](env.1.md), limit(1), [sh(1)](sh.1.md), getrlimit(2), setrlimit(2), login_cap(3), login.conf(5), rctl(8), [sysctl(8)](../man8/sysctl.8.md)
+[csh(1)](csh.1.md), [env(1)](env.1.md), limit(1), [sh(1)](sh.1.md), [getrlimit(2)](../sys/getrlimit.2.md), setrlimit(2), login_cap(3), [login.conf(5)](../man5/login.conf.5.md), [rctl(8)](../man8/rctl.8.md), [sysctl(8)](../man8/sysctl.8.md)
 
 ## 历史
 

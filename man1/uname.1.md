@@ -58,7 +58,7 @@
 
 ## 参见
 
-freebsd-version(1), feature_present(3), getosreldate(3), sysctl(3), uname(3), [sysctl(8)](../man8/sysctl.8.md)
+freebsd-version(1), [feature_present(3)](../gen/feature_present.3.md), [getosreldate(3)](../gen/getosreldate.3.md), [sysctl(3)](../gen/sysctl.3.md), [uname(3)](../gen/uname.3.md), [sysctl(8)](../man8/sysctl.8.md)
 
 ## 标准
 

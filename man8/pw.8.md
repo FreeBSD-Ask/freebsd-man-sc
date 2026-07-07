@@ -250,7 +250,7 @@ pw usermod nobody -Nw random
 
 ## 参见
 
-chpass(1), [passwd(1)](../man1/passwd.1.md), umask(2), [group(5)](../man5/group.5.md), login.conf(5), [passwd(5)](../man5/passwd.5.md), pw.conf(5), [groups(7)](../man7/groups.7.md), pwd_mkdb(8), vipw(8), [zfs(8)](zfs.8.md)
+chpass(1), [passwd(1)](../man1/passwd.1.md), [umask(2)](../sys/umask.2.md), [group(5)](../man5/group.5.md), [login.conf(5)](../man5/login.conf.5.md), [passwd(5)](../man5/passwd.5.md), pw.conf(5), [groups(7)](../man7/groups.7.md), [pwd_mkdb(8)](pwd_mkdb.8.md), [vipw(8)](vipw.8.md), [zfs(8)](zfs.8.md)
 
 ## 历史
 

@@ -124,7 +124,7 @@ chsh -s /usr/local/bin/zsh
 
 ## 参见
 
-finger(1), [login(1)](login.1.md), [passwd(1)](passwd.1.md), getusershell(3), login.conf(5), [passwd(5)](../man5/passwd.5.md), [pw(8)](../man8/pw.8.md), pwd_mkdb(8), vipw(8)
+finger(1), [login(1)](login.1.md), [passwd(1)](passwd.1.md), [getusershell(3)](../gen/getusershell.3.md), [login.conf(5)](../man5/login.conf.5.md), [passwd(5)](../man5/passwd.5.md), [pw(8)](../man8/pw.8.md), [pwd_mkdb(8)](../man8/pwd_mkdb.8.md), [vipw(8)](../man8/vipw.8.md)
 
 > Robert Morris, Ken Thompson, "UNIX Password security".
 

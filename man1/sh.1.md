@@ -1033,7 +1033,7 @@ a\b
 
 ## 参见
 
-[builtin(1)](builtin.1.md), chsh(1), echo(1), ed(1), emacs(1) (`ports/editors/emacs`), [kill(1)](kill.1.md), printf(1), [pwd(1)](pwd.1.md), test(1), [vi(1)](vi.1.md), execve(2), getrlimit(2), umask(2), signal(3), wctype(3), editrc(5), [shells(5)](../man5/shells.5.md), editline(7)
+[builtin(1)](builtin.1.md), chsh(1), echo(1), ed(1), emacs(1) (`ports/editors/emacs`), [kill(1)](kill.1.md), printf(1), [pwd(1)](pwd.1.md), [test(1)](test.1.md), [vi(1)](vi.1.md), [execve(2)](../sys/execve.2.md), [getrlimit(2)](../sys/getrlimit.2.md), [umask(2)](../sys/umask.2.md), [signal(3)](../gen/signal.3.md), [wctype(3)](../locale/wctype.3.md), editrc(5), [shells(5)](../man5/shells.5.md), editline(7)
 
 ## 历史
 

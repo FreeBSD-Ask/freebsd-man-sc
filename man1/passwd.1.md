@@ -60,7 +60,7 @@
 
 ## 参见
 
-chpass(1), kinit(1), [login(1)](login.1.md), login.conf(5), passwd(5), kerberos(8), kpasswdd(8), pam_passwdqc(8), [pw(8)](../man8/pw.8.md), pwd_mkdb(8), vipw(8)
+chpass(1), kinit(1), [login(1)](login.1.md), [login.conf(5)](../man5/login.conf.5.md), [passwd(5)](../man5/passwd.5.md), kerberos(8), kpasswdd(8), pam_passwdqc(8), [pw(8)](../man8/pw.8.md), [pwd_mkdb(8)](../man8/pwd_mkdb.8.md), [vipw(8)](../man8/vipw.8.md)
 
 > Robert Morris, Ken Thompson, "UNIX password security".
 

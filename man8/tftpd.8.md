@@ -52,7 +52,7 @@
 
 ## 参见
 
-tftp(1), chroot(2), syslog(3), inetd.conf(5), [services(5)](../man5/services.5.md), syslog.conf(5), [inetd(8)](inetd.8.md)
+tftp(1), [chroot(2)](../sys/chroot.2.md), [syslog(3)](../gen/syslog.3.md), inetd.conf(5), [services(5)](../man5/services.5.md), syslog.conf(5), [inetd(8)](inetd.8.md)
 
 支持以下 RFC：
 

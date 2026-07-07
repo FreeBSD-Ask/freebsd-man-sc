@@ -529,7 +529,7 @@ GEOM: provider: the secondary GPT header is not in the last LBA.
 
 ## 参见
 
-[geom(4)](../man4/geom.4.md), xo_options(7), [boot0cfg(8)](boot0cfg.8.md), geom(8), glabel(8), [gptboot(8)](gptboot.8.md)
+[geom(4)](../man4/geom.4.md), [xo_options(7)](../man7/xo_options.7.md), [boot0cfg(8)](boot0cfg.8.md), geom(8), glabel(8), [gptboot(8)](gptboot.8.md)
 
 ## 历史
 

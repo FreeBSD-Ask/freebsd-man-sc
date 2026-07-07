@@ -197,7 +197,7 @@
 
 ## 参见
 
-chflags(1), [chgrp(1)](../man1/chgrp.1.md), [chmod(1)](../man1/chmod.1.md), [cksum(1)](../man1/cksum.1.md), stat(2), fnmatch(3), fts(3), strsvis(3), mtree(5), [chown(8)](chown.8.md), mknod(8)
+chflags(1), [chgrp(1)](../man1/chgrp.1.md), [chmod(1)](../man1/chmod.1.md), [cksum(1)](../man1/cksum.1.md), [stat(2)](../sys/stat.2.md), [fnmatch(3)](../gen/fnmatch.3.md), [fts(3)](../gen/fts.3.md), strsvis(3), mtree(5), [chown(8)](chown.8.md), mknod(8)
 
 ## 历史
 

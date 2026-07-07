@@ -30,7 +30,7 @@ FOO=`dirname /usr/bin/trail`
 
 ## 参见
 
-[csh(1)](csh.1.md), [sh(1)](sh.1.md), basename(3), dirname(3)
+[csh(1)](csh.1.md), [sh(1)](sh.1.md), [basename(3)](../gen/basename.3.md), [dirname(3)](../gen/dirname.3.md)
 
 ## 标准
 

@@ -211,7 +211,7 @@ sysctl vm.loadavg
 
 ## 参见
 
-sysctl(3), [dtrace_mib(4)](../man4/dtrace_mib.4.md), loader.conf(5), [sysctl.conf(5)](../man5/sysctl.conf.5.md), [security(7)](../man7/security.7.md), [loader(8)](loader.8.md), [jail(8)](jail.8.md)
+[sysctl(3)](../gen/sysctl.3.md), [dtrace_mib(4)](../man4/dtrace_mib.4.md), [loader.conf(5)](../man5/loader.conf.5.md), [sysctl.conf(5)](../man5/sysctl.conf.5.md), [security(7)](../man7/security.7.md), [loader(8)](loader.8.md), [jail(8)](jail.8.md)
 
 ## 历史
 

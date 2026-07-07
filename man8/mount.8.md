@@ -194,7 +194,7 @@ XXXXX file system is not available
 
 ## 参见
 
-getfacl(1), [lsvfs(1)](../man1/lsvfs.1.md), setfacl(1), nmount(2), symlink(2), acl(3), getmntinfo(3), libxo(3), xo_options(7), [cd9660(4)](../man4/cd9660.4.md), [devfs(4)](../man4/devfs.4.md), [ext2fs(4)](../man4/ext2fs.4.md), [ffs(4)](../man4/ffs.4.md), [mac(4)](../man4/mac.4.md), [p9fs(4)](../man4/p9fs.4.md), [procfs(4)](../man4/procfs.4.md), [tarfs(4)](../man4/tarfs.4.md), [tmpfs(4)](../man4/tmpfs.4.md), [fstab(5)](../man5/fstab.5.md), symlink(7), automount(8), [fstyp(8)](fstyp.8.md), [kldload(8)](kldload.8.md), [mount_cd9660(8)](mount_cd9660.8.md), [mount_msdosfs(8)](mount_msdosfs.8.md), mount_nfs(8), mount_nullfs(8), mount_smbfs(8), mount_udf(8), mount_unionfs(8), quotacheck(8), [umount(8)](umount.8.md), [zfs(8)](zfs.8.md), zpool(8)
+getfacl(1), [lsvfs(1)](../man1/lsvfs.1.md), setfacl(1), nmount(2), [symlink(2)](../sys/symlink.2.md), [acl(3)](../posix1e/acl.3.md), [getmntinfo(3)](../gen/getmntinfo.3.md), [libxo(3)](../man3/libxo.3.md), [xo_options(7)](../man7/xo_options.7.md), [cd9660(4)](../man4/cd9660.4.md), [devfs(4)](../man4/devfs.4.md), [ext2fs(4)](../man4/ext2fs.4.md), [ffs(4)](../man4/ffs.4.md), [mac(4)](../man4/mac.4.md), [p9fs(4)](../man4/p9fs.4.md), [procfs(4)](../man4/procfs.4.md), [tarfs(4)](../man4/tarfs.4.md), [tmpfs(4)](../man4/tmpfs.4.md), [fstab(5)](../man5/fstab.5.md), [symlink(7)](../man7/symlink.7.md), automount(8), [fstyp(8)](fstyp.8.md), [kldload(8)](kldload.8.md), [mount_cd9660(8)](mount_cd9660.8.md), [mount_msdosfs(8)](mount_msdosfs.8.md), [mount_nfs(8)](mount_nfs.8.md), mount_nullfs(8), mount_smbfs(8), mount_udf(8), mount_unionfs(8), [quotacheck(8)](quotacheck.8.md), [umount(8)](umount.8.md), [zfs(8)](zfs.8.md), zpool(8)
 
 ## 历史
 

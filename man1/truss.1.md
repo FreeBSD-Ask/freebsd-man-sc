@@ -64,7 +64,7 @@ $ truss -p 34
 
 ## 参见
 
-[dtrace(1)](dtrace.1.md), [kdump(1)](kdump.1.md), [ktrace(1)](ktrace.1.md), ptrace(2), utrace(2), sysdecode(3)
+[dtrace(1)](dtrace.1.md), [kdump(1)](kdump.1.md), [ktrace(1)](ktrace.1.md), [ptrace(2)](../sys/ptrace.2.md), [utrace(2)](../sys/utrace.2.md), sysdecode(3)
 
 ## 历史
 

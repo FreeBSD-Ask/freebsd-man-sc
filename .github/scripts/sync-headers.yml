@@ -19,9 +19,25 @@ jobs:
 
       - name: Sync headers
         id: sync
+        shell: bash
         run: |
+          set -o pipefail
           # 设置修改标志
           CHANGED="false"
+
+          # 加载别名清单：每行 "title|path"，凡命中则跳过同步标题
+          # 别名清单由 script/gen_aliases.py 生成，已识别 MLINKS 别名与非 man 页特殊条目
+          ALIASES_FILE=".github/aliases.txt"
+          declare -A ALIAS_SET
+          if [ -f "$ALIASES_FILE" ]; then
+            while IFS='|' read -r a_title a_path; do
+              [ -z "$a_title" ] && continue
+              ALIAS_SET["$a_title|$a_path"]=1
+            done < "$ALIASES_FILE"
+            echo "已加载 ${#ALIAS_SET[@]} 个别名条目"
+          else
+            echo "警告：$ALIASES_FILE 不存在，跳过别名过滤"
+          fi
 
           # 使用进程替换，避免管道导致子 Shell 中修改变量
           while IFS= read -r line; do
@@ -29,17 +45,26 @@ jobs:
             title=$(sed -n 's/.*\[\([^]]*\)\].*/\1/p' <<< "$line")
             path=$(sed -n 's/.*](\([^)]*\)).*/\1/p' <<< "$line")
 
-            # 跳过无效条目
-            [ -z "$title" ] || [ ! -f "$path" ] && continue
+            # 跳过无效条目（标题为空或文件不存在）
+            if [ -z "$title" ] || [ ! -f "$path" ]; then
+              continue
+            fi
+
+            # 清理标题：去除首尾空白，并移除 markdown 转义反斜杠（如 pthread\_attr → pthread_attr）
+            clean_title=$(sed 's/^[[:space:]]*//; s/[[:space:]]*$//; s/\\//g' <<< "$title")
+
+            # 跳过别名条目：标题+路径命中别名清单则跳过
+            if [ "${ALIAS_SET["$clean_title|$path"]+x}" = "x" ]; then
+              continue
+            fi
 
             # 获取文件第一行并清理格式
             first_line=$(head -n 1 "$path" | sed 's/^#*//; s/^[[:space:]]*//; s/[[:space:]]*$//')
-            clean_title=$(sed 's/^[[:space:]]*//; s/[[:space:]]*$//' <<< "$title")
 
             # 比较标题并更新文件
             if [ "$first_line" != "$clean_title" ]; then
               echo "Updating $path: '$first_line' -> '$clean_title'"
-              
+
               # 使用临时文件进行安全替换
               temp_file=$(mktemp)
               echo "# $clean_title" > "$temp_file"
@@ -52,7 +77,7 @@ jobs:
           done < <(grep -E '^\* \[' SUMMARY.md)
 
           # 输出修改状态
-          echo "changed=$CHANGED" >> $GITHUB_OUTPUT
+          echo "changed=$CHANGED" >> "$GITHUB_OUTPUT"
 
       - name: Commit changes
         if: steps.sync.outputs.changed == 'true'

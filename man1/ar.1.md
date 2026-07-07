@@ -153,7 +153,7 @@ end			 * 退出实用程序
 
 ## 参见
 
-[ld(1)](ld.lld.1.md), archive(3), elf(3), strftime(3), strmode(3), [ar(5)](../man5/ar.5.md)
+[ld(1)](ld.lld.1.md), archive(3), elf(3), [strftime(3)](../stdtime/strftime.3.md), [strmode(3)](../string/strmode.3.md), [ar(5)](../man5/ar.5.md)
 
 ## 标准合规性
 

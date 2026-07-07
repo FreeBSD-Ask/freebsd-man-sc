@@ -107,7 +107,7 @@ Filesystem     Size    Used   Avail Capacity  Mounted on
 
 ## 参见
 
-[lsvfs(1)](lsvfs.1.md), quota(1), fstatfs(2), getfsstat(2), statfs(2), getbsize(3), getmntinfo(3), libxo(3), localeconv(3), xo_options(7), [fstab(5)](../man5/fstab.5.md), [mount(8)](../man8/mount.8.md), pstat(8), [quot(8)](../man8/quot.8.md), swapinfo(8)
+[lsvfs(1)](lsvfs.1.md), [quota(1)](quota.1.md), fstatfs(2), [getfsstat(2)](../sys/getfsstat.2.md), [statfs(2)](../sys/statfs.2.md), [getbsize(3)](../gen/getbsize.3.md), [getmntinfo(3)](../gen/getmntinfo.3.md), [libxo(3)](../man3/libxo.3.md), [localeconv(3)](../locale/localeconv.3.md), [xo_options(7)](../man7/xo_options.7.md), [fstab(5)](../man5/fstab.5.md), [mount(8)](../man8/mount.8.md), pstat(8), [quot(8)](../man8/quot.8.md), swapinfo(8)
 
 ## 标准
 

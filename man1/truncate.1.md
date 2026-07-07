@@ -92,7 +92,7 @@ ls -lh test_file*
 
 ## 参见
 
-[dd(1)](dd.1.md), [touch(1)](touch.1.md), fspacectl(2), truncate(2)
+[dd(1)](dd.1.md), [touch(1)](touch.1.md), [fspacectl(2)](../sys/fspacectl.2.md), [truncate(2)](../sys/truncate.2.md)
 
 ## 标准
 

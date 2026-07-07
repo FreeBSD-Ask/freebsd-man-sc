@@ -166,7 +166,7 @@
 
 ## 参见
 
-[csh(1)](csh.1.md), echo(1), false(1), [kill(1)](kill.1.md), [login(1)](login.1.md), [nice(1)](nice.1.md), nohup(1), [printenv(1)](printenv.1.md), printf(1), [pwd(1)](pwd.1.md), [sh(1)](sh.1.md), test(1), time(1), true(1), [which(1)](which.1.md)
+[csh(1)](csh.1.md), echo(1), false(1), [kill(1)](kill.1.md), [login(1)](login.1.md), [nice(1)](nice.1.md), nohup(1), [printenv(1)](printenv.1.md), printf(1), [pwd(1)](pwd.1.md), [sh(1)](sh.1.md), [test(1)](test.1.md), [time(1)](time.1.md), true(1), [which(1)](which.1.md)
 
 ## 历史
 

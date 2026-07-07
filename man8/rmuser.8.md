@@ -50,7 +50,7 @@
 
 ## 参见
 
-[at(1)](../man1/at.1.md), chpass(1), crontab(1), finger(1), [passwd(1)](../man1/passwd.1.md), [group(5)](../man5/group.5.md), [passwd(5)](../man5/passwd.5.md), [adduser(8)](adduser.8.md), [pw(8)](pw.8.md), pwd_mkdb(8), vipw(8)
+[at(1)](../man1/at.1.md), chpass(1), crontab(1), finger(1), [passwd(1)](../man1/passwd.1.md), [group(5)](../man5/group.5.md), [passwd(5)](../man5/passwd.5.md), [adduser(8)](adduser.8.md), [pw(8)](pw.8.md), [pwd_mkdb(8)](pwd_mkdb.8.md), [vipw(8)](vipw.8.md)
 
 ## 历史
 

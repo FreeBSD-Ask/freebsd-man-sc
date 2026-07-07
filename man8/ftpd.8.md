@@ -194,7 +194,7 @@ Internet RFC 959 中规定的其余 ftp 请求虽被识别，但未实现。MDTM
 
 ## 参见
 
-[ftp(1)](../man1/ftp.1.md), otp(1), getusershell(3), ftpusers(5), syslogd(8)
+[ftp(1)](../man1/ftp.1.md), otp(1), [getusershell(3)](../gen/getusershell.3.md), ftpusers(5), syslogd(8)
 
 ## 标准
 

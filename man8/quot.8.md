@@ -40,7 +40,7 @@ ls -i | sed -e 's,^  *,,' | sort -k 1n | quot -n filesystem
 
 ## 参见
 
-[df(1)](../man1/df.1.md), quota(1), getmntinfo(3), [fstab(5)](../man5/fstab.5.md), ffs(7), [mount(8)](mount.8.md)
+[df(1)](../man1/df.1.md), [quota(1)](../man1/quota.1.md), [getmntinfo(3)](../gen/getmntinfo.3.md), [fstab(5)](../man5/fstab.5.md), ffs(7), [mount(8)](mount.8.md)
 
 ## 历史
 

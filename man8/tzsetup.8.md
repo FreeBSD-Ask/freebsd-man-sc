@@ -80,7 +80,7 @@
 
 ## 参见
 
-[date(1)](../man1/date.1.md), adjtime(2), ctime(3), timezone(3), tzfile(5), adjkerntz(8), zdump(8), zic(8)
+[date(1)](../man1/date.1.md), [adjtime(2)](../sys/adjtime.2.md), [ctime(3)](../stdtime/ctime.3.md), timezone(3), tzfile(5), adjkerntz(8), zdump(8), zic(8)
 
 ## 免责声明
 

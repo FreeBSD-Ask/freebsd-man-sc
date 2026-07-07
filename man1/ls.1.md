@@ -286,7 +286,7 @@ $ ls -lt /var/log
 
 ## 参见
 
-chflags(1), [chmod(1)](chmod.1.md), getfacl(1), [sort(1)](sort.1.md), xterm(1) (`ports/x11/xterm`), localeconv(3), strcoll(3), strftime(3), strmode(3), strverscmp(3), termcap(5), [maclabel(7)](../man7/maclabel.7.md), [sticky(7)](../man7/sticky.7.md), symlink(7), getfmac(8)
+chflags(1), [chmod(1)](chmod.1.md), getfacl(1), [sort(1)](sort.1.md), xterm(1) (`ports/x11/xterm`), [localeconv(3)](../locale/localeconv.3.md), [strcoll(3)](../string/strcoll.3.md), [strftime(3)](../stdtime/strftime.3.md), [strmode(3)](../string/strmode.3.md), [strverscmp(3)](../string/strverscmp.3.md), termcap(5), [maclabel(7)](../man7/maclabel.7.md), [sticky(7)](../man7/sticky.7.md), [symlink(7)](../man7/symlink.7.md), getfmac(8)
 
 ## 标准
 

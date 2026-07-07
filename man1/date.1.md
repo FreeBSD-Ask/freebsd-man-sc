@@ -231,7 +231,7 @@ TZ=America/Los_Angeles date -z Europe/Paris -j 0900
 
 ## 参见
 
-locale(1), clock_gettime(2), gettimeofday(2), getutxent(3), strftime(3), strptime(3), tzset(3), adjkerntz(8), ntpd(8), [tzsetup(8)](../man8/tzsetup.8.md)
+locale(1), [clock_gettime(2)](../sys/clock_gettime.2.md), [gettimeofday(2)](../sys/gettimeofday.2.md), [getutxent(3)](../gen/getutxent.3.md), [strftime(3)](../stdtime/strftime.3.md), [strptime(3)](../stdtime/strptime.3.md), [tzset(3)](../stdtime/tzset.3.md), adjkerntz(8), ntpd(8), [tzsetup(8)](../man8/tzsetup.8.md)
 
 > R. Gusella, S. Zatti, "TSP: The Time Synchronization Protocol for UNIX 4.3BSD"。
 

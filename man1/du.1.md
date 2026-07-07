@@ -98,7 +98,7 @@
 
 ## 参见
 
-[df(1)](df.1.md), chflags(2), fts(3), libxo(3), symlink(7), xo_options(7), [quot(8)](../man8/quot.8.md)
+[df(1)](df.1.md), [chflags(2)](../sys/chflags.2.md), [fts(3)](../gen/fts.3.md), [libxo(3)](../man3/libxo.3.md), [symlink(7)](../man7/symlink.7.md), [xo_options(7)](../man7/xo_options.7.md), [quot(8)](../man8/quot.8.md)
 
 ## 标准
 

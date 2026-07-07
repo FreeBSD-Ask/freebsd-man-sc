@@ -432,7 +432,7 @@ $ ps -auxw
 
 ## 参见
 
-[kill(1)](kill.1.md), pgrep(1), pkill(1), procstat(1), [w(1)](w.1.md), kvm(3), libxo(3), strftime(3), xo_options(7), [mac(4)](../man4/mac.4.md), [procfs(4)](../man4/procfs.4.md), pstat(8), [sysctl(8)](../man8/sysctl.8.md), [mutex(9)](../man9/mutex.9.md)
+[kill(1)](kill.1.md), pgrep(1), pkill(1), [procstat(1)](procstat.1.md), [w(1)](w.1.md), [kvm(3)](../man3/kvm.3.md), [libxo(3)](../man3/libxo.3.md), [strftime(3)](../stdtime/strftime.3.md), [xo_options(7)](../man7/xo_options.7.md), [mac(4)](../man4/mac.4.md), [procfs(4)](../man4/procfs.4.md), pstat(8), [sysctl(8)](../man8/sysctl.8.md), [mutex(9)](../man9/mutex.9.md)
 
 ## 标准
 

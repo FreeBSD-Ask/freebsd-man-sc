@@ -27,7 +27,7 @@ jobs:
 
           # 加载别名清单：每行 "title|path"，凡命中则跳过同步标题
           # 别名清单由 script/gen_aliases.py 生成，已识别 MLINKS 别名与非 man 页特殊条目
-          ALIASES_FILE="script/aliases.txt"
+          ALIASES_FILE=".github/aliases.txt"
           declare -A ALIAS_SET
           if [ -f "$ALIASES_FILE" ]; then
             while IFS='|' read -r a_title a_path; do

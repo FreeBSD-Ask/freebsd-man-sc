@@ -84,7 +84,7 @@ verbose_loading="YES"
 
 ## 参见
 
-kenv(2), config(5), loader.conf(5), [loader(8)](../man8/loader.8.md)
+[kenv(2)](../sys/kenv.2.md), [config(5)](../man5/config.5.md), [loader.conf(5)](../man5/loader.conf.5.md), [loader(8)](../man8/loader.8.md)
 
 ## 历史
 

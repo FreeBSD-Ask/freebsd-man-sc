@@ -50,7 +50,7 @@
 
 ## 参见
 
-chdir(2), chroot(2), setgid(2), setgroups(2), setuid(2), getgrnam(3), [environ(7)](../man7/environ.7.md), [jail(8)](jail.8.md)
+[chdir(2)](../sys/chdir.2.md), [chroot(2)](../sys/chroot.2.md), setgid(2), [setgroups(2)](../sys/setgroups.2.md), [setuid(2)](../sys/setuid.2.md), getgrnam(3), [environ(7)](../man7/environ.7.md), [jail(8)](jail.8.md)
 
 ## 历史
 

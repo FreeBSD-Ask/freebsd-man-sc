@@ -242,7 +242,7 @@ iostat -odICTw 2 -c 9
 
 ## 参见
 
-fstat(1), [netstat(1)](../man1/netstat.1.md), nfsstat(1), [ps(1)](../man1/ps.1.md), [systat(1)](../man1/systat.1.md), devstat(3), ctlstat(8), gstat(8), pstat(8), [vmstat(8)](vmstat.8.md)
+[fstat(1)](../man1/fstat.1.md), [netstat(1)](../man1/netstat.1.md), [nfsstat(1)](../man1/nfsstat.1.md), [ps(1)](../man1/ps.1.md), [systat(1)](../man1/systat.1.md), [devstat(3)](../man3/devstat.3.md), ctlstat(8), gstat(8), pstat(8), [vmstat(8)](vmstat.8.md)
 
 《Installing and Operating 4.3BSD》中以 “Interpreting system activity” 开头的章节。
 

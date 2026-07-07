@@ -44,7 +44,7 @@
 
 ## 参见
 
-kgdb(1)（`ports/devel/gdb`），dumpon(8)，[reboot(8)](reboot.8.md)，savecore(8)
+kgdb(1)（`ports/devel/gdb`），[dumpon(8)](dumpon.8.md)，[reboot(8)](reboot.8.md)，savecore(8)
 
 ## 历史
 

@@ -513,7 +513,7 @@ editline(3) 库通过 `.editrc` 文件配置——更多信息请参见 editrc(5
 
 ## 参见
 
-getservbyname(3), editrc(5), services(5)
+getservbyname(3), editrc(5), [services(5)](../man5/services.5.md)
 
 ## 标准
 

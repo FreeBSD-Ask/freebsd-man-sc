@@ -34,7 +34,7 @@
 
 ## 参见
 
-[last(1)](../man1/last.1.md), getutxent(3), libxo(3), xo_options(7), ac(8)
+[last(1)](../man1/last.1.md), [getutxent(3)](../gen/getutxent.3.md), [libxo(3)](../man3/libxo.3.md), [xo_options(7)](../man7/xo_options.7.md), ac(8)
 
 ## 作者
 

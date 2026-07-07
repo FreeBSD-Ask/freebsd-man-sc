@@ -70,7 +70,7 @@
 
 ## 参见
 
-[kenv(1)](../man1/kenv.1.md), kldload(2), loader.conf(5), [rc.conf(5)](../man5/rc.conf.5.md), [security(7)](../man7/security.7.md), [kldconfig(8)](kldconfig.8.md), [kldstat(8)](kldstat.8.md), [kldunload(8)](kldunload.8.md), [kldxref(8)](kldxref.8.md)
+[kenv(1)](../man1/kenv.1.md), [kldload(2)](../sys/kldload.2.md), [loader.conf(5)](../man5/loader.conf.5.md), [rc.conf(5)](../man5/rc.conf.5.md), [security(7)](../man7/security.7.md), [kldconfig(8)](kldconfig.8.md), [kldstat(8)](kldstat.8.md), [kldunload(8)](kldunload.8.md), [kldxref(8)](kldxref.8.md)
 
 ## 历史
 

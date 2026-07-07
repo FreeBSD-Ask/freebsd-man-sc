@@ -84,7 +84,7 @@ kill -- -117
 
 ## 参见
 
-[builtin(1)](builtin.1.md), [csh(1)](csh.1.md), [killall(1)](killall.1.md), [ps(1)](ps.1.md), [sh(1)](sh.1.md), kill(2), sigaction(2)
+[builtin(1)](builtin.1.md), [csh(1)](csh.1.md), [killall(1)](killall.1.md), [ps(1)](ps.1.md), [sh(1)](sh.1.md), [kill(2)](../sys/kill.2.md), [sigaction(2)](../sys/sigaction.2.md)
 
 ## 标准
 

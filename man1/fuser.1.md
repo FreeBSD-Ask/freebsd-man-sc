@@ -68,7 +68,7 @@
 
 ## 参见
 
-fstat(1), [ps(1)](ps.1.md), [systat(1)](systat.1.md), [iostat(8)](../man8/iostat.8.md), pstat(8), [vmstat(8)](../man8/vmstat.8.md)
+[fstat(1)](fstat.1.md), [ps(1)](ps.1.md), [systat(1)](systat.1.md), [iostat(8)](../man8/iostat.8.md), pstat(8), [vmstat(8)](../man8/vmstat.8.md)
 
 ## 标准
 

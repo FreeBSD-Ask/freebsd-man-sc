@@ -24,7 +24,7 @@
 
 ## 参见
 
-[apropos(1)](apropos.1.md), [man(1)](man.1.md), which(1), intro(2), intro(3), sysexits(3), intro(4), intro(5), intro(6), intro(7), ports(7), security(7), [intro(8)](../man8/intro.8.md), [pkg(8)](../man8/pkg.8.md), intro(9)
+[apropos(1)](apropos.1.md), [man(1)](man.1.md), [which(1)](which.1.md), [intro(2)](../sys/intro.2.md), [intro(3)](../man3/intro.3.md), [sysexits(3)](../man3/sysexits.3.md), [intro(4)](../man4/intro.4.md), [intro(5)](../man5/intro.5.md), [intro(6)](../man6/intro.6.md), [intro(7)](../man7/intro.7.md), [ports(7)](../man7/ports.7.md), [security(7)](../man7/security.7.md), [intro(8)](../man8/intro.8.md), [pkg(8)](../man8/pkg.8.md), [intro(9)](../man9/intro.9.md)
 
 《UNIX 用户手册补充文档》中的教程。
 

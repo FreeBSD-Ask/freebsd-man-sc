@@ -56,7 +56,7 @@
 
 ## 参见
 
-chown(2), fts(3), [group(5)](../man5/group.5.md), [passwd(5)](../man5/passwd.5.md), [groups(7)](../man7/groups.7.md), symlink(7), [chown(8)](../man8/chown.8.md)
+[chown(2)](../sys/chown.2.md), [fts(3)](../gen/fts.3.md), [group(5)](../man5/group.5.md), [passwd(5)](../man5/passwd.5.md), [groups(7)](../man7/groups.7.md), [symlink(7)](../man7/symlink.7.md), [chown(8)](../man8/chown.8.md)
 
 ## 标准
 

@@ -96,7 +96,7 @@ $ cp -R junk /tmp
 
 ## 参见
 
-[mv(1)](mv.1.md), umask(2), fts(3), symlink(7)
+[mv(1)](mv.1.md), [umask(2)](../sys/umask.2.md), [fts(3)](../gen/fts.3.md), [symlink(7)](../man7/symlink.7.md)
 
 ## 标准
 

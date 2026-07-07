@@ -78,7 +78,7 @@
 
 ## 参见
 
-bzip2(1), compress(1), [xz(1)](xz.1.md), zstd(1), fts(3), zlib(3)
+bzip2(1), compress(1), [xz(1)](xz.1.md), zstd(1), [fts(3)](../gen/fts.3.md), zlib(3)
 
 ## 历史
 

@@ -134,7 +134,7 @@ $ sockstat --libxo json,pretty
 
 ## 参见
 
-fstat(1), [netstat(1)](netstat.1.md), procstat(1), setfib(1), libxo(3), [inet(4)](../man4/inet.4.md), [inet6(4)](../man4/inet6.4.md), [divert(4)](../man4/divert.4.md), [tcp(4)](../man4/tcp.4.md), [sctp(4)](../man4/sctp.4.md), [udp(4)](../man4/udp.4.md), [unix(4)](../man4/unix.4.md), xo_options(7)
+[fstat(1)](fstat.1.md), [netstat(1)](netstat.1.md), [procstat(1)](procstat.1.md), [setfib(1)](setfib.1.md), [libxo(3)](../man3/libxo.3.md), [inet(4)](../man4/inet.4.md), [inet6(4)](../man4/inet6.4.md), [divert(4)](../man4/divert.4.md), [tcp(4)](../man4/tcp.4.md), [sctp(4)](../man4/sctp.4.md), [udp(4)](../man4/udp.4.md), [unix(4)](../man4/unix.4.md), [xo_options(7)](../man7/xo_options.7.md)
 
 ## 历史
 

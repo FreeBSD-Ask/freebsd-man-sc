@@ -40,7 +40,7 @@
 
 ## 参见
 
-sysctl(3), syslogd(8)
+[sysctl(3)](../gen/sysctl.3.md), syslogd(8)
 
 ## 历史
 

@@ -58,7 +58,7 @@
 
 ## 参见
 
-[chgrp(1)](../man1/chgrp.1.md), [chmod(1)](../man1/chmod.1.md), [find(1)](../man1/find.1.md), chown(2), fts(3), [groups(7)](../man7/groups.7.md), symlink(7)
+[chgrp(1)](../man1/chgrp.1.md), [chmod(1)](../man1/chmod.1.md), [find(1)](../man1/find.1.md), [chown(2)](../sys/chown.2.md), [fts(3)](../gen/fts.3.md), [groups(7)](../man7/groups.7.md), [symlink(7)](../man7/symlink.7.md)
 
 ## 标准
 

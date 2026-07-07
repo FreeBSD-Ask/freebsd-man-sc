@@ -47,7 +47,7 @@ enigma XXX < encrypted
 
 ## 参见
 
-gpg(1)（`ports/security/gnupg1`），openssl(1)，[ps(1)](ps.1.md)，getpass(3)
+gpg(1)（`ports/security/gnupg1`），openssl(1)，[ps(1)](ps.1.md)，[getpass(3)](../gen/getpass.3.md)
 
 ## 历史
 

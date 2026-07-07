@@ -108,7 +108,7 @@ killall -m 'vim*'
 
 ## 参见
 
-[kill(1)](kill.1.md), pkill(1), sysctl(3), [jail(8)](../man8/jail.8.md)
+[kill(1)](kill.1.md), pkill(1), [sysctl(3)](../gen/sysctl.3.md), [jail(8)](../man8/jail.8.md)
 
 ## 历史
 

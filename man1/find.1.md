@@ -408,7 +408,7 @@ find /usr/src -name CVS -prune -o -mindepth 7 -print
 
 ## 参见
 
-chflags(1), [chmod(1)](chmod.1.md), [locate(1)](locate.1.md), [lsvfs(1)](lsvfs.1.md), [whereis(1)](whereis.1.md), [which(1)](which.1.md), [xargs(1)](xargs.1.md), extattr(2), stat(2), acl(3), fts(3), getgrent(3), getpwent(3), strmode(3), [ascii(7)](../man7/ascii.7.md), re_format(7), symlink(7), setextattr(8)
+chflags(1), [chmod(1)](chmod.1.md), [locate(1)](locate.1.md), [lsvfs(1)](lsvfs.1.md), [whereis(1)](whereis.1.md), [which(1)](which.1.md), [xargs(1)](xargs.1.md), extattr(2), [stat(2)](../sys/stat.2.md), [acl(3)](../posix1e/acl.3.md), [fts(3)](../gen/fts.3.md), [getgrent(3)](../gen/getgrent.3.md), [getpwent(3)](../gen/getpwent.3.md), [strmode(3)](../string/strmode.3.md), [ascii(7)](../man7/ascii.7.md), re_format(7), [symlink(7)](../man7/symlink.7.md), setextattr(8)
 
 ## 标准
 

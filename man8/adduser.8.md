@@ -135,7 +135,7 @@ name : uid : gid : class : change : expire : gecos : home_dir : shell : password
 
 ## 参见
 
-chpass(1), [passwd(1)](../man1/passwd.1.md), adduser.conf(5), aliases(5), [group(5)](../man5/group.5.md), login.conf(5), [passwd(5)](../man5/passwd.5.md), [shells(5)](../man5/shells.5.md), [groups(7)](../man7/groups.7.md), [pw(8)](pw.8.md), pwd_mkdb(8), [rmuser(8)](rmuser.8.md), vipw(8), [yp(8)](yp.8.md)
+chpass(1), [passwd(1)](../man1/passwd.1.md), adduser.conf(5), aliases(5), [group(5)](../man5/group.5.md), [login.conf(5)](../man5/login.conf.5.md), [passwd(5)](../man5/passwd.5.md), [shells(5)](../man5/shells.5.md), [groups(7)](../man7/groups.7.md), [pw(8)](pw.8.md), [pwd_mkdb(8)](pwd_mkdb.8.md), [rmuser(8)](rmuser.8.md), [vipw(8)](vipw.8.md), [yp(8)](yp.8.md)
 
 ## 历史
 

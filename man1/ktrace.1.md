@@ -136,7 +136,7 @@ $ ktrace -C
 
 ## 参见
 
-[dtrace(1)](dtrace.1.md), [kdump(1)](kdump.1.md), [truss(1)](truss.1.md), intro(2), ktrace(2), sigaction(2), utrace(2), [capsicum(4)](../man4/capsicum.4.md), [namei(9)](../man9/namei.9.md)
+[dtrace(1)](dtrace.1.md), [kdump(1)](kdump.1.md), [truss(1)](truss.1.md), [intro(2)](../sys/intro.2.md), [ktrace(2)](../sys/ktrace.2.md), [sigaction(2)](../sys/sigaction.2.md), [utrace(2)](../sys/utrace.2.md), [capsicum(4)](../man4/capsicum.4.md), [namei(9)](../man9/namei.9.md)
 
 ## 历史
 

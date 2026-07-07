@@ -118,7 +118,7 @@ at 1am tomorrow
 
 ## 参见
 
-[nice(1)](nice.1.md), [sh(1)](sh.1.md), umask(2), atrun(8), cron(8), sendmail(8)
+[nice(1)](nice.1.md), [sh(1)](sh.1.md), [umask(2)](../sys/umask.2.md), atrun(8), cron(8), sendmail(8)
 
 ## 作者
 

@@ -143,7 +143,7 @@ perm         ::= r | s | t | w | x | X | u | g | o
 
 ## 参见
 
-chflags(1), install(1), setfacl(1), chmod(2), stat(2), umask(2), fts(3), setmode(3), [sticky(7)](../man7/sticky.7.md), symlink(7), [chown(8)](../man8/chown.8.md), [mount(8)](../man8/mount.8.md)
+chflags(1), install(1), setfacl(1), [chmod(2)](../sys/chmod.2.md), [stat(2)](../sys/stat.2.md), [umask(2)](../sys/umask.2.md), [fts(3)](../gen/fts.3.md), [setmode(3)](../gen/setmode.3.md), [sticky(7)](../man7/sticky.7.md), [symlink(7)](../man7/symlink.7.md), [chown(8)](../man8/chown.8.md), [mount(8)](../man8/mount.8.md)
 
 ## 标准
 

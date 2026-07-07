@@ -48,7 +48,7 @@ localdomain.org
 
 ## 参见
 
-gethostname(3), [rc.conf(5)](../man5/rc.conf.5.md)
+[gethostname(3)](../gen/gethostname.3.md), [rc.conf(5)](../man5/rc.conf.5.md)
 
 ## 历史
 

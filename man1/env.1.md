@@ -180,7 +180,7 @@ env name=value ... command foo=bar arg ...
 
 ## 参见
 
-[printenv(1)](printenv.1.md), [sh(1)](sh.1.md), execvp(3), login.conf(5), [environ(7)](../man7/environ.7.md)
+[printenv(1)](printenv.1.md), [sh(1)](sh.1.md), execvp(3), [login.conf(5)](../man5/login.conf.5.md), [environ(7)](../man7/environ.7.md)
 
 ## 标准
 

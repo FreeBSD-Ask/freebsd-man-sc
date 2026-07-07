@@ -92,7 +92,7 @@ $ unlink -f
 
 ## 参见
 
-chflags(1), [rmdir(1)](rmdir.1.md), undelete(2), unlink(2), fts(3), getopt(3), symlink(7)
+chflags(1), [rmdir(1)](rmdir.1.md), [undelete(2)](../sys/undelete.2.md), [unlink(2)](../sys/unlink.2.md), [fts(3)](../gen/fts.3.md), [getopt(3)](../stdlib/getopt.3.md), [symlink(7)](../man7/symlink.7.md)
 
 ## 标准
 

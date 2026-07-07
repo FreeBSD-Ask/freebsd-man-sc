@@ -244,7 +244,7 @@ $ TZ= stat -f %Sm -t %Y%m%d%H%M%S /tmp/foo
 
 ## 参见
 
-file(1), [ls(1)](ls.1.md), lstat(2), readlink(2), stat(2), printf(3), strftime(3)
+file(1), [ls(1)](ls.1.md), lstat(2), [readlink(2)](../sys/readlink.2.md), [stat(2)](../sys/stat.2.md), [printf(3)](../stdio/printf.3.md), [strftime(3)](../stdtime/strftime.3.md)
 
 ## 历史
 
